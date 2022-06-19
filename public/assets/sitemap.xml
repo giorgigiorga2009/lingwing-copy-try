@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      
+	<url>
+		<loc>https://lingwing.com/</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/"/>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/"/>
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard"/>
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng"/>	
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng/geo</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng/geo"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng/geo"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng/geo"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng/geo"/>		
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng/rus</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng/rus"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng/rus"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng/rus"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng/rus"/>		
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng/geo/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng/geo/A1"/>
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng/rus/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng/rus/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng/rus/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng/rus/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng/rus/A1"/>
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng/geo/A2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng/geo/A2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng/geo/A2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng/geo/A2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng/geo/A2"/>			
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/wizard/eng/rus/A2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/eng/rus/A2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/eng/rus/A2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/eng/rus/A2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/eng/rus/A2"/>			
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/english_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a1-1"/>
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/about/course/rus/english_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a1-1"/>
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/english_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a1-2"/>	
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/about/course/rus/english_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a1-2"/>	
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/english_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a1-3"/>	
+	</url>
+	<url>
+		<loc>https://lingwing.com/ge/about/course/rus/english_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a1-3"/>	
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/english_a2-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a2-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/rus/english_a2-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a2-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/english_a2-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a2-2"/>
+	</url>
+
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/rus/english_a2-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a2-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/english_a2-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a2-3"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/rus/english_a2-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a2-3"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/english_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a1-1"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/rus/english_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a1-1"/>
+	</url>	
+
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/english_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a1-2"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/rus/english_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a1-2"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/english_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a1-3"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/rus/english_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a1-3"/>
+	</url>	
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/english_a2-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a2-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/rus/english_a2-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a2-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a2-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/rus/english_a2-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a2-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a2-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/english_a2-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/english_a2-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/rus/english_a2-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/rus/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/rus/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/rus/english_a2-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/rus/english_a2-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/ita</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/ita"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/ita"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/ita"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/ita"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/ita/geo</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/ita/geo"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/ita/geo"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/ita/geo"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/ita/geo"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/ita/eng</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/ita/eng"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/ita/eng"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/ita/eng"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/ita/eng"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/ita/geo/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/ita/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/ita/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/ita/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/ita/geo/A1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/ita/eng/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/ita/eng/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/ita/eng/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/ita/eng/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/ita/eng/A1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/ita/geo/A2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/ita/geo/A2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/ita/geo/A2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/ita/geo/A2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/ita/geo/A2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/italian_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/italian_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/eng/italian_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/eng/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/eng/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/eng/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/eng/italian_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/italian_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/italian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/italian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/italian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/italian_a1-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/italian_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/italian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/italian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/italian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/italian_a1-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/italian_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/italian_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/eng/italian_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/eng/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/eng/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/eng/italian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/eng/italian_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/italian_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/italian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/italian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/italian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/italian_a1-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/italian_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/italian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/italian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/italian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/italian_a1-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre/geo</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre/geo"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre/geo"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre/geo"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre/geo"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre/eng</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre/eng"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre/eng"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre/eng"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre/eng"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre/esp</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre/esp"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre/esp"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre/esp"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre/esp"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre/geo/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre/geo/A1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre/eng/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre/eng/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre/eng/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre/eng/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre/eng/A1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/fre/esp/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/fre/esp/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/fre/esp/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/fre/esp/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/fre/esp/A1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/french_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/french_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/eng/french_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/eng/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/eng/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/eng/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/eng/french_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/esp/french_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/esp/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/esp/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/esp/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/esp/french_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/french_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/french_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/french_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/french_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/french_a1-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/french_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/french_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/french_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/french_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/french_a1-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/french_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/french_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/eng/french_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/eng/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/eng/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/eng/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/eng/french_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/esp/french_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/esp/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/esp/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/esp/french_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/esp/french_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/french_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/french_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/french_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/french_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/french_a1-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/french_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/french_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/french_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/french_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/french_a1-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/rus</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/rus"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/rus"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/rus"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/rus"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/rus/geo</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/rus/geo"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/rus/geo"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/rus/geo"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/rus/geo"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/wizard/rus/geo/A1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/wizard/rus/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/wizard/rus/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/wizard/rus/geo/A1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/wizard/rus/geo/A1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/russian_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/russian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/russian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/russian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/russian_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/russian_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/russian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/russian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/russian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/russian_a1-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/russian_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/russian_a1-3"/>
+	</url>
+	
+	<url>
+		<loc>https://lingwing.com/ge/about/course/geo/russian_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about/course/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about/course/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about/course/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about/course/geo/russian_a1-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/russian_a1-1</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/russian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/russian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/russian_a1-1"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/russian_a1-1"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/russian_a1-2</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/russian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/russian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/russian_a1-2"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/russian_a1-2"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/learn/geo/russian_a1-3</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/learn/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/learn/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/learn/geo/russian_a1-3"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/learn/geo/russian_a1-3"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/dashboard</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/dashboard"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/dashboard"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/dashboard"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/dashboard"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/profile</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/profile"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/profile"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/profile"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/profile"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/packages</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/packages"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/packages"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/packages"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/packages"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/about-us</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/about-us"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/about-us"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/about-us"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/about-us"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/faq/general/</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/faq/general/"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/faq/general/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/faq/general/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/faq/general/"/>
+	</url>
+
+	<url>
+		<loc>https://lingwing.com/ge/faq/pricing/</loc>
+		<lastmod>2017-03-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+		<xhtml:link rel="alternate" hreflang="ge" href="https://lingwing.com/ge/faq/pricing/"/>
+		<xhtml:link rel="alternate" hreflang="en" href="https://lingwing.com/en/faq/pricing/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://lingwing.com/ru/faq/pricing/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://lingwing.com/es/faq/pricing/"/>
+	</url>
+
+	</urlset>

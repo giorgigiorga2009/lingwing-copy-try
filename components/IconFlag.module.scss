@@ -1,0 +1,26 @@
+
+.flag {
+    width: 1.32rem;
+    height: 0.875rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    &.eng {
+        background-image: url('https://lingwing.com/themes/images/v1/flags/small/English.png');
+    }
+    &.esp {
+        background-image: url('https://lingwing.com/themes/images/v1/flags/small/Spanish.png');
+    }
+    &.ben {
+        background-image: url('https://lingwing.com/themes/images/v1/flags/small/Bengali.png');
+    }
+    &.tur {
+        background-image: url('https://lingwing.com/themes/images/v1/flags/small/Turkish.png');
+    }
+    &.rus {
+        background-image: url('https://lingwing.com/themes/images/v1/flags/small/Russian.png');
+    }
+    &.geo {
+        background-image: url('https://lingwing.com/themes/images/v1/flags/small/Georgian.png');
+    }
+}

@@ -1,11 +1,34 @@
 .menuButton {
-    background-color: aqua;
+    display: flex;
+    gap: 0.7rem;
+    width: 18rem;
+    height: 7rem;
+    align-items: center;
+    padding-left: 1rem;
 }
 
-.button {
-    background-color: aqua;
+
+.lingwingLogo {
+    width: 10rem;
+    height: 5rem;
 }
 
 .link {
-    background-color: aqua;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    content:  '&#8801';
+    border: 2px solid white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.25rem;
 }

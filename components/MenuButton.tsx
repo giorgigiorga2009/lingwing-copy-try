@@ -1,10 +1,17 @@
 import { FC } from 'react'
+import styles from './MenuButton.module.scss'
 
  const MenuButton: FC = () => {
     return (
-        <div className='menuButton'>
-            <div className='button'>----</div>
-            <div className='link'>LingWing link to homepage</div>   
+        <div className={styles.menuButton}>
+            <div className={styles.button} >  ☰ </div>
+            <a className={styles.link} href="https://lingwing.com/en/" >
+                <img
+                className={styles.lingwingLogo}
+                src="https://lingwing.com/themes/images/v1/svg/logo-light.svg"
+                alt="example"
+                />
+            </a>   
         </div>
     )
 }

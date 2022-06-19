@@ -1,0 +1,122 @@
+@mixin rounded($amount) {
+  -moz-border-radius: $amount;
+  -webkit-border-radius: $amount;
+  border-radius: $amount;
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+@mixin transform-origin ($origin) {
+     -moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+@mixin rounded-bottom-left($amount) {
+  -moz-border-bottom-left-radius: $amount;
+  -webkit-border-bottom-left-radius: $amount;
+  border-bottom-left-radius: $amount;
+}
+@mixin rounded-top-left($amount) {
+  -moz-border-top-left-radius: $amount;
+  -webkit-border-top-left-radius: $amount;
+  border-top-left-radius: $amount;
+}
+@mixin rounded-bottom-right($amount) {
+  -moz-border-bottom-right-radius: $amount;
+  -webkit-border-bottom-right-radius: $amount;
+  border-bottom-right-radius: $amount;
+}
+@mixin rounded-top-right($amount) {
+  -moz-border-top-right-radius: $amount;
+  -webkit-border-top-right-radius: $amount;
+  border-top-right-radius: $amount;
+}
+@mixin border-top-only($amount, $color) {
+  -webkit-border-top:$amount solid $color;
+  -moz-border-top:$amount solid $color;
+  border-top:$amount solid $color;
+
+  -webkit-border-bottom:0;
+  -moz-border-bottom:0;
+  border-bottom:0;
+
+  -webkit-border-left:0;
+  -moz-border-left:0;
+  border-left:0;
+
+  -webkit-border-right:0;
+  -moz-border-right:0;
+  border-right:0;
+}
+@mixin dashed-text($size, $color) {
+  border-bottom:$size dashed $color;
+  display:inline-block;
+}
+@mixin zi($index) {
+	z-index:$index;
+}
+@mixin gradient-purple() {
+	background: #be57f9; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #be57f9 1%, #953bd0 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%,#be57f9), color-stop(100%,#953bd0)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #be57f9 1%,#953bd0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #be57f9 1%,#953bd0 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #be57f9 1%,#953bd0 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #be57f9 1%,#953bd0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#be57f9', endColorstr='#953bd0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+@mixin gradient-orange-hor() {
+  background: #f4a411; /* Old browsers */
+  background: -moz-linear-gradient(left,  #f4a411 0%, #fdbf1e 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f4a411), color-stop(100%,#fdbf1e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #f4a411 0%,#fdbf1e 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #f4a411 0%,#fdbf1e 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #f4a411 0%,#fdbf1e 100%); /* IE10+ */
+  background: linear-gradient(to right,  #f4a411 0%,#fdbf1e 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4a411', endColorstr='#fdbf1e',GradientType=1 ); /* IE6-9 */
+}
+@mixin arrow-up($borderSize, $borderColor) {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+
+@mixin arrow-down($borderSize, $borderColor) {
+  width: 0;
+  height: 0;
+  border-left: $borderSize solid transparent;
+  border-right: $borderSize solid transparent;
+  border-top: $borderSize solid $borderColor;
+}
+
+@mixin arrow-right($borderSize, $borderColor) {
+  width: 0;
+  height: 0;
+  border-top: $borderSize solid transparent;
+  border-bottom: $borderSize solid transparent;
+  border-left: $borderSize solid $borderColor;
+}
+
+@mixin arrow-left($borderSize, $borderColor) {
+  width: 0;
+  height: 0;
+  border-top: $borderSize solid transparent;
+  border-bottom: $borderSize solid transparent;
+  border-right: $borderSize solid $borderColor;
+}

@@ -1,0 +1,235 @@
+.about-us {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#65c9f8+0,04afff+100 */
+	background: #65c9f8; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #65c9f8 0%, #04afff 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover,  #65c9f8 0%,#04afff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center,  #65c9f8 0%,#04afff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65c9f8', endColorstr='#04afff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	.lingwing-header {
+		padding:35px;
+		.nav-menu {
+			border-color:#fff;
+		}
+		&.lingwing-header-white {
+			box-shadow:none;
+			background-color:transparent;
+		}
+	}
+	.about-us--outter {
+		background-repeat:no-repeat;
+		/* background-image:url('../themes/images/v1/svg/bg-lingwing-white-opacity-10.svg'); */
+		height: 560px;
+	}
+	.about-overview {
+		.overview {
+			color:#fff;
+			padding:0 50px;
+		}
+	
+		.ka_ge .overview{
+			font-family: $fontFamilyPrimaryGe2;
+		}
+	}
+}
+.about-line-bg {
+	    background-image:url(../themes/images/v2/header-wave.png);// url(../themes/images/v1/svg/wave-cours-review.svg);
+	    background-position: bottom;
+	    background-repeat: repeat-x;
+	    height: 150px;
+	    margin-top: -111px; //-139px;
+	    -ms-transform: rotate(0deg); /* IE 9 */  //180deg
+	    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */  //180deg
+	    transform: rotate(0deg); //180deg
+	}
+	.about-box-con {
+		width: 100%;
+		position: relative;
+		margin-bottom: 0; 
+		background-image: url(../themes/images/v2/course-yahoo-parrot.png);
+		background-repeat: no-repeat;
+		background-position: 98% 92%;// right bottom;
+	    background-size: 400px;
+	    display: flex;
+	    justify-content: center;
+
+	.about-txt-conteiner {
+		padding-top:50px;
+		padding-bottom: 0; //188px;
+		position: relative;
+		margin-bottom: 0; 
+		display: flex;
+   		justify-content: center;
+	}
+}
+
+.about-us {
+	.top-img {
+	 	width: 400px;
+	    float: left;
+	    left: 47px;
+	    position: absolute;
+	    top: 106px;
+	 }
+	 .h1-title {
+    	text-align:center; 
+    	color: #fff; 
+    	margin-top: 30px; 
+    	font-size: 60px;
+    	font-family: $fontFamilyA; //$fontFamilyCostum;
+    }
+}
+	.about-conteiner { 
+		width: 89%;
+	    max-width: 1000px;
+	    position: relative;
+	    z-index: 100;
+	    margin-top: -312px; // -220px;
+	    background-color: #fff;
+	    padding: 30px 69px;
+	    border-radius: 45px;
+	    box-shadow: 0px 0px 8px #bbb8b8; //#e4e4e4;
+	    bottom: 47px; // 130px;
+	    .menu-nav {
+	    	top: -41px;
+	    	position: absolute;
+	    	div {
+	    		float: left;		    		
+	    		padding-top: 5px;
+		    	padding-bottom: 10px;
+	    		.link {
+		    		text-decoration: none;
+		    		font-family: $fontFamilyPrimary;
+		    		color:#fff;// #18b5fe;
+		    		font-size: 17px;
+		    		cursor: pointer;
+		    	}
+		    	.act {
+		    		border-top: 3px solid #fff;
+		    		padding-top: 3px;
+		    		cursor: pointer;
+		    	}
+		    	&:nth-child(2n) {
+					margin-left: 50px;
+					margin-right: 50px;
+	    		}
+		    	&:hover {
+		    		border-top: 3px solid #fff;
+		    		padding-top: 2px;
+		    	    padding-bottom: 10px;
+		    	    cursor: pointer;
+		    	    animation: 2s;
+		    	}
+	    	}
+	   
+
+	    }
+	    .step-boxs {
+			min-height: 700px;
+
+			h3{
+				color: #18b5fe;
+			    font-size: 24px;
+			    margin: 0;
+			    padding: 34px 0 11px 0;
+			    font-family:$fontFamilyPrimary;
+			    &.partner {
+			    	color: #22aef0;
+			    }
+			    &.min-h3 {
+			    	font-size: 22px;
+    				padding: 15px 0 11px 0; 
+    				&:nth-child(1) {
+    					padding: 24px 0 11px 0;
+    				}
+			    }
+			}
+			.txt {
+				font-family: $fontFamilyPrimary2; // $fontFamilyPrimary;  //"Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 16px;
+				color: #868585;
+				&.bold {
+					font-weight: bold;
+				}
+				&.min-left{
+					margin-left: 25px;
+				}
+				&.left {
+					margin-left: 45px;
+				}
+				.info {
+					font-family: $fontFamilyPrimary; // "Helvetica Neue", Helvetica, Arial, sans-serif;
+				    font-size: 16px;
+				    color: #868585;
+				}
+				.level {
+					 color: #683398;
+				}
+			}
+			.pargner-group {
+				margin-top: 40px;
+				padding: 0;
+				.par-griup-item {
+					overflow: hidden;
+				    display: inline-block;
+				    margin-bottom: 8%;
+				    height:145px;
+				    width: 46%;
+				    display: flex;
+				    justify-content: center;
+				    align-items: center;
+				    border-radius: 20px;
+				    background-color: #f7f7f7;
+				    &:nth-child(odd){
+				    	margin-right: 8%;
+				    	// border:1px solid red;
+				    }
+				    &:hover {
+				    	cursor: pointer;
+				    	box-shadow: 0 0 10px #cecece;
+				    }
+					a {
+						img {
+							width: 100%;
+
+						}
+					}
+				}
+			}
+			.certifixate-img{
+				width: 100%;
+				height: 70%;
+			}
+	    }
+	    
+	}
+
+.bottom-img {
+	float: right;
+	position: relative;
+	bottom: 200px;
+	right: 0; 
+	width: 200px;
+	height: 200px;
+	.bt {
+		position: relative;
+	    width: 400px;
+	    bottom: 540px;
+	    margin-left: 118px;
+	}
+}
+.pbt-foot {
+    width: 100%;
+    bottom: 0;
+    position: relative;
+    //display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.con-bg {
+	width: 100%;
+	background-image: url("../themes/images/v1/svg/bg-lingwing-white-lightgrey-last-2.svg"), -webkit-radial-gradient(center, circle cover, rgba(255, 255, 255, 0.15) 0%, transparent 42%, transparent 100%);
+	background-repeat: repeat;
+	background-size: contain;
+}
+
+ 

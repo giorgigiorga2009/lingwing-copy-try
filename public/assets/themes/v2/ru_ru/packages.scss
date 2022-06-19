@@ -1,0 +1,32 @@
+.ru_ru{
+	.packages-page.review-page {
+		.checkout-form {
+			.overflow{
+				.row{
+					.heading {
+						h1 {
+							span {
+								font-family:$fontFamilyPrimary;
+							}
+						}
+					}
+					.inner{
+						.overflow-bg {
+						    margin-top: 166px;
+						    font-family: "SegoeUI";
+						}
+						.list-group {
+							.list-group-item.double.more-over.more-over-lg {
+								margin-top: 0;  /// -13px;
+ 							    margin-bottom: 12px;
+							}
+						}
+					}
+				}
+			}	
+		}
+	}
+ 
+	
+}
+

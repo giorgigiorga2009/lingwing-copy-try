@@ -1,0 +1,72 @@
+[
+    {
+        "name":"/",
+        "angularRoutes":
+          {
+          "url":"/[a-z]{2}/",
+          "controller":"homeController",
+          "templateUrl":"/components/home/home.html",
+          "onlyAuthorized":"false",
+          "redirectPath":""
+          },
+          "socialInfo":{
+            "title":"home",
+            "description":"FLY WITH LANGUAGES",
+            "ogTags":{
+              "site_name": "Lingwing",
+                "title": "home",
+                "description": "FLY WITH LANGAUGES",
+                "image": "https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/14080042_171355056622598_432087288332623740_n.png?oh=ccd2e6a83d2787a54f4fdb40ed40f09a&oe=5845C7B9",
+                "url": "https://lingwing.com/en/contact",
+                "type": "website"
+            }
+      }
+    },
+    {
+        "name":"contact",
+        "angularRoutes":
+          {
+          "url":"/[a-z]{2}/contact",
+          "controller":"contactController",
+          "templateUrl":"/components/contact/index.html",
+          "onlyAuthorized":"false",
+          "redirectPath":""
+          },
+          "socialInfo":{
+            "title":"contact",
+            "description":"FLY WITH LANGUAGES",
+            "ogTags":{
+              "site_name": "Lingwing",
+                "title": "contact",
+                "description": "FLY WITH LANGAUGES",
+                "image": "https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/14080042_171355056622598_432087288332623740_n.png?oh=ccd2e6a83d2787a54f4fdb40ed40f09a&oe=5845C7B9",
+                "url": "https://lingwing.com/en/contact",
+                "type": "website"
+            }
+      }
+    },
+    {
+        "name":"dashboard",
+        "angularRoutes":
+          {
+          "url":"/[a-z]{2}/dashboard",
+          "controller":"coursesController",
+          "templateUrl":"/components/user/userCourses.v2.html",
+          "onlyAuthorized":"true",
+          "redirectPath":"/login"
+          },
+          "socialInfo":{
+            "title":"dashboard",
+            "description":"FLY WITH LANGUAGES",
+            "ogTags":{
+              "site_name": "Lingwing",
+                "title": "dashboard",
+                "description": "FLY WITH LANGAUGES",
+                "image": "https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/14080042_171355056622598_432087288332623740_n.png?oh=ccd2e6a83d2787a54f4fdb40ed40f09a&oe=5845C7B9",
+                "url": "https://lingwing.com/en/contact",
+                "type": "website"
+            }
+      }
+    }
+
+]
