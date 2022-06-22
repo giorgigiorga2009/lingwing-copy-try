@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
-    //asadasd
     <div className={styles.container}>
       <Header />
       <Image
