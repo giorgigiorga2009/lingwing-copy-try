@@ -17,6 +17,7 @@ export const LanguageDropdown:FC = () => {
             <div className={styles.dropbtn} onClick={() => setOpen(!open)}>
                 <IconFlag lang={selectedLang} />
                 {selectedLang.toUpperCase()}
+                <div className={styles.arrow} />
             </div>
             {open && (
                 <Foco component='div' className={styles.dropdownContent} onClickOutside={() => setOpen(false)}>
@@ -35,8 +36,6 @@ export const LanguageDropdown:FC = () => {
                 </Foco>
             )}
         </div>
-    
-
     )
 }
 
