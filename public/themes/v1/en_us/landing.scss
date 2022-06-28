@@ -1,0 +1,187 @@
+.en_us {
+	.home-section-a {
+		.parrot {
+			background-size: 46%;
+			background-position: 37% 106%;
+			right: 0%;
+	        bottom: 26%;
+	        width: 1000px;
+	        height: 629px;
+	        .headingText {
+	        	font-size: 82px;
+	        	height: 180px;
+	        	margin-top: 7%;
+	        	.highlight {
+	        		margin-top: 0;
+	        	}
+	        }
+	        .bubble {
+	        	height: 33%;
+                width: 27%;
+                margin-left: 68%;
+                margin-top: -4%;
+                .highlightAnswer {
+                	font-size: 66px;
+                	height: 95px;
+                    width: 126px;
+                }
+	        }
+	        .descriptionText {
+	        	font-size: 30px;
+                line-height: 40px;
+                margin-top: 0%;
+                margin-left: 1%;
+	        }
+		}
+	}
+	.home-section-b {
+		.contentBox {
+			right: 20%;
+			bottom: 25%;
+            .headingText {
+                width: 684px;
+                font-size: 82px;
+                margin-left: 20%;
+                img {
+                    width: 43%;
+                }
+               span {
+                   left: 32%;
+                   top: 30%;
+               }
+            }
+            .descriptionText {
+                font-size: 30px;
+                max-width: 890px;
+            }
+            .product-tips {
+                margin-top: 5%;
+                .media {
+                    .media-body {
+                        width: 274px;
+                    }
+                }
+            }
+		}
+	}
+    .home-section-c {
+        .rocket {
+            background-position: 97% -3%;
+            height: 35%;
+            width: 23%;
+            right: 21%;
+            bottom: 26%;
+        }
+        .parrot-rocket {
+            bottom: 26%;
+            left: 22%;
+            width: 45%;
+            height: auto;
+            .headingText {
+                width: 630px;
+                height: auto;
+                font-size: 78px;
+                margin-top: 18%;
+                margin-left: 14%;
+            }
+            .descriptionText {
+                font-size: 30px;
+                width: 460px;
+                margin-left: 14%;
+                margin-top: 8%;
+            }
+            .product-tips {
+                margin-top: 10%;
+                margin-left: 12%;
+            }
+        }
+    }
+    .home-section-d {
+        .parrot-nodrown {
+            .parrot {
+                background-position: 72% center;
+                height: 74%;
+                width: 23%;
+                left: 12%;
+                margin: auto;
+                bottom: 4%;
+            }
+            .palm {
+                background-position: 72% center;
+                height: 81%;
+                width: 99%;
+                left: -44%;
+                bottom: 19%;
+            }
+        }
+        .bubble-space {
+            .contentBox {
+                bottom: 32%;
+                .headingText {
+                    width: 425px;
+                    height: 205px;
+                    font-size: 57px;
+                    margin-top: 13%;
+                    margin-left: 45%;
+                }
+                .bubble-container {
+                    height: 18%;
+                    width: 50%;
+                    margin-top: 2%;
+                    margin-left: 41%;
+                    .bubble {
+                        height: 167px;
+                        width: 207px;
+                        .littleHeadingText {
+                            height: 68px;
+                            width: 155px;
+                            font-size: 32px;
+                            div {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .descriptionText {
+                        font-size: 30px;
+                        max-width: 890px;
+                        margin-top: -18%;
+                        margin-left: 40%;
+                    }
+                }
+                .product-tips {
+                    width: auto;
+                    margin-top: 8%;
+                    margin-left: 42%;
+                }
+                .col-sm-4 {
+                    width: 48.333%;
+                }
+            }
+        }
+    }
+    .home-section-e {
+        .contentBox {
+            width: auto;
+            bottom: 25%;
+            right: 28%;
+            .headingText {
+                font-size: 145px;
+                line-height: 176px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 70%;
+            }
+            .littleHeadingText {
+                font-size: 75px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .arrow-flags {
+                width: 64%;
+                height: 130px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}

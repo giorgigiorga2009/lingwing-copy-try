@@ -2,13 +2,13 @@ import { FC, useState } from "react"
 import styles from './SwitchLanguageDropdown.module.scss'
 import Foco from 'react-foco';
 import { IconFlag } from "./IconFlag";
-import { ShortLanguage, SWITCHED_LANGUAGES, Language } from "./languages";
+import { ShortSwitchedLanguage, SWITCHED_LANGUAGES, SwitchedLanguages } from "./languages";
 
 export const SwitchLanguageDropdown:FC = () => {
-    const [selectedLang, setSelectedLang] = useState<ShortLanguage>("eng")
+    const [selectedLang, setSelectedLang] = useState<ShortSwitchedLanguage>("eng")
     const [open, setOpen] = useState(false)
 
-    const handleClick = (language: ShortLanguage) => {
+    const handleClick = (language: ShortSwitchedLanguage) => {
         setSelectedLang(language)
         setOpen(false)
     }
@@ -22,7 +22,7 @@ export const SwitchLanguageDropdown:FC = () => {
             </div>
             {open && (
                 <Foco component='div' className={styles.dropdownContent} onClickOutside={() => setOpen(false)}>
-                    {SWITCHED_LANGUAGES.map((element:Language) => {
+                    {SWITCHED_LANGUAGES.map((element:SwitchedLanguages) => {
                         return (
                             <>
                                 {element.short !== selectedLang && 

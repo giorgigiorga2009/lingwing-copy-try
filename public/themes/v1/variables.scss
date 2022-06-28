@@ -1,0 +1,53 @@
+$background-color-a:#f8f8f8;
+$background-color-b:#692e96;
+
+$fontFamilyPrimary:"SegoeUI";
+$fontFamilyA:"SegoeUIBlack";
+$fontFamilyPrimary2:"SegoeUI-SemiBold";
+$fontFamilyPrimaryGe2:"bpg_arial_2009";
+$fontFamilyCostum:"HVDComicSerifPro";
+$fontFamilyCostumRussian:"Loyola";
+
+/*$fontFamilyGePrimary: "BPG Nino Mtavruli Bold";*/
+$fontFamilyGePrimary: $fontFamilyPrimaryGe2;
+$fontFamilyGePrimaryRegular: "BPG Nino Mtavruli";
+$fontFamilyGePrimaryLanding: "BPG Nino Mtavruli Bold";
+
+/*$fontFamilyGeA: "BPG Ingiri";*/
+$fontFamilyGeA: $fontFamilyPrimaryGe2;
+
+$textColorOrange:#f9ac13;
+
+$aIconsCollection:'../themes/images/v1/a-icons-collection.png';
+
+$colorDark:#323232;
+$colorLight:#9e9e9e;
+$colorLighter:#bdbdbd;
+/*$colorPurple:#6914a7;*/
+$colorPurple:#7835ab;
+$colorOrange:#f8a40d;
+$colorWhite:#ffffff;
+$colorPink:#fb02e4;
+$colorYellow:#feb614;
+$txtGreen:#18895d;
+$txtBlue:#4238e6;
+$txtPurpleRed:#d32e72;
+
+//Flags
+$flagSpanish:'../themes/images/v2/flags/esp.png';
+$flagFrench:'../themes/images/v2/flags/fre.png';
+$flagItalian:'../themes/images/v2/flags/ita.png';
+$flagEnglish:'../themes/images/v2/flags/eng.png';
+$flagGeorgian:'../themes/images/v2/flags/geo.png';
+$flagRussian:'../themes/images/v2/flags/rus.png';
+$flagTurkish:'../themes/images/v2/flags/tur.png';
+$flagBengali:'../themes/images/v2/flags/ben.png';
+$flagGerman:'../themes/images/v2/flags/deu.png';
+
+
+.color-purple {
+	color:$colorPurple !important;
+}
+.color-orange {
+	color:$colorOrange !important;
+}
