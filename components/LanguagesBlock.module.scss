@@ -1,3 +1,40 @@
+@import '../styles/imports.scss';
+
 .tileContainer {
     height: 10.3rem;
+    width: 6.375rem;
+    border-radius: 0.813rem;
+    box-shadow: 0 2px 2px 1px rgb(0 0 0 / 30%);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+.languageImage{
+    &.eng {
+        background-image: url('/assets/themes/images/v1/flags/small/English.png');
+    }
+    &.esp {
+        background-image: url('/assets/themes/images/v1/flags/small/Spanish.png');
+    }
+    &.ben {
+        background-image: url('/assets/themes/images/v1/flags/small/Bengali.png');
+    }
+    &.tur {
+        background-image: url('/assets/themes/images/v1/flags/small/Turkish.png');
+    }
+    &.rus {
+        background-image: url('/assets/themes/images/v1/flags/small/Russian.png');
+    }
+    &.geo {
+        background-image: url('/assets/themes/images/v1/flags/small/Georgian.png');
+    }
+}
+.title {
+    top: 0.75rem;
+    font-size: 1rem;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: 'SegoeUI-SemiBold';
+    color: #fff;
 }
