@@ -1,167 +1,199 @@
 @import '../styles/imports.scss';
 
 .tileContainer {
-    height: 10.3rem;
-    width: 6.375rem;
-    border-radius: 0.813rem;
-    box-shadow: 0 2px 2px 1px rgb(0 0 0 / 30%);
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    z-index: 5;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 0.813rem;
-    transition: all .15s linear;
+  height: 10.3rem;
+  width: 6.375rem;
+  border-radius: 0.813rem;
+  box-shadow: 0 2px 2px 1px rgb(0 0 0 / 30%);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.813rem;
+  transition: all .15s linear;
+
+  &.eng {
+    background-image: url('/assets/images/languages_background/eng_dark.png');
+  }
+
+  &.esp {
+    background-image: url('/assets/images/languages_background/esp_dark.png');
+  }
+
+  &.ita {
+    background-image: url('/assets/images/languages_background/ita_dark.png');
+  }
+
+  &.fre {
+    background-image: url('/assets/images/languages_background/fre_dark.png');
+  }
+
+  &.rus {
+    background-image: url('/assets/images/languages_background/rus_dark.png');
+  }
+
+  &.geo {
+    background-image: url('/assets/images/languages_background/geo_dark.png');
+  }
+
+  &.ger {
+    background-image: url('/assets/images/languages_background/ger_dark.png');
+  }
+
+  &:hover {
+    transform: scale(1.05, 1.05);
+
     &.eng {
-        background-image: url('/assets/images/languages_background/eng_dark.png');
-    }
-    &.esp {
-        background-image: url('/assets/images/languages_background/esp_dark.png');
-    }
-    &.ita {
-        background-image: url('/assets/images/languages_background/ita_dark.png');
-    }
-    &.fre {
-        background-image: url('/assets/images/languages_background/fre_dark.png');
-    }
-    &.rus {
-        background-image: url('/assets/images/languages_background/rus_dark.png');
-    }
-    &.geo {
-        background-image: url('/assets/images/languages_background/geo_dark.png');
-    }
-    &.ger {
-        background-image: url('/assets/images/languages_background/ger_dark.png');
+      background-image: url('/assets/images/languages_background/eng_light.jpg');
     }
 
-    &:hover {
-        transform: scale(1.05,1.05);
-        &.eng {
-            background-image: url('/assets/images/languages_background/eng_light.jpg');
-        }
-        &.esp {
-            background-image: url('/assets/images/languages_background/esp_light.jpg');
-        }
-        &.ita {
-            background-image: url('/assets/images/languages_background/ita_light.jpg');
-        }
-        &.fre {
-            background-image: url('/assets/images/languages_background/fre_light.jpg');
-        }
-        &.rus {
-            background-image: url('/assets/images/languages_background/rus_light.jpg');
-        }
-        &.geo {
-            background-image: url('/assets/images/languages_background/geo_light.jpg');
-        }
-        &.ger {
-            background-image: url('/assets/images/languages_background/ger_light.jpg');
-        } 
-        .languageFlag {
-            top: 2.3rem;
-        }
-        .start {
-            top: 0;
-        }
-        .parrot {
-            right: 0;
-        }
+    &.esp {
+      background-image: url('/assets/images/languages_background/esp_light.jpg');
     }
+
+    &.ita {
+      background-image: url('/assets/images/languages_background/ita_light.jpg');
+    }
+
+    &.fre {
+      background-image: url('/assets/images/languages_background/fre_light.jpg');
+    }
+
+    &.rus {
+      background-image: url('/assets/images/languages_background/rus_light.jpg');
+    }
+
+    &.geo {
+      background-image: url('/assets/images/languages_background/geo_light.jpg');
+    }
+
+    &.ger {
+      background-image: url('/assets/images/languages_background/ger_light.jpg');
+    }
+
+    .languageFlag {
+      top: 2.3rem;
+    }
+
+    .start {
+      top: 0;
+    }
+
+    .parrot {
+      right: 0;
+    }
+  }
 }
 
 .parrot {
-    width: 3.313rem;
-    position: absolute;
-    bottom: 0rem;
-    right: -4rem;
-    width: 4rem;
-    height: 4rem;
-    z-index: 7;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all .25s linear;
-    &.eng {
-        background-image: url('/assets/images/languages_background/eng_parrot.png');
-    }
-    &.esp {
-        background-image: url('/assets/images/languages_background/esp_parrot.png');
-    }
-    &.ita {
-        background-image: url('/assets/images/languages_background/ita_parrot.png');
-    }
-    &.fre {
-        background-image: url('/assets/images/languages_background/fre_parrot.png');
-    }
-    &.rus {
-        background-image: url('/assets/images/languages_background/rus_parrot.png');
-    }
-    &.geo {
-        background-image: url('/assets/images/languages_background/geo_parrot.png');
-    }
-    &.ger {
-        background-image: url('/assets/images/languages_background/ger_parrot.png');
-    } 
+  width: 3.313rem;
+  position: absolute;
+  bottom: 0rem;
+  right: -4rem;
+  width: 4rem;
+  height: 4rem;
+  z-index: 7;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all .25s linear;
+
+  &.eng {
+    background-image: url('/assets/images/languages_background/eng_parrot.png');
+  }
+
+  &.esp {
+    background-image: url('/assets/images/languages_background/esp_parrot.png');
+  }
+
+  &.ita {
+    background-image: url('/assets/images/languages_background/ita_parrot.png');
+  }
+
+  &.fre {
+    background-image: url('/assets/images/languages_background/fre_parrot.png');
+  }
+
+  &.rus {
+    background-image: url('/assets/images/languages_background/rus_parrot.png');
+  }
+
+  &.geo {
+    background-image: url('/assets/images/languages_background/geo_parrot.png');
+  }
+
+  &.ger {
+    background-image: url('/assets/images/languages_background/ger_parrot.png');
+  }
 }
 
 .languageFlag {
-    position: absolute;
-    top: 3rem;
-    left: 1.2rem;
-    width: 4rem;
-    height: 4rem;
-    z-index: 7;
-    background-size: contain;
-    background-position: center;
-    transition: all .25s linear;
-    background-repeat: no-repeat;
-    &.eng {
-        background-image: url('/assets/images/flags/English.png');
-    }
-    &.esp {
-        background-image: url('/assets/images/flags/Spanish.png');
-    }
-    &.ben {
-        background-image: url('/assets/images/flags/Bengali.png');
-    }
-    &.tur {
-        background-image: url('/assets/images/flags/Turkish.png');
-    }
-    &.rus {
-        background-image: url('/assets/images/flags/Russian.png');
-    }
-    &.geo {
-        background-image: url('/assets/images/flags/Georgian.png');
-    }
-    &.ger {
-        background-image: url('/assets/images/flags/German.png');
-    }
+  position: absolute;
+  top: 3rem;
+  left: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  z-index: 7;
+  background-size: contain;
+  background-position: center;
+  transition: all .25s linear;
+  background-repeat: no-repeat;
+
+  &.eng {
+    background-image: url('/assets/images/flags/English.png');
+  }
+
+  &.esp {
+    background-image: url('/assets/images/flags/Spanish.png');
+  }
+
+  &.ben {
+    background-image: url('/assets/images/flags/Bengali.png');
+  }
+
+  &.tur {
+    background-image: url('/assets/images/flags/Turkish.png');
+  }
+
+  &.rus {
+    background-image: url('/assets/images/flags/Russian.png');
+  }
+
+  &.geo {
+    background-image: url('/assets/images/flags/Georgian.png');
+  }
+
+  &.ger {
+    background-image: url('/assets/images/flags/German.png');
+  }
 }
+
 .title {
-    top: 0.75rem;
-    font-size: 1rem;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-family: 'SegoeUI-SemiBold';
-    color: #fff;
+  top: 0.75rem;
+  font-size: 1rem;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: 'SegoeUI-SemiBold';
+  color: #fff;
 }
 
 .start {
-    top: -2rem;
-    height: 2rem;
-    line-height: 2rem;
-    font-size: 1rem;
-    position: absolute;
-    width: 100%;
-    z-index: 7;
-    background-size: contain;
-    background-position: center;
-    transition: all 0.25s linear;
-    text-align: center;
-    background-color: #f0b860;
-    font-family: 'SegoeUI-SemiBold';
-    color: #fff;
+  top: -2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1rem;
+  position: absolute;
+  width: 100%;
+  z-index: 7;
+  background-size: contain;
+  background-position: center;
+  transition: all 0.25s linear;
+  text-align: center;
+  background-color: #f0b860;
+  font-family: 'SegoeUI-SemiBold';
+  color: #fff;
 }
