@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { LanguageDropdown } from "./LanguageDropdown"
+import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import MenuButton from "./MenuButton"
 import styles from './Header.module.scss'
 
@@ -10,7 +10,7 @@ export const Header:FC = () => {
         <header className={styles.header}>
             <MenuButton />
             <div className={styles.rightBlock}>
-                <LanguageDropdown />
+                <SwitchLanguageDropdown />
                 <div className={styles.avatarBackground} />
                 <div className={styles.singUp}>SING IN</div>
             </div>
