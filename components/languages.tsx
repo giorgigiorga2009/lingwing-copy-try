@@ -1,99 +1,32 @@
-export type ShortSwitchedLanguage =
-  | 'eng'
-  | 'esp'
-  | 'geo'
-  | 'rus'
-  | 'tur'
-  | 'ben'
-
-export type LongSwitchedLanguage =
-  | 'English'
-  | 'Spanish'
-  | 'Georgian'
-  | 'Russian'
-  | 'Turkish'
-  | 'Bengali'
-
-export type SwitchedLanguages = {
-  long: LongSwitchedLanguage
-  short: ShortSwitchedLanguage
+export const LANGUAGES = {
+  eng: 'English',
+  rus: 'Russian',
+  geo: 'Georgian',
+  tur: 'Turkish',
+  ben: 'Bengali',
+  esp: 'Spanish',
+  fre: 'French',
+  ita: 'Italian',
 }
 
 export const SWITCHED_LANGUAGES = [
-  {
-    long: 'English',
-    short: 'eng',
-  },
-  {
-    long: 'Russian',
-    short: 'rus',
-  },
-  {
-    long: 'Georgian',
-    short: 'geo',
-  },
-  {
-    long: 'Turkish',
-    short: 'tur',
-  },
-  {
-    long: 'Bengali',
-    short: 'ben',
-  },
-  {
-    long: 'Spanish',
-    short: 'esp',
-  },
-] as SwitchedLanguages[]
-
-export type ShortLearnedLanguage =
-  | 'eng'
-  | 'esp'
-  | 'geo'
-  | 'rus'
-  | 'fre'
-  | 'ben'
-  | 'ita'
-
-export type LongLearnedLanguage =
-  | 'English'
-  | 'Spanish'
-  | 'Georgian'
-  | 'Russian'
-  | 'French'
-  | 'Bengali'
-  | 'Italian'
-
-export type LearnedLanguages = {
-  long: LongLearnedLanguage
-  short: ShortLearnedLanguage
-}
+  'eng',
+  'esp',
+  'geo',
+  'rus',
+  'tur',
+  'ben',
+] as const
 
 export const LEARNED_LANGUAGES = [
-  { long: 'Italian', short: 'ita' },
-  {
-    long: 'English',
-    short: 'eng',
-  },
-  {
-    long: 'Russian',
-    short: 'rus',
-  },
-  {
-    long: 'Georgian',
-    short: 'geo',
-  },
-  {
-    long: 'French',
-    short: 'fre',
-  },
-  {
-    long: 'Bengali',
-    short: 'ben',
-  },
-  {
-    long: 'Spanish',
-    short: 'esp',
-  },
-  ...SWITCHED_LANGUAGES,
-] as LearnedLanguages[]
+  'eng',
+  'esp',
+  'geo',
+  'rus',
+  'fre',
+  'ben',
+  'ita',
+] as const
+
+export type SwitchedLanguage = typeof SWITCHED_LANGUAGES[number]
+export type LearnedLanguage = typeof LEARNED_LANGUAGES[number]
