@@ -1,5 +1,4 @@
 .container {
-  /* background-color: #723B9C; */
   background-color: #692E96;
   background-image: url('/assets/themes/images/v1/svg/bg-lingwing-white-lightgrey-last.svg');
  
@@ -7,15 +6,3 @@
   width: 100vw;
 }
 
-.body {
-  height: 100vh;
-  
-}
-
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100vw;
-    flex-direction: column;
-  }
-}

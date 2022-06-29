@@ -4,12 +4,17 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
-    align-items: center;
+    align-items: baseline;
 }
 
-.singUp {
+
+.singInButton {
     color: $white;
-    font-weight: 900;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+        color: $orange-200;
+    }
 }
 
 

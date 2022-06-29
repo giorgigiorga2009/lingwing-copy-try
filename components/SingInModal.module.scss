@@ -1,0 +1,54 @@
+
+
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1001;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    width: 26.7rem;
+    height: 31.25rem;
+    border-radius: 1rem;
+    background-color: white;
+    position: relative;
+    z-index:1003;
+}
+
+.close {
+        margin-left: auto;
+        width: 1.94rem;
+        height: 1.94rem;
+        &::after {
+            content: '✕';
+        }
+}
+
+.modalHead {
+    display: flex;
+    height: 2.5rem;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #eaeaea;
+    align-items: flex-end;
+}
+
+.switch {
+    width: 4rem;
+    height: 1.7rem;
+    margin-left: 20%;
+    font-weight: 600;
+    &.active {
+        border-bottom: 1px solid blueviolet;
+    }
+
+}
