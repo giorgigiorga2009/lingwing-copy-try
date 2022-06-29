@@ -26,17 +26,17 @@ export const SwitchLanguageDropdown: FC = () => {
           className={styles.dropdownContent}
           onClickOutside={() => setOpen(false)}
         >
-          {SWITCHED_LANGUAGES.map((element: SwitchedLanguage) => {
+          {SWITCHED_LANGUAGES.map((language: SwitchedLanguage) => {
             return (
               <>
-                {element !== selectedLang && (
+                {language !== selectedLang && (
                   <div
-                    key={element}
+                    key={language}
                     className={styles.option}
-                    onClick={() => handleClick(element)}
+                    onClick={() => handleClick(language)}
                   >
-                    <IconFlag language={element} />
-                    <div>{LANGUAGES[element]}</div>
+                    <IconFlag language={language} />
+                    <div>{LANGUAGES[language]}</div>
                   </div>
                 )}
               </>

@@ -1,5 +1,12 @@
 @import '../styles/imports.scss';
 
+.block {
+  display: flex;
+  width: 80vw;
+  margin: 15vh auto;
+  justify-content: space-between;
+}
+
 .tileContainer {
   height: 10.3rem;
   width: 6.375rem;
@@ -96,7 +103,7 @@
   width: 4rem;
   height: 4rem;
   z-index: 7;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: all .25s linear;
@@ -137,7 +144,7 @@
   width: 4rem;
   height: 4rem;
   z-index: 7;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   transition: all .25s linear;
   background-repeat: no-repeat;
@@ -150,12 +157,12 @@
     background-image: url('/assets/images/flags/Spanish.png');
   }
 
-  &.ben {
-    background-image: url('/assets/images/flags/Bengali.png');
+  &.ita {
+    background-image: url('/assets/images/flags/Italian.png');
   }
 
-  &.tur {
-    background-image: url('/assets/images/flags/Turkish.png');
+  &.fre {
+    background-image: url('/assets/images/flags/French.png');
   }
 
   &.rus {

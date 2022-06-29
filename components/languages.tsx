@@ -7,6 +7,7 @@ export const LANGUAGES = {
   esp: 'Spanish',
   fre: 'French',
   ita: 'Italian',
+  ger: 'German',
 }
 
 export const SWITCHED_LANGUAGES = [
@@ -24,7 +25,7 @@ export const LEARNED_LANGUAGES = [
   'geo',
   'rus',
   'fre',
-  'ben',
+  'ger',
   'ita',
 ] as const
 
