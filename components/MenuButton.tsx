@@ -30,12 +30,10 @@ const MenuButton: FC = () => {
 
     return (
         <div className={styles.menuContainer}>
-            <div className={classnames(styles.button, open ? styles.cross : styles.lines)} onClick={() => setOpen(!open)} />  
-            <a className={styles.link} href="https://lingwing.com/en/" >
-                <img
-                    className={styles.lingwingLogo}
-                    src="/assets/themes/images/v1/svg/logo-light.svg"
-                />
+            <div className={classnames(styles.button, open ? styles.cross : styles.lines)} 
+                onClick={() => setOpen(!open)} />  
+            <a className={styles.link} href="https://lingwing.com/en/">
+                <div className={styles.lingwingLogo} />
             </a>
             {open && (
                 <div className={styles.menuContent}>
@@ -52,8 +50,5 @@ const MenuButton: FC = () => {
         </div>
     )
 }
-
-
-
 
 export default MenuButton
