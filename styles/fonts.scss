@@ -29,7 +29,7 @@
 
 @font-face {
   font-family: 'SegoeUI';
-  src: url('../public/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.eot') format('embedded-opentype'),
     url('../public/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.woff') format('woff'),
     url('../public/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.ttf') format('truetype'),
     url('../public/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.svg#SegoeUI-Bold') format('svg');
@@ -39,7 +39,7 @@
 
 @font-face {
   font-family: 'SegoeUIBlack';
-  src: url('../public/assets/fonts/segoe/SegoeUIBlack.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/segoe/SegoeUIBlack.eot') format('embedded-opentype'),
     url('../public/assets/fonts/segoe/SegoeUIBlack.woff') format('woff'),
     url('../public/assets/fonts/segoe/SegoeUIBlack.ttf') format('truetype'),
     url('../public/assets/fonts/segoe/SegoeUIBlack.svg#SegoeUIBlack') format('svg');
@@ -49,7 +49,7 @@
 
 @font-face {
   font-family: 'SegoeUI-SemiBold';
-  src: url('../public/assets/fonts/SegoeUI-SemiBold/SegoeUI-SemiBold.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/SegoeUI-SemiBold/SegoeUI-SemiBold.eot') format('embedded-opentype'),
     url('../public/assets/fonts/SegoeUI-SemiBold/SegoeUI-SemiBold.woff') format('woff'),
     url('../public/assets/fonts/SegoeUI-SemiBold/SegoeUI-SemiBold.ttf') format('truetype'),
     url('../public/assets/fonts/SegoeUI-SemiBold/SegoeUI-SemiBold.svg#SegoeUI-SemiBold') format('svg');
@@ -59,8 +59,7 @@
 
 @font-face {
   font-family: 'BPG Nino Mtavruli';
-  src: url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.eot');
-  src: url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.eot') format('embedded-opentype'),
     url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.woff2') format('woff2'),
     url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.woff') format('woff'),
     url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.ttf') format('truetype'),
@@ -69,8 +68,7 @@
 
 @font-face {
   font-family: 'BPG Nino Mtavruli Bold';
-  src: url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.eot');
-  src: url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.eot') format('embedded-opentype'),
     url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.woff2') format('woff2'),
     url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.woff') format('woff'),
     url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.ttf') format('truetype'),
@@ -79,7 +77,6 @@
 
 @font-face {
   font-family: 'bpg_arial_2009';
-  src: url('../public/assets/fonts/bpg_arial_2009.eot');
   src: url('../public/assets/fonts/bpg_arial_2009.eot') format('embedded-opentype'),
     url('../public/assets/fonts/bpg_arial_2009.woff2') format('woff2'),
     url('../public/assets/fonts/bpg_arial_2009.woff') format('woff'),
@@ -89,8 +86,7 @@
 
 @font-face {
   font-family: 'BPG Ingiri';
-  src: url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.eot');
-  src: url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.eot') format('embedded-opentype'),
     url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.woff2') format('woff2'),
     url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.woff') format('woff'),
     url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.ttf') format('truetype'),
@@ -99,8 +95,7 @@
 
 @font-face {
   font-family: 'Loyola';
-  src: url('../public/assets/fonts/loyola/Loyola.eot');
-  src: url('../public/assets/fonts/loyola/Loyola.eot?#iefix') format('embedded-opentype'),
+  src: url('../public/assets/fonts/loyola/Loyola.eot') format('embedded-opentype'),
     url('../public/assets/fonts/loyola/Loyola.woff2') format('woff2'),
     url('../public/assets/fonts/loyola/Loyola.woff') format('woff'),
     url('../public/assets/fonts/loyola/Loyola.ttf') format('truetype'),
