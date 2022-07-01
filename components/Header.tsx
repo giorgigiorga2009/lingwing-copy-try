@@ -4,8 +4,8 @@ import MenuButton from "./MenuButton"
 import styles from './Header.module.scss'
 import { SignInModal } from "./SignInModal"
 
-export const Header:FC = () => {
-    const [open, setOpen] = useState(false)
+export const Header: FC = () => {
+  const [open, setOpen] = useState(false)
 
     return (
         <>
