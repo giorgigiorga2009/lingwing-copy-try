@@ -1,11 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Layout from '../components/Layout'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <div>
       <Head>
         <link
           rel="icon"
@@ -15,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Component {...pageProps} />
-    </Layout>
+    </div>
   )
 }
 
