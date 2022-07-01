@@ -38,7 +38,7 @@ export const SignInModal: FC<Props> = ({ onClick }) => {
                     <input className={styles.input} type="password" name="password" placeholder="Password"></input>
                 </div>
                 <div className={classnames(styles.button, tab === "in" ? styles.in : styles.up )} />
-                <div className={styles.forgot}>Forgot <span className={styles.link}>Password?</span> </div>
+                {tab === "in" && (<div className={styles.forgot}>Forgot <span className={styles.link}>Password?</span> </div>)}
                 {tab === "up" && (
                     <div className={styles.agreement}> By registering, you agree to the terms of the <span className={styles.link}>License Agreement</span> and the <span className={styles.link}> Privacy Policy</span></div>
                 )}
