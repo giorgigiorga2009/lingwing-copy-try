@@ -8,7 +8,7 @@
     align-items: center;
     border-radius: 0.5rem;
     gap: 1rem;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
     &.facebook {
         background-color: #3B5999;
@@ -29,7 +29,7 @@
     margin-left: 0.5rem;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 95% ;
+    background-size: 2rem ;
     &.facebook {
         background-image: url('/assets/images/facebook_logo.png');
     }

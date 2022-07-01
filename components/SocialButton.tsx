@@ -1,16 +1,20 @@
 import { FC } from "react";
 import styles from "./SocialButton.module.scss"
-import classnames from 'classnames' 
+import classnames from 'classnames'
+
+export type Socials = 'facebook' | 'twitter' | 'google'
 
 interface Props {
-    social: string
+    label: Socials
+    tab: string
 }
 
-export const SocialButton: FC<Props> = ({social}) => {
+export const SocialButton: FC<Props> = ({ label, tab }) => {
     return (
-        <div className={classnames(styles.button, styles[social])}>
-            <div className={classnames(styles.icon, styles[social])} />
-            <div className={styles.text}> Sing in with {social.charAt(0).toUpperCase() + social.slice(1)}</div>
+        <div className={classnames(styles.button, styles[label])}>
+            <div className={classnames(styles.icon, styles[label])} />
+            {tab === 'singin' ? <div className={styles.text}> Sing in with {label.charAt(0).toUpperCase() + label.slice(1)}</div> :
+                <div className={styles.text}> Sing up with {label.charAt(0).toUpperCase() + label.slice(1)}</div>}
         </div>
     )
 }
