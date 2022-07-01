@@ -5,11 +5,15 @@
   width: 80vw;
   margin: 15vh auto;
   justify-content: space-between;
+  max-width: 65.6rem;
 }
 
 .tileContainer {
-  height: 10.3rem;
-  width: 6.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 11.9rem;
+  width: 7.75rem;
   border-radius: 0.813rem;
   box-shadow: 0 2px 2px 1px rgb(0 0 0 / 30%);
   cursor: pointer;
@@ -138,11 +142,8 @@
 }
 
 .languageFlag {
-  position: absolute;
-  top: 3rem;
-  left: 1.2rem;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   z-index: 7;
   background-size: cover;
   background-position: center;
@@ -180,12 +181,12 @@
 
 .title {
   top: 0.75rem;
-  font-size: 1rem;
   position: absolute;
   width: 100%;
   text-align: center;
   font-family: 'SegoeUI-SemiBold';
-  color: #fff;
+  color: $white;
+  font-size: 1.25rem;
 }
 
 .start {
@@ -200,7 +201,7 @@
   background-position: center;
   transition: all 0.25s linear;
   text-align: center;
-  background-color: #f0b860;
+  background-color: $orange-100;
   font-family: 'SegoeUI-SemiBold';
-  color: #fff;
+  color: $white;
 }
