@@ -4,7 +4,7 @@
     width: 16.7rem;
     height: 2.5rem;
     border-radius: 3.13rem;
-    border: 2px solid #b8b8b8;
+    border: 2px solid $grey-100;
     padding: 0 1.9rem;
 }
 
@@ -22,8 +22,8 @@
     justify-content: center;
     width: 9.25rem;
     height:2.7rem;
-    color: #ffffff;
-    background-color: #7835AB;
+    color: $white;
+    background-color: $purple-500;
     font-family: bpg_arial_2009;
     border-radius: 3.13rem;
     font-weight: 700;
@@ -32,7 +32,7 @@
 
 
 .link{
-    color: #9865BF;
+    color: $purple-300;
     cursor: pointer;
 }
 
@@ -43,5 +43,5 @@
     padding: 0 0.7rem;
     margin: 0.7rem 0;
     padding-top: 0.5rem;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid $grey-200;
 }

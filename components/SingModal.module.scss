@@ -16,7 +16,7 @@
 }
 
 .line {
-  color: #d3d3d3;
+  color: $grey-100;
   font-weight: 700;
 }
 
@@ -40,7 +40,7 @@
   width: 26.7rem;
   height: 36rem;
   border-radius: 1.25rem;
-  background-color: #ffffff;
+  background-color: $white;
   position: relative;
   z-index: 1003;
   align-items: center;
@@ -52,7 +52,7 @@
   height: 1.94rem;
   font-size: 1.4rem;
   margin-right: 0.4rem;
-  color: #d3d3d3;
+  color: $grey-100;
 
   &::after {
     content: '✕';
@@ -64,7 +64,7 @@
   height: 2.5rem;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid $white-200;
   align-items: flex-end;
 }
 
@@ -76,6 +76,6 @@
   font-weight: 600;
 
   &.active {
-    box-shadow: 0 1px #8a2be2;
+    box-shadow: 0 1px $purple-500;
   }
 }

@@ -8,16 +8,16 @@
     align-items: center;
     border-radius: 0.5rem;
     gap: 1rem;
-    color: #ffffff;
+    color: $white;
     cursor: pointer;
     &.facebook {
-        background-color: #3B5999;
+        background-color: $facebook;
     }
     &.google {
-        background-color: #DD4B39;
+        background-color: $google;
     }
     &.twitter {
-        background-color: #55ACEE;
+        background-color: $twitter;
     }
 }
 
@@ -44,7 +44,9 @@
 .text {
     font-family: bpg_arial_2009;
     font-size: 1.1rem;
-    span::first-letter {
+    display: inline-block;
+    .network::first-letter {
         text-transform: capitalize;
+        display: inline-block;
     }
 }
