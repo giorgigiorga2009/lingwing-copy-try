@@ -1,19 +1,23 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import MenuButton from "./MenuButton"
 import styles from './Header.module.scss'
+import { SignInModal } from "./SignModal"
 
+export const Header: FC = () => {
+  const [open, setOpen] = useState(false)
 
-
-export const Header:FC = () => {
-    return (
-        <header className={styles.header}>
-            <MenuButton />
-            <div className={styles.rightBlock}>
-                <SwitchLanguageDropdown />
-                <div className={styles.avatarBackground} />
-                <div className={styles.singUp}>SING IN</div>
-            </div>
-        </header>
-    )
+  return (
+    <>
+      <header className={styles.header}>
+        <MenuButton />
+        <div className={styles.rightBlock}>
+          <SwitchLanguageDropdown />
+          <div className={styles.avatarBackground} />
+          <div className={styles.singInButton} onClick={() => setOpen(true)} > SING IN </div>
+        </div>
+      </header>
+      {open && <SignInModal onClick={() => setOpen(false)} />}
+    </>
+  )
 }

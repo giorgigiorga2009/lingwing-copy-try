@@ -1,0 +1,81 @@
+@import '../styles/imports.scss';
+
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 26.7rem;
+  height: 12.75rem;
+}
+
+.divider {
+  display: flex;
+  gap: 1rem;
+}
+
+.line {
+  color: $grey-100;
+  font-weight: 700;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  // -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 26.7rem;
+  height: 36rem;
+  border-radius: 1.25rem;
+  background-color: $white;
+  position: relative;
+  z-index: 1003;
+  align-items: center;
+}
+
+.close {
+  margin-left: auto;
+  width: 1.94rem;
+  height: 1.94rem;
+  font-size: 1.4rem;
+  margin-right: 0.4rem;
+  color: $grey-100;
+
+  &::after {
+    content: '✕';
+  }
+}
+
+.modalHead {
+  display: flex;
+  height: 2.5rem;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid $white-200;
+  align-items: flex-end;
+}
+
+.switch {
+  cursor: pointer;
+  width: 4rem;
+  height: 1.7rem;
+  margin-left: 20%;
+  font-weight: 600;
+
+  &.active {
+    box-shadow: 0 1px $purple-500;
+  }
+}
