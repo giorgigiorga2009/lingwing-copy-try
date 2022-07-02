@@ -14,18 +14,29 @@ interface Props {
 }
 
 export const SignInModal: FC<Props> = ({ onClick }) => {
-  const [tab, setTab] = useState('singin')
+  const [isSignInTab, setSignInTab] = useState(true)
 
   return (
     <div className={styles.wrapper}>
       <Foco component='div' onClickOutside={onClick} className={styles.modal} >
         <div className={styles.modalHead}>
-          <div className={classnames(styles.switch, tab === "singin" && styles.active)} onClick={() => setTab('singin')}>Sing In</div>
-          <div className={classnames(styles.switch, tab === "singup" && styles.active)} onClick={() => setTab('singup')}>Sing Up</div>
+          <div className={classnames(styles.switch, isSignInTab && styles.active)} onClick={() => setSignInTab(true)}>Sing In</div>
+          <div className={classnames(styles.switch, !isSignInTab && styles.active)} onClick={() => setSignInTab(false)}>Sing Up</div>
           <div className={styles.close} onClick={onClick} />
         </div>
-        {tab === 'singin' && <SingIn tab={tab} />}
-        {tab === 'singup' && <SingUp tab={tab} />}
+        <div className={styles.socialButtons}>
+          {SOCIAL.map((element) => {
+            return (
+              <SocialButton isSignInTab={isSignInTab} label={element} />
+            )
+          })}
+        </div>
+        <div className={styles.divider}>
+          <span className={styles.line}> ――― </span>
+          <span> or with </span>
+          <span className={styles.line}> ――― </span>
+        </div>
+        {isSignInTab ? <SingIn /> : <SingUp />}
       </Foco>
     </div>
   )

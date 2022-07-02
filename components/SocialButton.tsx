@@ -6,15 +6,14 @@ export type Socials = 'facebook' | 'twitter' | 'google'
 
 interface Props {
     label: Socials
-    tab: string
+    isSignInTab: boolean
 }
 
-export const SocialButton: FC<Props> = ({ label, tab }) => {
+export const SocialButton: FC<Props> = ({ label, isSignInTab}) => {
     return (
         <div className={classnames(styles.button, styles[label])}>
-            <div className={classnames(styles.icon, styles[label])} />
-            {tab === 'singin' ? <div className={styles.text}> Sing in with {label.charAt(0).toUpperCase() + label.slice(1)}</div> :
-                <div className={styles.text}> Sing up with {label.charAt(0).toUpperCase() + label.slice(1)}</div>}
+            <div className={classnames(styles.icon)} />
+            <div className={styles.text}> Sing {isSignInTab ? 'in' : 'up'} with <span>{ label }</span></div>
         </div>
     )
 }

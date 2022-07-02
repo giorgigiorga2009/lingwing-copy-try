@@ -1,7 +1,7 @@
 .container {
   background-color: #692E96;
   background-image: url('/assets/themes/images/v1/svg/bg-lingwing-white-lightgrey-last.svg');
- 
+  box-sizing: border-box;
   height: 100vh;
   width: 100vw;
 }
