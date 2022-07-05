@@ -16,7 +16,7 @@ interface SectionProps {
 const Section: FC<SectionProps> = ({ options, title }) => {
   return (
     <section>
-      <h1>{title}</h1>
+      <h3>{title}</h3>
       <div className={style.list}>
         {options.map(element => (
           <span key={element}>{element}</span>
@@ -45,7 +45,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
           <Section title="Help" options={HELP} />
         </div>
         <div className={style.footer}>
-          <h1>Download Lingwing app</h1>
+          <h3 className={style.title}>Download Lingwing app</h3>
           <div className={style.mobileMarkets}>
             <div className={classNames(style.market, style.apple)} />
             <div className={classNames(style.market, style.google)} />
