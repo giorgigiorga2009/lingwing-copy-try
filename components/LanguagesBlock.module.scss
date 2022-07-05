@@ -6,7 +6,7 @@
   margin: 15vh auto;
   justify-content: space-between;
   max-width: 65.6rem;
-  padding: 0 2,2rem;
+  padding: 0 2.2rem;
   @include mobile() {
     flex-wrap: wrap;
     justify-content: center;
@@ -32,6 +32,10 @@
   background-repeat: no-repeat;
   border-radius: 0.813rem;
   transition: all .15s linear;
+  @include mobile() {
+    width: 7rem;
+    height: 11rem;
+  }
 
   &.eng {
     background-image: url('/assets/images/languages_background/eng_dark.png');
