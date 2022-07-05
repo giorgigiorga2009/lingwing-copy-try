@@ -6,6 +6,12 @@
   margin: 15vh auto;
   justify-content: space-between;
   max-width: 65.6rem;
+  @include mobile() {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4%;
+    width: unset;
+  }
 }
 
 .tileContainer {
