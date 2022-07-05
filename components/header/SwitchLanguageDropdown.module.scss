@@ -1,6 +1,6 @@
 @import '../../styles/imports.scss';
 
-.dropbtn {
+.button {
   color: $white;
   font-size: 1rem;
   cursor: pointer;
@@ -9,10 +9,10 @@
   gap: 0.5rem;
   font-weight: 900;
   align-items: center;
+  margin-right: 0.5rem;
 }
 
-.dropbtn:hover,
-.dropbtn:focus {
+.button:hover, .button:focus {
   color: $orange-200;
 }
 
