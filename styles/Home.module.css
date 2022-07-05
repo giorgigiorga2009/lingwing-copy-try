@@ -3,7 +3,7 @@
   background-image: url('/assets/images/background-letters.svg');
   box-sizing: border-box;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: relative;
 }
 

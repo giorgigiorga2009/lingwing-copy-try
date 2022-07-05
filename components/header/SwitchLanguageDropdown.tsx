@@ -15,7 +15,7 @@ export const SwitchLanguageDropdown: FC = () => {
 
   return (
     <div className={styles.dropdown}>
-      <div className={styles.dropbtn} onClick={() => setOpen(!open)}>
+      <div className={styles.button} onClick={() => setOpen(!open)}>
         <IconFlag language={selectedLang} />
         {selectedLang.toUpperCase()}
         <div className={styles.arrow} />

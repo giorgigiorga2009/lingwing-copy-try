@@ -1,0 +1,110 @@
+@import '../../styles/imports.scss';
+
+.wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  backdrop-filter: blur(3px);
+}
+
+.menuContent {
+  padding: 3.13rem 2.2rem 2.2rem 2.2rem;
+  background-color: $white-100;
+  box-shadow: 0px 8px 16px 0px $black-t;
+  border-radius: 0 1rem 1rem 0;
+  display: flex;
+  top: 0rem;
+  left: 0rem;
+  height: 100%;
+  width: 25rem;
+  position: absolute;
+  flex-direction: column;
+}
+
+.button {
+  border: 2px solid $black;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  color: $black;
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 1rem;
+
+  &:hover {
+    border: 2px solid $black-t;
+  }
+
+  &::after {
+    content: '✕';
+    position: absolute;
+    top: 0.3rem;
+    left: 0.6rem;
+  }
+
+  &:hover {
+    border: 2px solid $white;
+  }
+}
+
+.row {
+  display: flex;
+  font-family: "Helvetica Neue";
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 13rem;
+}
+
+.link {
+  height: 3rem;
+  display: flex;
+  padding-top: 0.5rem;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  position: absolute;
+  bottom: 7rem;
+  flex-direction: column;
+  width: inherit;
+
+  .title {
+    color: $grey-100;
+    text-align: center;
+  }
+}
+
+.mobileMarkets {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.market {
+  width: 6rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  cursor: pointer;
+
+  &.google {
+    background-image: url('/assets/images/google_play.png');
+  }
+
+  &.apple {
+    background-image: url('/assets/images/apple-store.png');
+  }
+}

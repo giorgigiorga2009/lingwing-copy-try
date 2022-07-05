@@ -2,21 +2,18 @@
 
 .menuContainer {
   display: flex;
-  gap: 2rem;
-  width: 18rem;
-  height: 7rem;
-  align-items: center;
-  padding-left: 2.5rem;
-  position: relative;
+    gap: 1.36rem;
+    align-items: center;
+    position: relative;
 }
 
-.lingwingLogo {
-  width: 10rem;
-  height: 5rem;
-  background-image: url('../../public/assets/images/logo-light.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.logo {
+  width: 11.2rem;
+    height: 2.44rem;
+    background-image: url('../../public/assets/images/logo-light.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom -2px;
+    background-size: contain;
 }
 
 .wrapper {
@@ -33,108 +30,38 @@
 .menuContent {
   padding-top: 4rem;
   background-color: $white-100;
-  box-shadow: 0px 8px 16px 0px$black-t;
+  box-shadow: 0px 8px 16px 0px $black-t;
   z-index: 10;
   border-radius: 0 1rem 1rem 0;
-  box-shadow: $white;
   display: flex;
   top: 0rem;
   left: 0rem;
   height: 100vh;
   width: 30rem;
-  z-index: 1003;
+  z-index: 1000;
   position: absolute;
   flex-direction: column;
 }
 
 .button {
-  border: 2px solid $grey-200;
+  border: 2px solid $purple-300;
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
   color: $white;
-  font-weight: 700;
-  font-size: 1.3rem;
+  font-weight: 800;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 
-  &.cross {
-    color: black;
-    top: 2.5rem;
-    left: 2.5rem;
-    border: 2px solid $black;
+  &::after {
+    content: '☰';
     position: absolute;
-
-    &:hover {
-      border: 2px solid $black-t;
-    }
-  }
+    left: 17%;
+    top: -2%;
+    font-size: 1.7rem;
+}
 
   &:hover {
     border: 2px solid $white;
-  }
-}
-
-.column {
-  display: flex;
-  padding-left: 2rem;
-  font-family: "Helvetica Neue";
-  font-size: 1.3rem;
-  margin-top: 3rem;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding-left: 0.2rem;
-  width: 13rem;
-}
-
-
-.link {
-  height: 3rem;
-  display: flex;
-  padding-top: 0.5rem;
-  align-items: center;
-}
-
-
-.footer {
-  display: flex;
-  margin-top: auto;
-  margin-bottom: 3rem;
-  height: 10rem;
-  flex-direction: column;
-
-  h1 {
-    padding-left: 4rem;
-    color: $grey-100;
-  }
-}
-
-.mobileMarkets {
-  display: flex;
-  justify-content: center;
-  margin-top: auto;
-  width: 30rem;
-  gap: 2rem;
-}
-
-.market {
-  width: 10rem;
-  height: 5rem;
-  background-size: 10rem;
-  background-repeat: no-repeat;
-  cursor: pointer;
-
-  &.google {
-    background-image: url('/assets/images/google_play.png');
-  }
-
-  &.apple {
-    background-image: url('/assets/images/apple-store.png');
   }
 }

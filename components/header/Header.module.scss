@@ -1,34 +1,35 @@
- @import '../../styles/imports.scss';
+@import '../../styles/imports.scss';
 
- .header {
-     display: flex;
-     flex-direction: row;
-     width: 100vw;
-     align-items: baseline;
- }
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3.13rem 2.2rem;
+}
 
- .singInButton {
-     color: $white;
-     font-weight: 700;
-     cursor: pointer;
+.singInButton {
+  color: $white;
+  font-weight: 700;
+  cursor: pointer;
 
-     &:hover {
-         color: $orange-200;
-     }
- }
+  &:hover {
+    color: $orange-200;
+  }
+}
 
- .avatarBackground {
-     height: 2.25rem;
-     width: 2.25rem;
-     border-radius: 100%;
-     border: 3px solid $orange-200;
-     background-image: url("/assets/images/avatar-default-medium.png");
- }
+.avatar {
+  height: 2.18rem;
+  width: 2.18rem;
+  border-radius: 100%;
+  border: 3px solid $orange-200;
+  background-image: url("/assets/images/avatar-default-medium.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
- .rightBlock {
-     margin-left: auto;
-     display: flex;
-     gap: 1rem;
-     align-items: center;
-     margin-right: 3rem;
- }
+.rightBlock {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
