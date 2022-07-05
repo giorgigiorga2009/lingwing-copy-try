@@ -1,26 +1,62 @@
 @import '../../styles/imports.scss';
 
+.wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  backdrop-filter: blur(3px);
+}
+
 .menuContent {
-  padding-top: 4rem;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 30%);
+  padding: 3.13rem 2.2rem 2.2rem 2.2rem;
+  background-color: $white-100;
+  box-shadow: 0px 8px 16px 0px $black-t;
   border-radius: 0 1rem 1rem 0;
   display: flex;
   top: 0rem;
   left: 0rem;
   height: 100vh;
   width: 30rem;
-  z-index: 1003;
+  z-index: 1000;
   position: absolute;
   flex-direction: column;
 }
 
-.column {
+.button {
+  border: 2px solid $black;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  color: $black;
+  font-weight: 700;
+  font-size: 1.4rem;
+  cursor: pointer;
+  position: relative;
+    &:hover {
+      border: 2px solid $black-t;
+    }
+  
+    &::after {
+      content: '✕';
+      position: absolute;
+      top: 0.3rem;
+      left: 0.6rem;
+  }
+
+  &:hover {
+    border: 2px solid $white;
+  }
+}
+
+.row {
   display: flex;
-  padding-left: 2rem;
   font-family: "Helvetica Neue";
   font-size: 1.3rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .list {
@@ -31,7 +67,6 @@
   width: 13rem;
 }
 
-
 .link {
   height: 3rem;
   display: flex;
@@ -39,16 +74,14 @@
   align-items: center;
 }
 
-
 .footer {
   display: flex;
-  margin-top: auto;
-  margin-bottom: 3rem;
-  height: 10rem;
+  position: absolute;
+  bottom: 7rem;
   flex-direction: column;
+  width: inherit;
 
   h1 {
-    padding-left: 4rem;
     color: $grey-100;
   }
 }
@@ -56,16 +89,15 @@
 .mobileMarkets {
   display: flex;
   justify-content: center;
-  margin-top: auto;
-  width: 30rem;
   gap: 2rem;
 }
 
 .market {
   width: 10rem;
-  height: 5rem;
+  height: 3rem;
   background-size: 10rem;
   background-repeat: no-repeat;
+  background-position: bottom;
   cursor: pointer;
 
   &.google {

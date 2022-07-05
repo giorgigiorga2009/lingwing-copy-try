@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 import Foco from "react-foco";
-import style from './MenuButton.module.scss'
+import style from './SideMenu.module.scss'
 
 const COURSES = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"]
 const ABOUT_COMPANY = ["Why with Us", "Certificate", "Partners", "Blog", "Jobs", "License Agreement", "Privacy Policy"]
@@ -32,14 +32,15 @@ interface SideMenuProps {
 
 export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
   return (
-    <div className={style.wrapper} >
+    <div className={style.wrapper}>
       <Foco component="div" className={style.menuContent} onClickOutside={onClose}>
-        <div className={classNames(style.button, style.cross)} onClick={onClose}>✕</div>
-        <div className={style.column}>
+        <div className={style.button} onClick={onClose}/>
+
+        <div className={style.row}>
           <Section title="Courses" options={COURSES} />
           <Section title="Premium" options={PREMIUM} />
         </div>
-        <div className={style.column}>
+        <div className={style.row}>
           <Section title="Company" options={ABOUT_COMPANY} />
           <Section title="Help" options={HELP} />
         </div>
