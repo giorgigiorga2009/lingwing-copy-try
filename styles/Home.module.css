@@ -1,8 +1,19 @@
 .container {
   background-color: #692E96;
-  background-image: url('/assets/themes/images/v1/svg/bg-lingwing-white-lightgrey-last.svg');
+  background-image: url('/assets/images/background-letters.svg');
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
+.parrot {
+  width: 28.6rem;
+  height: 29.4rem;
+  position: absolute;
+  top: 29rem;
+  left: 13rem;
+  z-index: 1;
+  background-image: url('/assets/images/parrot.png');
+  background-size: 29rem;
+}

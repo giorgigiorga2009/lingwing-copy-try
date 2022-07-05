@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import styles from './SwitchLanguageDropdown.module.scss'
 import Foco from 'react-foco'
 import { IconFlag } from './IconFlag'
-import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES } from './languages'
+import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES } from '../languages'
 
 export const SwitchLanguageDropdown: FC = () => {
   const [selectedLang, setSelectedLang] = useState<SwitchedLanguage>('eng')

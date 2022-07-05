@@ -1,7 +1,7 @@
-@import '../styles/imports.scss';
+@import '../../styles/imports.scss';
 
 .dropbtn {
-  color: #ffffff;
+  color: $white;
   font-size: 1rem;
   cursor: pointer;
   width: 5rem;
@@ -11,7 +11,8 @@
   align-items: center;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   color: $orange-200;
 }
 
@@ -27,7 +28,8 @@
 }
 
 .dropdownContent {
-  position: absolute;;
+  position: absolute;
+  ;
   left: -4rem;
   background-color: $white-100;
   box-shadow: 0px 8px 16px 0px $black-t;
@@ -37,10 +39,11 @@
   box-shadow: $white;
   height: 17rem;
   width: 10rem;
+  z-index: 1001;
 }
 
 /* Links inside the dropdown */
-.option{
+.option {
   color: $black;
   padding: 0.75rem 1rem;
   display: flex;
@@ -50,19 +53,20 @@
   align-items: center;
   border-bottom: 1px solid $white-200;
   font-weight: 650;
+
   &:hover {
     background-color: $white-300;
   }
+
   &:first-child:hover {
     border-radius: 1rem 1rem 0 0;
-   }
+  }
+
   &:last-child:hover {
     border-radius: 0 0 1rem 1rem;
-   }
+  }
+
   &:last-child {
     border: none;
   }
 }
-
-
-

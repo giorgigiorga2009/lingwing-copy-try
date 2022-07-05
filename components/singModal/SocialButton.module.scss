@@ -1,4 +1,4 @@
-@import '../styles/imports.scss';
+@import '../../styles/imports.scss';
 
 .button {
     width: 21rem;
@@ -45,7 +45,7 @@
     font-family: bpg_arial_2009;
     font-size: 1.1rem;
     display: inline-block;
-    .network::first-letter {
+    .network {
         text-transform: capitalize;
         display: inline-block;
     }

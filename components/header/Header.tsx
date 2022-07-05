@@ -2,7 +2,7 @@ import { FC, useState } from "react"
 import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import MenuButton from "./MenuButton"
 import styles from './Header.module.scss'
-import { SignInModal } from "./SignModal"
+import { SignInModal } from "../singModal/SignModal"
 
 export const Header: FC = () => {
   const [open, setOpen] = useState(false)
