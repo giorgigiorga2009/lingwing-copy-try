@@ -1,0 +1,63 @@
+@import '../../styles/imports.scss';
+
+.column {
+  display: flex;
+  padding-left: 2rem;
+  font-family: "Helvetica Neue";
+  font-size: 1.3rem;
+  margin-top: 3rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 0.2rem;
+  width: 13rem;
+}
+
+
+.link {
+  height: 3rem;
+  display: flex;
+  padding-top: 0.5rem;
+  align-items: center;
+}
+
+
+.footer {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 3rem;
+  height: 10rem;
+  flex-direction: column;
+
+  h1 {
+    padding-left: 4rem;
+    color: $grey-100;
+  }
+}
+
+.mobileMarkets {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  width: 30rem;
+  gap: 2rem;
+}
+
+.market {
+  width: 10rem;
+  height: 5rem;
+  background-size: 10rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.google {
+    background-image: url('/assets/images/google_play.png');
+  }
+
+  &.apple {
+    background-image: url('/assets/images/apple-store.png');
+  }
+}
