@@ -37,6 +37,7 @@
   @include mobile() {
     width: 6rem;
     height: 10rem;
+    padding-top: 1rem;
   }
 
   &.eng {
