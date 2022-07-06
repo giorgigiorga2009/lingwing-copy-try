@@ -14,7 +14,6 @@ type Socials = typeof SOCIALS[number]
 
 interface FollowProps {
   social: string[]
-
 }
 
 const FollowButton: FC<FollowProps> = ({ social }) => {

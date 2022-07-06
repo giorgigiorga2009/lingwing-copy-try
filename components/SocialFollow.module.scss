@@ -31,27 +31,33 @@
   background-position: center;
   cursor: pointer;
   background-size: 1.25rem;
+
   &.facebook {
     background-image: url('/assets/images/facebook-icon.png');
   }
+
   &.instagram {
     background-image: url('/assets/images/instagram-icon.png');
   }
+
   &.linkedin {
     background-image: url('/assets/images/linkedin-icon.png');
   }
+
   &.youtube {
     background-image: url('/assets/images/youtube-icon.png');
   }
+
   &.tiktok {
     background-image: url('/assets/images/tiktok-icon.png');
   }
+
   &:hover {
     border: 2px solid $white;
   }
+
   .link {
     width: 2.25rem;
     height: 2.25rem;
   }
 }
-
