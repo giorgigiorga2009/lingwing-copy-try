@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           sizes="16x16"
           type='image/png'
         />
+        <title>Lingwing: Foreign languages online learning</title>
       </Head>
       <Component {...pageProps} />
     </div>
