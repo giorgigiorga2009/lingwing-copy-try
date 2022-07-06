@@ -5,9 +5,10 @@
   margin: 15vh auto;
   max-width: 100rem;
   padding: 0 2.2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
   @include mobile() {
     margin: 0 auto;
     padding: unset;
@@ -32,6 +33,7 @@
   background-repeat: no-repeat;
   border-radius: 0.813rem;
   transition: all .15s linear;
+
   @include mobile() {
     width: 6rem;
     height: 10rem;
