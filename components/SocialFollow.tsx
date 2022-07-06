@@ -18,7 +18,7 @@ interface FollowProps {
 
 const FollowButton: FC<FollowProps> = ({ social }) => {
   return (
-    <div key={social[0]} className={classnames(styles.followButton, styles[social[0]])} >
+    <div  className={classnames(styles.followButton, styles[social[0]])} >
       <a href={social[1]} className={styles.link} />
     </div>
   )
@@ -29,7 +29,7 @@ export const SocialFollow: FC = () => {
     <div className={styles.container}>
       {SOCIALS.map((element) => {
         return (
-          <FollowButton social={element} />
+          <FollowButton social={element} key={element[0]} />
         )
       })}
     </div>
