@@ -1,8 +1,8 @@
 import { FC } from "react";
-import styles from './SocialFollow.module.scss'
+import styles from './NetworkButtons.module.scss'
 import classnames from "classnames";
 
-const SOCIALS = [
+const NETWORKS = [
   ['facebook', 'https://www.facebook.com/lingwingcom'],
   ['instagram', 'https://www.instagram.com/lingwingcom/'],
   ['linkedin', 'https://www.linkedin.com/company/lingwing'],
@@ -10,26 +10,24 @@ const SOCIALS = [
   ['tiktok', 'https://www.tiktok.com/@lingwing.georgia']
 ]
 
-type Socials = typeof SOCIALS[number]
+type Networks = typeof NETWORKS[number]
 
 interface FollowProps {
-  social: string[]
+  label: Networks
 }
 
-const FollowButton: FC<FollowProps> = ({ social }) => {
+const Button: FC<FollowProps> = ({ label }) => {
   return (
-    <div  className={classnames(styles.followButton, styles[social[0]])} >
-      <a href={social[1]} className={styles.link} />
-    </div>
+    <a href={label[1]}  className={classnames(styles.followButton, styles[label[0]])} />
   )
 }
 
-export const SocialFollow: FC = () => {
+export const NetworkButtons: FC = () => {
   return (
     <div className={styles.container}>
-      {SOCIALS.map((element) => {
+      {NETWORKS.map((element) => {
         return (
-          <FollowButton social={element} key={element[0]} />
+          <Button label={element} key={element[0]} />
         )
       })}
     </div>

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from './SingUp.module.scss'
+import styles from './SignUp.module.scss'
 
 export const SingUp: FC = () => {
   return (

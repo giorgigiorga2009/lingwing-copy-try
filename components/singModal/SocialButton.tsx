@@ -13,7 +13,7 @@ export const SocialButton: FC<Props> = ({ label, isSignInTab}) => {
     return (
         <div className={classnames(styles.button, styles[label])}>
             <div className={classnames(styles.icon)} />
-            <div className={styles.text}> Sing {isSignInTab ? 'in' : 'up'} with <span className={styles.network}>{ label }</span></div>
+            <div className={styles.text}> Sign {isSignInTab ? 'in' : 'up'} with <span className={styles.network}>{ label }</span></div>
         </div>
     )
 }

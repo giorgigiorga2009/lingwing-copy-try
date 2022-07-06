@@ -1,7 +1,7 @@
 import { FC } from "react";
-import styles from './SingIn.module.scss'
+import styles from './SignIn.module.scss'
 
-export const SingIn: FC = () => {
+export const SignIn: FC = () => {
   return (
     <>
       <div className={styles.form}>
