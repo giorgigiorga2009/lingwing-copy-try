@@ -2,16 +2,17 @@
 
 .block {
   display: flex;
-  width: 80vw;
   margin: 15vh auto;
-  justify-content: space-between;
-  max-width: 65.6rem;
+  max-width: 100rem;
   padding: 0 2.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
   @include mobile() {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    width: unset;
+    margin: 0 auto;
+    padding: unset;
+    max-width: 30rem;
   }
 }
 
@@ -32,9 +33,11 @@
   background-repeat: no-repeat;
   border-radius: 0.813rem;
   transition: all .15s linear;
+
   @include mobile() {
-    width: 7rem;
-    height: 11rem;
+    width: 6rem;
+    height: 10rem;
+    padding-top: 1rem;
   }
 
   &.eng {
@@ -160,6 +163,11 @@
   background-position: center;
   transition: all .25s linear;
   background-repeat: no-repeat;
+
+  @include mobile {
+    width: 4rem;
+    height: 4rem;
+  }
 
   &.eng {
     background-image: url('/assets/images/flags/English.png');

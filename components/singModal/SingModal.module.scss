@@ -12,12 +12,13 @@
 
 .divider {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
 .line {
-  color: $grey-100;
-  font-weight: 700;
+  width: 3rem;
+  border-top: solid 2px $grey-100;
 }
 
 .wrapper {

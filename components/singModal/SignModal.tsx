@@ -32,9 +32,9 @@ export const SignInModal: FC<Props> = ({ onClick }) => {
           })}
         </div>
         <div className={styles.divider}>
-          <span className={styles.line}> ――― </span>
+          <span className={styles.line}/>
           <span> or with </span>
-          <span className={styles.line}> ――― </span>
+          <span className={styles.line}/>
         </div>
         {isSignInTab ? <SingIn /> : <SingUp />}
       </Foco>

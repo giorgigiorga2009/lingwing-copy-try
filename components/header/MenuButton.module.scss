@@ -2,18 +2,18 @@
 
 .menuContainer {
   display: flex;
-    gap: 1.36rem;
-    align-items: center;
-    position: relative;
+  gap: 1.36rem;
+  align-items: center;
+  position: relative;
 }
 
 .logo {
   width: 11.2rem;
-    height: 2.44rem;
-    background-image: url('../../public/assets/images/logo-light.svg');
-    background-repeat: no-repeat;
-    background-position: center bottom -2px;
-    background-size: contain;
+  height: 2.44rem;
+  background-image: url('../../public/assets/images/logo-light.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom -2px;
+  background-size: contain;
 }
 
 .wrapper {
@@ -59,7 +59,7 @@
     left: 17%;
     top: -2%;
     font-size: 1.7rem;
-}
+  }
 
   &:hover {
     border: 2px solid $white;
