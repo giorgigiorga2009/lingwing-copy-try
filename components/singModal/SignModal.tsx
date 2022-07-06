@@ -27,7 +27,7 @@ export const SignInModal: FC<Props> = ({ onClick }) => {
         <div className={styles.socialButtons}>
           {SOCIAL.map((element) => {
             return (
-              <SocialButton isSignInTab={isSignInTab} label={element} />
+              <SocialButton key={element} isSignInTab={isSignInTab} label={element} />
             )
           })}
         </div>

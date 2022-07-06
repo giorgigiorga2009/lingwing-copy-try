@@ -8,12 +8,43 @@
 }
 
 .parrot {
-  width: 28.6rem;
-  height: 29.4rem;
-  position: absolute;
-  top: 29rem;
-  left: 13rem;
-  z-index: 1;
+  z-index: 3;
   background-image: url('/assets/images/parrot.png');
-  background-size: 29rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 11.5rem;
+  left: -7rem;
+  width: 28.6rem;
+  height: 29.38rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .parrot {
+    width: 26.25rem;
+    height: 27rem;
+    top: 10rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .parrot {
+    width: 21.4rem;
+    height: 21.9rem;
+    top: 14rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .parrot {
+    width: 17.6rem;
+    height: 18.13rem;
+    top: 18rem;
+  }
+}
+
+.content {
+  position: relative;
+  max-width: 75rem;
+  margin: 0 14vw;
 }

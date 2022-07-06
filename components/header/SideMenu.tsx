@@ -47,8 +47,8 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         <div className={style.footer}>
           <h3 className={style.title}>Download Lingwing app</h3>
           <div className={style.mobileMarkets}>
-            <div className={classNames(style.market, style.apple)} />
-            <div className={classNames(style.market, style.google)} />
+            <div className={classNames(style.market, style.apple)} > <a href="https://play.google.com/store/apps/details?id=org.android.lingwing.app" /> </div>
+            <div className={classNames(style.market, style.google)} > <a href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755" /> </div>
           </div>
         </div>
       </Foco>
