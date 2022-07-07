@@ -1,5 +1,7 @@
+@import './imports.scss';
+
 .container {
-  background-color: #692E96;
+  background-color: $purple-600;
   background-image: url('/assets/images/background-letters.svg');
   box-sizing: border-box;
   height: 100vh;
@@ -22,7 +24,7 @@
 .heading {
   font-family: "HVDComicSerifPro";
   margin-top: 1.7rem;
-  color: white;
+  color: $white;
   font-size: 3.19rem;
   width: 58rem;
   height: 3.5rem;
