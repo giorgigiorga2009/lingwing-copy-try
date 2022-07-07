@@ -3,7 +3,7 @@
   background-image: url('/assets/images/background-letters.svg');
   box-sizing: border-box;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: relative;
 }
 
@@ -13,25 +13,50 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  top: 11.5rem;
-  left: -7rem;
+  bottom: -9rem;
+  left: 0rem;
   width: 28.6rem;
   height: 29.38rem;
+}
+
+.heading {
+  font-family: "HVDComicSerifPro";
+  margin-top: 1.7rem;
+  color: white;
+  font-size: 3.19rem;
+  width: 58rem;
+  height: 3.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgb(0 0 0 / 60%);
 }
 
 @media only screen and (max-width: 1200px) {
   .parrot {
     width: 26.25rem;
     height: 27rem;
-    top: 10rem;
+    bottom: -9rem;
   }
+  .heading {
+    width: 53rem;
+    height: 2.13rem;
+    font-size: 2.56rem;
+  }
+  
 }
 
 @media only screen and (max-width: 1000px) {
   .parrot {
     width: 21.4rem;
     height: 21.9rem;
-    top: 14rem;
+    bottom: -9rem;
+  }
+  .heading {
+    width: 41.25rem;
+    height: 2.13rem;
+    font-size: 1.94rem;
+  }
+  .content {
+    width: 60.63rem;
   }
 }
 
@@ -39,12 +64,25 @@
   .parrot {
     width: 17.6rem;
     height: 18.13rem;
-    top: 18rem;
+    bottom: -9rem;
+  }
+  .heading {
+    width: 34.87rem;
+    height: 1.31rem;
+    font-size: 1.31rem;
+  }
+
+  .content {
+    width: 46.88rem;
   }
 }
 
 .content {
-  position: relative;
-  max-width: 75rem;
-  margin: 0 14vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 70vw;
+  margin: 0 15vw 0 15vw;
+  height: 41rem;
 }

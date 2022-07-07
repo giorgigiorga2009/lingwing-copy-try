@@ -9,6 +9,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Header />
       <div className={styles.content}>
+        <div className={styles.heading}>Speak up a new language today!</div>
         <LanguagesBlock />
         <div className={styles.parrot} />
       </div>
