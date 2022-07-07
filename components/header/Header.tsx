@@ -1,7 +1,7 @@
 import { FC, useState } from "react"
 import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import styles from './Header.module.scss'
-import { SignModal } from "../signModal/SignModal"
+import { LoginModal } from "../LoginModal/LoginModal"
 import { SideMenu } from './SideMenu'
 
 export const Header: FC = () => {
@@ -22,7 +22,7 @@ export const Header: FC = () => {
           <div className={styles.singInButton} onClick={() => setOpen(true)} > SIGN IN </div>
         </div>
       </header>
-      {open && <SignModal onClick={() => setOpen(false)} />}
+      {open && <LoginModal onClick={() => setOpen(false)} />}
     </>
   )
 }

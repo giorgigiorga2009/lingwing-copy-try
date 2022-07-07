@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { Header } from '../components/header/Header'
 import { LanguagesBlock } from '../components/LanguagesBlock'
-import { NetworkButtons } from '../components/NetworkButtons'
-import styles from '../styles/Home.module.css'
+import { FollowButtons } from '../components/FollowButtons'
+import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         <LanguagesBlock />
         <div className={styles.parrot} />
       </div>
-      <NetworkButtons />
+      <FollowButtons />
     </div>
   )
 }
