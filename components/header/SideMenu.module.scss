@@ -99,6 +99,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   cursor: pointer;
+  position: relative;
 
   &.google {
     background-image: url('/assets/images/google_play.png');

@@ -28,10 +28,9 @@ export const SwitchLanguageDropdown: FC = () => {
         >
           {SWITCHED_LANGUAGES.map((language: SwitchedLanguage) => {
             return (
-              <>
+              <div key={language}>
                 {language !== selectedLang && (
                   <div
-                    key={language}
                     className={styles.option}
                     onClick={() => handleClick(language)}
                   >
@@ -39,7 +38,7 @@ export const SwitchLanguageDropdown: FC = () => {
                     <div>{LANGUAGES[language]}</div>
                   </div>
                 )}
-              </>
+              </div>
             )
           })}
         </Foco>

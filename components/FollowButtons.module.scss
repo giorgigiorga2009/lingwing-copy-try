@@ -1,0 +1,58 @@
+@import '../styles/imports.scss';
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  z-index: 20;
+  bottom: 5rem;
+  left: 3rem;
+  width: 13.75rem;
+  height: 3rem;
+  backdrop-filter: blur(5px);
+}
+
+.followButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  text-align: center;
+  color: $white;
+  font-size: 1.13rem;
+  border-radius: 100%;
+  border: 2px solid $purple-300;
+  line-height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-size: 1.25rem;
+
+  &.facebook {
+    background-image: url('/assets/images/facebook-icon.png');
+  }
+
+  &.instagram {
+    background-image: url('/assets/images/instagram-icon.png');
+  }
+
+  &.linkedin {
+    background-image: url('/assets/images/linkedin-icon.png');
+  }
+
+  &.youtube {
+    background-image: url('/assets/images/youtube-icon.png');
+  }
+
+  &.tiktok {
+    background-image: url('/assets/images/tiktok-icon.png');
+  }
+
+  &:hover {
+    border: 2px solid $white;
+  }
+}

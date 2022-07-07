@@ -1,7 +1,7 @@
 import { FC } from "react";
-import styles from './SingUp.module.scss'
+import styles from './SignUpPart.module.scss'
 
-export const SingUp: FC = () => {
+export const SignUpPart: FC = () => {
   return (
     <>
       <div className={styles.form}>
