@@ -14,7 +14,6 @@ type Networks = keyof typeof NETWORKS
 
 const KEY_NETWORKS = Object.keys(NETWORKS) as Networks[]
 
-
 export const FollowButtons: FC = () => {
   return (
     <div className={styles.container}>
