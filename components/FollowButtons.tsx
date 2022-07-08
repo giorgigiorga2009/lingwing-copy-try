@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from './FollowButtons.module.scss'
+import style from './FollowButtons.module.scss'
 import classnames from "classnames";
 
 const NETWORKS = {
@@ -16,14 +16,17 @@ const KEY_NETWORKS = Object.keys(NETWORKS) as Networks[]
 
 export const FollowButtons: FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={style.wrap}>
+      <div className={style.text}>FOLLOW US</div>
+      <div className={style.container} >
       {KEY_NETWORKS.map(label => (
         <a href={NETWORKS[label]}
           key={label}
-          className={classnames(styles.followButton, styles[label])}
+          className={classnames(style.followButton, style[label])}
         />
       )
       )}
+      </div>
     </div>
   )
 }
