@@ -46,9 +46,10 @@
   gap: 1.36rem;
   align-items: center;
   position: relative;
+  height: 2.5rem;
 
   @include mobile() {
-    gap: 0.5rem;
+    gap: 0.8rem;
   }
 }
 
@@ -73,42 +74,25 @@
   background-size: contain;
 
   @include mobile() {
-    width: 7rem;
-    height: 2rem;
+    width: 6rem;
+    height: 1.8rem;
   }
 }
 
 .button {
   border: 2px solid $purple-200;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   color: $white;
   cursor: pointer;
   position: relative;
-
-
-  &::after {
-    content: '≡';
-    position: absolute;
-    left: 0.4rem;
-    top: -0.3rem;
-    font-size: 1.7rem;
-
-    @include mobile {
-      left: 23%;
-      top: -15%;
-      font-size: 1.4rem;
-    }
-  }
+  background-image: url('/assets/images/3-lines.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.6rem;
 
   &:hover {
     border: 2px solid $white;
   }
-
-  @include mobile() {
-    width: 1.75rem;
-    height: 1.75rem;
-  }
-
 }
