@@ -9,7 +9,11 @@
   justify-content: center;
   gap: 1.7rem;
 
-  @include desktop() {
+  @include desktop {
+    max-width: 55rem;
+  }
+
+  @include tablet {
     margin: 3vh auto 0 auto;
     padding: unset;
     max-width: 40rem;
@@ -40,7 +44,12 @@
   border-radius: 0.813rem;
   transition: all .15s linear;
 
-  @include desktop() {
+  @include desktop {
+    width: 7rem;
+    height: 11.71rem;
+  }
+
+  @include tablet {
     width: 6rem;
     height: 10rem;
     padding-top: 1rem;
@@ -176,7 +185,7 @@
   transition: all .25s linear;
   background-repeat: no-repeat;
 
-  @include desktop {
+  @include tablet {
     width: 4rem;
     height: 4rem;
   }

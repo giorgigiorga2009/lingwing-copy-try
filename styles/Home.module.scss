@@ -24,7 +24,7 @@
   width: 28.6rem;
   height: 29.38rem;
 
-  @include desktop() {
+  @include tablet {
     width: 26.25rem;
     height: 27rem;
     left: -17rem;
@@ -34,6 +34,7 @@
     width: 17.53rem;
     height: 18.125rem;
     left: -4.5rem;
+    bottom: 7.9rem;
   }
 }
 
@@ -59,7 +60,7 @@
   text-shadow: 1px 1px 3px rgb(0 0 0 / 60%);
   gap: 1rem;
 
-  @include desktop() {
+  @include tablet {
     font-size: 3vw;
     width: 65vw;
     gap: 0.7rem;
@@ -82,7 +83,7 @@
   height: 86vh;
   position: relative;
 
-  @include desktop() {
+  @include tablet {
     max-width: 40rem;
   }
 

@@ -7,6 +7,7 @@
   padding-left: 0.2rem;
   backdrop-filter: blur(5px);
   border-radius: 100%;
+  width: 7rem;
 
   @include mobile() {
     font-size: 0.7rem;
@@ -89,7 +90,7 @@
   @include mobile() {
     width: 9rem;
     height: 2rem;
-    bottom: 3rem;
+    bottom: 11.5rem;
     left: 1rem;
   }
 }

@@ -87,7 +87,6 @@
   cursor: pointer;
   position: relative;
 
-  // '☰'
 
   &::after {
     content: '≡';
@@ -95,6 +94,12 @@
     left: 0.4rem;
     top: -0.3rem;
     font-size: 1.7rem;
+
+    @include mobile {
+      left: 23%;
+      top: -15%;
+      font-size: 1.4rem;
+    }
   }
 
   &:hover {
@@ -104,14 +109,6 @@
   @include mobile() {
     width: 1.75rem;
     height: 1.75rem;
-
-    &::after {
-      content: '≡';
-      position: absolute;
-      left: 0.28rem;
-      top: -0.3rem;
-      font-size: 1.4rem;
-    }
   }
 
 }
