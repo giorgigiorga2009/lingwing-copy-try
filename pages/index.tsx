@@ -2,16 +2,21 @@ import type { NextPage } from 'next'
 import { Header } from '../components/header/Header'
 import { LanguagesBlock } from '../components/LanguagesBlock'
 import { FollowButtons } from '../components/FollowButtons'
-import styles from '../styles/Home.module.scss'
+import style from '../styles/Home.module.scss'
+import classnames from 'classnames'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={style.container}>
       <Header />
-      <div className={styles.content}>
-        <div className={styles.heading}>Speak up a new language today!</div>
+      <div className={style.content}>
+        <div className={style.heading}>
+          Speak up a
+          <span className={style.colorText}>new language</span>
+          today!
+        </div>
         <LanguagesBlock />
-        <div className={styles.parrot} />
+        <div className={style.parrot} />
       </div>
       <FollowButtons />
     </div>
