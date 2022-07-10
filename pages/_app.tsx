@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <>
       <Head>
         <link
           rel="icon"
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Lingwing: Foreign languages online learning</title>
       </Head>
       <Component {...pageProps} />
-    </div>
+    </>
   )
 }
 

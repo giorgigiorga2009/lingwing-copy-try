@@ -33,22 +33,23 @@ interface SideMenuProps {
 export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
   return (
     <div className={styles.wrapper}>
-      <Foco component="div" className={styles.menuContent} onClickOutside={onClose}>
-        <div className={styles.button} onClick={onClose}/>
+      <Foco component="div" className={styles.container} onClickOutside={onClose}>
+        <div className={styles.button} onClick={onClose} />
+        <div className={styles.content}>
 
-        <div className={styles.row}>
-          <Section title="Courses" options={COURSES} />
-          <Section title="Premium" options={PREMIUM} />
-        </div>
-        <div className={styles.row}>
-          <Section title="Company" options={ABOUT_COMPANY} />
-          <Section title="Help" options={HELP} />
-        </div>
-        <div className={styles.footer}>
-          <h3 className={styles.title}>Download Lingwing app</h3>
-          <div className={styles.mobileMarkets}>
-            <a className={classNames(styles.market, styles.apple)} href="https://play.google.com/store/apps/details?id=org.android.lingwing.app" /> 
-            <a className={classNames(styles.market, styles.google)} href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755" />
+          <div className={styles.menu}>
+            <Section title="Courses" options={COURSES} />
+            <Section title="Premium" options={PREMIUM} />
+            <Section title="Company" options={ABOUT_COMPANY} />
+            <Section title="Help" options={HELP} />
+          </div>
+
+          <div className={styles.footer}>
+            <h3 className={styles.title}>Download Lingwing app</h3>
+            <div className={styles.mobileMarkets}>
+              <a className={classNames(styles.market, styles.apple)} href="https://play.google.com/store/apps/details?id=org.android.lingwing.app" />
+              <a className={classNames(styles.market, styles.google)} href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755" />
+            </div>
           </div>
         </div>
       </Foco>

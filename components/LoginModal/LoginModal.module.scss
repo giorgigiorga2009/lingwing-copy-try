@@ -35,10 +35,6 @@
   position: relative;
   z-index: 1003;
   align-items: center;
-
-  @include mobile {
-    width: 95vw;
-  }
 }
 
 .close {

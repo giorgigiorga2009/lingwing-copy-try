@@ -2,27 +2,13 @@
 
 .block {
   display: flex;
-  margin: 6vh auto 15vh auto;
-  max-width: 70rem;
   padding: 0 2.2rem;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.7rem;
 
-  @include desktop {
-    max-width: 55rem;
-  }
-
-  @include tablet {
-    margin: 3vh auto 0 auto;
-    padding: unset;
-    max-width: 40rem;
-  }
-
-  @include mobile() {
-    max-width: 30rem;
-    margin: 2rem 0;
-    gap: 1.2rem;
+  @include mobile {
+    padding: 0 2%;
   }
 }
 
@@ -44,22 +30,14 @@
   border-radius: 0.813rem;
   transition: all .15s linear;
 
-  @include desktop {
-    width: 7rem;
-    height: 11.71rem;
-  }
 
-  @include tablet {
+  @include mobile {
     width: 6rem;
     height: 10rem;
     padding-top: 1rem;
   }
 
-  @include mobile() {
-    width: 4rem;
-    height: 6.64rem;
-    padding-top: 1rem;
-  }
+
 
   &.eng {
     background-image: url('/assets/images/languages_background/eng_dark.png');
@@ -185,14 +163,9 @@
   transition: all .25s linear;
   background-repeat: no-repeat;
 
-  @include tablet {
+  @include mobile {
     width: 4rem;
     height: 4rem;
-  }
-
-  @include mobile() {
-    width: 3rem;
-    height: 3rem;
   }
 
   &.eng {
@@ -233,9 +206,6 @@
   color: $white;
   font-size: 1.25rem;
 
-  @include mobile() {
-    font-size: 0.9rem;
-  }
 }
 
 .start {
