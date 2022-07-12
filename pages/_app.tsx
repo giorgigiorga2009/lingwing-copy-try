@@ -5,7 +5,7 @@ import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <>
       <Head>
         <link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
         <title>Lingwing: Foreign languages online learning</title>
@@ -25,8 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         })(document);`}
       </Script>
       <Component {...pageProps} />
-    </div>
-  );
+    </>
+  )
 }
 
 export default MyApp;

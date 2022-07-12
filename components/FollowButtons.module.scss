@@ -1,21 +1,28 @@
 @import '../styles/imports.scss';
 
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
+
+}
+
+
 .text {
   color: $white;
   font-family: SegoeUI;
   font-size: 0.88rem;
   padding-left: 0.2rem;
-  backdrop-filter: blur(5px);
   border-radius: 100%;
   width: 7rem;
 
-  @include mobile() {
-    font-size: 0.7rem;
-    width: 5rem;
-  }
 }
 
-.followButton {
+.followButton {  
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,28 +60,9 @@
     border: 2px solid $white;
   }
 
-  @include mobile() {
-    width: 1.75rem;
-    height: 1.75rem;
-    background-size: 0.75rem;
-  }
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.5rem;
-  width: 13.75rem;
-  height: 3rem;
-  backdrop-filter: blur(5px);
 
-  @include mobile() {
-    width: 10rem;
-    height: 2rem;
-  }
-}
 
 .wrap {
   display: flex;
@@ -82,15 +70,12 @@
   gap: 0.5rem;
   position: absolute;
   z-index: 20;
-  bottom: 5rem;
-  left: 3rem;
-  width: 13.75rem;
+  bottom: 3rem;
+  left: 2.2rem;
   height: 3rem;
 
-  @include mobile() {
-    width: 9rem;
-    height: 2rem;
-    bottom: 13vh;
+  @include mobile {
+    bottom: 3rem;
     left: 1rem;
   }
 }

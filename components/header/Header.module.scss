@@ -6,8 +6,8 @@
   align-items: center;
   padding: 3.13rem 2.2rem;
 
-  @include mobile() {
-    padding: 2rem 1rem;
+  @include mobile {
+    padding: 2rem 5%;
   }
 }
 
@@ -20,11 +20,6 @@
   &:hover {
     color: $orange-200;
   }
-
-  @include mobile() {
-    font-weight: 500;
-    font-size: 0.7rem;
-  }
 }
 
 .avatar {
@@ -36,7 +31,7 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  @include mobile() {
+  @media (max-width: 415px) {
     display: none;
   }
 }
@@ -48,8 +43,8 @@
   position: relative;
   height: 2.5rem;
 
-  @include mobile() {
-    gap: 0.8rem;
+  @include mobile {
+    gap: 0.5rem;
   }
 }
 
@@ -59,7 +54,7 @@
   gap: 1rem;
   align-items: center;
 
-  @include mobile() {
+  @include mobile {
     gap: 0.3rem;
     height: 2rem;
   }
@@ -73,9 +68,9 @@
   background-position: center bottom -2px;
   background-size: contain;
 
-  @include mobile() {
-    width: 6rem;
-    height: 1.8rem;
+  @include mobile {
+    width: 8rem;
+    height: 2rem;
   }
 }
 
