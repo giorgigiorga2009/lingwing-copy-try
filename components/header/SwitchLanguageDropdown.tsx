@@ -15,25 +15,14 @@ export const SwitchLanguageDropdown: FC = () => {
   }
 
   return (
-    <div className={styles.dropdown}>
-      <div className={styles.button} onClick={(event) => {
-        const difference = event.timeStamp - timeStamp;
-        difference > 100 && setOpen(true)
-      }
-      }>
+    <Foco component="div" onClickOutside={() => setOpen(false)} className={styles.dropdown}>
+      <div className={styles.button} onClick={() => setOpen(!open)}>
         <IconFlag language={selectedLang} />
         {selectedLang.toUpperCase()}
         <div className={styles.arrow} />
       </div>
       {open && (
-        <Foco
-          component="div"
-          className={styles.dropdownContent}
-          onClickOutside={(event) => {
-            setTimeStamp(event.timeStamp)
-            setOpen(false)
-          }}
-        >
+        <div className={styles.dropdownContent}>
           {SWITCHED_LANGUAGES.map((language: SwitchedLanguage) => {
             return (
               <Fragment key={language}>
@@ -49,8 +38,8 @@ export const SwitchLanguageDropdown: FC = () => {
               </Fragment>
             )
           })}
-        </Foco>
+        </div>
       )}
-    </div>
+    </Foco>
   )
 }

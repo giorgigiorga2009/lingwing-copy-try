@@ -10,7 +10,6 @@
 
 }
 
-
 .text {
   color: $white;
   font-family: SegoeUI;
@@ -21,7 +20,7 @@
 
 }
 
-.followButton {  
+.followButton {
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -62,8 +61,6 @@
 
 }
 
-
-
 .wrap {
   display: flex;
   flex-direction: column;
@@ -77,5 +74,6 @@
   @include mobile {
     bottom: 3rem;
     left: 1rem;
+    display: none;
   }
 }
