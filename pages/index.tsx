@@ -15,6 +15,16 @@ const Home: NextPage = () => {
           today!
         </div>
         <LanguagesBlock />
+        <div className={style.appeal}>
+          Join
+          <span className={style.usersAmount}> 261 872 </span>
+          users!
+        </div>
+        <div className={style.buttonContainer}>
+          <span className={style.bubbleUp} />
+          <a className={style.startButton}>START LEARNING BY PRACTICE</a>
+          <span className={style.bubbleDown} />
+        </div>
         <div className={style.parrot} />
       </div>
       <FollowButtons />

@@ -30,14 +30,11 @@
   border-radius: 0.813rem;
   transition: all .15s linear;
 
-
   @include mobile {
     width: 6rem;
     height: 10rem;
     padding-top: 1rem;
   }
-
-
 
   &.eng {
     background-image: url('/assets/images/languages_background/eng_dark.png');
@@ -68,7 +65,6 @@
   }
 
   &:hover {
-    transform: scale(1.05, 1.05);
 
     &.eng {
       background-image: url('/assets/images/languages_background/eng_light.jpg');
