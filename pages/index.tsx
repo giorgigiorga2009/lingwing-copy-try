@@ -3,12 +3,9 @@ import { Header } from '../components/header/Header'
 import { LanguagesBlock } from '../components/LanguagesBlock'
 import { FollowButtons } from '../components/FollowButtons'
 import style from '../styles/Home.module.scss'
-import { useRouter } from "next/router";
-
 
 const Home: NextPage = () => {
-  const {locale, locales} = useRouter()
-  console.log(locale, locales)
+
   return (
     <div className={style.container}>
       <Header />

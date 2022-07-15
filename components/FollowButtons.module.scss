@@ -69,8 +69,6 @@
   height: 3rem;
 
   @include mobile {
-    bottom: 3rem;
-    left: 1rem;
     display: none;
   }
 }
