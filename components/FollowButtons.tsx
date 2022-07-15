@@ -19,13 +19,12 @@ export const FollowButtons: FC = () => {
     <div className={style.wrap}>
       <div className={style.text}>FOLLOW US</div>
       <div className={style.container} >
-      {KEY_NETWORKS.map(label => (
-        <a href={NETWORKS[label]}
-          key={label}
-          className={classnames(style.followButton, style[label])}
-        />
-      )
-      )}
+        {KEY_NETWORKS.map(label => (
+          <a href={NETWORKS[label]}
+            key={label}
+            className={classnames(style.followButton, style[label])}
+          />
+        ))}
       </div>
     </div>
   )
