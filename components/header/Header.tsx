@@ -3,10 +3,14 @@ import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import styles from './Header.module.scss'
 import { LoginModal } from "../LoginModal/LoginModal"
 import { SideMenu } from './SideMenu'
+import { useIntl } from "react-intl";
 
 export const Header: FC = () => {
   const [open, setOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+
+  const intl = useIntl()
+  const signIn = intl.formatMessage({ id: "AUTH_LOGIN" })
 
   return (
     <>
@@ -19,7 +23,7 @@ export const Header: FC = () => {
         <div className={styles.rightBlock}>
           <SwitchLanguageDropdown />
           <div className={styles.avatar} />
-          <div className={styles.singInButton} onClick={() => setOpen(true)} > SIGN IN </div>
+          <div className={styles.singInButton} onClick={() => setOpen(true)}>{signIn}</div>
         </div>
       </header>
       {open && <LoginModal onClick={() => setOpen(false)} />}

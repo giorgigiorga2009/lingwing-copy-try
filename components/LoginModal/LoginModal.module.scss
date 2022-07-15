@@ -50,7 +50,7 @@
   }
 }
 
-.modalHead {
+.modalHeader {
   display: flex;
   height: 2.5rem;
   width: 100%;
@@ -59,7 +59,7 @@
   align-items: flex-end;
 }
 
-.switch {
+.headerButton {
   cursor: pointer;
   width: 4rem;
   height: 1.7rem;
@@ -68,6 +68,6 @@
   text-align: center;
 
   &.active {
-    box-shadow: 0 1px $purple-500;
+    border-bottom: 1px solid $purple-500;
   }
 }

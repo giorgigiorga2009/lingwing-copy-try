@@ -16,9 +16,17 @@ export const LoginModal: FC<Props> = ({ onClick }) => {
   return (
     <div className={style.wrapper}>
       <Foco component='div' onClickOutside={onClick} className={style.modal} >
-        <div className={style.modalHead}>
-          <div className={classnames(style.switch, isSignInTab && style.active)} onClick={() => setSignInTab(true)}>Sign In</div>
-          <div className={classnames(style.switch, !isSignInTab && style.active)} onClick={() => setSignInTab(false)}>Sign Up</div>
+        <div className={style.modalHeader}>
+          <div 
+            className={classnames(style.headerButton, isSignInTab && style.active)} 
+            onClick={() => setSignInTab(true)}>
+              Sign In
+          </div>
+          <div 
+            className={classnames(style.headerButton, !isSignInTab && style.active)} 
+            onClick={() => setSignInTab(false)}>
+              Sign Up
+          </div>
           <div className={style.close} onClick={onClick} />
         </div>
         <NetworkButtons isSignInTab={isSignInTab} />
