@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    domains: ['lingwing.com'],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "sv", "zh-CN"],
   },
 }
 

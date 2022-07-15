@@ -10,6 +10,5 @@ interface Props {
 export const IconFlag: FC<Props> = ({ language }) => {
   return (
     <div className={classnames(styles.flag, styles[language])} />
-
   )
 }

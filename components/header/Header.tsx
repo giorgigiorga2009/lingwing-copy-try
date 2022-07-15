@@ -19,7 +19,7 @@ export const Header: FC = () => {
         <div className={styles.rightBlock}>
           <SwitchLanguageDropdown />
           <div className={styles.avatar} />
-          <div className={styles.singInButton} onClick={() => setOpen(true)} > SIGN IN </div>
+          <div className={styles.singInButton} onClick={() => setOpen(true)}>SIGN IN</div>
         </div>
       </header>
       {open && <LoginModal onClick={() => setOpen(false)} />}
