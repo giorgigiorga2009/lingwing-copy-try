@@ -12,11 +12,11 @@ const Home: NextPage = () => {
       <div className={style.content}>
         <div className={style.title}>
           Speak up a
-          <span className={style.subTitle}>new language</span>
+          <span className={style.styledTitle}>new language</span>
           today!
         </div>
         <LanguagesBlock />
-        <div className={style.appeal}>
+        <div className={style.subTitle}>
           Join
           <span className={style.usersAmount}> 261 872 </span>
           users!

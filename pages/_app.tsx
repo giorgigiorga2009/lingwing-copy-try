@@ -29,7 +29,7 @@ const messages = {
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { defaultLocale } = useRouter()
+  const { locale: defaultLocale } = useRouter()
   const locale = defaultLocale ? defaultLocale : 'en'
 
   return (
