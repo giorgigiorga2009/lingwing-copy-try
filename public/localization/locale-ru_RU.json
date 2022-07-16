@@ -310,7 +310,7 @@
   "APP_FLOW_MAIN_GIFT_TITLE": "Это только начало!",
   "APP_FLOW_REGISTARTION": "Регистрация",
   "APP_FLOW_BONUS": "Бонус",
-  "APP_FLOW_GET_MORE": "Премиум",
+
   "APP_FLOW_GET_MORE_TAKE_OFF": "Сними все ограничения",
   "APP_FLOW_GRAB_YOUR_BONUS": "Получи бесплатные задания прямо сейчас!",
   "APP_FLOW_WE_WILL_SEND_BONUS": "На указанный адрес эл. почты будет отправлена ссылка для активации ежедневных бесплатных заданий",
@@ -467,7 +467,6 @@
   "APP_PACKAGE_INFRO_GO_PREMIUM": "Стань Премиум",
   "APP_PACKAGE_INFRO_BECOME_A_PREMIUM_USER": "Стань Премиум-пользователем",
   "APP_PACKAGE_INFRO_AND_GET_FULL_OPTIONS": "и получи полный функционал",
-  "APP_PACKAGE_INFRO_PREMIUM": "Премиум",
   "APP_PACKAGE_INFRO_FROM_1": "С ",
   "APP_PACKAGE_INFRO_FROM_2": " лари",
   "APP_BONUS_PROFILE_SAVED": "Ты получил дополнительные бесплатные задания",

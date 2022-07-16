@@ -25,6 +25,7 @@ interface SectionProps {
 
 const Section: FC<SectionProps> = ({ options, title }) => {
   const intl = useIntl()
+  
 
   return (
     <section>
@@ -61,7 +62,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
           </div>
 
           <div className={styles.footer}>
-            <h3 className={styles.title}>Download Lingwing app</h3>
+            <h3 className={styles.title}>{downloadApp}</h3>
             <div className={styles.mobileMarkets}>
               <a
                 className={classNames(styles.market, styles.apple)}

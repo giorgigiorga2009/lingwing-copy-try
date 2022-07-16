@@ -1,7 +1,13 @@
 import { FC } from "react";
+import { useIntl } from "react-intl";
 import styles from './SignInPart.module.scss'
 
 export const SignInPart: FC = () => {
+
+  const intl = useIntl()
+  const signIn = intl.formatMessage({ id: "LOGIN" })
+  const forgotPassword = intl.formatMessage({ id: "MODAL_FORGOT_PASSWORD_2" })
+  
   return (
     <>
       <div className={styles.form}>
@@ -17,9 +23,9 @@ export const SignInPart: FC = () => {
           placeholder="Password"
         />
       </div>
-      <div className={styles.button}> SING IN </div>
+      <div className={styles.button}> {signIn} </div>
       <div className={styles.additionalText}>
-        Forgot <span className={styles.link}>Password?</span> 
+         Forgot <span className={styles.link}>{forgotPassword}</span>   {/* не разобрался */}
       </div>
     </>
   )

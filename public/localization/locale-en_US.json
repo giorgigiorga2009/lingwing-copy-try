@@ -308,7 +308,6 @@
   "APP_PACKAGE_INFRO_GO_PREMIUM": "Go Premium",
   "APP_PACKAGE_INFRO_BECOME_A_PREMIUM_USER": "Become a Premium user",
   "APP_PACKAGE_INFRO_AND_GET_FULL_OPTIONS": "and get full options",
-  "APP_PACKAGE_INFRO_PREMIUM": "Premium",
   "APP_PACKAGE_INFRO_FROM_1": "From GEL",
   "APP_PACKAGE_INFRO_FROM_2": "",
   "APP_BONUS_PROFILE_SAVED": "You've gained additional free tasks",
@@ -463,7 +462,7 @@
   "APP_FLOW_MAIN_GIFT_TITLE": "It's just beginning",
   "APP_FLOW_REGISTARTION": "Registration",
   "APP_FLOW_BONUS": "Bonus",
-  "APP_FLOW_GET_MORE": "Premium",
+ 
   "APP_FLOW_GET_MORE_TAKE_OFF": "Take off the limit!",
   "APP_FLOW_GRAB_YOUR_BONUS": "Get free tasks now - Yes!",
   "APP_FLOW_WE_WILL_SEND_BONUS": "Daily free tasks activation link will be sent to the specified mail",

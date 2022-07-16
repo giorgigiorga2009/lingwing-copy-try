@@ -5,6 +5,7 @@ import { NetworkButtons } from "./NetworkButtons";
 import classnames from 'classnames'
 import { SignInPart} from "./SignInPart";
 import { SignUpPart } from "./SignUpPart";
+import { useIntl } from "react-intl";
 
 interface Props {
   onClick: () => void
@@ -13,6 +14,11 @@ interface Props {
 export const LoginModal: FC<Props> = ({ onClick }) => {
   const [isSignInTab, setSignInTab] = useState(true)
 
+  const intl = useIntl()
+  const signIn = intl.formatMessage({ id: "AUTH_LOGIN" })
+  const signUp = intl.formatMessage({id: "REGISTER"})
+  const orWith = intl.formatMessage({id: "AUTH_SOC_MEDIA"})
+
   return (
     <div className={style.wrapper}>
       <Foco component='div' onClickOutside={onClick} className={style.modal} >
@@ -20,19 +26,19 @@ export const LoginModal: FC<Props> = ({ onClick }) => {
           <div 
             className={classnames(style.headerButton, isSignInTab && style.active)} 
             onClick={() => setSignInTab(true)}>
-              Sign In
+              {signIn}
           </div>
           <div 
             className={classnames(style.headerButton, !isSignInTab && style.active)} 
             onClick={() => setSignInTab(false)}>
-              Sign Up
+              {signUp}
           </div>
           <div className={style.close} onClick={onClick} />
         </div>
         <NetworkButtons isSignInTab={isSignInTab} />
         <div className={style.divider}>
           <span className={style.line}/>
-          <span> or with </span>
+          <span> {orWith} </span>
           <span className={style.line}/>
         </div>
         {isSignInTab ? <SignInPart /> : <SignUpPart />}
