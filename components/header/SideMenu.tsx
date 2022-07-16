@@ -4,18 +4,17 @@ import Foco from "react-foco";
 import { useIntl } from "react-intl";
 import styles from './SideMenu.module.scss'
 
-const COURSES = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"]
-const ABOUT_COMPANY = ["Why with Us", "Certificate", "Partners", "Blog", "Jobs", "License Agreement", "Privacy Policy"]
+const COURSES_KEYS = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"]
 const PREMIUM = ["Entrant", "Prices", "Buy a gift", "Coupon activation"]
 const HELP = ["FAQ", "Contact us"]
 
 const ABOUT_COMPANY_KEYS = [
-  'APP_ABOUT_US', 
-  'APP_ABOUT_CERTIFICATE', 
-  "APP_ABOUT_US_PARTNERS", 
+  'APP_ABOUT_US',
+  'APP_ABOUT_CERTIFICATE',
+  "APP_ABOUT_US_PARTNERS",
   "APP_menu-blog",
-  "APP_ABOUT_US_JOB", 
-  "APP_PRIVACY_POLICY2", 
+  "APP_ABOUT_US_JOB",
+  "APP_PRIVACY_POLICY2",
   "APP_PRIVACY_POLICY"
 ]
 
@@ -32,10 +31,11 @@ const Section: FC<SectionProps> = ({ options, title }) => {
       <h3>{title}</h3>
       <div className={styles.list}>
         {options.map(element => {
-          const intlElement = intl.formatMessage({id: element})
+          const intlElement = intl.formatMessage({ id: element })
           return (
-          <span key={element}>{intlElement}</span>
-)})}
+            <span key={element}>{intlElement}</span>
+          )
+        })}
       </div>
     </section>
   )
@@ -54,7 +54,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         <div className={styles.content}>
 
           <div className={styles.menu}>
-            <Section title="Courses" options={COURSES} />
+            <Section title="Courses" options={COURSES_KEYS} />
             <Section title="Premium" options={PREMIUM} />
             <Section title="Company" options={ABOUT_COMPANY_KEYS} />
             <Section title="Help" options={HELP} />
