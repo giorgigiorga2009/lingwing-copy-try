@@ -15,13 +15,14 @@ interface ButtonProps {
 const Button: FC<ButtonProps> = ({ label, isSignInTab }) => {
 
     const intl = useIntl()
-    // const signWith = intl.formatMessage({ id: "AUTH_LOGIN" })
+    const signUpWith = intl.formatMessage({ id: "MODAL_SOCIAL_MEDIA" })
+    const signInWith = intl.formatMessage({ id: "MODAL_SIGN_IN_SOCIAL" })
 
     return (
         <div className={classnames(style.button, style[label])}>
             <div className={classnames(style.icon)} />
             <div className={style.text}>
-                 Sign {isSignInTab ? 'in' : 'up'} with{' '} {/* не ясно что делать с этим  */}
+                    {isSignInTab ? <>{ signInWith } </> : <>{ signUpWith } </>}
                 <span className={style.network}>{label}</span>
             </div>
         </div>
