@@ -3,9 +3,12 @@ import { Header } from '../components/header/Header'
 import { LanguagesBlock } from '../components/LanguagesBlock'
 import { FollowButtons } from '../components/FollowButtons'
 import style from '../styles/Home.module.scss'
+import { useIntl } from 'react-intl'
 
 const Home: NextPage = () => {
 
+  const intl = useIntl()
+  
   return (
     <div className={style.container}>
       <Header />

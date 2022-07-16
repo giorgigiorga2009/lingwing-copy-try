@@ -1,4 +1,19 @@
 {
+  "APP_ABOUT_US": "Sobre nosotros",
+  "APP_ABOUT_CERTIFICATE": "Certificado",
+  "APP_ABOUT_US_PARTNERS": "Socios",
+  "APP_ABOUT_US_JOB": "Empleo",
+  "APP_menu-blog": "Blog",
+  "APP_PRIVACY_POLICY": "Privación",
+  "APP_PRIVACY_POLICY2": "Acuerdo de licencia",
+
+  
+
+
+  
+
+  "APP_ABOUT_US_GROUP": "El equipo",
+  "APP_ABOUT_US_NEWS": "Noticias",
   "APP_INVITE_FRIENDS": "Invita a tus amigos",
   "AUTH_EMAIL_OWN": "No se activará en su propio correo electrónico",
   "LANGUAGE_IMAGE": "<img src=\"./themes/images/v1/flags/Georgian.png\">",
@@ -113,7 +128,6 @@
   "MODAL_SIGN_UP_SUGGESTION2": "¡Regístrate ya!",
   "MODAL_TERMS": "Condiciones<br>del servicio",
   "MODAL_FORGOT_PASSWORD": "¿Has olvidado tu contraseña?",
-  "MODAL_FORGOT_PASSWORD_2": "¿Has olvidado tu contraseña?",
   "MODAL_SIGN_IN": "Inicia sesión",
   "MODAL_SIGN_IN_FOR_AUTH": "Inicia sesión",
   "MODAL_SIGN_IN_SOCIAL": "a través de",
@@ -248,7 +262,6 @@
   "APP_FOOTER_PRIVACY": "Privación",
   "APP_FOOTER_FAQ": "Preguntas más frecuentes",
   "APP_FOOTER_CONTACT": "Contáctanos",
-  "APP_PRIVACY_POLICY": "Privación",
   "APP_TOS": "Términos de servicio",
   "APP_TASK_DAILY_LIMIT": "¡Atención!",
   "APP_YOU_REACHED_DAILY_LIMIT": "Estás utilizando una versión beta",
@@ -623,7 +636,6 @@
   "APP_menu-about": "Sobre nosotros",
   "APP_menu-certificate": "Certificado",
   "APP_menu-partners": "Socios",
-  "APP_menu-blog": "Blog",
   "APP_menu-job": "Empleo",
   "APP_menu-contact": "Contáctanos",
   "APP_menu-help": "Ayuda",
@@ -746,12 +758,7 @@
   "APP_PACKAGE_SWL_TITLE_2": "--------------------Se ha producido un error. Inténtalo de nuevo más tarde.",
   "APP_PACKAGE_SWL_BTN_OK": "---------------------Vale",
   "APP_ABOUT_US_COMPANY": "Acerca de la empresa",
-  "APP_ABOUT_US": "Sobre nosotros",
-  "APP_ABOUT_CERTIFICATE": "Certificado",
-  "APP_ABOUT_US_PARTNERS": "Socios",
-  "APP_ABOUT_US_GROUP": "El equipo",
-  "APP_ABOUT_US_NEWS": "Noticias",
-  "APP_ABOUT_US_JOB": "Empleo",
+
   "APP_ABOUT_US_TITLE_1": "¡Activando la velocidad de reacción en una conversación – Así funciona Lingwing.com!",
   "APP_ABOUT_US_TEXT_1": "El objetivo de Lingwing.com es muy sencillo: enseñar cómo comunicarse a un usuario principiante de una lengua extranjera, mediante frases elementales, en solo una hora. ¡Y lo hemos conseguido!",
   "APP_ABOUT_US_TEXT_1_b": "Y estamos orgullosos de ello: nuestro avión ya está en el aire y solo utilizando 200 metros de pista mientras que otros necesitan 2000 metros para obtener los mismos resultados. Nuestro éxito reside en nuestro equipo de profesionales que han creado el motor de este avión.",

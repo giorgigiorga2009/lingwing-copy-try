@@ -1,4 +1,19 @@
 {
+  "APP_ABOUT_US": "რატომ ჩვენთან",
+  "APP_ABOUT_CERTIFICATE": "სერტიფიკატი",
+  "APP_ABOUT_US_PARTNERS": "პარტნიორები",
+  "APP_ABOUT_US_JOB": "ვაკანსია",
+  "APP_menu-blog": "ბლოგი",
+  "APP_PRIVACY_POLICY2": "სალიცენზიო შეთანხმების პირობებს",
+  "APP_PRIVACY_POLICY": "Privacy Policy",
+
+
+  
+
+
+  "APP_ABOUT_US_GROUP": "გუნდი",
+  "APP_ABOUT_US_NEWS": "სიახლეები",
+  
   "APP_INVITE_FRIENDS": "მიიღე უფასო დავალებები",
   "AUTH_EMAIL_OWN": "საკუთარ ელ. ფოსტაზე ვერ გაააქტიურებთ",
   "LANGUAGE_IMAGE": "<img src=\"./themes/images/v1/flags/Georgian.png\">",
@@ -110,7 +125,6 @@
   "MODAL_SIGN_UP_SUGGESTION2": "რეგისტრაცია!",
   "MODAL_TERMS": "მომსახურების პირობები",
   "MODAL_FORGOT_PASSWORD": "დაგავიწყდა<span>პაროლი?</span>",
-  "MODAL_FORGOT_PASSWORD_2": "დაგავიწყდა <span>პაროლი?<span>",
   "MODAL_SIGN_IN": "ავტორიზაცია",
   "MODAL_SIGN_IN_FOR_AUTH": "გაიარე ავტორიზაცია",
   "MODAL_SIGN_IN_SOCIAL": "ავტორიზაცია",
@@ -226,7 +240,6 @@
   "APP_FOOTER_PRIVACY": "Privacy",
   "APP_FOOTER_FAQ": "F.A.Q",
   "APP_FOOTER_CONTACT": "კონტაქტი",
-  "APP_PRIVACY_POLICY": "Privacy Policy",
   "APP_TOS": "მომსახურების პირობები",
   "APP_TASK_DAILY_LIMIT": "ყურადღება",
   "APP_YOU_REACHED_DAILY_LIMIT": "თქვენ სარგებლობთ საიტის ბეტა ვერსიით",
@@ -592,7 +605,6 @@
   "APP_menu-about": "რატომ ჩვენთან",
   "APP_menu-certificate": "სერტიფიკატი",
   "APP_menu-partners": "პარტნიორები",
-  "APP_menu-blog": "ბლოგი",
   "APP_menu-job": "ვაკანსია",
   "APP_menu-contact": "კონტაქტი",
   "APP_menu-help": "დახმარება",
@@ -717,12 +729,7 @@
   "PACKAGES_REVIEW_TOTAL_PRICE": "Total Price",
   "PACKAGES_REVIEW_YOU_SAVE": "You save",
   "APP_ABOUT_US_COMPANY": "კომპანიის შესახებ",
-  "APP_ABOUT_US": "რატომ ჩვენთან",
-  "APP_ABOUT_CERTIFICATE": "სერტიფიკატი",
-  "APP_ABOUT_US_PARTNERS": "პარტნიორები",
-  "APP_ABOUT_US_GROUP": "გუნდი",
-  "APP_ABOUT_US_NEWS": "სიახლეები",
-  "APP_ABOUT_US_JOB": "ვაკანსია",
+ 
   "APP_ABOUT_US_TITLE_1": "Lingwing.com-ზე საუბრის დაწყების რეაქტიული სიჩქარე მოქმედებს!",
   "APP_ABOUT_US_TEXT_1": "Lingwing.com-ში დავისახეთ მიზანი - მომხმარებელს, რომელიც საერთოდ არ ფლობდა უცხო ენას, ერთ საათში მარტივი წინადადებებით უნდა ესაუბრა. მიზანი მიღწეულია!",
   "APP_ABOUT_US_TEXT_1_b": "ვამაყობთ იმით, რომ თუ სამგზავრო ლაინერი ასაფრენად ასაფრენი ზოლის (2000 მეტრზე მეტი) ნაწილს იყენებს, ჩვენი ლაინერი 100-200 მეტრის გავლის შემდეგ უკვე ჰაერშია. და ეს იმიტომ, რომ Lingwing.com-ის ლაინერის ძრავა განსაკუთრებული უნარებით გამორჩეულმა პერსონალმა შექმნა.",
@@ -997,7 +1004,6 @@
   "APP_VOICE_MODAL_LI3": "უკეთესი შედეგისთვის <span>ყურსასმენები</span> გამოიყენე",
   "APP_VOICE_MODAL_MIC": "მიკროფონის ჩართვა",
   "APP_PRIVACY_POLICY1": "რეგისტრაცით შენ ეთანხმები ",
-  "APP_PRIVACY_POLICY2": "სალიცენზიო შეთანხმების პირობებს ",
   "APP_PRIVACY_POLICY_AND": "და ",
   "APP_PRIVACY_POLICY3": "კონფიდენციალურობის პოლიტიკას",
   "APP_MARKETING_POLICY_1": "ვეთანხმები ",
