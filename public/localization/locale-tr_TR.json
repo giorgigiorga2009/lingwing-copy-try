@@ -1,4 +1,20 @@
 {
+  "APP_ABOUT_US": "Hakkımızda",
+  "APP_ABOUT_CERTIFICATE": "sertifika",
+  "APP_ABOUT_US_PARTNERS": "Ortaklar",
+  "APP_ABOUT_US_JOB": "Meslekler",
+  "APP_menu-blog": "Blog",
+  "APP_PRIVACY_POLICY2": "License Agreement",
+  "APP_PRIVACY_POLICY": "Gizlilik"
+  
+  
+  
+  
+  
+  
+  ,
+  "APP_ABOUT_US_GROUP": "Takım",
+  "APP_ABOUT_US_NEWS": "Yeni haberler",
   "APP_INVITE_FRIENDS": "Arkadaşlarını davet et",
   "AUTH_EMAIL_OWN": "საკუთარ ელ. ფოსტაზე ვერ გაააქტიურებთ",
   "LANGUAGE_IMAGE": "<img src=\"./themes/images/v1/flags/English.png\">",
@@ -122,7 +138,6 @@
   "MODAL_SIGN_UP_SUGGESTION2": "Yeni bir hesap aç",
   "MODAL_TERMS": "Kullanım şartları",
   "MODAL_FORGOT_PASSWORD": "Şifreni unuttun mu?",
-  "MODAL_FORGOT_PASSWORD_2": "Şifreni unuttun mu?",
   "MODAL_SIGN_IN": "Giriş yap",
   "MODAL_SIGN_IN_FOR_AUTH": "Giriş yap",
   "MODAL_SIGN_IN_SOCIAL": "Giriş yap",
@@ -245,7 +260,6 @@
   "APP_FOOTER_PRIVACY": "Gizlilik",
   "APP_FOOTER_FAQ": "F.A.Q",
   "APP_FOOTER_CONTACT": "Temas",
-  "APP_PRIVACY_POLICY": "Gizlilik",
   "APP_TOS": "Kullanım Şartları",
   "APP_TASK_DAILY_LIMIT": "Dikkat",
   "APP_YOU_REACHED_DAILY_LIMIT": "Günlük sınırına ulaştın.",
@@ -608,7 +622,6 @@
   "APP_menu-about": "Hakkımızda",
   "APP_menu-certificate": "Certificate",
   "APP_menu-partners": "Ortaklar",
-  "APP_menu-blog": "Blog",
   "APP_menu-job": "Meslekler",
   "APP_menu-contact": "Bizimle iletişime geç",
   "APP_menu-help": "Yardım",
@@ -628,8 +641,6 @@
   "APP_menu-test-review": "Purchase Tests",
   "APP_menu-gift-review": "Hediye al",
   "APP_menu-packages-coupon": "kupon etkinleştirmek",
-  "APP_menu-license-agreement": "License Agreement",
-  "APP_menu-privacy-policy": "Privacy Policy",
   "APP_MENU_CONTACT_INFORMATION": "İletişim",
   "APP_MENU_DOWNLOAD_APP": "Mobil uygulamaları yükle",
   "APP_DASHBORD_INSTALL_MOBILE": "Mobil uygulamaları",
@@ -732,12 +743,6 @@
   "PACKAGES_REVIEW_TOTAL_PRICE": "Toplam fiyat",
   "PACKAGES_REVIEW_YOU_SAVE": "Kazanıyorsun",
   "APP_ABOUT_US_COMPANY": "Şirket hakkında",
-  "APP_ABOUT_US": "Hakkımızda",
-  "APP_ABOUT_CERTIFICATE": "sertifika",
-  "APP_ABOUT_US_PARTNERS": "Ortaklar",
-  "APP_ABOUT_US_GROUP": "Takım",
-  "APP_ABOUT_US_NEWS": "Yeni haberler",
-  "APP_ABOUT_US_JOB": "Meslekler",
   "APP_ABOUT_US_TITLE_1": "Lingwing.com - konuşmayı başlatmanın tepki hızını etkinleştirir!",
   "APP_ABOUT_US_TEXT_1": "LINGWING.COM bir amaç belirledik; yabancı bir dili hiç öğrenmemiş ve konuşamayan bir kullanıcı, bir saat içinde basit cümlelerle konuşmak  başladi. Hedefe ulaşıldı!",
   "APP_ABOUT_US_TEXT_1_b": "Bir yolcu gemisinin kalkış için bir pistin bir bölümüne (2000 metreden fazla) ihtiyacı varsa starımız sadece 100-200 metre geçerek havada kanadı,çünkü LINGWING.COM liner'ın motoru, özel becerilere sahip personel tarafından tasarlanmıştır.",

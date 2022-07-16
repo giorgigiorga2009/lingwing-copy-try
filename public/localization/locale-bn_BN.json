@@ -1,4 +1,15 @@
 {
+  "APP_ABOUT_US": "আমদের সাথে কেন",
+  "APP_ABOUT_CERTIFICATE": "সার্টিফিকেট",
+  "APP_ABOUT_US_PARTNERS": "অংশীদার",
+  "APP_ABOUT_US_JOB": "চাকরি",
+  "APP_menu-blog": "ব্লগ",
+  "APP_PRIVACY_POLICY2": "লাইসেন্স চুক্তি ",
+  "APP_PRIVACY_POLICY": "গোপনীয়তা নীতি",
+
+
+
+
   "APP_INVITE_FRIENDS": "আপনার বন্ধুদের নিমন্ত্রণ জানান",
   "AUTH_EMAIL_OWN": "আপনি আপনার নিজস্ব মেইলবক্স থেকে এটি সক্রিয় করতে পারবেন না",
   "LANGUAGE_IMAGE": "<img src=\"./themes/images/v1/flags/English.png\">",
@@ -122,7 +133,6 @@
   "MODAL_SIGN_UP_SUGGESTION2": "সাইন আপ!",
   "MODAL_TERMS": "সেবার শর্ত",
   "MODAL_FORGOT_PASSWORD": "পাসওয়ার্ড ভুলে গেছেন?",
-  "MODAL_FORGOT_PASSWORD_2": "ভুলে গেছেন <span>পাসওয়ার্ড?</span>",
   "MODAL_SIGN_IN": "সাইন ইন",
   "MODAL_SIGN_IN_FOR_AUTH": "সাইন ইন",
   "MODAL_SIGN_IN_SOCIAL": "সাইন ইন",
@@ -240,7 +250,6 @@
   "APP_FOOTER_PRIVACY": "গোপনীয়তা",
   "APP_FOOTER_FAQ": "F.A.Q",
   "APP_FOOTER_CONTACT": "যোগাযোগ",
-  "APP_PRIVACY_POLICY": "গোপনীয়তা নীতি",
   "APP_TOS": "সেবার শর্ত",
   "APP_TASK_DAILY_LIMIT": "দৈনন্দিন সীমা",
   "APP_YOU_REACHED_DAILY_LIMIT": "আপনি আপনার দৈনন্দিন সীমা অতিক্রম করেছেন",
@@ -610,7 +619,6 @@
   "APP_menu-about": "আমদের সাথে কেন",
   "APP_menu-certificate": "সার্টিফিকেট",
   "APP_menu-partners": "অংশীদার",
-  "APP_menu-blog": "ব্লগ",
   "APP_menu-job": "চাকরি",
   "APP_menu-contact": "আমদের সাথে যোগাযোগ করুন",
   "APP_menu-help": "সাহায্য",
@@ -735,12 +743,7 @@
   "PACKAGES_REVIEW_TOTAL_PRICE": "সর্বমোট মূল্য",
   "PACKAGES_REVIEW_YOU_SAVE": "আপনি সংরক্ষণ করেছেন",
   "APP_ABOUT_US_COMPANY": "কোম্পানী সম্পর্কে",
-  "APP_ABOUT_US": "আমদের সাথে কেন",
-  "APP_ABOUT_CERTIFICATE": "সার্টিফিকেট",
-  "APP_ABOUT_US_PARTNERS": "অংশীদার",
-  "APP_ABOUT_US_GROUP": "দল",
-  "APP_ABOUT_US_NEWS": "খবর",
-  "APP_ABOUT_US_JOB": "চাকরি",
+  
   "APP_ABOUT_US_TITLE_1": "Lingwing.com - কথোপকথন শুরুর প্রতিক্রিয়াশীল গতি সক্রিয় করে!",
   "APP_ABOUT_US_TEXT_1": "LINGWING.COM একটি লক্ষ্য ঠিক করে – একজন ব্যবহারকারী, যে কখনো বিদেশী ভাষা শিখেনি এবং কোনোটি বলতে পারতো না , এক ঘন্টা সময়ে সাধারণ বাক্যের সাহায্যে কথা বলতে হতো। লক্ষ্যটি অর্জিত হয়েছে!",
   "APP_ABOUT_US_TEXT_1_b": "আমরা এই সত্যটি নিয়ে গর্বিত যে কোন যাত্রীবাহী লাইনার যাত্রা শুরু করার জন্য যদি রানওয়ের একটি অংশের (২০০০ মিটারেরও বেশী) প্রয়োজন হয় তবে ১০০-২০০ মিটার পথ পাড়ি দিয়ে বাতাসে ডানা মেলতে পারবে। এটির কারণ  LINGWING.COM লাইনারের ইঞ্জিন বিশেষ দক্ষতার সাথে নির্মাণ করা হয়েছে।",
@@ -994,7 +997,6 @@
   "APP_VOICE_MODAL_LI3": " <span>হেডফোন</span> ব্যবহার করুন আরও ভালো ফলাফলের জন্য",
   "APP_VOICE_MODAL_MIC": "মাইক্রোফোন চালু করুন",
   "APP_PRIVACY_POLICY1": "নিবন্ধনের মাধ্যমে, আপনি শর্তে রাজি ",
-  "APP_PRIVACY_POLICY2": "লাইসেন্স চুক্তি ",
   "APP_PRIVACY_POLICY_AND": "এবং ",
   "APP_PRIVACY_POLICY3": "গোপনীয়তা নীতি",
   "APP_MARKETING_POLICY_1": "আমি রাজি ",
