@@ -22,7 +22,6 @@ const ABOUT_COMPANY_KEYS = [
   "APP_PRIVACY_POLICY2",
   "APP_PRIVACY_POLICY"
 ]
-
 interface SectionProps {
   options: string[]
   title: string
