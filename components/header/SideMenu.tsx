@@ -4,15 +4,36 @@ import Foco from "react-foco";
 import { useIntl } from "react-intl";
 import styles from './SideMenu.module.scss'
 
-const COURSES_KEYS = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"]
-const HELP_KEYS = ["APP_FOOTER_FAQ", "APP_menu-contact"]
+const LINKS = {
+  English: "https://lingwing.com/en/wizard/eng",
+  Spanish: "https://lingwing.com/en/wizard/es",
+  Georgian: "https://lingwing.com/en/wizard/ka",
+  Russian: "https://lingwing.com/en/wizard/ru",
+  Turkish: "https://lingwing.com/en/wizard/tr",
+  Bengali: "https://lingwing.com/en/wizard/bn",
+  "APP_FOOTER_FAQ": "https://lingwing.com/en/faq/general/",
+  "APP_menu-contact": "https://lingwing.com/en/contact",
+  "APP_menu-student": "https://lingwing.com/en/student",
+  "APP_menu-packages": "https://lingwing.com/en/packages",
+  "APP_menu-gift-review": "https://lingwing.com/en/packages/giftTaskReview",
+  "APP_menu-packages-coupon": "https://lingwing.com/en/packages",
+  "APP_ABOUT_US": "https://lingwing.com/en/about-us",
+  "APP_ABOUT_CERTIFICATE": "https://lingwing.com/en/about-us?page=certificate",
+  "APP_ABOUT_US_PARTNERS": "https://lingwing.com/en/about-us?page=partners",
+  "APP_menu-blog": "https://blog.lingwing.com",
+  "APP_ABOUT_US_JOB": "https://lingwing.com/en/about-us?page=cv",
+  "APP_PRIVACY_POLICY2": "https://lingwing.com/en/licensing-agreement?page=cv",
+  "APP_PRIVACY_POLICY": "https://lingwing.com/en/privacy?page=cv",
+}
+
+const COURSES_KEYS = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"] as const
+const HELP_KEYS = ["APP_FOOTER_FAQ", "APP_menu-contact"] as const
 const PREMIUM_KEYS = [
   "APP_menu-student",
   "APP_menu-packages",
   "APP_menu-gift-review",
   "APP_menu-packages-coupon"
-]
-
+] as const
 const ABOUT_COMPANY_KEYS = [
   'APP_ABOUT_US',
   'APP_ABOUT_CERTIFICATE',
@@ -21,9 +42,16 @@ const ABOUT_COMPANY_KEYS = [
   "APP_ABOUT_US_JOB",
   "APP_PRIVACY_POLICY2",
   "APP_PRIVACY_POLICY"
-]
+] as const
+
+type AboutCompany = typeof ABOUT_COMPANY_KEYS[number]
+type CoursesKeys = typeof COURSES_KEYS[number]
+type HelpKeys = typeof HELP_KEYS[number]
+type PremiumKeys = typeof PREMIUM_KEYS[number]
+type links = keyof typeof LINKS
+
 interface SectionProps {
-  options: string[]
+  options: AboutCompany[] |  CoursesKeys[] | HelpKeys[] | PremiumKeys[]
   title: string
 }
 
@@ -37,7 +65,7 @@ const Section: FC<SectionProps> = ({ options, title }) => {
         {options.map(element => {
           const intlElement = intl.formatMessage({ id: element })
           return (
-            <span key={element}>{intlElement}</span>
+            <a href={LINKS[element]} key={element}>{intlElement}</a>
           )
         })}
       </div>
