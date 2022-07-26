@@ -1,7 +1,7 @@
 import { FC, useState } from "react"
 import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import styles from './Header.module.scss'
-import { LoginModal } from "../LoginModal/LoginModal"
+import { LoginModal } from "../loginModal/LoginModal"
 import { SideMenu } from './SideMenu'
 import { useIntl } from "react-intl";
 

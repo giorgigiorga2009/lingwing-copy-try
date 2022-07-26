@@ -3,12 +3,21 @@
 .block {
   display: flex;
   padding: 0 2.2rem;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 1.7rem;
+  gap: 1.5rem;
+
+  @include tablet {
+    flex-wrap: wrap;
+    width: 40rem;
+    max-width: 100%;
+  }
 
   @include mobile {
     padding: 0 2%;
+    flex-wrap: wrap;
+    width: 30rem;
+    max-width: 100%;
+    gap: 1rem;
   }
 }
 
@@ -31,10 +40,19 @@
   transition: all .15s linear;
   text-transform: capitalize;
 
+  @include smallWidth {
+    width: 4rem !important;
+    height: 7rem !important;
+  }
+
   @include mobile {
+    width: 5rem;
+    height: 9rem;
+  }
+
+  @include tablet {
     width: 6rem;
     height: 10rem;
-    padding-top: 1rem;
   }
 
   &.eng {
@@ -160,9 +178,19 @@
   transition: all .25s linear;
   background-repeat: no-repeat;
 
+  @include tablet {
+    width: 4rem;
+    height: 4rem;
+  }
+
   @include mobile {
     width: 4rem;
     height: 4rem;
+  }
+
+  @include smallWidth {
+    width: 3rem !important;
+    height: 3rem !important;
   }
 
   &.eng {
@@ -202,6 +230,9 @@
   font-family: 'SegoeUI-SemiBold';
   color: $white;
   font-size: 1.25rem;
+  @include mobile {
+    font-size: 1rem;
+  }
 }
 
 .start {
