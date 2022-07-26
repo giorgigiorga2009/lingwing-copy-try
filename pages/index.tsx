@@ -13,8 +13,6 @@ const Home: NextPage = () => {
   const newLanguage = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT2" })
   const today = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT3" })
 
-
-
   return (
     <div className={style.container}>
       <Header />
@@ -25,8 +23,7 @@ const Home: NextPage = () => {
           {today}
         </div>
         <LanguagesBlock />
-       
-       
+
         <div className={style.parrot} />
       </div>
       <StartButton />
@@ -34,7 +31,5 @@ const Home: NextPage = () => {
     </div>
   )
 }
-
-
 
 export default Home
