@@ -1,6 +1,7 @@
 import { FC } from "react";
 import style from "./NetworkButtons.module.scss"
 import classnames from 'classnames'
+import { useIntl } from "react-intl";
 
 const LOGIN_NETWORKS = ["facebook", "google", "twitter"] as const
 
@@ -12,11 +13,16 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({ label, isSignInTab }) => {
+
+    const intl = useIntl()
+    const signUpWith = intl.formatMessage({ id: "MODAL_SOCIAL_MEDIA" })
+    const signInWith = intl.formatMessage({ id: "MODAL_SIGN_IN_SOCIAL" })
+
     return (
         <div className={classnames(style.button, style[label])}>
             <div className={classnames(style.icon)} />
             <div className={style.text}>
-                Sign {isSignInTab ? 'in' : 'up'} with{' '}
+                    {isSignInTab ? <>{ signInWith } </> : <>{ signUpWith } </>}
                 <span className={style.network}>{label}</span>
             </div>
         </div>

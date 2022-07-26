@@ -10,6 +10,15 @@ export const LANGUAGES = {
   ger: 'German',
 }
 
+export const LOCALES = {
+  eng: 'en',
+  rus: 'ru',
+  geo: 'ka',
+  tur: 'tr',
+  ben: 'bn',
+  esp: 'es',
+}
+
 export const SWITCHED_LANGUAGES = [
   'eng',
   'esp',

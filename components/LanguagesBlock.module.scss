@@ -29,6 +29,7 @@
   background-repeat: no-repeat;
   border-radius: 0.813rem;
   transition: all .15s linear;
+  text-transform: capitalize;
 
   @include mobile {
     width: 6rem;
