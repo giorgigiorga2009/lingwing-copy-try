@@ -4,6 +4,7 @@ import { LanguagesBlock } from '../components/LanguagesBlock'
 import { FollowButtons } from '../components/FollowButtons'
 import style from '../styles/Home.module.scss'
 import { useIntl } from 'react-intl'
+import { StartButton } from '../components/StartButton'
 
 const Home: NextPage = () => {
 
@@ -11,11 +12,7 @@ const Home: NextPage = () => {
   const speakUp = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT1" })
   const newLanguage = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT2" })
   const today = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT3" })
-  const join = intl.formatMessage({ id: "Join-the-customer-1" })
-  const users = intl.formatMessage({ id: "Join-the-customer-2" })
-  const startLearning = intl.formatMessage({ id: "APP_NEWLAND_START_PRACTICE" })
 
-  
   return (
     <div className={style.container}>
       <Header />
@@ -26,23 +23,13 @@ const Home: NextPage = () => {
           {today}
         </div>
         <LanguagesBlock />
-        <div className={style.subTitle}>
-          {join}
-          <span className={style.usersAmount}> 261 872 </span>
-          {users}
-        </div>
-        <div className={style.buttonContainer}>
-          <span className={style.bubbleUp} />
-          <a className={style.startButton}>{startLearning}</a>
-          <span className={style.bubbleDown} />
-        </div>
+
         <div className={style.parrot} />
       </div>
+      <StartButton />
       <FollowButtons />
     </div>
   )
 }
-
-
 
 export default Home

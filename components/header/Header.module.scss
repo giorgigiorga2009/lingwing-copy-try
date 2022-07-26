@@ -6,8 +6,12 @@
   align-items: center;
   padding: 3.13rem 2.2rem;
 
+  @include tablet {
+    padding: 3% 5%;
+  }
+
   @include mobile {
-    padding: 2rem 5%;
+    padding: 3% 5%;
   }
 }
 
@@ -70,8 +74,8 @@
   background-size: contain;
 
   @include mobile {
-    width: 8rem;
-    height: 2rem;
+    width: 6rem;
+    height: 1.5rem;
   }
 }
 
@@ -90,5 +94,11 @@
 
   &:hover {
     border: 2px solid $white;
+  }
+
+  @include mobile {
+    width: 2rem;
+    height: 2rem;
+    background-size: 1rem;
   }
 }

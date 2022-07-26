@@ -5,12 +5,12 @@ import { useIntl } from "react-intl";
 import styles from './SideMenu.module.scss'
 
 const LINKS = {
-  English: "https://lingwing.com/en/wizard/eng",
-  Spanish: "https://lingwing.com/en/wizard/es",
-  Georgian: "https://lingwing.com/en/wizard/ka",
-  Russian: "https://lingwing.com/en/wizard/ru",
-  Turkish: "https://lingwing.com/en/wizard/tr",
-  Bengali: "https://lingwing.com/en/wizard/bn",
+  "English": "https://lingwing.com/en/wizard/eng",
+  "Spanish": "https://lingwing.com/en/wizard/es",
+  "Georgian": "https://lingwing.com/en/wizard/ka",
+  "Russian": "https://lingwing.com/en/wizard/ru",
+  "Turkish": "https://lingwing.com/en/wizard/tr",
+  "Bengali": "https://lingwing.com/en/wizard/bn",
   "APP_FOOTER_FAQ": "https://lingwing.com/en/faq/general/",
   "APP_menu-contact": "https://lingwing.com/en/contact",
   "APP_menu-student": "https://lingwing.com/en/student",
@@ -24,17 +24,17 @@ const LINKS = {
   "APP_ABOUT_US_JOB": "https://lingwing.com/en/about-us?page=cv",
   "APP_PRIVACY_POLICY2": "https://lingwing.com/en/licensing-agreement?page=cv",
   "APP_PRIVACY_POLICY": "https://lingwing.com/en/privacy?page=cv",
-}
+} as const
 
-const COURSES_KEYS = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"] as const
-const HELP_KEYS = ["APP_FOOTER_FAQ", "APP_menu-contact"] as const
-const PREMIUM_KEYS = [
+const COURSES_KEYS: SideMenuKeys[] = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"] 
+const HELP_KEYS: SideMenuKeys[] = ["APP_FOOTER_FAQ", "APP_menu-contact"] 
+const PREMIUM_KEYS: SideMenuKeys[] = [
   "APP_menu-student",
   "APP_menu-packages",
   "APP_menu-gift-review",
   "APP_menu-packages-coupon"
-] as const
-const ABOUT_COMPANY_KEYS = [
+] 
+const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
   'APP_ABOUT_US',
   'APP_ABOUT_CERTIFICATE',
   "APP_ABOUT_US_PARTNERS",
@@ -42,16 +42,12 @@ const ABOUT_COMPANY_KEYS = [
   "APP_ABOUT_US_JOB",
   "APP_PRIVACY_POLICY2",
   "APP_PRIVACY_POLICY"
-] as const
+] 
 
-type AboutCompany = typeof ABOUT_COMPANY_KEYS[number]
-type CoursesKeys = typeof COURSES_KEYS[number]
-type HelpKeys = typeof HELP_KEYS[number]
-type PremiumKeys = typeof PREMIUM_KEYS[number]
-type links = keyof typeof LINKS
+type SideMenuKeys = keyof typeof LINKS
 
 interface SectionProps {
-  options: AboutCompany[] |  CoursesKeys[] | HelpKeys[] | PremiumKeys[]
+  options: SideMenuKeys[]
   title: string
 }
 
@@ -84,7 +80,6 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
   const premium = intl.formatMessage({ id: "APP_menu-premium" })
   const company = intl.formatMessage({ id: "APP_menu-company" })
   const help = intl.formatMessage({ id: "APP_menu-help" })
-
 
   return (
     <div className={styles.wrapper}>
