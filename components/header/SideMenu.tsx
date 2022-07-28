@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { FC } from "react";
 import Foco from "react-foco";
 import { useIntl } from "react-intl";
+import { useTranslation } from "../../utis/useTranslation";
 import styles from './SideMenu.module.scss'
 
 const LINKS = {
@@ -26,14 +27,14 @@ const LINKS = {
   "APP_PRIVACY_POLICY": "https://lingwing.com/en/privacy?page=cv",
 } as const
 
-const COURSES_KEYS: SideMenuKeys[] = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"] 
-const HELP_KEYS: SideMenuKeys[] = ["APP_FOOTER_FAQ", "APP_menu-contact"] 
+const COURSES_KEYS: SideMenuKeys[] = ["English", "Spanish", "Georgian", "Russian", "Turkish", "Bengali"]
+const HELP_KEYS: SideMenuKeys[] = ["APP_FOOTER_FAQ", "APP_menu-contact"]
 const PREMIUM_KEYS: SideMenuKeys[] = [
   "APP_menu-student",
   "APP_menu-packages",
   "APP_menu-gift-review",
   "APP_menu-packages-coupon"
-] 
+]
 const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
   'APP_ABOUT_US',
   'APP_ABOUT_CERTIFICATE',
@@ -42,7 +43,7 @@ const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
   "APP_ABOUT_US_JOB",
   "APP_PRIVACY_POLICY2",
   "APP_PRIVACY_POLICY"
-] 
+]
 
 type SideMenuKeys = keyof typeof LINKS
 
@@ -52,18 +53,15 @@ interface SectionProps {
 }
 
 const Section: FC<SectionProps> = ({ options, title }) => {
-  const intl = useIntl()
+  const { t } = useTranslation()
 
   return (
     <section>
       <h3>{title}</h3>
       <div className={styles.list}>
-        {options.map(element => {
-          const intlElement = intl.formatMessage({ id: element })
-          return (
-            <a href={LINKS[element]} key={element}>{intlElement}</a>
-          )
-        })}
+        {options.map(element => (
+          <a href={LINKS[element]} key={element}>{t(element)}</a>
+        ))}
       </div>
     </section>
   )
@@ -74,12 +72,7 @@ interface SideMenuProps {
 }
 
 export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
-  const intl = useIntl()
-  const downloadApp = intl.formatMessage({ id: "APP_DOWNLOAD_APP" })
-  const courses = intl.formatMessage({ id: "APP_FOOTER_COURSES" })
-  const premium = intl.formatMessage({ id: "APP_menu-premium" })
-  const company = intl.formatMessage({ id: "APP_menu-company" })
-  const help = intl.formatMessage({ id: "APP_menu-help" })
+  const { t } = useTranslation()
 
   return (
     <div className={styles.wrapper}>
@@ -88,14 +81,14 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         <div className={styles.content}>
 
           <div className={styles.menu}>
-            <Section title={courses} options={COURSES_KEYS} />
-            <Section title={premium} options={PREMIUM_KEYS} />
-            <Section title={company} options={ABOUT_COMPANY_KEYS} />
-            <Section title={help} options={HELP_KEYS} />
+            <Section title={t("APP_FOOTER_COURSES")} options={COURSES_KEYS} />
+            <Section title={t("APP_menu-premium")} options={PREMIUM_KEYS} />
+            <Section title={t("APP_menu-company")} options={ABOUT_COMPANY_KEYS} />
+            <Section title={t("APP_menu-help")} options={HELP_KEYS} />
           </div>
 
           <div className={styles.footer}>
-            <h3 className={styles.title}>{downloadApp}</h3>
+            <h3 className={styles.title}>{t("APP_DOWNLOAD_APP")}</h3>
             <div className={styles.mobileMarkets}>
               <a
                 className={classNames(styles.market, styles.apple)}

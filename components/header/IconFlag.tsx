@@ -1,7 +1,7 @@
 import styles from './IconFlag.module.scss'
 import classnames from 'classnames'
 import { FC } from 'react'
-import { SwitchedLanguage } from '../languages'
+import { SwitchedLanguage } from '../../utis/languages'
 
 interface Props {
   language: SwitchedLanguage

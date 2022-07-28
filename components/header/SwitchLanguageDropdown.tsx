@@ -2,14 +2,16 @@ import { FC, Fragment, useState } from 'react'
 import styles from './SwitchLanguageDropdown.module.scss'
 import Foco from 'react-foco'
 import { IconFlag } from './IconFlag'
-import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES, LANGUAGES_TO_LOCALES, LOCALES_TO_LANGUAGES, Locales} from '../languages'
+import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES, LANGUAGES_TO_LOCALES, LOCALES_TO_LANGUAGES, Locales } from '../../utis/languages'
 import { useRouter } from 'next/router'
 
 export const SwitchLanguageDropdown: FC = () => {
   const router = useRouter()
-  const [selectedLang, setSelectedLang] = useState<SwitchedLanguage>(LOCALES_TO_LANGUAGES[router.locale as Locales])
+  const [selectedLang, setSelectedLang] = useState<SwitchedLanguage>(
+    LOCALES_TO_LANGUAGES[router.locale as Locales]
+  )
   const [open, setOpen] = useState(false)
- 
+
 
   const handleClick = (language: SwitchedLanguage) => {
     setSelectedLang(language)

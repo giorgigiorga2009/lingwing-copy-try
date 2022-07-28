@@ -1,24 +1,22 @@
 import { FC } from "react";
 import { useIntl } from "react-intl";
+import { useTranslation } from "../utis/useTranslation";
 import style from './StartButton.module.scss'
 
 export const StartButton: FC = () => {
-  const intl = useIntl()
-  const startLearning = intl.formatMessage({ id: "APP_NEWLAND_START_PRACTICE" })
-  const join = intl.formatMessage({ id: "Join-the-customer-1" })
-  const users = intl.formatMessage({ id: "Join-the-customer-2" })
+  const { t } = useTranslation()
 
   return (
     <div className={style.container}>
       <div className={style.title}>
-        {join}
+        {t("Join-the-customer-1")}
         <span className={style.usersAmount}> 261 872 </span>
-        {users}
+        {t("Join-the-customer-2")}
       </div>
 
       <div className={style.button}>
         <span className={style.bubbleUp} />
-        <a className={style.text}>{startLearning}</a>
+        <a className={style.text}>{t("APP_NEWLAND_START_PRACTICE")}</a>
         <span className={style.bubbleDown} />
       </div>
     </div>

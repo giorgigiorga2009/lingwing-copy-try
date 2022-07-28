@@ -5,6 +5,7 @@ import { LoginModal } from "../loginModal/LoginModal"
 import { SideMenu } from './SideMenu'
 import { useIntl } from "react-intl";
 import classNames from "classnames"
+import { useTranslation } from "../../utis/useTranslation"
 
 interface Props {
   size?: 's' | 'm'
@@ -13,9 +14,7 @@ interface Props {
 export const Header: FC<Props> = ({size: color = 'm'}) => {
   const [open, setOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
-  const intl = useIntl()
-  const signIn = intl.formatMessage({ id: "AUTH_LOGIN" })
+  const {t} = useTranslation()
 
   return (
     <>
@@ -28,7 +27,9 @@ export const Header: FC<Props> = ({size: color = 'm'}) => {
         <div className={style.rightBlock}>
           <SwitchLanguageDropdown />
           <div className={style.avatar} />
-          <div className={style.singInButton} onClick={() => setOpen(true)}>{signIn}</div>
+          <div className={style.singInButton} onClick={() => setOpen(true)}>
+            {t("AUTH_LOGIN")}
+          </div>
         </div>
       </header>
       {open && <LoginModal onClick={() => setOpen(false)} />}

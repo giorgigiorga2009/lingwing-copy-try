@@ -3,29 +3,26 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { useIntl } from 'react-intl'
-import {LANGUAGES, LearnedLanguage, LEARNED_LANGUAGES } from './languages'
+import { LANGUAGES, LearnedLanguage, LEARNED_LANGUAGES } from '../utis/languages'
+import { useTranslation } from '../utis/useTranslation'
 import style from './LanguagesBlock.module.scss'
 
 interface Props {
-  language: LearnedLanguage 
+  language: LearnedLanguage
 }
 
 const LanguageTile: FC<Props> = ({ language }) => {
-
-  const intl = useIntl()
-  const start = intl.formatMessage({ id: "WIZARD_START_BUTTON" })
-  const intlElement = intl.formatMessage({ id: LANGUAGES[language] })
+  const { t } = useTranslation()
   const router = useRouter()
 
   return (
     <Link href={`${router.locale === 'en' ? 'en' : ''}/wizard/${language}`} locale={router.locale} >
-    <div className={classNames(style.tileContainer, style[language])}>
-      {/* routing by onclick */}
-      <span className={style.start}>{start}</span>
-      <span className={style.title}>{intlElement}</span>
-      <span className={classNames(style.languageFlag, style[language])} />
-      <span className={classNames(style.parrot, style[language])} />
-    </div>
+      <div className={classNames(style.tileContainer, style[language])}>
+        <span className={style.start}>{t("WIZARD_START_BUTTON")}</span>
+        <span className={style.title}>{t(LANGUAGES[language])}</span>
+        <span className={style.languageFlag} />
+        <span className={style.parrot} />
+      </div>
     </Link>
   )
 }

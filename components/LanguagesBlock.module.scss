@@ -85,31 +85,31 @@
 
   &:hover {
 
-    &.eng {
+    .eng & {
       background-image: url('/assets/images/languages_background/eng_light.jpg');
     }
 
-    &.esp {
+    .esp & {
       background-image: url('/assets/images/languages_background/esp_light.jpg');
     }
 
-    &.ita {
+    .ita & {
       background-image: url('/assets/images/languages_background/ita_light.jpg');
     }
 
-    &.fre {
+    .fre & {
       background-image: url('/assets/images/languages_background/fre_light.jpg');
     }
 
-    &.rus {
+    .rus & {
       background-image: url('/assets/images/languages_background/rus_light.jpg');
     }
 
-    &.geo {
+    .geo & {
       background-image: url('/assets/images/languages_background/geo_light.jpg');
     }
 
-    &.ger {
+    .ger & {
       background-image: url('/assets/images/languages_background/ger_light.jpg');
     }
 
@@ -140,31 +140,31 @@
   background-repeat: no-repeat;
   transition: all .25s linear;
 
-  &.eng {
+  .eng & {
     background-image: url('/assets/images/languages_background/eng_parrot.png');
   }
 
-  &.esp {
+  .esp & {
     background-image: url('/assets/images/languages_background/esp_parrot.png');
   }
 
-  &.ita {
+  .ita & {
     background-image: url('/assets/images/languages_background/ita_parrot.png');
   }
 
-  &.fre {
+  .fre & {
     background-image: url('/assets/images/languages_background/fre_parrot.png');
   }
 
-  &.rus {
+  .rus & {
     background-image: url('/assets/images/languages_background/rus_parrot.png');
   }
 
-  &.geo {
+  .geo & {
     background-image: url('/assets/images/languages_background/geo_parrot.png');
   }
 
-  &.ger {
+  .ger & {
     background-image: url('/assets/images/languages_background/ger_parrot.png');
   }
 }
@@ -193,31 +193,31 @@
     height: 3rem !important;
   }
 
-  &.eng {
+  .eng & {
     background-image: url('/assets/images/flags/English.png');
   }
 
-  &.esp {
+  .esp & {
     background-image: url('/assets/images/flags/Spanish.png');
   }
 
-  &.ita {
+  .ita & {
     background-image: url('/assets/images/flags/Italian.png');
   }
 
-  &.fre {
+  .fre & {
     background-image: url('/assets/images/flags/French.png');
   }
 
-  &.rus {
+  .rus & {
     background-image: url('/assets/images/flags/Russian.png');
   }
 
-  &.geo {
+  .geo & {
     background-image: url('/assets/images/flags/Georgian.png');
   }
 
-  &.ger {
+  .ger & {
     background-image: url('/assets/images/flags/German.png');
   }
 }
@@ -230,6 +230,7 @@
   font-family: 'SegoeUI-SemiBold';
   color: $white;
   font-size: 1.25rem;
+
   @include mobile {
     font-size: 1rem;
   }
