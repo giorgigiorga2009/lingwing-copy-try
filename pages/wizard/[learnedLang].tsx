@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Header } from '../../../components/header/Header';
+import { Header } from '../../components/header/Header';
 import style from '../wizard/Wizard.module.scss'
 
 //"choose language to learn from" page

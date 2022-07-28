@@ -18,7 +18,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
   const router = useRouter()
 
   return (
-    <Link href={`${router.locale === 'en' && 'en'}/wizard/${language}`} locale={router.locale} >
+    <Link href={`${router.locale === 'en' ? 'en' : ''}/wizard/${language}`} locale={router.locale} >
     <div className={classNames(style.tileContainer, style[language])}>
       {/* routing by onclick */}
       <span className={style.start}>{start}</span>
