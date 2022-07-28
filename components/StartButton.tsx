@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { useIntl } from "react-intl";
 import { useTranslation } from "../utis/useTranslation";
 import style from './StartButton.module.scss'
 
