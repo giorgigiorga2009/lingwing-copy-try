@@ -4,14 +4,26 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 3.13rem 2.2rem;
-
-  @include tablet {
-    padding: 3% 5%;
+  &.m {
+    padding: 3.13rem 2.2rem;
+    @include tablet {
+      padding: 3% 5%;
+    }
+  
+    @include mobile {
+      padding: 3% 5%;
+    }
   }
-
-  @include mobile {
-    padding: 3% 5%;
+  &.s {
+    background-color: $purple-600;
+    padding: 0.7rem 2.2rem;
+    @include tablet {
+      padding: 3% 5%;
+    }
+  
+    @include mobile {
+      padding: 3% 5%;
+    }
   }
 }
 
@@ -43,14 +55,9 @@
 
 .leftBlock {
   display: flex;
-  gap: 1.36rem;
   align-items: center;
   position: relative;
   height: 2.5rem;
-
-  @include mobile {
-    gap: 0.5rem;
-  }
 }
 
 .rightBlock {
@@ -70,12 +77,16 @@
   height: 2.44rem;
   background-image: url('../../public/assets/images/logo-light.svg');
   background-repeat: no-repeat;
-  background-position: center bottom -2px;
   background-size: contain;
+  position: absolute;
+  top: 0.3rem;
+  left: 4rem;
 
   @include mobile {
     width: 6rem;
     height: 1.5rem;
+    left: 3rem;
+    top: 0.6rem;
   }
 }
 

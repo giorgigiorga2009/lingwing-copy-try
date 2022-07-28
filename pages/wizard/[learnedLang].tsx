@@ -6,7 +6,7 @@ import style from '../wizard/Wizard.module.scss'
 const Step1: NextPage = () => {
   return (
     <div className={style.container}>
-      <Header />
+      <Header size='s'/>
  
     </div>
   )

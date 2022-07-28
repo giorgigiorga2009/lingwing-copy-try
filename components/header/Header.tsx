@@ -1,11 +1,16 @@
 import { FC, useState } from "react"
 import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
-import styles from './Header.module.scss'
+import style from './Header.module.scss'
 import { LoginModal } from "../loginModal/LoginModal"
 import { SideMenu } from './SideMenu'
 import { useIntl } from "react-intl";
+import classNames from "classnames"
 
-export const Header: FC = () => {
+interface Props {
+  size?: 's' | 'm'
+}
+
+export const Header: FC<Props> = ({size: color = 'm'}) => {
   const [open, setOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -14,16 +19,16 @@ export const Header: FC = () => {
 
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.leftBlock}>
-          <div className={styles.button} onClick={() => setIsOpen(true)} />
-          <a className={styles.logo} href="https://lingwing.com/en/" />
+      <header className={classNames(style.header, style[color])}>
+        <div className={style.leftBlock}>
+          <div className={style.button} onClick={() => setIsOpen(true)} />
+          <a className={style.logo} href="https://lingwing.com/en/" />
           {isOpen && <SideMenu onClose={() => setIsOpen(false)}/>}
         </div >
-        <div className={styles.rightBlock}>
+        <div className={style.rightBlock}>
           <SwitchLanguageDropdown />
-          <div className={styles.avatar} />
-          <div className={styles.singInButton} onClick={() => setOpen(true)}>{signIn}</div>
+          <div className={style.avatar} />
+          <div className={style.singInButton} onClick={() => setOpen(true)}>{signIn}</div>
         </div>
       </header>
       {open && <LoginModal onClick={() => setOpen(false)} />}
