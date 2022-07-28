@@ -5,6 +5,7 @@ import { FollowButtons } from '../components/FollowButtons'
 import style from '../styles/Home.module.scss'
 import { useIntl } from 'react-intl'
 import { StartButton } from '../components/StartButton'
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
 
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
   const speakUp = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT1" })
   const newLanguage = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT2" })
   const today = intl.formatMessage({ id: "APP_NEWLAND_START_TEXT3" })
+
 
   return (
     <div className={style.container}>

@@ -10,7 +10,7 @@ export const LANGUAGES = {
   ger: 'German',
 }
 
-export const LOCALES_TO_LANGUAGES = {
+export const LANGUAGES_TO_LOCALES = {
   eng: 'en',
   rus: 'ru',
   geo: 'ka',
@@ -19,7 +19,7 @@ export const LOCALES_TO_LANGUAGES = {
   esp: 'es',
 } as const
 
-export const LANGUAGES_TO_LOCALES = {
+export const LOCALES_TO_LANGUAGES = {
   en: 'eng',
   ru: 'rus',
   ka: 'geo',
@@ -49,4 +49,4 @@ export const LEARNED_LANGUAGES = [
 
 export type SwitchedLanguage = typeof SWITCHED_LANGUAGES[number]
 export type LearnedLanguage = typeof LEARNED_LANGUAGES[number]
-export type Locales = typeof LOCALES_TO_LANGUAGES[SwitchedLanguage]
+export type Locales = typeof LANGUAGES_TO_LOCALES[SwitchedLanguage]

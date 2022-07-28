@@ -1,0 +1,14 @@
+@import '../../../styles/imports.scss';
+
+.container {
+  background-color: $purple-600;
+  background-image: url('/assets/images/background-letters.svg'),
+    -webkit-radial-gradient(center, circle cover,
+      rgba(255, 255, 255, .15) 0, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0) 100%);
+  background-repeat: repeat, no-repeat;
+  background-position: center, center;
+  background-size: contain, cover;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
