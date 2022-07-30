@@ -1,1 +1,0 @@
-//"Choose difficulty level for learning" page
