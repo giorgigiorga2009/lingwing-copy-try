@@ -18,7 +18,6 @@ const getLearnFromLanguages = (language: string): string[] => {
 
 type Sections = 'learnLanguage' | 'fromLanguage' | 'difficulty'
 
-//"choose language to learn from" page
 const Wizard: NextPage = () => {
   const router = useRouter()
   const [page, setPage] = useState<Sections>()
@@ -40,7 +39,7 @@ const Wizard: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size='s' />
-      
+
       {page === 'fromLanguage' && learnLanguages.map(language => (
         <div onClick={() => setPage('difficulty')}>{language}</div>
       ))}

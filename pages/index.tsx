@@ -6,10 +6,8 @@ import style from '../styles/Home.module.scss'
 import { StartButton } from '../components/StartButton'
 import { useTranslation } from '../utils/useTranslation'
 
-
 const Home: NextPage = () => {
   const { t } = useTranslation()
-
 
   return (
     <div className={style.container}>
