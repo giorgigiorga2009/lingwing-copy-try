@@ -1,0 +1,75 @@
+@import '../../styles/imports.scss';
+
+
+.container {
+  z-index: 200;
+  width: 9.6rem;
+  height: 11.67rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: all .2s linear;
+}
+
+.title {
+  text-transform: capitalize;
+  font-family: SegoeUI;
+  color: $grey-200;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8.93rem;
+  height: 8.93rem;
+  border-radius: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 2px 1px rgba(109, 106, 106, 0.3);
+  cursor: pointer;
+  background-color: $white;
+
+  &:hover {
+    background-color: $orange-200;
+  }
+}
+
+.flag {
+  width: 4.6rem;
+  height: 4.6rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.eng {
+    background-image: url('/assets/images/flags/big/English.png');
+  }
+
+  &.esp {
+    background-image: url('/assets/images/flags/big/Spanish.png');
+  }
+
+  &.ita {
+    background-image: url('/assets/images/flags/big/Italian.png');
+  }
+
+  &.fre {
+    background-image: url('/assets/images/flags/big/French.png');
+  }
+
+  &.rus {
+    background-image: url('/assets/images/flags/big/Russian.png');
+  }
+
+  &.geo {
+    background-image: url('/assets/images/flags/big/Georgian.png');
+  }
+
+  &.ger {
+    background-image: url('/assets/images/flags/big/German.png');
+  }
+}

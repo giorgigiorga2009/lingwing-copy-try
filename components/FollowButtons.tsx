@@ -1,8 +1,8 @@
 import { FC } from "react";
 import style from './FollowButtons.module.scss'
-import classnames from "classnames";
+import classNames from "classnames";
 import { useIntl } from "react-intl";
-import { useTranslation } from "../utis/useTranslation";
+import { useTranslation } from "../utils/useTranslation";
 
 const NETWORKS = {
   facebook: 'https://www.facebook.com/lingwingcom',
@@ -26,7 +26,7 @@ export const FollowButtons: FC = () => {
         {KEY_NETWORKS.map(label => (
           <a href={NETWORKS[label]}
             key={label}
-            className={classnames(style.followButton, style[label])}
+            className={classNames(style.followButton, style[label])}
           />
         ))}
       </div>

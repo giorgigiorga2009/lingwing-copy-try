@@ -3,22 +3,21 @@ import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
 import style from './Header.module.scss'
 import { LoginModal } from "../loginModal/LoginModal"
 import { SideMenu } from './SideMenu'
-import { useIntl } from "react-intl";
 import classNames from "classnames"
-import { useTranslation } from "../../utis/useTranslation"
+import { useTranslation } from "../../utils/useTranslation"
 
 interface Props {
   size?: 's' | 'm'
 }
 
-export const Header: FC<Props> = ({size: color = 'm'}) => {
+export const Header: FC<Props> = ({size = 'm'}) => {
   const [open, setOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const {t} = useTranslation()
 
   return (
     <>
-      <header className={classNames(style.header, style[color])}>
+      <header className={classNames(style.header, style[size])}>
         <div className={style.leftBlock}>
           <div className={style.button} onClick={() => setIsOpen(true)} />
           <a className={style.logo} href="https://lingwing.com/en/" />

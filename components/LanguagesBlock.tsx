@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { useIntl } from 'react-intl'
-import { LANGUAGES, LearnedLanguage, LEARNED_LANGUAGES } from '../utis/languages'
-import { useTranslation } from '../utis/useTranslation'
+import { LANGUAGES, LearnedLanguage, LEARNED_LANGUAGES } from '../utils/languages'
+import { useTranslation } from '../utils/useTranslation'
 import style from './LanguagesBlock.module.scss'
 
 interface Props {

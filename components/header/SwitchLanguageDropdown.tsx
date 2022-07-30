@@ -2,7 +2,7 @@ import { FC, Fragment, useState } from 'react'
 import styles from './SwitchLanguageDropdown.module.scss'
 import Foco from 'react-foco'
 import { IconFlag } from './IconFlag'
-import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES, LANGUAGES_TO_LOCALES, LOCALES_TO_LANGUAGES, Locales } from '../../utis/languages'
+import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES, LANGUAGES_TO_LOCALES, LOCALES_TO_LANGUAGES, Locales } from '../../utils/languages'
 import { useRouter } from 'next/router'
 
 export const SwitchLanguageDropdown: FC = () => {
@@ -16,7 +16,8 @@ export const SwitchLanguageDropdown: FC = () => {
   const handleClick = (language: SwitchedLanguage) => {
     setSelectedLang(language)
     setOpen(false)
-    router.push('/', '/', { locale: LANGUAGES_TO_LOCALES[language] })
+    const page = router.asPath
+    router.push(page, page, { locale: LANGUAGES_TO_LOCALES[language] })
   }
 
   return (

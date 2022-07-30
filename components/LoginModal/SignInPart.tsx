@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useTranslation } from "../../utis/useTranslation";
+import { useTranslation } from "../../utils/useTranslation";
 import styles from './SignInPart.module.scss'
 
 export const SignInPart: FC = () => {

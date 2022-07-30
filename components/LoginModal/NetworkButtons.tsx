@@ -1,7 +1,7 @@
 import { FC } from "react";
 import style from "./NetworkButtons.module.scss"
-import classnames from 'classnames'
-import { useTranslation } from "../../utis/useTranslation";
+import classNames from 'classnames'
+import { useTranslation } from "../../utils/useTranslation";
 
 const LOGIN_NETWORKS = ["facebook", "google", "twitter"] as const
 
@@ -16,8 +16,8 @@ const Button: FC<ButtonProps> = ({ label, isSignInTab }) => {
   const { t } = useTranslation()
 
   return (
-    <div className={classnames(style.button, style[label])}>
-      <div className={classnames(style.icon)} />
+    <div className={classNames(style.button, style[label])}>
+      <div className={classNames(style.icon)} />
       <div className={style.text}>
         {isSignInTab ? <>{t("MODAL_SIGN_IN_SOCIAL")} </> : <>{t("MODAL_SOCIAL_MEDIA")} </>}
         <span className={style.network}>{label}</span>

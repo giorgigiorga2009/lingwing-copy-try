@@ -2,10 +2,10 @@ import { FC, useState } from "react";
 import style from './LoginModal.module.scss'
 import Foco from "react-foco";
 import { NetworkButtons } from "./NetworkButtons";
-import classnames from 'classnames'
+import classNames from 'classnames'
 import { SignInPart} from "./SignInPart";
 import { SignUpPart } from "./SignUpPart";
-import { useTranslation } from "../../utis/useTranslation";
+import { useTranslation } from "../../utils/useTranslation";
 
 interface Props {
   onClick: () => void
@@ -20,12 +20,12 @@ export const LoginModal: FC<Props> = ({ onClick }) => {
       <Foco component='div' onClickOutside={onClick} className={style.modal} >
         <div className={style.modalHeader}>
           <div 
-            className={classnames(style.headerButton, isSignInTab && style.active)} 
+            className={classNames(style.headerButton, isSignInTab && style.active)} 
             onClick={() => setSignInTab(true)}>
               {t("AUTH_LOGIN")}
           </div>
           <div 
-            className={classnames(style.headerButton, !isSignInTab && style.active)} 
+            className={classNames(style.headerButton, !isSignInTab && style.active)} 
             onClick={() => setSignInTab(false)}>
               {t("REGISTER")}
           </div>

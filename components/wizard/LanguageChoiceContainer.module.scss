@@ -1,0 +1,28 @@
+@import '../../styles/imports.scss';
+
+.container {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 199;
+}
+
+.tilesContainer {
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  display: flex;
+  width: 54.7rem;
+  height: 26.4rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: $grey-200;
+  font-family: SegoeUI;
+}

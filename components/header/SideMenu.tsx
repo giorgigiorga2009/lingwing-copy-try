@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 import Foco from "react-foco";
-import { useIntl } from "react-intl";
-import { useTranslation } from "../../utis/useTranslation";
+import { useTranslation } from "../../utils/useTranslation";
 import styles from './SideMenu.module.scss'
 
 const LINKS = {
