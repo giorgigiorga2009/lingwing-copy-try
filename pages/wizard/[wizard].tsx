@@ -29,9 +29,7 @@ const Wizard: NextPage = () => {
     ? getLearnFromLanguages(learnLanguage as string)
     : []
 
-    console.log(router,learnLanguage, learnLanguages)
   useEffect(() => {
-
     if (learnLanguages.length === 0 || learnLanguages.includes(LOCALES_TO_LANGUAGES[locale as Locales])) {
       setPage('difficulty')
     } else {
@@ -44,10 +42,10 @@ const Wizard: NextPage = () => {
       <Header size='s' />
 
       {page === 'fromLanguage' &&
-        <>
+        <div className={style.languageContainer}>
           <PageTitle text='Choose language to learn from' />
           <LanguageChoiceContainer languages={learnLanguages} onClick={() => setPage('difficulty')} />
-        </>
+        </div>
       }
 
       {page === 'difficulty' && <div>choose difficulty page</div>}

@@ -12,12 +12,12 @@ const Wizard: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size='s' />
-      <div className={style.parrot}/>
+      <div className={style.parrot} />
       <div className={style.languageContainer}>
-      <PageTitle text='Choose language to learn' />
-      <LanguageChoiceContainer languages={LEARNED_LANGUAGES}/>
+        <PageTitle text='Choose language to learn' />
+        <LanguageChoiceContainer languages={LEARNED_LANGUAGES} />
       </div>
-      <div className={style.ball}/>
+      <div className={style.ball} />
     </div>
   )
 }
