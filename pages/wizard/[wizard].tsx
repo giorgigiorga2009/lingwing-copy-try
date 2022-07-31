@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import { Header } from '../../components/header/Header';
-import style from '../wizard/Wizard.module.scss'
 import learnLanguagesData from '../../utis/learnLanguages.json'
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react'
-import { Locales, LOCALES_TO_LANGUAGES } from '../../utis/languages';
+import { Locales, LOCALES_TO_LANGUAGES } from '../../utis/languages'
+import style from '../Wizard.module.scss'
 
 
 const getLearnFromLanguages = (language: string): string[] => {
@@ -16,17 +16,20 @@ const getLearnFromLanguages = (language: string): string[] => {
     : []
 }
 
-type Sections = 'learnLanguage' | 'fromLanguage' | 'difficulty'
+type Sections = 'fromLanguage' | 'difficulty'
 
 const Wizard: NextPage = () => {
   const router = useRouter()
   const [page, setPage] = useState<Sections>()
 
   const locale = router.locale ?? 'en'
-  const learnLanguage = router.query.learnLang as string
-  const learnLanguages = getLearnFromLanguages(learnLanguage)
+  const learnLanguage = router.query.learnLang
+  const learnLanguages = learnLanguage !== undefined
+    ? getLearnFromLanguages(learnLanguage as string)
+    : []
 
   useEffect(() => {
+
     if (learnLanguages.length === 0) {
       setPage('difficulty')
     } else if (learnLanguages.includes(LOCALES_TO_LANGUAGES[locale as Locales])) {
@@ -46,7 +49,6 @@ const Wizard: NextPage = () => {
 
       {page === 'difficulty' && <div>choose difficulty page</div>}
 
-      {page === 'learnLanguage' && <div>choose Language to learn Page</div>}
     </div>
   )
 }
