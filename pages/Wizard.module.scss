@@ -16,7 +16,6 @@
   height: 27vh;
   top: 5rem;
   left: 10rem;
-
 }
 
 .ball {
@@ -29,4 +28,14 @@
   height: 47.37rem;
   bottom: 0;
   right: -7rem;
+}
+
+.languageContainer {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 199;
 }
