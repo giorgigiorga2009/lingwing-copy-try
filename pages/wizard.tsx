@@ -86,7 +86,7 @@ const Wizard: NextPage = () => {
 
       {page === 'step1' && <div className={style.languageContainer}>
         <PageTitle text='Choose language to learn' />
-        <LanguageChoiceContainer languages={LEARNED_LANGUAGES} onClick={onStep1Click} />
+        <LanguageChoiceContainer languages={[...LEARNED_LANGUAGES]} onClick={onStep1Click} />
       </div>}
 
 
