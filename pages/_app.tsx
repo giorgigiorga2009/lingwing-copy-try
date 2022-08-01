@@ -10,6 +10,7 @@ import ka from '../public/localization/locale-ka_GE.json'
 import ru from '../public/localization/locale-ru_RU.json'
 import tr from '../public/localization/locale-tr_TR.json'
 import { useRouter } from "next/router";
+import { QueryParamProvider } from "use-query-params";
 
 const LOCALE = ['en', 'bn', 'es', 'ka', 'ru', 'tr']
 type LOCALE = typeof LOCALE[number]

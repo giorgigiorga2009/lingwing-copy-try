@@ -20,7 +20,7 @@ export const StartButton: FC = () => {
         <span className={style.bubbleUp} />
         <Link
           locale={router.locale}
-          href={`${router.locale === 'en' ? 'en' : ''}/wizard/`}
+          href={'/wizard'}
         >
           <span className={style.text}>
             {t("APP_NEWLAND_START_PRACTICE")}

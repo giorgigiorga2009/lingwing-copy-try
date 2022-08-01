@@ -12,16 +12,19 @@ const Home: NextPage = () => {
   return (
     <div className={style.container}>
       <Header />
+      
       <div className={style.content}>
         <div className={style.title}>
           {t("APP_NEWLAND_START_TEXT1")}
-          <span className={style.styledTitle}>{t("APP_NEWLAND_START_TEXT2")}</span>
+          <span className={style.styledTitle}>
+            {t("APP_NEWLAND_START_TEXT2")}
+          </span>
           {t("APP_NEWLAND_START_TEXT3")}
         </div>
         <LanguagesBlock />
-
         <div className={style.parrot} />
       </div>
+
       <StartButton />
       <FollowButtons />
     </div>

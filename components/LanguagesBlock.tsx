@@ -16,7 +16,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
   const router = useRouter()
 
   return (
-    <Link href={`${router.locale === 'en' ? 'en' : ''}/wizard/${language}`} locale={router.locale} >
+    <Link href={`/wizard?learnLang=${language}`} locale={router.locale} >
       <div className={classNames(style.tileContainer, style[language])}>
         <span className={style.start}>{t("WIZARD_START_BUTTON")}</span>
         <span className={style.title}>{t(LANGUAGES[language])}</span>

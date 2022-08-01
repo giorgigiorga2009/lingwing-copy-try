@@ -2,18 +2,18 @@ import { FC, Fragment, useState } from 'react'
 import styles from './SwitchLanguageDropdown.module.scss'
 import Foco from 'react-foco'
 import { IconFlag } from './IconFlag'
-import { SwitchedLanguage, LANGUAGES, SWITCHED_LANGUAGES, LANGUAGES_TO_LOCALES, LOCALES_TO_LANGUAGES, Locales } from '../../utils/languages'
+import { Locale, LANGUAGES, LOCALES, LANGUAGES_TO_LOCALES, LOCALES_TO_LANGUAGES, Locale } from '../../utils/languages'
 import { useRouter } from 'next/router'
 
 export const SwitchLanguageDropdown: FC = () => {
   const router = useRouter()
-  const [selectedLang, setSelectedLang] = useState<SwitchedLanguage>(
-    LOCALES_TO_LANGUAGES[router.locale as Locales]
+  const [selectedLang, setSelectedLang] = useState<Locale>(
+    LOCALES_TO_LANGUAGES[router.locale as Locale]
   )
   const [open, setOpen] = useState(false)
 
 
-  const handleClick = (language: SwitchedLanguage) => {
+  const handleClick = (language: Locale) => {
     setSelectedLang(language)
     setOpen(false)
     const page = router.asPath
@@ -29,7 +29,7 @@ export const SwitchLanguageDropdown: FC = () => {
       </div>
       {open && (
         <div className={styles.dropdownContent}>
-          {SWITCHED_LANGUAGES.map((language: SwitchedLanguage) => {
+          {LOCALES.map((language: Locale) => {
             return (
               <Fragment key={language}>
                 {language !== selectedLang && (

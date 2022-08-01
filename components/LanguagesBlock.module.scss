@@ -79,37 +79,37 @@
     background-image: url('/assets/images/languages_background/geo_dark.png');
   }
 
-  &.ger {
+  &.deu {
     background-image: url('/assets/images/languages_background/ger_dark.png');
   }
 
   &:hover {
-
-    .eng & {
+    transform: scale(1.05,1.05);
+    &.eng  {
       background-image: url('/assets/images/languages_background/eng_light.jpg');
     }
 
-    .esp & {
+    &.esp {
       background-image: url('/assets/images/languages_background/esp_light.jpg');
     }
 
-    .ita & {
+    &.ita {
       background-image: url('/assets/images/languages_background/ita_light.jpg');
     }
 
-    .fre & {
+    &.fre {
       background-image: url('/assets/images/languages_background/fre_light.jpg');
     }
 
-    .rus & {
+    &.rus {
       background-image: url('/assets/images/languages_background/rus_light.jpg');
     }
 
-    .geo & {
+    &.geo {
       background-image: url('/assets/images/languages_background/geo_light.jpg');
     }
 
-    .ger & {
+    &.deu {
       background-image: url('/assets/images/languages_background/ger_light.jpg');
     }
 
@@ -164,8 +164,8 @@
     background-image: url('/assets/images/languages_background/geo_parrot.png');
   }
 
-  .ger & {
-    background-image: url('/assets/images/languages_background/ger_parrot.png');
+  .deu & {
+    background-image: url('/assets/images/languages_background/deu_parrot.png');
   }
 }
 
@@ -217,7 +217,7 @@
     background-image: url('/assets/images/flags/Georgian.png');
   }
 
-  .ger & {
+  .deu & {
     background-image: url('/assets/images/flags/German.png');
   }
 }
@@ -237,18 +237,19 @@
 }
 
 .start {
-  top: -2rem;
-  height: 2rem;
-  line-height: 2rem;
-  font-size: 1rem;
+  top: -2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
   position: absolute;
   width: 100%;
   z-index: 7;
   background-size: contain;
   background-position: center;
   transition: all 0.25s linear;
-  text-align: center;
   background-color: $orange-100;
   font-family: 'SegoeUI-SemiBold';
   color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
