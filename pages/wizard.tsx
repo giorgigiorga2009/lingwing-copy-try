@@ -16,6 +16,7 @@ import style from './Wizard.module.scss'
 import languagesData from '../utils/learnLanguages.json'
 import _ from 'lodash'
 import { getLanguageLevels, LanguageLevel } from '../utils/getLanguageLevels'
+import { Footer } from '../components/wizard/Footer'
 
 const getLearnFromLanguages = (
   language: LearnedLanguage,
@@ -134,6 +135,8 @@ const Wizard: NextPage = () => {
       )}
 
       {step === 'step3' && <div>choose difficulty page</div>}
+
+      <Footer />
     </div>
   )
 }

@@ -31,7 +31,6 @@ const messages = {
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale: defaultLocale } = useRouter()
   const locale = defaultLocale ? defaultLocale : 'en'
-  const { t } = useTranslation()
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>

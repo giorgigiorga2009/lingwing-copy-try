@@ -18,7 +18,6 @@ export const Header: FC<Props> = ({ size = 'm' }) => {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
-  console.log(router)
 
   return (
     <>
