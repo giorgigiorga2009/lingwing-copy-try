@@ -1,7 +1,7 @@
-import { FC, Fragment, useState } from "react";
-import styles from "./LocalesDropdown.module.scss";
-import Foco from "react-foco";
-import { IconFlag } from "./IconFlag";
+import { FC, Fragment, useState } from 'react'
+import styles from './LocalesDropdown.module.scss'
+import Foco from 'react-foco'
+import { IconFlag } from './IconFlag'
 import {
   LANGUAGE_NAMES,
   LANGUAGES_TO_LOCALES,
@@ -9,22 +9,22 @@ import {
   Locale,
   SWITCHED_LANGUAGES,
   SwitchedLanguage,
-} from "../../utils/languages";
-import { useRouter } from "next/router";
+} from '../../utils/languages'
+import { useRouter } from 'next/router'
 
 export const SwitchLanguageDropdown: FC = () => {
-  const router = useRouter();
+  const router = useRouter()
   const [selectedLang, setSelectedLang] = useState<SwitchedLanguage>(
-    LOCALES_TO_LANGUAGES[router.locale as Locale]
-  );
-  const [open, setOpen] = useState(false);
+    LOCALES_TO_LANGUAGES[router.locale as Locale],
+  )
+  const [open, setOpen] = useState(false)
 
   const handleClick = (language: SwitchedLanguage) => {
-    setSelectedLang(language);
-    setOpen(false);
-    const page = router.asPath;
-    router.push(page, page, { locale: LANGUAGES_TO_LOCALES[language] });
-  };
+    setSelectedLang(language)
+    setOpen(false)
+    const page = router.asPath
+    router.push(page, page, { locale: LANGUAGES_TO_LOCALES[language] })
+  }
 
   return (
     <Foco
@@ -52,10 +52,10 @@ export const SwitchLanguageDropdown: FC = () => {
                   </div>
                 )}
               </Fragment>
-            );
+            )
           })}
         </div>
       )}
     </Foco>
-  );
-};
+  )
+}

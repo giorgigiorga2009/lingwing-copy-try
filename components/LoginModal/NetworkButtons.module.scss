@@ -1,4 +1,4 @@
-@import "../../styles/imports.scss";
+@import '../../styles/imports.scss';
 
 .button {
   width: 21rem;
@@ -35,15 +35,15 @@
   background-size: 2rem;
 
   .facebook & {
-    background-image: url("/assets/images/facebook_logo.png");
+    background-image: url('/assets/images/facebook_logo.png');
   }
 
   .google & {
-    background-image: url("/assets/images/google_logo.png");
+    background-image: url('/assets/images/google_logo.png');
   }
 
   .twitter & {
-    background-image: url("/assets/images/twitter_logo.png");
+    background-image: url('/assets/images/twitter_logo.png');
   }
 }
 

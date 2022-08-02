@@ -1,4 +1,4 @@
-@import "../../styles/imports.scss";
+@import '../../styles/imports.scss';
 
 .wrapper {
   display: flex;
@@ -51,7 +51,7 @@
   }
 
   &::after {
-    content: "✕";
+    content: '✕';
     position: absolute;
     top: 11%;
     left: 25%;
@@ -73,7 +73,7 @@
 
 .menu {
   display: flex;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-size: 1rem;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -123,10 +123,10 @@
   position: relative;
 
   &.google {
-    background-image: url("/assets/images/google_play.png");
+    background-image: url('/assets/images/google_play.png');
   }
 
   &.apple {
-    background-image: url("/assets/images/apple-store.png");
+    background-image: url('/assets/images/apple-store.png');
   }
 }

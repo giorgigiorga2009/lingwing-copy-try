@@ -1,4 +1,4 @@
-@import "../../styles/imports.scss";
+@import '../../styles/imports.scss';
 
 .divider {
   display: flex;
@@ -46,7 +46,7 @@
   color: $grey-100;
 
   &::after {
-    content: "✕";
+    content: '✕';
   }
 }
 

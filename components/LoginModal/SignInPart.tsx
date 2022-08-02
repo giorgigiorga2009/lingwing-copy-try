@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { useTranslation } from "../../utils/useTranslation";
-import styles from "./SignInPart.module.scss";
+import { FC } from 'react'
+import { useTranslation } from '../../utils/useTranslation'
+import styles from './SignInPart.module.scss'
 
 export const SignInPart: FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <>
@@ -11,17 +11,17 @@ export const SignInPart: FC = () => {
         <input
           className={styles.input}
           type="email"
-          placeholder={t("AUTH_PH_EMAIL")}
+          placeholder={t('AUTH_PH_EMAIL')}
           pattern="/^[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i"
         />
         <input
           className={styles.input}
           type="password"
-          placeholder={t("AUTH_PH_PASSWORD")}
+          placeholder={t('AUTH_PH_PASSWORD')}
         />
       </div>
-      <div className={styles.button}> {t("LOGIN")} </div>
-      <a className={styles.link}>{t("LOGIN_FORGOT_PASSWORD")}</a>
+      <div className={styles.button}> {t('LOGIN')} </div>
+      <a className={styles.link}>{t('LOGIN_FORGOT_PASSWORD')}</a>
     </>
-  );
-};
+  )
+}

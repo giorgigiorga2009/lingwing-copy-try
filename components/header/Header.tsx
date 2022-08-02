@@ -1,19 +1,19 @@
-import { FC, useState } from "react";
-import { SwitchLanguageDropdown } from "./LocalesDropdown";
-import style from "./Header.module.scss";
-import { LoginModal } from "../loginModal/LoginModal";
-import { SideMenu } from "./SideMenu";
-import classNames from "classnames";
-import { useTranslation } from "../../utils/useTranslation";
+import { FC, useState } from 'react'
+import { SwitchLanguageDropdown } from './LocalesDropdown'
+import style from './Header.module.scss'
+import { LoginModal } from '../loginModal/LoginModal'
+import { SideMenu } from './SideMenu'
+import classNames from 'classnames'
+import { useTranslation } from '../../utils/useTranslation'
 
 interface Props {
-  size?: "s" | "m";
+  size?: 's' | 'm'
 }
 
-export const Header: FC<Props> = ({ size = "m" }) => {
-  const [open, setOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation();
+export const Header: FC<Props> = ({ size = 'm' }) => {
+  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const { t } = useTranslation()
 
   return (
     <>
@@ -27,11 +27,11 @@ export const Header: FC<Props> = ({ size = "m" }) => {
           <SwitchLanguageDropdown />
           <div className={style.avatar} />
           <div className={style.singInButton} onClick={() => setOpen(true)}>
-            {t("AUTH_LOGIN")}
+            {t('AUTH_LOGIN')}
           </div>
         </div>
       </header>
       {open && <LoginModal onClick={() => setOpen(false)} />}
     </>
-  );
-};
+  )
+}

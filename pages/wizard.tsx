@@ -1,78 +1,93 @@
-import type { NextPage } from "next";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { Header } from "../components/header/Header";
-import { LanguageChoiceContainer } from "../components/wizard/LanguageChoiceContainer";
-import { PageTitle } from "../components/wizard/PageTitle";
+import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { Header } from '../components/header/Header'
+import { LanguageChoiceContainer } from '../components/wizard/LanguageChoiceContainer'
+import { PageTitle } from '../components/wizard/PageTitle'
 import {
   LOCALES_TO_LANGUAGES,
   Locale,
   LEARN_LANGUAGES,
   LearnedLanguage,
-  SwitchedLanguage,
   Language,
-} from "../utils/languages";
-import style from "./Wizard.module.scss";
-import languagesData from "../utils/learnLanguages.json";
-import _ from "lodash";
+  SwitchedLanguage,
+} from '../utils/languages'
+import style from './Wizard.module.scss'
+import languagesData from '../utils/learnLanguages.json'
+import _ from 'lodash'
+import { getLanguageLevels, LanguageLevel } from '../utils/getLanguageLevels'
 
-const getStep2Languages = (language: string): string[] => {
+const getLearnFromLanguages = (
+  language: LearnedLanguage,
+): SwitchedLanguage[] => {
   const languageData = languagesData.data.find(
-    (data) => data.nameCode === language
-  );
+    data => data.nameCode === language,
+  )
   return languageData !== undefined
-    ? languageData.iLearnFrom.map((language) => language.nameCode)
-    : [];
-};
+    ? languageData.iLearnFrom.map(
+        language => language.nameCode as SwitchedLanguage,
+      )
+    : []
+}
 
-export type WizardQuery = "learnLang" | "langFrom";
-type Sections = "step1" | "step2" | "step3";
+export type WizardQuery = 'learnLang' | 'langFrom'
+type Step = 'step1' | 'step2' | 'step3'
 
 const Wizard: NextPage = () => {
-  const router = useRouter();
-  const [page, setPage] = useState<Sections>();
+  const router = useRouter()
+  const [step, setStep] = useState<Step>()
+  const [levelData, setLevelData] = useState<LanguageLevel>()
 
-  const locale = router.locale ?? "en";
+  const locale = router.locale ?? 'en'
 
-  const query = router.query;
-  const step2query = query.learnLang;
+  const query = router.query
+  const learnLang = query.learnLang
+  const langFrom = query.langFrom
 
   const step2languages =
-    step2query !== undefined
-      ? (getStep2Languages(step2query as string) as SwitchedLanguage[])
-      : [];
+    learnLang !== undefined
+      ? getLearnFromLanguages(learnLang as LearnedLanguage)
+      : []
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!router.isReady) return
 
     if (_.isEmpty(query)) {
-      setPage("step1");
-      return;
+      setStep('step1')
+      return
     }
 
-    if (query.langFrom && query.learnLang) {
-      setPage("step3");
-      return;
+    if (langFrom && learnLang) {
+      setStep('step3')
+      return
     }
 
     if (
       step2languages.length === 0 ||
       step2languages.includes(LOCALES_TO_LANGUAGES[locale as Locale])
     ) {
-      setPage("step3");
+      setStep('step3')
       router.push({
         query: {
+          ...query,
           langFrom: locale,
         },
-      });
+      })
     } else {
-      setPage("step2");
+      setStep('step2')
     }
-  }, [router.isReady]);
+  }, [router.isReady])
 
   useEffect(() => {
-    if (page !== "step3") return;
-  });
+    if (step !== 'step3') return
+    if (!learnLang || !langFrom) return
+
+    getLanguageLevels(
+      learnLang as string,
+      langFrom as string,
+      LOCALES_TO_LANGUAGES[locale as Locale],
+    ).then(response => setLevelData(response))
+  }, [step, router.asPath])
 
   const onStep1Click = (language: Language) => {
     router.push({
@@ -80,9 +95,9 @@ const Wizard: NextPage = () => {
         ...query,
         learnLang: language,
       },
-    });
-    setPage("step2");
-  };
+    })
+    setStep('step2')
+  }
 
   const onStep2Click = (language: Language) => {
     router.push({
@@ -90,15 +105,15 @@ const Wizard: NextPage = () => {
         ...query,
         langFrom: language,
       },
-    });
-    setPage("step3");
-  };
+    })
+    setStep('step3')
+  }
 
   return (
     <div className={style.container}>
       <Header size="s" />
 
-      {page === "step1" && (
+      {step === 'step1' && (
         <div className={style.languageContainer}>
           <PageTitle text="Choose language to learn" />
           <LanguageChoiceContainer
@@ -108,7 +123,7 @@ const Wizard: NextPage = () => {
         </div>
       )}
 
-      {page === "step2" && (
+      {step === 'step2' && (
         <div className={style.languageContainer}>
           <PageTitle text="Choose language to learn from" />
           <LanguageChoiceContainer
@@ -118,9 +133,9 @@ const Wizard: NextPage = () => {
         </div>
       )}
 
-      {page === "step3" && <div>choose difficulty page</div>}
+      {step === 'step3' && <div>choose difficulty page</div>}
     </div>
-  );
-};
+  )
+}
 
-export default Wizard;
+export default Wizard

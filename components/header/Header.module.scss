@@ -1,4 +1,4 @@
-@import "../../styles/imports.scss";
+@import '../../styles/imports.scss';
 
 .header {
   display: flex;
@@ -43,7 +43,7 @@
   width: 2.18rem;
   border-radius: 100%;
   border: 3px solid $orange-200;
-  background-image: url("/assets/images/avatar-default-medium.png");
+  background-image: url('/assets/images/avatar-default-medium.png');
   background-position: center;
   background-repeat: no-repeat;
 
@@ -74,7 +74,7 @@
 .logo {
   width: 11.2rem;
   height: 2.44rem;
-  background-image: url("../../public/assets/images/logo-light.svg");
+  background-image: url('../../public/assets/images/logo-light.svg');
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -97,7 +97,7 @@
   color: $white;
   cursor: pointer;
   position: relative;
-  background-image: url("/assets/images/3-lines.png");
+  background-image: url('/assets/images/3-lines.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1.6rem;

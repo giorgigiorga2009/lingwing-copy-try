@@ -1,8 +1,8 @@
-@import "./imports.scss";
+@import './imports.scss';
 
 .container {
   background-color: $purple-600;
-  background-image: url("/assets/images/background-letters.svg"),
+  background-image: url('/assets/images/background-letters.svg'),
     -webkit-radial-gradient(center, circle cover, rgba(255, 255, 255, 0.15) 0, rgba(
             0,
             0,
@@ -68,7 +68,7 @@
 
 .parrot {
   z-index: 1;
-  background-image: url("/assets/images/parrot.png");
+  background-image: url('/assets/images/parrot.png');
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
