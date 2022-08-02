@@ -1,4 +1,4 @@
-@import '../../styles/imports.scss';
+@import "../../styles/imports.scss";
 
 .header {
   display: flex;
@@ -9,7 +9,7 @@
     @include tablet {
       padding: 3% 5%;
     }
-  
+
     @include mobile {
       padding: 3% 5%;
     }
@@ -20,13 +20,12 @@
     @include tablet {
       padding: 3% 5%;
     }
-  
+
     @include mobile {
       padding: 3% 5%;
     }
   }
 }
-
 
 .singInButton {
   color: $white;
@@ -75,7 +74,7 @@
 .logo {
   width: 11.2rem;
   height: 2.44rem;
-  background-image: url('../../public/assets/images/logo-light.svg');
+  background-image: url("../../public/assets/images/logo-light.svg");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -98,7 +97,7 @@
   color: $white;
   cursor: pointer;
   position: relative;
-  background-image: url('/assets/images/3-lines.png');
+  background-image: url("/assets/images/3-lines.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1.6rem;

@@ -1,19 +1,16 @@
 .ru_ru {
-	.about-us {
-	 	.h1-title {
-    		font-family: $fontFamilyCostumRussian;
-	    }
-	}
-	.about-conteiner { 
-		.menu-nav {
-	    	div {		    		
-		    	.link.act {
- 				    padding-top: 3px;
-		    	}
-	    	}
-	   
-	    }
-		
-	}
-
+  .about-us {
+    .h1-title {
+      font-family: $fontFamilyCostumRussian;
+    }
+  }
+  .about-conteiner {
+    .menu-nav {
+      div {
+        .link.act {
+          padding-top: 3px;
+        }
+      }
+    }
+  }
 }

@@ -1,13 +1,11 @@
-{ "APP_ABOUT_US": "Why with Us",
+{
+  "APP_ABOUT_US": "Why with Us",
   "APP_ABOUT_CERTIFICATE": "Certificate",
   "APP_ABOUT_US_PARTNERS": "Partners",
   "APP_ABOUT_US_JOB": "Jobs",
   "APP_menu-blog": "Blog",
   "APP_PRIVACY_POLICY2": "License Agreement",
   "APP_PRIVACY_POLICY": "Privacy policy",
-
-
-
 
   "APP_ABOUT_US_GROUP": "Team",
   "APP_ABOUT_US_NEWS": "News",
@@ -462,7 +460,7 @@
   "APP_FLOW_MAIN_GIFT_TITLE": "It's just beginning",
   "APP_FLOW_REGISTARTION": "Registration",
   "APP_FLOW_BONUS": "Bonus",
- 
+
   "APP_FLOW_GET_MORE_TAKE_OFF": "Take off the limit!",
   "APP_FLOW_GRAB_YOUR_BONUS": "Get free tasks now - Yes!",
   "APP_FLOW_WE_WILL_SEND_BONUS": "Daily free tasks activation link will be sent to the specified mail",
@@ -743,7 +741,7 @@
   "PACKAGES_REVIEW_TOTAL_PRICE": "Total Price",
   "PACKAGES_REVIEW_YOU_SAVE": "You save",
   "APP_ABOUT_US_COMPANY": "About Company",
- 
+
   "APP_ABOUT_US_TITLE_1": "Lingwing.com - activates reactive speed of launching the conversation!",
   "APP_ABOUT_US_TEXT_1": "LINGWING.COM set a goal – a user, who had never learnt a foreign language and was unable to speak any, had to speak up with simple sentences in an hour’s time. The goal has been achieved!",
   "APP_ABOUT_US_TEXT_1_b": "We are proud with the fact that if a passenger liner needs a part of a runway (more than 2000 metres) for take-off, our liner wings its way through the air by passing just 100-200 meters. This is because the engine of LINGWING.COM liner was designed by the staff with special skills.",

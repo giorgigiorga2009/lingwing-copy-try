@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useTranslation } from "../../utils/useTranslation";
-import styles from './SignInPart.module.scss'
+import styles from "./SignInPart.module.scss";
 
 export const SignInPart: FC = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -23,5 +23,5 @@ export const SignInPart: FC = () => {
       <div className={styles.button}> {t("LOGIN")} </div>
       <a className={styles.link}>{t("LOGIN_FORGOT_PASSWORD")}</a>
     </>
-  )
-}
+  );
+};

@@ -1,6 +1,6 @@
 .auth-page-container {
-	@extend .profile-page.container;
-	max-width:890px;
-	min-height:initial;
-	margin:100px auto 100px auto;
+  @extend .profile-page.container;
+  max-width: 890px;
+  min-height: initial;
+  margin: 100px auto 100px auto;
 }

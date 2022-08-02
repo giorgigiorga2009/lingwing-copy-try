@@ -1,4 +1,4 @@
-@import '../../styles/imports.scss';
+@import "../../styles/imports.scss";
 
 .button {
   color: $white;
@@ -17,7 +17,7 @@
 }
 
 .arrow {
-  background-image: url('/assets/images/arrow-down-lighter.png');
+  background-image: url("/assets/images/arrow-down-lighter.png");
   width: 0.69rem;
   height: 0.44rem;
 }

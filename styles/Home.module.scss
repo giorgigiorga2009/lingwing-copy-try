@@ -1,10 +1,15 @@
-@import './imports.scss';
+@import "./imports.scss";
 
 .container {
   background-color: $purple-600;
-  background-image: url('/assets/images/background-letters.svg'),
-    -webkit-radial-gradient(center, circle cover,
-      rgba(255, 255, 255, .15) 0, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0) 100%);
+  background-image: url("/assets/images/background-letters.svg"),
+    -webkit-radial-gradient(center, circle cover, rgba(255, 255, 255, 0.15) 0, rgba(
+            0,
+            0,
+            0,
+            0
+          )
+          42%, rgba(0, 0, 0, 0) 100%);
   background-repeat: repeat, no-repeat;
   background-position: center, center;
   background-size: contain, cover;
@@ -16,7 +21,7 @@
 .styledTitle {
   font-family: HVDComicSerifPro;
   text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, .6);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   color: $purple-300;
   display: inline-block;
   margin: 0 1rem;
@@ -63,7 +68,7 @@
 
 .parrot {
   z-index: 1;
-  background-image: url('/assets/images/parrot.png');
+  background-image: url("/assets/images/parrot.png");
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -83,4 +88,3 @@
     bottom: 4rem;
   }
 }
-

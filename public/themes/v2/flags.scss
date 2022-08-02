@@ -1,163 +1,159 @@
 .flag-item {
-	background-repeat:no-repeat;
-	background-image: url("../themes/images/v2/country-flags.png");
-	&.flag-small {
-		width:20px;
-		height:20px;
-	}
-	&.flag-levels {
-		background-color: #a657e3;
-	    border-radius: 100%;
-	    color: #fff;
-	    text-align: center;
-	    font-family:$fontFamilyPrimary;
-	}
-	&.flag-shadow {
-		background-color: transparent;
-		border-radius: 100%;
-	}
-	&.flag-medium {
-		width:36px;
-		height:36px;
-		background-size:539px;
-		&.flag-shadow {
-			box-shadow:1px 0px 3px rgba(0,0,0,0.15);
-		}
-		&.flag-levels {
-			font-size: 14px;
-	    	line-height: 34px;
-		}
-		&.flag-ita {
-			background-position:-227px -128px;
-		}
-		&.flag-eng {
-			background-position: -276px -275px; //-227px -275px;
-		}
-		&.flag-rus {
-			background-position:-79px -226px;
-		}
-		&.flag-geo {
-			background-position: -473px -276px;
-		}
-		&.flag-abk {
-			background-position: -473px -276px;
-		}
-		&.flag-esp {
-			background-position:-325px -227px;
-		}
-        &.flag-fre {
-			background-position:-324px -79px;
-		}
-		&.flag-deu {
-			background-position:-373px -79px;
-		}
-	}
-	&.flag-large {
-		width:65px;
-		height:65px;
-		background-size:1005px;
-		&.flag-shadow {
-			box-shadow: 0 0 13px rgba(0, 0, 0, 0.13);
-		}
-		&.flag-levels {
-			font-size: 20px;
-	    	line-height: 63px; // 60px;
-		}
-		&.flag-ita {
-			background-position:-423px -240px;
-
-		}
-		&.flag-eng {
-			 background-position:-424px -515px;
-		}
-		&.flag-rus {
-		    background-position:-149px -424px;
-		}
-		&.flag-geo {
-			background-position: -883px -515px;
-			border-radius: 50%;
-		}
-		&.flag-abk {
-			background-position: -883px -515px;
-			border-radius: 50%;
-		}
-		&.flag-esp {
-			background-position:-606px -423px;
-			border-radius: 50%;
-		}
-        &.flag-fre {
-			background-position:-607px -149px;
-		}
-		&.flag-deu {
-			background-position:-697px -148px;
-		}
-	}
-	&.parallax-flag-item{
-		width:72px;//width:65px;
-		height:72px;//height:65px;
-		background-size:1005px;
-		&.flag-shadow {
-			box-shadow: 0 0 13px rgba(0, 0, 0, 0.13);
-		}
-		&.flag-levels {
-			font-size: 20px;
-	    	line-height: 60px;
-		}
-		&.flag-ita {
-			background-position: -429px -242px;	// background-position:-424px -240px;
-			 border-radius: 50%;
-			 border: 6px solid #592e85;
-		}
-		&.flag-eng {
-			 // background-position:-429px -519px;	//background-position:-424px -515px;
-		     background-position: -523px -519px;
-			 border-radius: 50%;
-			 border: 6px solid #592e85;
-		}
-		&.flag-rus {
-		    background-position: -153px -428px;	// background-position:-149px -424px;
-			border-radius: 50%;
-			border: 6px solid #592e85;
-		}
-		&.flag-geo {
-			background-position:-883px -517px;
-			border-radius: 50%;
-			border: 6px solid #592e85;
-		}
-		&.flag-abk {
-			background-position:-883px -517px;
-			border-radius: 50%;
-			border: 6px solid #592e85;
-		}
-		&.flag-esp {
-			background-position:-613px -429px;/// -607px -424px;
-			border-radius: 50%;
-			border: 6px solid #592e85;
-		}
-        &.flag-fre {
-			background-position:-613px -152px;	//background-position:-607px -149px;
-		 	border-radius: 50%;
-			border: 6px solid #592e85;
-		}
-		&.flag-deu {
-			background-position:-613px -152px;	//background-position:-607px -149px;
-		 	border-radius: 50%;
-			border: 6px solid #592e85;
-		}
-		&.flag-tur {
-		     background-position: -157px -519px;
-			 border-radius: 50%;
-			 border: 6px solid #592e85;
-		}
-		&.flag-deu {
-		     background-position: -705px -153px;
-			 border-radius: 50%;
-			 border: 6px solid #592e85;
-		}
-
-	}
-
-
+  background-repeat: no-repeat;
+  background-image: url("../themes/images/v2/country-flags.png");
+  &.flag-small {
+    width: 20px;
+    height: 20px;
+  }
+  &.flag-levels {
+    background-color: #a657e3;
+    border-radius: 100%;
+    color: #fff;
+    text-align: center;
+    font-family: $fontFamilyPrimary;
+  }
+  &.flag-shadow {
+    background-color: transparent;
+    border-radius: 100%;
+  }
+  &.flag-medium {
+    width: 36px;
+    height: 36px;
+    background-size: 539px;
+    &.flag-shadow {
+      box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.15);
+    }
+    &.flag-levels {
+      font-size: 14px;
+      line-height: 34px;
+    }
+    &.flag-ita {
+      background-position: -227px -128px;
+    }
+    &.flag-eng {
+      background-position: -276px -275px; //-227px -275px;
+    }
+    &.flag-rus {
+      background-position: -79px -226px;
+    }
+    &.flag-geo {
+      background-position: -473px -276px;
+    }
+    &.flag-abk {
+      background-position: -473px -276px;
+    }
+    &.flag-esp {
+      background-position: -325px -227px;
+    }
+    &.flag-fre {
+      background-position: -324px -79px;
+    }
+    &.flag-deu {
+      background-position: -373px -79px;
+    }
+  }
+  &.flag-large {
+    width: 65px;
+    height: 65px;
+    background-size: 1005px;
+    &.flag-shadow {
+      box-shadow: 0 0 13px rgba(0, 0, 0, 0.13);
+    }
+    &.flag-levels {
+      font-size: 20px;
+      line-height: 63px; // 60px;
+    }
+    &.flag-ita {
+      background-position: -423px -240px;
+    }
+    &.flag-eng {
+      background-position: -424px -515px;
+    }
+    &.flag-rus {
+      background-position: -149px -424px;
+    }
+    &.flag-geo {
+      background-position: -883px -515px;
+      border-radius: 50%;
+    }
+    &.flag-abk {
+      background-position: -883px -515px;
+      border-radius: 50%;
+    }
+    &.flag-esp {
+      background-position: -606px -423px;
+      border-radius: 50%;
+    }
+    &.flag-fre {
+      background-position: -607px -149px;
+    }
+    &.flag-deu {
+      background-position: -697px -148px;
+    }
+  }
+  &.parallax-flag-item {
+    width: 72px; //width:65px;
+    height: 72px; //height:65px;
+    background-size: 1005px;
+    &.flag-shadow {
+      box-shadow: 0 0 13px rgba(0, 0, 0, 0.13);
+    }
+    &.flag-levels {
+      font-size: 20px;
+      line-height: 60px;
+    }
+    &.flag-ita {
+      background-position: -429px -242px; // background-position:-424px -240px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-eng {
+      // background-position:-429px -519px;	//background-position:-424px -515px;
+      background-position: -523px -519px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-rus {
+      background-position: -153px -428px; // background-position:-149px -424px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-geo {
+      background-position: -883px -517px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-abk {
+      background-position: -883px -517px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-esp {
+      background-position: -613px -429px; /// -607px -424px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-fre {
+      background-position: -613px -152px; //background-position:-607px -149px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-deu {
+      background-position: -613px -152px; //background-position:-607px -149px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-tur {
+      background-position: -157px -519px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+    &.flag-deu {
+      background-position: -705px -153px;
+      border-radius: 50%;
+      border: 6px solid #592e85;
+    }
+  }
 }
 
 /*
@@ -167,274 +163,283 @@
 
 */
 
-
 .flag-item {
-    margin-top: 1%;
+  margin-top: 1%;
 }
-	.ka_ge .flag-item {
-    margin-top: 4%;
-}
-
-@media screen and (min-height:  1100px) and (max-width: 1920px){
-	.flag-item.parallax-flag-item.flag-eng {
-	    background-position: -520px -519px;
-	}
-	.flag-item.parallax-flag-item.flag-ita {
-	    background-position: -429px -242px;
-	}
-	.flag-item.parallax-flag-item.flag-fre {
-	    background-position: -611px -152px;
-	}
-
+.ka_ge .flag-item {
+  margin-top: 4%;
 }
 
-@media screen and (max-width: 1920px) and (min-width:  1600px){
-
-	 .flag-item.flag-large {
-	    width: 68px;
-	    height: 67px;
-	    background-size: 1005px;
-	   // margin-top: 5.5%;
-	   &.flag-ita {
-	   		height: 66px;
-	   }
-	}
-	.ka_ge .flag-item.flag-large {
-	    width: 68px;
-	    height: 67px;
-	    background-size: 1005px;
-	    margin-top: 5.5%;
-	    &.flag-ita {
-	   		height: 66px;
-	   }
-	}
-	.flag-item {
-	    margin-top: -1%;
-	}
-
-}
-@media screen and (max-width: 1600px) and (min-width:  1024px){
-
-	.flag-item.flag-large {
-	    width: 68px;
-	    height: 67px;
-	    background-size: 1005px;
-	   // margin-top: 5.5%;
-	   &.flag-ita {
-	   		height: 66px;
-	   }
-	}
-	.ka_ge .flag-item.flag-large {
-	    width: 68px;
-	    height: 67px;
-	    background-size: 1005px;
-	    margin-top: 0.5%;
-		&.flag-ita {
-	   		height: 66px;
-	   }
-	}
-	.flag-item {
-	    margin-top: -1%;
-	}
-
-}
-@media screen and (max-width: 1024px) and (min-width: 992px){
-
-	.flag-item.flag-large {
-	    width: 68px;
-	    height: 67px;
-	    background-size: 1005px;
-		&.flag-ita {
-	   		height: 66px;
-	   }
-	}
-	.flag-item {
-	    margin-top: -1%;
-	}
-
-}
-@media screen and (max-width: 992px) and (min-width: 780px){
-
-	.flag-item.flag-large {
-	    width: 67px;
-	    height: 67px;
-	    background-size: 1005px;
-	}
-	.flag-item {
-	    margin-top: -1%;
-	}
-
-}
-@media screen and (max-width: 780px) and (min-width: 580px){
-
-	.flag-item.flag-large {
-	    width: 67px;
-	    height: 67px;
-	    background-size: 1005px;
-	}
-	.flag-item {
-	    margin-top: -1%;
-	}
-
-	.ka_ge .home-section-a .parrot-handshake .parrot .headingText .highlight div div span {
-	    height: 45px;
-	    margin-top: 2.3%;
-	}
-
-	// .parallax-flag-item{
-	// 		width:57px;
-	// 		height:57px;
-	// 		background-size:993px !important;
-	// 		&.flag-ita {
-	// 			width: 57px;
-	// 			height: 57px;
-	// 		}
-	// 		&.flag-eng {
-	// 			background-position: -520px -519px;
-	// 			width: 57px;
-	// 			height: 57px;
-	// 		}
-	// 		&.flag-rus {
-	// 			width: 57px;
-	// 			height: 57px;
-	// 		}
-	// 		&.flag-geo {
-	// 			width: 57px;
-	// 			height: 57px;
-	// 		}
-	// 		&.flag-esp {
-	// 			width: 57px;
-	// 			height: 57px;
-	// 		}
-	//         &.flag-fre {
-	//         	background-position: -610px -152px;
-	// 			width: 57px;
-	// 			height: 57px;
-	// 		}
-	// 	}
-
-
-		.parallax-flag-item{
-			width:54px;
-			height:54px;
-			background-size: 700px !important;
-			&.flag-ita {
-				background-position: -296px -170px !important;
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-eng {
-    			background-position: -362px -360px !important;
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-rus {
-				background-position: -105px -296px !important;
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-geo {
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-abk {
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-esp {
-				background-position: -424px -297px !important;
-				width: 54px;
-				height: 54px;
-			}
-	        &.flag-fre {
-	        	background-position: -424px -104px  !important;
-				width: 54px;
-				height: 54px;
-			}
-			// & .flag-tur {
-			//     background-position: -105px -358px !important;
-			//     width: 54px;
-			//     height: 54px;
-			// }
-		}
-
+@media screen and (min-height: 1100px) and (max-width: 1920px) {
+  .flag-item.parallax-flag-item.flag-eng {
+    background-position: -520px -519px;
+  }
+  .flag-item.parallax-flag-item.flag-ita {
+    background-position: -429px -242px;
+  }
+  .flag-item.parallax-flag-item.flag-fre {
+    background-position: -611px -152px;
+  }
 }
 
-@media screen and (max-width: 580px) and (min-width: 300px){
+@media screen and (max-width: 1920px) and (min-width: 1600px) {
+  .flag-item.flag-large {
+    width: 68px;
+    height: 67px;
+    background-size: 1005px;
+    // margin-top: 5.5%;
+    &.flag-ita {
+      height: 66px;
+    }
+  }
+  .ka_ge .flag-item.flag-large {
+    width: 68px;
+    height: 67px;
+    background-size: 1005px;
+    margin-top: 5.5%;
+    &.flag-ita {
+      height: 66px;
+    }
+  }
+  .flag-item {
+    margin-top: -1%;
+  }
+}
+@media screen and (max-width: 1600px) and (min-width: 1024px) {
+  .flag-item.flag-large {
+    width: 68px;
+    height: 67px;
+    background-size: 1005px;
+    // margin-top: 5.5%;
+    &.flag-ita {
+      height: 66px;
+    }
+  }
+  .ka_ge .flag-item.flag-large {
+    width: 68px;
+    height: 67px;
+    background-size: 1005px;
+    margin-top: 0.5%;
+    &.flag-ita {
+      height: 66px;
+    }
+  }
+  .flag-item {
+    margin-top: -1%;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+  .flag-item.flag-large {
+    width: 68px;
+    height: 67px;
+    background-size: 1005px;
+    &.flag-ita {
+      height: 66px;
+    }
+  }
+  .flag-item {
+    margin-top: -1%;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 780px) {
+  .flag-item.flag-large {
+    width: 67px;
+    height: 67px;
+    background-size: 1005px;
+  }
+  .flag-item {
+    margin-top: -1%;
+  }
+}
+@media screen and (max-width: 780px) and (min-width: 580px) {
+  .flag-item.flag-large {
+    width: 67px;
+    height: 67px;
+    background-size: 1005px;
+  }
+  .flag-item {
+    margin-top: -1%;
+  }
 
-	.flag-item .flag-large {
-	    width: 67px;
-	    height: 67px;
-	    background-size: 1005px;
-	}
-	.flag-item {
-	    margin-top: -1%;
-	}
-		.ka_ge .home-section-a .parrot-handshake .parrot .headingText .highlight div div span {
-	    height: 45px;
-	    margin-top: 2.3%;
-	}
+  .ka_ge
+    .home-section-a
+    .parrot-handshake
+    .parrot
+    .headingText
+    .highlight
+    div
+    div
+    span {
+    height: 45px;
+    margin-top: 2.3%;
+  }
 
-	.ka_ge .flag-item {
-	    margin-top: 0;
-	}
+  // .parallax-flag-item{
+  // 		width:57px;
+  // 		height:57px;
+  // 		background-size:993px !important;
+  // 		&.flag-ita {
+  // 			width: 57px;
+  // 			height: 57px;
+  // 		}
+  // 		&.flag-eng {
+  // 			background-position: -520px -519px;
+  // 			width: 57px;
+  // 			height: 57px;
+  // 		}
+  // 		&.flag-rus {
+  // 			width: 57px;
+  // 			height: 57px;
+  // 		}
+  // 		&.flag-geo {
+  // 			width: 57px;
+  // 			height: 57px;
+  // 		}
+  // 		&.flag-esp {
+  // 			width: 57px;
+  // 			height: 57px;
+  // 		}
+  //         &.flag-fre {
+  //         	background-position: -610px -152px;
+  // 			width: 57px;
+  // 			height: 57px;
+  // 		}
+  // 	}
 
-	.parallax-flag-item{
-			width:57px;
-			height:57px;
-			background-size: 700px !important;
-			&.flag-ita {
-				background-position:-298px -169px !important;// -430px -242px !important;
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-eng {
-				 //background-position: -429px -519px !important;
-    			background-position: -360px -361px !important;// -523px -519px !important;
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-rus {
-				background-position: -105px -295px !important;// -153px -429px !important;
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-geo {
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-abk {
-				width: 54px;
-				height: 54px;
-			}
-			&.flag-esp {
-				background-position: -425px -297px !important;
-				width: 54px;
-				height: 54px;
-				border:4px solid #592e85;
-			}
-	        &.flag-fre {
-	        	background-position: -426px -105px !important;// -611px -152px;
-				width: 54px;
-				height: 54px;
-			}
-			// & .flag-tur {
-			//     background-position: -105px -358px !important;
-			//     width: 54px;
-			//     height: 54px;
-			// }
-		}
-	.home-section-a .parrot-handshake .parrot .highlight {
-	    width: 100%;
-	    text-align: left;
-	   padding-left: 2%;
-	}
-
+  .parallax-flag-item {
+    width: 54px;
+    height: 54px;
+    background-size: 700px !important;
+    &.flag-ita {
+      background-position: -296px -170px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-eng {
+      background-position: -362px -360px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-rus {
+      background-position: -105px -296px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-geo {
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-abk {
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-esp {
+      background-position: -424px -297px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-fre {
+      background-position: -424px -104px !important;
+      width: 54px;
+      height: 54px;
+    }
+    // & .flag-tur {
+    //     background-position: -105px -358px !important;
+    //     width: 54px;
+    //     height: 54px;
+    // }
+  }
 }
 
-@media screen and (max-width: 400px) and (min-width: 300px){
-	.ka_ge .home-section-a .parrot-handshake .parrot .headingText .highlight div div span {
-	    height: 45px;
-	    margin-top: 6%;
-	}
+@media screen and (max-width: 580px) and (min-width: 300px) {
+  .flag-item .flag-large {
+    width: 67px;
+    height: 67px;
+    background-size: 1005px;
+  }
+  .flag-item {
+    margin-top: -1%;
+  }
+  .ka_ge
+    .home-section-a
+    .parrot-handshake
+    .parrot
+    .headingText
+    .highlight
+    div
+    div
+    span {
+    height: 45px;
+    margin-top: 2.3%;
+  }
+
+  .ka_ge .flag-item {
+    margin-top: 0;
+  }
+
+  .parallax-flag-item {
+    width: 57px;
+    height: 57px;
+    background-size: 700px !important;
+    &.flag-ita {
+      background-position: -298px -169px !important; // -430px -242px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-eng {
+      //background-position: -429px -519px !important;
+      background-position: -360px -361px !important; // -523px -519px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-rus {
+      background-position: -105px -295px !important; // -153px -429px !important;
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-geo {
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-abk {
+      width: 54px;
+      height: 54px;
+    }
+    &.flag-esp {
+      background-position: -425px -297px !important;
+      width: 54px;
+      height: 54px;
+      border: 4px solid #592e85;
+    }
+    &.flag-fre {
+      background-position: -426px -105px !important; // -611px -152px;
+      width: 54px;
+      height: 54px;
+    }
+    // & .flag-tur {
+    //     background-position: -105px -358px !important;
+    //     width: 54px;
+    //     height: 54px;
+    // }
+  }
+  .home-section-a .parrot-handshake .parrot .highlight {
+    width: 100%;
+    text-align: left;
+    padding-left: 2%;
+  }
+}
+
+@media screen and (max-width: 400px) and (min-width: 300px) {
+  .ka_ge
+    .home-section-a
+    .parrot-handshake
+    .parrot
+    .headingText
+    .highlight
+    div
+    div
+    span {
+    height: 45px;
+    margin-top: 6%;
+  }
 }

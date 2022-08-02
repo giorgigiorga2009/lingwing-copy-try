@@ -1,4 +1,4 @@
-@import '../styles/imports.scss';
+@import "../styles/imports.scss";
 
 .container {
   display: flex;
@@ -35,23 +35,23 @@
   background-size: 1.25rem;
 
   &.facebook {
-    background-image: url('/assets/images/facebook-icon.png');
+    background-image: url("/assets/images/facebook-icon.png");
   }
 
   &.instagram {
-    background-image: url('/assets/images/instagram-icon.png');
+    background-image: url("/assets/images/instagram-icon.png");
   }
 
   &.linkedin {
-    background-image: url('/assets/images/linkedin-icon.png');
+    background-image: url("/assets/images/linkedin-icon.png");
   }
 
   &.youtube {
-    background-image: url('/assets/images/youtube-icon.png');
+    background-image: url("/assets/images/youtube-icon.png");
   }
 
   &.tiktok {
-    background-image: url('/assets/images/tiktok-icon.png');
+    background-image: url("/assets/images/tiktok-icon.png");
   }
 
   &:hover {

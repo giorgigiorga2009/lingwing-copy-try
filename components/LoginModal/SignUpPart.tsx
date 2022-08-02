@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useTranslation } from "../../utils/useTranslation";
-import styles from './SignUpPart.module.scss'
+import styles from "./SignUpPart.module.scss";
 
 export const SignUpPart: FC = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -33,5 +33,5 @@ export const SignUpPart: FC = () => {
         <span className={styles.link}>{t("APP_PRIVACY_POLICY")}</span>
       </div>
     </>
-  )
-}
+  );
+};

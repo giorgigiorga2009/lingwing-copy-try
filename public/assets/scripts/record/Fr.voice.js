@@ -12,11 +12,11 @@
  * To use MP3 conversion, NEEDS mp3Worker.js, libmp3lame.min.js and recorderWorker.js from https://github.com/nusofthq/Recordmp3js/tree/master/js
  *
  * Full Documentation & Support - http://subinsb.com/html5-record-mic-voice
-*/
+ */
 
-(function(window){
+(function (window) {
   window.Fr = window.Fr || {};
-	Fr.voice = {
+  Fr.voice = {
     workerPath: "/scripts/record/recorderWorker.js",
     mp3WorkerPath: "/scripts/record/mp3Worker.js",
     stream: false,
@@ -26,92 +26,100 @@
     /**
      * Initialize. Set up variables.
      */
-    init: function(){
-    	try {
-    		// Fix up for prefixing
-    		window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-    		window.URL = window.URL || window.webkitURL;
-    		if(navigator.getUserMedia === false){
-          alert('getUserMedia() is not supported in your browser');
-    		}
-    		this.context = new AudioContext();
-    	}catch(e) {
-    		alert('Web Audio API is not supported in this browser');
-    	}
+    init: function () {
+      try {
+        // Fix up for prefixing
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        navigator.getUserMedia =
+          navigator.getUserMedia ||
+          navigator.webkitGetUserMedia ||
+          navigator.mozGetUserMedia ||
+          navigator.msGetUserMedia;
+        window.URL = window.URL || window.webkitURL;
+        if (navigator.getUserMedia === false) {
+          alert("getUserMedia() is not supported in your browser");
+        }
+        this.context = new AudioContext();
+      } catch (e) {
+        alert("Web Audio API is not supported in this browser");
+      }
     },
 
     /**
      * Start recording audio
      */
-    record: function(output, callback){
-    	callback = callback || function(){};
-      if(this.init_called === false){
-    		this.init();
-    		this.init_called = true;
-    	}
+    record: function (output, callback) {
+      callback = callback || function () {};
+      if (this.init_called === false) {
+        this.init();
+        this.init_called = true;
+      }
       $that = this;
-    	navigator.getUserMedia({audio: true}, function(stream){
-    		var input = $that.context.createMediaStreamSource(stream);
-    		if(output === true){
-          input.connect($that.context.destination);
-    		}
-    		$that.recorder = new Recorder(input, {
-          workerPath : $that.workerPath,
-          mp3WorkerPath : $that.mp3WorkerPath
-    		});
-    		$that.stream = stream;
-    		$that.recorder.record();
-    		callback(stream);
-    	}, function() {
-    		alert('No live audio input');
-    	});
+      navigator.getUserMedia(
+        { audio: true },
+        function (stream) {
+          var input = $that.context.createMediaStreamSource(stream);
+          if (output === true) {
+            input.connect($that.context.destination);
+          }
+          $that.recorder = new Recorder(input, {
+            workerPath: $that.workerPath,
+            mp3WorkerPath: $that.mp3WorkerPath,
+          });
+          $that.stream = stream;
+          $that.recorder.record();
+          callback(stream);
+        },
+        function () {
+          alert("No live audio input");
+        }
+      );
     },
 
-    pause: function(){
+    pause: function () {
       this.recorder.stop();
     },
 
-    resume: function(){
+    resume: function () {
       this.recorder.record();
     },
 
     /**
      * Stop recording audio
      */
-    stop: function(){
-    	this.recorder.stop();
-    	//this.recorder.clear();
-    	/*this.stream.getTracks().forEach(function (track) {
+    stop: function () {
+      this.recorder.stop();
+      //this.recorder.clear();
+      /*this.stream.getTracks().forEach(function (track) {
         track.stop();
       });*/
-    	return this;
+      return this;
     },
 
     /**
      * Export the recorded audio to different formats :
      * BLOB, MP3, Base64, BLOB URL
      */
-    export: function(callback, type){
-      if(type == "mp3"){
+    export: function (callback, type) {
+      if (type == "mp3") {
         this.recorder.exportMP3(callback);
-      }else{
-        this.recorder.exportWAV(function(blob) {
-          if(type == "" || type == "blob"){
+      } else {
+        this.recorder.exportWAV(function (blob) {
+          if (type == "" || type == "blob") {
             callback(blob);
-          }else if (type == "base64"){
+          } else if (type == "base64") {
             var reader = new window.FileReader();
             reader.readAsDataURL(blob);
-            reader.onloadend = function() {
+            reader.onloadend = function () {
               base64data = reader.result;
               callback(base64data);
             };
-          }else if(type == "URL"){
+          } else if (type == "URL") {
             var url = URL.createObjectURL(blob);
             callback(url);
           }
         });
       }
-    }
+    },
   };
 })(window);

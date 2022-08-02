@@ -9,7 +9,7 @@ $small_height: 650px;
 @mixin smallWidth {
   @media (max-width: $super_small) {
     @content;
-  } 
+  }
 }
 
 @mixin mobile {

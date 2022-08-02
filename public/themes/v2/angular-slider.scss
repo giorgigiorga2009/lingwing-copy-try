@@ -10,9 +10,9 @@
   margin: 35px 0 15px 0;
   vertical-align: middle;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .rzslider.with-legend {
@@ -61,16 +61,16 @@
   height: 4px;
   background: #d8e0f3;
   -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 
 .rzslider .rz-bar.rz-selection {
   z-index: 2;
   background: #0db9f0;
   -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 
 .rzslider .rz-pointer {
@@ -81,8 +81,8 @@
   cursor: pointer;
   background-color: #0db9f0;
   -webkit-border-radius: 16px;
-     -moz-border-radius: 16px;
-          border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
 }
 
 .rzslider .rz-pointer:after {
@@ -93,9 +93,9 @@
   height: 8px;
   background: #ffffff;
   -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-  content: '';
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  content: "";
 }
 
 .rzslider .rz-pointer:hover:after {
@@ -232,8 +232,8 @@
   height: 100%;
   padding: 11px 0;
   -webkit-flex-direction: column-reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 
 .rzslider.rz-vertical .rz-ticks .rz-tick {

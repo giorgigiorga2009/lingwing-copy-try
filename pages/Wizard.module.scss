@@ -1,4 +1,4 @@
-@import '../styles/imports.scss';
+@import "../styles/imports.scss";
 
 .container {
   height: 100%;
@@ -7,7 +7,7 @@
 }
 
 .parrot {
-  background-image: url('/assets/images/wizard/parrot.png');
+  background-image: url("/assets/images/wizard/parrot.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -19,7 +19,7 @@
 }
 
 .ball {
-  background-image: url('/assets/images/wizard/background-ball.png');
+  background-image: url("/assets/images/wizard/background-ball.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

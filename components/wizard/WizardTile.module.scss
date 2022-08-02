@@ -1,4 +1,4 @@
-@import '../../styles/imports.scss';
+@import "../../styles/imports.scss";
 
 .container {
   z-index: 200;
@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
 .title {
@@ -45,30 +45,30 @@
   background-repeat: no-repeat;
 
   &.eng {
-    background-image: url('/assets/images/flags/big/English.png');
+    background-image: url("/assets/images/flags/big/English.png");
   }
 
   &.esp {
-    background-image: url('/assets/images/flags/big/Spanish.png');
+    background-image: url("/assets/images/flags/big/Spanish.png");
   }
 
   &.ita {
-    background-image: url('/assets/images/flags/big/Italian.png');
+    background-image: url("/assets/images/flags/big/Italian.png");
   }
 
   &.fre {
-    background-image: url('/assets/images/flags/big/French.png');
+    background-image: url("/assets/images/flags/big/French.png");
   }
 
   &.rus {
-    background-image: url('/assets/images/flags/big/Russian.png');
+    background-image: url("/assets/images/flags/big/Russian.png");
   }
 
   &.geo {
-    background-image: url('/assets/images/flags/big/Georgian.png');
+    background-image: url("/assets/images/flags/big/Georgian.png");
   }
 
   &.deu {
-    background-image: url('/assets/images/flags/big/German.png');
+    background-image: url("/assets/images/flags/big/German.png");
   }
 }
