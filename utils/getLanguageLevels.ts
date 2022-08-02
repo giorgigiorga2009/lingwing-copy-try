@@ -14,7 +14,7 @@ interface LanguageLevel {
       ben: string;
     };
     fullDescription: {
-      eng: "This course is designed for absolute beginners. We'll take things slow!";
+      eng: string;
       geo: "მათთვის, ვინც სრულიად არ იცის ენა, ან ადრე ნასწავლის გახსენება სურს.";
       esp: "Este curso está diseñado para las personas que desean empezar desde cero.";
       rus: "для тех, кто абсолютно не владеет языком, либо желает восстановить ранее полученные знания";
