@@ -1,10 +1,10 @@
 import styles from './IconFlag.module.scss'
 import classNames from 'classnames'
 import { FC } from 'react'
-import { Locale } from '../../utils/languages'
+import { SwitchedLanguage } from '../../utils/languages'
 
 interface Props {
-  language: Locale
+  language: SwitchedLanguage
 }
 
 export const IconFlag: FC<Props> = ({ language }) => {
