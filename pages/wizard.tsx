@@ -110,9 +110,28 @@ const Wizard: NextPage = () => {
     setStep('step3')
   }
 
+  const handleClick = () => {
+    switch (step) {
+      case 'step1':
+        router.back()
+        break
+      case 'step2':
+        router.back()
+        setStep('step1')
+        break
+      case 'step3':
+        router.back()
+        setStep('step2')
+        break
+    }
+  }
   return (
     <div className={style.container}>
       <Header size="s" />
+      <div className={style.backButton} onClick={() => handleClick()}>
+        <div className={style.icon} />
+        back
+      </div>
 
       {step === 'step1' && (
         <div className={style.languageContainer}>
