@@ -3,8 +3,11 @@ import { SwitchLanguageDropdown } from './LocalesDropdown'
 import style from './Header.module.scss'
 import { LoginModal } from '../loginModal/LoginModal'
 import { SideMenu } from './SideMenu'
-import classNames from 'classnames'
+
 import { useTranslation } from '../../utils/useTranslation'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import classNames from 'classnames'
 
 interface Props {
   size?: 's' | 'm'
@@ -13,14 +16,18 @@ interface Props {
 export const Header: FC<Props> = ({ size = 'm' }) => {
   const [open, setOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
   const { t } = useTranslation()
+  console.log(router)
 
   return (
     <>
       <header className={classNames(style.header, style[size])}>
         <div className={style.leftBlock}>
           <div className={style.button} onClick={() => setIsOpen(true)} />
-          <a className={style.logo} href="https://lingwing.com/en/" />
+          <Link href="/">
+            <div className={style.logo} />
+          </Link>
           {isOpen && <SideMenu onClose={() => setIsOpen(false)} />}
         </div>
         <div className={style.rightBlock}>

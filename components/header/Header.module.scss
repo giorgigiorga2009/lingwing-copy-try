@@ -80,6 +80,7 @@
   position: absolute;
   top: 0.3rem;
   left: 4rem;
+  cursor: pointer;
 
   @include mobile {
     width: 6rem;

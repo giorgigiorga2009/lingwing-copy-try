@@ -63,6 +63,7 @@
   cursor: pointer;
   background-color: $orange-200;
   border-radius: 1.88rem;
+  box-shadow: -1px 1px 1px $black-t;
 
   @include mobile {
     margin: 1.5rem auto;
