@@ -1,5 +1,5 @@
 import { FC, useState } from "react"
-import { SwitchLanguageDropdown } from "./SwitchLanguageDropdown"
+import { SwitchLanguageDropdown } from "./LocalesDropdown"
 import style from './Header.module.scss'
 import { LoginModal } from "../loginModal/LoginModal"
 import { SideMenu } from './SideMenu'

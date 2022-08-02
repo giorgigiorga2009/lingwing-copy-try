@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { useIntl } from 'react-intl'
-import { LANGUAGES, LearnedLanguage, LEARNED_LANGUAGES } from '../utils/languages'
+import { ALL_LANGUAGES, LearnedLanguage, LEARN_LANGUAGES } from '../utils/languages'
 import { useTranslation } from '../utils/useTranslation'
 import style from './LanguagesBlock.module.scss'
 
@@ -19,7 +19,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
     <Link href={`/wizard?learnLang=${language}`} locale={router.locale} >
       <div className={classNames(style.tileContainer, style[language])}>
         <span className={style.start}>{t("WIZARD_START_BUTTON")}</span>
-        <span className={style.title}>{t(LANGUAGES[language])}</span>
+        <span className={style.title}>{t(ALL_LANGUAGES[language])}</span>
         <span className={style.languageFlag} />
         <span className={style.parrot} />
       </div>
@@ -30,7 +30,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
 export const LanguagesBlock: FC = () => {
   return (
     <div className={style.block}>
-      {LEARNED_LANGUAGES.map(language => (
+      {LEARN_LANGUAGES.map(language => (
         <LanguageTile language={language} key={language} />
       ))}
     </div>

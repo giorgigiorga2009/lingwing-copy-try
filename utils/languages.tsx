@@ -1,6 +1,4 @@
-import _ from 'lodash'
-
-export const LANGUAGES = {
+export const ALL_LANGUAGES = {
   eng: 'English',
   rus: 'Russian',
   geo: 'Georgian',
@@ -30,9 +28,9 @@ export const LOCALES_TO_LANGUAGES = {
   es: 'esp', 
 } as const
 
-export const SWITCHED_LANGUAGES = _.keys(LANGUAGES_TO_LOCALES) 
+export const SWITCHED_LANGUAGES = Object.keys(LANGUAGES_TO_LOCALES) as SwitchedLanguage[]
 
-export const LEARNED_LANGUAGES = [
+export const LEARN_LANGUAGES = [
   'eng',
   'esp',
   'geo',
@@ -43,6 +41,6 @@ export const LEARNED_LANGUAGES = [
 ] as const
 
 export type SwitchedLanguage = keyof typeof LANGUAGES_TO_LOCALES
-export type LearnedLanguage = typeof LEARNED_LANGUAGES[number]
+export type LearnedLanguage = typeof LEARN_LANGUAGES[number]
 export type Locale = keyof typeof LOCALES_TO_LANGUAGES
-export type Language = keyof typeof LANGUAGES
+export type Language = keyof typeof ALL_LANGUAGES

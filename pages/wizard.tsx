@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Header } from '../components/header/Header';
 import { LanguageChoiceContainer } from '../components/wizard/LanguageChoiceContainer';
 import { PageTitle } from '../components/wizard/PageTitle';
-import { LOCALES_TO_LANGUAGES, Locale, LEARNED_LANGUAGES, LearnedLanguage, SwitchedLanguage, Language } from '../utils/languages';
+import { LOCALES_TO_LANGUAGES, Locale, LEARN_LANGUAGES, LearnedLanguage, SwitchedLanguage, Language } from '../utils/languages';
 import style from './Wizard.module.scss'
 import languagesData from '../utils/learnLanguages.json'
 import _ from 'lodash'
@@ -86,7 +86,7 @@ const Wizard: NextPage = () => {
 
       {page === 'step1' && <div className={style.languageContainer}>
         <PageTitle text='Choose language to learn' />
-        <LanguageChoiceContainer languages={[...LEARNED_LANGUAGES]} onClick={onStep1Click} />
+        <LanguageChoiceContainer languages={[...LEARN_LANGUAGES]} onClick={onStep1Click} />
       </div>}
 
 
