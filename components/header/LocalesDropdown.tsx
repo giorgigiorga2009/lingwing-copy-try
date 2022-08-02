@@ -3,7 +3,7 @@ import styles from './LocalesDropdown.module.scss'
 import Foco from 'react-foco'
 import { IconFlag } from './IconFlag'
 import { 
-  ALL_LANGUAGES, 
+  LANGUAGE_NAMES, 
   LANGUAGES_TO_LOCALES, 
   LOCALES_TO_LANGUAGES, 
   Locale, 
@@ -45,7 +45,7 @@ export const SwitchLanguageDropdown: FC = () => {
                     onClick={() => handleClick(language)}
                   >
                     <IconFlag language={language} />
-                    <div>{ALL_LANGUAGES[language]}</div>
+                    <div>{LANGUAGE_NAMES[language]}</div>
                   </div>
                 )}
               </Fragment>

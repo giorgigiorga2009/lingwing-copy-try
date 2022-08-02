@@ -1,4 +1,4 @@
-export const ALL_LANGUAGES = {
+export const LANGUAGE_NAMES = {
   eng: 'English',
   rus: 'Russian',
   geo: 'Georgian',
@@ -43,4 +43,4 @@ export const LEARN_LANGUAGES = [
 export type SwitchedLanguage = keyof typeof LANGUAGES_TO_LOCALES
 export type LearnedLanguage = typeof LEARN_LANGUAGES[number]
 export type Locale = keyof typeof LOCALES_TO_LANGUAGES
-export type Language = keyof typeof ALL_LANGUAGES
+export type Language = keyof typeof LANGUAGE_NAMES

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { FC } from "react";
-import { Language, ALL_LANGUAGES, LearnedLanguage, SwitchedLanguage } from "../../utils/languages";
+import { Language, LANGUAGE_NAMES, LearnedLanguage, SwitchedLanguage } from "../../utils/languages";
 import { useTranslation } from "../../utils/useTranslation";
 import style from './WizardTile.module.scss'
 
@@ -18,7 +18,7 @@ export const WizardTile: FC<Props> = ({ language, onClick }) => {
         <div className={classNames(style.flag, style[language])} />
       </div>
       <div className={style.title}>
-        {t(ALL_LANGUAGES[language])}
+        {t(LANGUAGE_NAMES[language])}
       </div>
     </div>
   )
