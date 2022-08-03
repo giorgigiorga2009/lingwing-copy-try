@@ -1,0 +1,85 @@
+{
+  "data": [
+    {
+      "nameCode": "eng",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "rus"
+        },
+        {
+          "nameCode": "geo"
+        },
+        {
+          "nameCode": "esp"
+        },
+        {
+          "nameCode": "tur"
+        },
+        {
+          "nameCode": "ben"
+        }
+      ]
+    },
+    {
+      "nameCode": "ita",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "geo"
+        }
+      ]
+    },
+    {
+      "nameCode": "geo",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "rus"
+        },
+        {
+          "nameCode": "eng"
+        }
+      ]
+    },
+    {
+      "nameCode": "esp",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "geo"
+        },
+        {
+          "nameCode": "eng"
+        }
+      ]
+    },
+    {
+      "nameCode": "fre",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "geo"
+        }
+      ]
+    },
+    {
+      "nameCode": "rus",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "geo"
+        }
+      ]
+    },
+    {
+      "nameCode": "deu",
+
+      "iLearnFrom": [
+        {
+          "nameCode": "geo"
+        }
+      ]
+    }
+  ]
+}

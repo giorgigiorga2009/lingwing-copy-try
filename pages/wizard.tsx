@@ -1,154 +1,120 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
-import { LanguageChoiceContainer } from '../components/wizard/LanguageChoiceContainer'
+import { ChooseLanguageContainer } from '../components/wizard/ChooseLanguageContainer'
 import { PageTitle } from '../components/wizard/PageTitle'
 import {
+  LANGUAGES_TO,
+  LanguageTo,
+  getLanguagesFrom,
+  LanguageFrom,
   LOCALES_TO_LANGUAGES,
-  Locale,
-  LEARN_LANGUAGES,
-  LearnedLanguage,
-  Language,
-  SwitchedLanguage,
 } from '../utils/languages'
 import style from './Wizard.module.scss'
-import languagesData from '../utils/learnLanguages.json'
 import _ from 'lodash'
 import { getLanguageLevels, LanguageLevel } from '../utils/getLanguageLevels'
 import { Footer } from '../components/wizard/Footer'
+import { BackButton } from '../components/BackButton'
+import { Locale } from '../utils/localization'
 
-const getLearnFromLanguages = (
-  language: LearnedLanguage,
-): SwitchedLanguage[] => {
-  const languageData = languagesData.data.find(
-    data => data.nameCode === language,
-  )
-  return languageData !== undefined
-    ? languageData.iLearnFrom.map(
-        language => language.nameCode as SwitchedLanguage,
-      )
-    : []
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  return { props: { query } }
 }
 
-export type WizardQuery = 'learnLang' | 'langFrom'
 type Step = 'step1' | 'step2' | 'step3'
 
-const Wizard: NextPage = () => {
-  const router = useRouter()
-  const [step, setStep] = useState<Step>()
-  const [levelData, setLevelData] = useState<LanguageLevel>()
+interface WizardProps {
+  query: {
+    languageTo?: LanguageTo
+  }
+}
 
+const Wizard: NextPage<WizardProps> = params => {
+  const router = useRouter()
+  const { query } = params
   const locale = router.locale ?? 'en'
 
-  const query = router.query
-  const learnLang = query.learnLang
-  const langFrom = query.langFrom
+  const [step, setStep] = useState<Step>()
+  const [languageTo, setLanguageTo] = useState<LanguageTo | undefined>(
+    query.languageTo,
+  )
+  const [languageFrom, setLanguageFrom] = useState<LanguageFrom>()
+  const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
 
-  const step2languages =
-    learnLang !== undefined
-      ? getLearnFromLanguages(learnLang as LearnedLanguage)
-      : []
+  const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel>()
 
   useEffect(() => {
-    if (!router.isReady) return
+    if (step === 'step3') return
 
-    if (_.isEmpty(query)) {
+    if (languageTo === undefined) {
       setStep('step1')
-      return
-    }
-
-    if (langFrom && learnLang) {
-      setStep('step3')
-      return
-    }
-
-    if (
-      step2languages.length === 0 ||
-      step2languages.includes(LOCALES_TO_LANGUAGES[locale as Locale])
-    ) {
-      setStep('step3')
-      router.push({
-        query: {
-          ...query,
-          langFrom: locale,
-        },
-      })
     } else {
-      setStep('step2')
+      const languagesFrom = getLanguagesFrom(languageTo)
+      setLanguagesFrom(languagesFrom)
+
+      if (languagesFrom.includes(LOCALES_TO_LANGUAGES[locale as Locale])) {
+        setStep('step3')
+      } else {
+        setStep('step2')
+      }
     }
-  }, [router.isReady])
+  }, [step])
 
   useEffect(() => {
     if (step !== 'step3') return
-    if (!learnLang || !langFrom) return
+    if (languageTo === undefined || languageFrom === undefined) return
 
     getLanguageLevels(
-      learnLang as string,
-      langFrom as string,
+      languageTo,
+      languageFrom,
       LOCALES_TO_LANGUAGES[locale as Locale],
-    ).then(response => setLevelData(response))
-  }, [step, router.asPath])
+    ).then(response => setLanguageLevelData(response))
+  }, [step])
 
-  const onStep1Click = (language: Language) => {
-    router.push({
-      query: {
-        ...query,
-        learnLang: language,
-      },
-    })
-    setStep('step2')
-  }
-
-  const onStep2Click = (language: Language) => {
-    router.push({
-      query: {
-        ...query,
-        langFrom: language,
-      },
-    })
-    setStep('step3')
-  }
-
-  const handleClick = () => {
+  const goBack = () => {
     switch (step) {
       case 'step1':
         router.back()
         break
       case 'step2':
-        router.back()
         setStep('step1')
+        setLanguageTo(undefined)
         break
       case 'step3':
-        router.back()
-        setStep('step2')
+        setLanguageFrom(undefined)
+        languageFrom === undefined ? router.back() : setStep('step2')
         break
     }
   }
+
   return (
     <div className={style.container}>
       <Header size="s" />
-      <div className={style.backButton} onClick={() => handleClick()}>
-        <div className={style.icon} />
-        back
-      </div>
+      <BackButton onClick={goBack} />
 
       {step === 'step1' && (
         <div className={style.languageContainer}>
           <PageTitle text="Choose language to learn" />
-          <LanguageChoiceContainer
-            languages={[...LEARN_LANGUAGES]}
-            onClick={onStep1Click}
+          <ChooseLanguageContainer
+            languages={[...LANGUAGES_TO]}
+            onClick={language => {
+              setLanguageTo(language as LanguageTo)
+              setStep('step2')
+            }}
           />
         </div>
       )}
 
-      {step === 'step2' && (
+      {step === 'step2' && languagesFrom !== undefined && (
         <div className={style.languageContainer}>
           <PageTitle text="Choose language to learn from" />
-          <LanguageChoiceContainer
-            languages={step2languages}
-            onClick={onStep2Click}
+          <ChooseLanguageContainer
+            languages={languagesFrom}
+            onClick={language => {
+              setLanguageFrom(language as LanguageFrom)
+              setStep('step3')
+            }}
           />
         </div>
       )}

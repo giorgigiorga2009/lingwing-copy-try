@@ -3,37 +3,15 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
 import { IntlProvider } from 'react-intl'
-import en from '../public/localization/locale-en_US.json'
-import bn from '../public/localization/locale-bn_BN.json'
-import es from '../public/localization/locale-es_ES.json'
-import ka from '../public/localization/locale-ka_GE.json'
-import ru from '../public/localization/locale-ru_RU.json'
-import tr from '../public/localization/locale-tr_TR.json'
 import { useRouter } from 'next/router'
-import { useTranslation } from '../utils/useTranslation'
-
-const LOCALE = ['en', 'bn', 'es', 'ka', 'ru', 'tr']
-type LOCALE = typeof LOCALE[number]
-
-interface Messages {
-  [x: LOCALE]: {}
-}
-
-const messages = {
-  en,
-  bn,
-  es,
-  ka,
-  ru,
-  tr,
-} as Messages
+import { Locale, messages } from '../utils/localization'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { locale: defaultLocale } = useRouter()
-  const locale = defaultLocale ? defaultLocale : 'en'
+  const { locale: initialLocale } = useRouter()
+  const locale = initialLocale ? initialLocale : 'en'
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]}>
+    <IntlProvider locale={locale} messages={messages[locale as Locale]}>
       <Head>
         <link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
         <title>Lingwing: Foreign languages online learning</title>

@@ -2,17 +2,12 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { useIntl } from 'react-intl'
-import {
-  LANGUAGE_NAMES,
-  LearnedLanguage,
-  LEARN_LANGUAGES,
-} from '../utils/languages'
+import { LANGUAGE_NAMES, LanguageTo, LANGUAGES_TO } from '../utils/languages'
 import { useTranslation } from '../utils/useTranslation'
 import style from './LanguagesBlock.module.scss'
 
 interface Props {
-  language: LearnedLanguage
+  language: LanguageTo
 }
 
 const LanguageTile: FC<Props> = ({ language }) => {
@@ -20,7 +15,14 @@ const LanguageTile: FC<Props> = ({ language }) => {
   const router = useRouter()
 
   return (
-    <Link href={`/wizard?learnLang=${language}`} locale={router.locale}>
+    <Link
+      href={{
+        pathname: `/wizard`,
+        query: { languageTo: language },
+      }}
+      locale={router.locale}
+      as="/wizard"
+    >
       <div className={classNames(style.tileContainer, style[language])}>
         <span className={style.start}>{t('WIZARD_START_BUTTON')}</span>
         <span className={style.title}>{t(LANGUAGE_NAMES[language])}</span>
@@ -34,7 +36,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
 export const LanguagesBlock: FC = () => {
   return (
     <div className={style.block}>
-      {LEARN_LANGUAGES.map(language => (
+      {LANGUAGES_TO.map(language => (
         <LanguageTile language={language} key={language} />
       ))}
     </div>

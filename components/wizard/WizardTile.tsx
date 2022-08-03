@@ -3,8 +3,8 @@ import { FC } from 'react'
 import {
   Language,
   LANGUAGE_NAMES,
-  LearnedLanguage,
-  SwitchedLanguage,
+  LanguageTo,
+  LocaleName,
 } from '../../utils/languages'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './WizardTile.module.scss'

@@ -1,0 +1,23 @@
+@import '../styles/imports.scss';
+
+.backButton {
+  position: absolute;
+  top: 6rem;
+  left: 3rem;
+  font-size: 1.75rem;
+  color: #d2d1d1;
+  font-family: SegoeUI;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  background-image: url('/assets/images/back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1.68rem;
+  width: 1.875rem;
+  display: inline-block;
+}

@@ -1,18 +1,14 @@
 import { FC } from 'react'
 import { WizardTile } from './WizardTile'
-import {
-  Language,
-  LearnedLanguage,
-  SwitchedLanguage,
-} from '../../utils/languages'
-import style from './LanguageChoiceContainer.module.scss'
+import { Language, LanguageFrom, LanguageTo } from '../../utils/languages'
+import style from './ChooseLanguageContainer.module.scss'
 
 interface Props {
-  languages: Language[]
-  onClick?: (language: Language) => void
+  languages: LanguageFrom[] | LanguageTo[]
+  onClick?: (language: LanguageFrom | LanguageTo) => void
 }
 
-export const LanguageChoiceContainer: FC<Props> = ({
+export const ChooseLanguageContainer: FC<Props> = ({
   languages,
   onClick = () => {},
 }) => {

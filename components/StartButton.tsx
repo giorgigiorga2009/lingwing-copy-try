@@ -18,7 +18,7 @@ export const StartButton: FC = () => {
 
       <div className={style.button}>
         <span className={style.bubbleUp} />
-        <Link locale={router.locale} href={'/wizard'}>
+        <Link locale={router.locale} href="/wizard">
           <span className={style.text}>{t('APP_NEWLAND_START_PRACTICE')}</span>
         </Link>
         <span className={style.bubbleDown} />
