@@ -8,27 +8,27 @@
   background-size: contain;
 
   &.eng {
-    background-image: url('/assets/images/flags/small/English.png');
+    background-image: url('/assets/images/flags/rectangle/English.png');
   }
 
   &.esp {
-    background-image: url('/assets/images/flags/small/Spanish.png');
+    background-image: url('/assets/images/flags/rectangle/Spanish.png');
   }
 
   &.ben {
-    background-image: url('/assets/images/flags/small/Bengali.png');
+    background-image: url('/assets/images/flags/rectangle/Bengali.png');
   }
 
   &.tur {
-    background-image: url('/assets/images/flags/small/Turkish.png');
+    background-image: url('/assets/images/flags/rectangle/Turkish.png');
   }
 
   &.rus {
-    background-image: url('/assets/images/flags/small/Russian.png');
+    background-image: url('/assets/images/flags/rectangle/Russian.png');
   }
 
   &.geo {
-    background-image: url('/assets/images/flags/small/Georgian.png');
+    background-image: url('/assets/images/flags/rectangle/Georgian.png');
   }
 
   @include mobile {
