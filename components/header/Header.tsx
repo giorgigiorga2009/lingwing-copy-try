@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { SwitchLanguageDropdown } from './LocalesDropdown'
+import { LocalesDropdown } from './LocalesDropdown'
 import style from './Header.module.scss'
 import { LoginModal } from '../loginModal/LoginModal'
 import { SideMenu } from './SideMenu'
@@ -30,7 +30,7 @@ export const Header: FC<Props> = ({ size = 'm' }) => {
           {isOpen && <SideMenu onClose={() => setIsOpen(false)} />}
         </div>
         <div className={style.rightBlock}>
-          <SwitchLanguageDropdown />
+          <LocalesDropdown />
           <div className={style.avatar} />
           <div className={style.singInButton} onClick={() => setOpen(true)}>
             {t('AUTH_LOGIN')}

@@ -4,7 +4,6 @@ import Foco from 'react-foco'
 import { IconFlag } from './IconFlag'
 import {
   LanguageFrom,
-  LANGUAGES_TO,
   LANGUAGES_TO_LOCALES,
   LANGUAGE_FROM,
   LANGUAGE_NAMES,
@@ -13,7 +12,7 @@ import {
 import { useRouter } from 'next/router'
 import { Locale } from '../../utils/localization'
 
-export const SwitchLanguageDropdown: FC = () => {
+export const LocalesDropdown: FC = () => {
   const router = useRouter()
   const [selectedLang, setSelectedLang] = useState<LanguageFrom>(
     LOCALES_TO_LANGUAGES[router.locale as Locale],

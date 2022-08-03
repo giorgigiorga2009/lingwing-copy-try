@@ -6,7 +6,9 @@ export type LanguageLevel = {
   _id: {
     _id: string
     name: string
-    smallDescription: {}
+    smallDescription: {
+      [x in LanguageFrom]: string
+    }
     fullDescription: {
       [x in LanguageFrom]: string
     }
