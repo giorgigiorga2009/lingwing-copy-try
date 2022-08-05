@@ -1,0 +1,138 @@
+@import '../../styles/imports.scss';
+
+.container {
+  border-radius: 10px;
+  box-shadow: 0 1px 1px #e2e2e2;
+  position: relative;
+  cursor: pointer;
+  animation: courseAnim 1s;
+  height: 5.875rem;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.outerCircle {
+  width: 125px;
+  height: 128px;
+  border-radius: 50%;
+  background: #fff3d7;
+  position: absolute;
+  right: -30px;
+  top: -16px;
+}
+
+.innerCircle {
+  width: 119px;
+  height: 119px;
+  float: right;
+  margin: 4px -5px 0 0;
+  border-radius: 50%;
+  background-color: #ffe9b5;
+}
+
+.iconPlane {
+  width: 6.25rem;
+  height: 6.25rem;
+  position: absolute;
+  right: -0.5rem;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../../public/assets/images/wizard/standart-level-icon1.png);
+}
+
+.iconArrowContainer {
+  border: 3px solid #fff;
+  width: 40px;
+  height: 40px;
+  background: #fec240;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconArrow {
+  background-image: url(../../public/assets/images/arrows/arrow-up-white.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  display: inline-block;
+  -webkit-transition: all linear 250ms;
+  transition: all linear 250ms;
+  &.up {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  &.down {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
+.levelLetter {
+  background-color: transparent;
+  border-radius: 100%;
+  color: #f39c12;
+  text-align: center;
+  font-family: SegoeUI;
+  font-size: 27px;
+}
+
+.levelName {
+  line-height: 45px;
+  padding-bottom: 25px;
+  margin-top: 12px;
+  font-weight: 700;
+  color: #a8a9ab;
+  font-size: 26px;
+  font-family: SegoeUI;
+}
+
+.amountOfStudents {
+  top: 32px;
+  position: absolute;
+  z-index: 12;
+  right: 120px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background-color: #fff4d7;
+  font-size: 14px;
+  font-family: SegoeUI;
+  .number {
+    color: #ffae45;
+    font-weight: 700;
+  }
+
+  .text {
+    color: #a5a5a5;
+  }
+}
+
+@keyframes courseAnim {
+  0%,
+  75%,
+  95%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+  75% {
+    opacity: 1;
+  }
+  95% {
+    transform: translate3d(0, -5px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

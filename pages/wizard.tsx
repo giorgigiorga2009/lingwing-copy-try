@@ -17,6 +17,7 @@ import { getLanguageLevels, LanguageLevel } from '../utils/getLanguageLevels'
 import { Footer } from '../components/wizard/Footer'
 import { BackButton } from '../components/BackButton'
 import { Locale } from '../utils/localization'
+import { DifficultyLevelContainer } from '../components/wizard/DifficultyLevelContainer'
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   return { props: { query } }
@@ -119,7 +120,12 @@ const Wizard: NextPage<WizardProps> = params => {
         </div>
       )}
 
-      {step === 'step3' && <div>choose difficulty page</div>}
+      {step === 'step3' && (
+        <div className={style.languageContainer}>
+          <PageTitle text="Choose difficulty level for learning" />
+          <DifficultyLevelContainer />
+        </div>
+      )}
 
       <Footer />
     </div>

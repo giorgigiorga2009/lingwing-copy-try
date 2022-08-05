@@ -31,11 +31,14 @@
 }
 
 .languageContainer {
-  margin-top: 4rem;
+  margin: 4rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  z-index: 199;
+
+  @include desktop {
+    width: 52rem;
+  }
 }
