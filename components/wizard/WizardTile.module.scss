@@ -13,7 +13,7 @@
 .title {
   text-transform: capitalize;
   font-family: SegoeUI;
-  color: $grey-200;
+  color: $grey-800;
   cursor: pointer;
   margin-top: 1.5rem;
 }
@@ -33,7 +33,7 @@
   background-color: $white;
 
   &:hover {
-    background-color: $orange-200;
+    background-color: $orange-500;
   }
 }
 

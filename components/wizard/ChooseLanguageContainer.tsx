@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { WizardTile } from './WizardTile'
-import { Language, LanguageFrom, LanguageTo } from '../../utils/languages'
+import { LanguageFrom, LanguageTo } from '../../utils/languages'
 import style from './ChooseLanguageContainer.module.scss'
 
 interface Props {

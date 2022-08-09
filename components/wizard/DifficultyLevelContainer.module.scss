@@ -1,8 +1,8 @@
 @import '../../styles/imports.scss';
 
 .container {
-  border-radius: 10px;
-  box-shadow: 0 1px 1px #e2e2e2;
+  border-radius: 0.625rem;
+  box-shadow: 0 1px 1px $white-300;
   position: relative;
   cursor: pointer;
   animation: courseAnim 1s;
@@ -10,25 +10,28 @@
   width: 100%;
   overflow: hidden;
   display: flex;
+  padding-left: 2.25rem;
+  font-family: SegoeUI;
+  align-items: center;
 }
 
 .outerCircle {
-  width: 125px;
-  height: 128px;
+  width: 7.813rem;
+  height: 8rem;
   border-radius: 50%;
-  background: #fff3d7;
+  background: $yellow-100;
   position: absolute;
-  right: -30px;
-  top: -16px;
+  right: -1.875rem;
+  top: -1rem;
 }
 
 .innerCircle {
-  width: 119px;
-  height: 119px;
+  width: 7.438rem;
+  height: 7.438rem;
   float: right;
-  margin: 4px -5px 0 0;
+  margin: 0.25rem -0.313rem 0 0;
   border-radius: 50%;
-  background-color: #ffe9b5;
+  background-color: $yellow-200;
 }
 
 .iconPlane {
@@ -44,23 +47,25 @@
 }
 
 .iconArrowContainer {
-  border: 3px solid #fff;
-  width: 40px;
-  height: 40px;
-  background: #fec240;
+  border: 0.188rem solid $white;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: $yellow-600;
   border-radius: 50%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  right: 4.5rem;
+  top: 1.7rem;
 }
 
 .iconArrow {
   background-image: url(../../public/assets/images/arrows/arrow-up-white.png);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   background-position: center;
   display: inline-block;
   -webkit-transition: all linear 250ms;
@@ -78,39 +83,34 @@
 .levelLetter {
   background-color: transparent;
   border-radius: 100%;
-  color: #f39c12;
+  color: $orange-500;
   text-align: center;
-  font-family: SegoeUI;
-  font-size: 27px;
+  font-size: 1.688rem;
+  margin-right: 1.25rem;
 }
 
 .levelName {
-  line-height: 45px;
-  padding-bottom: 25px;
-  margin-top: 12px;
   font-weight: 700;
-  color: #a8a9ab;
-  font-size: 26px;
-  font-family: SegoeUI;
+  color: $grey-300;
+  font-size: 1.625rem;
 }
 
 .amountOfStudents {
-  top: 32px;
+  top: 2rem;
   position: absolute;
-  z-index: 12;
-  right: 120px;
-  padding: 8px 16px;
-  border-radius: 16px;
-  background-color: #fff4d7;
-  font-size: 14px;
-  font-family: SegoeUI;
+  right: 7.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: $yellow-200;
+  font-size: 0.875rem;
+
   .number {
-    color: #ffae45;
+    color: $orange-300;
     font-weight: 700;
   }
 
   .text {
-    color: #a5a5a5;
+    color: $grey-600;
   }
 }
 

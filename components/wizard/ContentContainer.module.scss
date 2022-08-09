@@ -1,0 +1,14 @@
+@import '../../styles/imports.scss';
+
+.container {
+  margin: 4rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  @include desktop {
+    width: 52rem;
+  }
+}

@@ -18,6 +18,8 @@ import { Footer } from '../components/wizard/Footer'
 import { BackButton } from '../components/BackButton'
 import { Locale } from '../utils/localization'
 import { DifficultyLevelContainer } from '../components/wizard/DifficultyLevelContainer'
+import { ChooseLanguageStep } from '../components/wizard/ChooseLanguageStep'
+import { ChooseDifficultyStep } from '../components/wizard/ChooseDifficultyStep'
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   return { props: { query } }
@@ -95,37 +97,28 @@ const Wizard: NextPage<WizardProps> = params => {
       <BackButton onClick={goBack} />
 
       {step === 'step1' && (
-        <div className={style.languageContainer}>
-          <PageTitle text="Choose language to learn" />
-          <ChooseLanguageContainer
-            languages={[...LANGUAGES_TO]}
-            onClick={language => {
-              setLanguageTo(language as LanguageTo)
-              setStep('step2')
-            }}
-          />
-        </div>
+        <ChooseLanguageStep
+          languages={[...LANGUAGES_TO]}
+          onClick={language => {
+            setLanguageTo(language as LanguageTo)
+            setStep('step2')
+          }}
+          title="Choose language to learn"
+        />
       )}
 
       {step === 'step2' && languagesFrom !== undefined && (
-        <div className={style.languageContainer}>
-          <PageTitle text="Choose language to learn from" />
-          <ChooseLanguageContainer
-            languages={languagesFrom}
-            onClick={language => {
-              setLanguageFrom(language as LanguageFrom)
-              setStep('step3')
-            }}
-          />
-        </div>
+        <ChooseLanguageStep
+          languages={languagesFrom}
+          onClick={language => {
+            setLanguageFrom(language as LanguageFrom)
+            setStep('step3')
+          }}
+          title="Choose language to learn from"
+        />
       )}
 
-      {step === 'step3' && (
-        <div className={style.languageContainer}>
-          <PageTitle text="Choose difficulty level for learning" />
-          <DifficultyLevelContainer />
-        </div>
-      )}
+      {step === 'step3' && <ChooseDifficultyStep />}
 
       <Footer />
     </div>

@@ -28,7 +28,7 @@
 
 .usersAmount {
   font-size: 2.5rem;
-  color: $orange-200;
+  color: $orange-500;
 
   @include mobile {
     font-size: 1.8rem;
@@ -61,7 +61,7 @@
   width: 25rem;
   height: 3.45rem;
   cursor: pointer;
-  background-color: $orange-200;
+  background-color: $orange-500;
   border-radius: 1.88rem;
   box-shadow: -1px 1px 1px $black-t;
 
@@ -92,7 +92,7 @@
     }
 
     .text {
-      background-color: $orange-150;
+      background-color: $orange-450;
       box-shadow: 0 2px 10px $black-t;
     }
   }
