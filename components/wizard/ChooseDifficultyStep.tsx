@@ -15,8 +15,8 @@ export const ChooseDifficultyStep: FC<Props> = ({ levelData }) => {
     <ContentContainer>
       <PageTitle text="Choose difficulty level for learning" />
       <div className={style.levelsContainer}>
-        {levelData.map(level => (
-          <DifficultyLevelContainer level={level} />
+        {levelData.map((level, index) => (
+          <DifficultyLevelContainer level={level} key={index} />
         ))}
       </div>
     </ContentContainer>

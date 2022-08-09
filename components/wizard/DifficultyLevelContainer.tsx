@@ -16,14 +16,14 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
   const languageKey = LOCALES_TO_LANGUAGES[locale]
   return (
     <div className={style.container}>
-      <div className={style.levelLetter}>{level._id.name}</div>
+      <div className={style.levelLetter}>{level.name}</div>
 
       <div className={style.levelName}>
-        {level._id.smallDescription[languageKey]}
+        {level.smallDescription[languageKey]}
       </div>
 
       <div className={style.amountOfStudents}>
-        <span className={style.number}>{level._id.uniqueStudentsCount}</span>
+        <span className={style.number}>{level.uniqueStudentsCount}</span>
         <span className={style.text}>Students</span>
       </div>
 

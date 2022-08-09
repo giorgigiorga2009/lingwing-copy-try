@@ -59,7 +59,7 @@ export type LanguageLevel = {
   }[]
 }
 
-const getLevelOptions = (
+const getLevelOptionsData = (
   id: string,
   languageTo: LanguageTo,
   languageFrom: LanguageFrom,
@@ -77,7 +77,6 @@ const getFormattedLevels = (
   level: LanguageLevelData,
   options: LevelOptionData[],
 ): LanguageLevel => {
-  console.log(options)
   return {
     name: level._id.name,
     smallDescription: level._id.smallDescription,
@@ -94,26 +93,33 @@ const getFormattedLevels = (
   }
 }
 
-export const getLanguageLevels = (
+const getLevelsData = (
+  languageTo: LanguageTo,
+  languageFrom: LanguageFrom,
+  locale: LanguageFrom,
+): Promise<LanguageLevelData[]> => {
+  return axios
+    .get(`${URL_LEVELS}/${languageTo}/${languageFrom}?lang=${locale}`)
+    .then(response => response.data.data)
+    .catch(error => console.log(error))
+}
+
+export const getLevels = (
   languageTo: LanguageTo,
   languageFrom: LanguageFrom,
   locale: LanguageFrom,
 ): Promise<LanguageLevel[]> => {
-  return axios
-    .get(`${URL_LEVELS}/${languageTo}/${languageFrom}?lang=${locale}`)
-    .then(response => {
-      return response.data.data.map((level: LanguageLevelData) => {
-        const result: Promise<LanguageLevel> = getLevelOptions(
-          level._id._id,
-          languageTo,
-          languageFrom,
-          locale,
-        ).then(response => {
-          return getFormattedLevels(level, response)
-        })
+  return getLevelsData(languageTo, languageFrom, locale).then(response => {
+    const data = response.map((level: LanguageLevelData) => {
+      const result: Promise<LanguageLevel> = getLevelOptionsData(
+        level._id._id,
+        languageTo,
+        languageFrom,
+        locale,
+      ).then(response => getFormattedLevels(level, response))
 
-        return result
-      })
+      return result
     })
-    .catch(error => console.log(error))
+    return Promise.all(data)
+  })
 }

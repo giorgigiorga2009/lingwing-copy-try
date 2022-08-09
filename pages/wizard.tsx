@@ -13,7 +13,7 @@ import {
 } from '../utils/languages'
 import style from './Wizard.module.scss'
 import _ from 'lodash'
-import { getLanguageLevels, LanguageLevel } from '../utils/getLanguageLevels'
+import { getLevels, LanguageLevel } from '../utils/getLanguageLevels'
 import { Footer } from '../components/wizard/Footer'
 import { BackButton } from '../components/BackButton'
 import { Locale } from '../utils/localization'
@@ -47,6 +47,10 @@ const Wizard: NextPage<WizardProps> = params => {
 
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
+  console.log(step)
+  console.log(languageFrom, 'from')
+  console.log(languageTo, 'to')
+
   useEffect(() => {
     if (step === 'step3') return
 
@@ -58,6 +62,7 @@ const Wizard: NextPage<WizardProps> = params => {
 
       if (languagesFrom.includes(LOCALES_TO_LANGUAGES[locale as Locale])) {
         setStep('step3')
+        setLanguageFrom(LOCALES_TO_LANGUAGES[locale as Locale])
       } else {
         setStep('step2')
       }
@@ -68,11 +73,9 @@ const Wizard: NextPage<WizardProps> = params => {
     if (step !== 'step3') return
     if (languageTo === undefined || languageFrom === undefined) return
 
-    getLanguageLevels(
-      languageTo,
-      languageFrom,
-      LOCALES_TO_LANGUAGES[locale as Locale],
-    ).then(setLanguageLevelData)
+    getLevels(languageTo, languageFrom, LOCALES_TO_LANGUAGES[locale as Locale])
+      .then(response => setLanguageLevelData(response))
+      .catch(error => console.log(error))
   }, [step])
 
   const goBack = () => {
