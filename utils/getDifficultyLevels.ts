@@ -104,7 +104,7 @@ const getLevelsData = (
     .catch(error => console.log(error))
 }
 
-export const getLevels = (
+export const getDifficultyLevels = (
   languageTo: LanguageTo,
   languageFrom: LanguageFrom,
   locale: LanguageFrom,

@@ -1,20 +1,11 @@
 import { FC } from 'react'
 import style from './FollowButtons.module.scss'
 import classNames from 'classnames'
-import { useIntl } from 'react-intl'
 import { useTranslation } from '../utils/useTranslation'
+import { FOLLOW_NETWORKS } from '../utils/const'
 
-const NETWORKS = {
-  facebook: 'https://www.facebook.com/lingwingcom',
-  instagram: 'https://www.instagram.com/lingwingcom/',
-  linkedin: 'https://www.linkedin.com/company/lingwing',
-  youtube: 'https://www.youtube.com/channel/UCQTfPDnmBcLbZueYTM8pNZA',
-  tiktok: 'https://www.tiktok.com/@lingwing.georgia',
-}
-
-type Networks = keyof typeof NETWORKS
-
-const KEY_NETWORKS = Object.keys(NETWORKS) as Networks[]
+type Networks = keyof typeof FOLLOW_NETWORKS
+const KEY_NETWORKS = Object.keys(FOLLOW_NETWORKS) as Networks[]
 
 export const FollowButtons: FC = () => {
   const { t } = useTranslation()
@@ -25,7 +16,7 @@ export const FollowButtons: FC = () => {
       <div className={style.container}>
         {KEY_NETWORKS.map(label => (
           <a
-            href={NETWORKS[label]}
+            href={FOLLOW_NETWORKS[label]}
             key={label}
             className={classNames(style.followButton, style[label])}
           />

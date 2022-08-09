@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { LanguageLevel } from '../../utils/getLanguageLevels'
+import { LanguageLevel } from '../../utils/getDifficultyLevels'
 import { LOCALES_TO_LANGUAGES } from '../../utils/languages'
 import { Locale } from '../../utils/localization'
 import style from './DifficultyLevelContainer.module.scss'

@@ -2,8 +2,6 @@ import type { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
-import { ChooseLanguageContainer } from '../components/wizard/ChooseLanguageContainer'
-import { PageTitle } from '../components/wizard/PageTitle'
 import {
   LANGUAGES_TO,
   LanguageTo,
@@ -13,17 +11,15 @@ import {
 } from '../utils/languages'
 import style from './Wizard.module.scss'
 import _ from 'lodash'
-import { getLevels, LanguageLevel } from '../utils/getLanguageLevels'
+import {
+  getDifficultyLevels,
+  LanguageLevel,
+} from '../utils/getDifficultyLevels'
 import { Footer } from '../components/wizard/Footer'
 import { BackButton } from '../components/BackButton'
 import { Locale } from '../utils/localization'
-import { DifficultyLevelContainer } from '../components/wizard/DifficultyLevelContainer'
 import { ChooseLanguageStep } from '../components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '../components/wizard/ChooseDifficultyStep'
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return { props: { query } }
-}
 
 type Step = 'step1' | 'step2' | 'step3'
 
@@ -31,6 +27,10 @@ interface WizardProps {
   query: {
     languageTo?: LanguageTo
   }
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  return { props: { query } }
 }
 
 const Wizard: NextPage<WizardProps> = params => {
@@ -46,10 +46,6 @@ const Wizard: NextPage<WizardProps> = params => {
   const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
 
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
-
-  console.log(step)
-  console.log(languageFrom, 'from')
-  console.log(languageTo, 'to')
 
   useEffect(() => {
     if (step === 'step3') return
@@ -73,7 +69,11 @@ const Wizard: NextPage<WizardProps> = params => {
     if (step !== 'step3') return
     if (languageTo === undefined || languageFrom === undefined) return
 
-    getLevels(languageTo, languageFrom, LOCALES_TO_LANGUAGES[locale as Locale])
+    getDifficultyLevels(
+      languageTo,
+      languageFrom,
+      LOCALES_TO_LANGUAGES[locale as Locale],
+    )
       .then(response => setLanguageLevelData(response))
       .catch(error => console.log(error))
   }, [step])
@@ -89,7 +89,9 @@ const Wizard: NextPage<WizardProps> = params => {
         break
       case 'step3':
         setLanguageFrom(undefined)
-        languageFrom === undefined ? router.back() : setStep('step2')
+        languagesFrom?.includes(LOCALES_TO_LANGUAGES[locale as Locale])
+          ? router.back()
+          : setStep('step2')
         break
     }
   }

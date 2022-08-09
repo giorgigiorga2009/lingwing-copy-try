@@ -38,12 +38,14 @@
 }
 
 .close {
-  margin-left: auto;
   width: 1.94rem;
   height: 1.94rem;
   font-size: 1.4rem;
-  margin-right: 0.4rem;
   color: $grey-100;
+  cursor: pointer;
+  position: absolute;
+  right: 0.7rem;
+  top: 0.5rem;
 
   &::after {
     content: '✕';
@@ -56,16 +58,14 @@
   width: 100%;
   justify-content: center;
   border-bottom: 1px solid $white-200;
-  align-items: flex-end;
+  position: relative;
+  justify-content: space-evenly;
 }
 
 .headerButton {
   cursor: pointer;
-  max-width: 9rem;
-  height: 1.7rem;
-  margin-left: 20%;
+  height: 100%;
   font-weight: 600;
-  text-align: center;
   font-size: 0.9rem;
 
   &.active {

@@ -14,13 +14,13 @@ import { Locale } from '../../utils/localization'
 
 export const LocalesDropdown: FC = () => {
   const router = useRouter()
-  const [selectedLang, setSelectedLang] = useState<LanguageFrom>(
-    LOCALES_TO_LANGUAGES[router.locale as Locale],
-  )
+  const initialLanguage = LOCALES_TO_LANGUAGES[router.locale as Locale]
+
+  const [selected, setSelected] = useState<LanguageFrom>(initialLanguage)
   const [open, setOpen] = useState(false)
 
   const handleClick = (language: LanguageFrom) => {
-    setSelectedLang(language)
+    setSelected(language)
     setOpen(false)
     const page = router.asPath
     router.push(page, page, { locale: LANGUAGES_TO_LOCALES[language] })
@@ -33,27 +33,25 @@ export const LocalesDropdown: FC = () => {
       className={styles.dropdown}
     >
       <div className={styles.button} onClick={() => setOpen(!open)}>
-        <IconFlag language={selectedLang} />
-        {selectedLang.toUpperCase()}
+        <IconFlag language={selected} />
+        {selected.toUpperCase()}
         <div className={styles.arrow} />
       </div>
       {open && (
         <div className={styles.dropdownContent}>
-          {LANGUAGE_FROM.map((language: LanguageFrom) => {
-            return (
-              <Fragment key={language}>
-                {language !== selectedLang && (
-                  <div
-                    className={styles.option}
-                    onClick={() => handleClick(language)}
-                  >
-                    <IconFlag language={language} />
-                    <div>{LANGUAGE_NAMES[language]}</div>
-                  </div>
-                )}
-              </Fragment>
-            )
-          })}
+          {LANGUAGE_FROM.map((language: LanguageFrom) => (
+            <Fragment key={language}>
+              {language !== selected && (
+                <div
+                  className={styles.option}
+                  onClick={() => handleClick(language)}
+                >
+                  <IconFlag language={language} />
+                  <div>{LANGUAGE_NAMES[language]}</div>
+                </div>
+              )}
+            </Fragment>
+          ))}
         </div>
       )}
     </Foco>

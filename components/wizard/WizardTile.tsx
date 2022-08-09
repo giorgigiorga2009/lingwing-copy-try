@@ -1,11 +1,6 @@
 import classNames from 'classnames'
 import { FC } from 'react'
-import {
-  Language,
-  LANGUAGE_NAMES,
-  LanguageTo,
-  LocaleName,
-} from '../../utils/languages'
+import { Language, LANGUAGE_NAMES } from '../../utils/languages'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './WizardTile.module.scss'
 

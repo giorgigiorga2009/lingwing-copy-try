@@ -42,7 +42,7 @@ export const LoginModal: FC<Props> = ({ onClick }) => {
         <NetworkButtons isSignInTab={isSignInTab} />
         <div className={style.divider}>
           <span className={style.line} />
-          <span> {t('AUTH_SOC_MEDIA')} </span>
+          <span>{t('AUTH_SOC_MEDIA')}</span>
           <span className={style.line} />
         </div>
         {isSignInTab ? <SignInPart /> : <SignUpPart />}

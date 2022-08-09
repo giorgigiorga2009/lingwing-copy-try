@@ -2,8 +2,7 @@ import { FC } from 'react'
 import style from './NetworkButtons.module.scss'
 import classNames from 'classnames'
 import { useTranslation } from '../../utils/useTranslation'
-
-const LOGIN_NETWORKS = ['facebook', 'google', 'twitter'] as const
+import { LOGIN_NETWORKS } from '../../utils/const'
 
 type LoginNetwork = typeof LOGIN_NETWORKS[number]
 
@@ -17,13 +16,9 @@ const Button: FC<ButtonProps> = ({ label, isSignInTab }) => {
 
   return (
     <div className={classNames(style.button, style[label])}>
-      <div className={classNames(style.icon)} />
+      <div className={style.icon} />
       <div className={style.text}>
-        {isSignInTab ? (
-          <>{t('MODAL_SIGN_IN_SOCIAL')} </>
-        ) : (
-          <>{t('MODAL_SOCIAL_MEDIA')} </>
-        )}
+        {isSignInTab ? t('MODAL_SIGN_IN_SOCIAL') : t('MODAL_SOCIAL_MEDIA')}
         <span className={style.network}>{label}</span>
       </div>
     </div>
