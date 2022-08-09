@@ -1,16 +1,30 @@
+import { useRouter } from 'next/router'
 import { FC } from 'react'
+import { LanguageLevel } from '../../utils/getLanguageLevels'
+import { LOCALES_TO_LANGUAGES } from '../../utils/languages'
+import { Locale } from '../../utils/localization'
 import style from './DifficultyLevelContainer.module.scss'
 
-export const DifficultyLevelContainer: FC = () => {
+interface Props {
+  level: LanguageLevel
+}
+
+export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
+  const router = useRouter()
+  const locale = (router.locale as Locale) ?? 'en'
+
+  const languageKey = LOCALES_TO_LANGUAGES[locale]
   return (
     <div className={style.container}>
-      <div className={style.levelLetter}>A1</div>
+      <div className={style.levelLetter}>{level._id.name}</div>
 
-      <div className={style.levelName}>Beginner</div>
+      <div className={style.levelName}>
+        {level._id.smallDescription[languageKey]}
+      </div>
 
       <div className={style.amountOfStudents}>
-        <span className={style.number}>11,057</span>
-        <span className={style.text}> Students</span>
+        <span className={style.number}>{level._id.uniqueStudentsCount}</span>
+        <span className={style.text}>Students</span>
       </div>
 
       <div className={style.outerCircle}>

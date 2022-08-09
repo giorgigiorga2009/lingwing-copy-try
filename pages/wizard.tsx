@@ -45,7 +45,7 @@ const Wizard: NextPage<WizardProps> = params => {
   const [languageFrom, setLanguageFrom] = useState<LanguageFrom>()
   const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
 
-  const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel>()
+  const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
   useEffect(() => {
     if (step === 'step3') return
@@ -72,7 +72,7 @@ const Wizard: NextPage<WizardProps> = params => {
       languageTo,
       languageFrom,
       LOCALES_TO_LANGUAGES[locale as Locale],
-    ).then(response => setLanguageLevelData(response))
+    ).then(setLanguageLevelData)
   }, [step])
 
   const goBack = () => {
@@ -118,7 +118,9 @@ const Wizard: NextPage<WizardProps> = params => {
         />
       )}
 
-      {step === 'step3' && <ChooseDifficultyStep />}
+      {step === 'step3' && languageLevelData && (
+        <ChooseDifficultyStep levelData={languageLevelData} />
+      )}
 
       <Footer />
     </div>

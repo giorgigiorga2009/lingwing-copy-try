@@ -5,6 +5,9 @@ const nextConfig = {
     defaultLocale: 'en',
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
+  env: {
+    defaultURL: 'https://api.lingwing.com/api/v2/public',
+  },
 }
 
 module.exports = nextConfig
