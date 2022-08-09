@@ -27,8 +27,8 @@ export const SignUpPart: FC = () => {
       </div>
       <div className={styles.button}>{t('REGISTER')}</div>
       <div className={styles.agreement}>
-        {t('APP_PRIVACY_POLICY1')}
-        <span className={styles.link}>{t('APP_PRIVACY_POLICY2')}</span>
+        <span>{t('APP_PRIVACY_POLICY1')}</span>
+        <span className={styles.link}>{t('APP_PRIVACY_POLICY2')} </span>
         <span>{t('APP_PRIVACY_POLICY_AND')}</span>
         <span className={styles.link}>{t('APP_PRIVACY_POLICY')}</span>
       </div>

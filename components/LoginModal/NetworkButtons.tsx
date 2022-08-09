@@ -18,7 +18,9 @@ const Button: FC<ButtonProps> = ({ label, isSignInTab }) => {
     <div className={classNames(style.button, style[label])}>
       <div className={style.icon} />
       <div className={style.text}>
-        {isSignInTab ? t('MODAL_SIGN_IN_SOCIAL') : t('MODAL_SOCIAL_MEDIA')}
+        <span>
+          {isSignInTab ? t('MODAL_SIGN_IN_SOCIAL') : t('MODAL_SOCIAL_MEDIA')}
+        </span>
         <span className={style.network}>{label}</span>
       </div>
     </div>

@@ -59,6 +59,17 @@ export type LanguageLevel = {
   }[]
 }
 
+const getLevelsData = (
+  languageTo: LanguageTo,
+  languageFrom: LanguageFrom,
+  locale: LanguageFrom,
+): Promise<LanguageLevelData[]> => {
+  return axios
+    .get(`${URL_LEVELS}/${languageTo}/${languageFrom}?lang=${locale}`)
+    .then(response => response.data.data)
+    .catch(error => console.log(error))
+}
+
 const getLevelOptionsData = (
   id: string,
   languageTo: LanguageTo,
@@ -91,17 +102,6 @@ const getFormattedLevels = (
       }
     }),
   }
-}
-
-const getLevelsData = (
-  languageTo: LanguageTo,
-  languageFrom: LanguageFrom,
-  locale: LanguageFrom,
-): Promise<LanguageLevelData[]> => {
-  return axios
-    .get(`${URL_LEVELS}/${languageTo}/${languageFrom}?lang=${locale}`)
-    .then(response => response.data.data)
-    .catch(error => console.log(error))
 }
 
 export const getDifficultyLevels = (

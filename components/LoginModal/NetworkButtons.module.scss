@@ -50,11 +50,11 @@
 .text {
   font-family: bpg_arial_2009;
   font-size: 1.1rem;
-  display: inline-block;
+  display: flex;
+  gap: 0.35rem;
 
   .network {
     text-transform: capitalize;
-    display: inline-block;
   }
 }
 

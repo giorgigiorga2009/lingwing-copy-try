@@ -20,7 +20,7 @@ export const SignInPart: FC = () => {
           placeholder={t('AUTH_PH_PASSWORD')}
         />
       </div>
-      <div className={styles.button}> {t('LOGIN')} </div>
+      <div className={styles.button}>{t('LOGIN')} </div>
       <a className={styles.link}>{t('LOGIN_FORGOT_PASSWORD')}</a>
     </>
   )
