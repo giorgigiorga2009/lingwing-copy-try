@@ -98,35 +98,36 @@ const Wizard: NextPage<WizardProps> = params => {
 
   return (
     <div className={style.container}>
-      <Header size="s" />
-      <BackButton onClick={goBack} />
+      <div className={style.content}>
+        <Header size="s" />
+        <BackButton onClick={goBack} />
 
-      {step === 'step1' && (
-        <ChooseLanguageStep
-          languages={[...LANGUAGES_TO]}
-          onClick={language => {
-            setLanguageTo(language as LanguageTo)
-            setStep('step2')
-          }}
-          title="Choose language to learn"
-        />
-      )}
+        {step === 'step1' && (
+          <ChooseLanguageStep
+            languages={[...LANGUAGES_TO]}
+            onClick={language => {
+              setLanguageTo(language as LanguageTo)
+              setStep('step2')
+            }}
+            title="Choose language to learn"
+          />
+        )}
 
-      {step === 'step2' && languagesFrom !== undefined && (
-        <ChooseLanguageStep
-          languages={languagesFrom}
-          onClick={language => {
-            setLanguageFrom(language as LanguageFrom)
-            setStep('step3')
-          }}
-          title="Choose language to learn from"
-        />
-      )}
+        {step === 'step2' && languagesFrom !== undefined && (
+          <ChooseLanguageStep
+            languages={languagesFrom}
+            onClick={language => {
+              setLanguageFrom(language as LanguageFrom)
+              setStep('step3')
+            }}
+            title="Choose language to learn from"
+          />
+        )}
 
-      {step === 'step3' && languageLevelData && (
-        <ChooseDifficultyStep levelData={languageLevelData} />
-      )}
-
+        {step === 'step3' && languageLevelData && (
+          <ChooseDifficultyStep levelData={languageLevelData} />
+        )}
+      </div>
       <Footer />
     </div>
   )

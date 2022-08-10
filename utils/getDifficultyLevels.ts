@@ -42,6 +42,13 @@ interface LevelOptionData {
   }
 }
 
+export interface Option {
+  title: string
+  studyingTheCourse: number
+  fullDescription: string
+  smallDescription: string
+}
+
 export type LanguageLevel = {
   name: string
   smallDescription: {
@@ -51,12 +58,7 @@ export type LanguageLevel = {
     [x in LanguageFrom]: string
   }
   uniqueStudentsCount: number
-  options: {
-    title: string
-    studyingTheCourse: number
-    fullDescription: string
-    smallDescription: string
-  }[]
+  options: Option[]
 }
 
 const getLevelsData = (

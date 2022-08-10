@@ -138,3 +138,33 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+.additionalInfo {
+  font-size: 0.875rem;
+  color: $grey-300;
+  top: 4.5rem;
+  left: 2rem;
+  position: absolute;
+  animation: options 1s;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.options {
+  width: 100%;
+  animation: options 400ms ease-in-out forwards;
+  transform-origin: top center;
+  font-family: SegoeUI;
+}
+
+@keyframes options {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

@@ -6,6 +6,12 @@
   position: relative;
 }
 
+.content {
+  height: 100%;
+  overflow: scroll;
+  position: relative;
+}
+
 .parrot {
   background-image: url('/assets/images/wizard/parrot.png');
   background-position: center;

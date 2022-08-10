@@ -1,0 +1,66 @@
+@import '../../styles/imports.scss';
+
+.optionContainer {
+  width: 100%;
+  height: 7rem;
+  border: 1px solid $white-100;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.courseLogo {
+  width: 4.688rem;
+  height: 4.688rem;
+  border: 7px solid $white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  box-shadow: 0 0 15px $white-300;
+  border-radius: 50%;
+  &.course-1 {
+    background-image: url(../../public/assets/images/wizard/mountain-course-1.png);
+  }
+  &.course-2 {
+    background-image: url(../../public/assets/images/wizard/mountain-course-2.png);
+  }
+  &.course-3 {
+    background-image: url(../../public/assets/images/wizard/mountain-course-3.png);
+  }
+}
+
+.courseName {
+  color: $purple-500;
+  font-size: 1.125rem;
+  margin-top: -1.2rem;
+  text-shadow: -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0 0 #fff,
+    -2px 1px 0 #fff, -2px 2px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff,
+    -1px 0 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, 0 -2px 0 #fff,
+    0 -1px 0 #fff, 0 0 0 #fff, 0 1px 0 #fff, 0 2px 0 #fff, 1px -2px 0 #fff,
+    1px -1px 0 #fff, 1px 0 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff,
+    2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0 0 #fff, 2px 1px 0 #fff,
+    2px 2px 0 #fff;
+}
+
+.amountOfStudents {
+  display: flex;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  gap: 0.3rem;
+
+  .number {
+    color: $orange-300;
+    font-weight: 700;
+  }
+
+  .text {
+    color: $grey-600;
+  }
+}
