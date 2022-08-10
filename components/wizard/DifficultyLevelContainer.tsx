@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import { LanguageLevel, Option } from '../../utils/getDifficultyLevels'
+import { getNumberWithComa } from '../../utils/getNumberWithComa'
 import { LOCALES_TO_LANGUAGES } from '../../utils/languages'
 import { Locale } from '../../utils/localization'
 import style from './DifficultyLevelContainer.module.scss'
@@ -19,21 +20,24 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
   const languageKey = LOCALES_TO_LANGUAGES[locale]
   return (
     <>
-      <div className={style.container} onClick={() => setOpen(!open)}>
+      <div
+        className={classNames(style.container, open && style.open)}
+        onClick={() => setOpen(!open)}
+      >
         <div className={style.levelLetter}>{level.name}</div>
 
         <div className={style.levelName}>
           {level.smallDescription[languageKey]}
         </div>
 
-        {open && (
-          <div className={style.additionalInfo}>
-            {level.fullDescription[languageKey]}
-          </div>
-        )}
+        <div className={style.additionalInfo}>
+          {level.fullDescription[languageKey]}
+        </div>
 
         <div className={style.amountOfStudents}>
-          <span className={style.number}>{level.uniqueStudentsCount}</span>
+          <span className={style.number}>
+            {getNumberWithComa(level.uniqueStudentsCount)}
+          </span>
           <span className={style.text}>Students</span>
         </div>
 
@@ -44,7 +48,12 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
         <span className={style.iconPlane} />
 
         <div className={style.iconArrowContainer}>
-          <span className={style.iconArrow} />
+          <span
+            className={classNames(
+              style.iconArrow,
+              open ? style.up : style.down,
+            )}
+          />
         </div>
       </div>
       {open && (

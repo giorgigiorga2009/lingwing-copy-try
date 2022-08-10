@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { FC } from 'react'
 import { Option } from '../../utils/getDifficultyLevels'
+import { getNumberWithComa } from '../../utils/getNumberWithComa'
 import style from './LevelOption.module.scss'
 
 interface Props {
@@ -20,9 +21,15 @@ export const LevelOption: FC<Props> = ({ option, index }) => {
       <div className={style.titleContainer}>
         <span className={style.title}>{option.title}</span>
         <span className={style.amountOfStudents}>
-          <span className={style.number}>{option.studyingTheCourse}</span>
+          <span className={style.number}>
+            {getNumberWithComa(option.studyingTheCourse)}
+          </span>
           <span className={style.text}>Students</span>
         </span>
+      </div>
+      <div className={style.buttons}>
+        <div className={style.aboutButton}>About</div>
+        <div className={style.startButton}>Start</div>
       </div>
     </div>
   )

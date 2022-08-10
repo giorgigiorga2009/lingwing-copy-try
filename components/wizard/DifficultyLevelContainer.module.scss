@@ -13,6 +13,11 @@
   padding-left: 2.25rem;
   font-family: SegoeUI;
   align-items: center;
+  margin-bottom: 1.5rem;
+  &.open {
+    border-radius: 0.625rem 0.625rem 0 0;
+    margin-bottom: 0;
+  }
 }
 
 .outerCircle {
@@ -140,6 +145,7 @@
 }
 
 .additionalInfo {
+  display: none;
   font-size: 0.875rem;
   color: $grey-300;
   top: 4.5rem;
@@ -148,6 +154,11 @@
   animation: options 1s;
   font-weight: 400;
   line-height: 0.9;
+  z-index: 1;
+
+  .open & {
+    display: block;
+  }
 }
 
 .options {
@@ -155,6 +166,7 @@
   animation: options 400ms ease-in-out forwards;
   transform-origin: top center;
   font-family: SegoeUI;
+  margin-bottom: 1.5rem;
 }
 
 @keyframes options {
