@@ -1,0 +1,19 @@
+@import '../../styles/imports.scss';
+
+.footer {
+  font-size: 0.75rem;
+  height: 3.5rem;
+  border-top: 1px solid $white-200;
+  position: absolute;
+  bottom: 0;
+  background-color: $white-t;
+  padding: 0.7rem 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.link {
+  color: $purple-200;
+  cursor: pointer;
+  margin-right: 0.3rem;
+}

@@ -9,30 +9,36 @@ import classNames from 'classnames'
 
 interface Props {
   size?: 's' | 'm'
+  loginClassName?: string
 }
 
-export const Header: FC<Props> = ({ size = 'm' }) => {
-  const [open, setOpen] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
+export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
+  const [openLogin, setOpenLogin] = useState(false)
+  const [openSideMenu, setOpenSideMenu] = useState(false)
   const { t } = useTranslation()
 
   return (
     <header className={classNames(style.header, style[size])}>
       <div className={style.leftBlock}>
-        <div className={style.button} onClick={() => setIsOpen(true)} />
+        <div className={style.button} onClick={() => setOpenSideMenu(true)} />
         <Link href="/">
           <div className={style.logo} />
         </Link>
-        {isOpen && <SideMenu onClose={() => setIsOpen(false)} />}
+        {openSideMenu && <SideMenu onClose={() => setOpenSideMenu(false)} />}
       </div>
       <div className={style.rightBlock}>
         <LocalesDropdown />
         <div className={style.avatar} />
-        <div className={style.singInButton} onClick={() => setOpen(true)}>
+        <div className={style.singInButton} onClick={() => setOpenLogin(true)}>
           {t('AUTH_LOGIN')}
         </div>
       </div>
-      {open && <LoginModal onClick={() => setOpen(false)} />}
+      {openLogin && (
+        <LoginModal
+          onClick={() => setOpenLogin(false)}
+          className={loginClassName}
+        />
+      )}
     </header>
   )
 }

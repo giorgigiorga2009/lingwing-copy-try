@@ -99,7 +99,7 @@ const Wizard: NextPage<WizardProps> = params => {
   return (
     <div className={style.container}>
       <div className={style.content}>
-        <Header size="s" />
+        <Header size="s" loginClassName={style.loginModal} />
         <BackButton onClick={goBack} />
 
         {step === 'step1' && (
