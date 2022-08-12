@@ -3,12 +3,12 @@
 .container {
   position: absolute;
   bottom: 5rem;
-  left: calc(50% - 12.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
   z-index: 1;
+  width: 100%;
 
   @include tablet {
     bottom: 3rem;
@@ -39,6 +39,9 @@
   color: $white;
   font-family: SegoeUI;
   font-size: 1.75rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 
   @include mobile {
     font-size: 1.2rem;
@@ -58,7 +61,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25rem;
+  width: fit-content;
+  padding: 0 2rem;
   height: 3.45rem;
   cursor: pointer;
   background-color: $orange-500;

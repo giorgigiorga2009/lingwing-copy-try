@@ -230,6 +230,9 @@
   font-family: 'SegoeUI-SemiBold';
   color: $white;
   font-size: 1.25rem;
+  @include tablet {
+    font-size: 1rem;
+  }
 
   @include mobile {
     font-size: 1rem;

@@ -5,6 +5,7 @@ import { LanguageLevel, Option } from '../../utils/getDifficultyLevels'
 import { getNumberWithComa } from '../../utils/getNumberWithComa'
 import { LOCALES_TO_LANGUAGES } from '../../utils/languages'
 import { Locale } from '../../utils/localization'
+import { useTranslation } from '../../utils/useTranslation'
 import style from './DifficultyLevelContainer.module.scss'
 import { LevelOption } from './LevelOption'
 
@@ -16,6 +17,7 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
   const [open, setOpen] = useState(false)
   const router = useRouter()
   const locale = (router.locale as Locale) ?? 'en'
+  const { t } = useTranslation()
 
   const languageKey = LOCALES_TO_LANGUAGES[locale]
   return (
@@ -38,7 +40,7 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
           <span className={style.number}>
             {getNumberWithComa(level.uniqueStudentsCount)}
           </span>
-          <span className={style.text}>Students</span>
+          <span className={style.text}>{t('APP_COURSE_STUDENT')}</span>
         </div>
 
         <div className={style.outerCircle}>

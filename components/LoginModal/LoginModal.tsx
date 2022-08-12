@@ -59,10 +59,7 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
             <Input type="email" placeholder={t('AUTH_PH_EMAIL')} />
             <Input type="password" placeholder={t('AUTH_PH_PASSWORD')} />
             {tab === 'signUp' && (
-              <Input
-                type="password"
-                placeholder={t('AUTH_PH_PASSWORD_REPEAT')}
-              />
+              <Input type="password" placeholder={t('REPEAT_PASSWORD')} />
             )}
           </div>
 

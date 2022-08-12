@@ -20,6 +20,7 @@ import { BackButton } from '../components/BackButton'
 import { Locale } from '../utils/localization'
 import { ChooseLanguageStep } from '../components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '../components/wizard/ChooseDifficultyStep'
+import { useTranslation } from '../utils/useTranslation'
 
 type Step = 'step1' | 'step2' | 'step3'
 
@@ -34,6 +35,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 }
 
 const Wizard: NextPage<WizardProps> = params => {
+  const { t } = useTranslation()
   const router = useRouter()
   const { query } = params
   const locale = router.locale ?? 'en'
@@ -109,7 +111,7 @@ const Wizard: NextPage<WizardProps> = params => {
               setLanguageTo(language as LanguageTo)
               setStep('step2')
             }}
-            title="Choose language to learn"
+            title={t('WIZARD_FIRST_HEADER')}
           />
         )}
 
@@ -120,7 +122,7 @@ const Wizard: NextPage<WizardProps> = params => {
               setLanguageFrom(language as LanguageFrom)
               setStep('step3')
             }}
-            title="Choose language to learn from"
+            title={t('WIZARD_FIRST_HEADER2')}
           />
         )}
 

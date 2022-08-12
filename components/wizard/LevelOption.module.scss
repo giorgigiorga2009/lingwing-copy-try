@@ -89,8 +89,10 @@
   font-size: 1rem;
   height: 2.5rem;
   text-align: center;
-  width: 5rem;
+  min-width: 5rem;
   line-height: 2.3rem;
+  width: fit-content;
+  padding: 0 1rem;
 }
 
 .startButton {
@@ -99,8 +101,10 @@
   background-color: $orange-500;
   font-size: 1rem;
   text-transform: uppercase;
-  width: 5.75rem;
+  min-width: 5.75rem;
   height: 2.5rem;
   text-align: center;
   line-height: 2.5rem;
+  width: fit-content;
+  padding: 0 1rem;
 }

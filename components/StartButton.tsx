@@ -11,9 +11,9 @@ export const StartButton: FC = () => {
   return (
     <div className={style.container}>
       <div className={style.title}>
-        {t('Join-the-customer-1')}
-        <span className={style.usersAmount}> 261 872 </span>
-        {t('Join-the-customer-2')}
+        <span>{t('Join-the-customer-1')}</span>
+        <span className={style.usersAmount}>261 872</span>
+        <span>{t('Join-the-customer-2')}</span>
       </div>
 
       <div className={style.button}>
