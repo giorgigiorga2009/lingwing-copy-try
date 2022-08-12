@@ -21,6 +21,7 @@ import { Locale } from '../utils/localization'
 import { ChooseLanguageStep } from '../components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '../components/wizard/ChooseDifficultyStep'
 import { useTranslation } from '../utils/useTranslation'
+import Head from 'next/head'
 
 type Step = 'step1' | 'step2' | 'step3'
 
@@ -100,6 +101,10 @@ const Wizard: NextPage<WizardProps> = params => {
 
   return (
     <div className={style.container}>
+      <Head>
+        <link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
+        <title>{t('wizardPageTitle')}</title>
+      </Head>
       <div className={style.content}>
         <Header size="s" loginClassName={style.loginModal} />
         <BackButton onClick={goBack} />

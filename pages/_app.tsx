@@ -1,6 +1,5 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
 import Script from 'next/script'
 import { IntlProvider } from 'react-intl'
 import { useRouter } from 'next/router'
@@ -12,10 +11,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <IntlProvider locale={locale} messages={messages[locale as Locale]}>
-      <Head>
-        <link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
-        <title>Lingwing: Foreign languages online learning</title>
-      </Head>
       <Script
         src={'https://www.smartsuppchat.com/loader.js?'}
         strategy="lazyOnload"
