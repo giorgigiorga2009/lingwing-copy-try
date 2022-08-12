@@ -58,7 +58,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
               title={t('APP_menu-company')}
               options={ABOUT_COMPANY_KEYS}
             />
-            <Section title={t('APP_menu-help')} options={HELP_KEYS} />
+            <Section title={t('HELP')} options={HELP_KEYS} />
           </div>
 
           <div className={styles.footer}>

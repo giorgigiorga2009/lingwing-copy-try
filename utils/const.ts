@@ -27,14 +27,14 @@ export const SIDE_MENU_LINKS = {
   Turkish: 'https://lingwing.com/en/wizard/tr',
   Bengali: 'https://lingwing.com/en/wizard/bn',
   APP_FOOTER_FAQ: 'https://lingwing.com/en/faq/general/',
-  'APP_menu-contact': 'https://lingwing.com/en/contact',
+  CONTACT_US: 'https://lingwing.com/en/contact',
   'APP_menu-student': 'https://lingwing.com/en/student',
-  'APP_menu-packages': 'https://lingwing.com/en/packages',
-  'APP_menu-gift-review': 'https://lingwing.com/en/packages/giftTaskReview',
-  'APP_menu-packages-coupon': 'https://lingwing.com/en/packages',
+  PRICES: 'https://lingwing.com/en/packages',
+  BUY_A_GIFT: 'https://lingwing.com/en/packages/giftTaskReview',
+  'PRICES-coupon': 'https://lingwing.com/en/packages',
   APP_ABOUT_US: 'https://lingwing.com/en/about-us',
-  APP_ABOUT_CERTIFICATE: 'https://lingwing.com/en/about-us?page=certificate',
-  APP_ABOUT_US_PARTNERS: 'https://lingwing.com/en/about-us?page=partners',
+  CERTIFICATE: 'https://lingwing.com/en/about-us?page=certificate',
+  PARTNERS: 'https://lingwing.com/en/about-us?page=partners',
   'APP_menu-blog': 'https://blog.lingwing.com',
   APP_ABOUT_US_JOB: 'https://lingwing.com/en/about-us?page=cv',
   APP_PRIVACY_POLICY2: 'https://lingwing.com/en/licensing-agreement?page=cv',
@@ -49,18 +49,18 @@ export const COURSES_KEYS: SideMenuKeys[] = [
   'Turkish',
   'Bengali',
 ]
-export const HELP_KEYS: SideMenuKeys[] = ['APP_FOOTER_FAQ', 'APP_menu-contact']
+export const HELP_KEYS: SideMenuKeys[] = ['APP_FOOTER_FAQ', 'CONTACT_US']
 
 export const PREMIUM_KEYS: SideMenuKeys[] = [
   'APP_menu-student',
-  'APP_menu-packages',
-  'APP_menu-gift-review',
-  'APP_menu-packages-coupon',
+  'PRICES',
+  'BUY_A_GIFT',
+  'PRICES-coupon',
 ]
 export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
   'APP_ABOUT_US',
-  'APP_ABOUT_CERTIFICATE',
-  'APP_ABOUT_US_PARTNERS',
+  'CERTIFICATE',
+  'PARTNERS',
   'APP_menu-blog',
   'APP_ABOUT_US_JOB',
   'APP_PRIVACY_POLICY2',

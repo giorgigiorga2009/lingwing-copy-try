@@ -34,7 +34,7 @@ export const LevelOption: FC<Props> = ({ option, index }) => {
         </span>
       </div>
       <div className={style.buttons}>
-        <div className={style.aboutButton}>{t('WIZARD_DESCRIPTION')}</div>
+        <div className={style.aboutButton}>{t('ABOUT')}</div>
         <div className={style.startButton}>{t('WIZARD_START_BUTTON')}</div>
       </div>
     </div>

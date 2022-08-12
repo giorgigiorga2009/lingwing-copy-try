@@ -41,7 +41,7 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
           <Tab
             onClick={() => setTab('signIn')}
             isActive={tab === 'signIn'}
-            text={t('AUTH_LOGIN')}
+            text={t('LOGIN')}
           />
           <Tab
             onClick={() => setTab('signUp')}
@@ -57,7 +57,7 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
 
           <div className={style.form}>
             <Input type="email" placeholder={t('AUTH_PH_EMAIL')} />
-            <Input type="password" placeholder={t('AUTH_PH_PASSWORD')} />
+            <Input type="password" placeholder={t('PASSWORD')} />
             {tab === 'signUp' && (
               <Input type="password" placeholder={t('REPEAT_PASSWORD')} />
             )}
