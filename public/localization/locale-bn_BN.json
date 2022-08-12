@@ -47,7 +47,7 @@
   "REPEAT_PASSWORD": "পাসওয়ার্ড পুনরাবৃত্তি",
   "LOGIN": "সাইন ইন",
   "REGISTER": "সাইন আপ",
-  "LOGIN_FORGOT_PASSWORD": "পাসওয়ার্ড ভুলে গেছেন?",
+  "FORGOT_PASSWORD": "পাসওয়ার্ড ভুলে গেছেন?",
   "APP_NEWLAND_START_TEXT1": "আজ একটি",
   "APP_NEWLAND_START_TEXT2": "নতুন ভাষায়া",
   "APP_NEWLAND_START_TEXT3": "কথা বলুন!",

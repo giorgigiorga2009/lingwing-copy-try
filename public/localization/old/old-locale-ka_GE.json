@@ -104,7 +104,7 @@
   "LOGIN_HEADER": "ავტორიზაცია",
   "LOGIN_HEADING_LIGHT": "ავტორიზაციის გასავლელად გამოიყენე",
   "LOGIN_HEADING_AND": "და",
-  "LOGIN_FORGOT_PASSWORD": "დაგავიწყდა პაროლი?",
+  "FORGOT_PASSWORD": "დაგავიწყდა პაროლი?",
   "LOGIN_SIGN_IN": "შესვლა",
   "LOGIN_QUESTION": "არ გაქვს ანგარიში?",
   "FULL_NAME": "სახელი და გვარი",

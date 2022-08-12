@@ -113,7 +113,7 @@
   "LOGIN_HEADER": "সাইন ইন",
   "LOGIN_HEADING_LIGHT": "আপনি আপনার ব্যবহার করে এখানে সাইন ইন করতে পারবেন",
   "LOGIN_HEADING_AND": "এবং",
-  "LOGIN_FORGOT_PASSWORD": "পাসওয়ার্ড ভুলে গেছেন?",
+  "FORGOT_PASSWORD": "পাসওয়ার্ড ভুলে গেছেন?",
   "LOGIN_SIGN_IN": "সাইন ইন",
   "LOGIN_QUESTION": "কোন একাউন্ট নেই?",
   "FULL_NAME": "পুরো নাম",

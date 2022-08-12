@@ -47,7 +47,7 @@
   "REPEAT_PASSWORD": "გაიმეორე პაროლი",
   "LOGIN": "შესვლა",
   "REGISTER": "რეგისტრაცია",
-  "LOGIN_FORGOT_PASSWORD": "დაგავიწყდა პაროლი?",
+  "FORGOT_PASSWORD": "დაგავიწყდა პაროლი?",
   "APP_NEWLAND_START_TEXT1": "დაიწყე",
   "APP_NEWLAND_START_TEXT2": "უცხო ენაზე",
   "APP_NEWLAND_START_TEXT3": "საუბარი დღესვე!",

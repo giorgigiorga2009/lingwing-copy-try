@@ -116,7 +116,7 @@
   "LOGIN_HEADER": "Giriş yap",
   "LOGIN_HEADING_LIGHT": "Yeni bir hesap açmak için kullanın",
   "LOGIN_HEADING_AND": "ve",
-  "LOGIN_FORGOT_PASSWORD": "Şifrenizi unuttunuz mu?",
+  "FORGOT_PASSWORD": "Şifrenizi unuttunuz mu?",
   "LOGIN_SIGN_IN": "Giriş yap",
   "LOGIN_QUESTION": "Bir hesabın yok mu?",
   "FULL_NAME": "Ad & soyad",

@@ -68,9 +68,7 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
               <div className={classNames(style.button, style.disabled)}>
                 {t('LOGIN')}
               </div>
-              <a className={style.forgotPasswordLink}>
-                {t('LOGIN_FORGOT_PASSWORD')}
-              </a>
+              <a className={style.forgotPasswordLink}>{t('FORGOT_PASSWORD')}</a>
             </>
           )}
 

@@ -47,7 +47,7 @@
   "REPEAT_PASSWORD": "Repite la contraseña",
   "LOGIN": "Autorización",
   "REGISTER": "Crear cuenta",
-  "LOGIN_FORGOT_PASSWORD": "¿Has olvidado tu contraseña?",
+  "FORGOT_PASSWORD": "¿Has olvidado tu contraseña?",
   "APP_NEWLAND_START_TEXT1": "¡Empieza a hablar",
   "APP_NEWLAND_START_TEXT2": "un idioma más",
   "APP_NEWLAND_START_TEXT3": "!",

@@ -47,7 +47,7 @@
   "REPEAT_PASSWORD": "Şifreyi tekrar gir",
   "LOGIN": "Giriş yap",
   "REGISTER": "Yeni bir hesap oluştur",
-  "LOGIN_FORGOT_PASSWORD": "Şifrenizi unuttunuz mu?",
+  "FORGOT_PASSWORD": "Şifrenizi unuttunuz mu?",
   "APP_NEWLAND_START_TEXT1": "Bugün ",
   "APP_NEWLAND_START_TEXT2": "yabancı dilde",
   "APP_NEWLAND_START_TEXT3": "sohbet başlatın!",

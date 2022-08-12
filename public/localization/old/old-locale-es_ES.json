@@ -106,7 +106,7 @@
   "LOGIN_HEADER": "¡Bienvenido!",
   "LOGIN_HEADING_LIGHT": "Para iniciar sesión",
   "LOGIN_HEADING_AND": "ya",
-  "LOGIN_FORGOT_PASSWORD": "¿Has olvidado tu contraseña?",
+  "FORGOT_PASSWORD": "¿Has olvidado tu contraseña?",
   "LOGIN_SIGN_IN": "Entrar",
   "LOGIN_QUESTION": "¿No tienes una cuenta?",
   "FULL_NAME": "Nombre y apellido",

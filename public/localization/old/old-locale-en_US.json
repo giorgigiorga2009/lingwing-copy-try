@@ -116,7 +116,7 @@
   "LOGIN_HEADER": "Sign in",
   "LOGIN_HEADING_LIGHT": "You can sign in here using your",
   "LOGIN_HEADING_AND": "and",
-  "LOGIN_FORGOT_PASSWORD": "Forgot Password?",
+  "FORGOT_PASSWORD": "Forgot Password?",
   "LOGIN_SIGN_IN": "Sign In",
   "LOGIN_QUESTION": "Do not have an account?",
   "FULL_NAME": "Full name",

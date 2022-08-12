@@ -47,7 +47,7 @@
   "REPEAT_PASSWORD": "Повторите пароль",
   "LOGIN": "Войти",
   "REGISTER": "Зарегистрируйтесь",
-  "LOGIN_FORGOT_PASSWORD": "Забыли пароль?",
+  "FORGOT_PASSWORD": "Забыли пароль?",
   "APP_NEWLAND_START_TEXT1": "Начни разговаривать на",
   "APP_NEWLAND_START_TEXT2": "новом языке",
   "APP_NEWLAND_START_TEXT3": "сегодня!",

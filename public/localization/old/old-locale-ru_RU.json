@@ -114,7 +114,7 @@
   "LOGIN_HEADER": "ДЛЯ ПРОДОЛЖЕНИЯ,<br>ПРОЙДИТЕ АВТОРИЗАЦИЮ",
   "LOGIN_HEADING_LIGHT": "Чтобы авторизироваться, воспользуйтесь",
   "LOGIN_HEADING_AND": "и",
-  "LOGIN_FORGOT_PASSWORD": "Забыли пароль?",
+  "FORGOT_PASSWORD": "Забыли пароль?",
   "LOGIN_SIGN_IN": "Войти",
   "LOGIN_QUESTION": "Нет профиля?",
   "FULL_NAME": "Ваше имя",
