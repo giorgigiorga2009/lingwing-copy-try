@@ -15,11 +15,9 @@ const Home: NextPage = () => {
 
       <div className={style.content}>
         <div className={style.title}>
-          {t('APP_NEWLAND_START_TEXT1')}
-          <span className={style.styledTitle}>
-            {t('APP_NEWLAND_START_TEXT2')}
-          </span>
-          {t('APP_NEWLAND_START_TEXT3')}
+          {t('homeTitle1')}
+          <span className={style.styledTitle}>{t('homeTitle2')}</span>
+          {t('homeTitle3')}
         </div>
         <LanguagesBlock />
         <div className={style.parrot} />

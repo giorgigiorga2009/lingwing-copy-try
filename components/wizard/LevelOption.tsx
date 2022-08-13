@@ -20,7 +20,7 @@ export const LevelOption: FC<Props> = ({ option, index }) => {
           className={classNames(style.courseLogo, style[`course-${index}`])}
         />
         <span className={style.courseName}>
-          {t('APP_WIZARD_COURSE')}
+          {t('wizardCourse')}
           {index}
         </span>
       </div>
@@ -30,12 +30,12 @@ export const LevelOption: FC<Props> = ({ option, index }) => {
           <span className={style.number}>
             {getNumberWithComa(option.studyingTheCourse)}
           </span>
-          <span className={style.text}>{t('APP_COURSE_STUDENT')}</span>
+          <span className={style.text}>{t('wizardStudents')}</span>
         </span>
       </div>
       <div className={style.buttons}>
-        <div className={style.aboutButton}>{t('ABOUT')}</div>
-        <div className={style.startButton}>{t('WIZARD_START_BUTTON')}</div>
+        <div className={style.aboutButton}>{t('wizardAbout')}</div>
+        <div className={style.startButton}>{t('startButton')}</div>
       </div>
     </div>
   )

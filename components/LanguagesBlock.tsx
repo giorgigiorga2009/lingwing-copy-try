@@ -24,7 +24,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
       as="/wizard"
     >
       <div className={classNames(style.tileContainer, style[language])}>
-        <span className={style.start}>{t('WIZARD_START_BUTTON')}</span>
+        <span className={style.start}>{t('startButton')}</span>
         <span className={style.title}>{t(LANGUAGE_NAMES[language])}</span>
         <span className={style.languageFlag} />
         <span className={style.parrot} />

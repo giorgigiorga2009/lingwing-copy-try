@@ -30,7 +30,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         <LocalesDropdown />
         <div className={style.avatar} />
         <div className={style.singInButton} onClick={() => setOpenLogin(true)}>
-          {t('LOGIN')}
+          {t('loginSignIn')}
         </div>
       </div>
       {openLogin && (

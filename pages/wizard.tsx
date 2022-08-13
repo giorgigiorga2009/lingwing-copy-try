@@ -111,7 +111,7 @@ const Wizard: NextPage<WizardProps> = params => {
               setLanguageTo(language as LanguageTo)
               setStep('step2')
             }}
-            title={t('WIZARD_FIRST_HEADER')}
+            title={t('wizardTitle1')}
           />
         )}
 
@@ -122,7 +122,7 @@ const Wizard: NextPage<WizardProps> = params => {
               setLanguageFrom(language as LanguageFrom)
               setStep('step3')
             }}
-            title={t('WIZARD_FIRST_HEADER2')}
+            title={t('wizardTitle2')}
           />
         )}
 

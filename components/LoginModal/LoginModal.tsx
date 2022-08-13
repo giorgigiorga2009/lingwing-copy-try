@@ -15,7 +15,7 @@ const Divider: FC = () => {
   return (
     <div className={style.divider}>
       <span className={style.line} />
-      <span>{t('AUTH_SOC_MEDIA')}</span>
+      <span>{t('loginOrWith')}</span>
       <span className={style.line} />
     </div>
   )
@@ -41,12 +41,12 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
           <Tab
             onClick={() => setTab('signIn')}
             isActive={tab === 'signIn'}
-            text={t('LOGIN')}
+            text={t('loginSignIn')}
           />
           <Tab
             onClick={() => setTab('signUp')}
             isActive={tab === 'signUp'}
-            text={t('REGISTER')}
+            text={t('loginSignUp')}
           />
           <div className={style.close} onClick={onClick} />
         </div>
@@ -56,26 +56,28 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
           <Divider />
 
           <div className={style.form}>
-            <Input type="email" placeholder={t('AUTH_PH_EMAIL')} />
-            <Input type="password" placeholder={t('PASSWORD')} />
+            <Input type="email" placeholder={t('loginEmail')} />
+            <Input type="password" placeholder={t('loginPassword')} />
             {tab === 'signUp' && (
-              <Input type="password" placeholder={t('REPEAT_PASSWORD')} />
+              <Input type="password" placeholder={t('loginRepeatPassword')} />
             )}
           </div>
 
           {tab === 'signIn' && (
             <>
               <div className={classNames(style.button, style.disabled)}>
-                {t('LOGIN')}
+                {t('loginSignIn')}
               </div>
-              <a className={style.forgotPasswordLink}>{t('FORGOT_PASSWORD')}</a>
+              <a className={style.forgotPasswordLink}>
+                {t('loginForgotPassword')}
+              </a>
             </>
           )}
 
           {tab === 'signUp' && (
             <>
               <div className={classNames(style.button, style.disabled)}>
-                {t('REGISTER')}
+                {t('loginSignUp')}
               </div>
               <LoginFooter />
             </>

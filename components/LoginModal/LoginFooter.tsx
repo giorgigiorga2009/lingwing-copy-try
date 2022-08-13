@@ -7,10 +7,10 @@ export const LoginFooter: FC = () => {
 
   return (
     <div className={style.footer}>
-      <span>{t('APP_PRIVACY_POLICY1')}</span>
-      <span className={style.link}>{t('APP_AGREE_LICENSE_2')}</span>
-      <span>{t('APP_PRIVACY_POLICY_AND')}</span>
-      <span className={style.link}>{t('APP_PRIVACY_POLICY3')}</span>
+      <span>{t('loginFooter1')}</span>
+      <span className={style.link}>{t('loginFooter4')}</span>
+      <span>{t('loginFooter2')}</span>
+      <span className={style.link}>{t('loginFooter3')}</span>
     </div>
   )
 }

@@ -11,15 +11,15 @@ export const StartButton: FC = () => {
   return (
     <div className={style.container}>
       <div className={style.title}>
-        <span>{t('Join-the-customer-1')}</span>
+        <span>{t('join')}</span>
         <span className={style.usersAmount}>261 872</span>
-        <span>{t('Join-the-customer-2')}</span>
+        <span>{t('users')}</span>
       </div>
 
       <div className={style.button}>
         <span className={style.bubbleUp} />
         <Link locale={router.locale} href="/wizard">
-          <span className={style.text}>{t('APP_NEWLAND_START_PRACTICE')}</span>
+          <span className={style.text}>{t('homeStartButton')}</span>
         </Link>
         <span className={style.bubbleDown} />
       </div>

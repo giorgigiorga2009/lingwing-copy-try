@@ -40,7 +40,7 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
           <span className={style.number}>
             {getNumberWithComa(level.uniqueStudentsCount)}
           </span>
-          <span className={style.text}>{t('APP_COURSE_STUDENT')}</span>
+          <span className={style.text}>{t('wizardStudents')}</span>
         </div>
 
         <div className={style.outerCircle}>

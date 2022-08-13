@@ -9,14 +9,14 @@ export const FOLLOW_NETWORKS = {
 }
 
 export const FOOTER_LINKS = [
-  'APP_FOOTER_ABOUT_US',
-  'APP_FOOTER_COURSES',
-  'APP_FOOTER_PACKAGES',
-  'APP_FOOTER_BLOG',
-  'APP_FOOTER_APP',
-  'APP_FOOTER_PRIVACY',
-  'APP_FOOTER_FAQ',
-  'APP_FOOTER_CONTACT',
+  'footerAboutUs',
+  'footerCourses',
+  'footerPackages',
+  'footerBlog',
+  'footerApps',
+  'footerPrivacy',
+  'footerFAQ',
+  'footerContact',
 ]
 
 export const SIDE_MENU_LINKS = {
@@ -26,19 +26,19 @@ export const SIDE_MENU_LINKS = {
   Russian: 'https://lingwing.com/en/wizard/ru',
   Turkish: 'https://lingwing.com/en/wizard/tr',
   Bengali: 'https://lingwing.com/en/wizard/bn',
-  APP_FOOTER_FAQ: 'https://lingwing.com/en/faq/general/',
-  CONTACT_US: 'https://lingwing.com/en/contact',
-  'APP_menu-student': 'https://lingwing.com/en/student',
-  PRICES: 'https://lingwing.com/en/packages',
-  BUY_A_GIFT: 'https://lingwing.com/en/packages/giftTaskReview',
-  'PRICES-coupon': 'https://lingwing.com/en/packages',
-  APP_ABOUT_US: 'https://lingwing.com/en/about-us',
-  CERTIFICATE: 'https://lingwing.com/en/about-us?page=certificate',
-  PARTNERS: 'https://lingwing.com/en/about-us?page=partners',
-  'APP_menu-blog': 'https://blog.lingwing.com',
-  APP_ABOUT_US_JOB: 'https://lingwing.com/en/about-us?page=cv',
-  APP_PRIVACY_POLICY2: 'https://lingwing.com/en/licensing-agreement?page=cv',
-  APP_PRIVACY_POLICY: 'https://lingwing.com/en/privacy?page=cv',
+  footerFAQ: 'https://lingwing.com/en/faq/general/',
+  menuContactUs: 'https://lingwing.com/en/contact',
+  menuStudents: 'https://lingwing.com/en/student',
+  menuPrices: 'https://lingwing.com/en/packages',
+  menuBuyAGift: 'https://lingwing.com/en/packages/giftTaskReview',
+  menuPricesCoupon: 'https://lingwing.com/en/packages',
+  menuWhyWithUs: 'https://lingwing.com/en/about-us',
+  menuCertificate: 'https://lingwing.com/en/about-us?page=certificate',
+  menuPartners: 'https://lingwing.com/en/about-us?page=menuPartners',
+  menuBlog: 'https://blog.lingwing.com',
+  menuJobs: 'https://lingwing.com/en/about-us?page=cv',
+  menuLicenseAgreement: 'https://lingwing.com/en/licensing-agreement?page=cv',
+  menuPrivacyPolicy: 'https://lingwing.com/en/privacy?page=cv',
 } as const
 
 export const COURSES_KEYS: SideMenuKeys[] = [
@@ -49,22 +49,22 @@ export const COURSES_KEYS: SideMenuKeys[] = [
   'Turkish',
   'Bengali',
 ]
-export const HELP_KEYS: SideMenuKeys[] = ['APP_FOOTER_FAQ', 'CONTACT_US']
+export const HELP_KEYS: SideMenuKeys[] = ['footerFAQ', 'menuContactUs']
 
 export const PREMIUM_KEYS: SideMenuKeys[] = [
-  'APP_menu-student',
-  'PRICES',
-  'BUY_A_GIFT',
-  'PRICES-coupon',
+  'menuStudents',
+  'menuPrices',
+  'menuBuyAGift',
+  'menuPricesCoupon',
 ]
 export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
-  'APP_ABOUT_US',
-  'CERTIFICATE',
-  'PARTNERS',
-  'APP_menu-blog',
-  'APP_ABOUT_US_JOB',
-  'APP_PRIVACY_POLICY2',
-  'APP_PRIVACY_POLICY',
+  'menuWhyWithUs',
+  'menuCertificate',
+  'menuPartners',
+  'menuBlog',
+  'menuJobs',
+  'menuLicenseAgreement',
+  'menuPrivacyPolicy',
 ]
 
 export const LOGIN_NETWORKS = ['facebook', 'google', 'twitter'] as const

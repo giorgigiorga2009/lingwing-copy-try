@@ -12,7 +12,7 @@ export const FollowButtons: FC = () => {
 
   return (
     <div className={style.wrap}>
-      <div className={style.text}>{t('FOLLOW_US')}</div>
+      <div className={style.text}>{t('followUs')}</div>
       <div className={style.container}>
         {KEY_NETWORKS.map(label => (
           <a

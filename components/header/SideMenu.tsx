@@ -52,17 +52,14 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         <div className={styles.button} onClick={onClose} />
         <div className={styles.content}>
           <div className={styles.menu}>
-            <Section title={t('APP_FOOTER_COURSES')} options={COURSES_KEYS} />
-            <Section title={t('APP_menu-premium')} options={PREMIUM_KEYS} />
-            <Section
-              title={t('APP_menu-company')}
-              options={ABOUT_COMPANY_KEYS}
-            />
-            <Section title={t('HELP')} options={HELP_KEYS} />
+            <Section title={t('footerCourses')} options={COURSES_KEYS} />
+            <Section title={t('menuPremium')} options={PREMIUM_KEYS} />
+            <Section title={t('menuCompany')} options={ABOUT_COMPANY_KEYS} />
+            <Section title={t('menuHelp')} options={HELP_KEYS} />
           </div>
 
           <div className={styles.footer}>
-            <h3 className={styles.title}>{t('APP_DOWNLOAD_APP')}</h3>
+            <h3 className={styles.title}>{t('menuDownloadApp')}</h3>
             <div className={styles.mobileMarkets}>
               <a
                 className={classNames(styles.market, styles.apple)}
