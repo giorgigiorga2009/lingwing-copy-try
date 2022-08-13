@@ -6,10 +6,10 @@
   align-items: center;
   &.m {
     padding: 3.13rem 2.2rem;
+
     @include tablet {
       padding: 3% 5%;
     }
-
     @include mobile {
       padding: 3% 5%;
     }
@@ -17,10 +17,10 @@
   &.s {
     background-color: $purple-600;
     padding: 0.7rem 2.2rem;
+
     @include tablet {
       padding: 3% 5%;
     }
-
     @include mobile {
       padding: 3% 5%;
     }
