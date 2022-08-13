@@ -8,13 +8,23 @@ import { useTranslation } from '../../utils/useTranslation'
 
 interface Props {
   levelData: LanguageLevel[]
+  languageTo: string | undefined
+  languageFrom: string | undefined
 }
 
-export const ChooseDifficultyStep: FC<Props> = ({ levelData }) => {
+export const ChooseDifficultyStep: FC<Props> = ({
+  levelData,
+  languageTo,
+  languageFrom,
+}) => {
   const { t } = useTranslation()
   return (
     <ContentContainer>
-      <PageTitle text={t('wizardTitle3')} />
+      <PageTitle
+        languageFrom={languageFrom}
+        languageTo={languageTo}
+        text={t('wizardTitle3')}
+      />
       <div className={style.levelsContainer}>
         {levelData.map((level, index) => (
           <DifficultyLevelContainer level={level} key={index} />

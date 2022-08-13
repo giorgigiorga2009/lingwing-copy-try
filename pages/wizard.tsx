@@ -105,9 +105,12 @@ const Wizard: NextPage<WizardProps> = params => {
       <div className={style.content}>
         <Header size="s" loginClassName={style.loginModal} />
         <BackButton onClick={goBack} />
+        <div className={style.parrot} />
+        <div className={style.ball} />
 
         {step === 'step1' && (
           <ChooseLanguageStep
+            languageTo={languageTo}
             languages={[...LANGUAGES_TO]}
             onClick={language => {
               setLanguageTo(language as LanguageTo)
@@ -119,6 +122,7 @@ const Wizard: NextPage<WizardProps> = params => {
 
         {step === 'step2' && languagesFrom !== undefined && (
           <ChooseLanguageStep
+            languageTo={languageTo}
             languages={languagesFrom}
             onClick={language => {
               setLanguageFrom(language as LanguageFrom)
@@ -129,7 +133,11 @@ const Wizard: NextPage<WizardProps> = params => {
         )}
 
         {step === 'step3' && languageLevelData && (
-          <ChooseDifficultyStep levelData={languageLevelData} />
+          <ChooseDifficultyStep
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            levelData={languageLevelData}
+          />
         )}
       </div>
       <Footer />
