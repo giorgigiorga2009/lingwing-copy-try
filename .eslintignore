@@ -1,0 +1,10 @@
+# Ignore artifacts:
+public
+styles
+.next
+.idea
+.husky
+devops
+
+*.lock
+
