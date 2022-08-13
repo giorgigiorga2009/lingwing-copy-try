@@ -3,20 +3,16 @@ import { Header } from '../components/header/Header'
 import { LanguagesBlock } from '../components/LanguagesBlock'
 import { FollowButtons } from '../components/FollowButtons'
 import style from '../styles/Home.module.scss'
-import Head from 'next/head'
 import { StartButton } from '../components/StartButton'
 import { useTranslation } from '../utils/useTranslation'
+import { PageHead } from '../components/PageHead'
 
 const Home: NextPage = () => {
   const { t } = useTranslation()
 
   return (
     <div className={style.container}>
-      <Head>
-        <link rel="icon" href="favicon.png" sizes="16x16" type="image/png" />
-        <title>{t('indexPageTitle')}</title>
-      </Head>
-
+      <PageHead text={'indexPageTitle'} />
       <Header />
 
       <div className={style.content}>
