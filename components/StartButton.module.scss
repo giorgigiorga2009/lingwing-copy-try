@@ -16,13 +16,8 @@
   }
 
   @include mobile {
-    left: calc(50% - 10rem);
     bottom: 3rem;
     gap: 1rem;
-  }
-
-  @include smallWidth {
-    left: calc(50% - 8.5rem);
   }
 }
 
@@ -113,6 +108,7 @@
   height: 100%;
   text-transform: uppercase;
   border-radius: 1.88rem;
+  text-align: center;
 
   @include mobile {
     height: 2.5rem;
