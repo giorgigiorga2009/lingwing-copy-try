@@ -1,4 +1,4 @@
-@import '../styles/imports.scss';
+@import '../../styles/imports.scss';
 
 .block {
   display: flex;
@@ -169,14 +169,11 @@
   }
 }
 
-.languageFlag {
+.flag {
   width: 5rem;
   height: 5rem;
   z-index: 7;
-  background-size: cover;
-  background-position: center;
   transition: all 0.25s linear;
-  background-repeat: no-repeat;
 
   @include tablet {
     width: 4rem;
@@ -191,34 +188,6 @@
   @include smallWidth {
     width: 3rem !important;
     height: 3rem !important;
-  }
-
-  .eng & {
-    background-image: url('/assets/images/flags/circle/small/English.png');
-  }
-
-  .esp & {
-    background-image: url('/assets/images/flags/circle/small/Spanish.png');
-  }
-
-  .ita & {
-    background-image: url('/assets/images/flags/circle/small/Italian.png');
-  }
-
-  .fre & {
-    background-image: url('/assets/images/flags/circle/small/French.png');
-  }
-
-  .rus & {
-    background-image: url('/assets/images/flags/circle/small/Russian.png');
-  }
-
-  .geo & {
-    background-image: url('/assets/images/flags/circle/small/Georgian.png');
-  }
-
-  .deu & {
-    background-image: url('/assets/images/flags/circle/small/German.png');
   }
 }
 

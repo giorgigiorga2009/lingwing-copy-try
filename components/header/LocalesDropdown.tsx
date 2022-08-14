@@ -1,7 +1,7 @@
 import { FC, Fragment, useState } from 'react'
 import styles from './LocalesDropdown.module.scss'
 import Foco from 'react-foco'
-import { IconFlag } from './IconFlag'
+import { LocaleFlag } from './LocaleFlag'
 import {
   LanguageFrom,
   LANGUAGES_TO_LOCALES,
@@ -33,7 +33,7 @@ export const LocalesDropdown: FC = () => {
       className={styles.dropdown}
     >
       <div className={styles.button} onClick={() => setOpen(!open)}>
-        <IconFlag language={selected} />
+        <LocaleFlag language={selected} />
         {selected.toUpperCase()}
         <div className={styles.arrow} />
       </div>
@@ -46,7 +46,7 @@ export const LocalesDropdown: FC = () => {
                   className={styles.option}
                   onClick={() => handleClick(language)}
                 >
-                  <IconFlag language={language} />
+                  <LocaleFlag language={language} />
                   <div>{LANGUAGE_NAMES[language]}</div>
                 </div>
               )}

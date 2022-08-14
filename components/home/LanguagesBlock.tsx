@@ -2,8 +2,9 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { LANGUAGE_NAMES, LanguageTo, LANGUAGES_TO } from '../utils/languages'
-import { useTranslation } from '../utils/useTranslation'
+import { LanguageTo, LANGUAGE_NAMES, LANGUAGES_TO } from '../../utils/languages'
+import { useTranslation } from '../../utils/useTranslation'
+import { CircleFlag } from '../CircleFlag'
 import style from './LanguagesBlock.module.scss'
 
 interface Props {
@@ -26,7 +27,11 @@ const LanguageTile: FC<Props> = ({ language }) => {
       <div className={classNames(style.tileContainer, style[language])}>
         <span className={style.start}>{t('startButton')}</span>
         <span className={style.title}>{t(LANGUAGE_NAMES[language])}</span>
-        <span className={style.languageFlag} />
+        <CircleFlag
+          language={language}
+          modifier="small"
+          className={style.flag}
+        />
         <span className={style.parrot} />
       </div>
     </Link>

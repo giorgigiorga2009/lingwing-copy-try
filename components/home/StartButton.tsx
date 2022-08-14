@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { useTranslation } from '../utils/useTranslation'
+import { useTranslation } from '../../utils/useTranslation'
 import style from './StartButton.module.scss'
 
 export const StartButton: FC = () => {

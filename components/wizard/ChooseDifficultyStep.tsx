@@ -5,11 +5,12 @@ import { PageTitle } from './PageTitle'
 import style from './ChooseDifficultyStep.module.scss'
 import { LanguageLevel } from '../../utils/getDifficultyLevels'
 import { useTranslation } from '../../utils/useTranslation'
+import { LanguageFrom, LanguageTo } from '../../utils/languages'
 
 interface Props {
   levelData: LanguageLevel[]
-  languageTo: string | undefined
-  languageFrom: string | undefined
+  languageTo?: LanguageTo
+  languageFrom?: LanguageFrom
 }
 
 export const ChooseDifficultyStep: FC<Props> = ({

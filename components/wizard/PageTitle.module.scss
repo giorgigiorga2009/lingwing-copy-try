@@ -16,78 +16,24 @@
   gap: 1rem;
 }
 
+.flagsContainer {
+  position: relative;
+  display: flex;
+}
+
 .flag {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 100%;
   border: 3px solid $white;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  position: relative;
   box-shadow: 0 0 7px $grey-100;
-
-  &.eng {
-    background-image: url('/assets/images/flags/circle/big/English.png');
-  }
-
-  &.esp {
-    background-image: url('/assets/images/flags/circle/big/Spanish.png');
-  }
-
-  &.geo {
-    background-image: url('/assets/images/flags/circle/big/Georgian.png');
-  }
-
-  &.rus {
-    background-image: url('/assets/images/flags/circle/big/Russian.png');
-  }
-
-  &.fre {
-    background-image: url('/assets/images/flags/circle/big/French.png');
-  }
-
-  &.deu {
-    background-image: url('/assets/images/flags/circle/big/German.png');
-  }
-
-  &.ita {
-    background-image: url('/assets/images/flags/circle/big/Italian.png');
-  }
-}
-
-.flags {
-  position: relative;
 }
 
 .smallFlag {
   width: 1.44rem;
   height: 1.44rem;
-  border-radius: 100%;
   border: 3px solid $white;
   position: absolute;
   bottom: -0.2rem;
   right: -0.5rem;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
   box-shadow: 0 0 7px $grey-100;
-
-  &.eng {
-    background-image: url('/assets/images/flags/circle/big/English.png');
-  }
-  &.esp {
-    background-image: url('/assets/images/flags/circle/big/Spanish.png');
-  }
-  &.geo {
-    background-image: url('/assets/images/flags/circle/big/Georgian.png');
-  }
-  &.rus {
-    background-image: url('/assets/images/flags/circle/big/Russian.png');
-  }
-  &.tur {
-    background-image: url('/assets/images/flags/circle/big/Turkish.png');
-  }
-  &.ben {
-    background-image: url('/assets/images/flags/circle/big/Bengali.png');
-  }
 }
