@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={style.container}>
-      <PageHead text={'indexPageTitle'} />
+      <PageHead text="indexPageTitle" />
       <Header />
 
       <div className={style.content}>

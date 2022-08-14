@@ -9,7 +9,7 @@ interface Props {
   languages: LanguageFrom[] | LanguageTo[]
   onClick: (language: LanguageFrom | LanguageTo) => void
   title: string
-  languageTo: string | undefined
+  languageTo?: string | undefined
 }
 export const ChooseLanguageStep: FC<Props> = ({
   languages,

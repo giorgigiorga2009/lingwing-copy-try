@@ -110,7 +110,6 @@ const Wizard: NextPage<WizardProps> = params => {
 
         {step === 'step1' && (
           <ChooseLanguageStep
-            languageTo={languageTo}
             languages={[...LANGUAGES_TO]}
             onClick={language => {
               setLanguageTo(language as LanguageTo)
