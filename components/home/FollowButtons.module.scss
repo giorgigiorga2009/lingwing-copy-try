@@ -7,6 +7,7 @@
   gap: 0.5rem;
   border-radius: 0.5rem;
   flex-wrap: wrap;
+  width: 15rem;
 }
 
 .text {
@@ -17,6 +18,13 @@
   border-radius: 100%;
   width: 7rem;
   text-transform: uppercase;
+
+  .grey & {
+    color: $grey-800;
+  }
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
 }
 
 .followButton {
@@ -34,42 +42,72 @@
   cursor: pointer;
   background-size: 1.25rem;
 
+  .grey & {
+    border: 2px solid $grey-100;
+  }
+
   &.facebook {
     background-image: url('/assets/images/networks/facebook-icon.png');
+    .grey & {
+      background-image: url('/assets/images/networks/facebook-dark-icon.svg');
+    }
+    &.facebook {
+      background-image: url('/assets/images/networks/facebook-icon.png');
+    }
+
+    &.instagram {
+      background-image: url('/assets/images/networks/instagram-icon.png');
+      .grey & {
+        background-image: url('/assets/images/networks/instagram-dark-icon.svg');
+      }
+    }
+
+    &.linkedin {
+      background-image: url('/assets/images/networks/linkedin-icon.png');
+      .grey & {
+        background-image: url('/assets/images/networks/linkedin-dark-icon.svg');
+      }
+    }
+
+    &.youtube {
+      background-image: url('/assets/images/networks/youtube-icon.png');
+      .grey & {
+        background-image: url('/assets/images/networks/youtube-dark-icon.svg');
+      }
+    }
+
+    &.tiktok {
+      background-image: url('/assets/images/networks/tiktok-light-icon.svg');
+
+      .grey & {
+        background-image: url('/assets/images/networks/tiktok-dark-icon.svg');
+      }
+    }
+
+    &.tiktok {
+      background-image: url('/assets/images/networks/tiktok-icon.png');
+    }
+
+    &:hover {
+      border: 2px solid $white;
+      .grey & {
+        border: 2px solid $black;
+      }
+    }
   }
 
-  &.instagram {
-    background-image: url('/assets/images/networks/instagram-icon.png');
-  }
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: fixed;
+    z-index: 20;
+    bottom: 3rem;
+    left: 2.2rem;
+    height: 3rem;
 
-  &.linkedin {
-    background-image: url('/assets/images/networks/linkedin-icon.png');
-  }
-
-  &.youtube {
-    background-image: url('/assets/images/networks/youtube-icon.png');
-  }
-
-  &.tiktok {
-    background-image: url('/assets/images/networks/tiktok-icon.png');
-  }
-
-  &:hover {
-    border: 2px solid $white;
-  }
-}
-
-.wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  position: fixed;
-  z-index: 20;
-  bottom: 3rem;
-  left: 2.2rem;
-  height: 3rem;
-
-  @include mobile {
-    display: none;
+    @include mobile {
+      display: none;
+    }
   }
 }

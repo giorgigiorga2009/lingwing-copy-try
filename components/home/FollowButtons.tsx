@@ -7,11 +7,15 @@ import { useTranslation } from '../../utils/useTranslation'
 type Networks = keyof typeof FOLLOW_NETWORKS
 const KEY_NETWORKS = Object.keys(FOLLOW_NETWORKS) as Networks[]
 
-export const FollowButtons: FC = () => {
+interface Props {
+  color?: 'white' | 'grey'
+}
+
+export const FollowButtons: FC<Props> = ({ color = 'white' }) => {
   const { t } = useTranslation()
 
   return (
-    <div className={style.wrap}>
+    <div className={classNames(style.wrap, style[color])}>
       <div className={style.text}>{t('followUs')}</div>
       <div className={style.container}>
         {KEY_NETWORKS.map(label => (

@@ -1,0 +1,83 @@
+@import '../styles/imports.scss';
+
+.container {
+  background-image: url(/assets/images/background-letters.svg),
+    url(/assets/images/background-wave.svg);
+  background-position: left top, left top;
+  background-repeat: repeat, no-repeat;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-attachment: local;
+}
+
+.content {
+  width: 70vw;
+  margin: 0 auto;
+
+  @include tablet {
+    width: 90vw;
+  }
+
+  @include mobile {
+    width: 95vw;
+  }
+}
+
+.title {
+  color: $white;
+  text-align: center;
+  font-size: 5vw;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+}
+
+.ulNav {
+  color: $white;
+
+  @include mobile {
+    font-size: 2.8vw;
+  }
+}
+
+.liNav {
+  list-style-type: none;
+  display: inline;
+  margin: 1.3vw;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+}
+
+.mainBlock {
+  background-color: white;
+  border-radius: 2vw;
+  margin: 0 auto;
+  padding: 0.1vw 5vw 4vw 5vw;
+  box-shadow: 0px 1px 100px 10px rgba(0, 0, 0, 0.12);
+  line-height: 24px;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+}
+
+.subTitle {
+  color: $purple-500;
+  padding: 2vw 0 0 0;
+}
+
+.followButtons {
+  margin: 70px 0 0 0;
+  position: relative;
+}
+
+.footer {
+  margin: 40px 0 0 0;
+  position: relative;
+}
