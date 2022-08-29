@@ -20,12 +20,13 @@ export const FOOTER_LINKS = [
 ]
 
 export const SIDE_MENU_LINKS = {
-  English: 'https://lingwing.com/en/wizard/eng',
-  Spanish: 'https://lingwing.com/en/wizard/es',
-  Georgian: 'https://lingwing.com/en/wizard/ka',
-  Russian: 'https://lingwing.com/en/wizard/ru',
-  Turkish: 'https://lingwing.com/en/wizard/tr',
-  Bengali: 'https://lingwing.com/en/wizard/bn',
+  English: 'en',
+  Spanish: 'es',
+  Georgian: 'ka',
+  Russian: 'ru',
+  French: 'fre',
+  German: 'deu',
+  Italian: 'ita',
   footerFAQ: 'https://lingwing.com/en/faq/general/',
   menuContactUs: 'https://lingwing.com/en/contact',
   menuStudents: 'https://lingwing.com/en/student',
@@ -46,9 +47,11 @@ export const COURSES_KEYS: SideMenuKeys[] = [
   'Spanish',
   'Georgian',
   'Russian',
-  'Turkish',
-  'Bengali',
+  'French',
+  'German',
+  'Italian',
 ]
+
 export const HELP_KEYS: SideMenuKeys[] = ['footerFAQ', 'menuContactUs']
 
 export const PREMIUM_KEYS: SideMenuKeys[] = [

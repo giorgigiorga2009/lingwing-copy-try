@@ -53,8 +53,8 @@
   &::after {
     content: '✕';
     position: absolute;
-    top: 11%;
-    left: 25%;
+    top: 15%;
+    left: 27%;
 
     @include mobile {
       top: 13%;

@@ -1,4 +1,6 @@
 import classNames from 'classnames'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 import Foco from 'react-foco'
 import {
@@ -20,12 +22,21 @@ interface SectionProps {
 
 const Section: FC<SectionProps> = ({ options, title }) => {
   const { t } = useTranslation()
+  const router = useRouter()
 
   return (
     <section>
       <h3>{title}</h3>
       <div className={styles.list}>
         {options.map(element => (
+          // <Link
+          //   href={{
+          //     pathname: `/wizard`,
+          //     query: { languageTo: SIDE_MENU_LINKS[element] },
+          //   }}
+          //   locale={router.locale}
+          //   as="/wizard"
+          // > {t(element)} </Link>
           <a href={SIDE_MENU_LINKS[element]} key={element}>
             {t(element)}
           </a>

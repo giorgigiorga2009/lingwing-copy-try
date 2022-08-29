@@ -22,6 +22,7 @@ import { ChooseLanguageStep } from '../components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '../components/wizard/ChooseDifficultyStep'
 import { useTranslation } from '../utils/useTranslation'
 import { PageHead } from '../components/PageHead'
+import { Reviews } from '../components/Reviews'
 
 type Step = 'step1' | 'step2' | 'step3'
 
@@ -140,6 +141,7 @@ const Wizard: NextPage<WizardProps> = params => {
         )}
       </div>
       <Footer />
+      <Reviews />
     </div>
   )
 }
