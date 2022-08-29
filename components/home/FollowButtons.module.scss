@@ -87,10 +87,12 @@
       border: 2px solid $black;
     }
   }
+
   @include tablet {
     width: 2rem;
     height: 2rem;
   }
+
 }
 
 .wrap {
