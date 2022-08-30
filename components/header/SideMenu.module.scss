@@ -25,6 +25,11 @@
   position: absolute;
   flex-direction: column;
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   @include mobile {
     width: 100%;
     border-radius: 0;
@@ -87,13 +92,6 @@
   flex-direction: column;
   gap: 0.5rem;
   text-transform: capitalize;
-}
-
-.link {
-  height: 3rem;
-  display: flex;
-  padding-top: 0.5rem;
-  align-items: center;
 }
 
 .footer {

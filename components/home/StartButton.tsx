@@ -2,18 +2,9 @@ import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
+import { getUsersAmount } from '../../utils/getUsersAmount'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './StartButton.module.scss'
-
-const getCount = () => {
-  return axios
-    .get(`${process.env.defaultURL}/users/count`)
-    .then(response => {
-      console.log(response)
-      return response.data.data
-    })
-    .catch(error => console.log(error))
-}
 
 export const StartButton: FC = () => {
   const { t } = useTranslation()
@@ -21,9 +12,7 @@ export const StartButton: FC = () => {
   const [count, setCount] = useState()
 
   useEffect(() => {
-    getCount().then(response => {
-      setCount(response)
-    })
+    getUsersAmount().then(response => setCount(response))
   }, [])
 
   return (

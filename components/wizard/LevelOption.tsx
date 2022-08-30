@@ -12,7 +12,6 @@ interface Props {
 
 export const LevelOption: FC<Props> = ({ option, index }) => {
   const { t } = useTranslation()
-  console.log(option)
   return (
     <div className={style.optionContainer}>
       <div className={style.logoContainer}>

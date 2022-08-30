@@ -18,9 +18,10 @@ export type SideMenuKeys = keyof typeof SIDE_MENU_LINKS
 interface SectionProps {
   options: SideMenuKeys[]
   title: string
+  flag?: boolean
 }
 
-const Section: FC<SectionProps> = ({ options, title }) => {
+const Section: FC<SectionProps> = ({ options, title, flag = false }) => {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -28,19 +29,25 @@ const Section: FC<SectionProps> = ({ options, title }) => {
     <section>
       <h3>{title}</h3>
       <div className={styles.list}>
-        {options.map(element => (
-          // <Link
-          //   href={{
-          //     pathname: `/wizard`,
-          //     query: { languageTo: SIDE_MENU_LINKS[element] },
-          //   }}
-          //   locale={router.locale}
-          //   as="/wizard"
-          // > {t(element)} </Link>
-          <a href={SIDE_MENU_LINKS[element]} key={element}>
-            {t(element)}
-          </a>
-        ))}
+        {!flag &&
+          options.map(element => (
+            <a href={SIDE_MENU_LINKS[element]} key={element}>
+              {t(element)}
+            </a>
+          ))}
+        {flag &&
+          options.map(element => (
+            <Link
+              href={{
+                pathname: `/wizard`,
+                query: { languageTo: SIDE_MENU_LINKS[element] },
+              }}
+              locale={router.locale}
+              as="/wizard"
+            >
+              {t(element)}
+            </Link>
+          ))}
       </div>
     </section>
   )
@@ -63,7 +70,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         <div className={styles.button} onClick={onClose} />
         <div className={styles.content}>
           <div className={styles.menu}>
-            <Section title={t('footerCourses')} options={COURSES_KEYS} />
+            <Section flag title={t('footerCourses')} options={COURSES_KEYS} />
             <Section title={t('menuPremium')} options={PREMIUM_KEYS} />
             <Section title={t('menuCompany')} options={ABOUT_COMPANY_KEYS} />
             <Section title={t('menuHelp')} options={HELP_KEYS} />

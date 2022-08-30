@@ -20,10 +20,10 @@ export const FOOTER_LINKS = [
 ]
 
 export const SIDE_MENU_LINKS = {
-  English: 'en',
-  Spanish: 'es',
-  Georgian: 'ka',
-  Russian: 'ru',
+  English: 'eng',
+  Spanish: 'esp',
+  Georgian: 'geo',
+  Russian: 'rus',
   French: 'fre',
   German: 'deu',
   Italian: 'ita',
