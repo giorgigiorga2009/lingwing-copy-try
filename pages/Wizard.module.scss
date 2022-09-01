@@ -4,12 +4,13 @@
   height: 100%;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .content {
   height: 100%;
-  overflow: scroll;
   position: relative;
+  overflow: hidden;
 }
 
 .parrot {
@@ -22,6 +23,20 @@
   height: 27vh;
   top: 5rem;
   left: 10rem;
+
+  @include tablet {
+    width: 20rem;
+    height: 15rem;
+    top: 10rem;
+    left: 0rem;
+  }
+
+  @include mobile {
+    width: 20rem;
+    height: 15rem;
+    left: 0rem;
+    top: 10rem;
+  }
 }
 
 .ball {
@@ -34,6 +49,16 @@
   height: 47.37rem;
   bottom: 0;
   right: -7rem;
+
+  @include tablet {
+    bottom: -3rem;
+    right: -12rem;
+  }
+
+  @include mobile {
+    right: -9rem;
+    width: 40rem;
+  }
 }
 
 .loginModal {

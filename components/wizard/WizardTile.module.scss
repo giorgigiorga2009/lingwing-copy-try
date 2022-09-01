@@ -8,6 +8,10 @@
   align-items: center;
   flex-direction: column;
   transition: all 0.2s linear;
+
+  @include mobile {
+    height: 9rem;
+  }
 }
 
 .title {
@@ -34,6 +38,16 @@
 
   &:hover {
     background-color: $orange-500;
+  }
+
+  @include tablet {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  @include mobile {
+    width: 6rem;
+    height: 6rem;
   }
 }
 

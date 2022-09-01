@@ -7,13 +7,22 @@
   align-items: center;
   position: absolute;
   bottom: 6rem;
+
+  @include smallWidth {
+    display: none;
+  }
 }
 
 .carousel {
+  display: flex;
+  justify-content: center;
   width: 40.6rem;
   height: 10.62rem;
   border-radius: 1.88rem;
   overflow: hidden;
+  @include mobile {
+    width: 95%;
+  }
 }
 
 .label {
@@ -74,6 +83,11 @@
   position: absolute;
   top: 0.5rem;
   left: 0rem;
+
+  @include mobile {
+    top: 0rem;
+    left: -0.7rem;
+  }
 }
 
 .quoteMarkBot {
@@ -85,6 +99,11 @@
   position: absolute;
   bottom: 0.5rem;
   right: 0rem;
+
+  @include mobile {
+    right: -0.7rem;
+    bottom: 0rem;
+  }
 }
 
 .text {
@@ -94,6 +113,12 @@
   text-align: center;
   max-height: 4.5rem;
   color: $white;
+
+  @include mobile {
+    font-size: 0.8rem;
+    max-width: 24rem;
+    max-height: 6rem;
+  }
 }
 
 .user {

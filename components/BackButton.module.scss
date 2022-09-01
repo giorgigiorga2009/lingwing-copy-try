@@ -11,6 +11,23 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  @include tablet {
+    top: 6.5rem;
+    left: 0.5rem;
+    font-size: 1.1rem;
+  }
+  @include mobile {
+    top: 5.5rem;
+    left: 0.5rem;
+    font-size: 1.3rem;
+  }
+}
+
+.text {
+  @include smallWidth {
+    display: none;
+  }
 }
 
 .icon {
@@ -20,4 +37,7 @@
   height: 1.68rem;
   width: 1.875rem;
   display: inline-block;
+
+  @include smallWidth {
+  }
 }

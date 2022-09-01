@@ -11,7 +11,7 @@ export const BackButton: FC<Props> = ({ onClick }) => {
   return (
     <div className={style.backButton} onClick={onClick}>
       <span className={style.icon} />
-      <span>{t('backButton')}</span>
+      <span className={style.text}>{t('backButton')}</span>
     </div>
   )
 }

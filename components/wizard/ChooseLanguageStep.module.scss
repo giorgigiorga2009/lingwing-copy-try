@@ -8,4 +8,9 @@
   gap: 2rem;
   display: flex;
   width: 54.7rem;
+  @include mobile {
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }

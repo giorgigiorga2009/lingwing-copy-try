@@ -9,10 +9,24 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
+  @include tablet {
+    gap: 0.7rem;
+  }
+
+  @include mobile {
+    gap: 0.3rem;
+    bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  @include smallWidth {
+    flex-wrap: wrap;
+  }
 }
 
 .link {
-  font-size: 0.88;
+  font-size: 0.88rem;
   font-family: SegoeUI-SemiBold;
   color: $grey-100;
   cursor: pointer;
@@ -24,5 +38,9 @@
 
   &:hover {
     color: $black;
+  }
+
+  @include mobile {
+    font-size: 0.7rem;
   }
 }
