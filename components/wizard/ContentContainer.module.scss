@@ -11,4 +11,8 @@
   @include desktop {
     width: 52rem;
   }
+
+  @include mobile {
+    margin: 3rem auto;
+  }
 }

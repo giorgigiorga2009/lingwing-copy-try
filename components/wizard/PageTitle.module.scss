@@ -6,15 +6,11 @@
   font-family: SegoeUI;
 
   @include smallWidth {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   @include mobile {
-    font-size: 1.65rem;
-  }
-
-  @include smallWidth {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 }
 
@@ -35,6 +31,8 @@
 .flagsContainer {
   position: relative;
   display: flex;
+  width: fit-content;
+  height: fit-content;
 }
 
 .flag {
@@ -42,6 +40,15 @@
   height: 2.5rem;
   border: 3px solid $white;
   box-shadow: 0 0 7px $grey-100;
+
+  @include mobile {
+    width: 2rem;
+    height: 2rem;
+  }
+  @include smallWidth {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
 }
 
 .smallFlag {
@@ -52,4 +59,14 @@
   bottom: -0.2rem;
   right: -0.5rem;
   box-shadow: 0 0 7px $grey-100;
+
+  @include mobile {
+    right: -18%;
+    bottom: -5%;
+  }
+
+  @include smallWidth {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
 }

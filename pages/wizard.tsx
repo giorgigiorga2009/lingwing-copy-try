@@ -103,11 +103,11 @@ const Wizard: NextPage<WizardProps> = params => {
   return (
     <div className={style.container}>
       <PageHead text={'wizardPageTitle'} />
+      <div className={style.ball} />
       <div className={style.content}>
         <Header size="s" loginClassName={style.loginModal} />
         <BackButton onClick={goBack} />
         <div className={style.parrot} />
-        <div className={style.ball} />
 
         {step === 'step1' && (
           <ChooseLanguageStep
@@ -141,7 +141,7 @@ const Wizard: NextPage<WizardProps> = params => {
         )}
       </div>
       <Footer />
-      <Reviews />
+      {step === 'step1' || (step === 'step2' && <Reviews />)}
     </div>
   )
 }

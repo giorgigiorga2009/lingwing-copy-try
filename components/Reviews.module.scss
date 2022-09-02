@@ -11,6 +11,10 @@
   @include smallWidth {
     display: none;
   }
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .carousel {
@@ -20,9 +24,6 @@
   height: 10.62rem;
   border-radius: 1.88rem;
   overflow: hidden;
-  @include mobile {
-    width: 95%;
-  }
 }
 
 .label {
@@ -83,11 +84,6 @@
   position: absolute;
   top: 0.5rem;
   left: 0rem;
-
-  @include mobile {
-    top: 0rem;
-    left: -0.7rem;
-  }
 }
 
 .quoteMarkBot {
@@ -99,11 +95,6 @@
   position: absolute;
   bottom: 0.5rem;
   right: 0rem;
-
-  @include mobile {
-    right: -0.7rem;
-    bottom: 0rem;
-  }
 }
 
 .text {

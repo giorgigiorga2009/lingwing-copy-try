@@ -9,6 +9,15 @@
   align-items: center;
   padding: 1rem;
   user-select: none;
+
+  @include mobile {
+    height: 5.5rem;
+    padding: 0.7rem;
+  }
+  @include smallWidth {
+    height: 5rem;
+    padding: 0.7rem;
+  }
 }
 
 .logoContainer {
@@ -35,6 +44,16 @@
   &.course-3 {
     background-image: url(../../public/assets/images/wizard/mountain-course-3.png);
   }
+
+  @include mobile {
+    width: 3rem;
+    height: 3rem;
+  }
+  @include smallWidth {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 4px solid $white;
+  }
 }
 
 .courseName {
@@ -48,6 +67,14 @@
     1px -1px 0 #fff, 1px 0 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff,
     2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0 0 #fff, 2px 1px 0 #fff,
     2px 2px 0 #fff;
+
+  @include mobile {
+    font-size: 0.8rem;
+  }
+  @include smallWidth {
+    font-size: 0.65rem;
+    margin-top: -0.8rem;
+  }
 }
 
 .titleContainer {
@@ -55,16 +82,37 @@
   flex-direction: column;
   gap: 0.3rem;
   padding-left: 2rem;
+
+  @include mobile {
+    padding-left: 1rem;
+  }
+  @include smallWidth {
+    padding-left: 0.5rem;
+  }
 }
 
 .title {
   font-family: SegoeUI-SemiBold;
+
+  @include mobile {
+    font-size: 0.875rem;
+  }
+  @include smallWidth {
+    font-size: 0.8rem;
+  }
 }
 
 .amountOfStudents {
   display: flex;
   font-size: 0.875rem;
   gap: 0.3rem;
+
+  @include mobile {
+    font-size: 0.75rem;
+  }
+  @include smallWidth {
+    font-size: 0.65rem;
+  }
 
   .number {
     color: $orange-300;
@@ -81,6 +129,17 @@
   right: 2rem;
   display: flex;
   gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  @include mobile {
+    gap: 0.6rem;
+    right: 1rem;
+  }
+  @include smallWidth {
+    gap: 0.4rem;
+    right: 1rem;
+  }
 }
 
 .aboutButton {
@@ -94,6 +153,17 @@
   line-height: 2.3rem;
   width: fit-content;
   padding: 0 1rem;
+
+  @include mobile {
+    font-size: 0.7rem;
+    padding: 0 0.5rem;
+    height: 2.3rem;
+  }
+  @include smallWidth {
+    font-size: 0.7rem;
+    padding: 0 0.4rem;
+    height: 2.3rem;
+  }
 }
 
 .startButton {
@@ -108,4 +178,15 @@
   line-height: 2.5rem;
   width: fit-content;
   padding: 0 1rem;
+
+  @include mobile {
+    font-size: 0.8rem;
+    padding: 0 0.4rem;
+    height: 2.3rem;
+  }
+  @include smallWidth {
+    font-size: 0.7rem;
+    padding: 0 0.4rem;
+    height: 2.3rem;
+  }
 }

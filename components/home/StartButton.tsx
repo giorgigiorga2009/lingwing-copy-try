@@ -9,17 +9,17 @@ import style from './StartButton.module.scss'
 export const StartButton: FC = () => {
   const { t } = useTranslation()
   const router = useRouter()
-  const [count, setCount] = useState()
+  const [usersAmount, setUsersAmount] = useState()
 
   useEffect(() => {
-    getUsersAmount().then(response => setCount(response))
+    getUsersAmount().then(response => setUsersAmount(response))
   }, [])
 
   return (
     <div className={style.container}>
       <div className={style.title}>
         <span>{t('join')}</span>
-        <span className={style.usersAmount}>{count}</span>
+        <span className={style.usersAmount}>{usersAmount}</span>
         <span>{t('users')}</span>
       </div>
 
