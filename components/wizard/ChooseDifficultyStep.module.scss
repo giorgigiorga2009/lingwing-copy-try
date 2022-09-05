@@ -4,4 +4,9 @@
   margin-top: 3rem;
   margin-bottom: 5rem;
   width: 100%;
+
+  @include mobile {
+    margin: 1rem 0rem;
+    padding: 0 0.5rem;
+  }
 }

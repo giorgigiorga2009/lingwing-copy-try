@@ -139,9 +139,10 @@ const Wizard: NextPage<WizardProps> = params => {
             levelData={languageLevelData}
           />
         )}
+
+        {step !== 'step3' && <Reviews />}
       </div>
       <Footer />
-      {step === 'step1' || (step === 'step2' && <Reviews />)}
     </div>
   )
 }

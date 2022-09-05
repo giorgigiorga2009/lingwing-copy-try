@@ -4,6 +4,7 @@ $tablet_start: 768px;
 $tablet_end: 1023px;
 $desktop_start: 1024px;
 
+$small_desktop_height: 900px;
 $small_height: 650px;
 
 @mixin smallWidth {
@@ -34,4 +35,11 @@ $small_height: 650px;
   @media (max-height: $small_height) {
     @content;
   }
+}
+
+@mixin smallDesktopHeight {
+  @media (max-height: $small_desktop_height) and (min-width: $tablet_start) {
+    @content;
+  }
+  
 }

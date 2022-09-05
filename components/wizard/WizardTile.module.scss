@@ -9,8 +9,17 @@
   flex-direction: column;
   transition: all 0.2s linear;
 
+  @include tablet {
+    width: 8rem;
+  }
+
   @include mobile {
     height: 7.5rem;
+  }
+
+  @include smallDesktopHeight {
+    height: 10rem;
+    width: 6rem;
   }
 }
 
@@ -46,12 +55,17 @@
   }
 
   @include tablet {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
   }
 
   @include mobile {
     width: 4.5rem;
     height: 4.5rem;
+  }
+
+  @include smallDesktopHeight {
+    width: 7rem;
+    height: 7rem;
   }
 }

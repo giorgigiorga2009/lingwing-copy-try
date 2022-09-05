@@ -10,9 +10,15 @@
 }
 
 .content {
-  height: 100%;
+  height: 90vh;
+  min-height: 56rem;
   position: relative;
   overflow: hidden;
+  margin-bottom: 1rem;
+
+  @include smallDesktopHeight {
+    min-height: 44rem;
+  }
 }
 
 .parrot {
