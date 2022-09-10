@@ -8,6 +8,11 @@ import { Input } from './Input'
 import { Tab } from './Tab'
 import { LoginFooter } from './LoginFooter'
 import { auth } from '../../pages/api/auth'
+import {
+  getEmailValidation,
+  getIsPasswordSame,
+  getPasswordValidation,
+} from '../../utils/validations'
 
 type Tab = 'signIn' | 'signUp'
 
@@ -30,14 +35,16 @@ interface Props {
 export const LoginModal: FC<Props> = ({ onClick, className }) => {
   const [tab, setTab] = useState<Tab>('signIn')
   const { t } = useTranslation()
+
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [repeatPassword, setRepeatPassword] = useState<string>('')
 
+  const [isEmailValid, setIsEmailValid] = useState<boolean>()
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>()
+  const [isPasswordSame, setIsPasswordSame] = useState<boolean>()
+
   const signUp = () => {
-    const isEmailValid = new RegExp(
-      /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/i,
-    ).test(email.trim())
     const isPasswordCorrect = password === repeatPassword
     console.log(isEmailValid, isPasswordCorrect)
     if (!isEmailValid || !isPasswordCorrect) return
@@ -72,31 +79,22 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
           <NetworkButtons isSignInTab={tab === 'signIn'} />
           <Divider />
 
-          <div className={style.form}>
-            <Input
-              type="email"
-              placeholder={t('loginEmail')}
-              value={email}
-              onChange={setEmail}
-            />
-            <Input
-              type="password"
-              placeholder={t('loginPassword')}
-              value={password}
-              onChange={setPassword}
-            />
-            {tab === 'signUp' && (
-              <Input
-                type="password"
-                placeholder={t('loginRepeatPassword')}
-                value={repeatPassword}
-                onChange={setRepeatPassword}
-              />
-            )}
-          </div>
-
           {tab === 'signIn' && (
             <>
+              <div className={style.form}>
+                <Input
+                  type="email"
+                  placeholder={t('loginEmail')}
+                  value={email}
+                  onChange={setEmail}
+                />
+                <Input
+                  type="password"
+                  placeholder={t('loginPassword')}
+                  value={password}
+                  onChange={setPassword}
+                />
+              </div>
               <div className={classNames(style.button, style.disabled)}>
                 {t('loginSignIn')}
               </div>
@@ -108,6 +106,44 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
 
           {tab === 'signUp' && (
             <>
+              <div className={style.form}>
+                <Input
+                  type="email"
+                  placeholder={t('loginEmail')}
+                  value={email}
+                  onChange={setEmail}
+                  onBlur={email => setIsEmailValid(getEmailValidation(email))}
+                />
+                {isEmailValid === false && (
+                  <span className={style.error}> {t('emailNotValid')} </span>
+                )}
+                <Input
+                  type="password"
+                  placeholder={t('loginPassword')}
+                  value={password}
+                  onChange={setPassword}
+                  onBlur={password =>
+                    setIsPasswordValid(getPasswordValidation(password))
+                  }
+                />
+                {isPasswordValid === false && (
+                  <span className={style.error}>{t('passwordNotValid')} </span>
+                )}
+                <Input
+                  type="password"
+                  placeholder={t('loginRepeatPassword')}
+                  value={repeatPassword}
+                  onChange={setRepeatPassword}
+                  onBlur={repeatPassword =>
+                    setIsPasswordSame(
+                      getIsPasswordSame(password, repeatPassword),
+                    )
+                  }
+                />
+                {isPasswordSame === false && (
+                  <span className={style.error}>{t('passwordNotSame')}</span>
+                )}
+              </div>
               <div
                 className={classNames(style.button, style.disabled)}
                 onClick={signUp}

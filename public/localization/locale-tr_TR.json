@@ -61,6 +61,10 @@
   "loginSignIn": "Giriş yap",
   "loginSignUp": "Yeni bir hesap oluştur",
   "loginForgotPassword": "Şifrenizi unuttunuz mu?",
+  "emailNotValid": "Yanlış E-posta adresi biçimi",
+  "passwordNotValid": "Şifre uzunluğu en az 6 simbollu olmalı",
+  "passwordNotSame": "Şifreler birbirine eşleşmiyor",
+
 
   "backButton": "Son sayfaya dön",
   "wizardTitle1": "Öğrenilecek dili seç",

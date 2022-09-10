@@ -39,6 +39,10 @@
   "loginSignIn": "Autorización",
   "loginSignUp": "Crear cuenta",
   "loginForgotPassword": "¿Has olvidado tu contraseña?",
+  "emailNotValid": "Este formato de correo electrónico no es válido",
+  "passwordNotValid": "Introduce una contraseña de al menos seis caracteres",
+  "passwordNotSame": "Las contraseña no coinciden",
+
 
   "footerAboutUs": "Acerca de",
   "footerCourses": "Cursos",

@@ -52,6 +52,10 @@
   "loginFooter2": "and the ",
   "loginFooter3": "Privacy policy",
   "loginFooter4": "license agreement",
+  "emailNotValid": "Incorrect E-mail address format",
+  "passwordNotValid": "Password length must be min 6",
+  "passwordNotSame": "Password does not match",
+  
 
   "backButton": "Back",
   "wizardTitle1": "Choose language to learn",

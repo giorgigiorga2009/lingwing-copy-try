@@ -39,6 +39,10 @@
   "loginSignInWith": "Войти через",
   "loginSignUpWith": "Зарегистрируйтесь через",
   "loginOrWith": "или",
+  "emailNotValid": "Неверный формат эл. почты",
+  "passwordNotValid": "Пароль должен состоять минимум из 6 символов",
+  "passwordNotSame": "Пароли не совпадают",
+
 
   "footerAboutUs": "О Нас",
   "footerCourses": "Курсы",

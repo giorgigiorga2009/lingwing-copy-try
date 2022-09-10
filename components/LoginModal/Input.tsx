@@ -6,6 +6,7 @@ interface Props {
   placeholder: string
   value?: string
   onChange?: (value: string) => void
+  onBlur?: (value: string) => void
 }
 
 export const Input: FC<Props> = ({
@@ -13,6 +14,7 @@ export const Input: FC<Props> = ({
   placeholder,
   value,
   onChange = () => {},
+  onBlur = () => {},
 }) => {
   return (
     <input
@@ -21,6 +23,7 @@ export const Input: FC<Props> = ({
       placeholder={placeholder}
       value={value}
       onChange={event => onChange(event?.target.value)}
+      onBlur={event => onBlur(event?.target.value)}
     />
   )
 }

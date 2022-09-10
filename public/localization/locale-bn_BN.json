@@ -53,6 +53,10 @@
   "loginSignInWith": "সাইন ইন",
   "loginSignUpWith": "দিয়ে সাইন আপ",
   "loginOrWith": "অথবা সাথে",
+  "emailNotValid": "ভুল ই-মেইল এড্রেস ফরমেট",
+  "passwordNotValid": "পাসওয়ার্ডের দৈর্ঘ্য অবশ্যই কমপক্ষে ৬ হতে হবে",
+  "passwordNotSame": "পাসওয়ার্ড মিলছে না",
+
 
   "backButton": "শেষ পাতায় ফিরে যান",
   "wizardTitle1": "শেখার জন্য একটি ভাষা বাছাই করুন",

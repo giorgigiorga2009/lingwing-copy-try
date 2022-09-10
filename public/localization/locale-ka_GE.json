@@ -39,6 +39,10 @@
   "loginSignIn": "შესვლა",
   "loginSignUp": "რეგისტრაცია",
   "loginForgotPassword": "დაგავიწყდა პაროლი?",
+  "emailNotValid": "არასწორია ელ-ფოსტის ფორმატი",
+  "passwordNotValid": "პაროლი უნდა იყოს მინიმუმ 6 სიმბოლო",
+  "passwordNotSame": "პაროლები არ ემთხვევა",
+
 
   "footerAboutUs": "კომპანიის შესახებ",
   "footerCourses": "კურსები",
