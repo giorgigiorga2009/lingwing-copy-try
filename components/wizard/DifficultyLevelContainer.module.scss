@@ -99,6 +99,31 @@
   }
 }
 
+.iconBalloon {
+  width: 6.25rem;
+  height: 6.25rem;
+  position: absolute;
+  right: -0.5rem;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../../public/assets/images/wizard/standart-level-icon2.png);
+
+  @include mobile {
+    width: 4rem;
+    height: 4rem;
+    right: -0.5rem;
+    top: 1.1rem;
+  }
+  @include smallWidth {
+    width: 4rem;
+    height: 4rem;
+    right: -0.5rem;
+    top: 1.1rem;
+  }
+}
+
 .iconArrowContainer {
   border: 0.188rem solid $white;
   width: 2.5rem;

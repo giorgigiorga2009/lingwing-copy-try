@@ -47,7 +47,11 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
           <div className={style.innerCircle} />
         </div>
 
-        <span className={style.iconPlane} />
+        {level.name === 'A2' ? (
+          <span className={style.iconBalloon} />
+        ) : (
+          <span className={style.iconPlane} />
+        )}
 
         <div className={style.iconArrowContainer}>
           <span
