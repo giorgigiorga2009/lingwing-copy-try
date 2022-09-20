@@ -7,12 +7,13 @@ import { useTranslation } from '../../utils/useTranslation'
 import { Input } from './Input'
 import { Tab } from './Tab'
 import { LoginFooter } from './LoginFooter'
-import { auth } from '../../pages/api/auth'
+
 import {
   getEmailValidation,
   getIsPasswordSame,
   getPasswordValidation,
 } from '../../utils/validations'
+import { auth, getToken } from '../../utils/auth'
 
 type Tab = 'signIn' | 'signUp'
 
@@ -46,11 +47,10 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
 
   const signUp = () => {
     const isPasswordCorrect = password === repeatPassword
-    console.log(isEmailValid, isPasswordCorrect)
     if (!isEmailValid || !isPasswordCorrect) return
 
-    auth({ email, password, repeatPassword }).then(result =>
-      console.log(result),
+    return auth({ email, password, repeatPassword }).then(response =>
+      console.log(response),
     )
   }
 

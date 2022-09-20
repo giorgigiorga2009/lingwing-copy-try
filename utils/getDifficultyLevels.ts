@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { LanguageFrom, LanguageTo } from './languages'
 
-const URL_LEVELS = `${process.env.defaultURL}/getLanguageStandard`
-const URL_LEVEL_OPTIONS = `${process.env.defaultURL}/getCourses`
+const URL_LEVELS = `${process.env.defaultURL}/public/getLanguageStandard`
+const URL_LEVEL_OPTIONS = `${process.env.defaultURL}/public/getCourses`
 
 type LanguageLevelData = {
   _id: {
