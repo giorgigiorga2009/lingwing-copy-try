@@ -11,7 +11,7 @@ import range from '../utils/range'
 import style from './logout.module.scss'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-const screenshots = [
+const SCREENSHOTS = [
   'scr-1.png',
   'scr-2.png',
   'scr-3.png',
@@ -55,23 +55,21 @@ const Logout: NextPage = () => {
         </div>
         <div className={style.phoneContainer}>
           <div className={style.phone}>
-            <Carousel
-              showStatus={false}
-              autoPlay
-              infiniteLoop
-              showThumbs={false}
-              showIndicators={false}
-            >
-              {screenshots.map(pic => (
-                <div
-                  key={pic}
-                  className={style.screen}
-                  style={{
-                    backgroundImage: `url(/assets/images/logout/${pic})`,
-                  }}
-                />
-              ))}
-            </Carousel>
+            <div className={style.screen}>
+              <Carousel
+                showStatus={false}
+                autoPlay
+                infiniteLoop
+                showThumbs={false}
+                showIndicators={false}
+                showArrows={false}
+                // animationHandler ={'fade'}
+              >
+                {SCREENSHOTS.map(pic => (
+                  <img key={pic} src={`/assets/images/logout/${pic}`} />
+                ))}
+              </Carousel>
+            </div>
           </div>
         </div>
       </div>

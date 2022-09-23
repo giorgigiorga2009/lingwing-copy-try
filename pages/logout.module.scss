@@ -122,11 +122,11 @@
   background-image: url('/assets/images/iphone.png');
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 .screen {
-  width: 13rem;
+  max-width: 13rem;
   height: 23rem;
-  background-position: center;
-  background-size: contain;
+  overflow: hidden;
 }
