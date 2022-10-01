@@ -11,6 +11,7 @@
   overflow: scroll;
   overflow-x: hidden;
   background-attachment: local;
+  color: $grey-800;
 }
 
 .content {
@@ -30,24 +31,6 @@
   color: $white;
   text-align: center;
   font-size: 5vw;
-
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
-  }
-}
-
-.ulNav {
-  color: $white;
-
-  @include mobile {
-    font-size: 2.8vw;
-  }
-}
-
-.liNav {
-  list-style-type: none;
-  display: inline;
-  margin: 1.3vw;
 
   &:lang(ka) {
     font-family: $kaFontTitleBold;
@@ -80,4 +63,33 @@
 .footer {
   margin: 40px 0 0 0;
   position: relative;
+}
+
+.certificateImage {
+  width: 100%;
+}
+
+.imageWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.imageContainer {
+  display: flex;
+  background-color: #f7f7f7;
+  width: 350px;
+  height: 150px;
+  border-radius: 20px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.imagePartner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100px;
+  max-width: 260px;
+  border-radius: 10px;
 }
