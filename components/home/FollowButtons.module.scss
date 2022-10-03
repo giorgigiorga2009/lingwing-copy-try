@@ -87,6 +87,10 @@
       border: 2px solid $black;
     }
   }
+  @include tablet {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .wrap {
@@ -98,6 +102,11 @@
   bottom: 3rem;
   left: 2.2rem;
   height: 3rem;
+
+  @include tablet {
+    bottom: 5rem;
+    left: 1.8rem;
+  }
 
   @include mobile {
     display: none;

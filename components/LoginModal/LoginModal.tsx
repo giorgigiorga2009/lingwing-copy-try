@@ -13,7 +13,7 @@ import {
   getIsPasswordSame,
   getPasswordValidation,
 } from '../../utils/validations'
-import { auth, getToken } from '../../utils/auth'
+import { auth, getToken, login } from '../../utils/auth'
 
 type Tab = 'signIn' | 'signUp'
 
@@ -52,6 +52,10 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
     return auth({ email, password, repeatPassword }).then(response =>
       console.log(response),
     )
+  }
+
+  const signIn = () => {
+    return login({ email, password }).then(response => console.log(response))
   }
 
   return (
@@ -95,7 +99,10 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
                   onChange={setPassword}
                 />
               </div>
-              <div className={classNames(style.button, style.disabled)}>
+              <div
+                className={classNames(style.button, style.disabled)}
+                onClick={signIn}
+              >
                 {t('loginSignIn')}
               </div>
               <a className={style.forgotPasswordLink}>

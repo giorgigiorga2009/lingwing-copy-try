@@ -53,7 +53,7 @@
   "loginFooter3": "Privacy policy",
   "loginFooter4": "license agreement",
   "emailNotValid": "Incorrect E-mail address format",
-  "passwordNotValid": "Password length must be min 6",
+  "passwordNotValid": "Password can't contain spaces, must be at least 6 characters long",
   "passwordNotSame": "Password does not match",
   
 
@@ -74,6 +74,11 @@
   "footerPrivacy": "Privacy",
   "footerFAQ": "F.A.Q",
   "footerContact": "Contact",
+
+  "logout_text1": "Continue studying with mobile application",
+  "logout_text2": "Make language learning even more joyful with our mobile apps!",
+
+
   
   "APP_ABOUT_US_COMPANY": "About Company",
   "APP_ABOUT_US_TITLE_1": "Lingwing.com - activates reactive speed of launching the conversation!",

@@ -3,7 +3,7 @@ import axios from 'axios'
 interface Auth {
   email: string
   password: string
-  repeatPassword: string
+  repeatPassword?: string
 }
 
 const HEADERS = {
@@ -42,6 +42,23 @@ export const auth = ({ email, password, repeatPassword }: Auth) => {
         },
       }),
     )
+    .then(response => response.data)
+    .catch(error => console.log(error))
+}
+
+export const login = ({ email, password }: Auth) => {
+  return axios({
+    method: 'post',
+    url: `${process.env.defaultURL}/public/auth/login?lang=eng`,
+    headers: {
+      ...HEADERS,
+      Authorization: 'null',
+    },
+    data: {
+      email,
+      password,
+    },
+  })
     .then(response => response.data)
     .catch(error => console.log(error))
 }

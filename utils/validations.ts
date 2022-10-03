@@ -5,7 +5,7 @@ export const getEmailValidation = (email: string): boolean => {
 }
 
 export const getPasswordValidation = (password: string): boolean => {
-  return new RegExp(/^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/i).test(password)
+  return new RegExp(/^(?!.* ).{6,}$/i).test(password)
 }
 
 export const getIsPasswordSame = (

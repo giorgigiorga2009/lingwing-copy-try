@@ -44,7 +44,7 @@
 
   @include mobile {
     font-size: 1.5rem;
-    margin: 1rem;
+    margin: 1rem 1rem 4rem;
   }
 
   @include tablet {
@@ -62,9 +62,14 @@
   flex-direction: column;
   align-items: center;
   padding: 0 1%;
-  margin: 0 auto;
+  margin: 10rem auto 0 ;
   max-width: 75rem;
   height: 100%;
+
+  @include tablet {
+    margin-top: 6rem;
+  }
+
 }
 
 .parrot {

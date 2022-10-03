@@ -40,7 +40,7 @@
   "loginSignUp": "Crear cuenta",
   "loginForgotPassword": "¿Has olvidado tu contraseña?",
   "emailNotValid": "Este formato de correo electrónico no es válido",
-  "passwordNotValid": "Introduce una contraseña de al menos seis caracteres",
+  "passwordNotValid": "La contraseña no puede contener espacios, debe tener al menos 6 caracteres",
   "passwordNotSame": "Las contraseña no coinciden",
 
 
@@ -74,6 +74,11 @@
   "wizardStudents": "Estudiantes",
   "wizardCourse": "Curso",
   "wizardAbout": "Describción",
+
+  "logout_text1": "Sigue estudiando on la aplicacion",
+  "logout_text2": "Haz la estudianza más interesante con nuestra aplicación móvil",
+
+
 
   "APP_ABOUT_US_COMPANY": "Acerca de la empresa",
   "APP_ABOUT_US_TITLE_1": "¡Activando la velocidad de reacción en una conversación – Así funciona Lingwing.com!",

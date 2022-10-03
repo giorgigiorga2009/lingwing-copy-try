@@ -62,8 +62,12 @@
   "loginSignUp": "Yeni bir hesap oluştur",
   "loginForgotPassword": "Şifrenizi unuttunuz mu?",
   "emailNotValid": "Yanlış E-posta adresi biçimi",
-  "passwordNotValid": "Şifre uzunluğu en az 6 simbollu olmalı",
+  "passwordNotValid": "Şifre boşluk içeremez, en az 6 karakter uzunluğunda olmalıdır",
   "passwordNotSame": "Şifreler birbirine eşleşmiyor",
+
+  "logout_text1": "Mobil uygulama ile derse devam et",
+  "logout_text2": "Mobil uygulama ile yabancı​ dil öğrenmek daha da zevkli olacak",
+
 
 
   "backButton": "Son sayfaya dön",
