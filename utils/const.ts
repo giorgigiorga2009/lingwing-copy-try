@@ -71,3 +71,13 @@ export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
 ]
 
 export const LOGIN_NETWORKS = ['facebook', 'google', 'twitter'] as const
+
+export const LOGOUT_SCREENSHOTS = [
+  'scr-1.png',
+  'scr-2.png',
+  'scr-3.png',
+  'scr-4.png',
+  'scr-5.png',
+  'scr-6.png',
+  'video-im.png',
+]

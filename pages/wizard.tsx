@@ -9,7 +9,7 @@ import {
   LanguageFrom,
   LOCALES_TO_LANGUAGES,
 } from '../utils/languages'
-import style from './Wizard.module.scss'
+import style from './wizard.module.scss'
 import _ from 'lodash'
 import {
   getDifficultyLevels,

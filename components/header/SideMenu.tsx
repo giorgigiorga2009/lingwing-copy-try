@@ -43,6 +43,7 @@ const Section: FC<SectionProps> = ({ options, title, useNextJsLink }) => {
                 }}
                 locale={router.locale}
                 as="/wizard"
+                key={element}
               >
                 {t(element)}
               </Link>
