@@ -70,6 +70,27 @@ export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
   'menuPrivacyPolicy',
 ]
 
+export const ABOUT_COMPANY_LINKS = {
+  whyWithUs: 'why-with-us',
+  certificate: 'certificate',
+  partners: 'partners',
+  jobs: 'jobs',
+}
+
+export const IMAGES_FOR_PARTNERS_PAGE = [
+  '../themes/images/partners/beka.png',
+  '../themes/images/partners/gau.png',
+  '../themes/images/partners/liberty.png',
+  '../themes/images/partners/magti.jpg',
+  '../themes/images/partners/GITA.png',
+  '../themes/images/partners/BankOfGergia.png',
+  '../themes/images/partners/BTU-GEO.png',
+  '../themes/images/partners/TSU.svg.png',
+  '../themes/images/partners/terabank.png',
+  '../themes/images/partners/TBC.svg.png',
+  '../themes/images/partners/Sulkhan-saba.png',
+]
+
 export const LOGIN_NETWORKS = ['facebook', 'google', 'twitter'] as const
 
 export const LOGOUT_SCREENSHOTS = [
