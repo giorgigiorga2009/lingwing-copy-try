@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import type { NextPage } from 'next'
+import type { FC } from 'react'
 import Link from 'next/link'
 import style from './AboutCompanyHeader.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
@@ -8,7 +8,7 @@ interface Props {
   currentMenu?: string | string[]
 }
 
-const AboutCompanyHeader: NextPage<Props> = ({ currentMenu }) => {
+const AboutCompanyHeader: FC<Props> = ({ currentMenu }) => {
   const { t } = useTranslation()
 
   const WhyWithUs = 'WhyWithUs'

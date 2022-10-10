@@ -1,0 +1,33 @@
+@import '../styles/imports.scss';
+
+.packageContainer {
+  display: flex;
+  margin: 200px;
+  border-radius: 10px;
+  width: 60%;
+  //background-color: red;
+}
+
+.packageColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: solid $white-200;
+  margin: -1px;
+  padding: 10px;
+}
+
+.mostPopular {
+  outline: 5px solid $white-200;
+  border-radius: 0 0 3px 3px;
+}
+
+.mostPopularText {
+  margin-top: -30px;
+  text-align: center;
+  position: absolute;
+  width: calc(60% / 4 + 12px);
+  border-radius: 5px 5px 0 0;
+  background-color: $white-200;
+}
