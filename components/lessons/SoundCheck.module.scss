@@ -5,25 +5,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  animation: 0.8s ease-out 1 alternate;
-  animation-delay: 1.3s;
-  animation-fill-mode: forwards;
   height: auto;
+  width: 56, 5rem;
+  height: 33.8rem;
   max-width: 60.5rem;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: -300px auto auto;
-  top: 50%;
   border-radius: 40px;
   box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  background-color: white;
+  gap: 2rem;
+  text-align: center;
 }
 
 .header {
   width: 80%;
   font-size: 2.25rem;
   color: $grey-800;
+  text-align: center;
 }
 
 .checkContainer {
@@ -39,22 +36,67 @@
   width: 100%;
   height: 7.25rem;
   display: flex;
-  justify-content: bottom;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   margin: 0.9rem auto 0;
 }
 
-.button {
+.soundButton {
   width: 4.38rem;
   height: 4.38rem;
   cursor: pointer;
-  background: url('/assets/images/prepare_sound_play.png') center no-repeat
-    $orange-500;
+  background: url('/assets/images/prepare_sound_play.png') center no-repeat;
+  background-color: $orange-500;
   border-radius: 6.25rem;
   box-shadow: 1px 2px 1px $grey-100;
+  &:hover {
+    background-color: #ffbe2e;
+  }
 }
 
 .label {
   font-size: 0.88rem;
   color: $grey-800;
+  margin-top: 1rem;
+}
+
+.startButtonContainer {
+  position: relative;
+  width: 13.75rem;
+  height: 2.38rem;
+  border-radius: 1.63rem;
+  background-color: #ececec;
+  background: linear-gradient(to left, #ececec 50%, #7835ab 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 1.5s ease;
+  border: 0;
+  text-transform: uppercase;
+  font-size: 0.94rem;
+  color: $white;
+  overflow: hidden;
+  font-family: SegoeUI;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  position: relative;
+  width: 13.75rem;
+  height: 2.38rem;
+  border-radius: 1.63rem;
+  background-color: #ececec;
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 1.5s ease;
+  border: 0;
+  text-transform: uppercase;
+  font-size: 0.94rem;
+  color: $white;
+  overflow: hidden;
+  font-family: SegoeUI;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
