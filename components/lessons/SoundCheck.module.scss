@@ -65,38 +65,66 @@
   width: 13.75rem;
   height: 2.38rem;
   border-radius: 1.63rem;
-  background-color: #ececec;
-  background: linear-gradient(to left, #ececec 50%, #7835ab 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all 1.5s ease;
-  border: 0;
   text-transform: uppercase;
   font-size: 0.94rem;
   color: $white;
   overflow: hidden;
   font-family: SegoeUI;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.active {
-  position: relative;
+.needTest {
   width: 13.75rem;
   height: 2.38rem;
   border-radius: 1.63rem;
-  background-color: #ececec;
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all 1.5s ease;
-  border: 0;
-  text-transform: uppercase;
-  font-size: 0.94rem;
-  color: $white;
-  overflow: hidden;
-  font-family: SegoeUI;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  left: 0;
+  background-color: $white-200;
+  border: 0;
+
+  &.slideOut {
+    animation-name: slideOut;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+}
+
+.testDone {
+  width: 13.75rem;
+  height: 2.38rem;
+  border-radius: 1.63rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -13.75rem;
+  background-color: $purple-500;
+  border: 0;
+
+  &.slideIn {
+    animation-name: slideIn;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    left: -13.75rem;
+  }
+  100% {
+    left: 0rem;
+  }
+}
+@keyframes slideOut {
+  0% {
+    left: 0rem;
+  }
+  100% {
+    left: 13.75rem;
+  }
 }

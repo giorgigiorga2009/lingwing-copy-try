@@ -2,7 +2,7 @@
 
   "homeTitle1": "Speak up a",
   "homeTitle2": "new language",
-  "homeTitle3": "today!",
+  "homeTitle3": "<k>lalala</k> today!",
   "homeStartButton": "Start Learning By Practice",
   "startButton": "Start",
   "followUs": "follow us",
@@ -77,6 +77,12 @@
 
   "logout_text1": "Continue studying with mobile application",
   "logout_text2": "Make language learning even more joyful with our mobile apps!",
+  
+  "checkSound": "Check the sound",
+  "makeSureHear": "Make sure you hear the sound from your computer",
+  "hearSound": "Yes, I hear the sound",
+
+
 
 
   

@@ -6,6 +6,7 @@ import { PageHead } from '../components/PageHead'
 import { FollowButtons } from '../components/home/FollowButtons'
 import { LanguagesBlock } from '../components/home/LanguagesBlock'
 import { StartButton } from '../components/home/StartButton'
+import { FormattedMessage } from 'react-intl'
 
 const Home: NextPage = () => {
   const { t } = useTranslation()
