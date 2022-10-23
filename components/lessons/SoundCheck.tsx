@@ -3,13 +3,13 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './SoundCheck.module.scss'
 
-// const audio = new Audio(`${process.env.defaultURL}/sounds/intro.mp3`)
-// audio.src = "https://lingwing.com/sounds/intro.mp3?1666470484334"
-
 export const SoundCheck: FC = () => {
-  const [state, setState] = useState(true)
+  const [sound, setSound] = useState(false)
   const { t } = useTranslation()
-  // const [audio] = useState(new Audio("https://lingwing.com/sounds/intro.mp3"));
+  const [audio, setAudio] = useState<HTMLAudioElement>()
+  useEffect(() => {
+    setAudio(new Audio(`${process.env.defaultURL}/sounds/intro.mp3`))
+  }, [])
 
   return (
     <div className={style.container}>
@@ -19,7 +19,8 @@ export const SoundCheck: FC = () => {
           <div
             className={style.soundButton}
             onClick={() => {
-              setState(false)
+              audio?.play()
+              setSound(true)
             }}
           />
         </div>
@@ -27,19 +28,10 @@ export const SoundCheck: FC = () => {
       </div>
 
       <div className={style.startButtonContainer}>
-        <div
-          className={
-            state ? style.testDone : classNames(style.testDone, style.slideIn)
-          }
-        >
-          {' '}
-          {t('hearSound')}{' '}
+        <div className={classNames(style.testDone, sound && style.slideIn)}>
+          {t('hearSound')}
         </div>
-        <div
-          className={
-            state ? style.needTest : classNames(style.needTest, style.slideOut)
-          }
-        >
+        <div className={classNames(style.needTest, sound && style.slideOut)}>
           {t('startButton')}
         </div>
       </div>

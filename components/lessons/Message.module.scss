@@ -56,3 +56,10 @@
   margin-left: auto;
   padding-right: 0.5rem;
 }
+
+.translation {
+  color: black;
+  .question & {
+    display: none;
+  }
+}

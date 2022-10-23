@@ -1,9 +1,14 @@
+import classNames from 'classnames'
 import { FC } from 'react'
 import style from './Message.module.scss'
 
-export const Message: FC = () => {
+interface Props {
+  variant: 'question' | 'answer'
+}
+
+export const Message: FC<Props> = ({ variant }) => {
   return (
-    <div className={style.container}>
+    <div className={classNames(style.container, style[variant])}>
       <div className={style.header}>
         <div className={style.caption}>Your answer</div>
         <div className={style.dots}> * * *</div>
@@ -11,7 +16,7 @@ export const Message: FC = () => {
       <div className={style.content}>
         <span className={style.originalText}>Original text to translate </span>
         <span className={style.translation}> Translation of the text</span>
-        <div className={style.soundButton} />
+        <span className={style.soundIcon} />
       </div>
       <div className={style.hint}>
         <span className={style.label}>Hint:</span>

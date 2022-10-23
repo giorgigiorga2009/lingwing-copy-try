@@ -12,7 +12,7 @@ const Lessons: NextPage = () => {
       <SoundCheck />
       <div className={style.progressBar} />
       <div className={style.chat}>
-        <Message />
+        <Message variant="question" />
       </div>
     </div>
   )
