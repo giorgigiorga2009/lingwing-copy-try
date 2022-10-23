@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { FC } from 'react'
 import Link from 'next/link'
-import style from './AboutPage.module.scss'
+import style from './AboutTabs.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
 import { ABOUT_COMPANY_LINKS } from '../../utils/const'
 

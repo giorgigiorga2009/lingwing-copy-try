@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import style from './aboutPage.module.scss'
+import style from './AboutTabs.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
 
 const AboutUs: FC = () => {
