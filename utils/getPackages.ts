@@ -6,9 +6,7 @@ export type PackageData = {
   duration: number
   sale: number
   mostPopular: boolean
-
   currency: [{ price: number; recurringPrice: number }]
-
   feature: {
     tasks: number
     tests: number
@@ -27,6 +25,5 @@ export const getPackages = (): Promise<PackageData[]> => {
   return axios
     .get(`${process.env.defaultURL}/public/inter/packages`)
     .then(response => response.data.data.packages)
-
     .catch(error => console.log(error))
 }

@@ -50,11 +50,6 @@
   }
 }
 
-.subTitle {
-  color: $purple-500;
-  padding: 2vw 0 0 0;
-}
-
 .followButtons {
   margin: 70px 0 0 0;
   position: relative;
@@ -63,33 +58,4 @@
 .footer {
   margin: 40px 0 0 0;
   position: relative;
-}
-
-.certificateImage {
-  width: 100%;
-}
-
-.imageWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.imageContainer {
-  display: flex;
-  background-color: #f7f7f7;
-  width: 350px;
-  height: 150px;
-  border-radius: 20px;
-  margin-top: 30px;
-  align-items: center;
-}
-
-.imagePartner {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: 100px;
-  max-width: 260px;
-  border-radius: 10px;
 }

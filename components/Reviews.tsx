@@ -3,7 +3,7 @@ import { getReviews, ReviewData } from '../utils/getReviews'
 import { useTranslation } from '../utils/useTranslation'
 import style from './Reviews.module.scss'
 import { Carousel } from 'react-responsive-carousel'
-import _ from 'lodash'
+import { range } from 'lodash'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 interface CarouselProps {
@@ -14,7 +14,7 @@ const Review: FC<CarouselProps> = ({ review }) => {
   return (
     <div className={style.review}>
       <div className={style.stars}>
-        {_.range(review.rating).map(item => (
+        {range(review.rating).map(item => (
           <span key={item} className={style.star} />
         ))}
       </div>

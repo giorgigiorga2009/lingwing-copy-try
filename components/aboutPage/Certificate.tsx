@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import style from '../../pages/aboutCompany.module.scss'
+import style from './aboutPage.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
 
 const Certificate: FC = () => {

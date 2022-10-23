@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { LocalesDropdown } from './LocalesDropdown'
 import style from './Header.module.scss'
-import { LoginModal } from '../loginModal/LoginModal'
+import { LoginModal } from '../loginWindow/LoginModal'
 import { SideMenu } from './SideMenu'
 import { useTranslation } from '../../utils/useTranslation'
 import Link from 'next/link'

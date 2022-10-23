@@ -1,5 +1,4 @@
 import languagesFromData from '../utils/languagesFrom.json'
-import _ from 'lodash'
 
 export const LANGUAGE_NAMES = {
   eng: 'English',
@@ -41,7 +40,7 @@ export const LOCALES_TO_LANGUAGES = {
   es: 'esp',
 } as const
 
-export const LANGUAGE_FROM = _.keys(LANGUAGES_TO_LOCALES) as LanguageFrom[]
+export const LANGUAGE_FROM = Object.keys(LANGUAGES_TO_LOCALES) as LanguageFrom[]
 
 export type LanguageTo = typeof LANGUAGES_TO[number]
 export type Language = keyof typeof LANGUAGE_NAMES

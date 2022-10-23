@@ -1,15 +1,15 @@
 import classNames from 'classnames'
-import type { FC } from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
-import style from './AboutCompanyHeader.module.scss'
+import style from './AboutPage.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
 import { ABOUT_COMPANY_LINKS } from '../../utils/const'
 
 interface Props {
-  currentMenu?: string | string[]
+  activeTab: string
 }
 
-const AboutCompanyHeader: FC<Props> = ({ currentMenu }) => {
+const AboutTabs: FC<Props> = ({ activeTab: currentMenu }) => {
   const { t } = useTranslation()
 
   return (
@@ -61,4 +61,4 @@ const AboutCompanyHeader: FC<Props> = ({ currentMenu }) => {
   )
 }
 
-export default AboutCompanyHeader
+export default AboutTabs
