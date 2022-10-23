@@ -9,7 +9,7 @@ interface Props {
   activeTab: string
 }
 
-const AboutTabs: FC<Props> = ({ activeTab: currentMenu }) => {
+const AboutTabs: FC<Props> = ({ activeTab }) => {
   const { t } = useTranslation()
 
   return (
@@ -19,7 +19,7 @@ const AboutTabs: FC<Props> = ({ activeTab: currentMenu }) => {
           <li
             className={classNames(
               style.liNav,
-              currentMenu == ABOUT_COMPANY_LINKS.whyWithUs && style.activeMenu,
+              activeTab == ABOUT_COMPANY_LINKS.whyWithUs && style.activeMenu,
             )}
           >
             {t('menuWhyWithUs')}
@@ -29,8 +29,7 @@ const AboutTabs: FC<Props> = ({ activeTab: currentMenu }) => {
           <li
             className={classNames(
               style.liNav,
-              currentMenu == ABOUT_COMPANY_LINKS.certificate &&
-                style.activeMenu,
+              activeTab == ABOUT_COMPANY_LINKS.certificate && style.activeMenu,
             )}
           >
             {t('menuCertificate')}
@@ -40,7 +39,7 @@ const AboutTabs: FC<Props> = ({ activeTab: currentMenu }) => {
           <li
             className={classNames(
               style.liNav,
-              currentMenu == ABOUT_COMPANY_LINKS.partners && style.activeMenu,
+              activeTab == ABOUT_COMPANY_LINKS.partners && style.activeMenu,
             )}
           >
             {t('menuPartners')}
@@ -50,7 +49,7 @@ const AboutTabs: FC<Props> = ({ activeTab: currentMenu }) => {
           <li
             className={classNames(
               style.liNav,
-              currentMenu == ABOUT_COMPANY_LINKS.jobs && style.activeMenu,
+              activeTab == ABOUT_COMPANY_LINKS.jobs && style.activeMenu,
             )}
           >
             {t('menuJobs')}
