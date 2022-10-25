@@ -1,53 +1,12 @@
-import { FC, useEffect, useState } from 'react'
-import { getPackages, PackageData } from '../utils/getPackages'
 import type { NextPage } from 'next'
 import { Header } from '../components/header/Header'
 import style from './packages.module.scss'
+import Pricing from '../components/packages/Pricing'
 import { FollowButtons } from '../components/home/FollowButtons'
 import { Footer } from '../components/wizard/Footer'
 import { useTranslation } from '../utils/useTranslation'
-import classNames from 'classnames'
-
-// interface PackageProps {
-//   package: PackageData
-// }
-
-export const Packages: FC = () => {
-  const [packagesData, setPackagesData] = useState<PackageData[]>()
-
-  useEffect(() => {
-    getPackages().then(response => {
-      setPackagesData(response)
-    })
-  }, [])
-
-  return (
-    <div className={style.packageContainer}>
-      {packagesData &&
-        packagesData.map(item => (
-          <>
-            <div
-              className={classNames(
-                style.packageColumn,
-                item.mostPopular && style.mostPopular,
-              )}
-            >
-              {item.mostPopular && (
-                <div className={style.mostPopularText}>Most Popular</div>
-              )}
-              <div>{item.duration}</div>
-              <div>{item.currency[0].recurringPrice}</div>
-              <div>{item.currency[0].price}</div>
-              <div>{item.feature.tasks}</div>
-              <div>{item.feature.certificate.toString()}</div>
-              <div>{item.feature.grammarAndStatistics.toString()}</div>
-              <div>{item.feature.voiceRecognition.toString()}</div>
-            </div>
-          </>
-        ))}
-    </div>
-  )
-}
+import FAQ from '../components/packages/Faq'
+import { FormattedMessage } from 'react-intl'
 
 const Package: NextPage = props => {
   const { t } = useTranslation()
@@ -56,11 +15,28 @@ const Package: NextPage = props => {
     <div className={style.container}>
       <Header size="s" loginClassName={style.loginModal} />
       <div className={style.content}>
-        <div className={style.mainBlock}>
-          <Packages />
+        <h1 className={style.title}> {t('APP_PACKAGE_PACKAGES')} </h1>
+        <p className={style.desc}>
+          <FormattedMessage
+            id="APP_PACKAGE_DESC"
+            values={{
+              k: (chunks: string) => (
+                <span className={style.fiveTimesFaster}>{chunks}</span>
+              ),
+            }}
+          />
+        </p>
+        <div className={style.pricingContainer}>
+          <Pricing />
         </div>
+        <div className={style.contactUs}>
+          <span className={style.moreInfo}>{t('APP_PACKAGE_CONTACT_US')}</span>
+          <a className={style.phoneNumber} href="tel:995598484912">
+            598-484-912
+          </a>
+        </div>
+        <FAQ />
       </div>
-
       <div className={style.followButtons}>
         <FollowButtons color="grey" />
       </div>

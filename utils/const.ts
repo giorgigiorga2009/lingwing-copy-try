@@ -102,3 +102,10 @@ export const LOGOUT_SCREENSHOTS = [
   'scr-6.png',
   'video-im.png',
 ]
+
+export const PACKAGES_IMAGES = [
+  '/../public/themes/images/V2/Packages/free_package.png',
+  '/../public/themes/images/V2/Packages/12-month.png',
+  '/../public/themes/images/V2/Packages/6-month.png',
+  '/../public/themes/images/V2/Packages/3-month.png',
+]

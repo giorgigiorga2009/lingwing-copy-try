@@ -78,6 +78,7 @@
   "logout_text1": "გააგრძელე მეცადინეობა მობილური აპლიკაციით",
   "logout_text2": "გახადე უცხო ენების შესწავლა უფრო ხალისიანი ჩვენი მობილური აპლიკაციების მეშვეობით!",
 
+<<<<<<< HEAD
   "checkSound": "შეამოწმე ხმა",
   "makeSureHear": "დააჭირე ღილაკს და შეამოწმე ხმა",
   "hearSound": "კი, ხმა მესმის",
@@ -85,6 +86,8 @@
 
 
 
+=======
+>>>>>>> 4e38685 (Work in progress)
   "APP_ABOUT_US_COMPANY": "კომპანიის შესახებ",
   "APP_ABOUT_US_TITLE_1": "Lingwing.com-ზე საუბრის დაწყების რეაქტიული სიჩქარე მოქმედებს!",
   "APP_ABOUT_US_TEXT_1": "Lingwing.com-ში დავისახეთ მიზანი - მომხმარებელს, რომელიც საერთოდ არ ფლობდა უცხო ენას, ერთ საათში მარტივი წინადადებებით უნდა ესაუბრა. მიზანი მიღწეულია!",
@@ -135,5 +138,24 @@
   "APP_ABOUT_US_JOB_text_7": "IT სფეროს სხვა სპეციალისტები;",
   "APP_ABOUT_US_JOB_text_8": "და უბრალოდ, კრეატიულად მოაზროვნე მენეჯერები;",
   "APP_ABOUT_US_JOB_text_9": "ნუ დაიხევთ უკან, თუ თვლით, რომ თქვენი პროფესიონალური უნარები ჯერ არ არის საკმარისი იმისთვის, რომ ანაზღაურებად სამსახურზე გქონდეთ პრეტენზია. ჩვენთან შესაძლოა სტაჟირების გავლაც და თქვენი პროფესიონალური უნარ-ჩვევების მნიშვნელოვნად ამაღლებაც.",
-  "APP_ABOUT_US_JOB_text_10": "დაგვიკავშირდით!"
+  "APP_ABOUT_US_JOB_text_10": "დაგვიკავშირდით!",
+
+  "APP_PACKAGE_PACKAGES": "აირჩიე პაკეტი",
+  "APP_PACKAGE_DESC": "შეიძინე ფასიანი პაკეტი და ისწავლე <k>5-ჯერ</k> უფრო სწრაფად!",
+  "APP_PACKAGE_LIFETIME": "მუდმივი",
+  "APP_PACKAGE_DAILY_NUMBER_OF_TASKS": "დღიური დავალებები:",
+  "APP_PACKAGE_CERTIFICATE": "სერტიფიკატი:",
+  "APP_PACKAGE_ALL_LANGS_AND_COURSES": "ყველა ენა & კურსი:",
+  "APP_PACKAGE_VOICE_RECOGNITION": "ხმის ამოცნობა:",
+  "APP_PACKAGE_FREE": "უფასო",
+  "APP_PACKAGE_MONTHS": "თვე",
+  "APP_PACKAGE_MONTH": "თვე",
+  "APP_PACKAGE_MONTH_ge": "/თვეში",
+  "APP_PACKAGE_UNLIMITED": "ულიმიტო",
+  "APP_PACKAGE_TOTAL": "სრულად",
+  "APP_PACKAGE_SUM": "ჯამში",
+  "APP_PACKAGE_CONTACT_US": "მეტი ინფორმაციისთვის დაგვირეკე:",
+  "APP_PACKAGE_SELECT": "არჩევა",
+  "APP_PACKAGE_MOST_POPULAR": "ყველაზე პოპულარული"
+
 }
