@@ -4,13 +4,30 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 40rem;
-  min-height: 10rem;
+  width: 25rem;
+  min-height: 8rem;
   height: fit-content;
   background-color: $white;
   border-radius: 0.9rem;
   padding: 0.8rem;
   overflow: hidden;
+  // margin-right: auto;
+}
+
+.answer {
+  border-right: 8px solid $orange-500;
+}
+
+.left {
+  margin-right: auto;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.center {
+  margin-top: 1rem;
 }
 
 .header {
@@ -21,14 +38,52 @@
   font-weight: 700;
 }
 
+.questionCaption {
+  color: $purple-300;
+
+  .answer & {
+    display: none;
+  }
+}
+
+.answerCaption {
+  color: $purple-600;
+
+  .question & {
+    display: none;
+  }
+}
+
 .dots {
   margin-right: 0.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.translation {
+  display: flex;
+  align-items: flex-start;
+  color: $black;
+
+  .question & {
+    display: none;
+  }
+}
+
+.originalText {
+  display: flex;
+  justify-content: flex-start;
+  color: $black;
+
+  .question & {
+    justify-content: center;
+  }
 }
 
 .hint {
@@ -41,6 +96,11 @@
   height: 2rem;
   background-color: $yellow-200;
   padding-left: 0.5rem;
+  padding-right: 1rem;
+
+  .answer & {
+    display: none;
+  }
 }
 
 .hintText {
@@ -52,14 +112,12 @@
   margin-right: 1rem;
   color: $grey-600;
 }
+
 .soundIcon {
   margin-left: auto;
-  padding-right: 0.5rem;
-}
-
-.translation {
-  color: black;
-  .question & {
-    display: none;
-  }
+  height: 1rem;
+  width: 1rem;
+  background-image: url('/assets/images/tasks/hint-icon.png');
+  background-position: center;
+  background-size: 100%;
 }
