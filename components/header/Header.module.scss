@@ -61,6 +61,29 @@
   align-items: center;
   position: relative;
   height: 2.5rem;
+  width: 15rem;
+}
+
+.taskButton {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  background-image: url('/assets/images/arrows/arrow-down-grey.png');
+  width: 0.69rem;
+  height: 0.44rem;
+  margin-left: 0.3rem;
+}
+
+.label {
+  width: 6rem;
+  margin-left: 0.5rem;
+  color: $white;
 }
 
 .rightBlock {

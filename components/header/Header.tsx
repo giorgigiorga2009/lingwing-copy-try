@@ -6,13 +6,22 @@ import { SideMenu } from './SideMenu'
 import { useTranslation } from '../../utils/useTranslation'
 import Link from 'next/link'
 import classNames from 'classnames'
+import { LocaleFlag } from './LocaleFlag'
+import Timer from './Timer'
 
 interface Props {
   size?: 's' | 'm'
   loginClassName?: string
+  variant?: 'task'
+  timerTrigger?: boolean
 }
 
-export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
+export const Header: FC<Props> = ({
+  size = 'm',
+  loginClassName,
+  variant,
+  timerTrigger,
+}) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const { t } = useTranslation()
@@ -26,6 +35,16 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         </Link>
         {openSideMenu && <SideMenu onClose={() => setOpenSideMenu(false)} />}
       </div>
+      {variant && (
+        <>
+          <div className={style.taskButton}>
+            <LocaleFlag language="eng" />
+            <div className={style.label}>English A1-1</div>
+            <div className={style.arrow} />
+          </div>
+          <Timer trigger={timerTrigger} />
+        </>
+      )}
       <div className={style.rightBlock}>
         <LocalesDropdown />
         <div className={style.avatar} />
