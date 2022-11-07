@@ -1,0 +1,35 @@
+@import '../../styles/imports.scss';
+
+.duration {
+  width: 100%;
+  color: $purple-300;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  border-bottom: solid $white-100;
+  background-color: $white-50;
+  font-size: 2.6em;
+  font-family: 'SegoeUI';
+}
+
+.freePackageName {
+  @extend .duration;
+
+  font-size: 2.1em;
+  color: $purple-600;
+  padding: 15px 0 5px 0;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+}
+
+.months {
+  padding-left: 6px;
+  font-size: 0.8em;
+  color: $purple-600;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+    margin-top: 18px;
+  }
+}

@@ -1,0 +1,100 @@
+@import '../../styles/imports.scss';
+
+.package__container {
+  display: flex;
+  font-family: 'SegoeUI';
+  margin-top: 40px;
+  overflow-x: scroll;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+}
+
+.currencies {
+  position: absolute;
+  font-family: 'SegoeUI';
+  color: $purple-100;
+  margin-top: -20px;
+  margin-left: 25px;
+}
+
+.cards {
+  display: flex;
+  overflow-x: scroll;
+  padding-right: 20px;
+  padding-left: 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mostPopular {
+  border: 0;
+  border-radius: 0 0 3px 3px;
+  outline: 4px solid $orange-500;
+}
+
+.carusel__dots__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  margin-top: 540px;
+  text-align: center;
+}
+
+.package__card {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  text-align: center;
+  position: relative;
+  max-width: 270px;
+  min-width: 270px;
+  align-items: center;
+  width: 100%;
+  border: 1px solid $white-100;
+  margin: 40px 12px 50px 12px;
+  border-radius: 8px;
+  background-color: $white;
+  transition: all 0.2s linear;
+  box-shadow: 0 2px 2px hsl(0deg 0% 0% / 0.025),
+    0 4px 4px hsl(0deg 0% 0% / 0.025), 0 8px 8px hsl(0deg 0% 0% / 0.025),
+    0 8px 8px hsl(0deg 0% 0% / 0.025), 0 32px 32px hsl(0deg 0% 0% / 0.025);
+
+  &:hover {
+    scale: 102%;
+    transition: all 0.1s linear;
+  }
+
+  &:hover .package__card__image {
+    filter: grayscale(0%);
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+.package__card__image {
+  filter: grayscale(100%);
+}
+
+.button__container {
+  text-align: center;
+  width: inherit;
+  padding: 1rem;
+  border-top: solid $white-100;
+  border-bottom: solid $white-100;
+  background-color: $white-50;
+}
+
+.features__container {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,31 @@
+@import '../../styles/imports.scss';
+
+.freePackage {
+  font-size: 2rem;
+  color: $black-800;
+  margin: 1.15rem;
+}
+
+.monthPrice {
+  color: $black-800;
+  font-size: 2rem;
+  font-family: 'SegoeUI';
+  margin-top: -0.6rem;
+}
+
+.monthAndTotal {
+  font-size: 0.7em;
+  padding-left: 0.6rem;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+    margin-top: 1rem;
+  }
+}
+
+.totalPrice {
+  font-size: 1.3rem;
+  color: $black-100;
+  font-family: 'SegoeUI-SemiBold';
+  margin-bottom: 0.6rem;
+}

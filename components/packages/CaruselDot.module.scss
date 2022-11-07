@@ -1,0 +1,41 @@
+@import '../../styles/imports.scss';
+
+.dot {
+  display: none;
+  background-color: $grey-100;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-top: 2.5rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: 0.2s linear;
+
+  &:hover {
+    @extend .dot__hover;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.dot__link {
+  display: block;
+}
+
+.dot__hover {
+  background-color: $black-100;
+  animation: scaleUp 0.2s linear;
+  scale: 140%;
+}
+
+@keyframes scaleUp {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.4;
+  }
+}

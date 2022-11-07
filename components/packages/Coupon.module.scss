@@ -1,0 +1,45 @@
+@import '../../styles/imports.scss';
+
+.coupon__container {
+  max-width: 28rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.coupon__title {
+  color: $black-800;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+}
+
+.coupon__input {
+  width: 90%;
+  height: 3.5rem;
+  font-size: 1rem;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  box-shadow: 0 2px 2px hsl(0deg 0% 0% / 0.025),
+    0 4px 4px hsl(0deg 0% 0% / 0.025), 0 8px 8px hsl(0deg 0% 0% / 0.025),
+    0 8px 8px hsl(0deg 0% 0% / 0.025), 0 32px 32px hsl(0deg 0% 0% / 0.025);
+
+  &:focus {
+    outline: 2px solid $purple-500;
+  }
+
+  &::placeholder {
+    color: $grey-100;
+  }
+}
+
+.coupon__button {
+  position: absolute;
+  margin-left: -8.4rem;
+  margin-top: 0.3rem;
+}

@@ -78,7 +78,6 @@
   "logout_text1": "გააგრძელე მეცადინეობა მობილური აპლიკაციით",
   "logout_text2": "გახადე უცხო ენების შესწავლა უფრო ხალისიანი ჩვენი მობილური აპლიკაციების მეშვეობით!",
 
-<<<<<<< HEAD
   "checkSound": "შეამოწმე ხმა",
   "makeSureHear": "დააჭირე ღილაკს და შეამოწმე ხმა",
   "hearSound": "კი, ხმა მესმის",
@@ -86,8 +85,6 @@
 
 
 
-=======
->>>>>>> 4e38685 (Work in progress)
   "APP_ABOUT_US_COMPANY": "კომპანიის შესახებ",
   "APP_ABOUT_US_TITLE_1": "Lingwing.com-ზე საუბრის დაწყების რეაქტიული სიჩქარე მოქმედებს!",
   "APP_ABOUT_US_TEXT_1": "Lingwing.com-ში დავისახეთ მიზანი - მომხმარებელს, რომელიც საერთოდ არ ფლობდა უცხო ენას, ერთ საათში მარტივი წინადადებებით უნდა ესაუბრა. მიზანი მიღწეულია!",
@@ -156,6 +153,11 @@
   "APP_PACKAGE_SUM": "ჯამში",
   "APP_PACKAGE_CONTACT_US": "მეტი ინფორმაციისთვის დაგვირეკე:",
   "APP_PACKAGE_SELECT": "არჩევა",
-  "APP_PACKAGE_MOST_POPULAR": "ყველაზე პოპულარული"
+  "APP_PACKAGE_MOST_POPULAR": "ყველაზე პოპულარული",
 
+  "COUPON_DO_YOU_HAVE_COUPON?": "გაქვს სასაჩუქრე/ფასდაკლების კუპონი?",
+  "COUPON_PLACEHOLDER": "შეიყვანე კუპონი",
+  "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "კოდი არასწორია! სცადე თავიდან",
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "ჩაწერე კოდი და სცადე თავიდან!"
+  
 }

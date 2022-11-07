@@ -2,49 +2,35 @@
 
 .title {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 5.5rem;
   color: $orange-500;
-  font-size: 3em;
-
+  font-size: 3rem;
+  margin-bottom: 0;
   &:lang(ka) {
     font-family: $kaFontTitleBold;
+  }
+
+  @include mobile {
+    font-size: 2rem;
   }
 }
 
 .desc {
+  margin-bottom: 0;
   text-align: center;
   color: $white;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   &:lang(ka) {
     font-family: $kaFontTitleBold;
+  }
+
+  @include mobile {
+    font-size: 1.3rem;
   }
 }
 
 .fiveTimesFaster {
   color: $orange-500;
-}
-
-.contactUs {
-  font-size: 1.4em;
-  text-align: center;
-  color: $black-100;
-  margin: 3rem;
-}
-
-.moreInfo {
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
-    padding-right: 15px;
-  }
-}
-
-.phoneNumber {
-  font-family: 'SegoeUIBlack';
-  color: $purple-600;
-  text-decoration: none;
-  &:hover {
-    color: $purple-300;
-  }
 }
 
 .container {
@@ -67,18 +53,11 @@
   justify-content: center;
 }
 
-.content {
-  // width: 70vw;
-  @include tablet {
-    margin: 0 auto;
-
-    //width: 90vw;
-  }
-
-  @include mobile {
-    margin: 0 auto;
-    // width: 95vw;
-  }
+.reviews__container {
+  display: flex;
+  font-size: 1rem;
+  position: relative;
+  margin-top: 19rem;
 }
 
 .followButtons {

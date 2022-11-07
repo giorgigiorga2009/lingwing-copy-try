@@ -1,0 +1,21 @@
+@import '../../styles/imports.scss';
+
+.featureDescContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 1.2rem;
+}
+
+.featureContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $purple-600;
+  row-gap: 0.25rem;
+}
+
+.featureDesc {
+  padding-right: 0.6rem;
+  font-size: 0.9rem;
+}
