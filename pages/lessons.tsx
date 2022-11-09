@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import { FC, useState } from 'react'
 import { Header } from '../components/header/Header'
+import { CourseDropdown } from '../components/lessons/CourseDropdown'
 import { Message } from '../components/lessons/Message'
 import { SoundCheck } from '../components/lessons/SoundCheck'
 import style from './lessons.module.scss'
@@ -25,11 +26,12 @@ const Lessons: NextPage = () => {
           <span className={style.folderName}>Progress</span>
         </div>
         <div className={style.chat}>
-          <Message variant="question" position="right" />
+          <CourseDropdown />
+          {/* <Message variant="question" position="right" />
           <Message variant="answer" />
           <Message variant="question" position="right" />
           <Message variant="answer" />
-          <Message variant="question" position="center" />
+          <Message variant="question" position="center" /> */}
         </div>
         <div className={style.inputContainer} onClick={() => setStart(!start)}>
           <div className={style.input}>Type your answer</div>
