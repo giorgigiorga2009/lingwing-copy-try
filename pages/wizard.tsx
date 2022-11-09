@@ -81,6 +81,14 @@ const Wizard: NextPage<WizardProps> = params => {
       .catch(error => console.log(error))
   }, [step])
 
+  const getCourseTable = (response: LanguageLevel[]) => {
+    const arr = response.map(level => level.options.map(option => option.title))
+    const flatTable = arr.flat()
+    return flatTable
+  }
+
+  languageLevelData && console.log(getCourseTable(languageLevelData))
+
   const goBack = () => {
     switch (step) {
       case 'step1':

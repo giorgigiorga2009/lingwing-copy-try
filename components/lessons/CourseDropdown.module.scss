@@ -1,0 +1,77 @@
+@import '../../styles/imports.scss';
+
+.container {
+  height: 15rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  color: $white;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 5rem;
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 900;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    color: $orange-500;
+  }
+}
+
+.arrow {
+  background-image: url('/assets/images/arrows/arrow-down-grey.png');
+  width: 0.69rem;
+  height: 0.44rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  position: absolute;
+  left: -4rem;
+  background-color: $white;
+  box-shadow: 0 0 6px $white-200;
+  margin-top: 0.7rem;
+  border-radius: 0.63rem;
+  height: 17rem;
+  width: 10rem;
+  z-index: 1001;
+}
+
+/* Links inside the dropdown */
+.option {
+  color: $black;
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  width: 10rem;
+  height: 3.37rem;
+  align-items: center;
+  border-bottom: 1px solid $white-200;
+  font-weight: 650;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $white-200;
+  }
+
+  &:first-child:hover {
+    border-radius: 0.63rem 0.63rem 0 0;
+  }
+
+  &:last-child:hover {
+    border-radius: 0 0 0.63rem 0.63rem;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
