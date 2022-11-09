@@ -109,10 +109,10 @@ const Wizard: NextPage<WizardProps> = params => {
 
   return (
     <div className={style.container}>
+      <Header size="s" loginClassName={style.loginModal} />
       <PageHead text={'wizardPageTitle'} />
       <div className={style.ball} />
       <div className={style.content}>
-        <Header size="s" loginClassName={style.loginModal} />
         <BackButton onClick={goBack} />
         <div className={style.parrot} />
 
