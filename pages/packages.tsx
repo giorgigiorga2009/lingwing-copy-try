@@ -33,7 +33,7 @@ const Package: NextPage = () => {
       <div className={style.pricingContainer}>
         <PricingCards showPackages={[0, 1, 2, 3]} coupon={coupon} />
       </div>
-      <Coupon coupon={message => setCoupon(message)} />
+      <Coupon onClick={couponText => setCoupon(couponText)} />
       <ContactUs />
       <div className={style.reviews__container}>
         <Reviews />

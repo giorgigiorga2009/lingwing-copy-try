@@ -4,22 +4,12 @@ import { PackageButton } from './PackageButton'
 import { useTranslation } from '../../utils/useTranslation'
 
 interface Props {
-  coupon(coupon: string): void
+  onClick: (coupon: string) => void
 }
 
-const Coupon: FC<Props> = ({ coupon }) => {
+const Coupon: FC<Props> = ({ onClick }) => {
   const { t } = useTranslation()
   const [couponInputText, setCouponInputText] = useState('')
-
-  const handleChange = (event: {
-    target: { value: SetStateAction<string> }
-  }) => {
-    setCouponInputText(event.target.value)
-  }
-
-  const handleClick = () => {
-    coupon(couponInputText)
-  }
 
   return (
     <div className={style.coupon__container}>
@@ -27,10 +17,13 @@ const Coupon: FC<Props> = ({ coupon }) => {
       <input
         className={style.coupon__input}
         placeholder={t('COUPON_PLACEHOLDER')}
-        onChange={handleChange}
+        onChange={event => setCouponInputText(event.target.value)}
       ></input>
       <span className={style.coupon__button}>
-        <PackageButton type={'couponBtn'} onClick={handleClick} />
+        <PackageButton
+          type={'couponBtn'}
+          onClick={() => onClick(couponInputText)}
+        />
       </span>
     </div>
   )

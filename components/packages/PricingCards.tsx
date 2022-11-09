@@ -30,10 +30,6 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
   const [selectedCurrency, setSelectedCurrency] = useState(0)
   const [currentCard, setCurrentCard] = useState(0)
 
-  const scrollHandler = (index: number) => {
-    cardRef.current.children[index].scrollIntoView()
-  }
-
   useEffect(() => {
     if (!router.isReady) return
     getPackages(coupon === '' ? getCoupon : coupon).then(response => {
@@ -53,7 +49,9 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
               key={index}
               index={index}
               current={currentCard}
-              scrollHandler={() => scrollHandler(index)}
+              scrollHandler={() =>
+                cardRef.current.children[index].scrollIntoView()
+              }
             />
           ))}
       </div>
@@ -71,7 +69,7 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                 symbol={currency.symbol}
                 index={index}
                 key={currency.identifier}
-                switchHandler={() => setSelectedCurrency(index)}
+                onClick={() => setSelectedCurrency(index)}
                 selectedCurrency={selectedCurrency}
               />
             ))}

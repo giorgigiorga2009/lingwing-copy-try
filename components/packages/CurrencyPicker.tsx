@@ -7,7 +7,7 @@ interface Props {
   identifier: string
   symbol: string
   index: number
-  switchHandler: VoidFunction
+  onClick: () => void
 }
 
 export const Currency: FC<Props> = ({
@@ -15,7 +15,7 @@ export const Currency: FC<Props> = ({
   identifier,
   symbol,
   index,
-  switchHandler,
+  onClick,
 }) => {
   return (
     <span
@@ -23,7 +23,7 @@ export const Currency: FC<Props> = ({
         style.currency,
         index === selectedCurrency && style.currencyBackground,
       )}
-      onClick={switchHandler}
+      onClick={onClick}
     >
       {identifier + symbol}
     </span>

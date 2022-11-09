@@ -7,10 +7,6 @@ const FAQ: FC = () => {
   const [faqData, setFaqData] = useState<FaqData[]>()
   const [clicked, setClicked] = useState(-1)
 
-  const clickHandler = (position: number) => {
-    setClicked(position)
-  }
-
   useEffect(() => {
     getFAQ().then(response => {
       setFaqData(response)
@@ -29,7 +25,7 @@ const FAQ: FC = () => {
               style.faq__question,
               clicked === index && style.faq__question__open,
             )}
-            onClick={() => clickHandler(clicked === index ? -1 : index)}
+            onClick={() => setClicked(clicked === index ? -1 : index)}
           >
             {faq.question}
           </div>
