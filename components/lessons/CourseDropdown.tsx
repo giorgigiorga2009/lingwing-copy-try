@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { FC, use, useEffect, useState } from 'react'
 import {
   LANGUAGES_TO,
   LanguageTo,
@@ -14,21 +14,34 @@ import {
 import { Locale } from '../../utils/localization'
 import { getCourseTable } from '../../utils/lessons/getCourseTable'
 import style from './CourseDropdown.module.scss'
+import Foco from 'react-foco'
 
 export const CourseDropdown: FC = () => {
   const router = useRouter()
   const locale = router.locale ?? 'en'
-  const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
+  // const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
+  const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    getDifficultyLevels('eng', 'rus', LOCALES_TO_LANGUAGES[locale as Locale])
-      .then(response => setLanguageLevelData(response))
-      .catch(error => console.log(error))
-  }, [])
-  const table = languageLevelData && getCourseTable(languageLevelData)
+  const languageLevelData = use(
+    getDifficultyLevels('eng', 'rus', LOCALES_TO_LANGUAGES[locale as Locale]),
+  )
+  const table = getCourseTable(languageLevelData)
+  // useEffect(() => {
+  //   getDifficultyLevels('eng', 'rus', LOCALES_TO_LANGUAGES[locale as Locale])
+  //     .then(response => setLanguageLevelData(response))
+  //     .catch(error => console.log(error))
+  // }, [])
+  // const table = languageLevelData && getCourseTable(languageLevelData)
   return (
-    <div className={style.container}>
-      {table && table.map(line => <div className={style.option}>{line}</div>)}
-    </div>
+    <Foco
+      component="div"
+      onClickOutside={() => setOpen(false)}
+      className={style.container}
+    >
+      <div className={style.button} onClick={() => setOpen(!open)}>
+        'languageTo flag ' 'current course'
+      </div>
+      {open && table.map(line => <div className={style.option}>{line}</div>)}
+    </Foco>
   )
 }

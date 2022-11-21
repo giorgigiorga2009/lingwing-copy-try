@@ -1,5 +1,5 @@
 import { FC, Fragment, useState } from 'react'
-import styles from './LocalesDropdown.module.scss'
+import style from './LocalesDropdown.module.scss'
 import Foco from 'react-foco'
 import { LocaleFlag } from './LocaleFlag'
 import {
@@ -30,20 +30,20 @@ export const LocalesDropdown: FC = () => {
     <Foco
       component="div"
       onClickOutside={() => setOpen(false)}
-      className={styles.dropdown}
+      className={style.dropdown}
     >
-      <div className={styles.button} onClick={() => setOpen(!open)}>
+      <div className={style.button} onClick={() => setOpen(!open)}>
         <LocaleFlag language={selected} />
         {selected.toUpperCase()}
-        <div className={styles.arrow} />
+        <div className={style.arrow} />
       </div>
       {open && (
-        <div className={styles.dropdownContent}>
+        <div className={style.dropdownContent}>
           {LANGUAGE_FROM.map((language: LanguageFrom) => (
             <Fragment key={language}>
               {language !== selected && (
                 <div
-                  className={styles.option}
+                  className={style.option}
                   onClick={() => handleClick(language)}
                 >
                   <LocaleFlag language={language} />
