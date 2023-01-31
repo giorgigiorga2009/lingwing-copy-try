@@ -1,83 +1,12 @@
-import { useState, useEffect, FC, use, useRef } from 'react'
+import { useState, useEffect, FC, useRef } from 'react'
 import style from './TaskInput.module.scss'
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
-
-const getLetter = (text: string, index: number): string =>
-  text.toLowerCase()[index]
-
-const isEqual = ({
-  correctText,
-  textToCompare,
-  index,
-}: {
-  correctText: string
-  textToCompare: string
-  index: number
-}): boolean => getLetter(correctText, index) === getLetter(textToCompare, index)
-
-const findMatchedElement = ({
-  synonyms,
-  arrayToSearch,
-  lastAddedWordIndex,
-}: {
-  synonyms: string[]
-  arrayToSearch: string[]
-  lastAddedWordIndex: number
-}) => {
-  for (let i = 0; i < synonyms.length; i++) {
-    let index = arrayToSearch.indexOf(synonyms[i], lastAddedWordIndex)
-    if (index !== -1) {
-      return index
-    }
-  }
-  return -1
-}
-
-const getStringFromRecognition = ({
-  correctText,
-  finalTranscript,
-  textFromKeyboard,
-  wordsSynonyms,
-}: {
-  correctText: string
-  finalTranscript: string
-  textFromKeyboard: string
-  wordsSynonyms: [string[]]
-}): string => {
-  const correctWordsArray = correctText.split(' ')
-  const textFromKeyboardArray = textFromKeyboard.split(' ')
-  const transcriptArray = finalTranscript.split(' ')
-  const arrayToSearch = [...textFromKeyboardArray, ...transcriptArray]
-
-  const outputArray = []
-
-  let lastAddedWordIndex = 0
-
-  for (let index = 0; index < correctWordsArray.length; index++) {
-    const modifiedWord = correctWordsArray[index].replace(
-      /[.,\/#!$%\^&\*;:{}=\-_`~()]/g,
-      '',
-    )
-    const synonyms = [modifiedWord, ...wordsSynonyms[index]]
-    const transcriptIndex = findMatchedElement({
-      synonyms,
-      lastAddedWordIndex,
-      arrayToSearch,
-    })
-    // const transcriptIndex = arrayToSearch.indexOf(modifiedWord, lastAddedWordIndex)
-    if (
-      transcriptIndex !== -1 &&
-      transcriptIndex >= lastAddedWordIndex &&
-      outputArray.length >= index
-    ) {
-      lastAddedWordIndex = transcriptIndex
-      outputArray.push(correctWordsArray[index])
-    }
-  }
-  return outputArray.join(' ')
-}
+import {
+  getStringFromRecognition,
+  isEqual,
+} from '../../utils/lessons/taskInputUtils'
 
 //turn of recognition on second click
 
@@ -95,9 +24,10 @@ export const TaskInput: FC<Props> = ({
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
   const [partialTranscript, setPartialTranscript] = useState<string>('')
-  const [textFromKeyboard, setTextFromKeyboard] = useState(' ')
+  const [textFromKeyboard, setTextFromKeyboard] = useState('')
+  const [isRecording, setIsRecording] = useState(true)
 
-  const { listening, finalTranscript } = useSpeechRecognition()
+  const { finalTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLInputElement>(null)
 
   //only for viceRecognition
@@ -140,7 +70,11 @@ export const TaskInput: FC<Props> = ({
   }, [inputText])
 
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Space' && inputRef.current.value.endsWith(' ')) {
+    if (
+      event.key === 'Space' &&
+      inputRef.current &&
+      inputRef.current.value.endsWith(' ')
+    ) {
       event.preventDefault()
       return
     }
@@ -174,7 +108,11 @@ export const TaskInput: FC<Props> = ({
       const inputValue = inputRef.current.value
       setTextFromKeyboard(inputValue)
     }
-    SpeechRecognition.startListening({ continuous: true })
+    setIsRecording(!isRecording)
+    isRecording
+      ? SpeechRecognition.startListening({ continuous: true })
+      : SpeechRecognition.stopListening()
+    console.log(isRecording, 'isrecording')
   }
 
   return (
