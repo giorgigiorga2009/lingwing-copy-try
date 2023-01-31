@@ -8,30 +8,70 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background-color: $white-200;
+  background-color: #fffefc;
 }
 
 .content {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-  overflow: hidden;
   width: 55%;
   min-width: 35rem;
   max-width: 55rem;
-  gap: 2rem;
-  margin-top: 8rem;
-  // background-color: rgba(130, 130, 130, 0.3);
+  margin-top: 6rem;
 }
-.progressBar {
-  position: absolute;
+
+.foldersContainer {
   display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: -4rem;
+  top: 5rem;
+  gap: 1.5rem;
+  align-items: flex-end;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: SegoeUI;
+  color: #c2c0ba;
+}
+
+.course {
+  color: #692e96;
+  cursor: pointer;
+}
+
+.folderName {
+  cursor: pointer;
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   left: 0;
-  top: 4rem;
-  width: 100%;
-  height: 2rem;
+  width: 42rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.score {
+  display: block;
+  max-width: 5em;
+  height: 1em;
+  margin: auto;
+  background: #eee;
+  background: linear-gradient(90deg, #692e96 var(--rating, 50%), #eee 0);
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" ><path fill="%23000" d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z"/></svg>')
+    0 0/1em 1em;
+}
+
+.progressContainer {
+  height: 0.69rem;
+  border-radius: 0.625rem;
+  background-color: #f3f1ed;
 }
 
 .progress {
@@ -39,75 +79,97 @@
   justify-content: flex-end;
   align-items: center;
   padding-right: 0.5rem;
-  background-color: $orange-500;
-  width: 25%;
+  background-color: #692e96;
+  width: 40%;
   height: 100%;
+  border-radius: 0.625rem;
 }
 
-.empty {
-  background-color: $grey-300;
-  width: 100%;
+.scoreContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.count {
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #c1bfbb;
+}
+
+.scoreText {
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #1c1c1c;
+}
+
+.scoreNumber {
+  color: #f903e7;
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.percent {
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #c1bfbb;
 }
 
 .chat {
-  padding-right: 1rem;
-  background: none;
+  padding: 0 1rem 4rem 1rem;
+  background: $white;
+  position: relative;
   border: 0;
-  width: 100%;
-  height: 35rem;
+  width: 42rem;
+  height: 42rem;
   gap: 0.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   overflow-y: scroll;
+  border-radius: 0.625rem 0.625rem 0 0;
+  box-shadow: 2px 0px 10px 5px rgba(0, 0, 0, 0.03);
 }
 
-.foldersContainer {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
+.textCorrect {
+  color: #e96d6d;
+  font-family: Kumbh Sans;
+  font-size: 20px;
   font-weight: 500;
-  font-size: 1rem;
-  font-family: SegoeUI;
-  color: $grey-800;
-  margin-left: auto;
-}
-
-.course {
-  color: $orange-500;
-  cursor: pointer;
-}
-
-.inputContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 1rem;
-  height: 3.5rem;
-  border: 2px solid #ea4335;
-  border-radius: 6.25rem;
-  background-color: $white;
-  box-shadow: 0 0 7px rgb(198 198 198 / 50%);
-}
-
-.input {
-  font-size: 1.5rem;
-}
-
-.micIcon {
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
   position: absolute;
-  top: 1rem;
-  cursor: pointer;
-  right: 2rem;
-  width: 1rem;
-  height: 1.3rem;
-  background-image: url('/assets/images/tasks/microphone.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  bottom: 1rem;
+  left: calc(50% - 5.6rem);
+}
+
+.volna {
+  display: flex;
+  width: 15rem;
+  height: 6rem;
 }
 
 .rating {
