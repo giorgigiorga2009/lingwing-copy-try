@@ -33,26 +33,6 @@
   border-radius: 15px 15px 0px 15px;
 }
 
-.message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 11rem;
-  height: 3.25rem;
-  background: #f3f1ed;
-  border-radius: 15px 15px 15px 0px;
-}
-
-.left {
-  margin-right: auto;
-  border-radius: 15px 15px 15px 0px;
-}
-
-.right {
-  margin-left: auto;
-  border-radius: 15px 15px 0px 15px;
-}
-
 .header {
   position: absolute;
   top: 0;
@@ -133,26 +113,6 @@
 
   .message {
     display: none;
-  }
-}
-
-.translation {
-  display: flex;
-  align-items: flex-start;
-  color: $black;
-
-  .question & {
-    display: none;
-  }
-}
-
-.originalText {
-  display: flex;
-  justify-content: flex-start;
-  color: $black;
-
-  .question & {
-    justify-content: center;
   }
 }
 
