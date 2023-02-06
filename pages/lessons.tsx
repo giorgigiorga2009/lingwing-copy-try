@@ -51,20 +51,20 @@ const Lessons: NextPage = () => {
             <Message
               variant="message"
               position="right"
-              type={tasksData[0].taskType}
-              taskDescription={tasksData[0].taskDescription}
-              taskText={tasksData[0].taskText}
-              correctText={tasksData[0].correctText}
-              sentenceAudio={tasksData[0].sentenceAudio}
+              type={tasksData[2].taskType}
+              taskDescription={tasksData[2].taskDescription}
+              taskText={tasksData[2].taskText}
+              correctText={tasksData[2].correctText}
+              sentenceAudio={tasksData[2].sentenceAudio}
             />
 
             <Message
               variant="question"
-              type={tasksData[0].taskType}
-              taskDescription={tasksData[0].taskDescription}
-              taskText={tasksData[0].taskText}
-              correctText={tasksData[0].correctText}
-              sentenceAudio={tasksData[0].sentenceAudio}
+              type={tasksData[2].taskType}
+              taskDescription={tasksData[2].taskDescription}
+              taskText={tasksData[2].taskText}
+              correctText={tasksData[2].correctText}
+              sentenceAudio={tasksData[2].sentenceAudio}
             />
 
             {/* { tasksData !== undefined && <Message 
@@ -88,8 +88,8 @@ const Lessons: NextPage = () => {
         {tasksData !== undefined && (
           <TaskInput
             setCorrect={setIsCorrect}
-            correctText={tasksData[0].correctText}
-            wordsSynonyms={tasksData[0].wordsSynonyms}
+            correctText={tasksData[2].correctText}
+            wordsSynonyms={tasksData[2].wordsSynonyms}
           />
         )}
       </div>

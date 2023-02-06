@@ -13,7 +13,7 @@ export const isEqual = ({
   index: number
 }): boolean => getLetter(correctText, index) === getLetter(textToCompare, index)
 
-const findMatchedElement = ({
+const findMatchedWordIndex = ({
   synonyms,
   arrayToSearch,
   lastAddedWordIndex,
@@ -28,6 +28,7 @@ const findMatchedElement = ({
       return index
     }
   }
+  //result of indexOf function, -1 means that none of the words was found
   return -1
 }
 
@@ -56,8 +57,9 @@ export const getStringFromRecognition = ({
       /[.,\/#!$%\^&\*;:{}=\-_`~()]/g,
       '',
     )
+    //переменная в которой будут хранится все отрезанные знаки пунктуации
     const synonyms = [modifiedWord, ...wordsSynonyms[index]]
-    const transcriptIndex = findMatchedElement({
+    const transcriptIndex = findMatchedWordIndex({
       synonyms,
       lastAddedWordIndex,
       arrayToSearch,

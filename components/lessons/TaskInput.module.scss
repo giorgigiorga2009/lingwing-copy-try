@@ -19,6 +19,7 @@
   justify-content: flex-start;
   width: 26.7rem;
   height: 4rem;
+  font-size: 1.2rem;
   // background-color: $white;
   // background: #FFFFFF;
   border: 2px solid #e6e6e6;
@@ -45,6 +46,7 @@
 }
 
 .micIcon {
+  display: flex;
   cursor: pointer;
   width: 1rem;
   height: 1.3rem;
@@ -52,4 +54,77 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+// .pulse-enter {
+//   transform: scale(0);
+// }
+
+// .pulse-enter-active {
+//   transform: scale(1);
+//   transition: transform 500ms;
+// }
+
+// .pulse-leave {
+//   transform: scale(1);
+// }
+
+// .pulse-leave-active {
+//   transform: scale(0);
+//   transition: transform 500ms;
+// }
+
+// .pulseCircle {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   border-radius: 50%;
+//   border: 2px solid blue;
+//   animation: pulse 2s infinite;
+// }
+
+// @keyframes pulse {
+//   0% {
+//     transform: scale(0);
+//   }
+//   70% {
+//     transform: scale(1);
+//   }
+//   100% {
+//     transform: scale(0);
+//   }
+// }
+
+.microphoneIcon {
+  position: relative;
+  opacity: 0.5;
+
+  &.pulsatingCircle {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0.6;
+    background-color: blue;
+
+    @keyframes pulsating {
+      0% {
+        transform: scale(0.5);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(0.5);
+        opacity: 0.6;
+      }
+    }
+
+    animation: pulsating 1s ease-in-out infinite;
+  }
 }

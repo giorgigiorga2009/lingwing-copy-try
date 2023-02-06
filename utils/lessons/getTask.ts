@@ -95,10 +95,9 @@ export interface TaskData {
 }
 
 export const getTask = (): Promise<TaskData[]> => {
-  return axios
-    .get(
-      `${process.env.defaultURL}/public/getTasks/63d14bc95bea880e1713b2e7/rus?lang=eng&userKey=fd2fb120-99cd-11ed-a2b7-719db0e0fb6e`,
-    )
+  return axios(
+    `${process.env.defaultURL}/public/getTasks/63e0c5677367c50e71384ce9/rus?lang=eng&userKey=ed3c6d70-a5fe-11ed-bbeb-19ae864e91e7`,
+  )
     .then(response => {
       const data = response.data.data
       const tasks = data.tasks.map((task: InitialTask) => {
