@@ -123,3 +123,43 @@ export const repetitionInputCheck = ({
     return outputText
   }
 }
+
+export const standardTextCheck = ({
+  inputText,
+  correctText,
+  setMistakeRepeat,
+  mistakeRepeat,
+  setMistakesCount,
+  mistakesCount,
+  outputText,
+}: {
+  inputText: string
+  correctText: string
+  setMistakeRepeat: (bool: boolean) => void
+  mistakeRepeat: boolean
+  setMistakesCount: (values: number) => void
+  mistakesCount: number
+  outputText: string
+}) => {
+  const index = inputText.length - 1
+
+  const isTextEqual = isEqual({
+    correctText,
+    textToCompare: inputText,
+    index,
+  })
+  const textToShow = correctText.slice(0, inputText ? inputText.length : 0)
+
+  if (textToShow.length === correctText.length - 1) {
+    return correctText
+  } else {
+    if (isTextEqual) {
+      setMistakeRepeat(false)
+      return textToShow
+    } else {
+      mistakeRepeat === false &&
+        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true)) // добавлять только одну ошибку на одну букву
+      return outputText
+    }
+  }
+}

@@ -6,7 +6,7 @@ import SpeechRecognition, {
 import {
   repetitionInputCheck,
   getStringFromRecognition,
-  isEqual,
+  standardTextCheck,
 } from '../../utils/lessons/taskInputUtils'
 import { animated, useSpring } from 'react-spring'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
@@ -63,28 +63,20 @@ export const TaskInputContainer: FC<Props> = ({
 
   //only for keyboardInput
 
-  const standardTextCheck = () => {
-    const index = inputText.length - 1
-
-    const isTextEqual = isEqual({
-      correctText,
-      textToCompare: inputText,
-      index,
-    })
-    const textToShow = correctText.slice(0, inputText ? inputText.length : 0)
-
-    if (textToShow.length === correctText.length - 1) {
-      setOutputText(correctText)
-    } else {
-      isTextEqual && (setOutputText(textToShow), setMistakeRepeat(false))
-      isTextEqual === false &&
-        mistakeRepeat === false &&
-        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true)) // добавлять только одну ошибку на одну букву
-    }
-  }
-
   useEffect(() => {
-    taskType === 'dictation' || ('translate' && standardTextCheck())
+    taskType === 'dictation' ||
+      ('translate' &&
+        setOutputText(
+          standardTextCheck({
+            inputText,
+            correctText,
+            setMistakeRepeat,
+            mistakeRepeat,
+            setMistakesCount,
+            mistakesCount,
+            outputText,
+          }),
+        ))
     taskType === 'repetition' &&
       setOutputText(
         repetitionInputCheck({
@@ -149,7 +141,6 @@ export const TaskInputContainer: FC<Props> = ({
   const iLearnFromNameCode = 'nothing'
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('HANDLECHANGE')
     const currentCharCode = event.target.value.charCodeAt(
       event.target.value.length - 1,
     )
@@ -173,9 +164,6 @@ export const TaskInputContainer: FC<Props> = ({
     }
     skipOverride && setInputText(event.target.value)
   }
-
-  console.log(inputText, 'INPUTTEXT')
-  console.log(outputText, 'outputtext')
 
   return (
     <div className={style.container}>
