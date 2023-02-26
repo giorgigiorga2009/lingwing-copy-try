@@ -75,3 +75,51 @@ export const getStringFromRecognition = ({
   }
   return outputArray.join(' ')
 }
+
+export const repetitionInputCheck = ({
+  correctText,
+  inputText,
+  outputText,
+  setMistakesCount,
+  setMistakeRepeat,
+  mistakeRepeat,
+  mistakesCount,
+}: {
+  correctText: string
+  inputText: string
+  outputText: string
+  setMistakesCount: (count: number) => void
+  setMistakeRepeat: (flag: boolean) => void
+  mistakesCount: number
+  mistakeRepeat: boolean
+}) => {
+  const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()]$/
+
+  const outputTextArray = outputText ? outputText.trim().split(' ') : []
+  const correctWordsArray = correctText.split(' ')
+  const inputTextArray = inputText ? inputText.split(' ') : []
+
+  const index = inputTextArray.length !== 0 ? inputTextArray.length - 1 : 0
+
+  const currentWord = correctWordsArray[index]
+
+  const equal =
+    currentWord.toLowerCase()[0] ===
+    inputText.toLowerCase()[inputText.length - 1]
+
+  if (equal) {
+    setMistakeRepeat(false)
+    outputTextArray.push(currentWord)
+    const isPunctuation =
+      correctWordsArray[index + 1] !== undefined
+        ? correctWordsArray[index + 1].match(regexp)
+        : false
+    isPunctuation && outputTextArray.push(correctWordsArray[index + 1])
+    const modifiedArray = outputTextArray.map(word => word.concat(' '))
+    return modifiedArray.join('')
+  } else {
+    mistakeRepeat === false &&
+      (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
+    return outputText
+  }
+}

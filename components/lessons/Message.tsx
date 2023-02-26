@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { FC, useEffect, useState } from 'react'
-import { getTask, InitialTasksData } from '../../utils/lessons/getTask'
+import { getTasks, InitialTasksData } from '../../utils/lessons/getTask'
 import style from './Message.module.scss'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
@@ -9,7 +9,7 @@ const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
 })
 interface Props {
   variant: 'question' | 'message'
-  type: 'dictation' | 'translate'
+  type: 'dictation' | 'translate' | 'omittedwords'
   position?: 'left' | 'right'
   taskDescription: string
   taskText: string
@@ -30,7 +30,6 @@ export const Message: FC<Props> = ({
   sentenceAudio,
 }) => {
   // const audioUrl = `https://cdn.lingwing.com${sentenceAudio.filePath}/${sentenceAudio.fileName}.mp3`
-  // const audioUrl = 'https://cdn.lingwing.com/audios/3/3522/10020383.mp3?1674661069946'
 
   return (
     <div
@@ -46,7 +45,6 @@ export const Message: FC<Props> = ({
         <span className={style.originalText}>{correctText}</span>
         <span className={style.translation}>{taskText} </span>
         <span className={style.waveform}>
-          <WaveSurferNext audioURL="https://www.mfiles.co.uk/mp3-downloads/brahms-st-anthony-chorale-theme-two-pianos.mp3" />
           {/* <WaveSurferNext audioURL={audioUrl} /> */}
         </span>
       </div>

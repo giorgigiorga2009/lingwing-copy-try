@@ -115,6 +115,46 @@ export const KEYBOARD_OVERRIDE = [
     languageNameCode: 'geo',
     array: [
       {
+        originalCode: 32,
+        alterCode: 32,
+        symbol: ' ',
+      },
+      {
+        originalCode: 33,
+        alterCode: 33,
+        symbol: '!',
+      },
+      {
+        originalCode: 34,
+        alterCode: 34,
+        symbol: '"',
+      },
+      {
+        originalCode: 44,
+        alterCode: 44,
+        symbol: ',',
+      },
+      {
+        originalCode: 46,
+        alterCode: 46,
+        symbol: '.',
+      },
+      {
+        originalCode: 34,
+        alterCode: 34,
+        symbol: '"',
+      },
+      {
+        originalCode: 58,
+        alterCode: 58,
+        symbol: ':',
+      },
+      {
+        originalCode: 63,
+        alterCode: 63,
+        symbol: '?',
+      },
+      {
         originalCode: 4304,
         alterCode: 97,
         hint: 'a',

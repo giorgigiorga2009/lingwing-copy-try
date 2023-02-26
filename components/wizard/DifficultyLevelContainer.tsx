@@ -3,7 +3,11 @@ import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import { LanguageLevel, Option } from '../../utils/getDifficultyLevels'
 import { getNumberWithComa } from '../../utils/getNumberWithComa'
-import { LOCALES_TO_LANGUAGES } from '../../utils/languages'
+import {
+  LanguageFrom,
+  LanguageTo,
+  LOCALES_TO_LANGUAGES,
+} from '../../utils/languages'
 import { Locale } from '../../utils/localization'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './DifficultyLevelContainer.module.scss'
@@ -11,9 +15,15 @@ import { LevelOption } from './LevelOption'
 
 interface Props {
   level: LanguageLevel
+  languageTo?: LanguageTo
+  languageFrom?: LanguageFrom
 }
 
-export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
+export const DifficultyLevelContainer: FC<Props> = ({
+  level,
+  languageTo,
+  languageFrom,
+}) => {
   const [open, setOpen] = useState(false)
   const router = useRouter()
   const locale = (router.locale as Locale) ?? 'en'
@@ -65,7 +75,13 @@ export const DifficultyLevelContainer: FC<Props> = ({ level }) => {
       {open && (
         <div className={style.options}>
           {level.options.map((option, index) => (
-            <LevelOption key={index} option={option} index={index + 1} />
+            <LevelOption
+              key={index}
+              option={option}
+              index={index + 1}
+              languageTo={languageTo}
+              languageFrom={languageFrom}
+            />
           ))}
         </div>
       )}

@@ -66,7 +66,7 @@ interface InitialTask {
     }
   }
   iLearn: {
-    text: string
+    text: string | string[]
   }
   iLearnFrom: {
     text: string
@@ -94,38 +94,127 @@ export interface TaskData {
   }
 }
 
-export const getTask = (): Promise<TaskData[]> => {
-  return axios(
-    `${process.env.defaultURL}/public/getTasks/63e0dcbbff9a4c0e5f8575d5/rus?lang=eng&userKey=ed3c6d70-a5fe-11ed-bbeb-19ae864e91e7`,
-  )
-    .then(response => {
-      const data = response.data.data
-      const tasks = data.tasks.map((task: InitialTask) => {
-        return {
-          id: task._id,
-          taskDescription: task.taskType.name,
-          taskType: task.taskType.nameCode,
-          taskNumber: task.ordinalNumber,
-          errorLimit: task.errorLimit,
-          correctText: task.iLearn.text,
-          taskText: task.iLearnFrom[0].text,
-          wordsAudio: task.wordsAudio.words.data.map(word => {
-            return {
-              filePath: word.filePath,
-              fileName: word.audioFileName,
-              wordLoweredText: word._word,
-              wordText: word.word,
-            }
-          }),
-          wordsSynonyms: task.wordsAudio.words.data.map(word => word.synonyms),
-          sentenceAudio: {
-            filePath: task.wordsAudio.sentence.filePath,
-            fileName: task.wordsAudio.sentence.audioFileName,
-          },
-        }
-      })
-      return tasks
-    })
+// export const getUserCourse = ({languageTo, languageFrom, courseName}:{languageTo:string | string[], languageFrom:string | string[], courseName:string | string[]}): Promise<string> => {
+//   return axios({
+//     url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
+//     headers: {
+//       Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2NzYwMjcxMjExMjcsImV4cCI6MTc2NDE1NTEyMTEyNywidXNlcl9pZCI6IjYyOGI1YzM2MTE5NTdlMGU2YTgyZTRkMiJ9.fEDYTTVdN9E45ol6vRh1oBayC_yHljBGnYQoBFXTReQ',
+//     }
+//   })
+//     .then(response => response.data.data._id)
+// }
 
-    .catch(error => console.log(error))
+export const getUserCourse = async ({
+  languageTo,
+  languageFrom,
+  courseName,
+  token,
+}: {
+  languageTo: string | string[]
+  languageFrom: string | string[]
+  courseName: string | string[]
+  token: string
+}): Promise<string> => {
+  try {
+    const response = await axios({
+      url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
+      headers: {
+        Authorization: token,
+      },
+    })
+    return response.data.data._id
+  } catch (error) {
+    console.log(error)
+    return ''
+  }
+}
+
+// export const getTasks = ({languageTo, languageFrom, courseId}:{courseId: string, languageTo:string | string[], languageFrom:string | string[]}): Promise<TaskData[]> => {
+//   return axios({
+//     url: `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
+//     // headers: {
+//     //   Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2NzYwMjcxMjExMjcsImV4cCI6MTc2NDE1NTEyMTEyNywidXNlcl9pZCI6IjYyOGI1YzM2MTE5NTdlMGU2YTgyZTRkMiJ9.fEDYTTVdN9E45ol6vRh1oBayC_yHljBGnYQoBFXTReQ',
+//     // }
+//   })
+//     .then(response => {
+//       const data = response.data.data
+//       const tasks = data.tasks.map((task: InitialTask) => {
+//         return {
+//           id: task._id,
+//           taskDescription: task.taskType.name,
+//           taskType: task.taskType.nameCode,
+//           taskNumber: task.ordinalNumber,
+//           errorLimit: task.errorLimit,
+//           correctText: task.iLearn.text,
+//           taskText: task.iLearnFrom[0].text,
+//           wordsAudio: task.wordsAudio.words.data.map(word => {
+//             return {
+//               filePath: word.filePath,
+//               fileName: word.audioFileName,
+//               wordLoweredText: word._word,
+//               wordText: word.word,
+//             }
+//           }),
+//           wordsSynonyms: task.wordsAudio.words.data.map(word => word.synonyms),
+//           sentenceAudio: {
+//             filePath: task.wordsAudio.sentence.filePath,
+//             fileName: task.wordsAudio.sentence.audioFileName,
+//           },
+//         }
+//       })
+//       return tasks
+//     })
+
+//     .catch(error => console.log(error))
+// }
+
+export const getTasks = async ({
+  languageTo,
+  languageFrom,
+  token,
+  courseId,
+}: {
+  courseName: string | string[]
+  languageTo: string | string[]
+  languageFrom: string | string[]
+  token: string
+  courseId: string
+}): Promise<TaskData[]> => {
+  try {
+    const response = await axios({
+      url: `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
+      headers: {
+        Authorization: token,
+      },
+    })
+    const data = response.data.data
+    const tasks = data.tasks.map((task: InitialTask) => {
+      return {
+        id: task._id,
+        taskDescription: task.taskType.name,
+        taskType: task.taskType.nameCode,
+        taskNumber: task.ordinalNumber,
+        errorLimit: task.errorLimit,
+        correctText: task.iLearn.text,
+        taskText: task.iLearnFrom[0].text,
+        wordsAudio: task.wordsAudio.words.data.map(word => {
+          return {
+            filePath: word.filePath,
+            fileName: word.audioFileName,
+            wordLoweredText: word._word,
+            wordText: word.word,
+          }
+        }),
+        wordsSynonyms: task.wordsAudio.words.data.map(word => word.synonyms),
+        sentenceAudio: {
+          filePath: task.wordsAudio.sentence.filePath,
+          fileName: task.wordsAudio.sentence.audioFileName,
+        },
+      }
+    })
+    return tasks
+  } catch (error) {
+    console.log(error)
+    return []
+  }
 }

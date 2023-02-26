@@ -1,25 +1,29 @@
 import { useState, useEffect, FC, useRef } from 'react'
-import style from './TaskInput.module.scss'
+import style from './TaskInputContainer.module.scss'
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
 import {
+  repetitionInputCheck,
   getStringFromRecognition,
   isEqual,
 } from '../../utils/lessons/taskInputUtils'
 import { animated, useSpring } from 'react-spring'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
+import { DictationInput } from './DictationInput'
 
 interface Props {
   setCorrect: (bool: boolean) => void
   correctText: string
   wordsSynonyms: [string[]]
+  taskType: string
 }
 
-export const TaskInput: FC<Props> = ({
+export const TaskInputContainer: FC<Props> = ({
   setCorrect,
   correctText,
   wordsSynonyms,
+  taskType,
 }) => {
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
@@ -37,7 +41,7 @@ export const TaskInput: FC<Props> = ({
   const { finalTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLInputElement>(null)
 
-  //only for viceRecognition
+  // only for voiceRecognition
   useEffect(() => {
     setPartialTranscript(
       getStringFromRecognition({
@@ -55,19 +59,20 @@ export const TaskInput: FC<Props> = ({
         wordsSynonyms,
       }),
     )
-    // console.log(finalTranscript)
   }, [finalTranscript])
 
   //only for keyboardInput
 
-  useEffect(() => {
+  const standardTextCheck = () => {
     const index = inputText.length - 1
+
     const isTextEqual = isEqual({
       correctText,
       textToCompare: inputText,
       index,
     })
     const textToShow = correctText.slice(0, inputText ? inputText.length : 0)
+
     if (textToShow.length === correctText.length - 1) {
       setOutputText(correctText)
     } else {
@@ -76,6 +81,22 @@ export const TaskInput: FC<Props> = ({
         mistakeRepeat === false &&
         (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true)) // добавлять только одну ошибку на одну букву
     }
+  }
+
+  useEffect(() => {
+    taskType === 'dictation' || ('translate' && standardTextCheck())
+    taskType === 'repetition' &&
+      setOutputText(
+        repetitionInputCheck({
+          inputText,
+          outputText,
+          correctText,
+          setMistakeRepeat,
+          setMistakesCount,
+          mistakesCount,
+          mistakeRepeat,
+        }),
+      )
   }, [inputText])
 
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
@@ -122,13 +143,13 @@ export const TaskInput: FC<Props> = ({
     isRecording
       ? SpeechRecognition.startListening({ continuous: true })
       : SpeechRecognition.stopListening()
-    // console.log(isRecording, 'isrecording')
   }
 
-  // https://api.lingwing.com/api/v2/public/getUserCourse/russian_a1-1?lang=eng&iLearnFrom=geo&userKey=9b253fe0-a580-11ed-bbeb-19ae864e91e7
-  const iLearnFromNameCode = 'rus'
+  // https://api.lingwing.com/api/v2/public/getUserCourse/russian_a1-1?lang=eng&iLearnFrom=geo&userKey=9b253fe0-a580-11ed-bbeb-19ae864e91e7 source of iLearnFromNameCode
+  const iLearnFromNameCode = 'nothing'
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('HANDLECHANGE')
     const currentCharCode = event.target.value.charCodeAt(
       event.target.value.length - 1,
     )
@@ -142,10 +163,10 @@ export const TaskInput: FC<Props> = ({
             currentCharCode === KEYBOARD_OVERRIDE[i].array[j].originalCode ||
             currentCharCode === KEYBOARD_OVERRIDE[i].array[j].alterCode
           ) {
-            const overridedText =
+            const overriddenText =
               event.target.value.slice(0, event.target.value.length - 1) +
               String.fromCharCode(KEYBOARD_OVERRIDE[i].array[j].alterCode)
-            setInputText(overridedText)
+            setInputText(overriddenText)
           }
         }
       }
@@ -153,19 +174,20 @@ export const TaskInput: FC<Props> = ({
     skipOverride && setInputText(event.target.value)
   }
 
+  console.log(inputText, 'INPUTTEXT')
+  console.log(outputText, 'outputtext')
+
   return (
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
-      <input
-        ref={inputRef}
-        className={style.input}
-        type="text"
-        value={outputText}
-        placeholder="Type your answer"
-        onKeyDown={event => handleOnKeyDown(event)}
+      <DictationInput
+        inputRef={inputRef}
+        outputText={outputText}
+        onKeyDown={handleOnKeyDown}
         onChange={handleChange}
-        onFocus={event => handleOnFocus(event)}
+        onFocus={handleOnFocus}
       />
+
       <animated.div
         className={style.microphoneIcon}
         style={{

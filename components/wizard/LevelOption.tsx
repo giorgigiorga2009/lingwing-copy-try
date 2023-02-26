@@ -1,17 +1,27 @@
 import classNames from 'classnames'
+import Link from 'next/link'
 import { FC } from 'react'
 import { Option } from '../../utils/getDifficultyLevels'
 import { getNumberWithComa } from '../../utils/getNumberWithComa'
+import { LanguageFrom, LanguageTo } from '../../utils/languages'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './LevelOption.module.scss'
 
 interface Props {
   option: Option
   index: number
+  languageTo?: LanguageTo
+  languageFrom?: LanguageFrom
 }
 
-export const LevelOption: FC<Props> = ({ option, index }) => {
+export const LevelOption: FC<Props> = ({
+  option,
+  index,
+  languageTo,
+  languageFrom,
+}) => {
   const { t } = useTranslation()
+  const courseName = option.title.toLowerCase().replace(/\s/g, '_')
   return (
     <div className={style.optionContainer}>
       <div className={style.logoContainer}>
@@ -34,7 +44,15 @@ export const LevelOption: FC<Props> = ({ option, index }) => {
       </div>
       <div className={style.buttons}>
         <div className={style.aboutButton}>{t('wizardAbout')}</div>
-        <div className={style.startButton}>{t('startButton')}</div>
+        <Link
+          className={style.startButton}
+          href={{
+            pathname: '/lessons',
+            query: { languageTo, languageFrom, courseName },
+          }}
+        >
+          {t('startButton')}
+        </Link>
       </div>
     </div>
   )

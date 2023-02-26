@@ -55,7 +55,9 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
   }
 
   const signIn = () => {
-    return login({ email, password }).then(response => console.log(response))
+    return login({ email, password }).then(response =>
+      localStorage.setItem('authToken', response),
+    )
   }
 
   return (

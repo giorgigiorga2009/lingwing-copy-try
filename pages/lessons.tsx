@@ -4,22 +4,48 @@ import { FC, useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
 import { CourseDropdown } from '../components/lessons/CourseDropdown'
 import { Message } from '../components/lessons/Message'
-import { TaskInput } from '../components/lessons/TaskInput'
+import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
 import style from './lessons.module.scss'
-import { getTask, TaskData } from '../utils/lessons/getTask'
+import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
+import { OmittedWords } from '../components/lessons/OmittedWords'
+import { Dialog, DialogInput } from '../components/lessons/Dialog'
+import { useRouter } from 'next/router'
+import { getToken } from '../utils/auth'
+import { DictationInput } from '../components/lessons/DictationInput'
+
+const dialogArray = [
+  "Hi, I'm Camilla.",
+  "Good morning, Camilla, I'm Bill.",
+  'I am an office manager.',
+  'Nice, I am a taxi driver.',
+  'Nice to meet you, Bill!',
+  'Nice to meet you too, Camilla!',
+]
 
 const Lessons: NextPage = () => {
   const [start, setStart] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
   const [taskNumber, setTaskNumber] = useState(1)
   const [tasksData, setTasksData] = useState<TaskData[]>()
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
+  const [token, setToken] = useState<string | null>(null)
+
+  const router = useRouter()
+  const { courseName, languageTo, languageFrom } = router.query
 
   useEffect(() => {
-    getTask().then(response => {
-      setTasksData(response)
-      console.log(response)
-    })
+    setToken(localStorage.getItem('authToken'))
   }, [])
+
+  useEffect(() => {
+    if (!languageFrom || !languageTo || !courseName || !token) return
+
+    getUserCourse({ languageFrom, languageTo, courseName, token })
+      .then(courseId =>
+        getTasks({ languageFrom, languageTo, courseName, token, courseId }),
+      )
+      .then(response => setTasksData(response))
+  }, [languageFrom, languageTo, courseName])
 
   return (
     <div className={style.container}>
@@ -49,50 +75,20 @@ const Lessons: NextPage = () => {
 
         {tasksData !== undefined && (
           <div className={style.chat}>
-            <Message
-              variant="message"
-              position="right"
-              type={tasksData[2].taskType}
-              taskDescription={tasksData[2].taskDescription}
-              taskText={tasksData[2].taskText}
-              correctText={tasksData[2].correctText}
-              sentenceAudio={tasksData[2].sentenceAudio}
-            />
-
-            <Message
-              variant="question"
-              type={tasksData[2].taskType}
-              taskDescription={tasksData[2].taskDescription}
-              taskText={tasksData[2].taskText}
-              correctText={tasksData[2].correctText}
-              sentenceAudio={tasksData[2].sentenceAudio}
-            />
-
-            {/* { tasksData !== undefined && <Message 
-          variant="question" 
-          type={tasksData[3].taskType}
-          taskDescription={tasksData[3].taskDescription}  
-          taskText={tasksData[3].taskText} 
-          correctText={tasksData[3].correctText}
-          sentenceAudio={tasksData[3].sentenceAudio} /> }
-          { tasksData !== undefined && <Message 
-          variant="message" 
-          position='right'
-          type={tasksData[3].taskType} 
-          taskDescription={tasksData[3].taskDescription}  
-          taskText={tasksData[3].taskText} 
-          correctText={tasksData[3].correctText}
-          sentenceAudio={tasksData[3].sentenceAudio} /> } */}
+            {/* <Dialog currentMessageIndex={currentMessageIndex} dialogArray={dialogArray} /> */}
           </div>
         )}
 
         {tasksData !== undefined && (
-          <TaskInput
+          <TaskInputContainer
             setCorrect={setIsCorrect}
-            correctText={tasksData[2].correctText}
+            correctText="I am the artist"
             wordsSynonyms={tasksData[2].wordsSynonyms}
+            taskType="translate"
           />
         )}
+        {/* <OmittedWords setCorrect={setIsCorrect} sentenceArray={("Hello, [dear] Tomas [welcome] to America!").match(/(\[.*?\])|(\S+)/g) ?? []} /> */}
+        {/* <DialogInput currentMessageIndex={currentMessageIndex} dialogArray={dialogArray} setCurrentMessageIndex={setCurrentMessageIndex} /> */}
       </div>
     </div>
   )

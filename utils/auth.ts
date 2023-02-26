@@ -59,6 +59,6 @@ export const login = ({ email, password }: Auth) => {
       password,
     },
   })
-    .then(response => response.data)
+    .then(response => response.data.token)
     .catch(error => console.log(error))
 }

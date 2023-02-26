@@ -19,6 +19,7 @@ export const ChooseDifficultyStep: FC<Props> = ({
   languageFrom,
 }) => {
   const { t } = useTranslation()
+  console.log(levelData, 'levelData')
   return (
     <ContentContainer>
       <PageTitle
@@ -28,7 +29,12 @@ export const ChooseDifficultyStep: FC<Props> = ({
       />
       <div className={style.levelsContainer}>
         {levelData.map((level, index) => (
-          <DifficultyLevelContainer level={level} key={index} />
+          <DifficultyLevelContainer
+            level={level}
+            key={index}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+          />
         ))}
       </div>
     </ContentContainer>

@@ -33,14 +33,14 @@ const WaveSurferNext: FC<Props> = ({ audioURL }) => {
     })
 
   const create = () => {
-    const options = formWaveSurferOptions(waveformRef.current)
+    const options = formWaveSurferOptions(waveformRef.current!)
 
     wavesurfer.current = WaveSurfer.create(options)
     console.log(audioURL)
     wavesurfer.current.load(audioURL)
 
     wavesurfer.current.on('audioprocess', function () {
-      const currentTime = wavesurfer.current.getCurrentTime()
+      const currentTime = wavesurfer.current!.getCurrentTime()
       setProgress(currentTime)
     })
 
@@ -63,7 +63,7 @@ const WaveSurferNext: FC<Props> = ({ audioURL }) => {
   }
 
   const audioDuration = () => {
-    wavesurfer.current.on('ready', function () {
+    wavesurfer.current!.on('ready', function () {
       const length = wavesurfer.current?.getDuration()
       length && setDuration(length)
     })
