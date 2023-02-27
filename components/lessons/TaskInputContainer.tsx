@@ -12,21 +12,36 @@ import { animated, useSpring } from 'react-spring'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
 import { DictationInput } from './DictationInput'
 import { OmittedWords } from './OmittedWords'
+import { saveTask } from '../../utils/lessons/saveTask'
 
 interface Props {
-  setCorrect: (bool: boolean) => void
+  // setCorrect: (bool: boolean) => void
   correctText: string
   wordsSynonyms: [string[]]
   taskType: string
   iLearnFromNameCode: string
+  token: string | null
+  languageTo: string | string[]
+  languageFrom: string | string[]
+  ordinalNumber: number
+  courseId: string
+  setCurrentTaskNumber: (number: number) => void
+  currentTaskNumber: number
 }
 
 export const TaskInputContainer: FC<Props> = ({
-  setCorrect,
+  // setCorrect,
   correctText,
   wordsSynonyms,
   taskType,
   iLearnFromNameCode,
+  token,
+  languageTo,
+  languageFrom,
+  ordinalNumber,
+  courseId,
+  setCurrentTaskNumber,
+  currentTaskNumber,
 }) => {
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
@@ -65,35 +80,32 @@ export const TaskInputContainer: FC<Props> = ({
     )
   }, [finalTranscript])
 
-  //only for keyboardInput
+  const params = {
+    inputText,
+    outputText,
+    correctText,
+    setMistakeRepeat,
+    setMistakesCount,
+    mistakesCount,
+    mistakeRepeat,
+  }
 
+  //only for keyboardInput
   useEffect(() => {
-    taskType === 'dictation' ||
-      ('translate' &&
-        setOutputText(
-          standardTextCheck({
-            inputText,
-            correctText,
-            setMistakeRepeat,
-            mistakeRepeat,
-            setMistakesCount,
-            mistakesCount,
-            outputText,
-          }),
-        ))
-    taskType === 'repetition' &&
-      setOutputText(
-        repetitionInputCheck({
-          inputText,
-          outputText,
-          correctText,
-          setMistakeRepeat,
-          setMistakesCount,
-          mistakesCount,
-          mistakeRepeat,
-        }),
-      )
+    ;(taskType === 'dictation' || taskType === 'translate') &&
+      setOutputText(standardTextCheck({ ...params }))
+    taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
   }, [inputText])
+
+  //switch to next task
+  useEffect(() => {
+    if (token === null) return
+
+    if (outputText === correctText) {
+      saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+      setCurrentTaskNumber(currentTaskNumber + 1)
+    }
+  }, [outputText])
 
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
     if (
@@ -111,13 +123,13 @@ export const TaskInputContainer: FC<Props> = ({
 
     if (event.key === 'Backspace' || event.key === 'Delete') {
       event.preventDefault()
-      setCorrect(true)
+      // setCorrect(true)
     } else {
-      setCorrect(false)
+      // setCorrect(false)
     }
   }
 
-  const handleOnFocus = (event: React.FocusEvent<HTMLElement>) => {
+  const handleOnFocus = () => {
     SpeechRecognition.stopListening()
 
     if (inputRef.current) {
@@ -129,7 +141,7 @@ export const TaskInputContainer: FC<Props> = ({
     partialTranscript && setOutputText(partialTranscript)
   }
 
-  const handleMicOnClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMicOnClick = () => {
     setIsAnimating(!isAnimating)
     if (inputRef.current) {
       const inputValue = inputRef.current.value
@@ -171,7 +183,8 @@ export const TaskInputContainer: FC<Props> = ({
       <div className={style.mistakes}> {mistakesCount} </div>
 
       {taskType === 'dictation' ||
-        ('translate' && (
+        taskType === 'translate' ||
+        (taskType === 'replay' && (
           <DictationInput
             inputRef={inputRef}
             outputText={outputText}
@@ -184,12 +197,19 @@ export const TaskInputContainer: FC<Props> = ({
       {taskType === 'omittedwords' && (
         <OmittedWords
           sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
-          setCorrect={setCorrect}
+          // setCorrect={setCorrect}
           onKeyDown={handleOnKeyDown}
           setMistakeRepeat={setMistakeRepeat}
           mistakeRepeat={mistakeRepeat}
           setMistakesCount={setMistakesCount}
           mistakesCount={mistakesCount}
+          token={token}
+          languageTo={languageTo}
+          languageFrom={languageFrom}
+          ordinalNumber={ordinalNumber}
+          courseId={courseId}
+          setCurrentTaskNumber={setCurrentTaskNumber}
+          currentTaskNumber={currentTaskNumber}
         />
       )}
 
@@ -199,7 +219,7 @@ export const TaskInputContainer: FC<Props> = ({
           opacity,
           transform,
         }}
-        onClick={event => handleMicOnClick(event)}
+        onClick={handleMicOnClick}
       >
         <span className={style.micIcon} key="mic" />
         {isAnimating && <div className={style.pulsatingCircle} />}

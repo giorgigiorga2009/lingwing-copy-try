@@ -67,6 +67,7 @@ interface InitialTask {
   }
   iLearn: {
     text: string | string[]
+    errorText: string
   }
   iLearnFrom: {
     text: string
@@ -80,11 +81,19 @@ interface InitialTask {
 
 export interface TaskData {
   id: string
+  ordinalNumber: number
   taskDescription: string
-  taskType: 'dictation' | 'translate'
+  taskType:
+    | 'dictation'
+    | 'translate'
+    | 'dialog'
+    | 'omittedwords'
+    | 'replay'
+    | 'mistakecorrection'
   taskNumber: number
   errorLimit: number
-  correctText: string
+  correctText: string | string[]
+  errorText: string
   taskText: string
   wordsAudio: {
     filePath: string
@@ -92,22 +101,13 @@ export interface TaskData {
     wordLoweredText: string
     wordText: string
   }[]
+  iLearnFromNameCode: string
   wordsSynonyms: [string[]]
   sentenceAudio: {
     filePath: string
     fileName: string
   }
 }
-
-// export const getUserCourse = ({languageTo, languageFrom, courseName}:{languageTo:string | string[], languageFrom:string | string[], courseName:string | string[]}): Promise<string> => {
-//   return axios({
-//     url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
-//     headers: {
-//       Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2NzYwMjcxMjExMjcsImV4cCI6MTc2NDE1NTEyMTEyNywidXNlcl9pZCI6IjYyOGI1YzM2MTE5NTdlMGU2YTgyZTRkMiJ9.fEDYTTVdN9E45ol6vRh1oBayC_yHljBGnYQoBFXTReQ',
-//     }
-//   })
-//     .then(response => response.data.data._id)
-// }
 
 export const getUserCourse = async ({
   languageTo,
@@ -157,11 +157,13 @@ export const getTasks = async ({
     const tasks = data.tasks.map((task: InitialTask) => {
       return {
         id: task._id,
+        ordinalNumber: task.ordinalNumber,
         taskDescription: task.taskType.name,
         taskType: task.taskType.nameCode,
         taskNumber: task.ordinalNumber,
         errorLimit: task.errorLimit,
         correctText: task.iLearn.text,
+        errorText: task.iLearn.errorText,
         taskText: task.iLearnFrom[0].text,
         wordsAudio: task.wordsAudio.words.data.map(word => {
           return {

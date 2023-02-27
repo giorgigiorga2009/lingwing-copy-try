@@ -9,40 +9,61 @@ import style from './lessons.module.scss'
 import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
 import { Dialog, DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
+import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
 
-const dialogArray = [
-  "Hi, I'm Camilla.",
-  "Good morning, Camilla, I'm Bill.",
-  'I am an office manager.',
-  'Nice, I am a taxi driver.',
-  'Nice to meet you, Bill!',
-  'Nice to meet you too, Camilla!',
-]
+// const dialogArray = [
+//   "Hi, I'm Camilla.",
+//   "Good morning, Camilla, I'm Bill.",
+//   'I am an office manager.',
+//   'Nice, I am a taxi driver.',
+//   'Nice to meet you, Bill!',
+//   'Nice to meet you too, Camilla!',
+// ]
 
 const Lessons: NextPage = () => {
   const [start, setStart] = useState(false)
-  const [isCorrect, setIsCorrect] = useState(false)
-  const [taskNumber, setTaskNumber] = useState(1)
   const [tasksData, setTasksData] = useState<TaskData[]>()
+  const [currentTask, setCurrentTask] = useState<TaskData>()
+  const [currentTaskType, setCurrentTaskType] = useState<TaskData['taskType']>()
+  const [currentTaskNumber, setCurrentTaskNumber] = useState(0)
   const [token, setToken] = useState<string | null>(null)
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
+  const [courseId, setCourseId] = useState('')
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
+  useEffect(() => {
+    if (!tasksData) return
+    setCurrentTask(tasksData[currentTaskNumber])
+    setCurrentTaskType(currentTask?.taskType)
+  }, [currentTaskNumber])
+
+  useEffect(() => {
+    if (!languageFrom || !languageTo || !courseName || !token) return
+    getUserCourse({ languageFrom, languageTo, courseName, token }).then(
+      courseId => setCourseId(courseId),
+    )
+  }, [languageFrom, languageTo, courseName])
 
   useEffect(() => {
     setToken(localStorage.getItem('authToken'))
   }, [])
 
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || !token) return
+    if (!languageFrom || !languageTo || !courseName || !token || !courseId)
+      return
 
-    getUserCourse({ languageFrom, languageTo, courseName, token })
-      .then(courseId =>
-        getTasks({ languageFrom, languageTo, courseName, token, courseId }),
-      )
-      .then(response => setTasksData(response))
-  }, [languageFrom, languageTo, courseName])
+    getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
+      response => setTasksData(response),
+    )
+  }, [courseId])
+
+  // const dialogData = () => {}
+
+  const isShown =
+    currentTask !== undefined &&
+    languageTo !== undefined &&
+    languageFrom !== undefined
 
   return (
     <div className={style.container}>
@@ -70,25 +91,60 @@ const Lessons: NextPage = () => {
           </div>
         </div>
 
-        {tasksData !== undefined && (
+        {isShown && (
           <div className={style.chat}>
-            {/* <Dialog currentMessageIndex={currentMessageIndex} dialogArray={dialogArray} /> */}
+            <Dialog
+              currentMessageIndex={currentMessageIndex}
+              dialogArray={currentTask.correctText as string[]}
+            />
           </div>
         )}
 
-        {tasksData !== undefined && (
-          // <TaskInputContainer
-          //   setCorrect={setIsCorrect}
-          //   correctText="Hello, [dear] Tomas [welcome] to America!"
-          //   wordsSynonyms={tasksData[3].wordsSynonyms}
-          //   taskType="translate"
-          //   iLearnFromNameCode='none'
-          // />
+        {isShown &&
+          (currentTaskType === 'translate' ||
+            currentTaskType === 'dictation' ||
+            currentTaskType === 'omittedwords' ||
+            currentTaskType === 'replay') && (
+            <TaskInputContainer
+              token={token}
+              languageTo={languageTo}
+              languageFrom={languageFrom}
+              ordinalNumber={currentTask.ordinalNumber}
+              correctText={currentTask.correctText as string}
+              wordsSynonyms={currentTask.wordsSynonyms}
+              taskType="translate"
+              iLearnFromNameCode="none"
+              courseId={courseId}
+              setCurrentTaskNumber={setCurrentTaskNumber}
+              currentTaskNumber={currentTaskNumber}
+            />
+          )}
+        {isShown && currentTaskType === 'dialog' && (
           <DialogInput
+            token={token}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            ordinalNumber={currentTask.ordinalNumber}
             currentMessageIndex={currentMessageIndex}
-            dialogArray={dialogArray}
+            dialogArray={currentTask.correctText as string[]}
             iLearnFromNameCode="none"
             setCurrentMessageIndex={setCurrentMessageIndex}
+            courseId={courseId}
+            setCurrentTaskNumber={setCurrentTaskNumber}
+            currentTaskNumber={currentTaskNumber}
+          />
+        )}
+        {isShown && currentTaskType === 'mistakecorrection' && (
+          <MistakeCorrectionTask
+            token={token}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            ordinalNumber={currentTask.ordinalNumber}
+            mistakeText={currentTask.errorText}
+            correctText={currentTask.correctText as string}
+            courseId={courseId}
+            setCurrentTaskNumber={setCurrentTaskNumber}
+            currentTaskNumber={currentTaskNumber}
           />
         )}
       </div>

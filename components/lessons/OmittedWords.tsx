@@ -1,27 +1,46 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
+import { saveTask } from '../../utils/lessons/saveTask'
 import style from './OmittedWords.module.scss'
 
 interface Props {
-  setCorrect: (bool: boolean) => void
+  // setCorrect: (bool: boolean) => void
   sentenceArray: string[]
   onKeyDown: (event: React.KeyboardEvent) => void
   setMistakeRepeat: (bool: boolean) => void
   mistakeRepeat: boolean
   setMistakesCount: (values: number) => void
   mistakesCount: number
+  token: string | null
+  languageTo: string | string[]
+  languageFrom: string | string[]
+  ordinalNumber: number
+  courseId: string
+  setCurrentTaskNumber: (number: number) => void
+  currentTaskNumber: number
 }
 
 export const OmittedWords: FC<Props> = ({
   sentenceArray,
-  setCorrect,
+  // setCorrect,
   onKeyDown,
   setMistakeRepeat,
   mistakeRepeat,
   setMistakesCount,
   mistakesCount,
+  token,
+  languageTo,
+  languageFrom,
+  ordinalNumber,
+  courseId,
+  setCurrentTaskNumber,
+  currentTaskNumber,
 }) => {
   const [words, setWords] = useState([''])
+  const [correctWords, setCorrectWords] = useState([''])
   const inputRefs = useRef<HTMLInputElement[]>([])
+  const inputsCount = sentenceArray
+    .map(item => (/^\[.*\]$/.test(item) ? 1 : 0))
+    .filter(Boolean).length
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -43,14 +62,25 @@ export const OmittedWords: FC<Props> = ({
         .slice(index + 1)
         .find(element => element !== undefined)
 
-      if (inputValue.length === missingWord.length && nextInputRef) {
-        nextInputRef.focus()
+      if (inputValue.length === missingWord.length) {
+        const newCorrectWords = [...correctWords]
+        newCorrectWords.push(missingWord)
+        setCorrectWords(newCorrectWords)
+        nextInputRef && nextInputRef.focus()
       }
     } else {
       mistakeRepeat === false &&
         (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
     }
   }
+
+  useEffect(() => {
+    if (token === null) return
+    if (correctWords.length === inputsCount) {
+      saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+      setCurrentTaskNumber(currentTaskNumber + 1)
+    }
+  }, [correctWords])
 
   useEffect(() => {
     inputRefs.current.find(element => element !== undefined)?.focus()
