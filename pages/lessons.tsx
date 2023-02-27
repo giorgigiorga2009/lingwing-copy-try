@@ -7,11 +7,8 @@ import { Message } from '../components/lessons/Message'
 import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
 import style from './lessons.module.scss'
 import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
-import { OmittedWords } from '../components/lessons/OmittedWords'
 import { Dialog, DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
-import { getToken } from '../utils/auth'
-import { DictationInput } from '../components/lessons/DictationInput'
 
 const dialogArray = [
   "Hi, I'm Camilla.",
@@ -27,8 +24,8 @@ const Lessons: NextPage = () => {
   const [isCorrect, setIsCorrect] = useState(false)
   const [taskNumber, setTaskNumber] = useState(1)
   const [tasksData, setTasksData] = useState<TaskData[]>()
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
   const [token, setToken] = useState<string | null>(null)
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
@@ -80,15 +77,20 @@ const Lessons: NextPage = () => {
         )}
 
         {tasksData !== undefined && (
-          <TaskInputContainer
-            setCorrect={setIsCorrect}
-            correctText="I am the artist"
-            wordsSynonyms={tasksData[2].wordsSynonyms}
-            taskType="translate"
+          // <TaskInputContainer
+          //   setCorrect={setIsCorrect}
+          //   correctText="Hello, [dear] Tomas [welcome] to America!"
+          //   wordsSynonyms={tasksData[3].wordsSynonyms}
+          //   taskType="translate"
+          //   iLearnFromNameCode='none'
+          // />
+          <DialogInput
+            currentMessageIndex={currentMessageIndex}
+            dialogArray={dialogArray}
+            iLearnFromNameCode="none"
+            setCurrentMessageIndex={setCurrentMessageIndex}
           />
         )}
-        {/* <OmittedWords setCorrect={setIsCorrect} sentenceArray={("Hello, [dear] Tomas [welcome] to America!").match(/(\[.*?\])|(\S+)/g) ?? []} /> */}
-        {/* <DialogInput currentMessageIndex={currentMessageIndex} dialogArray={dialogArray} setCurrentMessageIndex={setCurrentMessageIndex} /> */}
       </div>
     </div>
   )

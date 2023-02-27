@@ -58,7 +58,10 @@ export const getStringFromRecognition = ({
       '',
     )
     //переменная в которой будут хранится все отрезанные знаки пунктуации
-    const synonyms = [modifiedWord, ...wordsSynonyms[index]]
+    const synonyms = wordsSynonyms[index]
+      ? [modifiedWord, ...wordsSynonyms[index]]
+      : [modifiedWord]
+
     const transcriptIndex = findMatchedWordIndex({
       synonyms,
       lastAddedWordIndex,

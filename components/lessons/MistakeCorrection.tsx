@@ -1,4 +1,5 @@
 import React, { useState, KeyboardEvent, ChangeEvent, FC } from 'react'
+import style from './MistakeCorrection.module.scss'
 
 interface Props {
   mistakeText: string
@@ -11,6 +12,8 @@ export const MistakeCorrectionTask: FC<Props> = ({
 }) => {
   const [inputText, setInputText] = useState(mistakeText)
   const [isCorrect, setIsCorrect] = useState(false)
+  const [mistakesCount, setMistakesCount] = useState(0)
+  const [mistakeRepeat, setMistakeRepeat] = useState(false)
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value)
@@ -24,17 +27,23 @@ export const MistakeCorrectionTask: FC<Props> = ({
 
   const checkAnswer = () => {
     if (inputText === correctText) {
+      setMistakeRepeat(false)
       setIsCorrect(true)
+    } else {
+      mistakeRepeat === false &&
+        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
     }
   }
 
   return (
-    <div>
-      <label>
-        Correct the mistake:
-        <input type="text" value={inputText} onChange={handleInputChange} />
-      </label>
-      <div>{isCorrect ? 'Correct!' : mistakeText}</div>
+    <div className={style.container}>
+      <div className={style.mistakes}> {mistakesCount} </div>
+
+      <input type="text" value={inputText} onChange={handleInputChange} />
+
+      <div className={style.checkButton} onClick={checkAnswer}>
+        Check
+      </div>
     </div>
   )
 }

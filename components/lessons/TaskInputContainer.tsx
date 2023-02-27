@@ -11,12 +11,14 @@ import {
 import { animated, useSpring } from 'react-spring'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
 import { DictationInput } from './DictationInput'
+import { OmittedWords } from './OmittedWords'
 
 interface Props {
   setCorrect: (bool: boolean) => void
   correctText: string
   wordsSynonyms: [string[]]
   taskType: string
+  iLearnFromNameCode: string
 }
 
 export const TaskInputContainer: FC<Props> = ({
@@ -24,6 +26,7 @@ export const TaskInputContainer: FC<Props> = ({
   correctText,
   wordsSynonyms,
   taskType,
+  iLearnFromNameCode,
 }) => {
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
@@ -33,6 +36,7 @@ export const TaskInputContainer: FC<Props> = ({
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+
   const { transform, opacity } = useSpring({
     opacity: isAnimating ? 1 : 0.5,
     transform: `scale(${isAnimating ? 1.5 : 1})`,
@@ -137,9 +141,6 @@ export const TaskInputContainer: FC<Props> = ({
       : SpeechRecognition.stopListening()
   }
 
-  // https://api.lingwing.com/api/v2/public/getUserCourse/russian_a1-1?lang=eng&iLearnFrom=geo&userKey=9b253fe0-a580-11ed-bbeb-19ae864e91e7 source of iLearnFromNameCode
-  const iLearnFromNameCode = 'nothing'
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const currentCharCode = event.target.value.charCodeAt(
       event.target.value.length - 1,
@@ -168,13 +169,29 @@ export const TaskInputContainer: FC<Props> = ({
   return (
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
-      <DictationInput
-        inputRef={inputRef}
-        outputText={outputText}
-        onKeyDown={handleOnKeyDown}
-        onChange={handleChange}
-        onFocus={handleOnFocus}
-      />
+
+      {taskType === 'dictation' ||
+        ('translate' && (
+          <DictationInput
+            inputRef={inputRef}
+            outputText={outputText}
+            onKeyDown={handleOnKeyDown}
+            onChange={handleChange}
+            onFocus={handleOnFocus}
+          />
+        ))}
+
+      {taskType === 'omittedwords' && (
+        <OmittedWords
+          sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
+          setCorrect={setCorrect}
+          onKeyDown={handleOnKeyDown}
+          setMistakeRepeat={setMistakeRepeat}
+          mistakeRepeat={mistakeRepeat}
+          setMistakesCount={setMistakesCount}
+          mistakesCount={mistakesCount}
+        />
+      )}
 
       <animated.div
         className={style.microphoneIcon}

@@ -4,9 +4,22 @@ import style from './OmittedWords.module.scss'
 interface Props {
   setCorrect: (bool: boolean) => void
   sentenceArray: string[]
+  onKeyDown: (event: React.KeyboardEvent) => void
+  setMistakeRepeat: (bool: boolean) => void
+  mistakeRepeat: boolean
+  setMistakesCount: (values: number) => void
+  mistakesCount: number
 }
 
-export const OmittedWords: FC<Props> = ({ sentenceArray, setCorrect }) => {
+export const OmittedWords: FC<Props> = ({
+  sentenceArray,
+  setCorrect,
+  onKeyDown,
+  setMistakeRepeat,
+  mistakeRepeat,
+  setMistakesCount,
+  mistakesCount,
+}) => {
   const [words, setWords] = useState([''])
   const inputRefs = useRef<HTMLInputElement[]>([])
 
@@ -22,6 +35,7 @@ export const OmittedWords: FC<Props> = ({ sentenceArray, setCorrect }) => {
       inputValue.toLowerCase() ===
       missingWord.substring(0, inputValue.length).toLowerCase()
     ) {
+      setMistakeRepeat(false)
       newWords[index] = missingWord.substring(0, inputValue.length)
       setWords(newWords)
 
@@ -32,36 +46,9 @@ export const OmittedWords: FC<Props> = ({ sentenceArray, setCorrect }) => {
       if (inputValue.length === missingWord.length && nextInputRef) {
         nextInputRef.focus()
       }
-    }
-  }
-
-  const handleOnKeyDown = (event: React.KeyboardEvent) => {
-    // if (
-    //   event.key === 'Space' &&
-    //   inputRef.current &&
-    //   inputRef.current.value.endsWith(' ')
-    // ) {
-    //   event.preventDefault()
-    //   return
-    // }
-
-    if (
-      event.key === 'Space' &&
-      inputRefs.current?.[inputRefs.current.length - 1]?.value.endsWith(' ')
-    ) {
-      event.preventDefault()
-      return
-    }
-
-    if (event.key === 'Enter') {
-      event.preventDefault()
-    }
-
-    if (event.key === 'Backspace' || event.key === 'Delete') {
-      event.preventDefault()
-      setCorrect(true)
     } else {
-      setCorrect(false)
+      mistakeRepeat === false &&
+        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
     }
   }
 
@@ -70,28 +57,25 @@ export const OmittedWords: FC<Props> = ({ sentenceArray, setCorrect }) => {
   }, [])
 
   return (
-    <div className={style.container}>
-      <div className={style.mistakes}> 0 </div>
-      <div className={style.inputContainer}>
-        {sentenceArray.map((word, index) => {
-          if (word.startsWith('[')) {
-            const currentValue = words[index]
+    <div className={style.inputContainer}>
+      {sentenceArray.map((word, index) => {
+        if (word.startsWith('[')) {
+          const currentValue = words[index]
 
-            return (
-              <input
-                className={style.input}
-                key={index}
-                value={currentValue !== undefined ? currentValue : ''}
-                onChange={event => handleChange(event, index)}
-                onKeyDown={event => handleOnKeyDown(event)}
-                ref={el => (inputRefs.current[index] = el!)}
-              />
-            )
-          } else {
-            return <span key={index}>{word} </span>
-          }
-        })}
-      </div>
+          return (
+            <input
+              className={style.input}
+              key={index}
+              value={currentValue !== undefined ? currentValue : ''}
+              onChange={event => handleChange(event, index)}
+              onKeyDown={onKeyDown}
+              ref={el => (inputRefs.current[index] = el!)}
+            />
+          )
+        } else {
+          return <span key={index}>{word} </span>
+        }
+      })}
     </div>
   )
 }

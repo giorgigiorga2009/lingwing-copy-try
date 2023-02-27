@@ -70,6 +70,11 @@ interface InitialTask {
   }
   iLearnFrom: {
     text: string
+    language: {
+      name: {
+        nameCode: string
+      }
+    }
   }[]
 }
 
@@ -129,45 +134,6 @@ export const getUserCourse = async ({
   }
 }
 
-// export const getTasks = ({languageTo, languageFrom, courseId}:{courseId: string, languageTo:string | string[], languageFrom:string | string[]}): Promise<TaskData[]> => {
-//   return axios({
-//     url: `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
-//     // headers: {
-//     //   Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2NzYwMjcxMjExMjcsImV4cCI6MTc2NDE1NTEyMTEyNywidXNlcl9pZCI6IjYyOGI1YzM2MTE5NTdlMGU2YTgyZTRkMiJ9.fEDYTTVdN9E45ol6vRh1oBayC_yHljBGnYQoBFXTReQ',
-//     // }
-//   })
-//     .then(response => {
-//       const data = response.data.data
-//       const tasks = data.tasks.map((task: InitialTask) => {
-//         return {
-//           id: task._id,
-//           taskDescription: task.taskType.name,
-//           taskType: task.taskType.nameCode,
-//           taskNumber: task.ordinalNumber,
-//           errorLimit: task.errorLimit,
-//           correctText: task.iLearn.text,
-//           taskText: task.iLearnFrom[0].text,
-//           wordsAudio: task.wordsAudio.words.data.map(word => {
-//             return {
-//               filePath: word.filePath,
-//               fileName: word.audioFileName,
-//               wordLoweredText: word._word,
-//               wordText: word.word,
-//             }
-//           }),
-//           wordsSynonyms: task.wordsAudio.words.data.map(word => word.synonyms),
-//           sentenceAudio: {
-//             filePath: task.wordsAudio.sentence.filePath,
-//             fileName: task.wordsAudio.sentence.audioFileName,
-//           },
-//         }
-//       })
-//       return tasks
-//     })
-
-//     .catch(error => console.log(error))
-// }
-
 export const getTasks = async ({
   languageTo,
   languageFrom,
@@ -206,6 +172,7 @@ export const getTasks = async ({
           }
         }),
         wordsSynonyms: task.wordsAudio.words.data.map(word => word.synonyms),
+        iLearnFromNameCode: task.iLearnFrom[0].language.name.nameCode,
         sentenceAudio: {
           filePath: task.wordsAudio.sentence.filePath,
           fileName: task.wordsAudio.sentence.audioFileName,
