@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { words } from 'lodash'
 
 export type InitialTasksData = {
   tasks: InitialTask[]
@@ -165,17 +166,21 @@ export const getTasks = async ({
         correctText: task.iLearn.text,
         errorText: task.iLearn.errorText,
         taskText: task.iLearnFrom[0].text,
-        wordsAudio: task.wordsAudio.words.data.map(word => {
-          return {
-            filePath: word.filePath,
-            fileName: word.audioFileName,
-            wordLoweredText: word._word,
-            wordText: word.word,
-          }
-        }),
-        wordsSynonyms: task.wordsAudio.words.data.map(word => word.synonyms),
+        wordsAudio:
+          task.wordsAudio &&
+          task.wordsAudio.words.data.map(word => {
+            return {
+              filePath: word.filePath,
+              fileName: word.audioFileName,
+              wordLoweredText: word._word,
+              wordText: word.word,
+            }
+          }),
+        wordsSynonyms:
+          task.wordsAudio &&
+          task.wordsAudio.words.data.map(word => word.synonyms),
         iLearnFromNameCode: task.iLearnFrom[0].language.name.nameCode,
-        sentenceAudio: {
+        sentenceAudio: task.wordsAudio && {
           filePath: task.wordsAudio.sentence.filePath,
           fileName: task.wordsAudio.sentence.audioFileName,
         },

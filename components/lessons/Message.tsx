@@ -9,15 +9,15 @@ const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
 })
 interface Props {
   variant: 'question' | 'message'
-  type: 'dictation' | 'translate' | 'omittedwords'
+  type: 'dictation' | 'translate' | 'replay'
   position?: 'left' | 'right'
   taskDescription: string
   taskText: string
   correctText: string
-  sentenceAudio: {
-    filePath: string
-    fileName: string
-  }
+  // sentenceAudio: {
+  //   filePath: string
+  //   fileName: string
+  // }
 }
 
 export const Message: FC<Props> = ({
@@ -27,7 +27,7 @@ export const Message: FC<Props> = ({
   taskDescription,
   taskText,
   correctText,
-  sentenceAudio,
+  // sentenceAudio,
 }) => {
   // const audioUrl = `https://cdn.lingwing.com${sentenceAudio.filePath}/${sentenceAudio.fileName}.mp3`
 

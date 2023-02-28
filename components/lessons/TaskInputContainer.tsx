@@ -43,20 +43,22 @@ export const TaskInputContainer: FC<Props> = ({
   setCurrentTaskNumber,
   currentTaskNumber,
 }) => {
-  const [inputText, setInputText] = useState('')
-  const [outputText, setOutputText] = useState('')
-  const [partialTranscript, setPartialTranscript] = useState<string>('')
-  const [textFromKeyboard, setTextFromKeyboard] = useState('')
-  const [isRecording, setIsRecording] = useState(true)
-  const [mistakesCount, setMistakesCount] = useState(0)
-  const [mistakeRepeat, setMistakeRepeat] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
+  const [inputText, setInputText] = useState('') // the text the user has inputted
+  const [outputText, setOutputText] = useState('') // the text that should be displayed as output
+  const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
+  const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
+  const [isRecording, setIsRecording] = useState(true) // whether or not the user's voice is being recorded
+  const [mistakesCount, setMistakesCount] = useState(0) // the number of mistakes the user has made
+  const [mistakeRepeat, setMistakeRepeat] = useState(false) // whether or not we should count new mistakes
+  const [isAnimating, setIsAnimating] = useState(false) // whether or not the microphone icon should be animating
 
+  // create an animation for the microphone icon
   const { transform, opacity } = useSpring({
     opacity: isAnimating ? 1 : 0.5,
     transform: `scale(${isAnimating ? 1.5 : 1})`,
   })
 
+  // set up speech recognition
   const { finalTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -92,6 +94,7 @@ export const TaskInputContainer: FC<Props> = ({
 
   //only for keyboardInput
   useEffect(() => {
+    // Depending of taskType choosing text check
     ;(taskType === 'dictation' || taskType === 'translate') &&
       setOutputText(standardTextCheck({ ...params }))
     taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
@@ -100,14 +103,22 @@ export const TaskInputContainer: FC<Props> = ({
   //switch to next task
   useEffect(() => {
     if (token === null) return
-
+    // If the output text matches the correct text, save the task and move on to the next one
     if (outputText === correctText) {
-      saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
-      setCurrentTaskNumber(currentTaskNumber + 1)
+      setTimeout(() => {
+        saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+        setCurrentTaskNumber(currentTaskNumber + 1)
+        setOutputText('')
+        setMistakesCount(0)
+        setMistakeRepeat(false)
+      }, 1200)
     }
   }, [outputText])
 
+  console
+
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
+    // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
     if (
       event.key === 'Space' &&
       inputRef.current &&
@@ -130,24 +141,27 @@ export const TaskInputContainer: FC<Props> = ({
   }
 
   const handleOnFocus = () => {
+    // Stop listening for speech when the input field is focused
     SpeechRecognition.stopListening()
-
+    // Focus on the input field and move the cursor to the end
     if (inputRef.current) {
       inputRef.current.focus()
       const length = inputRef.current.value.length
       inputRef.current.setSelectionRange(length, length)
     }
-
+    // If there is a partial transcript available, set the output text to the partial transcript
     partialTranscript && setOutputText(partialTranscript)
   }
 
   const handleMicOnClick = () => {
     setIsAnimating(!isAnimating)
     if (inputRef.current) {
+      // Store the current input value before starting/stopping speech recognition
       const inputValue = inputRef.current.value
       setTextFromKeyboard(inputValue)
     }
     setIsRecording(!isRecording)
+    // If speech recognition is currently active, stop it. Otherwise, start it.
     isRecording
       ? SpeechRecognition.startListening({ continuous: true })
       : SpeechRecognition.stopListening()
@@ -167,6 +181,7 @@ export const TaskInputContainer: FC<Props> = ({
             currentCharCode === KEYBOARD_OVERRIDE[i].array[j].originalCode ||
             currentCharCode === KEYBOARD_OVERRIDE[i].array[j].alterCode
           ) {
+            // override the input text with a character from a different keyboard layout
             const overriddenText =
               event.target.value.slice(0, event.target.value.length - 1) +
               String.fromCharCode(KEYBOARD_OVERRIDE[i].array[j].alterCode)
@@ -182,17 +197,17 @@ export const TaskInputContainer: FC<Props> = ({
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
 
-      {taskType === 'dictation' ||
+      {(taskType === 'dictation' ||
         taskType === 'translate' ||
-        (taskType === 'replay' && (
-          <DictationInput
-            inputRef={inputRef}
-            outputText={outputText}
-            onKeyDown={handleOnKeyDown}
-            onChange={handleChange}
-            onFocus={handleOnFocus}
-          />
-        ))}
+        taskType === 'replay') && (
+        <DictationInput
+          inputRef={inputRef}
+          outputText={outputText}
+          onKeyDown={handleOnKeyDown}
+          onChange={handleChange}
+          onFocus={handleOnFocus}
+        />
+      )}
 
       {taskType === 'omittedwords' && (
         <OmittedWords

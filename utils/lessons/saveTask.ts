@@ -23,7 +23,7 @@ export const saveTask = async ({
     ordinalNumber: ordinalNumber,
   }
   const config = {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: token },
   }
 
   try {

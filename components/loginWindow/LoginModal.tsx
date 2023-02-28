@@ -31,9 +31,16 @@ const Divider: FC = () => {
 interface Props {
   onClick: () => void
   className?: string
+  openLogin: boolean
+  setOpenLogin: (bool: boolean) => void
 }
 
-export const LoginModal: FC<Props> = ({ onClick, className }) => {
+export const LoginModal: FC<Props> = ({
+  onClick,
+  className,
+  openLogin,
+  setOpenLogin,
+}) => {
   const [tab, setTab] = useState<Tab>('signIn')
   const { t } = useTranslation()
 
@@ -55,9 +62,10 @@ export const LoginModal: FC<Props> = ({ onClick, className }) => {
   }
 
   const signIn = () => {
-    return login({ email, password }).then(response =>
-      localStorage.setItem('authToken', response),
-    )
+    return login({ email, password }).then(response => {
+      localStorage.setItem('authToken', response)
+      setOpenLogin(!openLogin)
+    })
   }
 
   return (

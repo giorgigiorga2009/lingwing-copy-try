@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { NextPage } from 'next'
-import { FC, useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
 import { CourseDropdown } from '../components/lessons/CourseDropdown'
 import { Message } from '../components/lessons/Message'
@@ -10,15 +10,6 @@ import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
 import { Dialog, DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
 import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
-
-// const dialogArray = [
-//   "Hi, I'm Camilla.",
-//   "Good morning, Camilla, I'm Bill.",
-//   'I am an office manager.',
-//   'Nice, I am a taxi driver.',
-//   'Nice to meet you, Bill!',
-//   'Nice to meet you too, Camilla!',
-// ]
 
 const Lessons: NextPage = () => {
   const [start, setStart] = useState(false)
@@ -31,13 +22,21 @@ const Lessons: NextPage = () => {
   const [courseId, setCourseId] = useState('')
 
   const router = useRouter()
-  const { courseName, languageTo, languageFrom } = router.query
+  const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
+
+  // Use the tasksData and currentTaskNumber states to set the current task and its type
   useEffect(() => {
     if (!tasksData) return
     setCurrentTask(tasksData[currentTaskNumber])
     setCurrentTaskType(currentTask?.taskType)
-  }, [currentTaskNumber])
+  }, [currentTaskNumber, tasksData])
 
+  useEffect(() => {
+    if (!currentTask) return
+    setCurrentTaskType(currentTask.taskType)
+  }, [currentTask])
+
+  // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || !token) return
     getUserCourse({ languageFrom, languageTo, courseName, token }).then(
@@ -45,10 +44,12 @@ const Lessons: NextPage = () => {
     )
   }, [languageFrom, languageTo, courseName])
 
+  // Use localStorage to set the token state
   useEffect(() => {
     setToken(localStorage.getItem('authToken'))
   }, [])
 
+  // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || !token || !courseId)
       return
@@ -60,10 +61,16 @@ const Lessons: NextPage = () => {
 
   // const dialogData = () => {}
 
+  // Constant for conditional rendering
   const isShown =
     currentTask !== undefined &&
     languageTo !== undefined &&
     languageFrom !== undefined
+
+  console.log(currentTask, 'currentTask')
+  console.log(tasksData, 'tasksData')
+  console.log(isShown, 'ISSHOWN')
+  console.log(currentTaskType, 'currentTaskType')
 
   return (
     <div className={style.container}>
@@ -93,13 +100,36 @@ const Lessons: NextPage = () => {
 
         {isShown && (
           <div className={style.chat}>
-            <Dialog
-              currentMessageIndex={currentMessageIndex}
-              dialogArray={currentTask.correctText as string[]}
-            />
+            {currentTaskType === 'dialog' && (
+              <Dialog
+                currentMessageIndex={currentMessageIndex}
+                dialogArray={currentTask.correctText as string[]}
+              />
+            )}
+
+            {currentTaskType === 'translate' && (
+              <Message
+                type={currentTaskType}
+                variant="question"
+                taskText={currentTask.taskText}
+                correctText={currentTask.correctText as string}
+                taskDescription={currentTask.taskDescription}
+              />
+            )}
+
+            {currentTaskType === 'dictation' && (
+              <Message
+                type={currentTaskType}
+                variant="question"
+                taskText={currentTask.taskText}
+                correctText={currentTask.correctText as string}
+                taskDescription={currentTask.taskDescription}
+              />
+            )}
           </div>
         )}
 
+        {/* Determine what type of input render  */}
         {isShown &&
           (currentTaskType === 'translate' ||
             currentTaskType === 'dictation' ||
@@ -112,13 +142,14 @@ const Lessons: NextPage = () => {
               ordinalNumber={currentTask.ordinalNumber}
               correctText={currentTask.correctText as string}
               wordsSynonyms={currentTask.wordsSynonyms}
-              taskType="translate"
-              iLearnFromNameCode="none"
+              taskType={currentTaskType}
+              iLearnFromNameCode={currentTask.iLearnFromNameCode}
               courseId={courseId}
               setCurrentTaskNumber={setCurrentTaskNumber}
               currentTaskNumber={currentTaskNumber}
             />
           )}
+
         {isShown && currentTaskType === 'dialog' && (
           <DialogInput
             token={token}
@@ -127,13 +158,14 @@ const Lessons: NextPage = () => {
             ordinalNumber={currentTask.ordinalNumber}
             currentMessageIndex={currentMessageIndex}
             dialogArray={currentTask.correctText as string[]}
-            iLearnFromNameCode="none"
+            iLearnFromNameCode={currentTask.iLearnFromNameCode}
             setCurrentMessageIndex={setCurrentMessageIndex}
             courseId={courseId}
             setCurrentTaskNumber={setCurrentTaskNumber}
             currentTaskNumber={currentTaskNumber}
           />
         )}
+
         {isShown && currentTaskType === 'mistakecorrection' && (
           <MistakeCorrectionTask
             token={token}

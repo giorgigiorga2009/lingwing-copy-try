@@ -54,6 +54,8 @@ export const Header: FC<Props> = ({
       </div>
       {openLogin && (
         <LoginModal
+          openLogin={openLogin}
+          setOpenLogin={setOpenLogin}
           onClick={() => setOpenLogin(false)}
           className={loginClassName}
         />
