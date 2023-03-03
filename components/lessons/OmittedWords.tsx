@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
+import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
 import style from './OmittedWords.module.scss'
 
@@ -13,10 +14,10 @@ interface Props {
   token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
-  ordinalNumber: number
   courseId: string
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
+  currentTask: TaskData
 }
 
 export const OmittedWords: FC<Props> = ({
@@ -30,10 +31,10 @@ export const OmittedWords: FC<Props> = ({
   token,
   languageTo,
   languageFrom,
-  ordinalNumber,
   courseId,
   setCurrentTaskNumber,
   currentTaskNumber,
+  currentTask,
 }) => {
   const [words, setWords] = useState([''])
   const [correctWords, setCorrectWords] = useState([''])
@@ -77,7 +78,7 @@ export const OmittedWords: FC<Props> = ({
   useEffect(() => {
     if (token === null) return
     if (correctWords.length === inputsCount) {
-      saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+      saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)
     }
   }, [correctWords])

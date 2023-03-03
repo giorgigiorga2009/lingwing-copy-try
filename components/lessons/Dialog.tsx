@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
+import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
 import { repetitionInputCheck } from '../../utils/lessons/taskInputUtils'
 import style from './Dialog.module.scss'
@@ -39,41 +40,34 @@ export const Dialog: FC<DialogProps> = ({
 interface DialogInputProps {
   setCurrentMessageIndex: (index: number) => void
   currentMessageIndex: number
-  dialogArray: string[]
-  iLearnFromNameCode: string
   token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
-  ordinalNumber: number
   courseId: string
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
+  currentTask: TaskData
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
   setCurrentMessageIndex,
   currentMessageIndex,
-  dialogArray,
-  iLearnFromNameCode,
   token,
   languageTo,
   languageFrom,
-  ordinalNumber,
   courseId,
   setCurrentTaskNumber,
   currentTaskNumber,
+  currentTask,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
   const [inputText, setInputText] = useState('')
 
-  // useEffect(() => {
-  //   if (token === null) return
-
-  //   outputText === correctText &&  saveTask({token, languageFrom, languageTo, ordinalNumber, courseId})
-
-  // }, [outputText])
+  const dialogArray = currentTask.correctText as string[]
+  const wordsSynonyms = currentTask.wordsSynonyms
+  const iLearnFromNameCode = currentTask.iLearnFromNameCode
 
   useEffect(() => {
     setOutputText(
@@ -120,7 +114,7 @@ export const DialogInput: FC<DialogInputProps> = ({
         if (currentMessageIndex === dialogArray.length - 1) {
           setCurrentMessageIndex(0)
           if (token === null) return
-          saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+          saveTask({ token, languageFrom, languageTo, currentTask, courseId })
           setCurrentTaskNumber(currentTaskNumber + 1)
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)

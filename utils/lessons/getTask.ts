@@ -91,6 +91,7 @@ export interface TaskData {
     | 'omittedwords'
     | 'replay'
     | 'mistakecorrection'
+    | 'grammar'
   taskNumber: number
   errorLimit: number
   correctText: string | string[]

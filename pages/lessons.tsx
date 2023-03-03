@@ -10,6 +10,7 @@ import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
 import { Dialog, DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
 import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
+import { Grammar, GrammarButton } from '../components/lessons/Grammar'
 
 const Lessons: NextPage = () => {
   const [start, setStart] = useState(false)
@@ -126,6 +127,10 @@ const Lessons: NextPage = () => {
                 taskDescription={currentTask.taskDescription}
               />
             )}
+
+            {currentTaskType === 'grammar' && (
+              <Grammar taskText={currentTask.taskText} />
+            )}
           </div>
         )}
 
@@ -139,11 +144,8 @@ const Lessons: NextPage = () => {
               token={token}
               languageTo={languageTo}
               languageFrom={languageFrom}
-              ordinalNumber={currentTask.ordinalNumber}
-              correctText={currentTask.correctText as string}
-              wordsSynonyms={currentTask.wordsSynonyms}
               taskType={currentTaskType}
-              iLearnFromNameCode={currentTask.iLearnFromNameCode}
+              currentTask={currentTask}
               courseId={courseId}
               setCurrentTaskNumber={setCurrentTaskNumber}
               currentTaskNumber={currentTaskNumber}
@@ -155,14 +157,12 @@ const Lessons: NextPage = () => {
             token={token}
             languageTo={languageTo}
             languageFrom={languageFrom}
-            ordinalNumber={currentTask.ordinalNumber}
             currentMessageIndex={currentMessageIndex}
-            dialogArray={currentTask.correctText as string[]}
-            iLearnFromNameCode={currentTask.iLearnFromNameCode}
             setCurrentMessageIndex={setCurrentMessageIndex}
             courseId={courseId}
             setCurrentTaskNumber={setCurrentTaskNumber}
             currentTaskNumber={currentTaskNumber}
+            currentTask={currentTask}
           />
         )}
 
@@ -171,12 +171,22 @@ const Lessons: NextPage = () => {
             token={token}
             languageTo={languageTo}
             languageFrom={languageFrom}
-            ordinalNumber={currentTask.ordinalNumber}
-            mistakeText={currentTask.errorText}
-            correctText={currentTask.correctText as string}
             courseId={courseId}
             setCurrentTaskNumber={setCurrentTaskNumber}
             currentTaskNumber={currentTaskNumber}
+            currentTask={currentTask}
+          />
+        )}
+
+        {isShown && currentTaskType === 'grammar' && (
+          <GrammarButton
+            token={token}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            courseId={courseId}
+            setCurrentTaskNumber={setCurrentTaskNumber}
+            currentTaskNumber={currentTaskNumber}
+            currentTask={currentTask}
           />
         )}
       </div>

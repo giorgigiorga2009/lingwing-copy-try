@@ -5,36 +5,39 @@ import React, {
   FC,
   useEffect,
 } from 'react'
+import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
 
 interface Props {
-  mistakeText: string
-  correctText: string
   token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
-  ordinalNumber: number
   courseId: string
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
+  currentTask: TaskData
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
-  mistakeText,
-  correctText,
   token,
   languageTo,
   languageFrom,
-  ordinalNumber,
   courseId,
   setCurrentTaskNumber,
   currentTaskNumber,
+  currentTask,
 }) => {
+  const mistakeText = currentTask.errorText
+
   const [inputText, setInputText] = useState(mistakeText)
   const [isCorrect, setIsCorrect] = useState(false)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
+
+  const correctText = currentTask.correctText as string
+  const wordsSynonyms = currentTask.wordsSynonyms
+  const ordinalNumber = currentTask.ordinalNumber
 
   useEffect(() => {
     if (token === null) return

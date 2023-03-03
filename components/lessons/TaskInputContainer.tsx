@@ -13,35 +13,30 @@ import { KEYBOARD_OVERRIDE } from '../../utils/const'
 import { DictationInput } from './DictationInput'
 import { OmittedWords } from './OmittedWords'
 import { saveTask } from '../../utils/lessons/saveTask'
+import { TaskData } from '../../utils/lessons/getTask'
 
 interface Props {
   // setCorrect: (bool: boolean) => void
-  correctText: string
-  wordsSynonyms: [string[]]
   taskType: string
-  iLearnFromNameCode: string
   token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
-  ordinalNumber: number
   courseId: string
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
+  currentTask: TaskData
 }
 
 export const TaskInputContainer: FC<Props> = ({
   // setCorrect,
-  correctText,
-  wordsSynonyms,
   taskType,
-  iLearnFromNameCode,
   token,
   languageTo,
   languageFrom,
-  ordinalNumber,
   courseId,
   setCurrentTaskNumber,
   currentTaskNumber,
+  currentTask,
 }) => {
   const [inputText, setInputText] = useState('') // the text the user has inputted
   const [outputText, setOutputText] = useState('') // the text that should be displayed as output
@@ -51,6 +46,10 @@ export const TaskInputContainer: FC<Props> = ({
   const [mistakesCount, setMistakesCount] = useState(0) // the number of mistakes the user has made
   const [mistakeRepeat, setMistakeRepeat] = useState(false) // whether or not we should count new mistakes
   const [isAnimating, setIsAnimating] = useState(false) // whether or not the microphone icon should be animating
+
+  const correctText = currentTask.correctText as string
+  const wordsSynonyms = currentTask.wordsSynonyms
+  const iLearnFromNameCode = currentTask.iLearnFromNameCode
 
   // create an animation for the microphone icon
   const { transform, opacity } = useSpring({
@@ -106,7 +105,7 @@ export const TaskInputContainer: FC<Props> = ({
     // If the output text matches the correct text, save the task and move on to the next one
     if (outputText === correctText) {
       setTimeout(() => {
-        saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+        saveTask({ token, languageFrom, languageTo, currentTask, courseId })
         setCurrentTaskNumber(currentTaskNumber + 1)
         setOutputText('')
         setMistakesCount(0)
@@ -212,7 +211,6 @@ export const TaskInputContainer: FC<Props> = ({
       {taskType === 'omittedwords' && (
         <OmittedWords
           sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
-          // setCorrect={setCorrect}
           onKeyDown={handleOnKeyDown}
           setMistakeRepeat={setMistakeRepeat}
           mistakeRepeat={mistakeRepeat}
@@ -221,10 +219,10 @@ export const TaskInputContainer: FC<Props> = ({
           token={token}
           languageTo={languageTo}
           languageFrom={languageFrom}
-          ordinalNumber={ordinalNumber}
           courseId={courseId}
           setCurrentTaskNumber={setCurrentTaskNumber}
           currentTaskNumber={currentTaskNumber}
+          currentTask={currentTask}
         />
       )}
 
