@@ -8,24 +8,40 @@ import style from './Dialog.module.scss'
 interface DialogProps {
   currentMessageIndex: number
   dialogArray: string[]
+  isHistory: boolean
 }
 
 export const Dialog: FC<DialogProps> = ({
   currentMessageIndex,
   dialogArray,
+  isHistory,
 }) => {
   return (
     <div className={style.dialog}>
-      {currentMessageIndex === 0 && (
+      {currentMessageIndex === 0 && !isHistory && (
         <div className={style.dialogStart}>
           <div className={style.title}>Напишите первые буквы слов</div>
           <div className={style.parrots} />
-          <div className={style.exapmle}>Например: {dialogArray[0]} </div>
+          <div className={style.example}>
+            например:{' '}
+            <span className={style.exampleText}> {dialogArray[0]}</span>{' '}
+          </div>
         </div>
       )}
 
       {currentMessageIndex > 0 &&
+        !isHistory &&
         dialogArray.slice(0, currentMessageIndex).map((message, index) => (
+          <div
+            key={index}
+            className={index % 2 === 0 ? style.messageRight : style.messageLeft}
+          >
+            {message}
+          </div>
+        ))}
+
+      {isHistory &&
+        dialogArray.map((message, index) => (
           <div
             key={index}
             className={index % 2 === 0 ? style.messageRight : style.messageLeft}
@@ -47,6 +63,8 @@ interface DialogInputProps {
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
   currentTask: TaskData
+  completedTasks: TaskData[] | undefined
+  setCompletedTasks: (tasks: TaskData[]) => void
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
@@ -59,6 +77,8 @@ export const DialogInput: FC<DialogInputProps> = ({
   setCurrentTaskNumber,
   currentTaskNumber,
   currentTask,
+  completedTasks,
+  setCompletedTasks,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
@@ -116,6 +136,8 @@ export const DialogInput: FC<DialogInputProps> = ({
           if (token === null) return
           saveTask({ token, languageFrom, languageTo, currentTask, courseId })
           setCurrentTaskNumber(currentTaskNumber + 1)
+          completedTasks && setCompletedTasks([...completedTasks, currentTask])
+          !completedTasks && setCompletedTasks([currentTask])
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }

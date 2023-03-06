@@ -1,0 +1,133 @@
+@import '../../../styles/imports.scss';
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 20rem;
+  height: 7rem;
+  background-color: #f3f1ed;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  &.answer {
+    height: 4rem;
+    margin-left: auto;
+  }
+
+  &.taskDescription {
+    margin-right: auto;
+    justify-content: flex-end;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  background: #fce5cc;
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+  height: 2rem;
+  color: #ff8400;
+
+  .answer & {
+    display: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 500;
+  min-width: 11rem;
+  padding: 0 0.5rem;
+  color: #1c1c1c;
+  height: 80%;
+}
+
+.taskText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $black;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+
+  .answer & {
+    display: none;
+  }
+  .true & {
+    display: none;
+  }
+}
+
+.correctText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $black;
+  font-size: 24px;
+  line-height: 30px;
+  min-width: 11rem;
+
+  .taskDescription & {
+    display: none;
+  }
+}
+
+.waveform {
+  display: flex;
+
+  .answer & {
+    display: none;
+  }
+}
+
+// .hint {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   height: 2rem;
+//   background-color: #b692e3;
+//   padding-left: 0.5rem;
+//   padding-right: 1rem;
+//   font-weight: 600;
+//   font-family: 'Kumbh Sans';
+//   font-style: normal;
+//   font-size: 20px;
+//   line-height: 30px;
+
+// }
+
+// .hintText {
+//   color: white;
+//   font-weight: 700;
+// }
+
+// .label {
+//   margin-right: 0.5rem;
+//   color: #692e96;
+//   font-weight: 400;
+// }
+
+// .soundIcon {
+//   margin-left: auto;
+//   height: 1rem;
+//   width: 1rem;
+//   background-image: url('/assets/images/tasks/volume.png');
+//   background-position: center;
+//   background-size: 100%;
+// }

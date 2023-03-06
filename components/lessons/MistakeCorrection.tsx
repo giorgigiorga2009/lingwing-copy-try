@@ -17,6 +17,8 @@ interface Props {
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
   currentTask: TaskData
+  completedTasks: TaskData[] | undefined
+  setCompletedTasks: (tasks: TaskData[]) => void
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
@@ -27,6 +29,8 @@ export const MistakeCorrectionTask: FC<Props> = ({
   setCurrentTaskNumber,
   currentTaskNumber,
   currentTask,
+  completedTasks,
+  setCompletedTasks,
 }) => {
   const mistakeText = currentTask.errorText
 
@@ -43,8 +47,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (token === null) return
 
     if (inputText === correctText) {
-      saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+      saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)
+      completedTasks && setCompletedTasks([...completedTasks, currentTask])
+      !completedTasks && setCompletedTasks([currentTask])
     }
   }, [inputText])
 
@@ -63,8 +69,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
       setMistakeRepeat(false)
       setIsCorrect(true)
       if (token === null) return
-      saveTask({ token, languageFrom, languageTo, ordinalNumber, courseId })
+      saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)
+      completedTasks && setCompletedTasks([...completedTasks, currentTask])
+      !completedTasks && setCompletedTasks([currentTask])
     } else {
       mistakeRepeat === false &&
         (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))

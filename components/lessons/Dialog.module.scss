@@ -115,6 +115,15 @@
   background-repeat: no-repeat;
 }
 
+.example {
+  color: grey;
+}
+.exampleText {
+  &:first-letter {
+    font-weight: bold;
+    color: orange;
+  }
+}
 // .microphoneIcon {
 //   position: relative;
 //   opacity: 0.5;

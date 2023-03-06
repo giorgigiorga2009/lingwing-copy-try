@@ -21,6 +21,24 @@ interface InitialTask {
     nameCode: string
   }
   wordsAudio: {
+    dialog: {
+      translation: [
+        {
+          words: {
+            data: [
+              {
+                synonyms: string[]
+                _word: string
+              },
+            ]
+          }
+          sentence: {
+            filePath: string
+            audioFileName: string
+          }
+        },
+      ]
+    }
     synonyms: string[]
     words: {
       current: number
@@ -97,18 +115,20 @@ export interface TaskData {
   correctText: string | string[]
   errorText: string
   taskText: string
-  wordsAudio: {
-    filePath: string
-    fileName: string
+  dialogLinesArray: [
+    {
+      words: string[]
+      sentenceAudioPath: string
+    },
+  ]
+  wordsArray: {
+    wordAudioPath: string
     wordLoweredText: string
     wordText: string
   }[]
   iLearnFromNameCode: string
   wordsSynonyms: [string[]]
-  sentenceAudio: {
-    filePath: string
-    fileName: string
-  }
+  sentenceAudioPath: string
 }
 
 export const getUserCourse = async ({
@@ -157,6 +177,20 @@ export const getTasks = async ({
     })
     const data = response.data.data
     const tasks = data.tasks.map((task: InitialTask) => {
+      const dialogLinesArray =
+        task?.wordsAudio?.dialog &&
+        task.wordsAudio.dialog.translation.map(dialogLine => {
+          return {
+            words: dialogLine.words.data.map(word => {
+              return {
+                wordLoweredText: word._word,
+                wordSynonyms: word.synonyms,
+              }
+            }),
+            sentenceAudioPath:
+              dialogLine.sentence.filePath + dialogLine.sentence.audioFileName,
+          }
+        })
       return {
         id: task._id,
         ordinalNumber: task.ordinalNumber,
@@ -167,24 +201,23 @@ export const getTasks = async ({
         correctText: task.iLearn.text,
         errorText: task.iLearn.errorText,
         taskText: task.iLearnFrom[0].text,
-        wordsAudio:
-          task.wordsAudio &&
+        dialogLinesArray: dialogLinesArray,
+        wordsArray:
+          task?.wordsAudio?.words &&
           task.wordsAudio.words.data.map(word => {
             return {
-              filePath: word.filePath,
-              fileName: word.audioFileName,
+              wordAudioPath: `${word.filePath}/${word.audioFileName}`,
               wordLoweredText: word._word,
               wordText: word.word,
             }
           }),
-        wordsSynonyms:
-          task.wordsAudio &&
-          task.wordsAudio.words.data.map(word => word.synonyms),
+        wordsSynonyms: task?.wordsAudio?.words
+          ? task.wordsAudio.words.data.map(word => word.synonyms)
+          : [],
         iLearnFromNameCode: task.iLearnFrom[0].language.name.nameCode,
-        sentenceAudio: task.wordsAudio && {
-          filePath: task.wordsAudio.sentence.filePath,
-          fileName: task.wordsAudio.sentence.audioFileName,
-        },
+        sentenceAudioPath:
+          task?.wordsAudio?.sentence &&
+          `${task.wordsAudio.sentence.filePath}/${task.wordsAudio.sentence.audioFileName}`,
       }
     })
     return tasks

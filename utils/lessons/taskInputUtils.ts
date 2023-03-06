@@ -105,6 +105,7 @@ export const repetitionInputCheck = ({
   const index = inputTextArray.length !== 0 ? inputTextArray.length - 1 : 0
 
   const currentWord = correctWordsArray[index]
+  if (currentWord === undefined) return ''
 
   const equal =
     currentWord.toLowerCase()[0] ===

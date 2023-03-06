@@ -18,6 +18,8 @@ interface Props {
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
   currentTask: TaskData
+  completedTasks: TaskData[] | undefined
+  setCompletedTasks: (tasks: TaskData[]) => void
 }
 
 export const OmittedWords: FC<Props> = ({
@@ -35,6 +37,8 @@ export const OmittedWords: FC<Props> = ({
   setCurrentTaskNumber,
   currentTaskNumber,
   currentTask,
+  completedTasks,
+  setCompletedTasks,
 }) => {
   const [words, setWords] = useState([''])
   const [correctWords, setCorrectWords] = useState([''])
@@ -80,6 +84,8 @@ export const OmittedWords: FC<Props> = ({
     if (correctWords.length === inputsCount) {
       saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)
+      completedTasks && setCompletedTasks([...completedTasks, currentTask])
+      !completedTasks && setCompletedTasks([currentTask])
     }
   }, [correctWords])
 

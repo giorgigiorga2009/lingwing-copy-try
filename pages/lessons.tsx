@@ -3,7 +3,6 @@ import { NextPage } from 'next'
 import { use, useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
 import { CourseDropdown } from '../components/lessons/CourseDropdown'
-import { Message } from '../components/lessons/Message'
 import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
 import style from './lessons.module.scss'
 import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
@@ -11,6 +10,8 @@ import { Dialog, DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
 import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
 import { Grammar, GrammarButton } from '../components/lessons/Grammar'
+import { DictationBubble } from '../components/lessons/chatBubbles/DictationBubble'
+import { TranslateBubble } from '../components/lessons/chatBubbles/TranslateBubble'
 
 const Lessons: NextPage = () => {
   const [start, setStart] = useState(false)
@@ -21,6 +22,7 @@ const Lessons: NextPage = () => {
   const [token, setToken] = useState<string | null>(null)
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
   const [courseId, setCourseId] = useState('')
+  const [completedTasks, setCompletedTasks] = useState<TaskData[]>()
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
@@ -69,9 +71,9 @@ const Lessons: NextPage = () => {
     languageFrom !== undefined
 
   console.log(currentTask, 'currentTask')
-  console.log(tasksData, 'tasksData')
-  console.log(isShown, 'ISSHOWN')
-  console.log(currentTaskType, 'currentTaskType')
+  // console.log(tasksData, 'tasksData')
+  // console.log(isShown, 'ISSHOWN')
+  // console.log(currentTaskType, 'currentTaskType')
 
   return (
     <div className={style.container}>
@@ -101,17 +103,132 @@ const Lessons: NextPage = () => {
 
         {isShown && (
           <div className={style.chat}>
+            {/* render completedTasks */}
+            {completedTasks &&
+              completedTasks.map(task => {
+                const taskType = task.taskType
+                return (
+                  <>
+                    {taskType === 'dictation' && (
+                      <div
+                        className={style.chatHistory}
+                        key={task.ordinalNumber}
+                      >
+                        <DictationBubble
+                          sentenceAudioPath={task.sentenceAudioPath}
+                          type="taskDescription"
+                          currentTask={false}
+                          taskText={task.taskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                        />
+                        <DictationBubble
+                          sentenceAudioPath={currentTask.sentenceAudioPath}
+                          type="answer"
+                          currentTask={false}
+                          taskText={task.taskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                        />
+                      </div>
+                    )}
+                    {(taskType === 'translate' ||
+                      taskType === 'omittedwords' ||
+                      taskType === 'mistakecorrection') && (
+                      <div
+                        className={style.chatHistory}
+                        key={task.ordinalNumber}
+                      >
+                        <TranslateBubble
+                          utteranceType="taskDescription"
+                          currentTask={false}
+                          taskText={task.taskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                        />
+                        <TranslateBubble
+                          utteranceType="answer"
+                          currentTask={false}
+                          taskText={task.taskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                        />
+                      </div>
+                    )}
+                    {taskType === 'replay' && (
+                      <div
+                        className={style.chatHistory}
+                        key={task.ordinalNumber}
+                      >
+                        <TranslateBubble
+                          utteranceType="taskDescription"
+                          textType="replay"
+                          currentTask={false}
+                          taskText={task.taskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                        />
+                        <TranslateBubble
+                          utteranceType="answer"
+                          textType="replay"
+                          currentTask={false}
+                          taskText={task.taskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                        />
+                      </div>
+                    )}
+                    {taskType === 'dialog' && (
+                      <div
+                        className={style.chatHistory}
+                        key={task.ordinalNumber}
+                      >
+                        <Dialog
+                          currentMessageIndex={currentMessageIndex}
+                          dialogArray={task.correctText as string[]}
+                          isHistory={true}
+                        />
+                      </div>
+                    )}
+                    {taskType === 'grammar' && (
+                      <div
+                        className={style.chatHistory}
+                        key={task.ordinalNumber}
+                      >
+                        <Grammar taskText={task.taskText} />
+                      </div>
+                    )}
+                  </>
+                )
+              })}
+
+            {/* render current task  */}
+
+            {(currentTaskType === 'translate' ||
+              currentTaskType === 'omittedwords' ||
+              currentTaskType === 'mistakecorrection') && (
+              <TranslateBubble
+                utteranceType="taskDescription"
+                currentTask={true}
+                taskText={currentTask.taskText}
+                correctText={currentTask.correctText as string}
+                taskDescription={currentTask.taskDescription}
+              />
+            )}
+
             {currentTaskType === 'dialog' && (
               <Dialog
+                isHistory={false}
                 currentMessageIndex={currentMessageIndex}
                 dialogArray={currentTask.correctText as string[]}
               />
             )}
 
-            {currentTaskType === 'translate' && (
-              <Message
-                type={currentTaskType}
-                variant="question"
+            {currentTaskType === 'replay' && (
+              <TranslateBubble
+                utteranceType="taskDescription"
+                textType="replay"
+                currentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
                 taskDescription={currentTask.taskDescription}
@@ -119,9 +236,10 @@ const Lessons: NextPage = () => {
             )}
 
             {currentTaskType === 'dictation' && (
-              <Message
-                type={currentTaskType}
-                variant="question"
+              <DictationBubble
+                sentenceAudioPath={currentTask.sentenceAudioPath}
+                type="taskDescription"
+                currentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
                 taskDescription={currentTask.taskDescription}
@@ -147,6 +265,8 @@ const Lessons: NextPage = () => {
               taskType={currentTaskType}
               currentTask={currentTask}
               courseId={courseId}
+              completedTasks={completedTasks}
+              setCompletedTasks={setCompletedTasks}
               setCurrentTaskNumber={setCurrentTaskNumber}
               currentTaskNumber={currentTaskNumber}
             />
@@ -163,6 +283,8 @@ const Lessons: NextPage = () => {
             setCurrentTaskNumber={setCurrentTaskNumber}
             currentTaskNumber={currentTaskNumber}
             currentTask={currentTask}
+            completedTasks={completedTasks}
+            setCompletedTasks={setCompletedTasks}
           />
         )}
 
@@ -175,6 +297,8 @@ const Lessons: NextPage = () => {
             setCurrentTaskNumber={setCurrentTaskNumber}
             currentTaskNumber={currentTaskNumber}
             currentTask={currentTask}
+            completedTasks={completedTasks}
+            setCompletedTasks={setCompletedTasks}
           />
         )}
 
@@ -187,6 +311,8 @@ const Lessons: NextPage = () => {
             setCurrentTaskNumber={setCurrentTaskNumber}
             currentTaskNumber={currentTaskNumber}
             currentTask={currentTask}
+            completedTasks={completedTasks}
+            setCompletedTasks={setCompletedTasks}
           />
         )}
       </div>

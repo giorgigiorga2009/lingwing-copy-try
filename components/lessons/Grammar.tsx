@@ -8,7 +8,12 @@ interface Props {
 }
 
 export const Grammar: FC<Props> = ({ taskText }) => {
-  return <div dangerouslySetInnerHTML={{ __html: taskText }} />
+  return (
+    <div
+      className={style.textContainer}
+      dangerouslySetInnerHTML={{ __html: taskText }}
+    />
+  )
 }
 
 interface ButtonProps {
@@ -19,6 +24,8 @@ interface ButtonProps {
   courseId: string
   setCurrentTaskNumber: (taskNumber: number) => void
   currentTaskNumber: number
+  completedTasks: TaskData[] | undefined
+  setCompletedTasks: (tasks: TaskData[]) => void
 }
 
 export const GrammarButton: FC<ButtonProps> = ({
@@ -29,11 +36,15 @@ export const GrammarButton: FC<ButtonProps> = ({
   courseId,
   setCurrentTaskNumber,
   currentTaskNumber,
+  completedTasks,
+  setCompletedTasks,
 }) => {
   const handleClick = () => {
     if (token === null) return
     saveTask({ token, languageFrom, languageTo, currentTask, courseId })
     setCurrentTaskNumber(currentTaskNumber + 1)
+    completedTasks && setCompletedTasks([...completedTasks, currentTask])
+    !completedTasks && setCompletedTasks([currentTask])
   }
   return (
     <div className={style.container}>

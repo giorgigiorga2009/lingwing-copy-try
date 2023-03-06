@@ -25,6 +25,8 @@ interface Props {
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
   currentTask: TaskData
+  completedTasks: TaskData[] | undefined
+  setCompletedTasks: (tasks: TaskData[]) => void
 }
 
 export const TaskInputContainer: FC<Props> = ({
@@ -37,6 +39,8 @@ export const TaskInputContainer: FC<Props> = ({
   setCurrentTaskNumber,
   currentTaskNumber,
   currentTask,
+  completedTasks,
+  setCompletedTasks,
 }) => {
   const [inputText, setInputText] = useState('') // the text the user has inputted
   const [outputText, setOutputText] = useState('') // the text that should be displayed as output
@@ -46,10 +50,37 @@ export const TaskInputContainer: FC<Props> = ({
   const [mistakesCount, setMistakesCount] = useState(0) // the number of mistakes the user has made
   const [mistakeRepeat, setMistakeRepeat] = useState(false) // whether or not we should count new mistakes
   const [isAnimating, setIsAnimating] = useState(false) // whether or not the microphone icon should be animating
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
 
   const correctText = currentTask.correctText as string
   const wordsSynonyms = currentTask.wordsSynonyms
   const iLearnFromNameCode = currentTask.iLearnFromNameCode
+
+  // const playAudio = () => {
+  //   const audioPath = currentTask.wordsArray[currentWordIndex].wordAudioPath;
+  //   const audioUrl = `https://cdn.lingwing.com${audioPath}.mp3`;
+  //   const audio = new Audio();
+  //   fetch(audioUrl)
+  //     .then(response => response.blob())
+  //     .then(blob => {
+  //       audio.src = URL.createObjectURL(blob);
+  //       audio.play();
+  //     });
+  // }
+
+  // const currentWord = currentTask.wordsArray && currentTask.wordsArray[currentWordIndex].wordLoweredText
+
+  useEffect(() => {
+    if (taskType !== 'translate') return
+    const outputArray = outputText.toLowerCase().trim().split(' ')
+    const wordIsFinished =
+      currentTask.wordsArray[currentWordIndex].wordLoweredText ===
+      outputArray[currentWordIndex]
+    // if (wordIsFinished) {
+    //   playAudio()
+    //   setCurrentWordIndex(currentWordIndex + 1)
+    // }
+  }, [outputText])
 
   // create an animation for the microphone icon
   const { transform, opacity } = useSpring({
@@ -93,8 +124,7 @@ export const TaskInputContainer: FC<Props> = ({
 
   //only for keyboardInput
   useEffect(() => {
-    // Depending of taskType choosing text check
-    ;(taskType === 'dictation' || taskType === 'translate') &&
+    ;(taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
       setOutputText(standardTextCheck({ ...params }))
     taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
   }, [inputText])
@@ -110,6 +140,8 @@ export const TaskInputContainer: FC<Props> = ({
         setOutputText('')
         setMistakesCount(0)
         setMistakeRepeat(false)
+        completedTasks && setCompletedTasks([...completedTasks, currentTask])
+        !completedTasks && setCompletedTasks([currentTask])
       }, 1200)
     }
   }, [outputText])
@@ -223,6 +255,8 @@ export const TaskInputContainer: FC<Props> = ({
           setCurrentTaskNumber={setCurrentTaskNumber}
           currentTaskNumber={currentTaskNumber}
           currentTask={currentTask}
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
         />
       )}
 
