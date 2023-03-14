@@ -20,6 +20,8 @@ interface Props {
   currentTask: TaskData
   completedTasks: TaskData[] | undefined
   setCompletedTasks: (tasks: TaskData[]) => void
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (text: string) => void
 }
 
 export const OmittedWords: FC<Props> = ({
@@ -39,6 +41,8 @@ export const OmittedWords: FC<Props> = ({
   currentTask,
   completedTasks,
   setCompletedTasks,
+  setIsHintShown,
+  setHintText,
 }) => {
   const [words, setWords] = useState([''])
   const [correctWords, setCorrectWords] = useState([''])
@@ -60,6 +64,7 @@ export const OmittedWords: FC<Props> = ({
       missingWord.substring(0, inputValue.length).toLowerCase()
     ) {
       setMistakeRepeat(false)
+      setIsHintShown(false)
       newWords[index] = missingWord.substring(0, inputValue.length)
       setWords(newWords)
 
@@ -74,8 +79,12 @@ export const OmittedWords: FC<Props> = ({
         nextInputRef && nextInputRef.focus()
       }
     } else {
-      mistakeRepeat === false &&
-        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
+      if (mistakeRepeat === false) {
+        setMistakesCount(mistakesCount + 1)
+        setMistakeRepeat(true)
+        setIsHintShown(true)
+        setHintText(missingWord)
+      }
     }
   }
 

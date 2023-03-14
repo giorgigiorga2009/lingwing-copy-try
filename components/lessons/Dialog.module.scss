@@ -1,6 +1,7 @@
 @import '../../styles/imports.scss';
 
 .container {
+  position: relative;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -11,11 +12,19 @@
   border: 1px solid black;
   height: auto;
   max-height: 80vh;
-  width: 95%;
+  width: 99%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 1rem 0.5rem 0.5rem 0.5rem;
+}
+.soundCheck {
+  position: absolute;
+  bottom: 15rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .parrots {

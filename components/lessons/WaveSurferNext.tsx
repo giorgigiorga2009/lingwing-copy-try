@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useRef, FC, MutableRefObject } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  FC,
+  MutableRefObject,
+  useCallback,
+} from 'react'
 import style from './WaveSurferNext.module.scss'
 import WaveSurfer from 'wavesurfer.js'
 
@@ -14,6 +21,9 @@ const formWaveSurferOptions = (ref: string) => ({
   normalize: true,
   partialRender: true,
   hideScrollbar: true,
+  xhr: {
+    mode: 'no-cors',
+  },
 })
 
 interface Props {
@@ -32,20 +42,18 @@ const WaveSurferNext: FC<Props> = ({ audioURL }) => {
       setPlaying(false)
     })
 
-  const create = () => {
-    const options = formWaveSurferOptions(waveformRef.current!)
-
-    wavesurfer.current = WaveSurfer.create(options)
-    console.log(audioURL)
-    wavesurfer.current.load(audioURL)
-
-    wavesurfer.current.on('audioprocess', function () {
-      const currentTime = wavesurfer.current!.getCurrentTime()
-      setProgress(currentTime)
-    })
-
-    audioDuration()
-  }
+  const create = useCallback(() => {
+    if (!wavesurfer.current) {
+      const options = formWaveSurferOptions(waveformRef.current!)
+      wavesurfer.current = WaveSurfer.create(options)
+      wavesurfer.current.load(audioURL)
+      wavesurfer.current.on('audioprocess', function () {
+        const currentTime = wavesurfer.current!.getCurrentTime()
+        setProgress(currentTime)
+      })
+      audioDuration()
+    }
+  }, [audioURL])
 
   useEffect(() => {
     create()
@@ -53,9 +61,10 @@ const WaveSurferNext: FC<Props> = ({ audioURL }) => {
     return () => {
       if (wavesurfer.current) {
         wavesurfer.current.destroy()
+        wavesurfer.current = null
       }
     }
-  }, [])
+  }, [create])
 
   const handlePlayPause = () => {
     setPlaying(!playing)

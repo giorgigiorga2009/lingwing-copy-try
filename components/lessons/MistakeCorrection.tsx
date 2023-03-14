@@ -19,6 +19,8 @@ interface Props {
   currentTask: TaskData
   completedTasks: TaskData[] | undefined
   setCompletedTasks: (tasks: TaskData[]) => void
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (text: string) => void
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
@@ -31,17 +33,16 @@ export const MistakeCorrectionTask: FC<Props> = ({
   currentTask,
   completedTasks,
   setCompletedTasks,
+  setIsHintShown,
+  setHintText,
 }) => {
   const mistakeText = currentTask.errorText
 
   const [inputText, setInputText] = useState(mistakeText)
-  const [isCorrect, setIsCorrect] = useState(false)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
 
   const correctText = currentTask.correctText as string
-  const wordsSynonyms = currentTask.wordsSynonyms
-  const ordinalNumber = currentTask.ordinalNumber
 
   useEffect(() => {
     if (token === null) return
@@ -49,6 +50,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)
+      setIsHintShown(false)
       completedTasks && setCompletedTasks([...completedTasks, currentTask])
       !completedTasks && setCompletedTasks([currentTask])
     }
@@ -67,15 +69,19 @@ export const MistakeCorrectionTask: FC<Props> = ({
   const checkAnswer = () => {
     if (inputText === correctText) {
       setMistakeRepeat(false)
-      setIsCorrect(true)
+      setIsHintShown(false)
       if (token === null) return
       saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)
       completedTasks && setCompletedTasks([...completedTasks, currentTask])
       !completedTasks && setCompletedTasks([currentTask])
     } else {
-      mistakeRepeat === false &&
-        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
+      if (mistakeRepeat === false) {
+        setMistakesCount(mistakesCount + 1)
+        setMistakeRepeat(true)
+        setIsHintShown(true)
+        setHintText(correctText)
+      }
     }
   }
 
@@ -83,7 +89,12 @@ export const MistakeCorrectionTask: FC<Props> = ({
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
 
-      <input type="text" value={inputText} onChange={handleInputChange} />
+      <input
+        type="text"
+        className={style.input}
+        value={inputText}
+        onChange={handleInputChange}
+      />
 
       <div className={style.checkButton} onClick={checkAnswer}>
         Check

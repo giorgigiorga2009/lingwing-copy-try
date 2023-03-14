@@ -4,6 +4,7 @@ import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
 import { repetitionInputCheck } from '../../utils/lessons/taskInputUtils'
 import style from './Dialog.module.scss'
+import { SoundCheck } from './SoundCheck'
 
 interface DialogProps {
   currentMessageIndex: number
@@ -65,6 +66,8 @@ interface DialogInputProps {
   currentTask: TaskData
   completedTasks: TaskData[] | undefined
   setCompletedTasks: (tasks: TaskData[]) => void
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (text: string) => void
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
@@ -79,17 +82,21 @@ export const DialogInput: FC<DialogInputProps> = ({
   currentTask,
   completedTasks,
   setCompletedTasks,
+  setIsHintShown,
+  setHintText,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
   const [inputText, setInputText] = useState('')
+  const [isSoundChecked, setSoundChecked] = useState(false)
 
   const dialogArray = currentTask.correctText as string[]
   const wordsSynonyms = currentTask.wordsSynonyms
   const iLearnFromNameCode = currentTask.iLearnFromNameCode
 
   useEffect(() => {
+    if (!inputText) return
     setOutputText(
       repetitionInputCheck({
         inputText,
@@ -99,6 +106,8 @@ export const DialogInput: FC<DialogInputProps> = ({
         setMistakesCount,
         mistakesCount,
         mistakeRepeat,
+        setIsHintShown,
+        setHintText,
       }),
     )
   }, [inputText])
@@ -129,9 +138,17 @@ export const DialogInput: FC<DialogInputProps> = ({
   }
 
   useEffect(() => {
+    const audio = new Audio(
+      `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`,
+    )
+    audio.play()
+  }, [isSoundChecked])
+
+  useEffect(() => {
     if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) {
       setTimeout(() => {
         if (currentMessageIndex === dialogArray.length - 1) {
+          setIsHintShown(false)
           setCurrentMessageIndex(0)
           if (token === null) return
           saveTask({ token, languageFrom, languageTo, currentTask, courseId })
@@ -142,15 +159,28 @@ export const DialogInput: FC<DialogInputProps> = ({
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
         setOutputText('')
-        // const audio = new Audio(`/audio/${currentMessageIndex + 1}.mp3`);
-        // audio.play();
+        if (!currentTask?.dialogLinesArray[currentMessageIndex + 1]) return
+        const audio = new Audio(
+          `https://cdn.lingwing.com${
+            currentTask?.dialogLinesArray[currentMessageIndex + 1]
+              .sentenceAudioPath
+          }.mp3`,
+        )
+        audio.play()
       }, 1200) // Specify the delay time in milliseconds
     }
   }, [outputText])
 
   return (
     <div className={style.container}>
+      <div className={!isSoundChecked ? style.soundCheck : style.hidden}>
+        <SoundCheck
+          setSoundChecked={setSoundChecked}
+          soundChecked={isSoundChecked}
+        />
+      </div>
       <div className={style.mistakes}> {mistakesCount} </div>
+      {/* <audio  src={`https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`} controls></audio> */}
       <input
         className={style.input}
         type="text"

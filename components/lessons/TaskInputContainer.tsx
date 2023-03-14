@@ -16,7 +16,6 @@ import { saveTask } from '../../utils/lessons/saveTask'
 import { TaskData } from '../../utils/lessons/getTask'
 
 interface Props {
-  // setCorrect: (bool: boolean) => void
   taskType: string
   token: string | null
   languageTo: string | string[]
@@ -27,10 +26,11 @@ interface Props {
   currentTask: TaskData
   completedTasks: TaskData[] | undefined
   setCompletedTasks: (tasks: TaskData[]) => void
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (text: string) => void
 }
 
 export const TaskInputContainer: FC<Props> = ({
-  // setCorrect,
   taskType,
   token,
   languageTo,
@@ -41,6 +41,8 @@ export const TaskInputContainer: FC<Props> = ({
   currentTask,
   completedTasks,
   setCompletedTasks,
+  setIsHintShown,
+  setHintText,
 }) => {
   const [inputText, setInputText] = useState('') // the text the user has inputted
   const [outputText, setOutputText] = useState('') // the text that should be displayed as output
@@ -56,30 +58,24 @@ export const TaskInputContainer: FC<Props> = ({
   const wordsSynonyms = currentTask.wordsSynonyms
   const iLearnFromNameCode = currentTask.iLearnFromNameCode
 
-  // const playAudio = () => {
-  //   const audioPath = currentTask.wordsArray[currentWordIndex].wordAudioPath;
-  //   const audioUrl = `https://cdn.lingwing.com${audioPath}.mp3`;
-  //   const audio = new Audio();
-  //   fetch(audioUrl)
-  //     .then(response => response.blob())
-  //     .then(blob => {
-  //       audio.src = URL.createObjectURL(blob);
-  //       audio.play();
-  //     });
-  // }
-
-  // const currentWord = currentTask.wordsArray && currentTask.wordsArray[currentWordIndex].wordLoweredText
-
+  // play audio after word is finished
   useEffect(() => {
-    if (taskType !== 'translate') return
+    if (taskType !== 'translate' && taskType !== 'dictation') return
     const outputArray = outputText.toLowerCase().trim().split(' ')
     const wordIsFinished =
-      currentTask.wordsArray[currentWordIndex].wordLoweredText ===
-      outputArray[currentWordIndex]
-    // if (wordIsFinished) {
-    //   playAudio()
-    //   setCurrentWordIndex(currentWordIndex + 1)
-    // }
+      currentTask?.wordsArray[currentWordIndex]?.wordLoweredText ===
+      outputArray[currentWordIndex]?.replace(/[^\w\s-]/g, '').trim()
+    if (wordIsFinished) {
+      if (
+        currentTask?.wordsArray[currentWordIndex]?.wordAudioPath !== undefined
+      ) {
+        const audio = new Audio(
+          `https://cdn.lingwing.com${currentTask?.wordsArray[currentWordIndex]?.wordAudioPath}.mp3`,
+        )
+        audio.play()
+      }
+      setCurrentWordIndex(currentWordIndex + 1)
+    }
   }, [outputText])
 
   // create an animation for the microphone icon
@@ -120,12 +116,19 @@ export const TaskInputContainer: FC<Props> = ({
     setMistakesCount,
     mistakesCount,
     mistakeRepeat,
+    setIsHintShown,
+    setHintText,
   }
 
   //only for keyboardInput
   useEffect(() => {
     ;(taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
-      setOutputText(standardTextCheck({ ...params }))
+      setOutputText(
+        standardTextCheck({
+          ...params,
+          currentWord: currentTask?.wordsArray[currentWordIndex]?.wordText,
+        }),
+      )
     taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
   }, [inputText])
 
@@ -133,20 +136,20 @@ export const TaskInputContainer: FC<Props> = ({
   useEffect(() => {
     if (token === null) return
     // If the output text matches the correct text, save the task and move on to the next one
-    if (outputText === correctText) {
+    if (outputText.trim() === correctText) {
       setTimeout(() => {
+        setIsHintShown(false)
         saveTask({ token, languageFrom, languageTo, currentTask, courseId })
         setCurrentTaskNumber(currentTaskNumber + 1)
         setOutputText('')
         setMistakesCount(0)
         setMistakeRepeat(false)
+        setCurrentWordIndex(0)
         completedTasks && setCompletedTasks([...completedTasks, currentTask])
         !completedTasks && setCompletedTasks([currentTask])
-      }, 1200)
+      }, 1500)
     }
   }, [outputText])
-
-  console
 
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
     // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
@@ -257,6 +260,8 @@ export const TaskInputContainer: FC<Props> = ({
           currentTask={currentTask}
           completedTasks={completedTasks}
           setCompletedTasks={setCompletedTasks}
+          setIsHintShown={setIsHintShown}
+          setHintText={setHintText}
         />
       )}
 

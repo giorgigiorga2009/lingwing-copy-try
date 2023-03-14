@@ -89,7 +89,8 @@ interface InitialTask {
     errorText: string
   }
   iLearnFrom: {
-    text: string
+    hint?: string
+    text?: string
     language: {
       name: {
         nameCode: string
@@ -115,6 +116,7 @@ export interface TaskData {
   correctText: string | string[]
   errorText: string
   taskText: string
+  mistakeTaskText: string
   dialogLinesArray: [
     {
       words: string[]
@@ -187,8 +189,7 @@ export const getTasks = async ({
                 wordSynonyms: word.synonyms,
               }
             }),
-            sentenceAudioPath:
-              dialogLine.sentence.filePath + dialogLine.sentence.audioFileName,
+            sentenceAudioPath: `${dialogLine.sentence.filePath}/${dialogLine.sentence.audioFileName}`,
           }
         })
       return {
@@ -201,6 +202,7 @@ export const getTasks = async ({
         correctText: task.iLearn.text,
         errorText: task.iLearn.errorText,
         taskText: task.iLearnFrom[0].text,
+        mistakeTaskText: task.iLearnFrom[0].hint,
         dialogLinesArray: dialogLinesArray,
         wordsArray:
           task?.wordsAudio?.words &&

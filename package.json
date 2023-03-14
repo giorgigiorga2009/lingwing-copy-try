@@ -32,6 +32,8 @@
     "react-spring": "^9.6.1",
     "react-transition-group": "^4.4.5",
     "regenerator-runtime": "^0.13.11",
+    "tone": "^14.8.49",
+    "waves-ui": "wavesjs/ui",
     "wavesurfer.js": "^6.4.0"
   },
   "devDependencies": {

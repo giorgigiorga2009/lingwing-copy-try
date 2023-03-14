@@ -6,15 +6,20 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-width: 20rem;
+  min-width: 25rem;
   height: 7rem;
   background-color: #f3f1ed;
-  border-radius: 0.9rem;
+  border-radius: 0.9rem 0.9rem 0.9rem 0;
   overflow: hidden;
+
+  &.hint {
+    border-radius: 0.9rem 0.9rem 0 0;
+  }
 
   &.answer {
     height: 4rem;
     margin-left: auto;
+    border-radius: 0.9rem 0.9rem 0 0.9rem;
   }
 
   &.taskDescription {

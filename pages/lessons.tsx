@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { NextPage } from 'next'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
 import { CourseDropdown } from '../components/lessons/CourseDropdown'
 import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
@@ -12,6 +12,8 @@ import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
 import { Grammar, GrammarButton } from '../components/lessons/Grammar'
 import { DictationBubble } from '../components/lessons/chatBubbles/DictationBubble'
 import { TranslateBubble } from '../components/lessons/chatBubbles/TranslateBubble'
+import { SoundCheck } from '../components/lessons/SoundCheck'
+import dynamic from 'next/dynamic'
 
 const Lessons: NextPage = () => {
   const [start, setStart] = useState(false)
@@ -23,9 +25,34 @@ const Lessons: NextPage = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
   const [courseId, setCourseId] = useState('')
   const [completedTasks, setCompletedTasks] = useState<TaskData[]>()
+  const [isSoundChecked, setSoundChecked] = useState(false)
+  const [isHintShown, setIsHintShown] = useState(false)
+  const [hintText, setHintText] = useState('')
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
+
+  // Use localStorage to set the token state
+  useEffect(() => {
+    setToken(localStorage.getItem('authToken'))
+  }, [])
+
+  // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
+  useEffect(() => {
+    if (!languageFrom || !languageTo || !courseName || !token) return
+    getUserCourse({ languageFrom, languageTo, courseName, token }).then(
+      courseId => setCourseId(courseId),
+    )
+  }, [languageFrom, languageTo, courseName, token])
+
+  // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
+  useEffect(() => {
+    if (!languageFrom || !languageTo || !courseName || !token || !courseId)
+      return
+    getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
+      response => setTasksData(response),
+    )
+  }, [courseId])
 
   // Use the tasksData and currentTaskNumber states to set the current task and its type
   useEffect(() => {
@@ -39,30 +66,26 @@ const Lessons: NextPage = () => {
     setCurrentTaskType(currentTask.taskType)
   }, [currentTask])
 
-  // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || !token) return
-    getUserCourse({ languageFrom, languageTo, courseName, token }).then(
-      courseId => setCourseId(courseId),
+    if (
+      !languageFrom ||
+      !languageTo ||
+      !courseName ||
+      !token ||
+      !courseId ||
+      !tasksData
     )
-  }, [languageFrom, languageTo, courseName])
-
-  // Use localStorage to set the token state
-  useEffect(() => {
-    setToken(localStorage.getItem('authToken'))
-  }, [])
-
-  // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
-  useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || !token || !courseId)
       return
-
-    getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
-      response => setTasksData(response),
-    )
-  }, [courseId])
-
-  // const dialogData = () => {}
+    if (currentTaskNumber === tasksData?.length - 1) {
+      getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
+        response => {
+          const slicedResponse = response.slice(2)
+          const newDataArray = [...tasksData, ...slicedResponse]
+          setTasksData(newDataArray)
+        },
+      )
+    }
+  }, [currentTaskNumber])
 
   // Constant for conditional rendering
   const isShown =
@@ -70,18 +93,28 @@ const Lessons: NextPage = () => {
     languageTo !== undefined &&
     languageFrom !== undefined
 
-  console.log(currentTask, 'currentTask')
+  // console.log(currentTask, 'currentTask')
+  // console.log(currentTaskNumber, 'currentTaskNumber')
+  // console.log(isHintShown, 'isHintShown')
   // console.log(tasksData, 'tasksData')
   // console.log(isShown, 'ISSHOWN')
   // console.log(currentTaskType, 'currentTaskType')
+
+  const WaveSurferNext = dynamic(
+    () => import('../components/lessons/WaveSurferNext'),
+    {
+      ssr: false,
+    },
+  )
 
   return (
     <div className={style.container}>
       <Header size="s" variant="task" timerTrigger={start} />
       <div className={style.rating} />
 
-      {/* <SoundCheck /> */}
       <div className={style.content}>
+        {/* <SoundCheck setSoundChecked={setSoundChecked} soundChecked={isSoundChecked} /> */}
+
         <div className={style.foldersContainer}>
           <span className={style.course}>Course</span>
           <span className={style.folderName}>Grammar</span>
@@ -108,12 +141,9 @@ const Lessons: NextPage = () => {
               completedTasks.map(task => {
                 const taskType = task.taskType
                 return (
-                  <>
+                  <div key={task.ordinalNumber} className={style.chatHistory}>
                     {taskType === 'dictation' && (
-                      <div
-                        className={style.chatHistory}
-                        key={task.ordinalNumber}
-                      >
+                      <>
                         <DictationBubble
                           sentenceAudioPath={task.sentenceAudioPath}
                           type="taskDescription"
@@ -121,6 +151,7 @@ const Lessons: NextPage = () => {
                           taskText={task.taskText}
                           correctText={task.correctText as string}
                           taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
                         />
                         <DictationBubble
                           sentenceAudioPath={currentTask.sentenceAudioPath}
@@ -129,22 +160,20 @@ const Lessons: NextPage = () => {
                           taskText={task.taskText}
                           correctText={task.correctText as string}
                           taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
                         />
-                      </div>
+                      </>
                     )}
                     {(taskType === 'translate' ||
-                      taskType === 'omittedwords' ||
-                      taskType === 'mistakecorrection') && (
-                      <div
-                        className={style.chatHistory}
-                        key={task.ordinalNumber}
-                      >
+                      taskType === 'omittedwords') && (
+                      <>
                         <TranslateBubble
                           utteranceType="taskDescription"
                           currentTask={false}
                           taskText={task.taskText}
                           correctText={task.correctText as string}
                           taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
                         />
                         <TranslateBubble
                           utteranceType="answer"
@@ -152,14 +181,34 @@ const Lessons: NextPage = () => {
                           taskText={task.taskText}
                           correctText={task.correctText as string}
                           taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
                         />
-                      </div>
+                      </>
                     )}
+
+                    {taskType === 'mistakecorrection' && (
+                      <>
+                        <TranslateBubble
+                          utteranceType="taskDescription"
+                          currentTask={false}
+                          taskText={task.mistakeTaskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
+                        />
+                        <TranslateBubble
+                          utteranceType="answer"
+                          currentTask={false}
+                          taskText={task.mistakeTaskText}
+                          correctText={task.correctText as string}
+                          taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
+                        />
+                      </>
+                    )}
+
                     {taskType === 'replay' && (
-                      <div
-                        className={style.chatHistory}
-                        key={task.ordinalNumber}
-                      >
+                      <>
                         <TranslateBubble
                           utteranceType="taskDescription"
                           textType="replay"
@@ -167,6 +216,7 @@ const Lessons: NextPage = () => {
                           taskText={task.taskText}
                           correctText={task.correctText as string}
                           taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
                         />
                         <TranslateBubble
                           utteranceType="answer"
@@ -175,79 +225,113 @@ const Lessons: NextPage = () => {
                           taskText={task.taskText}
                           correctText={task.correctText as string}
                           taskDescription={task.taskDescription}
+                          isHintShown={isHintShown}
                         />
-                      </div>
+                      </>
                     )}
                     {taskType === 'dialog' && (
-                      <div
-                        className={style.chatHistory}
-                        key={task.ordinalNumber}
-                      >
+                      <>
                         <Dialog
                           currentMessageIndex={currentMessageIndex}
                           dialogArray={task.correctText as string[]}
                           isHistory={true}
                         />
-                      </div>
+                      </>
                     )}
                     {taskType === 'grammar' && (
-                      <div
-                        className={style.chatHistory}
-                        key={task.ordinalNumber}
-                      >
+                      <>
                         <Grammar taskText={task.taskText} />
-                      </div>
+                      </>
                     )}
-                  </>
+                  </div>
                 )
               })}
 
             {/* render current task  */}
-
             {(currentTaskType === 'translate' ||
-              currentTaskType === 'omittedwords' ||
-              currentTaskType === 'mistakecorrection') && (
-              <TranslateBubble
-                utteranceType="taskDescription"
-                currentTask={true}
-                taskText={currentTask.taskText}
-                correctText={currentTask.correctText as string}
-                taskDescription={currentTask.taskDescription}
-              />
+              currentTaskType === 'omittedwords') && (
+              <div className={style.currentTask}>
+                <TranslateBubble
+                  utteranceType="taskDescription"
+                  currentTask={true}
+                  taskText={currentTask.taskText}
+                  correctText={currentTask.correctText as string}
+                  taskDescription={currentTask.taskDescription}
+                  isHintShown={isHintShown}
+                />
+                <div className={isHintShown ? style.hint : style.hidden}>
+                  Hint: {hintText}
+                </div>
+              </div>
+            )}
+
+            {currentTaskType === 'mistakecorrection' && (
+              <div className={style.currentTask}>
+                <TranslateBubble
+                  utteranceType="taskDescription"
+                  currentTask={true}
+                  taskText={currentTask.mistakeTaskText}
+                  correctText={currentTask.correctText as string}
+                  taskDescription={currentTask.taskDescription}
+                  isHintShown={isHintShown}
+                />
+                <div className={isHintShown ? style.hint : style.hidden}>
+                  Hint: {hintText}
+                </div>
+              </div>
             )}
 
             {currentTaskType === 'dialog' && (
-              <Dialog
-                isHistory={false}
-                currentMessageIndex={currentMessageIndex}
-                dialogArray={currentTask.correctText as string[]}
-              />
+              <div className={style.currentTask}>
+                <Dialog
+                  isHistory={false}
+                  currentMessageIndex={currentMessageIndex}
+                  dialogArray={currentTask.correctText as string[]}
+                />
+                <div className={isHintShown ? style.hint : style.hidden}>
+                  Hint: {hintText}
+                </div>
+              </div>
             )}
 
             {currentTaskType === 'replay' && (
-              <TranslateBubble
-                utteranceType="taskDescription"
-                textType="replay"
-                currentTask={true}
-                taskText={currentTask.taskText}
-                correctText={currentTask.correctText as string}
-                taskDescription={currentTask.taskDescription}
-              />
+              <div className={style.currentTask}>
+                <TranslateBubble
+                  utteranceType="taskDescription"
+                  textType="replay"
+                  currentTask={true}
+                  taskText={currentTask.taskText}
+                  correctText={currentTask.correctText as string}
+                  taskDescription={currentTask.taskDescription}
+                  isHintShown={isHintShown}
+                />
+                <div className={isHintShown ? style.hint : style.hidden}>
+                  Hint: {hintText}
+                </div>
+              </div>
             )}
 
             {currentTaskType === 'dictation' && (
-              <DictationBubble
-                sentenceAudioPath={currentTask.sentenceAudioPath}
-                type="taskDescription"
-                currentTask={true}
-                taskText={currentTask.taskText}
-                correctText={currentTask.correctText as string}
-                taskDescription={currentTask.taskDescription}
-              />
+              <div className={style.currentTask}>
+                <DictationBubble
+                  sentenceAudioPath={currentTask.sentenceAudioPath}
+                  type="taskDescription"
+                  currentTask={true}
+                  taskText={currentTask.taskText}
+                  correctText={currentTask.correctText as string}
+                  taskDescription={currentTask.taskDescription}
+                  isHintShown={isHintShown}
+                />
+                <div className={isHintShown ? style.hint : style.hidden}>
+                  Hint: {hintText}
+                </div>
+              </div>
             )}
 
             {currentTaskType === 'grammar' && (
-              <Grammar taskText={currentTask.taskText} />
+              <div className={style.currentTask}>
+                <Grammar taskText={currentTask.taskText} />
+              </div>
             )}
           </div>
         )}
@@ -269,6 +353,8 @@ const Lessons: NextPage = () => {
               setCompletedTasks={setCompletedTasks}
               setCurrentTaskNumber={setCurrentTaskNumber}
               currentTaskNumber={currentTaskNumber}
+              setIsHintShown={setIsHintShown}
+              setHintText={setHintText}
             />
           )}
 
@@ -285,6 +371,8 @@ const Lessons: NextPage = () => {
             currentTask={currentTask}
             completedTasks={completedTasks}
             setCompletedTasks={setCompletedTasks}
+            setIsHintShown={setIsHintShown}
+            setHintText={setHintText}
           />
         )}
 
@@ -299,6 +387,8 @@ const Lessons: NextPage = () => {
             currentTask={currentTask}
             completedTasks={completedTasks}
             setCompletedTasks={setCompletedTasks}
+            setIsHintShown={setIsHintShown}
+            setHintText={setHintText}
           />
         )}
 

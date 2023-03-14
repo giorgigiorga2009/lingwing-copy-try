@@ -87,6 +87,8 @@ export const repetitionInputCheck = ({
   setMistakeRepeat,
   mistakeRepeat,
   mistakesCount,
+  setIsHintShown,
+  setHintText,
 }: {
   correctText: string
   inputText: string
@@ -95,6 +97,8 @@ export const repetitionInputCheck = ({
   setMistakeRepeat: (flag: boolean) => void
   mistakesCount: number
   mistakeRepeat: boolean
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (text: string) => void
 }) => {
   const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()]$/
 
@@ -113,6 +117,7 @@ export const repetitionInputCheck = ({
 
   if (equal) {
     setMistakeRepeat(false)
+    setIsHintShown(false)
     outputTextArray.push(currentWord)
     const isPunctuation =
       correctWordsArray[index + 1] !== undefined
@@ -122,8 +127,12 @@ export const repetitionInputCheck = ({
     const modifiedArray = outputTextArray.map(word => word.concat(' '))
     return modifiedArray.join('')
   } else {
-    mistakeRepeat === false &&
-      (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true))
+    if (mistakeRepeat === false) {
+      setMistakesCount(mistakesCount + 1)
+      setMistakeRepeat(true)
+      setIsHintShown(true)
+      setHintText(currentWord)
+    }
     return outputText
   }
 }
@@ -136,6 +145,9 @@ export const standardTextCheck = ({
   setMistakesCount,
   mistakesCount,
   outputText,
+  setIsHintShown,
+  setHintText,
+  currentWord,
 }: {
   inputText: string
   correctText: string
@@ -144,6 +156,9 @@ export const standardTextCheck = ({
   setMistakesCount: (values: number) => void
   mistakesCount: number
   outputText: string
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (text: string) => void
+  currentWord: string
 }) => {
   const index = inputText.length - 1
 
@@ -152,18 +167,74 @@ export const standardTextCheck = ({
     textToCompare: inputText,
     index,
   })
-  const textToShow = correctText.slice(0, inputText ? inputText.length : 0)
+  const isNextCharPunctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(
+    correctText[index],
+  )
 
-  if (textToShow.length === correctText.length - 1) {
+  const isNextCharSpace = correctText[index] && /\s/.test(correctText[index])
+
+  const isAfterNextCharSpace =
+    correctText[index + 1] && /\s/.test(correctText[index + 1])
+
+  let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
+
+  if (inputText.length === correctText.length - 1 && correctText.length > 1) {
+    setIsHintShown(false)
+    setMistakeRepeat(false)
     return correctText
-  } else {
-    if (isTextEqual) {
+  }
+
+  if (isNextCharPunctuation && isAfterNextCharSpace) {
+    if (inputText.endsWith(' ')) {
       setMistakeRepeat(false)
+      setIsHintShown(false)
+      textToShow += ' '
       return textToShow
     } else {
-      mistakeRepeat === false &&
-        (setMistakesCount(mistakesCount + 1), setMistakeRepeat(true)) // добавлять только одну ошибку на одну букву
+      if (mistakeRepeat === false) {
+        setIsHintShown(true)
+        setHintText('(space)')
+        setMistakesCount(mistakesCount + 1)
+        setMistakeRepeat(true)
+      }
       return outputText
     }
+  }
+
+  if (isNextCharSpace) {
+    if (inputText.endsWith(' ')) {
+      setMistakeRepeat(false)
+      setIsHintShown(false)
+
+      return textToShow
+    } else {
+      if (mistakeRepeat === false) {
+        setIsHintShown(true)
+        setHintText('(space)')
+        setMistakesCount(mistakesCount + 1)
+        setMistakeRepeat(true)
+      }
+      return outputText
+    }
+  }
+
+  if (isNextCharPunctuation && inputText.endsWith(' ')) {
+    setMistakeRepeat(false)
+    setIsHintShown(false)
+    return textToShow
+  }
+
+  if (!isNextCharPunctuation && isTextEqual) {
+    setMistakeRepeat(false)
+    setIsHintShown(false)
+    return textToShow
+  } else {
+    if (mistakeRepeat === false) {
+      setMistakesCount(mistakesCount + 1)
+      setMistakeRepeat(true)
+      setHintText(currentWord)
+      setIsHintShown(true)
+    }
+    return outputText
   }
 }
