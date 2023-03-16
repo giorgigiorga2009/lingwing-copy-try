@@ -142,7 +142,7 @@ export const DialogInput: FC<DialogInputProps> = ({
       `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`,
     )
     audio.play()
-  }, [isSoundChecked])
+  }, [])
 
   useEffect(() => {
     if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) {
@@ -159,6 +159,7 @@ export const DialogInput: FC<DialogInputProps> = ({
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
         setOutputText('')
+        setInputText('')
         if (!currentTask?.dialogLinesArray[currentMessageIndex + 1]) return
         const audio = new Audio(
           `https://cdn.lingwing.com${

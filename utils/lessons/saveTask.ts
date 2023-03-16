@@ -46,7 +46,7 @@ export const saveTask = async ({
 
   try {
     const response = await axios.post(url, payload, config)
-    console.log(response.data.status)
+    // console.log(response.data.status)
   } catch (error) {
     console.log(error)
   }

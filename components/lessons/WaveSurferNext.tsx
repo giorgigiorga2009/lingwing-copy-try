@@ -1,15 +1,8 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  FC,
-  MutableRefObject,
-  useCallback,
-} from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import style from './WaveSurferNext.module.scss'
 import WaveSurfer from 'wavesurfer.js'
 
-const formWaveSurferOptions = (ref: string) => ({
+const formWaveSurferOptions = ref => ({
   container: ref,
   waveColor: '#eee',
   progressColor: '#B692E3',
@@ -21,43 +14,45 @@ const formWaveSurferOptions = (ref: string) => ({
   normalize: true,
   partialRender: true,
   hideScrollbar: true,
-  xhr: {
-    mode: 'no-cors',
-  },
 })
 
-interface Props {
-  audioURL: string
-}
-
-const WaveSurferNext: FC<Props> = ({ audioURL }) => {
+const WaveSurferNext = ({ audioURL }) => {
   const waveformRef = useRef(null)
-  const wavesurfer = useRef<null | WaveSurfer>(null)
+  const wavesurfer = useRef(null)
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
 
-  wavesurfer.current &&
-    wavesurfer.current.on('finish', function () {
-      setPlaying(false)
-    })
+  const proxyURL = `/api/audioProxy?url=${encodeURIComponent(audioURL)}`
 
   const create = useCallback(() => {
     if (!wavesurfer.current) {
-      const options = formWaveSurferOptions(waveformRef.current!)
+      const options = formWaveSurferOptions(waveformRef.current)
       wavesurfer.current = WaveSurfer.create(options)
-      wavesurfer.current.load(audioURL)
-      wavesurfer.current.on('audioprocess', function () {
-        const currentTime = wavesurfer.current!.getCurrentTime()
+      wavesurfer.current.load(proxyURL)
+
+      wavesurfer.current.on('audioprocess', () => {
+        const currentTime = wavesurfer.current.getCurrentTime()
         setProgress(currentTime)
       })
-      audioDuration()
+
+      wavesurfer.current.on('ready', () => {
+        const length = wavesurfer.current.getDuration()
+        setDuration(length)
+      })
+
+      wavesurfer.current.on('finish', () => {
+        setPlaying(false)
+      })
+
+      wavesurfer.current.on('error', message => {
+        console.error('WaveSurfer error:', message)
+      })
     }
-  }, [audioURL])
+  }, [proxyURL])
 
   useEffect(() => {
     create()
-
     return () => {
       if (wavesurfer.current) {
         wavesurfer.current.destroy()
@@ -68,14 +63,7 @@ const WaveSurferNext: FC<Props> = ({ audioURL }) => {
 
   const handlePlayPause = () => {
     setPlaying(!playing)
-    wavesurfer.current !== null && wavesurfer.current.playPause()
-  }
-
-  const audioDuration = () => {
-    wavesurfer.current!.on('ready', function () {
-      const length = wavesurfer.current?.getDuration()
-      length && setDuration(length)
-    })
+    wavesurfer.current.playPause()
   }
 
   return (
@@ -87,8 +75,7 @@ const WaveSurferNext: FC<Props> = ({ audioURL }) => {
         />
       </div>
       <div className={style.waveform}>
-        {' '}
-        <div id="waveform" ref={waveformRef} />{' '}
+        <div id="waveform" ref={waveformRef} />
       </div>
       <div className={style.progress}>{(duration - progress).toFixed(2)}</div>
     </div>

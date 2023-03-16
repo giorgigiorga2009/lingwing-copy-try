@@ -141,6 +141,7 @@ export const TaskInputContainer: FC<Props> = ({
         setIsHintShown(false)
         saveTask({ token, languageFrom, languageTo, currentTask, courseId })
         setCurrentTaskNumber(currentTaskNumber + 1)
+        setInputText('')
         setOutputText('')
         setMistakesCount(0)
         setMistakeRepeat(false)
@@ -225,6 +226,7 @@ export const TaskInputContainer: FC<Props> = ({
       }
     }
     skipOverride && setInputText(event.target.value)
+    setInputText(event.target.value)
   }
 
   return (

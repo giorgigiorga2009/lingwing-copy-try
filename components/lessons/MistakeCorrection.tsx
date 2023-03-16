@@ -70,6 +70,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setMistakeRepeat(false)
       setIsHintShown(false)
+      setInputText('')
       if (token === null) return
       saveTask({ token, languageFrom, languageTo, currentTask, courseId })
       setCurrentTaskNumber(currentTaskNumber + 1)

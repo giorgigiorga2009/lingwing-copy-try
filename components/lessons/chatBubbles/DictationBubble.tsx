@@ -7,6 +7,7 @@ import style from './DictationBubble.module.scss'
 const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
   ssr: false,
 })
+
 interface Props {
   type: 'taskDescription' | 'answer'
   taskDescription: string
@@ -27,12 +28,6 @@ export const DictationBubble: FC<Props> = ({
   isHintShown,
 }) => {
   const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
-  // console.log(audioUrl, 'sentenceAudioPath')
-  const audioRef = useRef(null)
-
-  // useEffect(() => {
-  //   audioRef.current !== null && audioRef.current.play()
-  // }, [])
 
   return (
     <div
@@ -49,7 +44,6 @@ export const DictationBubble: FC<Props> = ({
         {currentTask && (
           <span className={style.waveform}>
             <WaveSurferNext audioURL={audioUrl} />
-            <audio src={audioUrl} ref={audioRef} controls></audio>
           </span>
         )}
         <span className={style.taskText}>{taskText} </span>

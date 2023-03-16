@@ -28,6 +28,7 @@ const Lessons: NextPage = () => {
   const [isSoundChecked, setSoundChecked] = useState(false)
   const [isHintShown, setIsHintShown] = useState(false)
   const [hintText, setHintText] = useState('')
+  const [newTasks, setNewTasks] = useState<TaskData[]>()
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
@@ -66,6 +67,7 @@ const Lessons: NextPage = () => {
     setCurrentTaskType(currentTask.taskType)
   }, [currentTask])
 
+  //fetch new portion of tasks
   useEffect(() => {
     if (
       !languageFrom ||
@@ -76,10 +78,10 @@ const Lessons: NextPage = () => {
       !tasksData
     )
       return
-    if (currentTaskNumber === tasksData?.length - 1) {
+    if (currentTaskNumber === tasksData?.length) {
       getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
         response => {
-          const slicedResponse = response.slice(2)
+          const slicedResponse = response.slice(1)
           const newDataArray = [...tasksData, ...slicedResponse]
           setTasksData(newDataArray)
         },
@@ -87,25 +89,22 @@ const Lessons: NextPage = () => {
     }
   }, [currentTaskNumber])
 
+  // useEffect(() => {
+  //   setTasksData(newTasks)
+  // }, [newTasks])
+
   // Constant for conditional rendering
   const isShown =
     currentTask !== undefined &&
     languageTo !== undefined &&
     languageFrom !== undefined
 
-  // console.log(currentTask, 'currentTask')
-  // console.log(currentTaskNumber, 'currentTaskNumber')
-  // console.log(isHintShown, 'isHintShown')
-  // console.log(tasksData, 'tasksData')
+  console.log(currentTask, 'currentTask')
+  console.log(currentTaskNumber, 'currentTaskNumber')
+  console.log(tasksData, 'tasksData')
+
   // console.log(isShown, 'ISSHOWN')
   // console.log(currentTaskType, 'currentTaskType')
-
-  const WaveSurferNext = dynamic(
-    () => import('../components/lessons/WaveSurferNext'),
-    {
-      ssr: false,
-    },
-  )
 
   return (
     <div className={style.container}>
