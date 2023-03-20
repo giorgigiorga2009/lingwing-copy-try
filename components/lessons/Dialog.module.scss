@@ -1,13 +1,5 @@
 @import '../../styles/imports.scss';
 
-.container {
-  position: relative;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .dialog {
   border: 1px solid black;
   height: auto;
@@ -70,7 +62,7 @@
 
 .container {
   display: flex;
-  width: 42rem;
+  width: 47rem;
   height: 7.25rem;
   gap: 1.5rem;
   justify-content: center;

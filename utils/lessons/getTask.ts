@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { words } from 'lodash'
+import { LanguageCourse } from './getLanguageCoursesList'
 
 export type InitialTasksData = {
   tasks: InitialTask[]
@@ -133,6 +134,53 @@ export interface TaskData {
   sentenceAudioPath: string
 }
 
+export type CourseObject = {
+  _id: string
+  course: {
+    _id: string
+    title: {
+      ben: string
+      tur: string
+      rus: string
+      esp: string
+      geo: string
+      eng: string
+    }
+    languageSubStandard: {
+      name: string
+    }
+    iLearnFrom: {
+      _id: string
+      code: number
+      nameCode: string
+      name: {
+        geo?: string
+        eng?: string
+        esp?: string
+        tur?: string
+        rus?: string
+      }
+    }[]
+    iLearn: {
+      _id: string
+      nameCode: string
+    }
+    subTotalActiveTask: number
+    configuration: {
+      authUserDailyLimit: number
+      enabled: boolean
+      unAuthUserDailyLimit: number
+    }
+  }
+  iLearnFromNameCode: string
+  learnMode: number
+  dailyReachedLimitDate: string
+  sentDailyTaskCounter: number
+  percent: string
+  uniquePassedTasks: number
+  score: number
+}
+
 export const getUserCourse = async ({
   languageTo,
   languageFrom,
@@ -143,7 +191,7 @@ export const getUserCourse = async ({
   languageFrom: string | string[]
   courseName: string | string[]
   token: string
-}): Promise<string> => {
+}): Promise<CourseObject | undefined> => {
   try {
     const response = await axios({
       url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
@@ -151,10 +199,9 @@ export const getUserCourse = async ({
         Authorization: token,
       },
     })
-    return response.data.data._id
+    return response.data.data
   } catch (error) {
     console.log(error)
-    return ''
   }
 }
 

@@ -1,0 +1,117 @@
+@import '../../styles/imports.scss';
+
+.flag {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  &.eng {
+    background-image: url('/assets/images/flags/circle/small/English.png');
+  }
+
+  &.esp {
+    background-image: url('/assets/images/flags/circle/small/Spanish.png');
+  }
+
+  &.ben {
+    background-image: url('/assets/images/flags/circle/small/Bengali.png');
+  }
+
+  &.tur {
+    background-image: url('/assets/images/flags/circle/small/Turkish.png');
+  }
+
+  &.rus {
+    background-image: url('/assets/images/flags/circle/small/Russian.png');
+  }
+
+  &.geo {
+    background-image: url('/assets/images/flags/circle/small/Georgian.png');
+  }
+
+  @include mobile {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.arrow {
+  background-image: url('/assets/images/arrows/arrow-down-grey.png');
+  width: 0.69rem;
+  height: 0.44rem;
+}
+
+.button {
+  color: $black;
+  font-size: 1rem;
+  cursor: pointer;
+  min-width: 10rem;
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 900;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    color: $orange-500;
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: 1rem;
+  margin: 0 auto 0.5rem 1rem;
+}
+
+.dropdownContent {
+  position: absolute;
+  left: -4rem;
+  background-color: $white;
+  box-shadow: 0 0 6px $white-200;
+  margin-top: 0.7rem;
+  border-radius: 0.63rem;
+  height: 17rem;
+  width: 10rem;
+  z-index: 1001;
+}
+
+.option {
+  color: $black;
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 1rem;
+  width: 10rem;
+  height: 3.37rem;
+  align-items: center;
+  border-bottom: 1px solid $white-200;
+  font-weight: 650;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $white-200;
+  }
+
+  &:first-child:hover {
+    border-radius: 0.63rem 0.63rem 0 0;
+  }
+
+  &:last-child:hover {
+    border-radius: 0 0 0.63rem 0.63rem;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.activeMark {
+  height: 12px;
+  width: 12px;
+  background-color: #90b337;
+  border-radius: 50%;
+  display: flex;
+}

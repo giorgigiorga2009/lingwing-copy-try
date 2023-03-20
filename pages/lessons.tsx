@@ -2,10 +2,14 @@ import classNames from 'classnames'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
-import { CourseDropdown } from '../components/lessons/CourseDropdown'
 import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
 import style from './lessons.module.scss'
-import { getTasks, getUserCourse, TaskData } from '../utils/lessons/getTask'
+import {
+  CourseObject,
+  getTasks,
+  getUserCourse,
+  TaskData,
+} from '../utils/lessons/getTask'
 import { Dialog, DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
 import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
@@ -13,10 +17,13 @@ import { Grammar, GrammarButton } from '../components/lessons/Grammar'
 import { DictationBubble } from '../components/lessons/chatBubbles/DictationBubble'
 import { TranslateBubble } from '../components/lessons/chatBubbles/TranslateBubble'
 import { SoundCheck } from '../components/lessons/SoundCheck'
-import dynamic from 'next/dynamic'
+import {
+  getCurrentLanguageCoursesList,
+  LanguageCourse,
+} from '../utils/lessons/getLanguageCoursesList'
+import { CoursesDropdown } from '../components/lessons/CoursesDropdown'
 
 const Lessons: NextPage = () => {
-  const [start, setStart] = useState(false)
   const [tasksData, setTasksData] = useState<TaskData[]>()
   const [currentTask, setCurrentTask] = useState<TaskData>()
   const [currentTaskType, setCurrentTaskType] = useState<TaskData['taskType']>()
@@ -28,7 +35,11 @@ const Lessons: NextPage = () => {
   const [isSoundChecked, setSoundChecked] = useState(false)
   const [isHintShown, setIsHintShown] = useState(false)
   const [hintText, setHintText] = useState('')
-  const [newTasks, setNewTasks] = useState<TaskData[]>()
+  const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
+    LanguageCourse[] | undefined
+  >()
+  const [userScore, setUserScore] = useState(0)
+  const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
@@ -42,7 +53,13 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || !token) return
     getUserCourse({ languageFrom, languageTo, courseName, token }).then(
-      courseId => setCourseId(courseId),
+      courseObject => {
+        if (courseObject) {
+          setCurrentCourseObject(courseObject)
+          setCourseId(courseObject._id)
+          setUserScore(courseObject.score)
+        }
+      },
     )
   }, [languageFrom, languageTo, courseName, token])
 
@@ -52,6 +69,27 @@ const Lessons: NextPage = () => {
       return
     getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
       response => setTasksData(response),
+    )
+  }, [courseId])
+
+  useEffect(() => {
+    if (
+      !languageFrom ||
+      !languageTo ||
+      !courseName ||
+      !token ||
+      !courseId ||
+      !currentCourseObject
+    )
+      return
+    getCurrentLanguageCoursesList({
+      languageFrom,
+      languageTo,
+      token,
+      languageCourseId: currentCourseObject.course._id,
+      languageId: currentCourseObject.course.iLearn._id,
+    }).then(currentCoursesList =>
+      setCurrentLanguageCoursesList(currentCoursesList),
     )
   }, [courseId])
 
@@ -78,20 +116,20 @@ const Lessons: NextPage = () => {
       !tasksData
     )
       return
-    if (currentTaskNumber === tasksData?.length) {
+    if (currentTaskNumber === tasksData?.length - 1) {
       getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
         response => {
+          console.log(response, 'RESPONSE')
           const slicedResponse = response.slice(1)
-          const newDataArray = [...tasksData, ...slicedResponse]
+          const newDataArray =
+            response.length > 1
+              ? [...tasksData, ...slicedResponse]
+              : [...tasksData, ...response]
           setTasksData(newDataArray)
         },
       )
     }
   }, [currentTaskNumber])
-
-  // useEffect(() => {
-  //   setTasksData(newTasks)
-  // }, [newTasks])
 
   // Constant for conditional rendering
   const isShown =
@@ -99,39 +137,48 @@ const Lessons: NextPage = () => {
     languageTo !== undefined &&
     languageFrom !== undefined
 
-  console.log(currentTask, 'currentTask')
-  console.log(currentTaskNumber, 'currentTaskNumber')
-  console.log(tasksData, 'tasksData')
+  // console.log(currentTask, 'currentTask')
+  // console.log(currentTaskNumber, 'currentTaskNumber')
+  // console.log(tasksData?.length, 'tasksLength')
+  // console.log(tasksData, 'tasksData')
 
   // console.log(isShown, 'ISSHOWN')
   // console.log(currentTaskType, 'currentTaskType')
 
   return (
     <div className={style.container}>
-      <Header size="s" variant="task" timerTrigger={start} />
+      <Header size="s" />
       <div className={style.rating} />
-
       <div className={style.content}>
         {/* <SoundCheck setSoundChecked={setSoundChecked} soundChecked={isSoundChecked} /> */}
 
-        <div className={style.foldersContainer}>
+        {/* <div className={style.foldersContainer}>
           <span className={style.course}>Course</span>
           <span className={style.folderName}>Grammar</span>
           <span className={style.folderName}>Levels</span>
           <span className={style.folderName}>Statistics</span>
-        </div>
-        <div className={classNames(style.progressBar, style.ratingStyle)}>
-          <div className={style.scoreContainer}>
-            <span className={style.count}> 1/3140</span>
-            <span className={style.scoreText}>
-              Score: <span className={style.scoreNumber}>12 450</span>{' '}
-            </span>
-            <span className={style.percent}>0.1%</span>
+        </div> */}
+        {currentCourseObject && (
+          <div className={classNames(style.progressBar, style.ratingStyle)}>
+            <div className={style.scoreContainer}>
+              <span className={style.scoreText}>
+                Score: <span className={style.scoreNumber}>{userScore}</span>{' '}
+              </span>
+              <span className={style.percent}>
+                {parseFloat(currentCourseObject.percent).toFixed(1)}%
+              </span>
+            </div>
+            <div className={style.progressContainer}>
+              <span className={style.progress} />
+            </div>
           </div>
-          <div className={style.progressContainer}>
-            <span className={style.progress} />
-          </div>
-        </div>
+        )}
+        {currentLanguageCoursesList && (
+          <CoursesDropdown
+            languageCoursesList={currentLanguageCoursesList}
+            languageTo={languageTo as string}
+          />
+        )}
 
         {isShown && (
           <div className={style.chat}>

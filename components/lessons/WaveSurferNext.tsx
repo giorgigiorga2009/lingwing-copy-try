@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback, FC } from 'react'
 import style from './WaveSurferNext.module.scss'
 import WaveSurfer from 'wavesurfer.js'
 
-const formWaveSurferOptions = ref => ({
+const formWaveSurferOptions = (ref: HTMLElement | null) => ({
   container: ref,
   waveColor: '#eee',
   progressColor: '#B692E3',
@@ -16,7 +16,11 @@ const formWaveSurferOptions = ref => ({
   hideScrollbar: true,
 })
 
-const WaveSurferNext = ({ audioURL }) => {
+interface WaveSurferNextProps {
+  audioURL: string
+}
+
+const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
   const waveformRef = useRef(null)
   const wavesurfer = useRef(null)
   const [playing, setPlaying] = useState(false)
