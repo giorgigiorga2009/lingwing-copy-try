@@ -28,7 +28,6 @@ export const TranslateBubble: FC<Props> = ({
         style[utteranceType],
         style[textType],
         style[`${isCurrentTask}`],
-        { [style.hint]: isHintShown && isCurrentTask },
       )}
     >
       <div className={style.header}>{taskDescription}</div>

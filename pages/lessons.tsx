@@ -136,16 +136,16 @@ const Lessons: NextPage = () => {
 
   const commonProps = arePropsDefined
     ? {
-        token,
-        languageTo,
-        languageFrom,
-        courseId,
-        setCurrentTaskNumber,
-        currentTaskNumber,
-        currentTask,
-        completedTasks,
-        setCompletedTasks,
-      }
+      token,
+      languageTo,
+      languageFrom,
+      courseId,
+      setCurrentTaskNumber,
+      currentTaskNumber,
+      currentTask,
+      completedTasks,
+      setCompletedTasks,
+    }
     : null
 
   console.log(commonProps, 'PROPS')
@@ -154,7 +154,9 @@ const Lessons: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size="s" />
+
       <div className={style.content}>
+
         {/* <SoundCheck setSoundChecked={setSoundChecked} soundChecked={isSoundChecked} /> */}
 
         {/* <div className={style.foldersContainer}>
@@ -177,9 +179,11 @@ const Lessons: NextPage = () => {
             languageTo={languageTo as string}
           />
         )}
+
+
         {/* chat window */}
-        <div className={style.chat}>
-          <>
+        <div className={style.chat}>    
+        <div className={style.chatWrapper} >
             {/* render done tasks */}
             {completedTasks && (
               <ChatHistory
@@ -198,7 +202,7 @@ const Lessons: NextPage = () => {
               />
             )}
             {!currentTask && <div className={style.blankBubble} />}
-          </>
+            </div>
         </div>
 
         {/* Render needed type of input render or placeholder */}

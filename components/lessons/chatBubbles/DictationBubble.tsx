@@ -35,7 +35,6 @@ export const DictationBubble: FC<Props> = ({
         style.container,
         style[type],
         style[`${isCurrentTask}`],
-        { [style.hint]: isHintShown && isCurrentTask },
       )}
     >
       <div className={style.header}>{taskDescription}</div>

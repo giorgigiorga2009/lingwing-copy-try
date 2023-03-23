@@ -80,15 +80,49 @@
   border: 0;
   width: 100%;
   height: 42rem;
-  gap: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 0.625rem 0.625rem 0 0;
   box-shadow: 2px 0px 10px 5px rgba(0, 0, 0, 0.03);
 }
+
+.chatWrapper {
+  border: 0;
+  margin-top: auto;
+  display: flex;
+  height: fit-content;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.test {
+  position: absolute;
+left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 30rem;
+  border: 0.2rem solid black;
+  z-index: 1001;
+}
+
+.blankBubble {
+  position: relative;
+  display: flex;
+  min-width: 25rem;
+  min-height: 15rem;
+  background-color: white;
+  border-radius: 0.9rem 0.9rem 0.9rem 0;
+  overflow: hidden;
+  margin-right: auto;
+  border: 0.2rem solid black;
+}
+
+
 
 .textCorrect {
   color: #e96d6d;
@@ -175,13 +209,4 @@
   background-repeat: no-repeat;
 }
 
-.blankBubble {
-  position: relative;
-  display: flex;
-  min-width: 25rem;
-  min-height: 15rem;
-  background-color: white;
-  border-radius: 0.9rem 0.9rem 0.9rem 0;
-  overflow: hidden;
-  margin-right: auto;
-}
+
