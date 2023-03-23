@@ -1,0 +1,15 @@
+.chatHistory {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 0.5rem;
+  height: fit-content;
+}
+
+.chatHistoryContainer {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

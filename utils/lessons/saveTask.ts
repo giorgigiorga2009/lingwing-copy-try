@@ -15,7 +15,7 @@ export const saveTask = async ({
   courseId: string
   // userKey?: string | null
   currentTask: TaskData
-}): Promise<void> => {
+}): Promise<boolean> => {
   const url = `${process.env.defaultURL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
   const payload = {
     userCourseId: courseId,
@@ -30,8 +30,8 @@ export const saveTask = async ({
       totalMistakes: 0,
       taskMistakes: [],
       percent: 0.6078288353999514,
-      forgivenErrorQuantity: 0,
-      notForgivenErrorQuantity: 0,
+      forgivenErrorQuantity: 1,
+      notForgivenErrorQuantity: 1,
       usedRecognition: 0,
       totalTypedWithRecognition: 0,
       totalTypedWithoutRecognition: 9,
@@ -46,8 +46,9 @@ export const saveTask = async ({
 
   try {
     const response = await axios.post(url, payload, config)
-    // console.log(response.data.status)
+    return true
   } catch (error) {
     console.log(error)
+    return false
   }
 }

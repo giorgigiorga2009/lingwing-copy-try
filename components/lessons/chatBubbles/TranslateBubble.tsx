@@ -7,7 +7,7 @@ interface Props {
   taskDescription: string
   taskText: string
   correctText: string
-  currentTask: boolean
+  isCurrentTask: boolean
   textType?: 'replay' | 'standard'
   isHintShown: boolean
 }
@@ -17,7 +17,7 @@ export const TranslateBubble: FC<Props> = ({
   taskText,
   correctText,
   utteranceType,
-  currentTask,
+  isCurrentTask,
   textType = 'standard',
   isHintShown,
 }) => {
@@ -27,8 +27,8 @@ export const TranslateBubble: FC<Props> = ({
         style.container,
         style[utteranceType],
         style[textType],
-        style[`${currentTask}`],
-        { [style.hint]: isHintShown && currentTask },
+        style[`${isCurrentTask}`],
+        { [style.hint]: isHintShown && isCurrentTask },
       )}
     >
       <div className={style.header}>{taskDescription}</div>

@@ -25,7 +25,6 @@ export const CoursesDropdown: FC<Props> = ({
   // const [selected, setSelected] = useState<LanguageFrom>(interfaceLanguage)
   const [open, setOpen] = useState(false)
 
-  console.log(languageCoursesList, 'currentCourse')
   return (
     <Foco
       component="div"

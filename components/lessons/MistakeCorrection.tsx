@@ -48,11 +48,21 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (token === null) return
 
     if (inputText === correctText) {
-      saveTask({ token, languageFrom, languageTo, currentTask, courseId })
-      setCurrentTaskNumber(currentTaskNumber + 1)
-      setIsHintShown(false)
-      completedTasks && setCompletedTasks([...completedTasks, currentTask])
-      !completedTasks && setCompletedTasks([currentTask])
+      setTimeout(async () => {
+        const isSaveSuccessful = await saveTask({
+          token,
+          languageFrom,
+          languageTo,
+          currentTask,
+          courseId,
+        })
+        if (isSaveSuccessful) {
+          setCurrentTaskNumber(currentTaskNumber + 1)
+          setIsHintShown(false)
+          completedTasks && setCompletedTasks([...completedTasks, currentTask])
+          !completedTasks && setCompletedTasks([currentTask])
+        }
+      }, 1500)
     }
   }, [inputText])
 
@@ -66,16 +76,24 @@ export const MistakeCorrectionTask: FC<Props> = ({
     }
   }
 
-  const checkAnswer = () => {
+  const checkAnswer = async () => {
     if (inputText === correctText) {
       setMistakeRepeat(false)
       setIsHintShown(false)
-      setInputText('')
       if (token === null) return
-      saveTask({ token, languageFrom, languageTo, currentTask, courseId })
-      setCurrentTaskNumber(currentTaskNumber + 1)
-      completedTasks && setCompletedTasks([...completedTasks, currentTask])
-      !completedTasks && setCompletedTasks([currentTask])
+      const isSaveSuccessful = await saveTask({
+        token,
+        languageFrom,
+        languageTo,
+        currentTask,
+        courseId,
+      })
+      if (isSaveSuccessful) {
+        setInputText('')
+        setCurrentTaskNumber(currentTaskNumber + 1)
+        completedTasks && setCompletedTasks([...completedTasks, currentTask])
+        !completedTasks && setCompletedTasks([currentTask])
+      }
     } else {
       if (mistakeRepeat === false) {
         setMistakesCount(mistakesCount + 1)

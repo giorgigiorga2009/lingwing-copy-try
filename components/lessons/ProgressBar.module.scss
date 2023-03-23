@@ -1,0 +1,69 @@
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  left: 0;
+  width: 42rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.2rem;
+  position: relative;
+}
+.scoreText {
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #1c1c1c;
+}
+
+.scoreNumber {
+  color: #f903e7;
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.percent {
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #c1bfbb;
+  position: absolute;
+  right: 0.5rem;
+}
+
+.progressContainer {
+  height: 0.69rem;
+  border-radius: 0.625rem;
+  background-color: #f3f1ed;
+}
+
+.progress {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 0.5rem;
+  background-color: #692e96;
+  width: 40%;
+  height: 100%;
+  border-radius: 0.625rem;
+}

@@ -91,10 +91,20 @@ export const OmittedWords: FC<Props> = ({
   useEffect(() => {
     if (token === null) return
     if (correctWords.length === inputsCount) {
-      saveTask({ token, languageFrom, languageTo, currentTask, courseId })
-      setCurrentTaskNumber(currentTaskNumber + 1)
-      completedTasks && setCompletedTasks([...completedTasks, currentTask])
-      !completedTasks && setCompletedTasks([currentTask])
+      setTimeout(async () => {
+        const isSaveSuccessful = await saveTask({
+          token,
+          languageFrom,
+          languageTo,
+          currentTask,
+          courseId,
+        })
+        if (isSaveSuccessful) {
+          setCurrentTaskNumber(currentTaskNumber + 1)
+          completedTasks && setCompletedTasks([...completedTasks, currentTask])
+          !completedTasks && setCompletedTasks([currentTask])
+        }
+      }, 1500)
     }
   }, [correctWords])
 

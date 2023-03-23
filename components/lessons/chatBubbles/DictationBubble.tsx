@@ -13,8 +13,8 @@ interface Props {
   taskDescription: string
   taskText: string
   correctText: string
-  sentenceAudioPath: string
-  currentTask: boolean
+  sentenceAudioPath?: string
+  isCurrentTask: boolean
   isHintShown: boolean
 }
 
@@ -24,7 +24,7 @@ export const DictationBubble: FC<Props> = ({
   correctText,
   sentenceAudioPath,
   type,
-  currentTask,
+  isCurrentTask,
   isHintShown,
 }) => {
   const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
@@ -34,14 +34,14 @@ export const DictationBubble: FC<Props> = ({
       className={classNames(
         style.container,
         style[type],
-        style[`${currentTask}`],
-        { [style.hint]: isHintShown && currentTask },
+        style[`${isCurrentTask}`],
+        { [style.hint]: isHintShown && isCurrentTask },
       )}
     >
       <div className={style.header}>{taskDescription}</div>
       <div className={style.content}>
         <span className={style.correctText}>{correctText}</span>
-        {currentTask && (
+        {isCurrentTask && (
           <span className={style.waveform}>
             <WaveSurferNext audioURL={audioUrl} />
           </span>

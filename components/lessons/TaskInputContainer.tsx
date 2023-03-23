@@ -15,9 +15,9 @@ import { OmittedWords } from './OmittedWords'
 import { saveTask } from '../../utils/lessons/saveTask'
 import { TaskData } from '../../utils/lessons/getTask'
 
-interface Props {
+interface TaskInputProps {
   taskType: string
-  token: string | null
+  token: string | null | undefined
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -30,7 +30,7 @@ interface Props {
   setHintText: (text: string) => void
 }
 
-export const TaskInputContainer: FC<Props> = ({
+export const TaskInputContainer: FC<TaskInputProps> = ({
   taskType,
   token,
   languageTo,
@@ -132,22 +132,29 @@ export const TaskInputContainer: FC<Props> = ({
     taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
   }, [inputText])
 
-  //switch to next task
   useEffect(() => {
-    if (token === null) return
+    if (token === null || token === undefined) return
     // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.trim() === correctText) {
-      setTimeout(() => {
+      setTimeout(async () => {
         setIsHintShown(false)
-        saveTask({ token, languageFrom, languageTo, currentTask, courseId })
-        setCurrentTaskNumber(currentTaskNumber + 1)
-        setInputText('')
-        setOutputText('')
-        setMistakesCount(0)
-        setMistakeRepeat(false)
-        setCurrentWordIndex(0)
-        completedTasks && setCompletedTasks([...completedTasks, currentTask])
-        !completedTasks && setCompletedTasks([currentTask])
+        const isSaveSuccessful = await saveTask({
+          token,
+          languageFrom,
+          languageTo,
+          currentTask,
+          courseId,
+        })
+        if (isSaveSuccessful) {
+          setCurrentTaskNumber(currentTaskNumber + 1)
+          setInputText('')
+          setOutputText('')
+          setMistakesCount(0)
+          setMistakeRepeat(false)
+          setCurrentWordIndex(0)
+          completedTasks && setCompletedTasks([...completedTasks, currentTask])
+          !completedTasks && setCompletedTasks([currentTask])
+        }
       }, 1500)
     }
   }, [outputText])
@@ -245,7 +252,7 @@ export const TaskInputContainer: FC<Props> = ({
         />
       )}
 
-      {taskType === 'omittedwords' && (
+      {token !== null && token !== undefined && taskType === 'omittedwords' && (
         <OmittedWords
           sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
           onKeyDown={handleOnKeyDown}

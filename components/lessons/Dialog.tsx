@@ -7,13 +7,13 @@ import style from './Dialog.module.scss'
 import { SoundCheck } from './SoundCheck'
 
 interface DialogProps {
-  currentMessageIndex: number
+  currentMessageIndex?: number
   dialogArray: string[]
   isHistory: boolean
 }
 
 export const Dialog: FC<DialogProps> = ({
-  currentMessageIndex,
+  currentMessageIndex = 0,
   dialogArray,
   isHistory,
 }) => {
@@ -57,7 +57,7 @@ export const Dialog: FC<DialogProps> = ({
 interface DialogInputProps {
   setCurrentMessageIndex: (index: number) => void
   currentMessageIndex: number
-  token: string | null
+  token: string | null | undefined
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -146,15 +146,24 @@ export const DialogInput: FC<DialogInputProps> = ({
 
   useEffect(() => {
     if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) {
-      setTimeout(() => {
+      setTimeout(async () => {
         if (currentMessageIndex === dialogArray.length - 1) {
           setIsHintShown(false)
           setCurrentMessageIndex(0)
-          if (token === null) return
-          saveTask({ token, languageFrom, languageTo, currentTask, courseId })
-          setCurrentTaskNumber(currentTaskNumber + 1)
-          completedTasks && setCompletedTasks([...completedTasks, currentTask])
-          !completedTasks && setCompletedTasks([currentTask])
+          if (token === null || token === undefined) return
+          const isSaveSuccessful = await saveTask({
+            token,
+            languageFrom,
+            languageTo,
+            currentTask,
+            courseId,
+          })
+          if (isSaveSuccessful) {
+            setCurrentTaskNumber(currentTaskNumber + 1)
+            completedTasks &&
+              setCompletedTasks([...completedTasks, currentTask])
+            !completedTasks && setCompletedTasks([currentTask])
+          }
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }

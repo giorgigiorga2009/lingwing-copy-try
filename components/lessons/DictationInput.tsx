@@ -27,6 +27,7 @@ export const DictationInput: FC<Props> = ({
       onKeyDown={onKeyDown}
       onChange={onChange}
       onFocus={onFocus}
+      autoFocus
     />
   )
 }

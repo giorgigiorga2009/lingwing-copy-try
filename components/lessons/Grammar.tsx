@@ -17,7 +17,7 @@ export const Grammar: FC<Props> = ({ taskText }) => {
 }
 
 interface ButtonProps {
-  token: string | null
+  token: string | null | undefined
   languageFrom: string | string[]
   languageTo: string | string[]
   currentTask: TaskData
@@ -39,13 +39,22 @@ export const GrammarButton: FC<ButtonProps> = ({
   completedTasks,
   setCompletedTasks,
 }) => {
-  const handleClick = () => {
-    if (token === null) return
-    saveTask({ token, languageFrom, languageTo, currentTask, courseId })
-    setCurrentTaskNumber(currentTaskNumber + 1)
-    completedTasks && setCompletedTasks([...completedTasks, currentTask])
-    !completedTasks && setCompletedTasks([currentTask])
+  const handleClick = async () => {
+    if (token === null || token === undefined) return
+    const isSaveSuccessful = await saveTask({
+      token,
+      languageFrom,
+      languageTo,
+      currentTask,
+      courseId,
+    })
+    if (isSaveSuccessful) {
+      setCurrentTaskNumber(currentTaskNumber + 1)
+      completedTasks && setCompletedTasks([...completedTasks, currentTask])
+      !completedTasks && setCompletedTasks([currentTask])
+    }
   }
+
   return (
     <div className={style.container}>
       <div onClick={handleClick} className={style.button}>

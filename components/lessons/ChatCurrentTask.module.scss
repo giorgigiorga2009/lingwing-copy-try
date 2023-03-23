@@ -1,0 +1,22 @@
+@import '../../styles/imports.scss';
+
+.currentTask {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 18%;
+}
+
+.hint {
+  display: flex;
+  background-color: $orange-300;
+  width: 25rem;
+  height: 3rem;
+  border-radius: 0 0 0.9rem 0rem;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
