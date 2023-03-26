@@ -120,7 +120,6 @@ const Lessons: NextPage = () => {
     if (currentTaskNumber === tasksData?.length) {
       getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
         response => {
-          console.log(response, 'RESPONSE')
           const newDataArray = [...tasksData, ...response]
           setTasksData(newDataArray)
         },
@@ -148,8 +147,6 @@ const Lessons: NextPage = () => {
     }
     : null
 
-  console.log(commonProps, 'PROPS')
-  console.log(token, languageTo, languageFrom, currentTask, completedTasks)
 
   return (
     <div className={style.container}>

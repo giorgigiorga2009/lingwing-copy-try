@@ -1,10 +1,13 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
 import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
-import { repetitionInputCheck } from '../../utils/lessons/taskInputUtils'
+import { getStringFromRecognition, repetitionInputCheck } from '../../utils/lessons/taskInputUtils'
 import style from './Dialog.module.scss'
 import { SoundCheck } from './SoundCheck'
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition'
 
 interface DialogProps {
   currentMessageIndex?: number
@@ -95,6 +98,37 @@ export const DialogInput: FC<DialogInputProps> = ({
   const wordsSynonyms = currentTask.wordsSynonyms
   const iLearnFromNameCode = currentTask.iLearnFromNameCode
 
+  // set up speech recognition
+  const { finalTranscript } = useSpeechRecognition()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
+  const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
+  const [isRecording, setIsRecording] = useState(true) // whether or not the user's voice is being recorded
+
+
+
+
+  // only for voiceRecognition
+  useEffect(() => {
+    setPartialTranscript(
+      getStringFromRecognition({
+        correctText: dialogArray[currentMessageIndex],
+        finalTranscript,
+        textFromKeyboard,
+        wordsSynonyms,
+      }),
+    )
+    setOutputText(
+      getStringFromRecognition({
+        correctText: dialogArray[currentMessageIndex],
+        finalTranscript,
+        textFromKeyboard,
+        wordsSynonyms,
+      }),
+    )
+  }, [finalTranscript])
+
+  //only for keyboard
   useEffect(() => {
     if (!inputText) return
     setOutputText(
@@ -171,15 +205,40 @@ export const DialogInput: FC<DialogInputProps> = ({
         setInputText('')
         if (!currentTask?.dialogLinesArray[currentMessageIndex + 1]) return
         const audio = new Audio(
-          `https://cdn.lingwing.com${
-            currentTask?.dialogLinesArray[currentMessageIndex + 1]
-              .sentenceAudioPath
+          `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex + 1]
+            .sentenceAudioPath
           }.mp3`,
         )
         audio.play()
       }, 1200) // Specify the delay time in milliseconds
     }
   }, [outputText])
+
+  const handleOnFocus = () => {
+    // Stop listening for speech when the input field is focused
+    SpeechRecognition.stopListening()
+    // Focus on the input field and move the cursor to the end
+    if (inputRef.current) {
+      inputRef.current.focus()
+      const length = inputRef.current.value.length
+      inputRef.current.setSelectionRange(length, length)
+    }
+    // If there is a partial transcript available, set the output text to the partial transcript
+    partialTranscript && setOutputText(partialTranscript)
+  }
+
+  const handleMicOnClick = () => {
+    if (inputRef.current) {
+      // Store the current input value before starting/stopping speech recognition
+      const inputValue = inputRef.current.value
+      setTextFromKeyboard(inputValue)
+    }
+    setIsRecording(!isRecording)
+    // If speech recognition is currently active, stop it. Otherwise, start it.
+    isRecording
+      ? SpeechRecognition.startListening({ continuous: true })
+      : SpeechRecognition.stopListening()
+  }
 
   return (
     <div className={style.container}>
@@ -190,8 +249,9 @@ export const DialogInput: FC<DialogInputProps> = ({
         />
       </div>
       <div className={style.mistakes}> {mistakesCount} </div>
-      {/* <audio  src={`https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`} controls></audio> */}
       <input
+        onFocus={handleOnFocus}
+        ref={inputRef}
         className={style.input}
         type="text"
         value={outputText}

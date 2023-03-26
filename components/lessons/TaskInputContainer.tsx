@@ -122,7 +122,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   //only for keyboardInput
   useEffect(() => {
-    ;(taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
+    (taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
       setOutputText(
         standardTextCheck({
           ...params,

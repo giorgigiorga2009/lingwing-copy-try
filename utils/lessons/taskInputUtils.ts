@@ -174,15 +174,16 @@ export const standardTextCheck = ({
   const isNextCharSpace = correctText[index] && /\s/.test(correctText[index])
 
   const isAfterNextCharSpace =
-    correctText[index + 1] && /\s/.test(correctText[index + 1])
+    correctText[index + 1] ? /\s/.test(correctText[index + 1]) : undefined
 
   let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
 
-  if (inputText.length === correctText.length - 1 && correctText.length > 1) {
+  if (inputText.length === correctText.length - 1 && correctText.length > 1 && correctText[index + 1]) {
     setIsHintShown(false)
     setMistakeRepeat(false)
     return correctText
   }
+
 
   if (isNextCharPunctuation && isAfterNextCharSpace) {
     if (inputText.endsWith(' ')) {
