@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import Cookies from 'js-cookie'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Header } from '../components/header/Header'
 import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
 import style from './lessons.module.scss'
@@ -42,6 +42,8 @@ const Lessons: NextPage = () => {
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<LanguageCourse[] | undefined>()
   const [userScore, setUserScore] = useState(0)
   const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
+  const chatWrapperRef = useRef<HTMLDivElement>(null) 
+  const chatRef = useRef<HTMLDivElement>(null)
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
@@ -85,13 +87,13 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!token && !courseId))
       return
-    getTasks({ languageFrom, languageTo, courseName, token, courseId, userId}).then(
+    getTasks({ languageFrom, languageTo, courseName, token, courseId, userId }).then(
       response => setTasksData(response),
     )
   }, [courseId])
 
   useEffect(() => {
-    if ( !languageFrom || !languageTo || !courseName || !token || !courseId || !currentCourseObject) return
+    if (!languageFrom || !languageTo || !courseName || !token || !courseId || !currentCourseObject) return
     getCurrentLanguageCoursesList({
       languageFrom,
       languageTo,
@@ -136,14 +138,31 @@ const Lessons: NextPage = () => {
     }
   }, [currentTask])
 
+  useEffect(() => {
+    if (!chatWrapperRef.current || !chatRef.current) return
+  
+    const scrollToBottom = () => {
+     chatRef.current!.scrollTop = chatRef.current!.scrollHeight
+    }
+  
+    const observer = new ResizeObserver(scrollToBottom)
+    observer.observe(chatWrapperRef.current)
+  
+    // Clean up the observer when the component is unmounted
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   const arePropsDefined =
-    token !== undefined &&
+    (token !== undefined || userId !== undefined) &&
     languageTo !== undefined &&
     languageFrom !== undefined &&
     currentTask !== undefined
 
   const commonProps = arePropsDefined
     ? {
+      userId,
       token,
       languageTo,
       languageFrom,
@@ -188,8 +207,8 @@ const Lessons: NextPage = () => {
 
 
         {/* chat window */}
-        <div className={style.chat}>
-          <div className={style.chatWrapper} >
+        <div ref={chatRef} className={style.chat}>
+          <div  ref={chatWrapperRef} className={style.chatWrapper} >
             {/* render done tasks */}
             {completedTasks && (
               <ChatHistory

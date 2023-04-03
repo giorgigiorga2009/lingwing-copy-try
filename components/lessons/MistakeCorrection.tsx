@@ -14,6 +14,7 @@ interface Props {
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
+  userId: string | null
   setCurrentTaskNumber: (number: number) => void
   currentTaskNumber: number
   currentTask: TaskData
@@ -24,6 +25,7 @@ interface Props {
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
+  userId,
   token,
   languageTo,
   languageFrom,
@@ -45,11 +47,12 @@ export const MistakeCorrectionTask: FC<Props> = ({
   const correctText = currentTask.correctText as string
 
   useEffect(() => {
-    if (token === null) return
+    if (token === null && userId === null) return
 
     if (inputText === correctText) {
       setTimeout(async () => {
         const isSaveSuccessful = await saveTask({
+          userId,
           token,
           languageFrom,
           languageTo,
@@ -80,8 +83,9 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setMistakeRepeat(false)
       setIsHintShown(false)
-      if (token === null) return
+      if (token === null && userId === null) return
       const isSaveSuccessful = await saveTask({
+        userId,
         token,
         languageFrom,
         languageTo,

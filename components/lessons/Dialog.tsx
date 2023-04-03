@@ -60,7 +60,7 @@ export const Dialog: FC<DialogProps> = ({
 interface DialogInputProps {
   setCurrentMessageIndex: (index: number) => void
   currentMessageIndex: number
-  token: string | null | undefined
+  token: string | null 
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -71,6 +71,7 @@ interface DialogInputProps {
   setCompletedTasks: (tasks: TaskData[]) => void
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
+  userId: string | null
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
@@ -87,6 +88,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   setCompletedTasks,
   setIsHintShown,
   setHintText,
+  userId
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
@@ -184,8 +186,9 @@ export const DialogInput: FC<DialogInputProps> = ({
         if (currentMessageIndex === dialogArray.length - 1) {
           setIsHintShown(false)
           setCurrentMessageIndex(0)
-          if (token === null || token === undefined) return
+          if (token === null && userId === null) return
           const isSaveSuccessful = await saveTask({
+            userId,
             token,
             languageFrom,
             languageTo,
@@ -258,7 +261,7 @@ export const DialogInput: FC<DialogInputProps> = ({
         onChange={handleChange}
       />
 
-      <span className={style.micIcon} key="mic" />
+      <span className={style.micIcon} onClick={() => handleMicOnClick} key="mic" />
     </div>
   )
 }

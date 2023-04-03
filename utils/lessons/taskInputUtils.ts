@@ -167,25 +167,25 @@ export const standardTextCheck = ({
     textToCompare: inputText,
     index,
   })
-  const isNextCharPunctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(
-    correctText[index],
-  )
 
-  const isNextCharSpace = correctText[index] && /\s/.test(correctText[index])
+  const isCurrentCharPunctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index])
+  const isNextCharPunctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index+1])
 
-  const isAfterNextCharSpace =
-    correctText[index + 1] ? /\s/.test(correctText[index + 1]) : undefined
+
+  const isCurrentCharSpace = correctText[index] && /\s/.test(correctText[index])
+
+  const isNextCharSpace = correctText[index + 1] ? /\s/.test(correctText[index + 1]) : false
 
   let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
 
-  if (inputText.length === correctText.length - 1 && correctText.length > 1 && correctText[index + 1]) {
+  if (inputText.length === correctText.length - 1 && correctText.length > 1 && isNextCharPunctuation) {
     setIsHintShown(false)
     setMistakeRepeat(false)
     return correctText
   }
 
 
-  if (isNextCharPunctuation && isAfterNextCharSpace) {
+  if (isCurrentCharPunctuation && isNextCharSpace) {
     if (inputText.endsWith(' ')) {
       setMistakeRepeat(false)
       setIsHintShown(false)
@@ -202,7 +202,7 @@ export const standardTextCheck = ({
     }
   }
 
-  if (isNextCharSpace) {
+  if (isCurrentCharSpace) {
     if (inputText.endsWith(' ')) {
       setMistakeRepeat(false)
       setIsHintShown(false)
@@ -219,13 +219,13 @@ export const standardTextCheck = ({
     }
   }
 
-  if (isNextCharPunctuation && inputText.endsWith(' ')) {
+  if (isCurrentCharPunctuation && inputText.endsWith(' ')) {
     setMistakeRepeat(false)
     setIsHintShown(false)
     return textToShow
   }
 
-  if (!isNextCharPunctuation && isTextEqual) {
+  if (!isCurrentCharPunctuation && isTextEqual) {
     setMistakeRepeat(false)
     setIsHintShown(false)
     return textToShow

@@ -6,17 +6,20 @@ export const saveTask = async ({
   languageFrom,
   courseId,
   token,
-  // userKey = null,
+  userId,
   currentTask,
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
-  token: string
+  token: string | null
   courseId: string
-  // userKey?: string | null
+  userId: string | null
   currentTask: TaskData
 }): Promise<boolean> => {
-  const url = `${process.env.defaultURL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
+  let url = `${process.env.defaultURL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
+  if (token === null) {
+    url = `${url}&userKey=${userId}`
+  }
   const payload = {
     userCourseId: courseId,
     iLearnFromNameCode: languageFrom,
@@ -40,9 +43,9 @@ export const saveTask = async ({
       taskType: currentTask.taskType,
     },
   }
-  const config = {
-    headers: { Authorization: token },
-  }
+  const config = token ? { headers: { Authorization: token } } : {};
+
+
 
   try {
     const response = await axios.post(url, payload, config)

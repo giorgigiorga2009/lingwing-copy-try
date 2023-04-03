@@ -17,7 +17,8 @@ import { TaskData } from '../../utils/lessons/getTask'
 
 interface TaskInputProps {
   taskType: string
-  token: string | null | undefined
+  userId: string | null
+  token: string | null 
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -31,6 +32,7 @@ interface TaskInputProps {
 }
 
 export const TaskInputContainer: FC<TaskInputProps> = ({
+  userId,
   taskType,
   token,
   languageTo,
@@ -133,12 +135,13 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }, [inputText])
 
   useEffect(() => {
-    if (token === null || token === undefined) return
+    if (token === null && userId === null) return
     // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.trim() === correctText) {
       setTimeout(async () => {
         setIsHintShown(false)
         const isSaveSuccessful = await saveTask({
+          userId,
           token,
           languageFrom,
           languageTo,
@@ -252,7 +255,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
         />
       )}
 
-      {token !== null && token !== undefined && taskType === 'omittedwords' && (
+      {(token !== null || userId !== null) && taskType === 'omittedwords' && (
         <OmittedWords
           sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
           onKeyDown={handleOnKeyDown}
@@ -261,6 +264,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           setMistakesCount={setMistakesCount}
           mistakesCount={mistakesCount}
           token={token}
+          userId={userId}
           languageTo={languageTo}
           languageFrom={languageFrom}
           courseId={courseId}

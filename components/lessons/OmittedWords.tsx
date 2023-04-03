@@ -12,6 +12,7 @@ interface Props {
   setMistakesCount: (values: number) => void
   mistakesCount: number
   token: string | null
+  userId: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -27,6 +28,7 @@ interface Props {
 export const OmittedWords: FC<Props> = ({
   sentenceArray,
   // setCorrect,
+  userId,
   onKeyDown,
   setMistakeRepeat,
   mistakeRepeat,
@@ -89,10 +91,11 @@ export const OmittedWords: FC<Props> = ({
   }
 
   useEffect(() => {
-    if (token === null) return
+    if (token === null && userId === null) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
         const isSaveSuccessful = await saveTask({
+          userId,
           token,
           languageFrom,
           languageTo,

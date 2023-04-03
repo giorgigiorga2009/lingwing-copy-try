@@ -6,6 +6,7 @@ import { MistakeCorrectionTask } from './MistakeCorrection'
 import { TaskInputContainer } from './TaskInputContainer'
 
 type CommonProps = {
+  userId: string | null
   token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
@@ -33,7 +34,6 @@ const CurrentTaskInput = ({
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
 
-  console.log(currentMessageIndex, 'currentMessagIndex')
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
