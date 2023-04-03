@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestHeaders } from 'axios'
 import { words } from 'lodash'
 import { LanguageCourse } from './getLanguageCoursesList'
 
@@ -105,13 +105,13 @@ export interface TaskData {
   ordinalNumber: number
   taskDescription: string
   taskType:
-    | 'dictation'
-    | 'translate'
-    | 'dialog'
-    | 'omittedwords'
-    | 'replay'
-    | 'mistakecorrection'
-    | 'grammar'
+  | 'dictation'
+  | 'translate'
+  | 'dialog'
+  | 'omittedwords'
+  | 'replay'
+  | 'mistakecorrection'
+  | 'grammar'
   taskNumber: number
   errorLimit: number
   correctText: string | string[]
@@ -186,20 +186,30 @@ export const getUserCourse = async ({
   languageFrom,
   courseName,
   token,
+  userId
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
   courseName: string | string[]
-  token: string
+  token: string | null
+  userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
-    const response = await axios({
-      url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
-      headers: {
-        Authorization: token,
-      },
-    })
-    return response.data.data
+    if (token !== null) {
+      const response = await axios({
+        url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
+        headers: {
+          Authorization: token,
+        },
+      })
+      return response.data.data
+    }
+    if (userId !== null) {
+      const response = await axios({
+        url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`
+      })
+      return response.data.data
+    }
   } catch (error) {
     console.log(error)
   }
@@ -210,20 +220,35 @@ export const getTasks = async ({
   languageFrom,
   token,
   courseId,
+  userId
 }: {
   courseName: string | string[]
   languageTo: string | string[]
   languageFrom: string | string[]
-  token: string
+  token: string | null
+  userId: string | null
   courseId: string
 }): Promise<TaskData[]> => {
   try {
+    // 
+    let url = `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`;
+    let headers: {
+      Authorization: string | null;
+    } = {
+      Authorization: token,
+    };
+    if (userId !== null && token === null) {
+      url += `&userKey=${userId}`;
+      headers = {
+        Authorization: null,
+      };
+    }
     const response = await axios({
-      url: `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
-      headers: {
-        Authorization: token,
-      },
-    })
+      url,
+      headers: headers as AxiosRequestHeaders,
+    });
+
+
     const data = response.data.data
     const tasks = data.tasks.map((task: InitialTask) => {
       const dialogLinesArray =

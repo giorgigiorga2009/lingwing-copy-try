@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/header/Header'
 import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
@@ -23,6 +24,7 @@ import ChatHistory from '../components/lessons/ChatHistory'
 import ChatCurrentTask from '../components/lessons/ChatCurrentTask'
 import ProgressBar from '../components/lessons/ProgressBar'
 import CurrentTaskInput from '../components/lessons/CurrentTaskInput'
+import { getUserId } from '../utils/getUserId'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -30,15 +32,14 @@ const Lessons: NextPage = () => {
   const [currentTaskType, setCurrentTaskType] = useState<TaskData['taskType']>()
   const [currentTaskNumber, setCurrentTaskNumber] = useState(0)
   const [token, setToken] = useState<string | null>(null)
+  const [userId, setUserId] = useState<string>('')
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
   const [courseId, setCourseId] = useState('')
   const [completedTasks, setCompletedTasks] = useState<TaskData[]>()
   const [isSoundChecked, setSoundChecked] = useState(false)
   const [isHintShown, setIsHintShown] = useState(false)
   const [hintText, setHintText] = useState('')
-  const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
-    LanguageCourse[] | undefined
-  >()
+  const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<LanguageCourse[] | undefined>()
   const [userScore, setUserScore] = useState(0)
   const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
 
@@ -48,12 +49,26 @@ const Lessons: NextPage = () => {
   // Use localStorage to set the token state
   useEffect(() => {
     setToken(localStorage.getItem('authToken'))
+    const userId = Cookies.get('userId')
+    userId && setUserId(userId)
   }, [])
+
+  //get userId
+  useEffect(() => {
+    if (!languageFrom || !languageTo || !courseName || token || userId) return
+    getUserId({ languageFrom, languageTo, courseName }).then(
+      response => {
+        if (!response) return
+        setUserId(response)
+        Cookies.set('userId', response)
+      }
+    )
+  }, [languageTo])
 
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || !token) return
-    getUserCourse({ languageFrom, languageTo, courseName, token }).then(
+    if (!languageFrom || !languageTo || !courseName || (!token && !userId)) return
+    getUserCourse({ languageFrom, languageTo, courseName, token, userId }).then(
       courseObject => {
         if (courseObject) {
           setCurrentCourseObject(courseObject)
@@ -64,25 +79,19 @@ const Lessons: NextPage = () => {
     )
   }, [languageFrom, languageTo, courseName, token])
 
+
+
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || !token || !courseId)
+    if (!languageFrom || !languageTo || !courseName || (!token && !courseId))
       return
-    getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
+    getTasks({ languageFrom, languageTo, courseName, token, courseId, userId}).then(
       response => setTasksData(response),
     )
   }, [courseId])
 
   useEffect(() => {
-    if (
-      !languageFrom ||
-      !languageTo ||
-      !courseName ||
-      !token ||
-      !courseId ||
-      !currentCourseObject
-    )
-      return
+    if ( !languageFrom || !languageTo || !courseName || !token || !courseId || !currentCourseObject) return
     getCurrentLanguageCoursesList({
       languageFrom,
       languageTo,
@@ -112,13 +121,13 @@ const Lessons: NextPage = () => {
       !languageFrom ||
       !languageTo ||
       !courseName ||
-      !token ||
+      (!token && !userId) ||
       !courseId ||
       !tasksData
     )
       return
     if (currentTaskNumber === tasksData?.length) {
-      getTasks({ languageFrom, languageTo, courseName, token, courseId }).then(
+      getTasks({ languageFrom, languageTo, courseName, token, courseId, userId }).then(
         response => {
           const newDataArray = [...tasksData, ...response]
           setTasksData(newDataArray)
@@ -179,8 +188,8 @@ const Lessons: NextPage = () => {
 
 
         {/* chat window */}
-        <div className={style.chat}>    
-        <div className={style.chatWrapper} >
+        <div className={style.chat}>
+          <div className={style.chatWrapper} >
             {/* render done tasks */}
             {completedTasks && (
               <ChatHistory
@@ -199,7 +208,7 @@ const Lessons: NextPage = () => {
               />
             )}
             {!currentTask && <div className={style.blankBubble} />}
-            </div>
+          </div>
         </div>
 
         {/* Render needed type of input render or placeholder */}
