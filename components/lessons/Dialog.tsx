@@ -242,12 +242,12 @@ export const DialogInput: FC<DialogInputProps> = ({
 
   return (
     <div className={style.container}>
-      <div className={!isSoundChecked ? style.soundCheck : style.hidden}>
+      {/* <div className={!isSoundChecked ? style.soundCheck : style.hidden}>
         <SoundCheck
           setSoundChecked={setSoundChecked}
           soundChecked={isSoundChecked}
         />
-      </div>
+      </div> */}
       <div className={style.mistakes}> {mistakesCount} </div>
       <input
         onFocus={handleOnFocus}
