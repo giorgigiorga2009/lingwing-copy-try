@@ -42,7 +42,7 @@ export const DictationBubble: FC<Props> = ({
         <span className={style.correctText}>{correctText}</span>
         {isCurrentTask && (
           <span className={style.waveform}>
-            <WaveSurferNext audioURL={audioUrl} />
+            <WaveSurferNext audioURL={audioUrl}  />
           </span>
         )}
         <span className={style.taskText}>{taskText} </span>

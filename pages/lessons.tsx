@@ -140,20 +140,10 @@ const Lessons: NextPage = () => {
   }, [currentTask])
 
   useEffect(() => {
-    if (!chatWrapperRef.current || !chatRef.current) return
-
-    const scrollToBottom = () => {
-      chatRef.current!.scrollTop = chatRef.current!.scrollHeight
+    if (chatWrapperRef.current && chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
-
-    const observer = new ResizeObserver(scrollToBottom)
-    observer.observe(chatWrapperRef.current)
-
-    // Clean up the observer when the component is unmounted
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
+  }, [completedTasks]);
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
