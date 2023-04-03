@@ -28,13 +28,14 @@ export const DictationBubble: FC<Props> = ({
   isHintShown,
 }) => {
   const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
-
+  const hint = isHintShown ? 'hint' : ''
   return (
     <div
       className={classNames(
         style.container,
         style[type],
         style[`${isCurrentTask}`],
+        style[hint]
       )}
     >
       <div className={style.header}>{taskDescription}</div>

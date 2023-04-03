@@ -15,6 +15,8 @@
   display: flex;
   flex-direction: column;
   margin-top: 0.3rem;
+  height: fit-content;
+  min-height: 25rem;
   padding: 0.5rem 0.5rem 1rem 0.5rem;
   border-radius: 0.9rem;
   border: #f3f1ed solid 3px;

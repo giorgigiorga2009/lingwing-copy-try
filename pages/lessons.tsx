@@ -2,7 +2,6 @@ import { NextPage } from 'next'
 import Cookies from 'js-cookie'
 import { useEffect, useState, useRef } from 'react'
 import { Header } from '../components/header/Header'
-import { TaskInputContainer } from '../components/lessons/TaskInputContainer'
 import style from './lessons.module.scss'
 import {
   CourseObject,
@@ -10,10 +9,7 @@ import {
   getUserCourse,
   TaskData,
 } from '../utils/lessons/getTask'
-import { DialogInput } from '../components/lessons/Dialog'
 import { useRouter } from 'next/router'
-import { MistakeCorrectionTask } from '../components/lessons/MistakeCorrection'
-import { GrammarButton } from '../components/lessons/Grammar'
 import { SoundCheck } from '../components/lessons/SoundCheck'
 import {
   getCurrentLanguageCoursesList,
@@ -29,7 +25,6 @@ import { getUserId } from '../utils/getUserId'
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
   const [currentTask, setCurrentTask] = useState<TaskData>()
-  const [currentTaskType, setCurrentTaskType] = useState<TaskData['taskType']>()
   const [currentTaskNumber, setCurrentTaskNumber] = useState(0)
   const [token, setToken] = useState<string | null>(null)
   const [userId, setUserId] = useState<string>('')
@@ -110,12 +105,10 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!tasksData) return
     setCurrentTask(tasksData[currentTaskNumber])
-    setCurrentTaskType(currentTask?.taskType)
   }, [currentTaskNumber, tasksData])
 
   useEffect(() => {
     if (!currentTask) return
-    setCurrentTaskType(currentTask.taskType)
   }, [currentTask])
 
   //fetch new portion of tasks
@@ -143,7 +136,7 @@ const Lessons: NextPage = () => {
     if (chatWrapperRef.current && chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
-  }, [completedTasks]);
+  }, [completedTasks, isHintShown]);
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
