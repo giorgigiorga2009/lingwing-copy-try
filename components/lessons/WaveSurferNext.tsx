@@ -43,6 +43,8 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
       wavesurfer.current.on('ready', () => {
         const length = wavesurfer.current.getDuration()
         setDuration(length)
+        setPlaying(true)
+        wavesurfer.current.play()
       })
 
       wavesurfer.current.on('finish', () => {

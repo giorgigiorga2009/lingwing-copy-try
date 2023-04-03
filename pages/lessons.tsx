@@ -42,7 +42,8 @@ const Lessons: NextPage = () => {
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<LanguageCourse[] | undefined>()
   const [userScore, setUserScore] = useState(0)
   const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
-  const chatWrapperRef = useRef<HTMLDivElement>(null) 
+
+  const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
 
   const router = useRouter()
@@ -140,14 +141,14 @@ const Lessons: NextPage = () => {
 
   useEffect(() => {
     if (!chatWrapperRef.current || !chatRef.current) return
-  
+
     const scrollToBottom = () => {
-     chatRef.current!.scrollTop = chatRef.current!.scrollHeight
+      chatRef.current!.scrollTop = chatRef.current!.scrollHeight
     }
-  
+
     const observer = new ResizeObserver(scrollToBottom)
     observer.observe(chatWrapperRef.current)
-  
+
     // Clean up the observer when the component is unmounted
     return () => {
       observer.disconnect()
@@ -180,9 +181,11 @@ const Lessons: NextPage = () => {
     <div className={style.container}>
       <Header size="s" />
 
-      <div className={style.content}>
+      {!isSoundChecked &&
+        <SoundCheck setSoundChecked={setSoundChecked} soundChecked={isSoundChecked} />
+      }
 
-        {/* <SoundCheck setSoundChecked={setSoundChecked} soundChecked={isSoundChecked} /> */}
+      {isSoundChecked && <div className={style.content}>
 
         {/* <div className={style.foldersContainer}>
           <span className={style.course}>Course</span>
@@ -208,7 +211,7 @@ const Lessons: NextPage = () => {
 
         {/* chat window */}
         <div ref={chatRef} className={style.chat}>
-          <div  ref={chatWrapperRef} className={style.chatWrapper} >
+          <div ref={chatWrapperRef} className={style.chatWrapper} >
             {/* render done tasks */}
             {completedTasks && (
               <ChatHistory
@@ -253,7 +256,7 @@ const Lessons: NextPage = () => {
             setCurrentMessageIndex={setCurrentMessageIndex}
           />
         )}
-      </div>
+      </div>}
     </div>
   )
 }

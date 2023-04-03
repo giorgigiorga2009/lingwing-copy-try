@@ -94,8 +94,6 @@ export const DialogInput: FC<DialogInputProps> = ({
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
   const [inputText, setInputText] = useState('')
-  const [isSoundChecked, setSoundChecked] = useState(false)
-
   const dialogArray = currentTask.correctText as string[]
   const wordsSynonyms = currentTask.wordsSynonyms
   const iLearnFromNameCode = currentTask.iLearnFromNameCode
@@ -245,12 +243,6 @@ export const DialogInput: FC<DialogInputProps> = ({
 
   return (
     <div className={style.container}>
-      {/* <div className={!isSoundChecked ? style.soundCheck : style.hidden}>
-        <SoundCheck
-          setSoundChecked={setSoundChecked}
-          soundChecked={isSoundChecked}
-        />
-      </div> */}
       <div className={style.mistakes}> {mistakesCount} </div>
       <input
         onFocus={handleOnFocus}
