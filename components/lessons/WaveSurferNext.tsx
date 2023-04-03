@@ -81,7 +81,7 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
       <div className={style.waveform}>
         <div id="waveform" ref={waveformRef} />
       </div>
-      <div className={style.progress}>{(duration - progress).toFixed(2)}</div>
+      <div className={style.progress}>{(duration - progress).toFixed(0)}</div>
     </div>
   )
 }

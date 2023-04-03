@@ -168,28 +168,68 @@ export const standardTextCheck = ({
     index,
   })
 
-  const isCurrentCharPunctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index])
-  const isNextCharPunctuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index+1])
+  const isCharPunctuation = (index: number) => {
+    if (correctText[index]) {
+      return (/[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index]))
+    }
+    else return false
+  }
+
+  const isCharSpace = (index: number) => {
+    if (correctText[index]) {
+      return (/\s/.test(correctText[index]))
+    }
+    else return false
+  }
 
 
-  const isCurrentCharSpace = correctText[index] && /\s/.test(correctText[index])
 
-  const isNextCharSpace = correctText[index + 1] ? /\s/.test(correctText[index + 1]) : false
 
   let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
 
-  if (inputText.length === correctText.length - 1 && correctText.length > 1 && isNextCharPunctuation) {
+  //check if only last punctuation left
+  if (inputText.length === correctText.length - 1 && correctText.length > 1 && isCharPunctuation(index + 1)) {
     setIsHintShown(false)
     setMistakeRepeat(false)
     return correctText
   }
 
+  // check if punctuation inside word
+  if (isCharPunctuation(index + 1) && !isCharSpace(index + 2) && correctText[index + 2] && isTextEqual) {
+    console.log('Check1', isCharSpace(index + 2), correctText[index + 2])
+    return correctText.slice(0, inputText ? (inputText.length + 1) : 0)
+  }
 
-  if (isCurrentCharPunctuation && isNextCharSpace) {
+
+
+  //check if current char is punctuation and after it space
+  if (isCharPunctuation(index) && isCharSpace(index + 1)) {
     if (inputText.endsWith(' ')) {
       setMistakeRepeat(false)
       setIsHintShown(false)
-      textToShow += ' '
+      if (isCharPunctuation(index + 2) && isCharSpace(index + 3)) {
+        return correctText.slice(0, inputText ? (inputText.length + 3) : 0)
+      } else {
+        textToShow += ' '
+        return textToShow
+      }
+    } else {
+      if (mistakeRepeat === false) {
+        setIsHintShown(true)
+        setHintText('(space)')
+        setMistakesCount(mistakesCount + 1)
+        setMistakeRepeat(true)
+      }
+      return outputText
+    }
+  }
+
+  //check if current char space
+  if (isCharSpace(index)) {
+    if (inputText.endsWith(' ')) {
+      setMistakeRepeat(false)
+      setIsHintShown(false)
+
       return textToShow
     } else {
       if (mistakeRepeat === false) {
@@ -202,30 +242,15 @@ export const standardTextCheck = ({
     }
   }
 
-  if (isCurrentCharSpace) {
-    if (inputText.endsWith(' ')) {
-      setMistakeRepeat(false)
-      setIsHintShown(false)
-
-      return textToShow
-    } else {
-      if (mistakeRepeat === false) {
-        setIsHintShown(true)
-        setHintText('(space)')
-        setMistakesCount(mistakesCount + 1)
-        setMistakeRepeat(true)
-      }
-      return outputText
-    }
-  }
-
-  if (isCurrentCharPunctuation && inputText.endsWith(' ')) {
+  //check if current char punctuation
+  if (isCharPunctuation(index) && inputText.endsWith(' ')) {
     setMistakeRepeat(false)
     setIsHintShown(false)
     return textToShow
   }
 
-  if (!isCurrentCharPunctuation && isTextEqual) {
+  //if current char not punctuation
+  if (!isCharPunctuation(index) && isTextEqual) {
     setMistakeRepeat(false)
     setIsHintShown(false)
     return textToShow
