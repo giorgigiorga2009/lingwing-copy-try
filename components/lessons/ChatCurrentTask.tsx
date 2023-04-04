@@ -11,12 +11,14 @@ interface Props {
   isHintShown: boolean
   hintText: string
   currentMessageIndex: number
+  onDivHeight: (height: number) => void;
 }
 const ChatCurrentTask: FC<Props> = ({
   currentTask,
   isHintShown,
   hintText,
   currentMessageIndex,
+  onDivHeight
 }) => {
   return (
     <>
@@ -116,7 +118,7 @@ const ChatCurrentTask: FC<Props> = ({
 
       {currentTask.taskType === 'grammar' && (
         <div className={style.currentTask}>
-          <Grammar taskText={currentTask.taskText} />
+          <Grammar onDivHeight={onDivHeight} taskText={currentTask.taskText} />
         </div>
       )}
     </>

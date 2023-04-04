@@ -37,13 +37,15 @@ const Lessons: NextPage = () => {
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<LanguageCourse[] | undefined>()
   const [userScore, setUserScore] = useState(0)
   const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
-
+  const [grammarHeight, setGrammarHeight] = useState<number>(0);
+  const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false);
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
 
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
+
 
   // Use localStorage to set the token state
   useEffect(() => {
@@ -133,18 +135,37 @@ const Lessons: NextPage = () => {
     }
   }, [currentTask])
 
-  useEffect(() => {
-    if (chatWrapperRef.current && chatRef.current) {
-      console.log(chatRef.current.scrollHeight, "chatRef")
-      console.log(chatWrapperRef.current.scrollHeight, "chatWrap")
+  const handleGrammarHeight = (height: number) => {
+    setGrammarHeight(height);
+    setIsGrammarHeightCalled(true);
+    console.log('setGrammarHeight')
+  };
 
-      chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight;
-    }
-    // if (taskRef.current) {
-    //   console.log('useEffect')
-    //   taskRef.current.scrollIntoView({ behavior: "smooth" });
-    // }
-  }, [completedTasks, isHintShown]);
+
+
+
+  useEffect(() => {
+    if (!chatWrapperRef.current || !chatRef.current) return;
+    if (isGrammarHeightCalled && grammarHeight === 0) return;
+  
+    setTimeout(() => {
+      console.log(grammarHeight, "grammarHeightUSEEFFECT");
+        
+      if (chatWrapperRef.current && chatRef.current) {
+        if (grammarHeight !== 0) {
+          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight - grammarHeight;
+          setGrammarHeight(0);
+          console.log('grammarScroll');
+        } else {
+          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight;
+          console.log('justscroll');
+        }
+      }
+    }, 200);
+    
+    setIsGrammarHeightCalled(false);
+  
+  }, [isHintShown, currentTask, isGrammarHeightCalled]);
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
@@ -166,7 +187,6 @@ const Lessons: NextPage = () => {
       setCompletedTasks,
     }
     : null
-
 
   return (
     <div className={style.container}>
@@ -219,9 +239,10 @@ const Lessons: NextPage = () => {
                 currentMessageIndex={currentMessageIndex}
                 isHintShown={isHintShown}
                 hintText={hintText}
+                onDivHeight={handleGrammarHeight}
               />
             )}
-            {/* {!currentTask && <div className={style.blankBubble} />} */}
+            {!currentTask && <div className={style.blankBubble} />}
           </div>
         </div>
 

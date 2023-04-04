@@ -5,15 +5,18 @@ import style from './Grammar.module.scss'
 
 interface Props {
   taskText: string
+  onDivHeight?: (height: number) => void;
 }
 
-export const Grammar: FC<Props> = ({ taskText }) => {
-  const grammarRef = useRef<HTMLDivElement>(null)
+export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
+  const grammarRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-  grammarRef.current && console.log(grammarRef.current?.scrollHeight, 'grammar')
-
-  }, [grammarRef.current])
+    if (grammarRef.current && typeof onDivHeight === 'function') {
+      const height = grammarRef.current.offsetHeight;
+      onDivHeight(height);
+    }
+  }, [grammarRef.current]);
 
   return (
     <div
