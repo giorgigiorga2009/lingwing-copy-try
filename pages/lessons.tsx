@@ -41,6 +41,7 @@ const Lessons: NextPage = () => {
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
 
+
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
 
@@ -134,8 +135,15 @@ const Lessons: NextPage = () => {
 
   useEffect(() => {
     if (chatWrapperRef.current && chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      console.log(chatRef.current.scrollHeight, "chatRef")
+      console.log(chatWrapperRef.current.scrollHeight, "chatWrap")
+
+      chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight;
     }
+    // if (taskRef.current) {
+    //   console.log('useEffect')
+    //   taskRef.current.scrollIntoView({ behavior: "smooth" });
+    // }
   }, [completedTasks, isHintShown]);
 
   const arePropsDefined =
@@ -195,6 +203,7 @@ const Lessons: NextPage = () => {
         {/* chat window */}
         <div ref={chatRef} className={style.chat}>
           <div ref={chatWrapperRef} className={style.chatWrapper} >
+
             {/* render done tasks */}
             {completedTasks && (
               <ChatHistory
@@ -212,7 +221,7 @@ const Lessons: NextPage = () => {
                 hintText={hintText}
               />
             )}
-            {!currentTask && <div className={style.blankBubble} />}
+            {/* {!currentTask && <div className={style.blankBubble} />} */}
           </div>
         </div>
 

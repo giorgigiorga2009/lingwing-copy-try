@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
 import style from './Grammar.module.scss'
@@ -8,8 +8,16 @@ interface Props {
 }
 
 export const Grammar: FC<Props> = ({ taskText }) => {
+  const grammarRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+  grammarRef.current && console.log(grammarRef.current?.scrollHeight, 'grammar')
+
+  }, [grammarRef.current])
+
   return (
     <div
+      ref={grammarRef}
       className={style.textContainer}
       dangerouslySetInnerHTML={{ __html: taskText }}
     />
@@ -59,7 +67,7 @@ export const GrammarButton: FC<ButtonProps> = ({
   }
 
   return (
-    <div className={style.container}>
+    <div className={style.container} >
       <div onClick={handleClick} className={style.button}>
         {' '}
         Next (Enter){' '}
