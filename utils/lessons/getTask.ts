@@ -105,13 +105,13 @@ export interface TaskData {
   ordinalNumber: number
   taskDescription: string
   taskType:
-  | 'dictation'
-  | 'translate'
-  | 'dialog'
-  | 'omittedwords'
-  | 'replay'
-  | 'mistakecorrection'
-  | 'grammar'
+    | 'dictation'
+    | 'translate'
+    | 'dialog'
+    | 'omittedwords'
+    | 'replay'
+    | 'mistakecorrection'
+    | 'grammar'
   taskNumber: number
   errorLimit: number
   correctText: string | string[]
@@ -186,7 +186,7 @@ export const getUserCourse = async ({
   languageFrom,
   courseName,
   token,
-  userId
+  userId,
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
@@ -206,7 +206,7 @@ export const getUserCourse = async ({
     }
     if (userId !== null) {
       const response = await axios({
-        url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`
+        url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
       })
       return response.data.data
     }
@@ -220,7 +220,7 @@ export const getTasks = async ({
   languageFrom,
   token,
   courseId,
-  userId
+  userId,
 }: {
   courseName: string | string[]
   languageTo: string | string[]
@@ -230,24 +230,23 @@ export const getTasks = async ({
   courseId: string
 }): Promise<TaskData[]> => {
   try {
-    // 
-    let url = `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`;
+    //
+    let url = `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
     let headers: {
-      Authorization: string | null;
+      Authorization: string | null
     } = {
       Authorization: token,
-    };
+    }
     if (userId !== null && token === null) {
-      url += `&userKey=${userId}`;
+      url += `&userKey=${userId}`
       headers = {
         Authorization: null,
-      };
+      }
     }
     const response = await axios({
       url,
       headers: headers as AxiosRequestHeaders,
-    });
-
+    })
 
     const data = response.data.data
     const tasks = data.tasks.map((task: InitialTask) => {

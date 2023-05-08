@@ -5,18 +5,18 @@ import style from './Grammar.module.scss'
 
 interface Props {
   taskText: string
-  onDivHeight?: (height: number) => void;
+  onDivHeight?: (height: number) => void
 }
 
 export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
-  const grammarRef = useRef<HTMLDivElement | null>(null);
+  const grammarRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (grammarRef.current && typeof onDivHeight === 'function') {
-      const height = grammarRef.current.offsetHeight;
-      onDivHeight(height);
+      const height = grammarRef.current.offsetHeight
+      onDivHeight(height)
     }
-  }, [grammarRef.current]);
+  }, [grammarRef.current])
 
   return (
     <div
@@ -70,7 +70,7 @@ export const GrammarButton: FC<ButtonProps> = ({
   }
 
   return (
-    <div className={style.container} >
+    <div className={style.container}>
       <div onClick={handleClick} className={style.button}>
         {' '}
         Next (Enter){' '}

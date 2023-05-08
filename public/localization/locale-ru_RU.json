@@ -133,7 +133,22 @@
   "APP_ABOUT_US_JOB_text_7": "Другие специалисты IT-сферы;",
   "APP_ABOUT_US_JOB_text_8": "а также просто креативные менеджеры;",
   "APP_ABOUT_US_JOB_text_9": "Не расстраивайтесь, если думаете, что ваши профессиональные навыки пока еще на дают вам возможности претендовать на оплачиваемую работу – вы можете пройти стажировку у нас и значительно повысить уровень своих профессиональных знаний.",
-  "APP_ABOUT_US_JOB_text_10": "Свяжитесь с нами!"
+  "APP_ABOUT_US_JOB_text_10": "Свяжитесь с нами!",
+
+  "APP_DASHBOARD": "Панель управления",
+  "APP_DASHBOARD_ST-PAGE": "Панель управления",
+  "APP_GENERAL_ADD_NEW_COURSE": "Добавить новый курс",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Добавить язык",
+  "APP_GENERAL_MY_LANGUAGES": "Мои языки",
+  "APP_GENERAL_MY_COURSES": "Мои курсы",
+  "APP_GENERAL_STARTED_COURSES": "Текущие курсы",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Установить мобильные",
+  "APP_DASHBORD_APPS": "Приложения",
+
+  "APP_GENERAL_CONTINUE": "Продолжить",
+
+  "APP_TEST_TEST": "Тест"
 
 
 }

@@ -135,5 +135,22 @@
   "APP_ABOUT_US_JOB_text_7": "Experto en tecnologías dela información;",
   "APP_ABOUT_US_JOB_text_8": "Y solamente managers creativos:",
   "APP_ABOUT_US_JOB_text_9": "No te quejes. No creas que tus hábitos profesionales todavía no están listos para un puesto reembolsante. También es viable puesto de interno para que mejores y aumentes tus hábitos profesionales.",
-  "APP_ABOUT_US_JOB_text_10": "Contáctanos"
+  "APP_ABOUT_US_JOB_text_10": "Contáctanos",
+
+  "APP_DASHBOARD": "Mi página",
+  "APP_DASHBOARD_ST-PAGE": "Mi página",
+  "APP_GENERAL_ADD_NEW_COURSE": "Añadir cursos",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Añadir lenguas",
+  "APP_GENERAL_MY_LANGUAGES": "Mis lenguas",
+  "APP_GENERAL_MY_COURSES": "Mis cursos",
+  "APP_GENERAL_STARTED_COURSES": " Cursos empezados",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Installa applicación",
+  "APP_DASHBORD_APPS": "móvil",
+
+  "APP_GENERAL_CONTINUE": "Continuar",
+
+  "APP_TEST_TEST": "Pruebas"
+
+  
 }

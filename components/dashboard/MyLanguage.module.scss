@@ -1,0 +1,79 @@
+.my_language {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 1px #e2e2e2;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.my_language_active {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 1px #e2e2e2;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.my_language_active::before {
+  content: ' ';
+  display: block;
+  top: 13px;
+  height: 31px;
+  width: 11px;
+  right: -11px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(/assets/images/arrows/arrow-right-white.png);
+}
+
+.flag_and_course {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.my_language h3,
+.my_language_active h3 {
+  line-height: 56px;
+  font-size: 20px;
+  color: #565656;
+}
+
+.progress {
+  font-size: 24px;
+  line-height: 55px;
+  color: #adadad;
+  margin-right: 10px;
+}
+
+.percent {
+  font-family: SegoeUI-SemiBold;
+  font-size: 21px;
+  position: relative;
+  left: 2px;
+  top: -1px;
+}
+
+.flag_img {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);
+  border: 2px solid white;
+}

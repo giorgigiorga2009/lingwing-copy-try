@@ -47,7 +47,6 @@ const Wizard: NextPage<WizardProps> = params => {
   )
   const [languageFrom, setLanguageFrom] = useState<LanguageFrom>()
   const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
-
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
   useEffect(() => {

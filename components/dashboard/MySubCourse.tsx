@@ -1,0 +1,133 @@
+import { FC } from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { useTranslation } from '../../utils/useTranslation'
+import style from './MySubCourse.module.scss'
+
+interface SubCourseProps {
+  name: string
+  _id: string
+  percent: string
+  languageSubStandard: {
+    name: string
+  }
+  slug: string
+  status: {
+    start: boolean
+    continue: boolean
+  }
+  iLearnFromNameCode: string
+}
+
+interface KaTextStyle {
+  fontFamily: string
+  fontWeight: string
+}
+
+interface KaButtonStyle {
+  fontFamily: string
+  fontWeight: string
+}
+
+interface LinkStyle {
+  textDecoration: string
+}
+
+interface Props {
+  subCourse: SubCourseProps
+}
+
+const MySubCourse: FC<Props> = ({ subCourse }) => {
+  const { t } = useTranslation()
+  const router = useRouter()
+
+  const locale = router.locale ?? 'en'
+
+  const linkStyle: LinkStyle = {
+    textDecoration: 'none',
+  }
+
+  const kaTextStyle: KaTextStyle = {
+    fontFamily: 'bpg_arial_2009',
+    fontWeight: '500',
+  }
+
+  const kaButtonStyle: KaButtonStyle = {
+    fontFamily: 'bpg_arial_2009',
+    fontWeight: '700',
+  }
+
+  return (
+    <div className={style.my_sub_course}>
+      <div className={style.left_line_box}>
+        <div className={style.percent_and_course}>
+          <span className={style.percent_progress}>
+            {subCourse.percent}
+            <span className={style.percent}>%</span>
+          </span>
+          {locale === 'ka' ? (
+            <h6 style={kaTextStyle} className={style.my_sub_course_title}>
+              <span>{t('wizardCourse')}</span>
+              <span>{subCourse.languageSubStandard.name}</span>
+            </h6>
+          ) : (
+            <h6 className={style.my_sub_course_title}>
+              <span>{t('wizardCourse')}</span>
+              <span>{subCourse.languageSubStandard.name}</span>
+            </h6>
+          )}
+        </div>
+        <Link
+          style={linkStyle}
+          href={`${locale}/tests/${subCourse.iLearnFromNameCode}/${subCourse.slug}`}
+        >
+          {locale === 'ka' ? (
+            <button style={kaButtonStyle} className={style.test}>
+              {t('APP_TEST_TEST')}
+            </button>
+          ) : (
+            <>
+              <button className={style.test}>{t('APP_TEST_TEST')}</button>
+            </>
+          )}
+        </Link>
+      </div>
+      <div className={style.right_line_box}>
+        <div className={style.action_btns}>
+          <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
+            <button className={style.statistics}></button>
+          </Link>
+          <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
+            <button className={style.reset}></button>
+          </Link>
+          <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
+            <button className={style.info}></button>
+          </Link>
+        </div>
+
+        <div className={style.go_to_course}>
+          <Link
+            style={linkStyle}
+            href={`${locale}/learn/${subCourse.iLearnFromNameCode}/${subCourse.slug}`}
+          >
+            {locale === 'ka' ? (
+              <button style={kaButtonStyle} className={style.start_course_btn}>
+                {subCourse.status.continue
+                  ? t('APP_GENERAL_CONTINUE')
+                  : subCourse.status.start && t('startButton')}
+              </button>
+            ) : (
+              <button className={style.start_course_btn}>
+                {subCourse.status.continue
+                  ? t('APP_GENERAL_CONTINUE')
+                  : subCourse.status.start && t('startButton')}
+              </button>
+            )}
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default MySubCourse

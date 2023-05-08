@@ -33,7 +33,6 @@ const CurrentTaskInput = ({
   currentMessageIndex,
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
-
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
@@ -48,7 +47,9 @@ const CurrentTaskInput = ({
         />
       ) : null
     case 'dialog':
-      return commonProps  && currentMessageIndex !== undefined && setCurrentMessageIndex ? (
+      return commonProps &&
+        currentMessageIndex !== undefined &&
+        setCurrentMessageIndex ? (
         <DialogInput
           {...commonProps}
           currentMessageIndex={currentMessageIndex}

@@ -136,5 +136,20 @@
   "APP_ABOUT_US_JOB_text_7": "Other specialists in IT-related sphere;",
   "APP_ABOUT_US_JOB_text_8": "and simply creative minded managers;",
   "APP_ABOUT_US_JOB_text_9": "Do not back down if you think your professional skills are not enough to claim for a paid job yet - you can pass an internship and significantly enhance your professional skills with us.",
-  "APP_ABOUT_US_JOB_text_10": "Contact us!"
+  "APP_ABOUT_US_JOB_text_10": "Contact us!",
+
+  "APP_DASHBOARD": "Dashboard",
+  "APP_DASHBOARD_ST-PAGE": "GO TO DASHBOARD",
+  "APP_GENERAL_ADD_NEW_COURSE": "Add new course",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Add Language",
+  "APP_GENERAL_MY_LANGUAGES": "My languages",
+  "APP_GENERAL_MY_COURSES": "My courses",
+  "APP_GENERAL_STARTED_COURSES": "Started courses",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Install mobile",
+  "APP_DASHBORD_APPS": "Apps",
+  
+  "APP_GENERAL_CONTINUE": "Continue", 
+
+  "APP_TEST_TEST": "Test"
 }

@@ -18,7 +18,7 @@ import { TaskData } from '../../utils/lessons/getTask'
 interface TaskInputProps {
   taskType: string
   userId: string | null
-  token: string | null 
+  token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -124,7 +124,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   //only for keyboardInput
   useEffect(() => {
-    (taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
+    ;(taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
       setOutputText(
         standardTextCheck({
           ...params,
