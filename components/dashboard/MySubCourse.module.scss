@@ -1,4 +1,6 @@
-.my_sub_course {
+@import '../../styles/imports.scss';
+
+.wrapper {
   padding: 14px 35px 14px 15px;
   border: 0;
   border-top: 1px solid #e6e6e6;
@@ -12,7 +14,7 @@
   gap: 50px;
 }
 
-.my_sub_course:last-child {
+.wrapper:last-child {
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
 }
@@ -31,7 +33,7 @@
   width: 50%;
 }
 
-.percent_and_course {
+.left_side {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -57,13 +59,17 @@
   top: -0.5px;
 }
 
-.my_sub_course_title {
+.title {
   font-size: 20px;
   color: #888;
   white-space: nowrap;
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: normal;
+  }
 }
 
-.my_sub_course_title span:nth-child(2) {
+.title span:nth-child(2) {
   color: #565656;
   margin-left: 10px;
 }
@@ -84,6 +90,10 @@
   transition: all 0.2s linear;
   color: #f68935;
   font-weight: 700;
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: 700;
+  }
 }
 
 .test:hover {
@@ -164,6 +174,10 @@
   cursor: pointer;
   height: 39px;
   text-align: center;
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: 700;
+  }
 }
 
 .start_course_btn:hover {

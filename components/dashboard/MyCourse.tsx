@@ -36,14 +36,14 @@ interface Props {
 
 const MyCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
   return (
-    <div className={style.my_course}>
+    <div className={style.wrapper}>
       <MyMainCourse
         course={course}
         key={course.name}
         myLanguage={myLanguage}
         LANGUAGE_NAMES={LANGUAGE_NAMES}
       />
-      {course.courses.map((subCourse, index) => {
+      {course.courses.map(subCourse => {
         return <MySubCourse subCourse={subCourse} key={subCourse._id} />
       })}
     </div>

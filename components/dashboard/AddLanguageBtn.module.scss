@@ -1,4 +1,4 @@
-.add_language_btn {
+.add_btn {
   padding: 17.5px 30px 17.5px 60px;
   text-transform: initial;
   color: #fff;
@@ -25,6 +25,10 @@
   text-align: left;
   text-decoration: none;
   font-weight: 700;
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: bold;
+  }
 }
 
 .add_language_btn:hover {

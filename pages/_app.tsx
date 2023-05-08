@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Script from 'next/script'
 import { IntlProvider } from 'react-intl'
 import { useRouter } from 'next/router'
+
 import { Locale, messages } from '../utils/localization'
 import 'regenerator-runtime/runtime'
 
