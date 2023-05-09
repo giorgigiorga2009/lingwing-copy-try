@@ -43,6 +43,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(/assets/images/arrows/arrow-right-white.png);
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
 }
 
 .left_side {
@@ -82,4 +88,14 @@
   border-radius: 50%;
   box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);
   border: 2px solid white;
+}
+
+.tablet_mobile {
+  display: none;
+  @include tablet {
+    display: flex;
+  }
+  @include mobile {
+    display: flex;
+  }
 }

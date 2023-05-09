@@ -54,6 +54,27 @@ const Dashboard: FC = () => {
     setActive(index)
   }
 
+  const myCourse = myLanguages.map((item: Language, index: number) => {
+    if (index === active) {
+      return (
+        <div className={style.started_courses_content} key={item._id}>
+          {item.standards
+            .filter((elem, counter: number) => elem.courses.length > 0)
+            .map((course, i) => {
+              return (
+                <MyCourse
+                  myLanguage={item}
+                  course={course}
+                  key={course.name}
+                  LANGUAGE_NAMES={LANGUAGE_NAMES}
+                />
+              )
+            })}
+        </div>
+      )
+    }
+  })
+
   return (
     <>
       <div className={style.wrapper}>
@@ -70,18 +91,20 @@ const Dashboard: FC = () => {
                 {myLanguages &&
                   myLanguages.map((item: Language, index: number) => {
                     return (
-                      <MyLanguage
-                        key={item._id}
-                        item={item}
-                        changeActive={changeActive}
-                        active={active}
-                        index={index}
-                        t={t}
-                        LANGUAGE_NAMES={LANGUAGE_NAMES}
-                      />
+                      <>
+                        <MyLanguage
+                          key={item._id}
+                          item={item}
+                          changeActive={changeActive}
+                          active={active}
+                          index={index}
+                          t={t}
+                          LANGUAGE_NAMES={LANGUAGE_NAMES}
+                          myCourse={myCourse}
+                        />
+                      </>
                     )
                   })}
-
                 <AddLanguageBtn />
                 <DownloadAppBox />
               </div>
@@ -91,28 +114,7 @@ const Dashboard: FC = () => {
             <h2 className={style.heading3}>
               {t('APP_GENERAL_STARTED_COURSES')}
             </h2>
-            {myLanguages.map((item: Language, index: number) => {
-              if (index === active) {
-                return (
-                  <div className={style.started_courses_content} key={item._id}>
-                    {item.standards
-                      .filter(
-                        (elem, counter: number) => elem.courses.length > 0,
-                      )
-                      .map((course, i) => {
-                        return (
-                          <MyCourse
-                            myLanguage={item}
-                            course={course}
-                            key={course.name}
-                            LANGUAGE_NAMES={LANGUAGE_NAMES}
-                          />
-                        )
-                      })}
-                  </div>
-                )
-              }
-            })}
+            {myCourse}
           </div>
         </div>
         <div className={style.bottom}>
