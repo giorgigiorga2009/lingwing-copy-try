@@ -16,16 +16,20 @@
 }
 
 .tablet_mobile .wrapper {
-  height: 106.5px;
   padding-left: 35px;
   padding-bottom: 20px;
   gap: 0;
-  @include smallWidth {
+  box-shadow: none;
+  @include mobile {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  @include smallWidth {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    justify-content: center;
+    height: 120px;
+    gap: 15px;
   }
 }
 
@@ -38,20 +42,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  gap: 45px;
 }
 
 .tablet_mobile .left_line_box {
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
-  height: 100%;
-  padding-top: 0;
-  @include smallWidth {
-    justify-content: flex-start;
-    height: auto;
-    gap: 0;
-    border: 1px solid red;
+  min-width: 180px;
+  gap: 0;
+  @include mobile {
+    max-height: 30px;
+    min-width: 150px;
   }
 }
 
@@ -59,19 +59,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
-}
-
-.tablet_mobile .left_line_box,
-.tablet_mobile .right_line_box {
-  width: 100%;
 }
 
 .tablet_mobile .right_line_box {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-  height: 100%;
   width: auto;
   @include smallWidth {
     flex-direction: row;
@@ -125,7 +118,7 @@
   }
 }
 
-.tablet_mobile title {
+.tablet_mobile .title {
   font-size: 17px;
 }
 
@@ -136,48 +129,6 @@
 
 .tablet_mobile .sub_standard {
   color: black;
-  margin-left: 0;
-}
-
-.test {
-  border: 2px solid #e09f5c;
-  border-radius: 20px;
-  background-color: #fcf7f4;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 7px 40px;
-  height: 39px;
-  cursor: pointer;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-  color: #f68935;
-  font-weight: 700;
-  &:lang(ka) {
-    font-family: bpg_arial_2009;
-    font-weight: 700;
-  }
-}
-
-.tablet_mobile .test {
-  font-size: 12px;
-  height: 23.5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 7px 15px 7px 15px;
-  width: 85px;
-  @include smallWidth {
-    width: 72px;
-  }
-}
-
-.test:hover {
-  background: #fff3ec;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .action_btns {
@@ -185,6 +136,10 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+}
+
+.tablet_mobile .action_btns {
+  display: none;
 }
 
 .action_btns button {
@@ -235,6 +190,12 @@
   justify-content: flex-end;
 }
 
+.tablet_mobile .go_to_course {
+  @include smallWidth {
+    justify-content: flex-start;
+  }
+}
+
 .start_course_btn {
   border: 2px solid #f39c12;
   border-radius: 20px;
@@ -259,15 +220,11 @@
 }
 
 .tablet_mobile .start_course_btn {
-  font-size: 12px;
-  height: 23.5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 7px 18px 7px 18px;
-  @include smallWidth {
-    width: 82.5px;
-  }
+  padding: 5px 10px;
+  height: 30.5px;
 }
 
 .start_course_btn:hover {
@@ -275,15 +232,6 @@
   background-color: #feb614;
   transform: translateY(-1px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-
-.top_side {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 35px;
-  height: 30%;
-  padding: 0;
 }
 
 .desktop {

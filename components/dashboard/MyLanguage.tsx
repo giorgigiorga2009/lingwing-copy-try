@@ -27,14 +27,10 @@ const MyLanguage: FC<Props> = ({
   LANGUAGE_NAMES,
   myCourse,
 }) => {
-  const [activeSmScreen, setActiveSmScreen] = useState<number>(-1)
   return (
     <>
       <button
-        onClick={() => (
-          changeActive(index),
-          setActiveSmScreen(index === activeSmScreen ? -1 : index)
-        )}
+        onClick={() => changeActive(active === index ? -1 : index)}
         className={active === index ? style.my_btn_active : style.my_btn}
       >
         <div className={style.left_side}>
@@ -53,7 +49,7 @@ const MyLanguage: FC<Props> = ({
           0<span className={style.percent}>%</span>
         </p>
       </button>
-      {index === activeSmScreen ? (
+      {index === active ? (
         <div className={style.tablet_mobile}>{myCourse}</div>
       ) : null}
     </>

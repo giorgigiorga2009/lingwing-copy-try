@@ -25,6 +25,7 @@ const Dashboard: FC = () => {
   const router = useRouter()
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [active, setActive] = useState<number>(0)
+
   const locale = router.locale ?? 'en'
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const Dashboard: FC = () => {
                 <MyCourse
                   myLanguage={item}
                   course={course}
-                  key={course.name}
+                  key={`${course.name}-${i}`}
                   LANGUAGE_NAMES={LANGUAGE_NAMES}
                 />
               )
