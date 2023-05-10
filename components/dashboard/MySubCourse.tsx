@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTranslation } from '../../utils/useTranslation'
@@ -39,6 +39,24 @@ const MySubCourse: FC<Props> = ({ subCourse }) => {
   }
   {
   }
+
+  //used only for small screen
+  const [openCourse, setOpenCourse] = useState<boolean>(false)
+
+  const [matches, setMatches] = useState(
+    window.matchMedia('(min-width: 1024px)').matches ? true : false,
+  )
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)')
+
+    const updateMatches = () => {
+      setMatches(mediaQuery.matches ? true : false)
+    }
+    mediaQuery.addEventListener('change', updateMatches)
+    return () => {
+      mediaQuery.removeEventListener('change', updateMatches)
+    }
+  }, [])
 
   return (
     <>

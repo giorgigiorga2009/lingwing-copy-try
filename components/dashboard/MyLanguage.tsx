@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import Image from 'next/image'
 import style from './MyLanguage.module.scss'
 
@@ -30,7 +30,7 @@ const MyLanguage: FC<Props> = ({
   return (
     <>
       <button
-        onClick={() => changeActive(active === index ? -1 : index)}
+        onClick={() => changeActive(index)}
         className={active === index ? style.my_btn_active : style.my_btn}
       >
         <div className={style.left_side}>
