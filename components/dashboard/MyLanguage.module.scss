@@ -30,6 +30,18 @@
   position: relative;
   margin-bottom: 10px;
   border: none;
+  @include tablet {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 0px 1px #e2e2e2;
+  }
+  @include mobile {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 0px 1px #e2e2e2;
+  }
 }
 
 .my_btn_active::before {
