@@ -30,18 +30,37 @@
   position: relative;
   margin-bottom: 10px;
   border: none;
-  @include tablet {
-    margin-bottom: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    box-shadow: 0 0px 1px #e2e2e2;
-  }
-  @include mobile {
-    margin-bottom: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    box-shadow: 0 0px 1px #e2e2e2;
-  }
+}
+
+.my_btn_active_open {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0px 1px #e2e2e2;
+  border: none;
+}
+
+.dropdown {
+  background-image: url('/themes/images/v2/arrrow-right-purple.png');
+  width: 25px;
+  height: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+  transform: rotate(0deg);
+}
+
+.my_btn_active_open .dropdown {
+  transform: rotate(90deg);
+  transition: transform 0.5s ease;
 }
 
 .my_btn_active::before {
@@ -55,12 +74,10 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(/assets/images/arrows/arrow-right-white.png);
-  @include tablet {
-    display: none;
-  }
-  @include mobile {
-    display: none;
-  }
+}
+
+.tablet_mobile .my_btn_active::before {
+  display: none;
 }
 
 .left_side {
@@ -102,12 +119,28 @@
   border: 2px solid white;
 }
 
+.right_side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.desktop {
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+}
+
 .tablet_mobile {
   display: none;
   @include tablet {
-    display: flex;
+    display: block;
   }
   @include mobile {
-    display: flex;
+    display: block;
   }
 }

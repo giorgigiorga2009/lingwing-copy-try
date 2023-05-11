@@ -11,6 +11,8 @@ import { Footer } from '../components/wizard/Footer'
 import { Locale } from '../utils/localization'
 import { LOCALES_TO_LANGUAGES, LANGUAGE_NAMES } from '../utils/languages'
 import { useTranslation } from '../utils/useTranslation'
+import { getMyCoursesData } from '../utils/getMyCourses'
+import { getToken } from '../utils/auth'
 
 import style from './dashboard.module.scss'
 
@@ -25,34 +27,23 @@ const Dashboard: FC = () => {
   const router = useRouter()
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [active, setActive] = useState<number>(0)
+  const [token, setToken] = useState<string>('')
 
   const locale = router.locale ?? 'en'
-
   useEffect(() => {
-    getData(
-      `https://api.lingwing.com/api/v2/user/getStartedCourses?lang=${
-        LOCALES_TO_LANGUAGES[locale as Locale]
-      }`,
-    ).then(data => {
-      setMyLanguages(data.data.languages)
-    })
+    getMyCoursesData(LOCALES_TO_LANGUAGES[locale as Locale]).then(response =>
+      setMyLanguages(response.data.languages),
+    )
   }, [locale])
-
-  async function getData(url: string) {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2ODEyODQwODEzNjEsImV4cCI6MTc4NjUxOTI4MTM2MSwidXNlcl9pZCI6IjY0MzY1YmYxNDRiNDVkMGYzZmU0NDkzYyJ9.bmkmoLNbxNUjzodWwNFkMqhVL8MdEj6iL8rnxxPOG_o',
-      },
-      referrerPolicy: 'strict-origin-when-cross-origin',
-    })
-    return response.json()
-  }
 
   const changeActive = (index: number) => {
     setActive(index)
+  }
+
+  const getFromStorage = (key: any) => {
+    if (typeof window !== 'undefined') {
+      return window.localStorage.getItem(key)
+    }
   }
 
   const myCourse = myLanguages.map((item: Language, index: number) => {

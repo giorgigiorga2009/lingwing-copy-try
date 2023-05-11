@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTranslation } from '../../utils/useTranslation'
@@ -11,7 +11,6 @@ interface SubCourseProps {
   languageSubStandard: {
     name: string
   }
-
   slug: string
   status: {
     start: boolean
@@ -37,26 +36,6 @@ const MySubCourse: FC<Props> = ({ subCourse }) => {
   const linkStyle: LinkStyle = {
     textDecoration: 'none',
   }
-  {
-  }
-
-  //used only for small screen
-  const [openCourse, setOpenCourse] = useState<boolean>(false)
-
-  const [matches, setMatches] = useState(
-    window.matchMedia('(min-width: 1024px)').matches ? true : false,
-  )
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1024px)')
-
-    const updateMatches = () => {
-      setMatches(mediaQuery.matches ? true : false)
-    }
-    mediaQuery.addEventListener('change', updateMatches)
-    return () => {
-      mediaQuery.removeEventListener('change', updateMatches)
-    }
-  }, [])
 
   return (
     <>
