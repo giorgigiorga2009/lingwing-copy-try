@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import MyMainCourse from './MyMainCourse'
-import style from './MyCourse.module.scss'
 import MySubCourse from './MySubCourse'
+import style from './MyCourse.module.scss'
 
 interface Course {
   name: string
