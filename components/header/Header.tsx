@@ -46,21 +46,15 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
           <Link href={{ pathname: '/dashboard' }}>Dashboard</Link>
         </div>
         <LocalesDropdown />
-        {!isAuthenticated ? (
-          <div className={style.authorization_box}>
-            <div className={style.avatar} />
-            <div
-              className={style.singInButton}
-              onClick={() => setOpenLogin(true)}
-            >
-              {t('loginSignIn')}
-            </div>
+        <div className={style.authorization_box}>
+          <div className={style.avatar} />
+          <div
+            className={style.singInButton}
+            onClick={() => setOpenLogin(true)}
+          >
+            {t('loginSignIn')}
           </div>
-        ) : (
-          <div>
-            <User />
-          </div>
-        )}
+        </div>
       </div>
       {openLogin && (
         <LoginModal

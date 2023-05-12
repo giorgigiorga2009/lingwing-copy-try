@@ -7,6 +7,7 @@ interface Course {
   name: string
   uniqueStudentsCount: number
   courses: SubCourse[]
+  index: number
 }
 
 interface SubCourse {
@@ -43,8 +44,14 @@ const MyCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
         myLanguage={myLanguage}
         LANGUAGE_NAMES={LANGUAGE_NAMES}
       />
-      {course.courses.map(subCourse => {
-        return <MySubCourse subCourse={subCourse} key={subCourse._id} />
+      {course.courses.map((subCourse, index) => {
+        return (
+          <MySubCourse
+            subCourse={subCourse}
+            key={subCourse._id}
+            index={index}
+          />
+        )
       })}
     </div>
   )

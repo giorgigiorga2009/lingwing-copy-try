@@ -1,3 +1,5 @@
+@import './styles/imports.scss';
+
 .wrapper {
   background-image: url(/assets/images/mb-app-star.png);
   background-repeat: no-repeat;
@@ -8,6 +10,13 @@
   margin-bottom: 150px;
   width: 100%;
   padding: 35px;
+  @include tablet {
+    height: auto;
+  }
+
+  @include mobile {
+    height: auto;
+  }
 }
 
 .wrapper h3 {
@@ -31,6 +40,18 @@
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  @include mobile {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
 }
 
 .download_app_box h3 strong {
