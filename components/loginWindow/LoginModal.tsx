@@ -65,6 +65,7 @@ export const LoginModal: FC<Props> = ({
     return login({ email, password }).then(response => {
       localStorage.setItem('authToken', response)
       setOpenLogin(!openLogin)
+      console.log(response)
     })
   }
 
@@ -161,13 +162,7 @@ export const LoginModal: FC<Props> = ({
                   <span className={style.error}>{t('passwordNotSame')}</span>
                 )}
               </div>
-              <button
-                className={classNames(
-                  style.button,
-                  // style.disabled
-                )}
-                onClick={signUp}
-              >
+              <button className={classNames(style.button)} onClick={signUp}>
                 {t('loginSignUp')}
               </button>
               <LoginFooter />
