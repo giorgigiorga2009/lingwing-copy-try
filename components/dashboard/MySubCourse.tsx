@@ -25,9 +25,10 @@ interface LinkStyle {
 
 interface Props {
   subCourse: SubCourseProps
+  index: number
 }
 
-const MySubCourse: FC<Props> = ({ subCourse }) => {
+const MySubCourse: FC<Props> = ({ subCourse, index }) => {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -83,7 +84,15 @@ const MySubCourse: FC<Props> = ({ subCourse }) => {
         </div>
       </div>
       <div className={style.tablet_mobile}>
-        <div className={style.wrapper}>
+        <div
+          className={
+            subCourse.languageSubStandard.name !== 'A1-1'
+              ? index === 0
+                ? style.wrapper_first
+                : style.wrapper
+              : style.wrapper_a1_1
+          }
+        >
           <div className={style.left_line_box}>
             <span className={style.percent_progress}>
               {subCourse.percent}
