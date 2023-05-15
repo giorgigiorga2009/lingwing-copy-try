@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
-import { Header } from '../components/header/Header'
-import style from '../styles/Home.module.scss'
-import { useTranslation } from '../utils/useTranslation'
-import { PageHead } from '../components/PageHead'
-import { FollowButtons } from '../components/home/FollowButtons'
-import { LanguagesBlock } from '../components/home/LanguagesBlock'
-import { StartButton } from '../components/home/StartButton'
-import { FormattedMessage } from 'react-intl'
+import style from '@styles/Home.module.scss'
+import { PageHead } from '@components/PageHead'
+import { Header } from '@components/header/Header'
+import { useTranslation } from '@utils/useTranslation'
+import { StartButton } from '@components/home/StartButton'
+import { FollowButtons } from '@components/home/FollowButtons'
+import { LanguagesBlock } from '@components/home/LanguagesBlock'
 
 const Home: NextPage = () => {
   const { t } = useTranslation()

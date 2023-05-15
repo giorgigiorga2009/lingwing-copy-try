@@ -43,9 +43,7 @@ export const saveTask = async ({
       taskType: currentTask.taskType,
     },
   }
-  const config = token ? { headers: { Authorization: token } } : {};
-
-
+  const config = token ? { headers: { Authorization: token } } : {}
 
   try {
     const response = await axios.post(url, payload, config)

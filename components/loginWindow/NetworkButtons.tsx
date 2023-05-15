@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import style from './NetworkButtons.module.scss'
 import classNames from 'classnames'
-import { useTranslation } from '../../utils/useTranslation'
-import { LOGIN_NETWORKS } from '../../utils/const'
+import { LOGIN_NETWORKS } from '@utils/const'
+import style from './NetworkButtons.module.scss'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   isSignInTab: boolean

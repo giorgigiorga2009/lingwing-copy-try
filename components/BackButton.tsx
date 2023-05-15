@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { useTranslation } from '../utils/useTranslation'
 import style from './BackButton.module.scss'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   onClick: () => void

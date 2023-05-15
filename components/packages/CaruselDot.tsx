@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import style from './CaruselDot.module.scss'
+import style from '@components/packages/CaruselDot.module.scss'
 import classNames from 'classnames'
 
 interface Props {

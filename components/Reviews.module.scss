@@ -1,11 +1,10 @@
-@import '../styles/imports.scss';
+@import '@styles/imports.scss';
 
 .container {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
-  position: absolute;
   bottom: 3rem;
 
   @include smallWidth {

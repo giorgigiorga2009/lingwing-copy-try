@@ -1,11 +1,11 @@
-import { FC, useState } from 'react'
-import { LocalesDropdown } from './LocalesDropdown'
-import style from './Header.module.scss'
-import { LoginModal } from '../loginWindow/LoginModal'
-import { SideMenu } from './SideMenu'
-import { useTranslation } from '../../utils/useTranslation'
 import Link from 'next/link'
 import classNames from 'classnames'
+import { FC, useState } from 'react'
+import { SideMenu } from './SideMenu'
+import style from './Header.module.scss'
+import { LocalesDropdown } from './LocalesDropdown'
+import { LoginModal } from '../loginWindow/LoginModal'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   size?: 's' | 'm'

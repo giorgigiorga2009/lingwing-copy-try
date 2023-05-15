@@ -1,7 +1,7 @@
-import classNames from 'classnames'
 import { FC } from 'react'
-import { LanguageFrom, LanguageTo } from '../utils/languages'
+import classNames from 'classnames'
 import style from './CircleFlag.module.scss'
+import { LanguageFrom, LanguageTo } from '@utils/languages'
 
 interface Props {
   language: LanguageFrom | LanguageTo

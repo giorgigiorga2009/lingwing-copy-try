@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import style from './PackageButton.module.scss'
-import classNames from 'classnames'
-import { useTranslation } from '../../utils/useTranslation'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   type: 'mostPopularBtn' | 'regularPackageBtn' | 'couponBtn'

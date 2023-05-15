@@ -1,4 +1,4 @@
-@import '../styles/imports.scss';
+@import '@styles/imports.scss';
 
 .title {
   text-align: center;
@@ -45,27 +45,4 @@
   overflow-x: hidden;
   background-attachment: local;
   color: $grey-800;
-}
-
-.pricingContainer {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.reviews__container {
-  display: flex;
-  font-size: 1rem;
-  position: relative;
-  margin-top: 19rem;
-}
-
-.followButtons {
-  margin: 70px 0 0 0;
-  position: relative;
-}
-
-.footer {
-  margin: 40px 0 0 0;
-  position: relative;
 }

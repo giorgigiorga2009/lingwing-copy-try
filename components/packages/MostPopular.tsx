@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import style from './MostPopular.module.scss'
-import { useTranslation } from '../../utils/useTranslation'
+import { useTranslation } from '@utils/useTranslation'
 
 export const MostPopular: FC = () => {
   const { t } = useTranslation()

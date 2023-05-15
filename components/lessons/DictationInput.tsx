@@ -1,4 +1,3 @@
-import { StringChain } from 'lodash'
 import { FC, RefObject } from 'react'
 import style from './DictationInput.module.scss'
 

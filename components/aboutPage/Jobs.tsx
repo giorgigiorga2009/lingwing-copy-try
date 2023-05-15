@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import style from './AboutTabs.module.scss'
-import { useTranslation } from '../../utils/useTranslation'
+import { useTranslation } from '@utils/useTranslation'
 
 const AboutUs: FC = () => {
   const { t } = useTranslation()

@@ -1,27 +1,24 @@
-import type { GetServerSideProps, NextPage } from 'next'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { Header } from '../components/header/Header'
 import {
   LANGUAGES_TO,
   LanguageTo,
   getLanguagesFrom,
   LanguageFrom,
   LOCALES_TO_LANGUAGES,
-} from '../utils/languages'
+} from '@utils/languages'
+import { getDifficultyLevels, LanguageLevel } from '@utils/getDifficultyLevels'
+import { useRouter } from 'next/router'
 import style from './wizard.module.scss'
-import {
-  getDifficultyLevels,
-  LanguageLevel,
-} from '../utils/getDifficultyLevels'
-import { Footer } from '../components/wizard/Footer'
-import { BackButton } from '../components/BackButton'
-import { Locale } from '../utils/localization'
-import { ChooseLanguageStep } from '../components/wizard/ChooseLanguageStep'
-import { ChooseDifficultyStep } from '../components/wizard/ChooseDifficultyStep'
-import { useTranslation } from '../utils/useTranslation'
-import { PageHead } from '../components/PageHead'
-import { Reviews } from '../components/Reviews'
+import { useEffect, useState } from 'react'
+import { Locale } from '@utils/localization'
+import { Reviews } from '@components/Reviews'
+import { PageHead } from '@components/PageHead'
+import { Header } from '@components/header/Header'
+import { Footer } from '@components/wizard/Footer'
+import { BackButton } from '@components/BackButton'
+import { useTranslation } from '@utils/useTranslation'
+import type { GetServerSideProps, NextPage } from 'next'
+import { ChooseLanguageStep } from '@components/wizard/ChooseLanguageStep'
+import { ChooseDifficultyStep } from '@components/wizard/ChooseDifficultyStep'
 
 type Step = 'step1' | 'step2' | 'step3'
 

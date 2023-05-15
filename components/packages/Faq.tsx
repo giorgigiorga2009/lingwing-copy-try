@@ -1,23 +1,30 @@
-import { FC, useEffect, useState } from 'react'
-import style from './Faq.module.scss'
 import classNames from 'classnames'
-import { getFAQ, FaqData } from '../../utils/getFAQ'
+import { FC, useEffect, useState } from 'react'
+import { getFAQ, FaqData } from '@utils/getFAQ'
+import { LanguageFrom } from '@utils/languages'
+import { useTranslation } from '@utils/useTranslation'
+import style from '@components/packages/Faq.module.scss'
 
-const FAQ: FC = () => {
-  const [faqData, setFaqData] = useState<FaqData[]>()
+interface Props {
+  locale: LanguageFrom
+}
+
+const FAQ: FC<Props> = ({ locale }) => {
+  const { t } = useTranslation()
   const [clicked, setClicked] = useState(-1)
+  const [faqData, setFaqData] = useState<FaqData[]>()
 
   useEffect(() => {
-    getFAQ().then(response => {
+    getFAQ(locale).then(response => {
       setFaqData(response)
     })
-  }, [])
+  }, [locale])
 
   if (!faqData) return null
 
   return (
     <div className={style.faq__container}>
-      <h1 className={style.faq__title}>Frequently asked questions</h1>
+      <h1 className={style.faq__title}>{t('APP_PACKAGES_FAQ_TITLE')}</h1>
       {faqData.map((faq, index) => (
         <div key={index}>
           <div

@@ -1,16 +1,16 @@
-import { FC, Fragment, useState } from 'react'
-import style from './LocalesDropdown.module.scss'
-import Foco from 'react-foco'
-import { LocaleFlag } from './LocaleFlag'
 import {
   LanguageFrom,
   LANGUAGES_TO_LOCALES,
   LANGUAGE_FROM,
   LANGUAGE_NAMES,
   LOCALES_TO_LANGUAGES,
-} from '../../utils/languages'
+} from '@utils/languages'
+import Foco from 'react-foco'
 import { useRouter } from 'next/router'
-import { Locale } from '../../utils/localization'
+import { LocaleFlag } from './LocaleFlag'
+import { Locale } from '@utils/localization'
+import { FC, Fragment, useState } from 'react'
+import style from './LocalesDropdown.module.scss'
 
 export const LocalesDropdown: FC = () => {
   const router = useRouter()

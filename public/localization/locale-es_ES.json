@@ -56,6 +56,8 @@
   "wizardPageTitle": "Lingwing: Elija el idioma de destino",
   "indexPageTitle": "Lingwing: aprendizaje de lenguas extranjeras en línea",
   "reviewsLabel": "Revisa los comentarios",
+  "packagesPageTitle": "Lingwing: Elija un paquete premium",
+
   
   "Georgian": "georgiano",
   "English": "inglés",
@@ -135,5 +137,30 @@
   "APP_ABOUT_US_JOB_text_7": "Experto en tecnologías dela información;",
   "APP_ABOUT_US_JOB_text_8": "Y solamente managers creativos:",
   "APP_ABOUT_US_JOB_text_9": "No te quejes. No creas que tus hábitos profesionales todavía no están listos para un puesto reembolsante. También es viable puesto de interno para que mejores y aumentes tus hábitos profesionales.",
-  "APP_ABOUT_US_JOB_text_10": "Contáctanos"
+  "APP_ABOUT_US_JOB_text_10": "Contáctanos",
+
+  "APP_PACKAGES_FAQ_TITLE": "Preguntas más frecuentes",
+  "APP_PACKAGE_PACKAGES": "Elegir un paquete",
+  "APP_PACKAGE_DESC": "¡Compre un paquete premium y aprenda <k>5 veces</k> más rápido!",
+  "APP_PACKAGE_LIFETIME": "Toda la vida",
+  "APP_PACKAGE_DAILY_NUMBER_OF_TASKS": "Cantidad de ejercicios diarios:",
+  "APP_PACKAGE_CERTIFICATE": "Certificado:",
+  "APP_PACKAGE_ALL_LANGS_AND_COURSES": "Todos los idiomas y cursos:",
+  "APP_PACKAGE_VOICE_RECOGNITION": "Reconocimiento de voz:",
+  "APP_PACKAGE_FREE": "Gratuito",
+  "APP_PACKAGE_MONTHS": "En mes",
+  "APP_PACKAGE_MONTH": "En mes",
+  "APP_PACKAGE_MONTH_ge": "/Por mes",
+  "APP_PACKAGE_UNLIMITED": "Ilimitados",
+  "APP_PACKAGE_TOTAL": "Total",
+  "APP_PACKAGE_SUM": "Total",
+  "APP_PACKAGE_CONTACT_US": "Si tienes preguntas llámanos:",
+  "APP_PACKAGE_SELECT": "Elije",
+  "APP_PACKAGE_MOST_POPULAR": "más popular",
+
+  "COUPON_DO_YOU_HAVE_COUPON?": "¿Tienes cupones de regalo o descuento?",
+  "COUPON_PLACEHOLDER": "Introduce el código",
+  "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "¡El código es incorrecto! Inténtalo de nuevo.",
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Escribe el código e intenta de nuevo."
+
 }

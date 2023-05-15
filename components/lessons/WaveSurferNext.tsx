@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback, FC } from 'react'
-import style from './WaveSurferNext.module.scss'
 import WaveSurfer from 'wavesurfer.js'
+import style from './WaveSurferNext.module.scss'
+import React, { useState, useEffect, useRef, useCallback, FC } from 'react'
 
-const formWaveSurferOptions = (ref: HTMLElement | null) => ({
-  container: ref,
+const formWaveSurferOptions = (ref: HTMLElement) => ({
+  container: '#' + ref.id,
   waveColor: '#eee',
   progressColor: '#B692E3',
   cursorColor: '#ffffff00',
@@ -21,8 +21,8 @@ interface WaveSurferNextProps {
 }
 
 const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
-  const waveformRef = useRef(null)
-  const wavesurfer = useRef(null)
+  const waveformRef = useRef<HTMLDivElement>(null)
+  const wavesurfer = useRef<WaveSurfer | null>(null)
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
@@ -31,20 +31,20 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
 
   const create = useCallback(() => {
     if (!wavesurfer.current) {
-      const options = formWaveSurferOptions(waveformRef.current)
+      const options = formWaveSurferOptions(waveformRef.current!)
       wavesurfer.current = WaveSurfer.create(options)
       wavesurfer.current.load(proxyURL)
 
       wavesurfer.current.on('audioprocess', () => {
-        const currentTime = wavesurfer.current.getCurrentTime()
+        const currentTime = wavesurfer.current!.getCurrentTime()
         setProgress(currentTime)
       })
 
       wavesurfer.current.on('ready', () => {
-        const length = wavesurfer.current.getDuration()
+        const length = wavesurfer.current!.getDuration()
         setDuration(length)
         setPlaying(true)
-        wavesurfer.current.play()
+        wavesurfer.current!.play()
       })
 
       wavesurfer.current.on('finish', () => {
@@ -69,7 +69,7 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
 
   const handlePlayPause = () => {
     setPlaying(!playing)
-    wavesurfer.current.playPause()
+    wavesurfer.current!.playPause()
   }
 
   return (

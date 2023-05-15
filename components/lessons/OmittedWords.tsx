@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
-import { saveTask } from '../../utils/lessons/saveTask'
 import style from './OmittedWords.module.scss'
+import { TaskData } from '@utils/lessons/getTask'
+import { saveTask } from '@utils/lessons/saveTask'
+import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
   // setCorrect: (bool: boolean) => void

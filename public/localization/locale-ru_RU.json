@@ -56,6 +56,8 @@
   "wizardPageTitle": "Lingwing: Выберите целевой язык",
   "indexPageTitle": "Lingwing: онлайн-обучение иностранным языкам",
   "reviewsLabel": "Узнай, что говорят другие",
+  "packagesPageTitle": "Lingwing: Выбрать премиум пакет",
+
  
   "Georgian": "Грузинский",
   "English": "Английский",
@@ -133,7 +135,31 @@
   "APP_ABOUT_US_JOB_text_7": "Другие специалисты IT-сферы;",
   "APP_ABOUT_US_JOB_text_8": "а также просто креативные менеджеры;",
   "APP_ABOUT_US_JOB_text_9": "Не расстраивайтесь, если думаете, что ваши профессиональные навыки пока еще на дают вам возможности претендовать на оплачиваемую работу – вы можете пройти стажировку у нас и значительно повысить уровень своих профессиональных знаний.",
-  "APP_ABOUT_US_JOB_text_10": "Свяжитесь с нами!"
+  "APP_ABOUT_US_JOB_text_10": "Свяжитесь с нами!",
+
+  "APP_PACKAGES_FAQ_TITLE": "Часто задаваемые вопросы",
+  "APP_PACKAGE_PACKAGES": "Пакеты",
+  "APP_PACKAGE_DESC": "Активируй платный пакет и выучи в <k>5 раз</k> быстрее",
+  "APP_PACKAGE_LIFETIME": "Бессрочный",
+  "APP_PACKAGE_DAILY_NUMBER_OF_TASKS": "Ежедневное количество заданий:",
+  "APP_PACKAGE_CERTIFICATE": "Сертификат:",
+  "APP_PACKAGE_ALL_LANGS_AND_COURSES": "Все языки и курсы:",
+  "APP_PACKAGE_VOICE_RECOGNITION": "Голосовое распознование:",
+  "APP_PACKAGE_FREE": "Бесплатный",
+  "APP_PACKAGE_MONTHS": "мес.",
+  "APP_PACKAGE_MONTH": "мес.",
+  "APP_PACKAGE_MONTH_ge": "/мес.",
+  "APP_PACKAGE_UNLIMITED": "Неограничено",
+  "APP_PACKAGE_TOTAL": "Всего",
+  "APP_PACKAGE_SUM": "Всего",
+  "APP_PACKAGE_CONTACT_US": "Для получения детальной информации, свяжитесь с нами:",
+  "APP_PACKAGE_SELECT": "Выбрать",
+  "APP_PACKAGE_MOST_POPULAR": "Лучшее предложение",
+
+  "COUPON_DO_YOU_HAVE_COUPON?": "У вас есть подарочный/скидочный купон?",
+  "COUPON_PLACEHOLDER": "Введите купон",
+  "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "Код недействителен! Попробуйте еще раз",
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Введите код и повторите попытку!"
 
 
 }

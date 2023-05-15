@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
-import { DictationBubble } from './chatBubbles/DictationBubble'
-import { TranslateBubble } from './chatBubbles/TranslateBubble'
 import { Dialog } from './Dialog'
 import { Grammar } from './Grammar'
+import { TaskData } from '@utils/lessons/getTask'
 import style from './ChatCurrentTask.module.scss'
+import { DictationBubble } from './chatBubbles/DictationBubble'
+import { TranslateBubble } from './chatBubbles/TranslateBubble'
 
 interface Props {
   currentTask: TaskData
@@ -23,22 +23,22 @@ const ChatCurrentTask: FC<Props> = ({
       {/* render current task  */}
       {(currentTask.taskType === 'translate' ||
         currentTask.taskType === 'omittedwords') && (
-          <div className={style.currentTask}>
-            <div className={style.bubbleContainer}>
-              <TranslateBubble
-                utteranceType="taskDescription"
-                isCurrentTask={true}
-                taskText={currentTask.taskText}
-                correctText={currentTask.correctText as string}
-                taskDescription={currentTask.taskDescription}
-                isHintShown={isHintShown}
-              />
-              <div className={isHintShown ? style.hint : style.hidden}>
-                Hint: {hintText}
-              </div>
+        <div className={style.currentTask}>
+          <div className={style.bubbleContainer}>
+            <TranslateBubble
+              utteranceType="taskDescription"
+              isCurrentTask={true}
+              taskText={currentTask.taskText}
+              correctText={currentTask.correctText as string}
+              taskDescription={currentTask.taskDescription}
+              isHintShown={isHintShown}
+            />
+            <div className={isHintShown ? style.hint : style.hidden}>
+              Hint: {hintText}
             </div>
           </div>
-        )}
+        </div>
+      )}
 
       {currentTask.taskType === 'mistakecorrection' && (
         <div className={style.currentTask}>
@@ -55,21 +55,20 @@ const ChatCurrentTask: FC<Props> = ({
               Hint: {hintText}
             </div>
           </div>
-
         </div>
       )}
 
       {currentTask.taskType === 'dialog' && (
         <div className={style.currentTask}>
           <div className={style.bubbleContainer}>
-          <Dialog
-            isHistory={false}
-            currentMessageIndex={currentMessageIndex}
-            dialogArray={currentTask.correctText as string[]}
-          />
-          <div className={isHintShown ? style.hint : style.hidden}>
-            Hint: {hintText}
-          </div>
+            <Dialog
+              isHistory={false}
+              currentMessageIndex={currentMessageIndex}
+              dialogArray={currentTask.correctText as string[]}
+            />
+            <div className={isHintShown ? style.hint : style.hidden}>
+              Hint: {hintText}
+            </div>
           </div>
         </div>
       )}
@@ -77,19 +76,18 @@ const ChatCurrentTask: FC<Props> = ({
       {currentTask.taskType === 'replay' && (
         <div className={style.currentTask}>
           <div className={style.bubbleContainer}>
-
-          <TranslateBubble
-            utteranceType="taskDescription"
-            textType="replay"
-            isCurrentTask={true}
-            taskText={currentTask.taskText}
-            correctText={currentTask.correctText as string}
-            taskDescription={currentTask.taskDescription}
-            isHintShown={isHintShown}
-          />
-          <div className={isHintShown ? style.hint : style.hidden}>
-            Hint: {hintText}
-          </div>
+            <TranslateBubble
+              utteranceType="taskDescription"
+              textType="replay"
+              isCurrentTask={true}
+              taskText={currentTask.taskText}
+              correctText={currentTask.correctText as string}
+              taskDescription={currentTask.taskDescription}
+              isHintShown={isHintShown}
+            />
+            <div className={isHintShown ? style.hint : style.hidden}>
+              Hint: {hintText}
+            </div>
           </div>
         </div>
       )}
@@ -97,19 +95,18 @@ const ChatCurrentTask: FC<Props> = ({
       {currentTask.taskType === 'dictation' && (
         <div className={style.currentTask}>
           <div className={style.bubbleContainer}>
-
-          <DictationBubble
-            sentenceAudioPath={currentTask.sentenceAudioPath}
-            type="taskDescription"
-            isCurrentTask={true}
-            taskText={currentTask.taskText}
-            correctText={currentTask.correctText as string}
-            taskDescription={currentTask.taskDescription}
-            isHintShown={isHintShown}
-          />
-          <div className={isHintShown ? style.hint : style.hidden}>
-            Hint: {hintText}
-          </div>
+            <DictationBubble
+              sentenceAudioPath={currentTask.sentenceAudioPath}
+              type="taskDescription"
+              isCurrentTask={true}
+              taskText={currentTask.taskText}
+              correctText={currentTask.correctText as string}
+              taskDescription={currentTask.taskDescription}
+              isHintShown={isHintShown}
+            />
+            <div className={isHintShown ? style.hint : style.hidden}>
+              Hint: {hintText}
+            </div>
           </div>
         </div>
       )}

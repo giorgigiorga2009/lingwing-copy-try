@@ -170,37 +170,39 @@ export const standardTextCheck = ({
 
   const isCharPunctuation = (index: number) => {
     if (correctText[index]) {
-      return (/[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index]))
-    }
-    else return false
+      return /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index])
+    } else return false
   }
 
   const isCharSpace = (index: number) => {
     if (correctText[index]) {
-      return (/\s/.test(correctText[index]))
-    }
-    else return false
+      return /\s/.test(correctText[index])
+    } else return false
   }
-
-
-
 
   let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
 
   //check if only last punctuation left
-  if (inputText.length === correctText.length - 1 && correctText.length > 1 && isCharPunctuation(index + 1)) {
+  if (
+    inputText.length === correctText.length - 1 &&
+    correctText.length > 1 &&
+    isCharPunctuation(index + 1)
+  ) {
     setIsHintShown(false)
     setMistakeRepeat(false)
     return correctText
   }
 
   // check if punctuation inside word
-  if (isCharPunctuation(index + 1) && !isCharSpace(index + 2) && correctText[index + 2] && isTextEqual) {
+  if (
+    isCharPunctuation(index + 1) &&
+    !isCharSpace(index + 2) &&
+    correctText[index + 2] &&
+    isTextEqual
+  ) {
     console.log('Check1', isCharSpace(index + 2), correctText[index + 2])
-    return correctText.slice(0, inputText ? (inputText.length + 1) : 0)
+    return correctText.slice(0, inputText ? inputText.length + 1 : 0)
   }
-
-
 
   //check if current char is punctuation and after it space
   if (isCharPunctuation(index) && isCharSpace(index + 1)) {
@@ -208,7 +210,7 @@ export const standardTextCheck = ({
       setMistakeRepeat(false)
       setIsHintShown(false)
       if (isCharPunctuation(index + 2) && isCharSpace(index + 3)) {
-        return correctText.slice(0, inputText ? (inputText.length + 3) : 0)
+        return correctText.slice(0, inputText ? inputText.length + 3 : 0)
       } else {
         textToShow += ' '
         return textToShow
