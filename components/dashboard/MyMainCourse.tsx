@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import Image from 'next/image'
 import { useTranslation } from '../../utils/useTranslation'
 import { getNumberWithComa } from '../../utils/getNumberWithComa'
+import FlagIcon from './FlagIcon'
 
 import style from './MyMainCourse.module.scss'
 
@@ -26,14 +26,10 @@ const MyMainCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
   return (
     <div className={style.wrapper}>
       <div className={style.left_line_box}>
-        <Image
-          className={style.flag_icon}
-          src={`/assets/images/flags/circle/big/${
-            LANGUAGE_NAMES[myLanguage.nameCode]
-          }.png`}
-          alt={`${LANGUAGE_NAMES[myLanguage.nameCode]} icon`}
-          width={68}
-          height={67}
+        <FlagIcon
+          item={myLanguage}
+          size="big"
+          LANGUAGE_NAMES={LANGUAGE_NAMES}
         />
         <h2 className={style.title}>
           <span>{t(LANGUAGE_NAMES[myLanguage.nameCode])}</span>{' '}

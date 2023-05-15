@@ -33,9 +33,17 @@ interface Props {
   LANGUAGE_NAMES: {
     [key: string]: string
   }
+  counter: number
 }
 
-const MyCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
+const MyCourse: FC<Props> = ({
+  course,
+  myLanguage,
+  LANGUAGE_NAMES,
+  counter,
+}) => {
+  console.log(myLanguage, 'myLanguage')
+
   return (
     <div className={style.wrapper}>
       <MyMainCourse
@@ -50,6 +58,7 @@ const MyCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
             subCourse={subCourse}
             key={subCourse._id}
             index={index}
+            counter={counter}
           />
         )
       })}
