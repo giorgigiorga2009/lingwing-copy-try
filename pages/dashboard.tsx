@@ -28,6 +28,12 @@ const Dashboard: FC = () => {
   const [active, setActive] = useState<number>(0)
   const locale = router.locale ?? 'en'
 
+  useEffect(() => {
+    getMyCoursesData(locale).then(response =>
+      setMyLanguages(response.data.languages),
+    )
+  }, [locale])
+
   const changeActive = (index: number) => {
     setActive(index)
   }
