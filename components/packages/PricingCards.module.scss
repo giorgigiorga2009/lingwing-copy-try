@@ -1,10 +1,11 @@
-@import '../../styles/imports.scss';
+@import '@styles/imports.scss';
 
 .package__container {
   display: flex;
   font-family: 'SegoeUI';
   margin-top: 40px;
   overflow-x: scroll;
+  justify-content: center;
 
   &:lang(ka) {
     font-family: $kaFontTitleBold;
@@ -81,7 +82,12 @@
 }
 
 .package__card__image {
+  padding: 10px;
   filter: grayscale(100%);
+}
+
+.package__card__imageActive {
+  padding: 10px;
 }
 
 .button__container {

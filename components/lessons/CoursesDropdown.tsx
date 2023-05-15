@@ -1,13 +1,12 @@
-import style from './CoursesDropdown.module.scss'
-
-import { FC, Fragment, useState } from 'react'
-import Foco from 'react-foco'
-import { LOCALES_TO_LANGUAGES } from '../../utils/languages'
-import { useRouter } from 'next/router'
-import { Locale } from '../../utils/localization'
-import { LanguageCourse } from '../../utils/lessons/getLanguageCoursesList'
-import classNames from 'classnames'
 import Link from 'next/link'
+import Foco from 'react-foco'
+import classNames from 'classnames'
+import { useRouter } from 'next/router'
+import { Locale } from '@utils/localization'
+import { FC, Fragment, useState } from 'react'
+import style from './CoursesDropdown.module.scss'
+import { LOCALES_TO_LANGUAGES } from '@utils/languages'
+import { LanguageCourse } from '@utils/lessons/getLanguageCoursesList'
 
 interface Props {
   languageCoursesList: LanguageCourse[]

@@ -1,5 +1,5 @@
+import { FC } from 'react'
 import classNames from 'classnames'
-import { FC, useEffect, useState } from 'react'
 import style from './TranslateBubble.module.scss'
 
 interface Props {

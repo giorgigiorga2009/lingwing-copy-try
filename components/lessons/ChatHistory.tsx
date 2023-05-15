@@ -1,11 +1,10 @@
+import { FC } from 'react'
+import { Dialog } from './Dialog'
+import { Grammar } from './Grammar'
 import style from './ChatHistory.module.scss'
-import { TaskData } from '../../utils/lessons/getTask'
-import { Dialog, DialogInput } from './Dialog'
-
-import { Grammar, GrammarButton } from './Grammar'
+import { TaskData } from '@utils/lessons/getTask'
 import { DictationBubble } from './chatBubbles/DictationBubble'
 import { TranslateBubble } from './chatBubbles/TranslateBubble'
-import { FC } from 'react'
 
 interface HistoryProps {
   completedTasks: TaskData[]

@@ -1,7 +1,6 @@
-import { is } from '@react-spring/shared'
-import classNames from 'classnames'
+import { FC } from 'react'
 import dynamic from 'next/dynamic'
-import { FC, useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
 import style from './DictationBubble.module.scss'
 
 const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {

@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { useTranslation } from '../../utils/useTranslation'
 import style from './LoginFooter.module.scss'
+import { useTranslation } from '@utils/useTranslation'
 
 export const LoginFooter: FC = () => {
   const { t } = useTranslation()

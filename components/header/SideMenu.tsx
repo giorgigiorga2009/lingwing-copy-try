@@ -1,17 +1,17 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
-import Foco from 'react-foco'
 import {
   ABOUT_COMPANY_KEYS,
   COURSES_KEYS,
   HELP_KEYS,
   PREMIUM_KEYS,
   SIDE_MENU_LINKS,
-} from '../../utils/const'
-import { useTranslation } from '../../utils/useTranslation'
+} from '@utils/const'
+import { FC } from 'react'
+import Link from 'next/link'
+import Foco from 'react-foco'
+import classNames from 'classnames'
+import { useRouter } from 'next/router'
 import styles from './SideMenu.module.scss'
+import { useTranslation } from '@utils/useTranslation'
 
 export type SideMenuKeys = keyof typeof SIDE_MENU_LINKS
 

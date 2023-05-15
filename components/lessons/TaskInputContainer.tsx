@@ -7,13 +7,13 @@ import {
   repetitionInputCheck,
   getStringFromRecognition,
   standardTextCheck,
-} from '../../utils/lessons/taskInputUtils'
+} from '@utils/lessons/taskInputUtils'
 import { animated, useSpring } from 'react-spring'
-import { KEYBOARD_OVERRIDE } from '../../utils/const'
+import { KEYBOARD_OVERRIDE } from '@utils/const'
 import { DictationInput } from './DictationInput'
 import { OmittedWords } from './OmittedWords'
-import { saveTask } from '../../utils/lessons/saveTask'
-import { TaskData } from '../../utils/lessons/getTask'
+import { saveTask } from '@utils/lessons/saveTask'
+import { TaskData } from '@utils/lessons/getTask'
 
 interface TaskInputProps {
   taskType: string

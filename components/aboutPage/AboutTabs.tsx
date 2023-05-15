@@ -1,9 +1,9 @@
-import classNames from 'classnames'
 import { FC } from 'react'
 import Link from 'next/link'
+import classNames from 'classnames'
 import style from './AboutTabs.module.scss'
-import { useTranslation } from '../../utils/useTranslation'
-import { ABOUT_COMPANY_LINKS } from '../../utils/const'
+import { ABOUT_COMPANY_LINKS } from '@utils/const'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   activeTab: string
@@ -15,7 +15,10 @@ const AboutTabs: FC<Props> = ({ activeTab }) => {
   return (
     <nav className={style.nav}>
       <ul className={style.ulNav}>
-        <Link href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.whyWithUs}>
+        <Link
+          className={style.link}
+          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.whyWithUs}
+        >
           <li
             className={classNames(
               style.liNav,
@@ -25,7 +28,10 @@ const AboutTabs: FC<Props> = ({ activeTab }) => {
             {t('menuWhyWithUs')}
           </li>
         </Link>
-        <Link href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.certificate}>
+        <Link
+          className={style.link}
+          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.certificate}
+        >
           <li
             className={classNames(
               style.liNav,
@@ -35,7 +41,10 @@ const AboutTabs: FC<Props> = ({ activeTab }) => {
             {t('menuCertificate')}
           </li>
         </Link>
-        <Link href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.partners}>
+        <Link
+          className={style.link}
+          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.partners}
+        >
           <li
             className={classNames(
               style.liNav,
@@ -45,7 +54,10 @@ const AboutTabs: FC<Props> = ({ activeTab }) => {
             {t('menuPartners')}
           </li>
         </Link>
-        <Link href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.jobs}>
+        <Link
+          className={style.link}
+          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.jobs}
+        >
           <li
             className={classNames(
               style.liNav,

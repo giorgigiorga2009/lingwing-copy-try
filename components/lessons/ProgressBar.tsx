@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import { FC } from 'react'
-import { CourseObject } from '../../utils/lessons/getTask'
+import { CourseObject } from '@utils/lessons/getTask'
 import style from './ProgressBar.module.scss'
 
 interface Props {

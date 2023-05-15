@@ -1,7 +1,7 @@
-import { FC, useEffect, useRef } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
-import { saveTask } from '../../utils/lessons/saveTask'
 import style from './Grammar.module.scss'
+import { FC, useEffect, useRef } from 'react'
+import { TaskData } from '@utils/lessons/getTask'
+import { saveTask } from '@utils/lessons/saveTask'
 
 interface Props {
   taskText: string
@@ -12,10 +12,15 @@ export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
   const grammarRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
+<<<<<<< HEAD
     if (grammarRef.current && typeof onDivHeight === 'function') {
       const height = grammarRef.current.offsetHeight
       onDivHeight(height)
     }
+=======
+    grammarRef.current &&
+      console.log(grammarRef.current?.scrollHeight, 'grammar')
+>>>>>>> 69af685ab9feb98c64a41598127e317b99f82997
   }, [grammarRef.current])
 
   return (

@@ -1,18 +1,17 @@
-import { FC, useEffect, useState, useRef } from 'react'
+import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import style from './PricingCards.module.scss'
-import { getPackages, PackageData } from '../../utils/getPackages'
+import { CaruselDot } from './CaruselDot'
 import { Currency } from './CurrencyPicker'
-import { FreePackagePrice, ReccuringPrice, TotalPrice } from './Prices'
-import { DiscountedTotalPrice, ShowDiscountLabel } from './PromoPrices'
+import style from './PricingCards.module.scss'
+import { MostPopular } from './MostPopular'
+import { PackageButton } from './PackageButton'
+import { PACKAGES_IMAGES } from '@utils/const'
+import { FC, useEffect, useState, useRef } from 'react'
 import { Features, FeatureDescs } from './Features'
 import { FreePackageName, Duration } from './Duration'
-import { CaruselDot } from './CaruselDot'
-import { PackageButton } from './PackageButton'
-import { MostPopular } from './MostPopular'
-import classNames from 'classnames'
-import Image from 'next/image'
-import { PACKAGES_IMAGES } from '../../utils/const'
+import { getPackages, PackageData } from '@utils/getPackages'
+import { FreePackagePrice, ReccuringPrice, TotalPrice } from './Prices'
+import { DiscountedTotalPrice, ShowDiscountLabel } from './PromoPrices'
 
 interface scroll {
   scrollLeft: number
@@ -104,15 +103,18 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                 ) : (
                   <Duration duration={item.duration} />
                 )}
+
                 {item.sale > 0 && <ShowDiscountLabel discount={item.sale} />}
-                <Image
+                <img
                   src={PACKAGES_IMAGES[index]}
-                  width="100%"
-                  height="100%"
-                  layout="fixed"
-                  objectFit="contain"
-                  className={item.mostPopular ? '' : style.package__card__image}
+                  alt="Image for package"
+                  className={
+                    item.mostPopular
+                      ? style.package__card__imageActive
+                      : style.package__card__image
+                  }
                 />
+
                 {item.duration === 0 ? (
                   <FreePackagePrice />
                 ) : (

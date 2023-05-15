@@ -1,10 +1,10 @@
-import '../styles/globals.scss'
-import type { AppProps } from 'next/app'
+import '@styles/globals.scss'
 import Script from 'next/script'
-import { IntlProvider } from 'react-intl'
-import { useRouter } from 'next/router'
-import { Locale, messages } from '../utils/localization'
 import 'regenerator-runtime/runtime'
+import { useRouter } from 'next/router'
+import type { AppProps } from 'next/app'
+import { IntlProvider } from 'react-intl'
+import { Locale, messages } from '@utils/localization'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale: initialLocale } = useRouter()

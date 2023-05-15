@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
-import { DictationBubble } from './chatBubbles/DictationBubble'
-import { TranslateBubble } from './chatBubbles/TranslateBubble'
 import { Dialog } from './Dialog'
 import { Grammar } from './Grammar'
+import { TaskData } from '@utils/lessons/getTask'
 import style from './ChatCurrentTask.module.scss'
+import { DictationBubble } from './chatBubbles/DictationBubble'
+import { TranslateBubble } from './chatBubbles/TranslateBubble'
 
 interface Props {
   currentTask: TaskData

@@ -37,6 +37,8 @@
 
   "wizardPageTitle": "Lingwing: Hedef dili seçin",
   "indexPageTitle": "Lingwing: Yabancı dilleri çevrimiçi öğrenme",
+  "reviewsLabel": "başkaların söylediklerini gör",
+  "packagesPageTitle": "Lingwing: აირჩიე პრემიუმ პაკეტი",
  
   "Georgian": "Gürcüce",
   "English": "İngilizce",
@@ -72,8 +74,6 @@
   "makeSureHear": "Emin olmak sesi bilgisayarından duyacaksın",
   "hearSound": "Evet, sesi duydum",
 
-
-
   "backButton": "Son sayfaya dön",
   "wizardTitle1": "Öğrenilecek dili seç",
   "wizardTitle2": "Hangi dilden öğreneceğiniz dili seçin",
@@ -81,7 +81,6 @@
   "wizardStudents": "öğrenci",
   "wizardCourse": "Kurs",
   "wizardAbout": "hakkında",
-  "reviewsLabel": "başkaların söylediklerini gör",
 
   "APP_ABOUT_US_COMPANY": "Şirket hakkında",
   "APP_ABOUT_US_TITLE_1": "Lingwing.com - konuşmayı başlatmanın tepki hızını etkinleştirir!",

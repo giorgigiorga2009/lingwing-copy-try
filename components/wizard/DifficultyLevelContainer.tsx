@@ -1,17 +1,17 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { FC, useState } from 'react'
-import { LanguageLevel, Option } from '../../utils/getDifficultyLevels'
-import { getNumberWithComa } from '../../utils/getNumberWithComa'
 import {
   LanguageFrom,
   LanguageTo,
   LOCALES_TO_LANGUAGES,
-} from '../../utils/languages'
-import { Locale } from '../../utils/localization'
-import { useTranslation } from '../../utils/useTranslation'
-import style from './DifficultyLevelContainer.module.scss'
+} from '@utils/languages'
+import classNames from 'classnames'
+import { FC, useState } from 'react'
+import { useRouter } from 'next/router'
 import { LevelOption } from './LevelOption'
+import { Locale } from '@utils/localization'
+import { useTranslation } from '@utils/useTranslation'
+import style from './DifficultyLevelContainer.module.scss'
+import { LanguageLevel } from '@utils/getDifficultyLevels'
+import { getNumberWithComa } from '@utils/getNumberWithComa'
 
 interface Props {
   level: LanguageLevel

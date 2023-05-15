@@ -1,16 +1,15 @@
-import { FC, useEffect, useRef, useState } from 'react'
-import { KEYBOARD_OVERRIDE } from '../../utils/const'
-import { TaskData } from '../../utils/lessons/getTask'
-import { saveTask } from '../../utils/lessons/saveTask'
-import {
-  getStringFromRecognition,
-  repetitionInputCheck,
-} from '../../utils/lessons/taskInputUtils'
-import style from './Dialog.module.scss'
-import { SoundCheck } from './SoundCheck'
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
+import style from './Dialog.module.scss'
+import { KEYBOARD_OVERRIDE } from '@utils/const'
+import { TaskData } from '@utils/lessons/getTask'
+import { saveTask } from '@utils/lessons/saveTask'
+import { FC, useEffect, useRef, useState } from 'react'
+import {
+  getStringFromRecognition,
+  repetitionInputCheck,
+} from '@utils/lessons/taskInputUtils'
 
 interface DialogProps {
   currentMessageIndex?: number

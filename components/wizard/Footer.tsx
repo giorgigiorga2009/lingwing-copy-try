@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import style from './Footer.module.scss'
-import { useTranslation } from '../../utils/useTranslation'
-import { FOOTER_LINKS } from '../../utils/const'
+import { FOOTER_LINKS } from '@utils/const'
+import { useTranslation } from '@utils/useTranslation'
 
 export const Footer: FC = () => {
   const { t } = useTranslation()

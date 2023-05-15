@@ -1,9 +1,9 @@
 import { ReactElement } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
 import { DialogInput } from './Dialog'
 import { GrammarButton } from './Grammar'
-import { MistakeCorrectionTask } from './MistakeCorrection'
+import { TaskData } from '@utils/lessons/getTask'
 import { TaskInputContainer } from './TaskInputContainer'
+import { MistakeCorrectionTask } from './MistakeCorrection'
 
 type CommonProps = {
   userId: string | null

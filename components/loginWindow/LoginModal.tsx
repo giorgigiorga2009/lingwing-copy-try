@@ -1,19 +1,19 @@
-import { FC, useState } from 'react'
-import style from './LoginModal.module.scss'
-import Foco from 'react-foco'
-import { NetworkButtons } from './NetworkButtons'
-import classNames from 'classnames'
-import { useTranslation } from '../../utils/useTranslation'
-import { Input } from './Input'
 import { Tab } from './Tab'
+import Foco from 'react-foco'
+import { Input } from './Input'
+import classNames from 'classnames'
+import { FC, useState } from 'react'
 import { LoginFooter } from './LoginFooter'
+import style from './LoginModal.module.scss'
+import { NetworkButtons } from './NetworkButtons'
+import { useTranslation } from '@utils/useTranslation'
 
 import {
   getEmailValidation,
   getIsPasswordSame,
   getPasswordValidation,
-} from '../../utils/validations'
-import { auth, getToken, login } from '../../utils/auth'
+} from '@utils/validations'
+import { auth, getToken, login } from '@utils/auth'
 
 type Tab = 'signIn' | 'signUp'
 
