@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTranslation } from '../../utils/useTranslation'
 import style from './MySubCourse.module.scss'
+import ActionBtns from './ActionBtns'
 
 interface SubCourseProps {
   name: string
@@ -26,9 +27,10 @@ interface LinkStyle {
 interface Props {
   subCourse: SubCourseProps
   index: number
+  counter: number
 }
 
-const MySubCourse: FC<Props> = ({ subCourse, index }) => {
+const MySubCourse: FC<Props> = ({ subCourse, index, counter }) => {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -55,17 +57,7 @@ const MySubCourse: FC<Props> = ({ subCourse, index }) => {
                 </span>
               </h6>
             </div>
-            <div className={style.action_btns}>
-              <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
-                <button className={style.statistics}></button>
-              </Link>
-              <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
-                <button className={style.reset}></button>
-              </Link>
-              <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
-                <button className={style.info}></button>
-              </Link>
-            </div>
+            <ActionBtns />
           </div>
           <div className={style.right_line_box}>
             <div className={style.go_to_course}>
@@ -86,11 +78,11 @@ const MySubCourse: FC<Props> = ({ subCourse, index }) => {
       <div className={style.tablet_mobile}>
         <div
           className={
-            subCourse.languageSubStandard.name !== 'A1-1'
-              ? index === 0
-                ? style.wrapper_first
-                : style.wrapper
-              : style.wrapper_a1_1
+            counter === 0 && index === 0
+              ? style.wrapper_a1
+              : counter !== 0 && index === 0
+              ? style.wrapper_first
+              : style.wrapper
           }
         >
           <div className={style.left_line_box}>
@@ -104,17 +96,6 @@ const MySubCourse: FC<Props> = ({ subCourse, index }) => {
                 {subCourse.languageSubStandard.name}
               </span>
             </h6>
-            <div className={style.action_btns}>
-              <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
-                <button className={style.statistics}></button>
-              </Link>
-              <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
-                <button className={style.reset}></button>
-              </Link>
-              <Link style={linkStyle} href={`learn/geo/${subCourse.slug}`}>
-                <button className={style.info}></button>
-              </Link>
-            </div>
           </div>
           <div className={style.right_line_box}>
             <div className={style.go_to_course}>

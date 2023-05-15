@@ -12,7 +12,6 @@ import { Locale } from '../utils/localization'
 import { LOCALES_TO_LANGUAGES, LANGUAGE_NAMES } from '../utils/languages'
 import { useTranslation } from '../utils/useTranslation'
 import { getMyCoursesData } from '../utils/getMyCourses'
-import { getToken } from '../utils/auth'
 
 import style from './dashboard.module.scss'
 
@@ -27,7 +26,6 @@ const Dashboard: FC = () => {
   const router = useRouter()
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [active, setActive] = useState<number>(0)
-  const [token, setToken] = useState<string>('')
 
   const locale = router.locale ?? 'en'
   useEffect(() => {
@@ -38,12 +36,6 @@ const Dashboard: FC = () => {
 
   const changeActive = (index: number) => {
     setActive(index)
-  }
-
-  const getFromStorage = (key: any) => {
-    if (typeof window !== 'undefined') {
-      return window.localStorage.getItem(key)
-    }
   }
 
   const myCourse = myLanguages.map((item: Language, index: number) => {
@@ -59,6 +51,7 @@ const Dashboard: FC = () => {
                   course={course}
                   key={`${course.name}-${i}`}
                   LANGUAGE_NAMES={LANGUAGE_NAMES}
+                  counter={i}
                 />
               )
             })}

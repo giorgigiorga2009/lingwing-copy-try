@@ -1,0 +1,47 @@
+.action_btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.action_btns button {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 100%;
+  border: 2px solid #f1f1f4;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.action_btns button:hover {
+  border-color: #7835ab;
+}
+
+.statistics {
+  background-image: url('/themes/images/v2/course-chart.png');
+}
+
+.statistics:hover {
+  background-image: url('/themes/images/v2/course-chart-hover.png');
+}
+
+.reset {
+  background-image: url('/themes/images/v2/course-restart.png');
+}
+
+.reset:hover {
+  background-image: url('/themes/images/v2/course-restart-hover.png');
+}
+
+.info {
+  background-image: url('/themes/images/v2/course-info.png');
+}
+
+.info:hover {
+  background-image: url('/themes/images/v2/course-info-hover.png');
+}

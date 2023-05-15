@@ -194,6 +194,14 @@ export const getUserCourse = async ({
   token: string | null
   userId: string | null
 }): Promise<CourseObject | undefined> => {
+  console.log(
+    courseName,
+    languageTo,
+    languageFrom,
+    token,
+    userId,
+    'getUserCourse',
+  )
   try {
     if (token !== null) {
       const response = await axios({
@@ -231,6 +239,7 @@ export const getTasks = async ({
 }): Promise<TaskData[]> => {
   try {
     //
+    console.log(courseId, languageFrom, languageTo, 'getTasks')
     let url = `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
     let headers: {
       Authorization: string | null
