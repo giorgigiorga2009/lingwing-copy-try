@@ -78,10 +78,10 @@ const MySubCourse: FC<Props> = ({ subCourse, index, counter }) => {
       <div className={style.tablet_mobile}>
         <div
           className={
-            counter === 0 && index === 0
-              ? style.wrapper_a1
-              : counter !== 0 && index === 0
-              ? style.wrapper_first
+            index === 0
+              ? counter === 0
+                ? style.wrapper_a1
+                : style.wrapper_first
               : style.wrapper
           }
         >

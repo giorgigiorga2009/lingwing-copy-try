@@ -14,6 +14,7 @@ import { useTranslation } from '../utils/useTranslation'
 import { getMyCoursesData } from '../utils/getMyCourses'
 
 import style from './dashboard.module.scss'
+import PromoSlider from '../components/dashboard/PromoSlider'
 
 interface Language {
   _id: string
@@ -106,6 +107,7 @@ const Dashboard: FC = () => {
           <FollowButtons dashboard={true} />
           <Footer />
         </div>
+        <PromoSlider />
       </div>
     </>
   )
