@@ -35,7 +35,7 @@ export const DictationBubble: FC<Props> = ({
         style.container,
         style[type],
         style[`${isCurrentTask}`],
-        style[hint]
+        style[hint],
       )}
     >
       <div className={style.header}>{taskDescription}</div>
@@ -43,7 +43,7 @@ export const DictationBubble: FC<Props> = ({
         <span className={style.correctText}>{correctText}</span>
         {isCurrentTask && (
           <span className={style.waveform}>
-            <WaveSurferNext audioURL={audioUrl}  />
+            <WaveSurferNext audioURL={audioUrl} />
           </span>
         )}
         <span className={style.taskText}>{taskText} </span>

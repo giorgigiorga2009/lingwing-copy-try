@@ -2,7 +2,10 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { KEYBOARD_OVERRIDE } from '../../utils/const'
 import { TaskData } from '../../utils/lessons/getTask'
 import { saveTask } from '../../utils/lessons/saveTask'
-import { getStringFromRecognition, repetitionInputCheck } from '../../utils/lessons/taskInputUtils'
+import {
+  getStringFromRecognition,
+  repetitionInputCheck,
+} from '../../utils/lessons/taskInputUtils'
 import style from './Dialog.module.scss'
 import { SoundCheck } from './SoundCheck'
 import SpeechRecognition, {
@@ -60,7 +63,7 @@ export const Dialog: FC<DialogProps> = ({
 interface DialogInputProps {
   setCurrentMessageIndex: (index: number) => void
   currentMessageIndex: number
-  token: string | null 
+  token: string | null
   languageTo: string | string[]
   languageFrom: string | string[]
   courseId: string
@@ -88,7 +91,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   setCompletedTasks,
   setIsHintShown,
   setHintText,
-  userId
+  userId,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
@@ -104,9 +107,6 @@ export const DialogInput: FC<DialogInputProps> = ({
   const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
   const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
   const [isRecording, setIsRecording] = useState(true) // whether or not the user's voice is being recorded
-
-
-
 
   // only for voiceRecognition
   useEffect(() => {
@@ -206,8 +206,9 @@ export const DialogInput: FC<DialogInputProps> = ({
         setInputText('')
         if (!currentTask?.dialogLinesArray[currentMessageIndex + 1]) return
         const audio = new Audio(
-          `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex + 1]
-            .sentenceAudioPath
+          `https://cdn.lingwing.com${
+            currentTask?.dialogLinesArray[currentMessageIndex + 1]
+              .sentenceAudioPath
           }.mp3`,
         )
         audio.play()
@@ -253,7 +254,11 @@ export const DialogInput: FC<DialogInputProps> = ({
         onChange={handleChange}
       />
 
-      <span className={style.micIcon} onClick={() => handleMicOnClick} key="mic" />
+      <span
+        className={style.micIcon}
+        onClick={() => handleMicOnClick}
+        key="mic"
+      />
     </div>
   )
 }
