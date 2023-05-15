@@ -1,8 +1,8 @@
 @import '../../styles/imports.scss';
 
 .wrapper,
-.wrapper_first,
-.wrapper_a1_1 {
+.tablet_mobile .wrapper_first,
+.tablet_mobile .wrapper_a1 {
   padding: 14px 35px 14px 15px;
   border: 0;
   border-top: 1px solid #e6e6e6;
@@ -113,8 +113,8 @@
 
 // small devices (tablet, mobile, supersmall)
 .tablet_mobile .wrapper,
-.tablet_mobile .wrapper_first,
-.tablet_mobile .wrapper_a1 {
+.tablet_mobile .wrapper_a1,
+.tablet_mobile .wrapper_first {
   padding-left: 35px;
   padding-bottom: 20px;
   gap: 0;
@@ -132,12 +132,12 @@
   }
 }
 
-.wrapper_a1 {
-  border-radius: 0px;
+.tablet_mobile .wrapper_first {
+  border-radius: 18px;
 }
 
-.wrapper_first {
-  border-radius: 18px;
+.tablet_mobile .wrapper_a1 {
+  border-radius: 0px;
 }
 
 .tablet_mobile .left_line_box {
