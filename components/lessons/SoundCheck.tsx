@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import { FC, useEffect, useRef, useState } from 'react'
-import { useTranslation } from '../../utils/useTranslation'
+import { useTranslation } from '@utils/useTranslation'
 import style from './SoundCheck.module.scss'
 
 interface Props {

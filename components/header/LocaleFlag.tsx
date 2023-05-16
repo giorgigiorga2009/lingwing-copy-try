@@ -1,7 +1,7 @@
-import styles from './LocaleFlag.module.scss'
-import classNames from 'classnames'
 import { FC } from 'react'
-import { LanguageFrom } from '../../utils/languages'
+import classNames from 'classnames'
+import styles from './LocaleFlag.module.scss'
+import { LanguageFrom } from '@utils/languages'
 
 interface Props {
   language: LanguageFrom

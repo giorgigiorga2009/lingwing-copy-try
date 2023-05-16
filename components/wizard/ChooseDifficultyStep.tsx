@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import { ContentContainer } from './ContentContainer'
-import { DifficultyLevelContainer } from './DifficultyLevelContainer'
 import { PageTitle } from './PageTitle'
+import { ContentContainer } from './ContentContainer'
 import style from './ChooseDifficultyStep.module.scss'
-import { LanguageLevel } from '../../utils/getDifficultyLevels'
-import { useTranslation } from '../../utils/useTranslation'
-import { LanguageFrom, LanguageTo } from '../../utils/languages'
+import { LanguageLevel } from '@utils/getDifficultyLevels'
+import { useTranslation } from '@utils/useTranslation'
+import { LanguageFrom, LanguageTo } from '@utils/languages'
+import { DifficultyLevelContainer } from './DifficultyLevelContainer'
 
 interface Props {
   levelData: LanguageLevel[]

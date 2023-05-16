@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import style from './FollowButtons.module.scss'
 import classNames from 'classnames'
-import { FOLLOW_NETWORKS } from '../../utils/const'
-import { useTranslation } from '../../utils/useTranslation'
+import { FOLLOW_NETWORKS } from '@utils/const'
+import style from './FollowButtons.module.scss'
+import { useTranslation } from '@utils/useTranslation'
 
 type Networks = keyof typeof FOLLOW_NETWORKS
 const KEY_NETWORKS = Object.keys(FOLLOW_NETWORKS) as Networks[]

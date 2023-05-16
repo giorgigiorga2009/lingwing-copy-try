@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import style from './AboutTabs.module.scss'
-import { useTranslation } from '../../utils/useTranslation'
-import { IMAGES_FOR_PARTNERS_PAGE } from '../../utils/const'
+import { useTranslation } from '@utils/useTranslation'
+import { IMAGES_FOR_PARTNERS_PAGE } from '@utils/const'
 
 const Certificate: FC = () => {
   const { t } = useTranslation()

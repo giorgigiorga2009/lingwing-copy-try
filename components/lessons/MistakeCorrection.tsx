@@ -5,8 +5,8 @@ import React, {
   FC,
   useEffect,
 } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
-import { saveTask } from '../../utils/lessons/saveTask'
+import { TaskData } from '@utils/lessons/getTask'
+import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
 
 interface Props {

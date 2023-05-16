@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import style from './Prices.module.scss'
 import { CurrencySymbol } from './CurrencySymbol'
-import { useTranslation } from '../../utils/useTranslation'
+import { useTranslation } from '@utils/useTranslation'
 
 interface ReccuringPrice {
   price: number

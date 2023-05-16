@@ -1,4 +1,4 @@
-@import '../../styles/imports.scss';
+@import '@styles/imports.scss';
 
 .dialog {
   border: 1px solid black;
@@ -10,9 +10,6 @@
   flex-direction: column;
   padding: 1rem 0.5rem 0.5rem 0.5rem;
 }
-
-
-
 
 .parrots {
   background-image: url('/assets/images/tasks/parrotDialog.png');

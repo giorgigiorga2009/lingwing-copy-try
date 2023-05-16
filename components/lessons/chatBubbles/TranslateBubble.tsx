@@ -1,5 +1,5 @@
+import { FC } from 'react'
 import classNames from 'classnames'
-import { FC, useEffect, useState } from 'react'
 import style from './TranslateBubble.module.scss'
 
 interface Props {
@@ -29,7 +29,7 @@ export const TranslateBubble: FC<Props> = ({
         style[utteranceType],
         style[textType],
         style[`${isCurrentTask}`],
-        style[hint]
+        style[hint],
       )}
     >
       <div className={style.header}>{taskDescription}</div>

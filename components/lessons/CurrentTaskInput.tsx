@@ -1,9 +1,9 @@
 import { ReactElement } from 'react'
-import { TaskData } from '../../utils/lessons/getTask'
 import { DialogInput } from './Dialog'
 import { GrammarButton } from './Grammar'
-import { MistakeCorrectionTask } from './MistakeCorrection'
+import { TaskData } from '@utils/lessons/getTask'
 import { TaskInputContainer } from './TaskInputContainer'
+import { MistakeCorrectionTask } from './MistakeCorrection'
 
 type CommonProps = {
   userId: string | null
@@ -33,7 +33,6 @@ const CurrentTaskInput = ({
   currentMessageIndex,
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
-
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
@@ -48,7 +47,9 @@ const CurrentTaskInput = ({
         />
       ) : null
     case 'dialog':
-      return commonProps  && currentMessageIndex !== undefined && setCurrentMessageIndex ? (
+      return commonProps &&
+        currentMessageIndex !== undefined &&
+        setCurrentMessageIndex ? (
         <DialogInput
           {...commonProps}
           currentMessageIndex={currentMessageIndex}

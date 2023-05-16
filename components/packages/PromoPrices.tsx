@@ -1,8 +1,8 @@
 import { FC } from 'react'
+import Image from 'next/image'
 import style from './PromoPrices.module.scss'
 import { CurrencySymbol } from './CurrencySymbol'
-import Image from 'next/image'
-import discountImg from '../../public/themes/images/V2/Packages/discountCircle.png'
+import discountImg from '@public/themes/images/V2/Packages/discountCircle.png'
 
 interface DiscountedTotalPrice {
   oldPrice: number
@@ -34,7 +34,7 @@ export const DiscountedTotalPrice: FC<DiscountedTotalPrice> = ({
 export const ShowDiscountLabel: FC<ShowDiscountLabel> = ({ discount }) => {
   return (
     <div className={style.discount__label}>
-      <Image src={discountImg} width="75px" height="75px" />
+      <Image src={discountImg} alt={'Discount Label'} width={75} height={75} />
       <div className={style.discount__label__amount}>{discount}%</div>
     </div>
   )

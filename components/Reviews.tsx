@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react'
-import { getReviews, ReviewData } from '../utils/getReviews'
-import { useTranslation } from '../utils/useTranslation'
-import style from './Reviews.module.scss'
-import { Carousel } from 'react-responsive-carousel'
 import { range } from 'lodash'
+import style from './Reviews.module.scss'
+import { FC, useEffect, useState } from 'react'
+import { Carousel } from 'react-responsive-carousel'
+import { useTranslation } from '@utils/useTranslation'
+import { getReviews, ReviewData } from '@utils/getReviews'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 interface CarouselProps {

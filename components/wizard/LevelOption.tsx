@@ -1,11 +1,11 @@
-import classNames from 'classnames'
-import Link from 'next/link'
 import { FC } from 'react'
-import { Option } from '../../utils/getDifficultyLevels'
-import { getNumberWithComa } from '../../utils/getNumberWithComa'
-import { LanguageFrom, LanguageTo } from '../../utils/languages'
-import { useTranslation } from '../../utils/useTranslation'
+import Link from 'next/link'
+import classNames from 'classnames'
 import style from './LevelOption.module.scss'
+import { Option } from '@utils/getDifficultyLevels'
+import { useTranslation } from '@utils/useTranslation'
+import { getNumberWithComa } from '@utils/getNumberWithComa'
+import { LanguageFrom, LanguageTo } from '@utils/languages'
 
 interface Props {
   option: Option

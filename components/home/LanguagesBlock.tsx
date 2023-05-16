@@ -1,11 +1,11 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { LanguageTo, LANGUAGE_NAMES, LANGUAGES_TO } from '../../utils/languages'
-import { useTranslation } from '../../utils/useTranslation'
+import Link from 'next/link'
+import classNames from 'classnames'
+import { useRouter } from 'next/router'
 import { CircleFlag } from '../CircleFlag'
 import style from './LanguagesBlock.module.scss'
+import { useTranslation } from '@utils/useTranslation'
+import { LanguageTo, LANGUAGE_NAMES, LANGUAGES_TO } from '@utils/languages'
 
 interface Props {
   language: LanguageTo

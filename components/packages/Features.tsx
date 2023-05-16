@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import style from './Features.module.scss'
 import Image from 'next/image'
-import tick from '../../public/themes/images/V2/Packages/tick.svg'
-import x from '../../public/themes/images/V2/Packages/x.svg'
-import { useTranslation } from '../../utils/useTranslation'
+import style from './Features.module.scss'
+import { useTranslation } from '@utils/useTranslation'
+import tick from '@public/themes/images/V2/Packages/tick.svg'
+import x from '@public/themes/images/V2/Packages/x.svg'
 
 interface TickOrX {
   feature: boolean
@@ -22,9 +22,9 @@ const TickOrX: FC<TickOrX> = ({ feature }) => {
   return (
     <>
       {feature ? (
-        <Image src={tick} height="30" width="30" />
+        <Image src={tick} alt={'X'} height="30" width="30" />
       ) : (
-        <Image src={x} height="30" width="30" />
+        <Image src={x} alt={'Y'} height="30" width="30" />
       )}
     </>
   )

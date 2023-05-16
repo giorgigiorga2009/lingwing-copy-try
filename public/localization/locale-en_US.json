@@ -26,8 +26,12 @@
   "menuPricesCoupon": "Coupon Activation",
   "menuHelp": "Help",
   "menuDownloadApp": "Download app",
+
   "wizardPageTitle": "Lingwing: Choose target language",
   "indexPageTitle": "Lingwing: Foreign languages online learning",
+  "reviewsLabel": "Find out what others are saying",
+  "packagesPageTitle": "Lingwing:  Choose a premium package",
+
   
   "Georgian": "Georgian",
   "English": "English",
@@ -64,7 +68,6 @@
   "wizardStudents": "Students",
   "wizardCourse": "Course",
   "wizardAbout": "About",
-  "reviewsLabel": "Find out what others are saying",
 
   "footerAboutUs": "About Us",
   "footerCourses": "Courses",
@@ -136,5 +139,29 @@
   "APP_ABOUT_US_JOB_text_7": "Other specialists in IT-related sphere;",
   "APP_ABOUT_US_JOB_text_8": "and simply creative minded managers;",
   "APP_ABOUT_US_JOB_text_9": "Do not back down if you think your professional skills are not enough to claim for a paid job yet - you can pass an internship and significantly enhance your professional skills with us.",
-  "APP_ABOUT_US_JOB_text_10": "Contact us!"
+  "APP_ABOUT_US_JOB_text_10": "Contact us!", 
+
+  "APP_PACKAGES_FAQ_TITLE": "Frequently Asked Questions",
+  "APP_PACKAGE_PACKAGES": "Choose a package",
+  "APP_PACKAGE_DESC": "Purchase a premium package and learn <k>5-times</k> faster!",
+  "APP_PACKAGE_LIFETIME": "Lifetime",
+  "APP_PACKAGE_DAILY_NUMBER_OF_TASKS": "Daily tasks:",
+  "APP_PACKAGE_CERTIFICATE": "Certificate:",
+  "APP_PACKAGE_ALL_LANGS_AND_COURSES": "All languages & courses:",
+  "APP_PACKAGE_VOICE_RECOGNITION": "Voice recognition:",
+  "APP_PACKAGE_FREE": "Free",
+  "APP_PACKAGE_MONTHS": "months",
+  "APP_PACKAGE_MONTH": "Month",
+  "APP_PACKAGE_MONTH_ge": "/Month",
+  "APP_PACKAGE_UNLIMITED": "Unlimited",
+  "APP_PACKAGE_TOTAL": "Total",
+  "APP_PACKAGE_SUM": "Total",
+  "APP_PACKAGE_CONTACT_US": "For more information contact:",
+  "APP_PACKAGE_SELECT": "Select",
+  "APP_PACKAGE_MOST_POPULAR": "Best Value",
+
+  "COUPON_DO_YOU_HAVE_COUPON?": "Do you have a gift/discount coupon?",
+  "COUPON_PLACEHOLDER": "Enter the coupon",
+  "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "The code is invalid! Try again",
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Type code and try again!"
 }

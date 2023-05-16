@@ -1,10 +1,9 @@
-import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
-import { getUsersAmount } from '../../utils/getUsersAmount'
-import { useTranslation } from '../../utils/useTranslation'
 import style from './StartButton.module.scss'
+import { FC, useEffect, useState } from 'react'
+import { getUsersAmount } from '@utils/getUsersAmount'
+import { useTranslation } from '@utils/useTranslation'
 
 export const StartButton: FC = () => {
   const { t } = useTranslation()

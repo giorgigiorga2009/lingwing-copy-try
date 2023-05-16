@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { LanguageFrom, LanguageTo } from '../../utils/languages'
-import style from './ChooseLanguageStep.module.scss'
-import { ContentContainer } from './ContentContainer'
 import { PageTitle } from './PageTitle'
 import { WizardTile } from './WizardTile'
+import style from './ChooseLanguageStep.module.scss'
+import { ContentContainer } from './ContentContainer'
+import { LanguageFrom, LanguageTo } from '@utils/languages'
 
 interface Props {
   languages: LanguageFrom[] | LanguageTo[]

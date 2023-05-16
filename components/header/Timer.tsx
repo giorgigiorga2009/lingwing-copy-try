@@ -1,5 +1,5 @@
-import { FC, useState, useEffect } from 'react'
 import style from './Timer.module.scss'
+import { FC, useState, useEffect } from 'react'
 
 interface TimerProps {
   trigger: boolean | undefined
