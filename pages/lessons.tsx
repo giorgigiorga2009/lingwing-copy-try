@@ -212,7 +212,7 @@ const Lessons: NextPage = () => {
         />
       )}
 
-      {isSoundChecked && (
+      {isSoundChecked && 
         <div className={style.content}>
           {/* <div className={style.foldersContainer}>
           <span className={style.course}>Course</span>
@@ -284,7 +284,7 @@ const Lessons: NextPage = () => {
             />
           )}
         </div>
-      )}
+      }
     </div>
   )
 }
