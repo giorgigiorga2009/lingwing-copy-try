@@ -3,9 +3,8 @@
 .promo_slider {
   height: 144px;
   text-align: center;
-  color: black;
   border-radius: 18px;
-  width: 100;
+  width: 100%;
   display: flex;
   position: relative;
 }
@@ -14,7 +13,7 @@
   width: 100%;
   height: 100%;
   visibility: hidden;
-  transition: opacity 1.5s, visibility 0s linear 1.5s;
+  transition: opacity 1s, visibility 0s linear 1s;
   opacity: 0;
   position: absolute;
   top: 0;
@@ -22,12 +21,105 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  max-height: 144px;
-  max-width: 100%;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+}
+
+.slide h6 {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 28px;
+  font-family: SegoeUI;
+}
+
+.slide button {
+  display: inline-block;
+  position: relative;
+  padding: 6px 30px 8px;
+  background-color: transparent;
+  border: 3px solid #aa5b11;
+  color: #fff;
+  font-size: 18px;
+  font-family: SegoeUI;
+  border-radius: 30px;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.slide button:hover {
+  background-color: #feb614;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .slide_active {
   visibility: visible;
   transition: opacity 1.5s;
   opacity: 1;
+}
+
+.slide_orange {
+  background: #f28e13;
+}
+
+.slide_dark {
+  background: rgb(16, 24, 32);
+}
+
+.slide_dark button {
+  border: 3px solid #ed3024;
+}
+
+.slide_dark button:hover {
+  background-color: #ed3024;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.slide_orange h6 span {
+  color: black;
+}
+
+.right {
+  width: 118px;
+  height: 138px;
+  position: absolute;
+  bottom: 0;
+  right: 49px;
+  background-image: url(/themes/images/v2/banner-parrot.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.left,
+.left_get_tasks {
+  position: absolute;
+  left: 28px;
+  bottom: 20px;
+  width: 143px;
+  height: 104px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.left {
+  background-image: url(/themes/images/v2/banner-stars.png);
+}
+
+.left_get_tasks {
+  background-image: url(/themes/images/v2/banner-add-friends.png);
 }
