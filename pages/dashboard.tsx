@@ -101,13 +101,13 @@ const Dashboard: FC = () => {
               {t('APP_GENERAL_STARTED_COURSES')}
             </h2>
             {myCourse}
+            <PromoSlider />
           </div>
         </div>
         <div className={style.bottom}>
           <FollowButtons dashboard={true} />
           <Footer />
         </div>
-        <PromoSlider />
       </div>
     </>
   )

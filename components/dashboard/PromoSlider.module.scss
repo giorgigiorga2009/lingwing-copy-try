@@ -1,0 +1,33 @@
+@import '../../styles/imports.scss';
+
+.promo_slider {
+  height: 144px;
+  text-align: center;
+  color: black;
+  border-radius: 18px;
+  width: 100;
+  display: flex;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: opacity 1.5s, visibility 0s linear 1.5s;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-height: 144px;
+  max-width: 100%;
+}
+
+.slide_active {
+  visibility: visible;
+  transition: opacity 1.5s;
+  opacity: 1;
+}
