@@ -62,3 +62,15 @@ export const login = ({ email, password }: Auth) => {
     .then(response => response.data.token)
     .catch(error => console.log(error))
 }
+
+export const getUserProfileData = (token: string) => {
+  axios({
+    url: `${process.env.defaultURL}/user/profile?lang=eng`,
+    headers: {
+      ...HEADERS,
+      Authorization: token,
+    },
+  })
+    .then(response => response.data)
+    .catch(error => console.log(error))
+}

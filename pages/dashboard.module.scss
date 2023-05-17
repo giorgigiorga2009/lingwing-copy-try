@@ -105,3 +105,13 @@
     display: none;
   }
 }
+
+.tablet_mobile {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+  @include mobile {
+    display: block;
+  }
+}

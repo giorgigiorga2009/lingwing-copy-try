@@ -10,25 +10,41 @@
   align-items: center;
   z-index: 1001;
   &.m {
-    padding: 3.13rem 2.2rem;
+    height: 135px;
+    padding: 50px 2.2rem 35px 2.2rem;
 
     @include tablet {
-      padding: 3% 5%;
+      padding-left: 5%;
+      padding-right: 5%;
     }
     @include mobile {
-      padding: 3% 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top: 10px;
+      padding-bottom: 35px;
+      height: 99px;
     }
   }
   &.s {
     background-color: $purple-600;
-    padding: 0.7% 2.2rem;
-
+    padding: 8.5px 2.2rem;
+    height: 57.5px;
     @include tablet {
-      padding: 1.5% 2.5%;
+      padding: 8px 2.5%;
     }
     @include mobile {
-      padding: 1.5% 2.5%;
+      padding: 8px 2.5%;
     }
+  }
+}
+
+header.m .logo {
+  top: 8px;
+  @include tablet {
+    top: 12px;
+  }
+  @include mobile {
+    top: 15px;
   }
 }
 
@@ -37,6 +53,7 @@
   font-weight: 700;
   cursor: pointer;
   text-transform: uppercase;
+  white-space: nowrap;
 
   &:hover {
     color: $orange-500;
@@ -51,7 +68,6 @@
   background-image: url('/assets/images/avatar-default-medium.png');
   background-position: center;
   background-repeat: no-repeat;
-
   @media (max-width: 415px) {
     display: none;
   }
@@ -61,7 +77,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  height: 2%;
+  height: 100%;
   width: 15rem;
 }
 
@@ -106,15 +122,22 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  top: 0.3rem;
+  top: 0px;
   left: 4rem;
   cursor: pointer;
+
+  @include tablet {
+    width: 8, 1rem;
+    height: 1.9rem;
+    left: 3.5rem;
+    top: 5px;
+  }
 
   @include mobile {
     width: 6rem;
     height: 1.5rem;
     left: 3rem;
-    top: 0.6rem;
+    top: 9px;
   }
 }
 
