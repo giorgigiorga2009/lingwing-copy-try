@@ -77,21 +77,22 @@ const Dashboard: FC = () => {
                 {myLanguages &&
                   myLanguages.map((item: Language, index: number) => {
                     return (
-                      <>
-                        <MyLanguage
-                          key={item._id}
-                          item={item}
-                          changeActive={changeActive}
-                          active={active}
-                          index={index}
-                          t={t}
-                          LANGUAGE_NAMES={LANGUAGE_NAMES}
-                          myCourse={myCourse}
-                        />
-                      </>
+                      <MyLanguage
+                        key={item._id}
+                        item={item}
+                        changeActive={changeActive}
+                        active={active}
+                        index={index}
+                        t={t}
+                        LANGUAGE_NAMES={LANGUAGE_NAMES}
+                        myCourse={myCourse}
+                      />
                     )
                   })}
                 <AddLanguageBtn />
+                <div className={style.tablet_mobile}>
+                  <PromoSlider />
+                </div>
                 <DownloadAppBox />
               </div>
             </div>
@@ -101,7 +102,6 @@ const Dashboard: FC = () => {
               {t('APP_GENERAL_STARTED_COURSES')}
             </h2>
             {myCourse}
-            <PromoSlider />
           </div>
         </div>
         <div className={style.bottom}>

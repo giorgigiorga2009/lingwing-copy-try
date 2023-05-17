@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import MyMainCourse from './MyMainCourse'
 import MySubCourse from './MySubCourse'
 import style from './MyCourse.module.scss'
+import PromoSlider from './PromoSlider'
 
 interface Course {
   name: string
@@ -42,26 +43,31 @@ const MyCourse: FC<Props> = ({
   LANGUAGE_NAMES,
   counter,
 }) => {
-  console.log(myLanguage, 'myLanguage')
-
   return (
-    <div className={style.wrapper}>
-      <MyMainCourse
-        course={course}
-        key={course.name}
-        myLanguage={myLanguage}
-        LANGUAGE_NAMES={LANGUAGE_NAMES}
-      />
-      {course.courses.map((subCourse, index) => {
-        return (
-          <MySubCourse
-            subCourse={subCourse}
-            key={subCourse._id}
-            index={index}
-            counter={counter}
-          />
-        )
-      })}
+    <div className={style.my_course}>
+      <div className={style.wrapper}>
+        <MyMainCourse
+          course={course}
+          key={course.name}
+          myLanguage={myLanguage}
+          LANGUAGE_NAMES={LANGUAGE_NAMES}
+        />
+        {course.courses.map((subCourse, index) => {
+          return (
+            <MySubCourse
+              subCourse={subCourse}
+              key={subCourse._id}
+              index={index}
+              counter={counter}
+            />
+          )
+        })}
+      </div>
+      {counter === 0 ? (
+        <div className={style.desktop}>
+          <PromoSlider />
+        </div>
+      ) : null}
     </div>
   )
 }

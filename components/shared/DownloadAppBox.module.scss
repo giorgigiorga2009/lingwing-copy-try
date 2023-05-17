@@ -12,10 +12,12 @@
   padding: 35px;
   @include tablet {
     height: auto;
+    margin-bottom: 30px;
   }
 
   @include mobile {
     height: auto;
+    margin-bottom: 30px;
   }
 }
 

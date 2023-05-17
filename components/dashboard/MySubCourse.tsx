@@ -75,6 +75,7 @@ const MySubCourse: FC<Props> = ({ subCourse, index, counter }) => {
           </div>
         </div>
       </div>
+
       <div className={style.tablet_mobile}>
         <div
           className={
