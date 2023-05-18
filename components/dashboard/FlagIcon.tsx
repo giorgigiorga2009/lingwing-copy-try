@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import style from './FlatIcon.module.scss'
+import style from './FlagIcon.module.scss'
 
 interface Props {
   item: {

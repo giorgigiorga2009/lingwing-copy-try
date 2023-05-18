@@ -8,13 +8,13 @@ const ActionBtns: FC<Props> = ({}): JSX.Element => {
   return (
     <>
       <div className={style.action_btns}>
-        <Link href={`learn/geo/`}>
+        <Link href={`#`}>
           <button className={style.statistics}></button>
         </Link>
-        <Link href={`learn/geo/`}>
+        <Link href={`#`}>
           <button className={style.reset}></button>
         </Link>
-        <Link href={`learn/geo/`}>
+        <Link href={`#`}>
           <button className={style.info}></button>
         </Link>
       </div>

@@ -1,0 +1,39 @@
+@import '../../styles/imports.scss';
+
+.container {
+  width: 100px;
+  height: 105px;
+  overflow: hidden;
+  border-radius: 0 12px 0 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.icon_circle_transparent {
+  width: 125px;
+  height: 128px;
+  margin-top: -9px;
+  margin-right: -29px;
+  border-radius: 50%;
+  background: #fff3d7;
+}
+
+.icon_circle {
+  width: 119px;
+  height: 119px;
+  margin: 4px -5px 0 0;
+  border-radius: 50%;
+  float: right;
+  background-color: #ffe9b5;
+}
+
+.icon_airplane {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 15px;
+  background-image: url(/themes/images/v2/standart-level-icon1.png);
+  z-index: 5;
+}
