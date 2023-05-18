@@ -1,13 +1,10 @@
 @import '../../styles/imports.scss';
 
-.wrapper,
-.tablet_mobile .wrapper_first,
-.tablet_mobile .wrapper_a1 {
-  padding: 14px 35px 14px 15px;
+.container {
+  padding: 14px 35px;
   border: 0;
   border-top: 1px solid #e6e6e6;
   box-shadow: inset 0 1px 0 #f2f2f2;
-  margin-bottom: -1px;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -15,33 +12,37 @@
   justify-content: space-between;
   gap: 50px;
   width: 100%;
+  @include tablet {
+    padding: 14px 15px;
+    gap: 0;
+    box-shadow: none;
+  }
+  @include mobile {
+    padding: 14px 15px;
+    gap: 0;
+    box-shadow: none;
+  }
+  @include smallWidth {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 120px;
+    gap: 15px;
+  }
 }
 
-.wrapper:last-child {
+.container:last-child {
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
 }
 
-.left_line_box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 45px;
-}
-
-.right_line_box {
+.details {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.left_side {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.percent_progress {
+.progress {
   line-height: 55px;
   text-align: center;
   color: #f39c12;
@@ -50,7 +51,18 @@
   width: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 5px;
+  @include tablet {
+    margin-left: 0px;
+    width: 55px;
+    font-size: 17px;
+  }
+  @include mobile {
+    margin-left: 0px;
+    width: 55px;
+    font-size: 17px;
+  }
 }
 
 .percent {
@@ -59,28 +71,40 @@
   font-size: 20px;
   left: 3px;
   top: -0.5px;
+  @include tablet {
+    font-size: 13px;
+  }
+  @include mobile {
+    font-size: 13px;
+  }
 }
 
 .title {
   font-size: 20px;
   color: #888;
   white-space: nowrap;
+  margin-left: -10px;
   &:lang(ka) {
     font-family: bpg_arial_2009;
     font-weight: normal;
   }
+  @include tablet {
+    font-size: 17px;
+  }
+  @include mobile {
+    font-size: 17px;
+  }
 }
 
-.sub_standard {
+.course_level {
   color: #565656;
   margin-left: 10px;
-}
-
-.go_to_course {
-  min-width: 126px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  @include tablet {
+    color: black;
+  }
+  @include mobile {
+    color: black;
+  }
 }
 
 .start_course_btn {
@@ -112,25 +136,6 @@
 }
 
 // small devices (tablet, mobile, supersmall)
-.tablet_mobile .wrapper,
-.tablet_mobile .wrapper_a1,
-.tablet_mobile .wrapper_first {
-  padding-left: 35px;
-  padding-bottom: 20px;
-  gap: 0;
-  box-shadow: none;
-  @include mobile {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  @include smallWidth {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    height: 120px;
-    gap: 15px;
-  }
-}
 
 .tablet_mobile .wrapper_first {
   border-radius: 18px;
@@ -141,30 +146,9 @@
 }
 
 .tablet_mobile .left_line_box {
-  justify-content: space-between;
-  min-width: 180px;
-  gap: 0;
-  @include mobile {
-    max-height: 30px;
-    min-width: 150px;
-  }
-}
-
-.tablet_mobile .right_line_box {
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: auto;
-  @include smallWidth {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
 }
 
 .tablet_mobile .percent_progress {
-  width: auto;
-  font-size: 17px;
 }
 
 .tablet_mobile .percent {
@@ -172,17 +156,9 @@
 }
 
 .tablet_mobile .title {
-  font-size: 17px;
 }
 
 .tablet_mobile .sub_standard {
-  color: black;
-}
-
-.tablet_mobile .go_to_course {
-  @include smallWidth {
-    justify-content: flex-start;
-  }
 }
 
 .tablet_mobile .start_course_btn {

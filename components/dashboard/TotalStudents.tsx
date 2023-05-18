@@ -10,12 +10,6 @@ interface Course {
 
 interface Props {
   course: Course
-  myLanguage: {
-    nameCode: string
-  }
-  LANGUAGE_NAMES: {
-    [key: string]: string
-  }
 }
 
 const TotalStudents: FC<Props> = ({ course }) => {

@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
-import { useTranslation } from '../../utils/useTranslation'
 import FlagIcon from './FlagIcon'
-
+import TotalStudents from './TotalStudents'
 import style from './MyMainCourse.module.scss'
+import { useTranslation } from '../../utils/useTranslation'
+import AirplaneIcon from './AirplaneIcon'
 
 interface Course {
   name: string
@@ -23,7 +24,7 @@ const MyMainCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
   const { t } = useTranslation()
 
   return (
-    <div className={style.my_main_course}>
+    <div className={style.container}>
       <div className={style.title_and_icon}>
         <FlagIcon
           item={myLanguage}
@@ -35,19 +36,8 @@ const MyMainCourse: FC<Props> = ({ course, myLanguage, LANGUAGE_NAMES }) => {
           <span>{course.name}</span>
         </h2>
       </div>
-      <div className={style.students_info}>
-        {/* <div className={style.total_students}>
-          <span>{getNumberWithComa(course.uniqueStudentsCount)}</span>
-          <span>{t('wizardStudents')}</span>
-        </div> */}
-        <div className={style.icons_in_background}>
-          <div className={style.icon_sun_transparent}>
-            <div className={style.icon_sun}>
-              <div className={style.icon_fly}></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <TotalStudents course={course} />
+      <AirplaneIcon />
     </div>
   )
 }

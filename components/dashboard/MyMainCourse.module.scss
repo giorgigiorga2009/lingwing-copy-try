@@ -1,6 +1,6 @@
 @import '../../styles/imports.scss';
 
-.my_main_course {
+.container {
   height: 105px;
   padding: 0px 15px;
   padding-right: 0;
@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   @include tablet {
     display: none;
   }
@@ -38,46 +39,4 @@
   span:nth-child(2) {
     margin-left: 10px;
   }
-}
-
-.students_info {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 30px;
-}
-
-.icons_in_background {
-  width: 100px;
-  height: 105px;
-  overflow: hidden;
-  border-radius: 0 12px 0 0;
-}
-
-.icon_sun_transparent {
-  width: 125px;
-  height: 128px;
-  margin-top: -9px;
-  margin-right: -29px;
-  border-radius: 50%;
-  background: #fff3d7;
-}
-
-.icon_sun {
-  width: 119px;
-  height: 119px;
-  margin: 4px -5px 0 0;
-  border-radius: 50%;
-  float: right;
-  background-color: #ffe9b5;
-}
-
-.icon_fly {
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-y: 15px;
-  background-image: url(/themes/images/v2/standart-level-icon1.png);
-  z-index: 5;
 }

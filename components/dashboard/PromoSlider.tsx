@@ -18,7 +18,7 @@ const PromoSlider: FC = () => {
   })
 
   return (
-    <div className={style.promo_slider}>
+    <div className={style.container}>
       {/* slide 1 */}
       <div
         className={classNames(

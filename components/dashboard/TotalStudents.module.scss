@@ -1,3 +1,5 @@
+@import '../../styles/imports.scss';
+
 .total_students {
   padding: 9px 16px;
   border-radius: 16px;
@@ -5,6 +7,7 @@
   color: #a5a5a5;
   font-size: 14px;
   font-family: SegoeUI;
+  margin-right: 130px;
   span:first-child {
     margin-right: 5px;
     color: #ffae45;

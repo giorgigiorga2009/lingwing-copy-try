@@ -45,7 +45,7 @@ const MyCourse: FC<Props> = ({
 }) => {
   return (
     <>
-      <div className={style.my_course}>
+      <div className={style.container}>
         <MyMainCourse
           course={course}
           key={course.name}

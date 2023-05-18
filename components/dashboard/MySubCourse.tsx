@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { useTranslation } from '../../utils/useTranslation'
-import style from './MySubCourse.module.scss'
 import ActionBtns from './ActionBtns'
+import { useRouter } from 'next/router'
+import style from './MySubCourse.module.scss'
+import { useTranslation } from '../../utils/useTranslation'
 
 interface SubCourseProps {
   name: string
@@ -20,10 +20,6 @@ interface SubCourseProps {
   iLearnFromNameCode: string
 }
 
-interface LinkStyle {
-  textDecoration: string
-}
-
 interface Props {
   subCourse: SubCourseProps
   index: number
@@ -36,47 +32,35 @@ const MySubCourse: FC<Props> = ({ subCourse, index, counter }) => {
 
   const locale = router.locale ?? 'en'
 
-  const linkStyle: LinkStyle = {
-    textDecoration: 'none',
-  }
-
   return (
     <>
-      <div className={style.desktop}>
-        <div className={style.wrapper}>
-          <div className={style.left_line_box}>
-            <div className={style.left_side}>
-              <span className={style.percent_progress}>
-                {subCourse.percent}
-                <span className={style.percent}>%</span>
-              </span>
-              <h6 className={style.title}>
-                <span className={style.title_name}>{t('wizardCourse')}</span>
-                <span className={style.sub_standard}>
-                  {subCourse.languageSubStandard.name}
-                </span>
-              </h6>
-            </div>
-            <ActionBtns />
-          </div>
-          <div className={style.right_line_box}>
-            <div className={style.go_to_course}>
-              <Link
-                style={linkStyle}
-                href={`${locale}/learn/${subCourse.iLearnFromNameCode}/${subCourse.slug}`}
-              >
-                <button className={style.start_course_btn}>
-                  {subCourse.status.continue
-                    ? t('APP_GENERAL_CONTINUE')
-                    : subCourse.status.start && t('startButton')}
-                </button>
-              </Link>
-            </div>
-          </div>
+      <div className={style.container}>
+        <div className={style.details}>
+          <span className={style.progress}>
+            {subCourse.percent}
+            <span className={style.percent}>%</span>
+          </span>
+          <h6 className={style.title}>
+            <span className={style.title_name}>{t('wizardCourse')}</span>
+            <span className={style.course_level}>
+              {subCourse.languageSubStandard.name}
+            </span>
+          </h6>
+          <ActionBtns />
         </div>
+
+        <Link
+          href={`${locale}/learn/${subCourse.iLearnFromNameCode}/${subCourse.slug}`}
+        >
+          <button className={style.start_course_btn}>
+            {subCourse.status.continue
+              ? t('APP_GENERAL_CONTINUE')
+              : subCourse.status.start && t('startButton')}
+          </button>
+        </Link>
       </div>
 
-      <div className={style.tablet_mobile}>
+      {/* <div className={style.tablet_mobile}>
         <div
           className={
             index === 0
@@ -113,7 +97,7 @@ const MySubCourse: FC<Props> = ({ subCourse, index, counter }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
