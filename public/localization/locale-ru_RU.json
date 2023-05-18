@@ -150,7 +150,10 @@
 
   "APP_TEST_TEST": "Тест",
 
-  "APP_DASHBOARD_BANNER1_TEXT": "Получите <span>10 Лари</span> задач бесплатно!"
-
-
+  "APP_DASHBOARD_BANNER1_TEXT": "Получите <k>10 Лари</k> задач бесплатно!",
+  "APP_DASHBOARD_BANNER2_TEXT": "Учитесь в <k>5 раз</k> быстрее!",
+  "APP_DASHBOARD_BANNER3_TEXT": "Совместный проект Liberty и Lingwing",
+  "APP_BECOME_PREMIUM": "Стань Премиум",
+  "APP_DASHBOARD_BANNER1_LINK": "Получение задач",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Учить грузинский"
 }

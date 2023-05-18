@@ -176,7 +176,11 @@
   
   "APP_TEST_TEST": "ტესტი",
 
-  "APP_DASHBOARD_BANNER1_TEXT": "მიიღე <span>10 ლარის</span> დავალებები უფასოდ!"
+  "APP_DASHBOARD_BANNER1_TEXT": "მიიღე <k>10 ლარის</k> დავალებები უფასოდ!",
+  "APP_DASHBOARD_BANNER2_TEXT": "ისწავლე <k>5-ჯერ</k> უფრო სწრაფად!",
+  "APP_DASHBOARD_BANNER3_TEXT": "ლიბერთის და ლინგვინგის ერთობლივი პროექტი",
 
-
+  "APP_BECOME_PREMIUM": "გახდი პრემიუმი",
+  "APP_DASHBOARD_BANNER1_LINK": "დავალებების მიღება",
+  "APP_DASHBOARD_BANNER3_BUTTON": "ისწავლე ქართული"
 }
