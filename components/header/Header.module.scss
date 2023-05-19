@@ -38,16 +38,6 @@
   }
 }
 
-header.m .logo {
-  top: 8px;
-  @include tablet {
-    top: 12px;
-  }
-  @include mobile {
-    top: 15px;
-  }
-}
-
 .singInButton {
   color: $white;
   font-weight: 700;
@@ -122,7 +112,7 @@ header.m .logo {
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  top: 0px;
+  top: 5px;
   left: 4rem;
   cursor: pointer;
 
@@ -130,14 +120,24 @@ header.m .logo {
     width: 8, 1rem;
     height: 1.9rem;
     left: 3.5rem;
-    top: 5px;
+    top: 10px;
   }
 
   @include mobile {
     width: 6rem;
     height: 1.5rem;
     left: 3rem;
-    top: 9px;
+    top: 12px;
+  }
+}
+
+header.m .logo {
+  top: 8px;
+  @include tablet {
+    top: 12px;
+  }
+  @include mobile {
+    top: 15px;
   }
 }
 

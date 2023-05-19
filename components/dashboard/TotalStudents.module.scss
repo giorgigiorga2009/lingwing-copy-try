@@ -3,18 +3,18 @@
 .total_students {
   padding: 9px 16px;
   border-radius: 16px;
-  background-color: #fff4d7;
-  color: #a5a5a5;
+  background-color: $yellow-100;
+  color: $grey-300;
   font-size: 14px;
   font-family: SegoeUI;
   margin-right: 130px;
   span:first-child {
     margin-right: 5px;
-    color: #ffae45;
+    color: $orange-450;
   }
   span:nth-child(2) {
     &:lang(ka) {
-      font-family: bpg_arial_2009;
+      font-family: $kaFont;
       font-weight: normal;
     }
   }

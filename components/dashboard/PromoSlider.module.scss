@@ -13,6 +13,9 @@
     height: 170px;
     margin-bottom: 30px;
   }
+  @include smallWidth {
+    height: 220px;
+  }
 }
 
 .slide {
@@ -75,6 +78,9 @@
     font-size: 18px;
     font-family: SegoeUI;
     color: $white;
+  }
+  @include smallWidth {
+    height: 60px;
   }
 }
 
@@ -155,4 +161,7 @@
   height: 20px;
   background-image: url('/themes/images/v2/banner-link-star.png');
   margin-top: 5px;
+  @include mobile {
+    display: none;
+  }
 }

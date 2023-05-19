@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import FlagIcon from './FlagIcon'
+import AirplaneIcon from './AirplaneIcon'
 import TotalStudents from './TotalStudents'
 import style from './MyMainCourse.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
-import AirplaneIcon from './AirplaneIcon'
 
 interface Course {
   name: string

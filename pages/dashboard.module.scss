@@ -1,19 +1,17 @@
 @import '../styles/imports.scss';
 
-.wrapper {
-  width: 100%;
+.container {
   height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  background: #fbfbfb;
+  background: $white-100;
 }
 
-.content_container {
-  padding: 55px 25px 55px 25px;
-  margin-top: 0;
+.content {
+  padding: 55px 25px;
   width: 100%;
   display: flex;
   gap: 35px;
@@ -23,7 +21,7 @@
   position: relative;
 }
 
-.left_side {
+.left_bar {
   width: 25%;
   max-width: 288px;
   @include tablet {
@@ -36,32 +34,28 @@
   }
 }
 
-.content_container h1,
-.content_container h2 {
+.title,
+.heading2 {
   text-align: left;
   line-height: 1.1;
+  &:lang(ka) {
+    font-family: $kaFont;
+    font-weight: normal;
+  }
 }
 
 .title {
   font-size: 35px;
-  color: #565656;
+  color: $black-800;
   margin-bottom: 10px;
   white-space: no-wrap;
   width: 400%;
-  &:lang(ka) {
-    font-family: bpg_arial_2009;
-    font-weight: normal;
-  }
 }
 
 .heading2 {
-  color: #bdbdbd;
+  color: $grey-100;
   font-size: 22px;
   margin-bottom: 35px;
-  &:lang(ka) {
-    font-family: bpg_arial_2009;
-    font-weight: normal;
-  }
 }
 
 .title {
@@ -81,19 +75,9 @@
 >>>>>>> a839bfa (cleaned-code)
 }
 
-.heading3 {
-  color: #bdbdbd;
-  font-size: 22px;
-  margin-bottom: 35px;
-  text-align: left;
-  &:lang(ka) {
-    font-family: bpg_arial_2009;
-    font-weight: normal;
-  }
-}
-
 .started_courses_content {
   width: 100%;
+  margin-top: -3px;
 }
 
 .bottom {
@@ -110,7 +94,7 @@
   }
 }
 
-.tablet_mobile {
+.promo_slider_bottom {
   display: none;
   @include tablet {
     display: block;

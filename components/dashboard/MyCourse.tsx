@@ -3,6 +3,7 @@ import MySubCourse from './MySubCourse'
 import PromoSlider from './PromoSlider'
 import MyMainCourse from './MyMainCourse'
 import style from './MyCourse.module.scss'
+import classNames from 'classnames'
 
 interface Course {
   name: string
@@ -34,36 +35,41 @@ interface Props {
   LANGUAGE_NAMES: {
     [key: string]: string
   }
-  counter: number
+  indexCourse: number
 }
 
 const MyCourse: FC<Props> = ({
   course,
   myLanguage,
   LANGUAGE_NAMES,
-  counter,
+  indexCourse,
 }) => {
   return (
     <>
-      <div className={style.container}>
+      <div
+        className={classNames(
+          style.container,
+          indexCourse === 0 ? style.container_first_one : null,
+        )}
+      >
         <MyMainCourse
           course={course}
           key={course.name}
           myLanguage={myLanguage}
           LANGUAGE_NAMES={LANGUAGE_NAMES}
         />
-        {course.courses.map((subCourse, index) => {
+        {course.courses.map((subCourse, indexSubCourse) => {
           return (
             <MySubCourse
               subCourse={subCourse}
               key={subCourse._id}
-              index={index}
-              counter={counter}
+              indexSubCourse={indexSubCourse}
+              indexCourse={indexCourse}
             />
           )
         })}
       </div>
-      {counter === 0 && (
+      {indexCourse === 0 && (
         <div className={style.carousel_in_courses_box}>
           <PromoSlider />
         </div>
