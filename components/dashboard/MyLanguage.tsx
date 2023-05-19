@@ -1,7 +1,7 @@
-import { FC, useState } from 'react'
-import Image from 'next/image'
-import style from './MyLanguage.module.scss'
 import FlagIcon from './FlagIcon'
+import classNames from 'classnames'
+import { FC, useState } from 'react'
+import style from './MyLanguage.module.scss'
 
 interface Props {
   item: {
@@ -29,62 +29,44 @@ const MyLanguage: FC<Props> = ({
   myCourse,
 }) => {
   //used only for small screen
-  const [openCourse, setOpenCourse] = useState<boolean>(false)
+  const [dropCourse, setDropCourse] = useState<boolean>(false)
   //
 
   return (
     <>
-      <div className={style.desktop}>
-        <button
-          onClick={() => changeActive(index)}
-          className={active === index ? style.my_btn_active : style.my_btn}
-        >
-          <div className={style.left_side}>
-            <FlagIcon
-              item={item}
-              size="small"
-              LANGUAGE_NAMES={LANGUAGE_NAMES}
-            />
-            <h3>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
-          </div>
+      <button
+        onClick={() => changeActive(index)}
+        className={classNames(
+          style.button,
+          active === index
+            ? dropCourse
+              ? style.button_active_mobile
+              : style.button_active
+            : null,
+        )}
+      >
+        <div
+          onClick={() => (changeActive(index), setDropCourse(!dropCourse))}
+          className={style.overlay}
+        ></div>
+        <div className={style.course_and_icon}>
+          <FlagIcon item={item} size="small" LANGUAGE_NAMES={LANGUAGE_NAMES} />
+          <h3>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
+        </div>
+        <div className={style.progress_and_dropdown}>
           <p className={style.progress}>
             0<span className={style.percent}>%</span>
           </p>
-        </button>
-      </div>
-      <div className={style.tablet_mobile}>
-        <button
-          onClick={() => (changeActive(index), setOpenCourse(!openCourse))}
-          className={
-            active === index
-              ? openCourse
-                ? style.my_btn_active_open
-                : style.my_btn
-              : style.my_btn
-          }
-        >
-          <div className={style.left_side}>
-            <Image
-              className={style.flag_icon}
-              src={`/assets/images/flags/circle/big/${[
-                LANGUAGE_NAMES[item.nameCode],
-              ]}.png`}
-              alt={`${LANGUAGE_NAMES[item.nameCode]} icon`}
-              width={36}
-              height={36}
-            />
-            <h3>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
-          </div>
-          <div className={style.right_side}>
-            <p className={style.progress}>
-              0<span className={style.percent}>%</span>
-            </p>
-            <div className={style.dropdown}></div>
-          </div>
-        </button>
-
-        {openCourse && <>{index === active ? <div>{myCourse}</div> : null}</>}
-      </div>
+          <div className={style.dropdown}></div>
+        </div>
+      </button>
+      {dropCourse && (
+        <>
+          {index === active ? (
+            <div className={style.drop_course}>{myCourse}</div>
+          ) : null}
+        </>
+      )}
     </>
   )
 }

@@ -8,11 +8,11 @@ const PromoSlider: FC = () => {
   const { t } = useTranslation()
 
   const [activeIndex, setActiveIndex] = useState<number>(0)
-  const sliderLength = 3
+  const slideCount = 3
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex(activeIndex === sliderLength - 1 ? 0 : activeIndex + 1)
+      setActiveIndex(activeIndex === slideCount - 1 ? 0 : activeIndex + 1)
     }, 5000)
     return () => clearInterval(interval)
   })

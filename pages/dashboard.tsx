@@ -1,20 +1,19 @@
-import { FC, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import style from './dashboard.module.scss'
+import { Locale } from '../utils/localization'
+import { FC, useEffect, useState } from 'react'
 import { PageHead } from '../components/PageHead'
 import { Header } from '../components/header/Header'
-import MyLanguage from '../components/dashboard/MyLanguage'
-import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
-import DownloadAppBox from '../components/shared/DownloadAppBox'
-import MyCourse from '../components/dashboard/MyCourse'
-import { FollowButtons } from '../components/home/FollowButtons'
 import { Footer } from '../components/wizard/Footer'
-import { Locale } from '../utils/localization'
-import { LOCALES_TO_LANGUAGES, LANGUAGE_NAMES } from '../utils/languages'
+import MyCourse from '../components/dashboard/MyCourse'
 import { useTranslation } from '../utils/useTranslation'
 import { getMyCoursesData } from '../utils/getMyCourses'
-
-import style from './dashboard.module.scss'
+import MyLanguage from '../components/dashboard/MyLanguage'
 import PromoSlider from '../components/dashboard/PromoSlider'
+import { FollowButtons } from '../components/home/FollowButtons'
+import DownloadAppBox from '../components/shared/DownloadAppBox'
+import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
+import { LOCALES_TO_LANGUAGES, LANGUAGE_NAMES } from '../utils/languages'
 
 interface Language {
   _id: string
@@ -39,20 +38,20 @@ const Dashboard: FC = () => {
     setActive(index)
   }
 
-  const myCourse = myLanguages.map((item: Language, index: number) => {
-    if (index === active) {
+  const myCourse = myLanguages.map((item: Language, indexLanguage: number) => {
+    if (indexLanguage === active) {
       return (
         <div className={style.started_courses_content} key={item._id}>
           {item.standards
-            .filter((elem, counter: number) => elem.courses.length > 0)
-            .map((course, i) => {
+            .filter((elem, index: number) => elem.courses.length > 0)
+            .map((course, indexCourse) => {
               return (
                 <MyCourse
                   myLanguage={item}
                   course={course}
-                  key={`${course.name}-${i}`}
+                  key={`${course.name}-${indexCourse}`}
                   LANGUAGE_NAMES={LANGUAGE_NAMES}
-                  counter={i}
+                  indexCourse={indexCourse}
                 />
               )
             })}
@@ -63,11 +62,11 @@ const Dashboard: FC = () => {
 
   return (
     <>
-      <div className={style.wrapper}>
+      <div className={style.container}>
         <PageHead text="APP_DASHBOARD" />
         <Header size="s" />
-        <div className={style.content_container}>
-          <div className={style.left_side}>
+        <div className={style.content}>
+          <div className={style.left_bar}>
             <h1 className={style.title}>{t('APP_DASHBOARD')}</h1>
             <div className={style.my_languages}>
               <h2 className={style.heading2}>
@@ -90,7 +89,7 @@ const Dashboard: FC = () => {
                     )
                   })}
                 <AddLanguageBtn />
-                <div className={style.tablet_mobile}>
+                <div className={style.promo_slider_bottom}>
                   <PromoSlider />
                 </div>
                 <DownloadAppBox />
@@ -98,7 +97,7 @@ const Dashboard: FC = () => {
             </div>
           </div>
           <div className={style.started_courses}>
-            <h2 className={style.heading3}>
+            <h2 className={style.heading2}>
               {t('APP_GENERAL_STARTED_COURSES')}
             </h2>
             {myCourse}

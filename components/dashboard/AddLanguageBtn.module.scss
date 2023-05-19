@@ -28,7 +28,7 @@
   text-decoration: none;
   font-weight: 700;
   &:lang(ka) {
-    font-family: bpg_arial_2009;
+    font-family: $kaFont;
     font-weight: bold;
   }
 }

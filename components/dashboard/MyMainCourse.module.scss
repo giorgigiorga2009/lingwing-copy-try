@@ -3,11 +3,9 @@
 .container {
   height: 105px;
   padding: 0px 15px;
-  padding-right: 0;
-  background-color: #fbfbfb;
+  background-color: $white-50;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,16 +22,16 @@
   display: flex;
   align-items: center;
   gap: 33px;
-  padding-left: 13px;
+  margin-left: 13px;
 }
 
 .title {
   line-height: 75px;
   font-family: SegoeUI;
   font-size: 24px;
-  color: #565656;
+  color: $grey-800;
   &:lang(ka) {
-    font-family: bpg_arial_2009;
+    font-family: $kaFont;
     font-weight: normal;
   }
   span:nth-child(2) {
