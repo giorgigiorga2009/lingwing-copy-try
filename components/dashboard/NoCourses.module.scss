@@ -1,0 +1,39 @@
+@import '../../styles/imports.scss';
+
+.container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include tablet {
+    width: 90%;
+  }
+  @include mobile {
+    width: 90%;
+  }
+  img {
+    width: 30%;
+    min-width: 200px;
+  }
+  h3 {
+    font-family: SegoeUI-SemiBold;
+    width: 100%;
+    text-align: center;
+    color: $grey-700;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+      font-weight: normal;
+    }
+  }
+  .instruction {
+    margin-top: -5px;
+  }
+  .add_lang {
+    width: 70%;
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

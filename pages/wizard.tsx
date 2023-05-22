@@ -45,7 +45,9 @@ const Wizard: NextPage<WizardProps> = params => {
   const [languageTo, setLanguageTo] = useState<LanguageTo | undefined>(
     query.languageTo,
   )
-  const [languageFrom, setLanguageFrom] = useState<LanguageFrom>()
+  const [languageFrom, setLanguageFrom] = useState<LanguageFrom | undefined>(
+    router.query.languageFrom as LanguageFrom | undefined,
+  )
   const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
@@ -80,21 +82,77 @@ const Wizard: NextPage<WizardProps> = params => {
       .catch(error => console.log(error))
   }, [step])
 
-  const getCourseTable = (response: LanguageLevel[]) => {
-    const arr = response.map(level => level.options.map(option => option.title))
-    const flatTable = arr.flat()
-    return flatTable
-  }
+  useEffect(() => {
+    switch (step) {
+      case 'step1':
+        router.push({
+          pathname: '/wizard',
+        })
+        break
+      case 'step2':
+        router.push({
+          pathname: '/wizard',
+          query: { languageTo: languageTo },
+        })
+        break
+      case 'step3':
+        router.push({
+          pathname: '/wizard',
+          query: { languageTo: languageTo, languageFrom: languageFrom },
+        })
+        break
+    }
+  }, [step])
 
-  languageLevelData && console.log(getCourseTable(languageLevelData))
+  useEffect(() => {
+    if (step === 'step2') {
+      if (router.query.languageTo === undefined) {
+        setStep('step1')
+        router.back()
+        setLanguageTo(undefined)
+        return
+      }
+
+      if (
+        languageFrom === undefined &&
+        router.query.languageFrom !== undefined
+      ) {
+        setLanguageTo(undefined)
+        router.replace({ pathname: `/` })
+        return
+      }
+    }
+
+    if (step === 'step3' && router.query.languageFrom === undefined) {
+      setLanguageFrom(undefined)
+      languagesFrom?.includes(LOCALES_TO_LANGUAGES[locale as Locale])
+        ? router.back()
+        : setStep('step2')
+      return
+    }
+
+    if (
+      step === undefined &&
+      router.query.languageTo !== undefined &&
+      router.query.languageFrom !== undefined
+    ) {
+      setStep('step3')
+      return
+    }
+  }, [router.query])
 
   const goBack = () => {
     switch (step) {
       case 'step1':
-        router.back()
+        router.push({
+          pathname: '/',
+        })
         break
       case 'step2':
-        setStep('step1')
+        //setStep('step1')
+        router.push({
+          pathname: '/',
+        })
         setLanguageTo(undefined)
         break
       case 'step3':
@@ -108,9 +166,10 @@ const Wizard: NextPage<WizardProps> = params => {
 
   return (
     <div className={style.container}>
+      <div className={style.ball} />
       <Header size="s" loginClassName={style.loginModal} />
       <PageHead text={'wizardPageTitle'} />
-      <div className={style.ball} />
+
       <div className={style.content}>
         <BackButton onClick={goBack} />
         <div className={style.parrot} />

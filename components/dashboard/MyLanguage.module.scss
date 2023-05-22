@@ -2,25 +2,35 @@
 
 .container {
   width: 100%;
-  background: $white;
+  height: 60px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 56px;
-  padding: 5px 35px 5px 10px;
-  box-shadow: 0 1px 1px $white-300;
-  border-radius: 10px;
   position: relative;
+  align-items: center;
+  justify-content: space-between;
+  background: $white;
+  border-radius: 10px;
   margin-bottom: 10px;
-  border: none;
+  padding: 5px 10px;
+  box-shadow: 0 1px 1px $white-300;
+  &:hover {
+    filter: drop-shadow(1px 1px 1px $white-300);
+  }
+  @include tablet {
+    padding-right: 35px;
+  }
+  @include mobile {
+    padding-right: 35px;
+  }
   h3 {
     line-height: 56px;
     font-size: 17px;
     color: $grey-800;
+
     &:lang(ka) {
       font-family: $kaFont;
       font-weight: normal;
     }
+
     @include tablet {
       font-size: 20px;
     }
@@ -29,16 +39,30 @@
 
 .active_both_screens {
   @include tablet {
+    height: 80px;
     margin-bottom: 0;
     border-radius: 18px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    background: $white-50;
   }
   @include mobile {
+    height: 80px;
     margin-bottom: 0;
     border-radius: 18px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    background: $white-50;
+  }
+}
+
+.container_active {
+  background: $white-50;
+  @include tablet {
+    background: $white;
+  }
+  @include mobile {
+    background: $white;
   }
 }
 
@@ -77,14 +101,15 @@
   &::before {
     content: ' ';
     display: block;
-    top: 13px;
-    height: 31px;
-    width: 11px;
-    right: -11px;
     position: absolute;
+    top: 0px;
+    right: -35px;
+    height: 61px;
+    width: 30px;
+    background-image: url(/themes/images/v2/arrow-down-white50.png);
     background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(/assets/images/arrows/arrow-right-white.png);
+    background-size: contain;
+    rotate: -90deg;
   }
 }
 
@@ -124,9 +149,12 @@
 }
 
 .dropdown {
-  background-image: url('/themes/images/v2/arrrow-right-purple.png');
   width: 25px;
-  height: 25px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  background-image: url('/themes/images/v2/arrrow-right-purple.png');
   background-position: center;
   background-repeat: no-repeat;
   transition: transform 0.3s linear;
@@ -135,11 +163,6 @@
   -ms-transition: transform 0.3s linear;
   -o-transition: transform 0.3s linear;
   transform: rotate(0deg);
-  position: absolute;
-  right: 10px;
-  top: 0;
-  height: 100%;
-  z-index: 3;
 }
 
 .active_both_screens .overlay_mobile .dropdown {
