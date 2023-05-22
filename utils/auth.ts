@@ -4,6 +4,7 @@ interface Auth {
   email: string
   password: string
   repeatPassword?: string
+  // token?: string
 }
 
 const HEADERS = {
@@ -63,14 +64,14 @@ export const login = ({ email, password }: Auth) => {
     .catch(error => console.log(error))
 }
 
-export const getUserProfileData = (token: string) => {
-  axios({
-    url: `${process.env.defaultURL}/user/profile?lang=eng`,
-    headers: {
-      ...HEADERS,
-      Authorization: token,
-    },
-  })
-    .then(response => response.data)
-    .catch(error => console.log(error))
-}
+// export const getUserProfileData = ({ token }:Auth) => {
+//   axios({
+//     url: `${process.env.defaultURL}/user/profile?lang=eng`,
+//     headers: {
+//       ...HEADERS,
+//       Authorization: token,
+//     },
+//   })
+//     .then(response => response.data)
+//     .catch(error => console.log(error))
+// }

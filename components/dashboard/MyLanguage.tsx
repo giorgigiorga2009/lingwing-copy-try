@@ -4,15 +4,19 @@ import { FC, useState } from 'react'
 import style from './MyLanguage.module.scss'
 
 interface Props {
-  item: {
+  languageItem: {
     _id: string
     nameCode: string
-    standards: any[]
+    standards: {
+      courses: {
+        percent: string
+      }[]
+    }[]
   }
-  index: number
-  active: number
-  changeActive: (index: number) => void
-  t: any
+  indexOfLang: number
+  activeLang: number
+  changeActiveLang: (indexOfLang: number) => void
+  t: (key: string, params?: object) => string
   LANGUAGE_NAMES: {
     [key: string]: string
   }
@@ -20,52 +24,64 @@ interface Props {
 }
 
 const MyLanguage: FC<Props> = ({
-  item,
-  index,
-  active,
-  changeActive,
+  languageItem,
+  indexOfLang,
+  activeLang,
+  changeActiveLang,
   t,
   LANGUAGE_NAMES,
   myCourse,
 }) => {
-  //used only for small screen
-  const [dropCourse, setDropCourse] = useState<boolean>(false)
-  //
+  const [dropCourse, setDropCourse] = useState(false)
+
+  const percents = languageItem.standards.flatMap(({ courses }) =>
+    courses.map(({ percent }) => parseInt(percent)),
+  )
+
+  const sum = percents.reduce((acc, curr) => acc + curr, 0)
+
+  // Calculating average
+  const average = sum / percents.length
 
   return (
     <>
-      <button
-        onClick={() => changeActive(index)}
-        className={classNames(
-          style.button,
-          active === index
-            ? dropCourse
-              ? style.button_active_mobile
-              : style.button_active
-            : null,
-        )}
+      <div
+        className={classNames(style.container, {
+          [style.container_active]: activeLang === indexOfLang && !dropCourse,
+          [style.active_both_screens]: activeLang === indexOfLang && dropCourse,
+        })}
       >
-        <div
-          onClick={() => (changeActive(index), setDropCourse(!dropCourse))}
-          className={style.overlay}
-        ></div>
-        <div className={style.course_and_icon}>
-          <FlagIcon item={item} size="small" LANGUAGE_NAMES={LANGUAGE_NAMES} />
-          <h3>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
-        </div>
-        <div className={style.progress_and_dropdown}>
-          <p className={style.progress}>
-            0<span className={style.percent}>%</span>
-          </p>
+        <button
+          onClick={() => changeActiveLang(indexOfLang)}
+          className={classNames(style.button, style.overlay_desktop)}
+        ></button>
+        <button
+          onClick={() => {
+            changeActiveLang(indexOfLang)
+            setDropCourse(!dropCourse)
+          }}
+          className={classNames(style.button, style.overlay_mobile)}
+        >
           <div className={style.dropdown}></div>
+        </button>
+        <div className={style.course_and_icon}>
+          <FlagIcon
+            item={languageItem}
+            size="small"
+            LANGUAGE_NAMES={LANGUAGE_NAMES}
+          />
+          <h3>{t(LANGUAGE_NAMES[languageItem.nameCode])}</h3>
         </div>
-      </button>
-      {dropCourse && (
-        <>
-          {index === active ? (
-            <div className={style.drop_course}>{myCourse}</div>
-          ) : null}
-        </>
+        <p className={style.progress}>
+          {average.toFixed(0)}
+          <span className={style.percent}>%</span>
+        </p>
+      </div>
+      {/* my courses down here are called only for small screen, 
+      for desktop its called in dashboard file in pages folder cause design demands it
+      to be there*/}
+      {indexOfLang === activeLang && dropCourse && (
+        <div className={style.drop_course}>{myCourse}</div>
       )}
     </>
   )

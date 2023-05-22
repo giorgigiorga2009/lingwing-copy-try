@@ -8,8 +8,9 @@ import { SideMenu } from './SideMenu'
 import { useTranslation } from '../../utils/useTranslation'
 import Link from 'next/link'
 import classNames from 'classnames'
+import axios from 'axios'
 
-import { getUserProfileData } from '../../utils/auth'
+// import { getUserProfileData } from '../../utils/auth'
 
 interface Props {
   size?: 's' | 'm'
@@ -21,29 +22,33 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [profileData, setProfileData] = useState<any[]>([])
+  const [profileData, setProfileData] = useState<any>([])
 
   const { t } = useTranslation()
-
+  const HEADERS = {
+    'Content-Type': 'application/json;charset=UTF-8',
+    Accept: 'application/json, text/plain, */*',
+  }
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const token = window.localStorage.getItem('authToken') as string
       const logined = token !== null
-
       // if (logined) {
-      //   saveProfileData(token)
+      //   axios({
+      //     url: `${process.env.defaultURL}/user/profile?lang=eng`,
+      //     headers: {
+      //       ...HEADERS,
+      //       Authorization: token,
+      //     },
+      //   })
+      //     .then(response => setProfileData(response))
+      //     .catch(err => console.log(err))
       // }
 
       setIsAuthenticated(logined)
-      console.log(logined, 'logined')
+      // console.log(profileData, 'profile data')
     }
   }, [])
-
-  // const saveProfileData = (token) => {
-  //  return getUserProfileData(token).then((response: any) =>
-  //   setProfileData(response)
-  // )
-  // }
 
   return (
     <header className={classNames(style.header, style[size])}>

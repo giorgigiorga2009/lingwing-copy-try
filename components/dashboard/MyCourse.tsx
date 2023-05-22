@@ -35,21 +35,21 @@ interface Props {
   LANGUAGE_NAMES: {
     [key: string]: string
   }
-  indexCourse: number
+  indexOfCourse: number
 }
 
 const MyCourse: FC<Props> = ({
   course,
   myLanguage,
   LANGUAGE_NAMES,
-  indexCourse,
+  indexOfCourse,
 }) => {
   return (
     <>
       <div
         className={classNames(
           style.container,
-          indexCourse === 0 ? style.container_first_one : null,
+          indexOfCourse === 0 ? style.container_first_one : null,
         )}
       >
         <MyMainCourse
@@ -58,18 +58,18 @@ const MyCourse: FC<Props> = ({
           myLanguage={myLanguage}
           LANGUAGE_NAMES={LANGUAGE_NAMES}
         />
-        {course.courses.map((subCourse, indexSubCourse) => {
+        {course.courses.map((subCourse, indexOfSubCourse) => {
           return (
             <MySubCourse
               subCourse={subCourse}
               key={subCourse._id}
-              indexSubCourse={indexSubCourse}
-              indexCourse={indexCourse}
+              indexOfSubCourse={indexOfSubCourse}
+              indexOfCourse={indexOfCourse}
             />
           )
         })}
       </div>
-      {indexCourse === 0 && (
+      {indexOfCourse === 0 && (
         <div className={style.carousel_in_courses_box}>
           <PromoSlider />
         </div>

@@ -25,7 +25,7 @@ const Dashboard: FC = () => {
   const { t } = useTranslation()
   const router = useRouter()
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
-  const [active, setActive] = useState<number>(0)
+  const [activeLang, setActiveLang] = useState<number>(0)
   const locale = router.locale ?? 'en'
 
   useEffect(() => {
@@ -34,24 +34,26 @@ const Dashboard: FC = () => {
     )
   }, [locale])
 
-  const changeActive = (index: number) => {
-    setActive(index)
+  const changeActiveLang = (indexOfLang: number) => {
+    setActiveLang(indexOfLang)
   }
 
-  const myCourse = myLanguages.map((item: Language, indexLanguage: number) => {
-    if (indexLanguage === active) {
+  console.log(myLanguages)
+
+  const myCourse = myLanguages.map((item: Language, indexOfLang: number) => {
+    if (indexOfLang === activeLang) {
       return (
         <div className={style.started_courses_content} key={item._id}>
           {item.standards
-            .filter((elem, index: number) => elem.courses.length > 0)
-            .map((course, indexCourse) => {
+            .filter((elem, indexFilter: number) => elem.courses.length > 0)
+            .map((course, indexOfCourse) => {
               return (
                 <MyCourse
                   myLanguage={item}
                   course={course}
-                  key={`${course.name}-${indexCourse}`}
+                  key={`${course.name}-${indexOfCourse}`}
                   LANGUAGE_NAMES={LANGUAGE_NAMES}
-                  indexCourse={indexCourse}
+                  indexOfCourse={indexOfCourse}
                 />
               )
             })}
@@ -74,20 +76,22 @@ const Dashboard: FC = () => {
               </h2>
               <div>
                 {myLanguages &&
-                  myLanguages.map((item: Language, index: number) => {
-                    return (
-                      <MyLanguage
-                        key={item._id}
-                        item={item}
-                        changeActive={changeActive}
-                        active={active}
-                        index={index}
-                        t={t}
-                        LANGUAGE_NAMES={LANGUAGE_NAMES}
-                        myCourse={myCourse}
-                      />
-                    )
-                  })}
+                  myLanguages.map(
+                    (languageItem: Language, indexOfLang: number) => {
+                      return (
+                        <MyLanguage
+                          key={languageItem._id}
+                          languageItem={languageItem}
+                          changeActiveLang={changeActiveLang}
+                          activeLang={activeLang}
+                          indexOfLang={indexOfLang}
+                          t={t}
+                          LANGUAGE_NAMES={LANGUAGE_NAMES}
+                          myCourse={myCourse}
+                        />
+                      )
+                    },
+                  )}
                 <AddLanguageBtn />
                 <div className={style.promo_slider_bottom}>
                   <PromoSlider />
@@ -104,7 +108,9 @@ const Dashboard: FC = () => {
           </div>
         </div>
         <div className={style.bottom}>
-          <FollowButtons dashboard={true} />
+          <div className={style.follow_us}>
+            <FollowButtons dashboard={true} />
+          </div>
           <Footer />
         </div>
       </div>
