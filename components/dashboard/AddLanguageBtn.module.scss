@@ -2,7 +2,7 @@
 
 .button {
   width: 100%;
-  font-size: 18px;
+  font-size: clamp(14px, 2.5vw, 18px);
   font-weight: 700;
   padding: 17.5px 30px 17.5px 60px;
   cursor: pointer;
