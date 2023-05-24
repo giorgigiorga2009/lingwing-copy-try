@@ -10,7 +10,7 @@
   align-items: center;
   z-index: 1001;
   &.m {
-    height: 135px;
+    height: 8.43rem;
     padding: 50px 2.2rem 35px 2.2rem;
 
     @include tablet {
@@ -20,7 +20,7 @@
     @include mobile {
       padding-left: 5%;
       padding-right: 5%;
-      padding-top: 10px;
+      padding-top: 0.625rem;
       padding-bottom: 35px;
       height: 99px;
     }
@@ -48,6 +48,7 @@
   top: 5px;
   left: 4rem;
   cursor: pointer;
+
   @include tablet {
     width: 8, 1rem;
     height: 1.9rem;
@@ -60,6 +61,12 @@
     height: 1.5rem;
     left: 3rem;
     top: 12px;
+  }
+
+  @include smallWidth {
+    background-image: url('../../public/assets/images/logoSmall.svg');
+    width: 5rem;
+    height: 1.2rem;
   }
 }
 
@@ -82,19 +89,6 @@ header.m .logo {
 
   &:hover {
     color: $orange-500;
-  }
-}
-
-.avatar {
-  height: 2.18rem;
-  width: 2.18rem;
-  border-radius: 100%;
-  border: 3px solid $orange-500;
-  background-image: url('/assets/images/avatar-default-medium.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  @media (max-width: 415px) {
-    display: none;
   }
 }
 
@@ -166,4 +160,40 @@ header.m .logo {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.dashboard {
+  margin: 0 1.2rem;
+  height: 1.2rem;
+  padding-left: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mobile {
+    display: none;
+  }
+
+  h4 {
+    color: $white;
+    position: relative;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+      font-weight: 500;
+    }
+
+    &::before {
+      content: ' ';
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      left: -1.8rem;
+      top: 0.2rem;
+      background-image: url('/themes/images/v2/icon-dashboard-purple.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
 }

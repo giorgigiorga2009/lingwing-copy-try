@@ -1,23 +1,23 @@
 @import '../../styles/imports.scss';
 
 .container {
-  border-radius: 18px;
-  border-top: 1px solid $white-200;
-  box-shadow: 0 1px 2px rgba($black, 0.2);
-  margin-bottom: 25px;
+  border-radius: 1.125rem; /* converted from 18px to rem */
+  border-top: 0.0625rem solid $white-200; /* converted from 1px to rem */
+  box-shadow: 0 0.0625rem 0.125rem rgba($black, 0.2); /* converted from 0 1px 2px to rem for y offset and blur radius */
+  margin-bottom: 1.5625rem; /* converted from 25px to rem */
   width: 100%;
 }
 
 .container_first_one {
   @include tablet {
     border-radius: 0;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 1.125rem; /* converted from 18px to rem */
+    border-bottom-right-radius: 1.125rem; /* converted from 18px to rem */
   }
   @include mobile {
     border-radius: 0;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 1.125rem; /* converted from 18px to rem */
+    border-bottom-right-radius: 1.125rem; /* converted from 18px to rem */
   }
 }
 

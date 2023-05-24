@@ -1,0 +1,35 @@
+@import '../../styles/imports.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.first_name {
+  width: 95px;
+  font-size: 1rem;
+  display: inline-block;
+  font-family: SegoeUI;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: $white;
+  position: relative;
+  top: -0.22rem;
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+}
+
+.arrow {
+  background-image: url('/assets/images/arrows/arrow-up-white.png');
+  width: 1.5rem;
+  height: 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

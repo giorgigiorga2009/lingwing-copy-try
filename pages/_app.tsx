@@ -4,22 +4,12 @@ import Script from 'next/script'
 import { IntlProvider } from 'react-intl'
 import { useRouter } from 'next/router'
 
-import { useEffect } from 'react'
 import { Locale, messages } from '../utils/localization'
 import 'regenerator-runtime/runtime'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale: initialLocale } = useRouter()
   const locale = initialLocale ? initialLocale : 'en'
-
-  // useEffect(() => {
-  //   window.addEventListener('popstate', handleBackButton)
-  //   return () => window.removeEventListener('popstate', handleBackButton)
-  // }, [locale])
-
-  // function handleBackButton() {
-  //   alert(1)
-  // }
 
   return (
     <IntlProvider locale={locale} messages={messages[locale as Locale]}>
