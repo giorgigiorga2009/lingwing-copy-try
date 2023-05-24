@@ -4,7 +4,6 @@ interface Auth {
   email: string
   password: string
   repeatPassword?: string
-  // token?: string
 }
 
 const HEADERS = {

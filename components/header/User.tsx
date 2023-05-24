@@ -2,6 +2,7 @@ import style from './User.module.scss'
 import UserAvatar from '../shared/UserAvatar'
 import { FC, useEffect, useState } from 'react'
 import { getUserProfileData } from '../../utils/auth'
+import { UserDropdown } from './UserDropdown'
 
 interface UserProfile {
   profile: {
@@ -15,6 +16,7 @@ interface UserProfile {
 
 const User: FC = () => {
   const [userData, setUserData] = useState<UserProfile | null>(null)
+  const [openDropdown, setOpenDropdown] = useState<boolean>(false)
   useEffect(() => {
     handleUserProfile()
   }, [])
@@ -28,10 +30,12 @@ const User: FC = () => {
     }
   }
 
-  console.log(userData)
+  const handleDropdown = (bool: boolean) => {
+    setOpenDropdown(bool)
+  }
 
   return (
-    <div className={style.container}>
+    <div className={style.container} onClick={() => handleDropdown(true)}>
       {userData && (
         <>
           <UserAvatar image={userData.profile.avatar} />
@@ -43,6 +47,7 @@ const User: FC = () => {
           <div className={style.arrow} />
         </>
       )}
+      {openDropdown && <UserDropdown handleDropdown={handleDropdown} />}
     </div>
   )
 }

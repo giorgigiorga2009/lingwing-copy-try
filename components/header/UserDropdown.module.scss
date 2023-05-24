@@ -1,0 +1,30 @@
+@import '../../styles/imports.scss';
+
+.dropdown {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: none;
+}
+.dropdownContent {
+  width: 17rem;
+  height: auto;
+  padding: 1rem;
+  position: absolute;
+  left: -5rem;
+  margin-top: 1.3rem;
+  z-index: 1001;
+  border-radius: 0.63rem;
+  border: none;
+  background-color: $white;
+  box-shadow: 0 0 6px $white-200;
+}
+
+.log_out_btn {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+}

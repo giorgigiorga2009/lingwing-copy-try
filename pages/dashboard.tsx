@@ -30,10 +30,17 @@ const Dashboard: FC = () => {
   const locale = router.locale ?? 'en'
 
   useEffect(() => {
-    getMyCoursesData(locale).then(response =>
-      setMyLanguages(response.data.languages),
-    )
-  }, [locale])
+    handleMyCourses()
+  }, [])
+
+  const handleMyCourses = () => {
+    if (typeof window !== 'undefined') {
+      const token = window.localStorage.getItem('authToken') as string
+      return getMyCoursesData(token).then(response =>
+        setMyLanguages(response.data.languages),
+      )
+    }
+  }
 
   const changeActiveLang = (indexOfLang: number) => {
     setActiveLang(indexOfLang)
@@ -44,7 +51,7 @@ const Dashboard: FC = () => {
       return (
         <div className={style.started_courses_content} key={item._id}>
           {item.standards
-            .filter((elem, indexFilter: number) => elem.courses.length > 0)
+            .filter(elem => elem.courses.length > 0)
             .map((course, indexOfCourse) => {
               return (
                 <MyCourse
