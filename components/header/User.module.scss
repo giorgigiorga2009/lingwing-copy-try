@@ -1,14 +1,22 @@
 @import '../../styles/imports.scss';
 
 .container {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 100%;
   cursor: pointer;
+  margin-left: 1.2rem;
+  @include smallWidth {
+    display: none;
+  }
 }
 
 .first_name {
   width: 95px;
+  position: relative;
+  top: -0.22rem;
   font-size: 1rem;
   display: inline-block;
   font-family: SegoeUI;
@@ -16,8 +24,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   color: $white;
-  position: relative;
-  top: -0.22rem;
+
   @include tablet {
     display: none;
   }
