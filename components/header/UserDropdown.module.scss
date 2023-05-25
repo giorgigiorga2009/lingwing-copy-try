@@ -1,18 +1,12 @@
 @import '../../styles/imports.scss';
 
-.dropdown {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: none;
-}
 .dropdownContent {
   width: 17rem;
   height: auto;
   padding: 1rem;
   position: absolute;
   left: -5rem;
-  margin-top: 1.3rem;
+  margin-top: 6rem;
   z-index: 1001;
   border-radius: 0.63rem;
   border: none;
