@@ -8,13 +8,8 @@ interface Props {
 
 export const UserDropdown: FC<Props> = ({ handleDropdown }) => {
   return (
-    <Foco
-      className={style.dropdown}
-      onClickOutside={() => handleDropdown(false)}
-    >
-      <div className={style.dropdownContent}>
-        <button className={style.log_out_btn}>Log out</button>
-      </div>
-    </Foco>
+    <div className={style.dropdownContent}>
+      <button className={style.log_out_btn}>Log out</button>
+    </div>
   )
 }

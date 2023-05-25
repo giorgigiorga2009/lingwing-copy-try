@@ -1,8 +1,9 @@
+import Foco from 'react-foco'
 import style from './User.module.scss'
 import UserAvatar from '../shared/UserAvatar'
+import { UserDropdown } from './UserDropdown'
 import { FC, useEffect, useState } from 'react'
 import { getUserProfileData } from '../../utils/auth'
-import { UserDropdown } from './UserDropdown'
 
 interface UserProfile {
   profile: {
@@ -35,9 +36,16 @@ const User: FC = () => {
   }
 
   return (
-    <div className={style.container} onClick={() => handleDropdown(true)}>
+    <Foco
+      component="div"
+      className={style.container}
+      onClickOutside={() => setOpenDropdown(false)}
+    >
       {userData && (
-        <>
+        <div
+          className={style.button}
+          onClick={() => setOpenDropdown(!openDropdown)}
+        >
           <UserAvatar image={userData.profile.avatar} />
           <p className={style.first_name}>
             {userData.profile.firstName
@@ -45,10 +53,10 @@ const User: FC = () => {
               : userData.local.email}
           </p>
           <div className={style.arrow} />
-        </>
+          {openDropdown && <UserDropdown handleDropdown={handleDropdown} />}
+        </div>
       )}
-      {openDropdown && <UserDropdown handleDropdown={handleDropdown} />}
-    </div>
+    </Foco>
   )
 }
 
