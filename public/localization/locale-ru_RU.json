@@ -183,5 +183,8 @@
   "APP_DASHBOARD_BANNER3_BUTTON": "Учить грузинский",
 
   "APP_DASHBOARD_EPTY_PARAGRAPH_1": "Ой, дружище, похоже, ты еще не начал ни одного курса.",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Жми на кнопку внизу для начала увлекательного путешествия."
+  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Жми на кнопку внизу для начала увлекательного путешествия.",
+
+  "APP_HEADER_MENU_ITEM13": "Выход",
+  "APP_HEADER_MENU_ITEM14": "Профиль"
 }

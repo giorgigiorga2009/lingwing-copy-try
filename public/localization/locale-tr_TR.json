@@ -153,6 +153,9 @@
   "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
 
   "APP_DASHBOARD_EPTY_PARAGRAPH_1": "Henüz bir kursu secmedin",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Seçtiğin kursu başlatmak için düğmeyi tıkla."
+  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Seçtiğin kursu başlatmak için düğmeyi tıkla.",
+
+   "APP_HEADER_MENU_ITEM13": "Çıkış yap",
+  "APP_HEADER_MENU_ITEM14": "Hesabım"
   
 }
