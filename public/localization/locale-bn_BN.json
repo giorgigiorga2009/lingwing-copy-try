@@ -106,5 +106,8 @@
   "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
 
   "APP_DASHBOARD_EPTY_PARAGRAPH_1": "ওপস, আপনি এখনো কোন কোর্স শুরু করেননি",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "আপনার ভ্রমণ শুরু করতে নিচের বাটনে ক্লিক করুন।"
+  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "আপনার ভ্রমণ শুরু করতে নিচের বাটনে ক্লিক করুন।",
+
+  "APP_HEADER_MENU_ITEM13": "লগআউট",
+  "APP_HEADER_MENU_ITEM14": "আমার একাউন্ট"
 }

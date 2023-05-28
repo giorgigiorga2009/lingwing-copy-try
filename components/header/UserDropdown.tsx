@@ -1,15 +1,32 @@
-import { FC, Fragment, useState } from 'react'
+import { FC } from 'react'
+import Link from 'next/link'
+import classNames from 'classnames'
+import { useRouter } from 'next/router'
 import style from './UserDropdown.module.scss'
-import Foco from 'react-foco'
+import { useTranslation } from '../../utils/useTranslation'
 
-interface Props {
-  handleDropdown: (bool: boolean) => void
-}
+export const UserDropdown: FC = () => {
+  const router = useRouter()
+  const { t } = useTranslation()
 
-export const UserDropdown: FC<Props> = ({ handleDropdown }) => {
   return (
     <div className={style.dropdownContent}>
-      <button className={style.log_out_btn}>Log out</button>
+      <Link
+        href={{
+          pathname: `/dashboard`,
+        }}
+        locale={router.locale}
+        as="/dashboard"
+        className={style.link}
+      >
+        <button className={classNames(style.dashboard_btn, style.button)}>
+          {t('APP_DASHBOARD')}
+        </button>
+      </Link>
+      <button className={style.button}>{t('APP_HEADER_MENU_ITEM14')}</button>
+      <button className={classNames(style.log_out_btn, style.button)}>
+        {t('APP_HEADER_MENU_ITEM13')}
+      </button>
     </div>
   )
 }

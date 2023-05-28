@@ -159,7 +159,7 @@ header.m .logo {
 .authorization_box {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.9rem;
 }
 
 .dashboard {
@@ -170,6 +170,11 @@ header.m .logo {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  &:hover {
+    h4 {
+      color: $orange-500;
+    }
+  }
 
   @include mobile {
     display: none;
@@ -178,10 +183,12 @@ header.m .logo {
   h4 {
     color: $white;
     position: relative;
+    text-transform: uppercase;
 
     &:lang(ka) {
       font-family: $kaFont;
       font-weight: 500;
+      padding-top: 0.125rem;
     }
 
     &::before {
@@ -196,5 +203,19 @@ header.m .logo {
       background-size: contain;
       background-repeat: no-repeat;
     }
+  }
+}
+
+.become_premium {
+  color: #fff;
+  font-size: 1rem;
+  display: block;
+  padding: 0.25rem 1rem;
+  font-family: SegoeUI;
+  text-decoration: none;
+  margin-right: 1.7rem;
+  &:lang(ka) {
+    font-family: $kaFont;
+    padding-top: 0.43rem;
   }
 }
