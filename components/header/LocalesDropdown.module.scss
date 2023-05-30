@@ -1,18 +1,31 @@
 @import '../../styles/imports.scss';
 
 .button {
-  color: $white;
-  font-size: 1rem;
   cursor: pointer;
   width: 5rem;
   display: flex;
   gap: 0.5rem;
-  font-weight: 900;
   align-items: center;
+  height: 3.59rem;
+
+  @include smallWidth {
+    width: auto;
+  }
+
+  h6 {
+    color: $white;
+    font-size: 1rem;
+    font-weight: 900;
+    @include smallWidth {
+      display: none;
+    }
+  }
 
   &:hover,
   &:focus {
-    color: $orange-500;
+    h6 {
+      color: $orange-500;
+    }
   }
 }
 

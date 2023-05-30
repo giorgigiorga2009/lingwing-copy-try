@@ -34,7 +34,7 @@ export const LocalesDropdown: FC = () => {
     >
       <div className={style.button} onClick={() => setOpen(!open)}>
         <LocaleFlag language={selected} />
-        {selected.toUpperCase()}
+        <h6>{selected.toUpperCase()}</h6>
         <div className={style.arrow} />
       </div>
       {open && (

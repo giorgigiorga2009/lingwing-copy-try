@@ -31,10 +31,6 @@ const User: FC = () => {
     }
   }
 
-  const handleDropdown = (bool: boolean) => {
-    setOpenDropdown(bool)
-  }
-
   return (
     <Foco
       component="div"
@@ -53,7 +49,7 @@ const User: FC = () => {
               : userData.local.email}
           </p>
           <div className={style.arrow} />
-          {openDropdown && <UserDropdown handleDropdown={handleDropdown} />}
+          {openDropdown && <UserDropdown />}
         </div>
       )}
     </Foco>

@@ -65,7 +65,6 @@ export const LoginModal: FC<Props> = ({
     return login({ email, password }).then(response => {
       localStorage.setItem('authToken', response)
       setOpenLogin(!openLogin)
-      console.log(response, 'response token')
     })
   }
 

@@ -9,14 +9,18 @@
   cursor: pointer;
   margin-left: 1.2rem;
   @include smallWidth {
-    display: none;
+    margin-left: 0.5rem;
+  }
+  &:hover {
+    .first_name {
+      color: $orange-500;
+    }
   }
 }
 
 .first_name {
   width: 95px;
   position: relative;
-  top: -0.22rem;
   font-size: 1rem;
   display: inline-block;
   font-family: SegoeUI;

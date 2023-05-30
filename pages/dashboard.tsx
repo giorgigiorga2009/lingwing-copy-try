@@ -25,12 +25,14 @@ interface Language {
 const Dashboard: FC = () => {
   const { t } = useTranslation()
   const router = useRouter()
+  const [loading, setLoading] = useState<boolean>(true)
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [activeLang, setActiveLang] = useState<number>(0)
   const locale = router.locale ?? 'en'
 
   useEffect(() => {
     handleMyCourses()
+    setLoading(false)
   }, [])
 
   const handleMyCourses = () => {
@@ -74,7 +76,7 @@ const Dashboard: FC = () => {
         <PageHead text="APP_DASHBOARD" />
         <Header size="s" />
         <>
-          {myLanguages.length && myLanguages.length > 0 ? (
+          {!loading && myLanguages && myLanguages.length > 0 && (
             <div className={style.content}>
               <div className={style.left_bar}>
                 <h1 className={style.title}>{t('APP_DASHBOARD')}</h1>
@@ -115,9 +117,8 @@ const Dashboard: FC = () => {
                 {myCourse}
               </div>
             </div>
-          ) : (
-            <NoCourses />
           )}
+          {myLanguages.length === 0 && !loading && <NoCourses />}
         </>
         <div className={style.bottom}>
           <div className={style.follow_us}>

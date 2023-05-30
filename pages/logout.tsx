@@ -1,17 +1,27 @@
-import classNames from 'classnames'
 import { NextPage } from 'next'
+import range from '../utils/range'
+import classNames from 'classnames'
+import { FC, useEffect } from 'react'
+import style from './logout.module.scss'
+import { LOGOUT_SCREENSHOTS } from '../utils/const'
 import { Carousel } from 'react-responsive-carousel'
 import { Header } from '../components/header/Header'
-import { FollowButtons } from '../components/home/FollowButtons'
 import { Footer } from '../components/wizard/Footer'
-import range from '../utils/range'
-import style from './logout.module.scss'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useTranslation } from '../utils/useTranslation'
-import { FC } from 'react'
-import { LOGOUT_SCREENSHOTS } from '../utils/const'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { FollowButtons } from '../components/home/FollowButtons'
 
 const Stars: FC = () => {
+  useEffect(() => {
+    handleLogOut()
+  }, [])
+
+  const handleLogOut = () => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem('authToken')
+    }
+  }
+
   return (
     <div>
       <div className={classNames(style.google, style.market)} />
