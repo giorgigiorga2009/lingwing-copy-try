@@ -204,17 +204,3 @@ header.m .logo {
     }
   }
 }
-
-.become_premium {
-  color: $white;
-  font-size: 1rem;
-  display: block;
-  padding: 0.25rem 1rem;
-  font-family: SegoeUI;
-  text-decoration: none;
-  margin-right: 1.7rem;
-  &:lang(ka) {
-    font-family: $kaFont;
-    padding-top: 0.43rem;
-  }
-}

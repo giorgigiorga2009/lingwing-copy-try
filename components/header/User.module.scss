@@ -22,12 +22,13 @@
   width: 95px;
   position: relative;
   font-size: 1rem;
-  display: inline-block;
   font-family: SegoeUI;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: $white;
+  vertical-align: center;
+  line-height: 1.2rem;
 
   @include tablet {
     display: none;

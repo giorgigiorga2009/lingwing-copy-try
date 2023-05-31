@@ -42,16 +42,6 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         {openSideMenu && <SideMenu onClose={() => setOpenSideMenu(false)} />}
       </div>
       <div className={style.rightBlock}>
-        {isAuthenticated && isDashboard && (
-          <Link
-            href={{
-              pathname: `/`,
-            }}
-            className={classNames(style.link, style.become_premium)}
-          >
-            {t('APP_BECOME_PREMIUM')}
-          </Link>
-        )}
         <LocalesDropdown />
         {isAuthenticated ? (
           <>
