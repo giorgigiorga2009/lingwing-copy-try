@@ -1,15 +1,15 @@
 @import '../../styles/imports.scss';
 
 .total_students {
-  padding: 9px 16px;
-  border-radius: 16px;
+  padding: 0.563rem 1rem;
+  border-radius: 1rem;
   background-color: $yellow-100;
   color: $grey-300;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: SegoeUI;
-  margin-right: 130px;
+  margin-right: 8.125rem;
   span:first-child {
-    margin-right: 5px;
+    margin-right: 0.313rem;
     color: $orange-450;
   }
   span:nth-child(2) {

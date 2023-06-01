@@ -1,7 +1,9 @@
 import FlagIcon from './FlagIcon'
 import classNames from 'classnames'
 import { FC, useState } from 'react'
+import AirplaneIcon from './AirplaneIcon'
 import style from './MyLanguage.module.scss'
+import RotatableArrow from '../shared/RotatableArrow'
 
 interface Props {
   languageItem: {
@@ -61,9 +63,7 @@ const MyLanguage: FC<Props> = ({
             setDropCourse(!dropCourse)
           }}
           className={classNames(style.button, style.overlay_mobile)}
-        >
-          <div className={style.dropdown}></div>
-        </button>
+        ></button>
         <div className={style.course_and_icon}>
           <FlagIcon
             item={languageItem}
@@ -72,6 +72,15 @@ const MyLanguage: FC<Props> = ({
           />
           <h3>{t(LANGUAGE_NAMES[languageItem.nameCode])}</h3>
         </div>
+
+        <div className={style.dropdown}>
+          <RotatableArrow open={activeLang === indexOfLang && dropCourse} />
+        </div>
+        {activeLang === indexOfLang && dropCourse && (
+          <div className={style.circle}>
+            <AirplaneIcon />
+          </div>
+        )}
         <p className={style.progress}>
           {average.toFixed(0)}
           <span className={style.percent}>%</span>

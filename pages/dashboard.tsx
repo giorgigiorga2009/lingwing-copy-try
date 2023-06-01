@@ -8,13 +8,13 @@ import { Footer } from '../components/wizard/Footer'
 import MyCourse from '../components/dashboard/MyCourse'
 import { useTranslation } from '../utils/useTranslation'
 import { getMyCoursesData } from '../utils/getMyCourses'
+import NoCourses from '../components/dashboard/NoCourses'
 import MyLanguage from '../components/dashboard/MyLanguage'
 import PromoSlider from '../components/dashboard/PromoSlider'
 import { FollowButtons } from '../components/home/FollowButtons'
 import DownloadAppBox from '../components/shared/DownloadAppBox'
 import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
 import { LOCALES_TO_LANGUAGES, LANGUAGE_NAMES } from '../utils/languages'
-import NoCourses from '../components/dashboard/NoCourses'
 
 interface Language {
   _id: string
@@ -38,8 +38,6 @@ const Dashboard: FC = () => {
   const changeActiveLang = (indexOfLang: number) => {
     setActiveLang(indexOfLang)
   }
-
-  console.log(myLanguages)
 
   const myCourse = myLanguages.map((item: Language, indexOfLang: number) => {
     if (indexOfLang === activeLang) {

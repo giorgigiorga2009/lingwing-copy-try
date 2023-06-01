@@ -2,12 +2,18 @@
 
 .container {
   width: 100px;
-  height: 105px;
+  height: 100%;
   overflow: hidden;
   border-radius: 0 12px 0 0;
   position: absolute;
   right: 0;
   bottom: 0;
+  @include tablet {
+    width: 80px;
+  }
+  @include mobile {
+    width: 80px;
+  }
 }
 
 .circle_transparent {
@@ -35,5 +41,13 @@
   background-size: contain;
   background-position-y: 15px;
   background-image: url(/themes/images/v2/standart-level-icon1.png);
-  z-index: 5;
+  margin-left: 10px;
+  @include tablet {
+    height: 70px;
+    width: 70px;
+  }
+  @include mobile {
+    height: 70px;
+    width: 70px;
+  }
 }
