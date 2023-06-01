@@ -24,9 +24,16 @@ export const UserDropdown: FC = () => {
         </button>
       </Link>
       <button className={style.button}>{t('APP_HEADER_MENU_ITEM14')}</button>
-      <button className={classNames(style.log_out_btn, style.button)}>
-        {t('APP_HEADER_MENU_ITEM13')}
-      </button>
+
+      <Link
+        href={{
+          pathname: '/logout',
+        }}
+      >
+        <button className={classNames(style.log_out_btn, style.button)}>
+          {t('APP_HEADER_MENU_ITEM13')}
+        </button>
+      </Link>
     </div>
   )
 }

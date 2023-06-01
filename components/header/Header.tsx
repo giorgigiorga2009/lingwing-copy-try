@@ -28,7 +28,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
       const logined = token !== null
       setIsAuthenticated(logined)
     }
-  }, [])
+  })
 
   const isDashboard = router.pathname.includes('dashboard')
 
