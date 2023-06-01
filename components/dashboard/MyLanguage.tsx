@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
 import style from './MyLanguage.module.scss'
 
@@ -18,11 +17,6 @@ interface Props {
   }
 }
 
-interface KaTextStyle {
-  fontWeight: string
-  fontFamily: string
-}
-
 const MyLanguage: FC<Props> = ({
   item,
   index,
@@ -31,24 +25,14 @@ const MyLanguage: FC<Props> = ({
   t,
   LANGUAGE_NAMES,
 }) => {
-  const router = useRouter()
-  const locale = router.locale ?? 'en'
-
-  const kaTextStyle: KaTextStyle = {
-    fontWeight: '500',
-    fontFamily: 'bpg_arial_2009',
-  }
-
   return (
     <button
       onClick={() => changeActive(index)}
-      className={
-        active === index ? style.my_language_active : style.my_language
-      }
+      className={active === index ? style.my_btn_active : style.my_btn}
     >
-      <div className={style.flag_and_course}>
+      <div className={style.left_side}>
         <Image
-          className={style.flag_img}
+          className={style.flag_icon}
           src={`/assets/images/flags/circle/big/${[
             LANGUAGE_NAMES[item.nameCode],
           ]}.png`}
@@ -56,11 +40,7 @@ const MyLanguage: FC<Props> = ({
           width={36}
           height={36}
         />
-        {locale === 'ka' ? (
-          <h3 style={kaTextStyle}>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
-        ) : (
-          <h3>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
-        )}
+        <h3>{t(LANGUAGE_NAMES[item.nameCode])}</h3>
       </div>
       <p className={style.progress}>
         0<span className={style.percent}>%</span>

@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { PageHead } from '../components/PageHead'
 import { Header } from '../components/header/Header'
 import MyLanguage from '../components/dashboard/MyLanguage'
 import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
@@ -17,11 +18,6 @@ interface Language {
   _id: string
   nameCode: string
   standards: any[]
-}
-
-interface KaTextStyle {
-  fontWeight: string
-  fontFamily: string
 }
 
 const Dashboard: FC = () => {
@@ -58,38 +54,19 @@ const Dashboard: FC = () => {
     setActive(index)
   }
 
-  const kaTextStyle: KaTextStyle = {
-    fontWeight: '500',
-    fontFamily: 'bpg_arial_2009',
-  }
-
   return (
     <>
-      <div className={style.container}>
+      <div className={style.wrapper}>
+        <PageHead text="dashboardPageTitle" />
         <Header size="s" />
-        <div className={style.dashboard_container}>
-          <div className={style.dashboard_left_side}>
-            {locale === 'ka' ? (
-              <h1 style={kaTextStyle} className={style.dashboard_title}>
-                {t('APP_DASHBOARD')}
-              </h1>
-            ) : (
-              <h1 className={style.dashboard_title}>{t('APP_DASHBOARD')}</h1>
-            )}
-            <div className={style.dashboard_my_languages}>
-              {locale === 'ka' ? (
-                <h2
-                  style={kaTextStyle}
-                  className={style.dashboard_my_languages_title}
-                >
-                  {t('APP_GENERAL_MY_LANGUAGES')}
-                </h2>
-              ) : (
-                <h2 className={style.dashboard_my_languages_title}>
-                  {t('APP_GENERAL_MY_LANGUAGES')}
-                </h2>
-              )}
-              <div className={style.my_languages_container}>
+        <div className={style.content_container}>
+          <div className={style.left_side}>
+            <h1 className={style.title}>{t('APP_DASHBOARD')}</h1>
+            <div className={style.my_languages}>
+              <h2 className={style.heading2}>
+                {t('APP_GENERAL_MY_LANGUAGES')}
+              </h2>
+              <div>
                 {myLanguages &&
                   myLanguages.map((item: Language, index: number) => {
                     return (
@@ -110,21 +87,14 @@ const Dashboard: FC = () => {
               </div>
             </div>
           </div>
-          <div className={style.started_courses_container}>
-            {locale === 'ka' ? (
-              <h2 style={kaTextStyle} className={style.started_courses_title}>
-                {t('APP_GENERAL_STARTED_COURSES')}
-              </h2>
-            ) : (
-              <h2 className={style.started_courses_title}>
-                {t('APP_GENERAL_STARTED_COURSES')}
-              </h2>
-            )}
-
+          <div className={style.started_courses}>
+            <h2 className={style.heading3}>
+              {t('APP_GENERAL_STARTED_COURSES')}
+            </h2>
             {myLanguages.map((item: Language, index: number) => {
               if (index === active) {
                 return (
-                  <div className={style.started_courses} key={item._id}>
+                  <div className={style.started_courses_content} key={item._id}>
                     {item.standards
                       .filter(
                         (elem, counter: number) => elem.courses.length > 0,

@@ -1,4 +1,4 @@
-.my_language {
+.my_btn {
   width: 100%;
   background: white;
   display: flex;
@@ -14,7 +14,7 @@
   border: none;
 }
 
-.my_language_active {
+.my_btn_active {
   width: 100%;
   background: white;
   display: flex;
@@ -30,7 +30,7 @@
   border: none;
 }
 
-.my_language_active::before {
+.my_btn_active::before {
   content: ' ';
   display: block;
   top: 13px;
@@ -43,17 +43,21 @@
   background-image: url(/assets/images/arrows/arrow-right-white.png);
 }
 
-.flag_and_course {
+.left_side {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.my_language h3,
-.my_language_active h3 {
+.my_btn h3,
+.my_btn_active h3 {
   line-height: 56px;
   font-size: 20px;
   color: #565656;
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: normal;
+  }
 }
 
 .progress {
@@ -71,7 +75,7 @@
   top: -1px;
 }
 
-.flag_img {
+.flag_icon {
   background-color: transparent;
   border-radius: 50%;
   box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);

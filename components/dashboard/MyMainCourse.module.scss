@@ -1,4 +1,4 @@
-.my_main_course {
+.wrapper {
   height: 105px;
   padding: 0px 15px;
   padding-right: 0;
@@ -18,18 +18,22 @@
   padding-left: 13px;
 }
 
-.flag_img {
+.flag_icon {
   background-color: transparent;
   border-radius: 50%;
   box-shadow: 0 0 13px rgba(0, 0, 0, 0.13);
   border: 2px solid white;
 }
 
-.my_main_course_title {
+.title {
   line-height: 75px;
   font-family: SegoeUI;
   font-size: 24px;
   color: #565656;
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: normal;
+  }
 }
 
 .my_main_course_title span:nth-child(2) {
@@ -57,6 +61,13 @@
 .total_students span:first-child {
   padding-right: 5px;
   color: #ffae45;
+}
+
+.total_students span:nth-child(2) {
+  &:lang(ka) {
+    font-family: bpg_arial_2009;
+    font-weight: normal;
+  }
 }
 
 .background {

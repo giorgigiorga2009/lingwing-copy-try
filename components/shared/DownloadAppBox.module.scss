@@ -1,4 +1,4 @@
-.download_app_box {
+.wrapper {
   background-image: url(/assets/images/mb-app-star.png);
   background-repeat: no-repeat;
   background-color: #7835ab;
@@ -10,7 +10,7 @@
   padding: 35px;
 }
 
-.download_app_box h3 {
+.wrapper h3 {
   font-family: bpg_arial_2009;
   color: #fff;
   font-size: 14px;
@@ -18,7 +18,7 @@
   line-height: 1.1;
 }
 
-.download_app_box h3 strong {
+.wrapper h3 strong {
   color: #f6a313;
   font-size: 24px;
   margin-top: 15px;
@@ -31,4 +31,8 @@
   flex-direction: column;
   gap: 15px;
   align-items: center;
+}
+
+.download_app_box h3 strong {
+  margin-top: 20px;
 }
