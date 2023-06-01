@@ -7,7 +7,7 @@ interface Props {}
 const ActionBtns: FC<Props> = ({}): JSX.Element => {
   return (
     <>
-      <div className={style.action_btns}>
+      <div className={style.container}>
         <Link href={`#`}>
           <button className={style.statistics}></button>
         </Link>

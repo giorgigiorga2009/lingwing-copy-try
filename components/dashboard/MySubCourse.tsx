@@ -23,11 +23,15 @@ interface SubCourseProps {
 
 interface Props {
   subCourse: SubCourseProps
-  indexSubCourse: number
-  indexCourse: number
+  indexOfSubCourse: number
+  indexOfCourse: number
 }
 
-const MySubCourse: FC<Props> = ({ subCourse, indexSubCourse, indexCourse }) => {
+const MySubCourse: FC<Props> = ({
+  subCourse,
+  indexOfSubCourse,
+  indexOfCourse,
+}) => {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -38,7 +42,7 @@ const MySubCourse: FC<Props> = ({ subCourse, indexSubCourse, indexCourse }) => {
       <div
         className={classNames(
           style.container,
-          indexSubCourse === 0 && indexCourse !== 0
+          indexOfSubCourse === 0 && indexOfCourse !== 0
             ? style.container_first_child
             : null,
         )}

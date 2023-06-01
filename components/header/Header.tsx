@@ -8,8 +8,6 @@ import { LocalesDropdown } from './LocalesDropdown'
 import { LoginModal } from '../loginWindow/LoginModal'
 import { useTranslation } from '@utils/useTranslation'
 
-import { getUserProfileData } from '../../utils/auth'
-
 interface Props {
   size?: 's' | 'm'
   loginClassName?: string
@@ -19,7 +17,6 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [profileData, setProfileData] = useState<any[]>([])
 
   const { t } = useTranslation()
 
@@ -27,21 +24,9 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
     if (typeof window !== 'undefined') {
       const token = window.localStorage.getItem('authToken') as string
       const logined = token !== null
-
-      // if (logined) {
-      //   saveProfileData(token)
-      // }
-
       setIsAuthenticated(logined)
-      console.log(logined, 'logined')
     }
   }, [])
-
-  // const saveProfileData = (token) => {
-  //  return getUserProfileData(token).then((response: any) =>
-  //   setProfileData(response)
-  // )
-  // }
 
   return (
     <header className={classNames(style.header, style[size])}>

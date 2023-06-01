@@ -1,14 +1,13 @@
 @import '../../styles/imports.scss';
 
-.button {
+.container {
   width: 100%;
   background: $white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 56px;
-  padding: 5px 10px;
-  cursor: pointer;
+  padding: 5px 35px 5px 10px;
   box-shadow: 0 1px 1px $white-300;
   border-radius: 10px;
   position: relative;
@@ -28,7 +27,7 @@
   }
 }
 
-.button_active_mobile {
+.active_both_screens {
   @include tablet {
     margin-bottom: 0;
     border-radius: 18px;
@@ -43,22 +42,49 @@
   }
 }
 
-.button_active::before {
-  content: ' ';
-  display: block;
-  top: 13px;
-  height: 31px;
-  width: 11px;
-  right: -11px;
+.button {
   position: absolute;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(/assets/images/arrows/arrow-right-white.png);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 2;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.overlay_mobile {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+  @include mobile {
+    display: block;
+  }
+}
+
+.overlay_desktop {
   @include tablet {
     display: none;
   }
   @include mobile {
     display: none;
+  }
+}
+
+.container_active .overlay_desktop,
+.active_both_screens .overlay_desktop {
+  &::before {
+    content: ' ';
+    display: block;
+    top: 13px;
+    height: 31px;
+    width: 11px;
+    right: -11px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/assets/images/arrows/arrow-right-white.png);
   }
 }
 
@@ -72,13 +98,6 @@
   @include mobile {
     gap: 30px;
   }
-}
-
-.progress_and_dropdown {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 5px;
 }
 
 .progress {
@@ -105,7 +124,6 @@
 }
 
 .dropdown {
-  display: none;
   background-image: url('/themes/images/v2/arrrow-right-purple.png');
   width: 25px;
   height: 25px;
@@ -117,32 +135,16 @@
   -ms-transition: transform 0.3s linear;
   -o-transition: transform 0.3s linear;
   transform: rotate(0deg);
-  @include tablet {
-    display: block;
-  }
-  @include mobile {
-    display: block;
-  }
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  z-index: 3;
 }
 
-.button_active_mobile .dropdown {
+.active_both_screens .overlay_mobile .dropdown {
   transform: rotate(90deg);
   transition: transform 0.3s linear;
-}
-
-.overlay {
-  display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  z-index: 2;
-  @include tablet {
-    display: block;
-  }
-  @include mobile {
-    display: block;
-  }
 }
 
 .drop_course {

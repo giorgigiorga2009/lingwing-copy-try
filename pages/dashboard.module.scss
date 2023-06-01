@@ -103,3 +103,9 @@
     display: block;
   }
 }
+
+.follow_us {
+  @include tablet {
+    margin-top: 100px;
+  }
+}

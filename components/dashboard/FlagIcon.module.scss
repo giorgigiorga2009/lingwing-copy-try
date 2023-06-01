@@ -4,8 +4,8 @@
 .flag_icon_big {
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);
-  border: 2px solid white;
+  box-shadow: 1px 0 3px rgba($black, 0.15);
+  border: 2px solid $white;
 }
 
 .flag_icon_small {
