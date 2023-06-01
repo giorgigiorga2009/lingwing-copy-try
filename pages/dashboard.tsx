@@ -57,7 +57,7 @@ const Dashboard: FC = () => {
   return (
     <>
       <div className={style.wrapper}>
-        <PageHead text="dashboardPageTitle" />
+        <PageHead text="APP_DASHBOARD" />
         <Header size="s" />
         <div className={style.content_container}>
           <div className={style.left_side}>
