@@ -178,7 +178,12 @@
 
   "APP_TEST_TEST": "Pruebas",
 
-  "APP_DASHBOARD_BANNER1_TEXT": "Obtenga <span>10 Lari</span> garantías gratis!"
+  "APP_DASHBOARD_BANNER1_TEXT": "Obtenga <k>10 GEL</k> garantías gratis!",
+  "APP_DASHBOARD_BANNER2_TEXT": "Aprende <k>5 veces</k> más rápido!",
+  "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
+  "APP_BECOME_PREMIUM": "Hazte premium",
+  "APP_DASHBOARD_BANNER1_LINK": "Obteniendo Tareas",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian"
 
   
 }

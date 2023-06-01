@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import MyMainCourse from './MyMainCourse'
 import MySubCourse from './MySubCourse'
-import style from './MyCourse.module.scss'
 import PromoSlider from './PromoSlider'
+import MyMainCourse from './MyMainCourse'
+import style from './MyCourse.module.scss'
 
 interface Course {
   name: string
@@ -44,8 +44,8 @@ const MyCourse: FC<Props> = ({
   counter,
 }) => {
   return (
-    <div className={style.my_course}>
-      <div className={style.wrapper}>
+    <>
+      <div className={style.my_course}>
         <MyMainCourse
           course={course}
           key={course.name}
@@ -63,12 +63,12 @@ const MyCourse: FC<Props> = ({
           )
         })}
       </div>
-      {counter === 0 ? (
-        <div className={style.desktop}>
+      {counter === 0 && (
+        <div className={style.carousel_in_courses_box}>
           <PromoSlider />
         </div>
-      ) : null}
-    </div>
+      )}
+    </>
   )
 }
 

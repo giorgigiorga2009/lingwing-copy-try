@@ -1,6 +1,6 @@
 @import '../../styles/imports.scss';
 
-.wrapper {
+.my_main_course {
   height: 105px;
   padding: 0px 15px;
   padding-right: 0;
@@ -19,18 +19,11 @@
   }
 }
 
-.left_line_box {
+.title_and_icon {
   display: flex;
   align-items: center;
   gap: 33px;
   padding-left: 13px;
-}
-
-.flag_icon {
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 0 0 13px rgba(0, 0, 0, 0.13);
-  border: 2px solid white;
 }
 
 .title {
@@ -42,50 +35,26 @@
     font-family: bpg_arial_2009;
     font-weight: normal;
   }
+  span:nth-child(2) {
+    margin-left: 10px;
+  }
 }
 
-.my_main_course_title span:nth-child(2) {
-  padding-left: 5px;
-}
-
-.right_line_box {
+.students_info {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 30px;
 }
 
-.total_students {
-  padding: 9px 16px;
-  border-radius: 16px;
-  background-color: #fff4d7;
-  color: #a5a5a5;
-  font-size: 14px;
-  top: 35px;
-  left: 10%;
-  font-family: SegoeUI;
-}
-
-.total_students span:first-child {
-  padding-right: 5px;
-  color: #ffae45;
-}
-
-.total_students span:nth-child(2) {
-  &:lang(ka) {
-    font-family: bpg_arial_2009;
-    font-weight: normal;
-  }
-}
-
-.background {
+.icons_in_background {
   width: 100px;
   height: 105px;
   overflow: hidden;
   border-radius: 0 12px 0 0;
 }
 
-.standart_icon_transparent {
+.icon_sun_transparent {
   width: 125px;
   height: 128px;
   margin-top: -9px;
@@ -94,7 +63,7 @@
   background: #fff3d7;
 }
 
-.standart_icon_bg {
+.icon_sun {
   width: 119px;
   height: 119px;
   margin: 4px -5px 0 0;
@@ -103,7 +72,7 @@
   background-color: #ffe9b5;
 }
 
-.icon_bg {
+.icon_fly {
   width: 100px;
   height: 100px;
   background-repeat: no-repeat;

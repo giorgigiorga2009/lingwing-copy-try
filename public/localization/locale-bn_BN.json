@@ -98,7 +98,14 @@
 
   "APP_TEST_TEST": "পরীক্ষা",
   
-  "APP_DASHBOARD_BANNER1_TEXT": "বিনামূল্যে <span>১০ লারি</span> বাড়ির কাজ পান!"
+  "APP_DASHBOARD_BANNER1_TEXT": "বিনামূল্যে <k>১০ GEL</k> বাড়ির কাজ পান!",
+  "APP_DASHBOARD_BANNER2_TEXT": "শিখুন <k>৫ গুণ</k> দ্রুত!",
+  "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
+  "APP_BECOME_PREMIUM": "প্রিমিয়াম হোন",
+  "APP_DASHBOARD_BANNER1_LINK": "কাজ পান",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian"
+
+
 
 
 }

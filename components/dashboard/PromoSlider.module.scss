@@ -2,12 +2,10 @@
 
 .promo_slider {
   height: 144px;
-  text-align: center;
-  border-radius: 18px;
   width: 100%;
-  display: flex;
   position: relative;
   margin-bottom: 20px;
+
   @include tablet {
     margin-bottom: 30px;
   }
@@ -20,91 +18,92 @@
 .slide {
   width: 100%;
   height: 100%;
+  text-align: center;
   visibility: hidden;
   transition: opacity 1s, visibility 0s linear 1s;
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
   border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   padding: 20px;
-  color: white;
-  font-size: 18px;
-  background: #f28e13;
-  h6 {
-    font-size: 20px;
-    margin-top: 0px;
-    margin-bottom: 28px;
-    font-family: SegoeUI;
-    span {
-      color: black;
-    }
-  }
-  button {
-    display: inline-block;
-    position: relative;
-    padding: 6px 30px 8px;
-    background-color: transparent;
-    border: 3px solid #aa5b11;
-    color: #fff;
-    font-size: 18px;
-    font-family: SegoeUI;
-    border-radius: 30px;
-    -webkit-transition: all 0.2s linear;
-    -moz-transition: all 0.2s linear;
-    -ms-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    &:hover {
-      background-color: #feb614;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-  }
+  color: $white;
+  background: $orange-650;
   @include mobile {
-    padding-top: 35px;
+    padding-top: 25px;
   }
 }
 
 .slide_active {
   visibility: visible;
-  transition: opacity 1.5s;
+  transition: opacity 1s;
   opacity: 1;
 }
 
+.title {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 28px;
+  font-family: SegoeUI;
+  span {
+    color: $black;
+    margin: 0 2px;
+  }
+}
+
+.button {
+  padding: 6px 30px 8px;
+  height: 40px;
+  background-color: transparent;
+  border: 3px solid $brown;
+  border-radius: 30px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  &:hover {
+    background-color: $orange-500;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba($black, 0.08);
+  }
+  h6 {
+    font-size: 18px;
+    font-family: SegoeUI;
+    color: $white;
+  }
+}
+
 .slide_liberty {
-  background: rgb(16, 24, 32);
-  button {
-    border: 3px solid #ed3024;
+  background: $liberty-black;
+  .button {
+    border: 3px solid $google;
     &:hover {
-      background-color: #ed3024;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      background-color: $red;
     }
   }
 }
 
-.parrot {
+.parrot_img,
+.premium_img,
+.liberty_img,
+.add_friends_img,
+.premium_icon {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.parrot_img {
   width: 118px;
   height: 138px;
-  position: absolute;
   bottom: 0;
   right: 49px;
   background-image: url(/themes/images/v2/banner-parrot.png);
-  background-size: contain;
-  background-repeat: no-repeat;
   @include tablet {
     display: none;
   }
@@ -113,15 +112,12 @@
   }
 }
 
-.add_friend,
-.premium {
-  position: absolute;
+.add_friends_img,
+.premium_img {
   left: 28px;
   bottom: 20px;
   width: 143px;
   height: 104px;
-  background-size: contain;
-  background-repeat: no-repeat;
   @include tablet {
     display: none;
   }
@@ -130,23 +126,20 @@
   }
 }
 
-.add_friend {
+.premium_img {
   background-image: url(/themes/images/v2/banner-stars.png);
 }
 
-.premium {
+.add_friends_img {
   background-image: url(/themes/images/v2/banner-add-friends.png);
 }
 
-.liberty {
+.liberty_img {
   height: 84px;
   width: 243.5px;
   padding: 50px 10px 10px 10px;
   left: 10px;
   bottom: 10px;
-  position: absolute;
-  background-size: contain;
-  background-repeat: no-repeat;
   background-image: url(/themes/images/banners/liberty.png);
   @include tablet {
     display: none;
@@ -154,4 +147,12 @@
   @include mobile {
     display: none;
   }
+}
+
+.premium_icon {
+  position: static;
+  width: 20px;
+  height: 20px;
+  background-image: url('/themes/images/v2/banner-link-star.png');
+  margin-top: 5px;
 }

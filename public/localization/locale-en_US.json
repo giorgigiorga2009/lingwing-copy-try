@@ -180,6 +180,11 @@
 
   "APP_TEST_TEST": "Test",
 
-  "APP_DASHBOARD_BANNER1_TEXT": "Get the <span>10 Lari</span> homeworks for free!"
+  "APP_DASHBOARD_BANNER1_TEXT": "Get the <k>10 GEL</k> homeworks for free!",
+  "APP_DASHBOARD_BANNER2_TEXT": "Learn <k>5 times</k> faster!",
+  "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
+  "APP_BECOME_PREMIUM": "Become Premium",
+  "APP_DASHBOARD_BANNER1_LINK": "Get Tasks",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian"
 
 }

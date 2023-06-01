@@ -145,5 +145,10 @@
 
   "APP_TEST_TEST": "Test",
 
-  "APP_DASHBOARD_BANNER1_TEXT": "Ücretsiz <span>10 Lari</span> Garantisi Alın!"
+  "APP_DASHBOARD_BANNER1_TEXT": "Ücretsiz <k>10 GEL</k> Garantisi Alın!",
+  "APP_DASHBOARD_BANNER2_TEXT": "daha <k>5 kat</k> hızlı öğrenin!",
+  "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
+  "APP_BECOME_PREMIUM": "bir prim ol",
+  "APP_DASHBOARD_BANNER1_LINK": "Görev Alma",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian"
 }
