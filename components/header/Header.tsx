@@ -1,4 +1,3 @@
-import User from './User'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { SideMenu } from './SideMenu'
@@ -35,27 +34,19 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         <Link href="/" className={style.logo_link}>
           <div className={style.logo} />
         </Link>
-
         {openSideMenu && <SideMenu onClose={() => setOpenSideMenu(false)} />}
       </div>
-
       <div className={style.rightBlock}>
         <LocalesDropdown />
-        {!isAuthenticated ? (
-          <div className={style.authorization_box}>
-            <div className={style.avatar} />
-            <div
-              className={style.singInButton}
-              onClick={() => setOpenLogin(true)}
-            >
-              {t('loginSignIn')}
-            </div>
+        <div className={style.authorization_box}>
+          <div className={style.avatar} />
+          <div
+            className={style.singInButton}
+            onClick={() => setOpenLogin(true)}
+          >
+            {t('loginSignIn')}
           </div>
-        ) : (
-          <div className={style.user_box}>
-            <User />
-          </div>
-        )}
+        </div>
       </div>
       {openLogin && (
         <LoginModal

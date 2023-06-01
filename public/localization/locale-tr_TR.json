@@ -150,5 +150,9 @@
   "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
   "APP_BECOME_PREMIUM": "bir prim ol",
   "APP_DASHBOARD_BANNER1_LINK": "Görev Alma",
-  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian"
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
+
+  "APP_DASHBOARD_EPTY_PARAGRAPH_1": "Henüz bir kursu secmedin",
+  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Seçtiğin kursu başlatmak için düğmeyi tıkla."
+  
 }

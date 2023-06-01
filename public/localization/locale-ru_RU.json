@@ -180,5 +180,8 @@
   "APP_DASHBOARD_BANNER3_TEXT": "Совместный проект Liberty и Lingwing",
   "APP_BECOME_PREMIUM": "Стань Премиум",
   "APP_DASHBOARD_BANNER1_LINK": "Получение задач",
-  "APP_DASHBOARD_BANNER3_BUTTON": "Учить грузинский"
+  "APP_DASHBOARD_BANNER3_BUTTON": "Учить грузинский",
+
+  "APP_DASHBOARD_EPTY_PARAGRAPH_1": "Ой, дружище, похоже, ты еще не начал ни одного курса.",
+  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Жми на кнопку внизу для начала увлекательного путешествия."
 }

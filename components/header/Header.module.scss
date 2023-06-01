@@ -38,6 +38,41 @@
   }
 }
 
+.logo {
+  width: 11.2rem;
+  height: 2.44rem;
+  background-image: url('../../public/assets/images/logo-light.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 5px;
+  left: 4rem;
+  cursor: pointer;
+  @include tablet {
+    width: 8, 1rem;
+    height: 1.9rem;
+    left: 3.5rem;
+    top: 10px;
+  }
+
+  @include mobile {
+    width: 6rem;
+    height: 1.5rem;
+    left: 3rem;
+    top: 12px;
+  }
+}
+
+header.m .logo {
+  top: 8px;
+  @include tablet {
+    top: 12px;
+  }
+  @include mobile {
+    top: 17px;
+  }
+}
+
 .singInButton {
   color: $white;
   font-weight: 700;
@@ -105,42 +140,6 @@
   }
 }
 
-.logo {
-  width: 11.2rem;
-  height: 2.44rem;
-  background-image: url('../../public/assets/images/logo-light.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  top: 5px;
-  left: 4rem;
-  cursor: pointer;
-
-  @include tablet {
-    width: 8, 1rem;
-    height: 1.9rem;
-    left: 3.5rem;
-    top: 10px;
-  }
-
-  @include mobile {
-    width: 6rem;
-    height: 1.5rem;
-    left: 3rem;
-    top: 12px;
-  }
-}
-
-header.m .logo {
-  top: 8px;
-  @include tablet {
-    top: 12px;
-  }
-  @include mobile {
-    top: 17px;
-  }
-}
-
 .button {
   border: 2px solid $purple-200;
   width: 2.5rem;
@@ -153,11 +152,9 @@ header.m .logo {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1.6rem;
-
   &:hover {
     border: 2px solid $white;
   }
-
   @include mobile {
     width: 2rem;
     height: 2rem;

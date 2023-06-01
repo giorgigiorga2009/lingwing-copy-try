@@ -1,32 +1,30 @@
 @import '../../styles/imports.scss';
 
 .button {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
   padding: 17.5px 30px 17.5px 60px;
-  text-transform: initial;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
   color: $white;
   white-space: nowrap;
   background-color: $orange-500;
   margin-bottom: 50px;
-  border-radius: 8px;
-  box-shadow: 0 1px 1px $grey-300;
+  margin-top: 15px;
+  text-align: center;
   text-transform: uppercase;
+  box-shadow: 0 1px 1px $grey-300;
   background-position: top 19px left 21px;
   background-image: url(/assets/images/dark-plus.png);
   background-repeat: no-repeat;
-  font-weight: 700;
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;
   -ms-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  width: 100%;
-  margin-top: 15px;
-  font-size: 18px;
-  cursor: pointer;
-  border: none;
-  text-align: left;
-  text-decoration: none;
-  font-weight: 700;
+
   &:lang(ka) {
     font-family: $kaFont;
     font-weight: bold;
