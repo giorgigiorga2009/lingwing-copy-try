@@ -23,6 +23,6 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/dashboard.ts"],
   "exclude": ["node_modules"]
 }

@@ -14,7 +14,6 @@ const Home: NextPage = () => {
     <div className={style.container}>
       <PageHead text="indexPageTitle" />
       <Header />
-
       <div className={style.content}>
         <div className={style.title}>
           {t('homeTitle1')}
@@ -24,7 +23,6 @@ const Home: NextPage = () => {
         <LanguagesBlock />
         <div className={style.parrot} />
       </div>
-
       <StartButton />
       <FollowButtons />
     </div>

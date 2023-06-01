@@ -159,7 +159,21 @@
   "COUPON_DO_YOU_HAVE_COUPON?": "У вас есть подарочный/скидочный купон?",
   "COUPON_PLACEHOLDER": "Введите купон",
   "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "Код недействителен! Попробуйте еще раз",
-  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Введите код и повторите попытку!"
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Введите код и повторите попытку!",
+  "APP_DASHBOARD": "Панель управления",
+  "APP_DASHBOARD_ST-PAGE": "Панель управления",
+  "APP_GENERAL_ADD_NEW_COURSE": "Добавить новый курс",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Добавить язык",
+  "APP_GENERAL_MY_LANGUAGES": "Мои языки",
+  "APP_GENERAL_MY_COURSES": "Мои курсы",
+  "APP_GENERAL_STARTED_COURSES": "Текущие курсы",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Установить мобильные",
+  "APP_DASHBORD_APPS": "Приложения",
+
+  "APP_GENERAL_CONTINUE": "Продолжить",
+
+  "APP_TEST_TEST": "Тест"
 
 
 }

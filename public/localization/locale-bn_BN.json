@@ -80,8 +80,22 @@
 
   "checkSound": "শব্দ পরীক্ষা করুন",
   "makeSureHear": "নিশ্চিত করুন আপনি শব্দটি শুনেছেন",
-  "hearSound": "হ্যা, আমি শব্দটি শুনছি"
+  "hearSound": "হ্যা, আমি শব্দটি শুনছি",
 
 
+  "APP_DASHBOARD": "ড্যাশবোর্ড",
+  "APP_DASHBOARD_ST-PAGE": "ড্যাশবোর্ডে যান",
+  "APP_GENERAL_ADD_NEW_COURSE": "নতুন কোর্স যুক্ত করুন",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "ভাষা যুক্ত করুন",
+  "APP_GENERAL_MY_LANGUAGES": "আমার ভাষাসমুহ",
+  "APP_GENERAL_MY_COURSES": "আমার কোর্সসমূহ",
+  "APP_GENERAL_STARTED_COURSES": "শুরুকৃত কোর্সসমূহ",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "মোবাইলে ইনস্টল করুন",
+  "APP_DASHBORD_APPS": "অ্যাপগুলো",
+  
+  "APP_GENERAL_CONTINUE": "চালিয়ে যান",
+
+  "APP_TEST_TEST": "পরীক্ষা"
 
 }

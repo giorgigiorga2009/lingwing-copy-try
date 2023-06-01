@@ -161,12 +161,15 @@ export const LoginModal: FC<Props> = ({
                   <span className={style.error}>{t('passwordNotSame')}</span>
                 )}
               </div>
-              <div
-                className={classNames(style.button, style.disabled)}
+              <button
+                className={classNames(
+                  style.button,
+                  // style.disabled
+                )}
                 onClick={signUp}
               >
                 {t('loginSignUp')}
-              </div>
+              </button>
               <LoginFooter />
             </>
           )}

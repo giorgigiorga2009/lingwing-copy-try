@@ -163,5 +163,20 @@
   "COUPON_DO_YOU_HAVE_COUPON?": "Do you have a gift/discount coupon?",
   "COUPON_PLACEHOLDER": "Enter the coupon",
   "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "The code is invalid! Try again",
-  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Type code and try again!"
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Type code and try again!",
+
+  "APP_DASHBOARD": "Dashboard",
+  "APP_DASHBOARD_ST-PAGE": "GO TO DASHBOARD",
+  "APP_GENERAL_ADD_NEW_COURSE": "Add new course",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Add Language",
+  "APP_GENERAL_MY_LANGUAGES": "My languages",
+  "APP_GENERAL_MY_COURSES": "My courses",
+  "APP_GENERAL_STARTED_COURSES": "Started courses",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Install mobile",
+  "APP_DASHBORD_APPS": "Apps",
+  
+  "APP_GENERAL_CONTINUE": "Continue", 
+
+  "APP_TEST_TEST": "Test"
 }

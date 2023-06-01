@@ -161,6 +161,22 @@
   "COUPON_DO_YOU_HAVE_COUPON?": "¿Tienes cupones de regalo o descuento?",
   "COUPON_PLACEHOLDER": "Introduce el código",
   "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "¡El código es incorrecto! Inténtalo de nuevo.",
-  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Escribe el código e intenta de nuevo."
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Escribe el código e intenta de nuevo.",
 
+  "APP_DASHBOARD": "Mi página",
+  "APP_DASHBOARD_ST-PAGE": "Mi página",
+  "APP_GENERAL_ADD_NEW_COURSE": "Añadir cursos",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Añadir lenguas",
+  "APP_GENERAL_MY_LANGUAGES": "Mis lenguas",
+  "APP_GENERAL_MY_COURSES": "Mis cursos",
+  "APP_GENERAL_STARTED_COURSES": " Cursos empezados",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Installa applicación",
+  "APP_DASHBORD_APPS": "móvil",
+
+  "APP_GENERAL_CONTINUE": "Continuar",
+
+  "APP_TEST_TEST": "Pruebas"
+
+  
 }

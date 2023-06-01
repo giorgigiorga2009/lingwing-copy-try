@@ -128,6 +128,25 @@
   "APP_ABOUT_US_JOB_text_3_7": "IT alanındaki diğer uzmanlar;",
   "APP_ABOUT_US_JOB_text_8": "Ve sadece yaratıcı fikirli yöneticiler;",
   "APP_ABOUT_US_JOB_text_9": "Mesleki becerilerinizin ücretli bir işi ödemek için yeterli olmadığını düşünüyorsanız, geri çekilmeyin. Bizimle staj alabilir mesleki becerilerimizi büyük ölçüde artırabiliriz.",
-  "APP_ABOUT_US_JOB_text_10": "Bizimle iletişime geçin!"
+  "APP_ABOUT_US_JOB_text_10": "Bizimle iletişime geçin!",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Mobil uygulamaları",
+  "APP_DASHBORD_APPS": "Yükle",
+
+  "APP_DASHBOARD": "Benim sayfam",
+  "APP_DASHBOARD_ST-PAGE": "Benim sayfam",
+  "APP_GENERAL_ADD_NEW_COURSE": "Yeni ders ekle",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Dil Ekle",
+  "APP_GENERAL_MY_LANGUAGES": "Dillerim",
+  "APP_GENERAL_MY_COURSES": "Kurslarım",
+  "APP_GENERAL_STARTED_COURSES": "Başlangıç dersleri",
+
+  "APP_GENERAL_CONTINUE": "Devam et",
+
+  "APP_TEST_TEST": "Test"
+
+
+
+
 
 }
