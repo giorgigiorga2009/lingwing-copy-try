@@ -1,0 +1,51 @@
+@import '../../styles/imports.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9375rem; /* converted from 15px to rem */
+  margin-left: 1.875rem; /* converted from 30px to rem */
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+  button {
+    width: 1.875rem; /* converted from 30px to rem */
+    height: 1.875rem; /* converted from 30px to rem */
+    display: inline-block;
+    border-radius: 100%;
+    border: 0.125rem solid $white-200; /* converted from 2px to rem */
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    background-color: $white;
+    &:hover {
+      border-color: $purple-500;
+    }
+  }
+}
+
+.statistics {
+  background-image: url('/themes/images/v2/course-chart.png');
+  &:hover {
+    background-image: url('/themes/images/v2/course-chart-hover.png');
+  }
+}
+
+.reset {
+  background-image: url('/themes/images/v2/course-restart.png');
+  &:hover {
+    background-image: url('/themes/images/v2/course-restart-hover.png');
+  }
+}
+
+.info {
+  background-image: url('/themes/images/v2/course-info.png');
+  &:hover {
+    background-image: url('/themes/images/v2/course-info-hover.png');
+  }
+}

@@ -80,8 +80,34 @@
 
   "checkSound": "শব্দ পরীক্ষা করুন",
   "makeSureHear": "নিশ্চিত করুন আপনি শব্দটি শুনেছেন",
-  "hearSound": "হ্যা, আমি শব্দটি শুনছি"
+  "hearSound": "হ্যা, আমি শব্দটি শুনছি",
 
 
+  "APP_DASHBOARD": "ড্যাশবোর্ড",
+  "APP_DASHBOARD_ST-PAGE": "ড্যাশবোর্ডে যান",
+  "APP_GENERAL_ADD_NEW_COURSE": "নতুন কোর্স যুক্ত করুন",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "ভাষা যুক্ত করুন",
+  "APP_GENERAL_MY_LANGUAGES": "আমার ভাষাসমুহ",
+  "APP_GENERAL_MY_COURSES": "আমার কোর্সসমূহ",
+  "APP_GENERAL_STARTED_COURSES": "শুরুকৃত কোর্সসমূহ",
 
+  "APP_DASHBORD_INSTALL_MOBILE": "মোবাইলে ইনস্টল করুন",
+  "APP_DASHBORD_APPS": "অ্যাপগুলো",
+  
+  "APP_GENERAL_CONTINUE": "চালিয়ে যান",
+
+  "APP_TEST_TEST": "পরীক্ষা",
+  
+  "APP_DASHBOARD_BANNER1_TEXT": "বিনামূল্যে <k>১০ GEL</k> বাড়ির কাজ পান!",
+  "APP_DASHBOARD_BANNER2_TEXT": "শিখুন <k>৫ গুণ</k> দ্রুত!",
+  "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
+  "APP_BECOME_PREMIUM": "প্রিমিয়াম হোন",
+  "APP_DASHBOARD_BANNER1_LINK": "কাজ পান",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
+
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "ওপস, আপনি এখনো কোন কোর্স শুরু করেননি",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "আপনার ভ্রমণ শুরু করতে নিচের বাটনে ক্লিক করুন।",
+
+  "APP_HEADER_MENU_ITEM13": "লগআউট",
+  "APP_HEADER_MENU_ITEM14": "আমার একাউন্ট"
 }

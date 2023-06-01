@@ -1,0 +1,241 @@
+@import '../../styles/imports.scss';
+
+.container {
+  width: 100%;
+  height: 3.75rem; // converted from 60px
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  background: $white;
+  border-radius: 0.625rem; // converted from 10px
+  margin-bottom: 0.625rem; // converted from 10px
+  padding: 0.3125rem 0.625rem; // converted from 5px 10px
+  box-shadow: 0 0.0625rem 0.0625rem $white-300; // converted from 0 1px 1px $white-300
+  z-index: 0;
+  &:hover {
+    filter: drop-shadow(
+      0.0625rem 0.0625rem 0.0625rem $white-300
+    ); // converted from 1px 1px 1px $white-300
+  }
+
+  @include tablet {
+    padding-right: 6.5625rem; // converted from 105px
+    padding-left: 1.875rem; // converted from 30px
+  }
+
+  @include mobile {
+    padding-right: 6.5625rem; // converted from 105px
+    padding-left: 1.875rem; // converted from 30px
+  }
+
+  @include smallWidth {
+    padding-left: 0.9375rem; // converted from 15px
+    padding-right: 3.7375rem; // converted from 55px
+  }
+
+  h3 {
+    line-height: 3.5rem; // converted from 56px
+    font-size: 1.0625rem; // converted from 17px
+    color: $grey-800;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+      font-weight: normal;
+    }
+
+    @include tablet {
+      font-size: 1.25rem; // converted from 20px
+    }
+  }
+}
+
+.active_both_screens {
+  background: $white-50;
+  @include tablet {
+    height: 5rem; // converted from 80px
+    margin-bottom: 0;
+    border-radius: 1.125rem; // converted from 18px
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  @include mobile {
+    height: 5rem; // converted from 80px
+    margin-bottom: 0;
+    border-radius: 1.125rem; // converted from 18px
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}
+
+.container_active {
+  background: $white-50;
+  filter: drop-shadow(
+    0.0625rem 0.0625rem 0.0625rem $white-300
+  ); // converted from 1px 1px 1px $white-300
+
+  @include tablet {
+    background: $white;
+  }
+
+  @include mobile {
+    background: $white;
+  }
+}
+
+.button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 2;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.overlay_mobile {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.overlay_desktop {
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.container_active .overlay_desktop,
+.active_both_screens .overlay_desktop {
+  &::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0.0625rem; // converted from 1px
+    right: -2.1875rem; // converted from 35px
+    height: 3.8125rem; // converted from 61px
+    width: 2.5rem; // converted from 30px
+    background-image: url(/themes/images/v2/arrow-down-white50.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    rotate: -90deg;
+  }
+}
+
+.course_and_icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem; // converted from 15px
+
+  @include tablet {
+    gap: 2.2rem; // converted from 30px
+  }
+
+  @include mobile {
+    gap: 2.1rem; // converted from 30px
+  }
+
+  @include smallWidth {
+    gap: 0.7rem;
+  }
+}
+
+.progress {
+  font-size: 1.5rem;
+  line-height: 3.4375rem; // converted from 55px
+  color: $grey-300;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+    font-weight: normal;
+  }
+}
+
+.percent {
+  font-family: SegoeUI-SemiBold;
+  font-size: clamp(
+    1rem,
+    5.5vw,
+    1.3125rem
+  ); // converted from 16px, uses clamp to maintain responsive font size
+  position: relative;
+  left: 0.125rem; // converted from 2px
+  top: -0.0625rem; // converted from -1px
+  &:lang(ka) {
+    font-family: $kaFont;
+    font-weight: normal;
+  }
+}
+
+.drop_course {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.circle {
+  visibility: hidden;
+  width: 6.25rem; // converted from 100px
+  height: 100%;
+  right: 0;
+
+  @include tablet {
+    visibility: visible;
+  }
+
+  @include mobile {
+    visibility: visible;
+  }
+
+  @include smallWidth {
+    display: none;
+  }
+}
+
+.dropdown {
+  display: none;
+  margin: auto;
+  width: 5rem; // converted from 5px
+  height: 5rem; // converted from 5px
+  position: absolute;
+  top: -1rem; // converted from -1px
+  right: -2rem; // converted from -2px
+  z-index: 1;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include mobile {
+    right: 0;
+    display: block;
+  }
+
+  @include smallWidth {
+    right: -1.5rem; // converted from -1.5px
+  }
+}
+
+.active_both_screens {
+  .dropdown {
+    top: -0.3rem; // converted from -0.3px
+  }
+}

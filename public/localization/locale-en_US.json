@@ -163,5 +163,34 @@
   "COUPON_DO_YOU_HAVE_COUPON?": "Do you have a gift/discount coupon?",
   "COUPON_PLACEHOLDER": "Enter the coupon",
   "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "The code is invalid! Try again",
-  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Type code and try again!"
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "Type code and try again!",
+
+  "APP_DASHBOARD": "Dashboard",
+  "APP_DASHBOARD_ST-PAGE": "GO TO DASHBOARD",
+  "APP_GENERAL_ADD_NEW_COURSE": "Add new course",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "Add Language",
+  "APP_GENERAL_MY_LANGUAGES": "My languages",
+  "APP_GENERAL_MY_COURSES": "My courses",
+  "APP_GENERAL_STARTED_COURSES": "Started courses",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "Install mobile",
+  "APP_DASHBORD_APPS": "Apps",
+  
+  "APP_GENERAL_CONTINUE": "Continue", 
+
+  "APP_TEST_TEST": "Test",
+
+  "APP_DASHBOARD_BANNER1_TEXT": "Get the <k>10 GEL</k> homeworks for free!",
+  "APP_DASHBOARD_BANNER2_TEXT": "Learn <k>5 times</k> faster!",
+  "APP_DASHBOARD_BANNER3_TEXT": "A joint project of Liberty and Lingwing",
+  "APP_BECOME_PREMIUM": "Become Premium",
+  "APP_DASHBOARD_BANNER1_LINK": "Get Tasks",
+  "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
+
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "Oops, you have not started any course yet",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Click the button below to get your journey started.",
+
+   "APP_HEADER_MENU_ITEM13": "Logout",
+  "APP_HEADER_MENU_ITEM14": "My Account"
+
 }

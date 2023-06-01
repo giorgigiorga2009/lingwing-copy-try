@@ -37,7 +37,7 @@
   text-shadow: 1px 1px 3px rgb(0 0 0 / 60%);
   width: 100%;
   text-align: center;
-
+  
   @include smallWidth {
     font-size: 1rem !important;
   }
@@ -49,7 +49,6 @@
 
   @include tablet {
     font-size: 4vw;
-    margin: 1rem;
   }
 
   @include smallHeight {
@@ -64,7 +63,8 @@
   padding: 0 1%;
   margin: 10rem auto 0 ;
   max-width: 75rem;
-  height: 100%;
+  height: auto;
+
 
   @include tablet {
     margin-top: 6rem;

@@ -1,0 +1,40 @@
+@import '../../styles/imports.scss';
+
+.container {
+  height: 6.5625rem; /* converted from 105px to rem */
+  padding: 0 0.9375rem; /* converted from 0px 15px to rem */
+  background-color: $white-50;
+  border-top-left-radius: 1.125rem; /* converted from 18px to rem */
+  border-top-right-radius: 1.125rem; /* converted from 18px to rem */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+}
+
+.title_and_icon {
+  display: flex;
+  align-items: center;
+  gap: 2.0625rem; /* converted from 33px to rem */
+  margin-left: 0.8125rem; /* converted from 13px to rem */
+}
+
+.title {
+  line-height: 4.6875rem; /* converted from 75px to rem */
+  font-family: SegoeUI;
+  font-size: 1.5rem; /* converted from 24px to rem */
+  color: $grey-800;
+  &:lang(ka) {
+    font-family: $kaFont;
+    font-weight: normal;
+  }
+  span:nth-child(2) {
+    margin-left: 0.625rem; /* converted from 10px to rem */
+  }
+}

@@ -65,6 +65,7 @@ const Lessons: NextPage = () => {
   }, [languageTo])
 
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
+
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!token && !userId))
       return

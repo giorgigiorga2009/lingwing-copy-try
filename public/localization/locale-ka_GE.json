@@ -160,6 +160,35 @@
   "COUPON_DO_YOU_HAVE_COUPON?": "გაქვს სასაჩუქრე/ფასდაკლების კუპონი?",
   "COUPON_PLACEHOLDER": "შეიყვანე კუპონი",
   "COUPON_CODE_IS_INCORRECT_TRY_AGAIN": "კოდი არასწორია! სცადე თავიდან",
-  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "ჩაწერე კოდი და სცადე თავიდან!"
+  "COUPON_ENTER_CODE_AND_TRY_AGAIN": "ჩაწერე კოდი და სცადე თავიდან!",
   
+  
+  "APP_DASHBOARD": "ჩემი გვერდი",
+  "APP_DASHBOARD_ST-PAGE": "ჩემი გვერდი",
+  "APP_GENERAL_ADD_NEW_COURSE": "ახალი კურსის დამატება",
+  "APP_GENERAL_ADD_NEW_LANGUAGE": "ენის დამატება",
+  "APP_GENERAL_MY_LANGUAGES": "ჩემი ენები",
+  "APP_GENERAL_MY_COURSES": "ჩემი კურსები",
+  "APP_GENERAL_STARTED_COURSES": " დაწყებული კურსები",
+
+  "APP_DASHBORD_INSTALL_MOBILE": "დააყენე მობილური",
+  "APP_DASHBORD_APPS": "აპლიკაცია",
+
+  "APP_GENERAL_CONTINUE": "გაგრძელება", 
+  
+  "APP_TEST_TEST": "ტესტი",
+
+  "APP_DASHBOARD_BANNER1_TEXT": "მიიღე <k>10 ლარის</k> დავალებები უფასოდ!",
+  "APP_DASHBOARD_BANNER2_TEXT": "ისწავლე <k>5-ჯერ</k> უფრო სწრაფად!",
+  "APP_DASHBOARD_BANNER3_TEXT": "ლიბერთის და ლინგვინგის ერთობლივი პროექტი",
+
+  "APP_BECOME_PREMIUM": "გახდი პრემიუმი",
+  "APP_DASHBOARD_BANNER1_LINK": "დავალებების მიღება",
+  "APP_DASHBOARD_BANNER3_BUTTON": "ისწავლე ქართული",
+
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "თქვენ არ გაქვთ არჩეული არცერთი კურსი.",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "დააჭირეთ ღილაკს და აირჩიეთ სასურველი კურსი",
+
+  "APP_HEADER_MENU_ITEM13": "გამოსვლა",
+  "APP_HEADER_MENU_ITEM14": "პროფილი"
 }

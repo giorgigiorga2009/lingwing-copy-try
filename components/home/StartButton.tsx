@@ -14,6 +14,10 @@ export const StartButton: FC = () => {
     getUsersAmount().then(response => setUsersAmount(response))
   }, [])
 
+  const linkStyles = {
+    textDecoration: 'none',
+  }
+
   return (
     <div className={style.container}>
       <div className={style.title}>
@@ -24,7 +28,7 @@ export const StartButton: FC = () => {
 
       <div className={style.button}>
         <span className={style.bubbleUp} />
-        <Link locale={router.locale} href="/wizard">
+        <Link style={linkStyles} locale={router.locale} href="/wizard">
           <span className={style.text}>{t('homeStartButton')}</span>
         </Link>
         <span className={style.bubbleDown} />
