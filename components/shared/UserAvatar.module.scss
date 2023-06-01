@@ -1,0 +1,22 @@
+@import './styles/imports.scss';
+
+@import '../../styles/imports.scss';
+
+.avatar {
+  height: 2.18rem;
+  width: 2.18rem;
+  border-radius: 100%;
+  border: 3px solid $orange-500;
+  background-image: url('/assets/images/avatar-default-medium.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  // @media (max-width: 415px) {
+  //   display: none;
+  // }
+}
+
+.user_avatar {
+  background-image: none;
+  display: flex;
+  overflow: hidden;
+}

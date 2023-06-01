@@ -2,21 +2,21 @@
 
 .button {
   width: 100%;
-  font-size: clamp(14px, 2.5vw, 18px);
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem); /* converted from 14px to rem */
   font-weight: 700;
-  padding: 17.5px 30px 17.5px 60px;
+  padding: 1.09375rem 1.875rem 1.09375rem 3.75rem; /* converted from 17.5px to rem for vertical padding, 30px to rem for horizontal padding and 60px to rem for left padding */
   cursor: pointer;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.625rem; /* converted from 10px to rem */
   color: $white;
   white-space: nowrap;
   background-color: $orange-500;
-  margin-bottom: 50px;
-  margin-top: 15px;
+  margin-bottom: 3.125rem; /* converted from 50px to rem */
+  margin-top: 0.9375rem; /* converted from 15px to rem */
   text-align: center;
   text-transform: uppercase;
-  box-shadow: 0 1px 1px $grey-300;
-  background-position: top 19px left 21px;
+  box-shadow: 0 0.0625rem 0.0625rem $grey-300; /* converted from 1px to rem */
+  background-position: 2rem 1.1rem; /* converted from 19px to rem for vertical position and 21px to rem for horizontal position */
   background-image: url(/assets/images/dark-plus.png);
   background-repeat: no-repeat;
   -webkit-transition: all 0.3s linear;

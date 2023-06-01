@@ -137,14 +137,14 @@
 .course_and_icon {
   display: flex;
   align-items: center;
-  gap: 0.9375rem; // converted from 15px
+  gap: 1rem; // converted from 15px
 
   @include tablet {
-    gap: 1.875rem; // converted from 30px
+    gap: 2.2rem; // converted from 30px
   }
 
   @include mobile {
-    gap: 1.875rem; // converted from 30px
+    gap: 2.1rem; // converted from 30px
   }
 
   @include smallWidth {

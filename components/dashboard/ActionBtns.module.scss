@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-left: 30px;
+  gap: 0.9375rem; /* converted from 15px to rem */
+  margin-left: 1.875rem; /* converted from 30px to rem */
   @include tablet {
     display: none;
   }
@@ -13,18 +13,18 @@
     display: none;
   }
   button {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem; /* converted from 30px to rem */
+    height: 1.875rem; /* converted from 30px to rem */
     display: inline-block;
     border-radius: 100%;
-    border: 2px solid $white-200;
+    border: 0.125rem solid $white-200; /* converted from 2px to rem */
     text-align: center;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
     background-color: $white;
     &:hover {
-      border-color: #7835ab;
+      border-color: $purple-500;
     }
   }
 }

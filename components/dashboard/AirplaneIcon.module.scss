@@ -1,53 +1,53 @@
 @import '../../styles/imports.scss';
 
 .container {
-  width: 100px;
+  width: 6.25rem; /* converted from 100px to rem */
   height: 100%;
   overflow: hidden;
-  border-radius: 0 12px 0 0;
+  border-radius: 0 0.75rem 0 0; /* converted from 12px to rem */
   position: absolute;
   right: 0;
   bottom: 0;
   @include tablet {
-    width: 80px;
+    width: 5rem; /* converted from 80px to rem */
   }
   @include mobile {
-    width: 80px;
+    width: 5rem; /* converted from 80px to rem */
   }
 }
 
 .circle_transparent {
-  width: 125px;
-  height: 128px;
-  margin-top: -9px;
-  margin-right: -29px;
+  width: 7.8125rem; /* converted from 125px to rem */
+  height: 8rem; /* converted from 128px to rem */
+  margin-top: -0.5625rem; /* converted from 9px to rem */
+  margin-right: -1.8125rem; /* converted from 29px to rem */
   border-radius: 50%;
   background: $yellow-100;
 }
 
 .circle {
-  width: 119px;
-  height: 119px;
-  margin: 4px -5px 0 0;
+  width: 7.4375rem; /* converted from 119px to rem */
+  height: 7.4375rem; /* converted from 119px to rem */
+  margin: 0.25rem -0.3125rem 0 0; /* converted from 4px to rem for top and bottom margins, and 5px to rem for right margin */
   border-radius: 50%;
   float: right;
   background-color: $yellow-200;
 }
 
 .icon_airplane {
-  width: 100px;
-  height: 100px;
+  width: 6.25rem; /* converted from 100px to rem */
+  height: 6.25rem; /* converted from 100px to rem */
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-y: 15px;
+  background-position-y: 0.9375rem; /* converted from 15px to rem */
   background-image: url(/themes/images/v2/standart-level-icon1.png);
-  margin-left: 10px;
+  margin-left: 0.625rem; /* converted from 10px to rem */
   @include tablet {
-    height: 70px;
-    width: 70px;
+    height: 4.375rem; /* converted from 70px to rem */
+    width: 4.375rem; /* converted from 70px to rem */
   }
   @include mobile {
-    height: 70px;
-    width: 70px;
+    height: 4.375rem; /* converted from 70px to rem */
+    width: 4.375rem; /* converted from 70px to rem */
   }
 }
