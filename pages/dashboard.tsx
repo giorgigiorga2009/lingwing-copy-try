@@ -51,6 +51,7 @@ const Dashboard: FC = () => {
                   course={course}
                   key={`${course.name}-${i}`}
                   LANGUAGE_NAMES={LANGUAGE_NAMES}
+                  counter={i}
                 />
               )
             })}

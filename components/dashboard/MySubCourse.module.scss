@@ -76,54 +76,6 @@
   margin-left: 10px;
 }
 
-.action_btns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-.action_btns button {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  border-radius: 100%;
-  border: 2px solid #f1f1f4;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  background-color: white;
-}
-
-.action_btns button:hover {
-  border-color: #7835ab;
-}
-
-.statistics {
-  background-image: url('/themes/images/v2/course-chart.png');
-}
-
-.statistics:hover {
-  background-image: url('/themes/images/v2/course-chart-hover.png');
-}
-
-.reset {
-  background-image: url('/themes/images/v2/course-restart.png');
-}
-
-.reset:hover {
-  background-image: url('/themes/images/v2/course-restart-hover.png');
-}
-
-.info {
-  background-image: url('/themes/images/v2/course-info.png');
-}
-
-.info:hover {
-  background-image: url('/themes/images/v2/course-info-hover.png');
-}
-
 .go_to_course {
   min-width: 126px;
   display: flex;
@@ -137,7 +89,6 @@
   color: #fff;
   background-color: #f39c12;
   font-size: 16px;
-  text-transform: uppercase;
   padding: 7px 20px;
   font-family: SegoeUI;
   -webkit-transition: all 0.2s linear;
@@ -146,7 +97,6 @@
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   cursor: pointer;
-  height: 39px;
   text-align: center;
   &:lang(ka) {
     font-family: bpg_arial_2009;
@@ -161,10 +111,10 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-//small devices (tablet, mobile, supersmall)
+// small devices (tablet, mobile, supersmall)
 .tablet_mobile .wrapper,
 .tablet_mobile .wrapper_first,
-.tablet_mobile .wrapper_a1_1 {
+.tablet_mobile .wrapper_a1 {
   padding-left: 35px;
   padding-bottom: 20px;
   gap: 0;
@@ -182,12 +132,12 @@
   }
 }
 
-.wrapper_first {
-  border-radius: 18px;
+.wrapper_a1 {
+  border-radius: 0px;
 }
 
-.wrapper_a1_1 {
-  border-radius: 0;
+.wrapper_first {
+  border-radius: 18px;
 }
 
 .tablet_mobile .left_line_box {
@@ -227,10 +177,6 @@
 
 .tablet_mobile .sub_standard {
   color: black;
-}
-
-.tablet_mobile .action_btns {
-  display: none;
 }
 
 .tablet_mobile .go_to_course {
