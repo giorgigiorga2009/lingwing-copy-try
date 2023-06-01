@@ -187,8 +187,8 @@
   "APP_DASHBOARD_BANNER1_LINK": "Get Tasks",
   "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
 
-  "APP_DASHBOARD_EPTY_PARAGRAPH_1": "Oops, you have not started any course yet",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Click the button below to get your journey started.",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "Oops, you have not started any course yet",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Click the button below to get your journey started.",
 
    "APP_HEADER_MENU_ITEM13": "Logout",
   "APP_HEADER_MENU_ITEM14": "My Account"

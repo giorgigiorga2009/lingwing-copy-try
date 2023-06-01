@@ -186,8 +186,8 @@
   "APP_DASHBOARD_BANNER1_LINK": "დავალებების მიღება",
   "APP_DASHBOARD_BANNER3_BUTTON": "ისწავლე ქართული",
 
-  "APP_DASHBOARD_EPTY_PARAGRAPH_1": "თქვენ არ გაქვთ არჩეული არცერთი კურსი.",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "დააჭირეთ ღილაკს და აირჩიეთ სასურველი კურსი",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "თქვენ არ გაქვთ არჩეული არცერთი კურსი.",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "დააჭირეთ ღილაკს და აირჩიეთ სასურველი კურსი",
 
   "APP_HEADER_MENU_ITEM13": "გამოსვლა",
   "APP_HEADER_MENU_ITEM14": "პროფილი"

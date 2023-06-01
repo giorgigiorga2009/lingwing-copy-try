@@ -9,9 +9,9 @@ const NoCourses: FC = () => {
   return (
     <div className={style.container}>
       <img src="/themes/images/v1/svg/nodrown.svg" />
-      <h3>{t('APP_DASHBOARD_EPTY_PARAGRAPH_1')}</h3>
+      <h3>{t('APP_DASHBOARD_EMPTY_PARAGRAPH_1')}</h3>
       <h3 className={style.instruction}>
-        {t('APP_DASHBOARD_EPTY_PARAGRAPH_2')}
+        {t('APP_DASHBOARD_EMPTY_PARAGRAPH_2')}
       </h3>
       <div className={style.add_lang}>
         <AddLanguageBtn />

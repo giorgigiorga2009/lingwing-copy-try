@@ -168,6 +168,8 @@
   "APP_GENERAL_MY_COURSES": "Мои курсы",
   "APP_GENERAL_STARTED_COURSES": "Текущие курсы",
 
+  
+
   "APP_DASHBORD_INSTALL_MOBILE": "Установить мобильные",
   "APP_DASHBORD_APPS": "Приложения",
 
@@ -182,8 +184,8 @@
   "APP_DASHBOARD_BANNER1_LINK": "Получение задач",
   "APP_DASHBOARD_BANNER3_BUTTON": "Учить грузинский",
 
-  "APP_DASHBOARD_EPTY_PARAGRAPH_1": "Ой, дружище, похоже, ты еще не начал ни одного курса.",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "Жми на кнопку внизу для начала увлекательного путешествия.",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "Ой, дружище, похоже, ты еще не начал ни одного курса.",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Жми на кнопку внизу для начала увлекательного путешествия.",
 
   "APP_HEADER_MENU_ITEM13": "Выход",
   "APP_HEADER_MENU_ITEM14": "Профиль"

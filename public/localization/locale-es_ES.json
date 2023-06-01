@@ -185,8 +185,8 @@
   "APP_DASHBOARD_BANNER1_LINK": "Obteniendo Tareas",
   "APP_DASHBOARD_BANNER3_BUTTON": "Learn Georgian",
   
-  "APP_DASHBOARD_EPTY_PARAGRAPH_1": "No has elegido la lengua",
-  "APP_DASHBOARD_EPTY_PARAGRAPH_2": "haz clic y elige el curso deseado.",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "No has elegido la lengua",
+  "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "haz clic y elige el curso deseado.",
 
   "APP_HEADER_MENU_ITEM13": "Salir",
   "APP_HEADER_MENU_ITEM14": "Perfil"
