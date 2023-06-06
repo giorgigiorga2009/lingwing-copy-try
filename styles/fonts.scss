@@ -145,6 +145,43 @@
   font-style: normal;
 }
 
-$kaFont: 'bpg_arial_2009';
-$kaFontTitle: 'BPG Nino Mtavruli';
-$kaFontTitleBold: 'BPG Nino Mtavruli Bold';
+@font-face {
+  font-family: 'Helvetica Neue GEO 75 MT';
+  src: url('../public/assets/fonts/Helvetica-GEO-75-MT/HelveticaNeueLTGEO75Mt-Bold.eot')
+      format('embedded-opentype'),
+    url('../public/assets/fonts/Helvetica-GEO-75-MT/HelveticaNeueLTGEO75Mt-Bold.woff2') format('woff2'),
+    url('../public/assets/fonts/Helvetica-GEO-75-MT/HelveticaNeueLTGEO75Mt-Bold.woff') format('woff'),
+    url('../public/assets/fonts/Helvetica-GEO-75-MT/HelveticaNeueLTGEO75Mt-Bold.ttf') format('truetype'),
+    url('../public/assets/fonts/Helvetica-GEO-75-MT/HelveticaNeueLTGEO75Mt-Bold.svg') format('SVG');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans Georgian Medium';
+  src: url('../public/assets/fonts/NotoSansGeorgian-Medium/NotoSansGeorgian-Medium.eot')
+      format('embedded-opentype'),
+    url('../public/assets/fonts/NotoSansGeorgian-Medium/NotoSansGeorgian-Medium.woff2') format('woff2'),
+    url('../public/assets/fonts/NotoSansGeorgian-Medium/NotoSansGeorgian-Medium.woff') format('woff'),
+    url('../public/assets/fonts/NotoSansGeorgian-Medium/NotoSansGeorgian-Medium.ttf') format('truetype'),
+    url('../public/assets/fonts/NotoSansGeorgian-Medium/NotoSansGeorgian-Medium.svg') format('SVG');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Georgian SemiBold';
+  src: url('../public/assets/fonts/NotoSansGeorgian-SemiBold/NotoSansGeorgian-SemiBold.eot')
+      format('embedded-opentype'),
+    url('../public/assets/fonts/NotoSansGeorgian-SemiBold/NotoSansGeorgian-SemiBold.woff2') format('woff2'),
+    url('../public/assets/fonts/NotoSansGeorgian-SemiBold/NotoSansGeorgian-SemiBold.woff') format('woff'),
+    url('../public/assets/fonts/NotoSansGeorgian-SemiBold/NotoSansGeorgian-SemiBold.ttf') format('truetype'),
+    url('../public/assets/fonts/NotoSansGeorgian-SemiBold/NotoSansGeorgian-SemiBold.svg') format('SVG');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$kaFont: 'Noto Sans Georgian SemiBold';
+$kaFontTitle: 'Helvetica Neue GEO 75 MT';
+$kaFontTitleBold: 'Helvetica Neue GEO 75 MT';

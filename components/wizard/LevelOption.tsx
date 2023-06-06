@@ -20,9 +20,6 @@ export const LevelOption: FC<Props> = ({
   languageTo,
   languageFrom,
 }) => {
-  const linkStyles = {
-    textDecoration: 'none',
-  }
   const { t } = useTranslation()
   const courseName = option.title.toLowerCase().replace(/\s/g, '_')
   return (
@@ -45,21 +42,18 @@ export const LevelOption: FC<Props> = ({
           <span className={style.text}>{t('wizardStudents')}</span>
         </span>
       </div>
-      <div className={style.buttons}>
-        <div className={style.aboutButton}>
-          <Link
-            style={linkStyles}
-            href={{
-              pathname: '/about_lesson',
-              query: { languageTo, languageFrom, courseName },
-            }}
-          >
-            {t('wizardAbout')}
-          </Link>
-        </div>
+      <div className={classNames(style.buttons)}>
         <Link
-          style={linkStyles}
-          className={style.startButton}
+          className={classNames(style.link, style.aboutButton)}
+          href={{
+            pathname: '/about_lesson',
+            query: { languageTo, languageFrom, courseName },
+          }}
+        >
+          {t('wizardAbout')}
+        </Link>
+        <Link
+          className={classNames(style.link, style.startButton)}
           href={{
             pathname: '/lessons',
             query: { languageTo, languageFrom, courseName },

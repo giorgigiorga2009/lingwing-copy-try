@@ -1,11 +1,13 @@
 import { FC } from 'react'
+
 import { CircleFlag } from '../CircleFlag'
 import style from './WizardTile.module.scss'
 import { useTranslation } from '@utils/useTranslation'
-import { Language, LANGUAGE_NAMES } from '@utils/languages'
+import { Language, LanguageFrom, LANGUAGE_NAMES } from '@utils/languages'
 
 interface Props {
   language: Language
+  //languageFrom: LanguageFrom | undefined
   onClick?: () => void
 }
 

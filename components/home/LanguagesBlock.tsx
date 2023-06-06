@@ -22,7 +22,7 @@ const LanguageTile: FC<Props> = ({ language }) => {
         query: { languageTo: language },
       }}
       locale={router.locale}
-      as="/wizard"
+      //as={`/wizard`}
     >
       <div className={classNames(style.tileContainer, style[language])}>
         <span className={style.start}>{t('startButton')}</span>
