@@ -3,14 +3,13 @@
 .freePackage {
   font-size: 2rem;
   color: $black-800;
-  margin: 1.15rem;
+  margin: 0.5rem;
 }
 
 .monthPrice {
   color: $black-800;
   font-size: 2rem;
   font-family: 'SegoeUI';
-  margin-top: -0.6rem;
 }
 
 .monthAndTotal {
@@ -19,7 +18,6 @@
 
   &:lang(ka) {
     font-family: $kaFontTitleBold;
-    margin-top: 1rem;
   }
 }
 

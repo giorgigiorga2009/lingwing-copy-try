@@ -19,6 +19,7 @@ export const ChooseDifficultyStep: FC<Props> = ({
   languageFrom,
 }) => {
   const { t } = useTranslation()
+
   return (
     <ContentContainer>
       <PageTitle

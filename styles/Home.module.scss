@@ -17,6 +17,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  
 }
 
 .styledTitle {
@@ -26,6 +27,10 @@
   color: $purple-300;
   display: inline-block;
   margin: 0 1rem;
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+ 
 }
 
 .title {
@@ -37,6 +42,10 @@
   text-shadow: 1px 1px 3px rgb(0 0 0 / 60%);
   width: 100%;
   text-align: center;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
 
   @include smallWidth {
     font-size: 1rem !important;

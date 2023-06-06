@@ -6,14 +6,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
 
   @include desktop {
+    margin: 3rem auto;
     width: 52rem;
+  }
+
+  @include tablet {
+    width: 90%;
   }
 
   @include mobile {
     margin: 3rem auto;
-    padding: 0rem 0.75rem;
+    padding: 0rem 0.5rem;
   }
 }

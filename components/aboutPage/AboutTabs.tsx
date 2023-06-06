@@ -15,58 +15,25 @@ const AboutTabs: FC<Props> = ({ activeTab }) => {
   return (
     <nav className={style.nav}>
       <ul className={style.ulNav}>
-        <Link
-          className={style.link}
-          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.whyWithUs}
-        >
-          <li
-            className={classNames(
-              style.liNav,
-              activeTab == ABOUT_COMPANY_LINKS.whyWithUs && style.activeMenu,
-            )}
+        {ABOUT_COMPANY_LINKS.map(item => (
+          <Link
+            className={style.link}
+            href={{
+              pathname: '/aboutCompany',
+              query: { page: item },
+            }}
           >
-            {t('menuWhyWithUs')}
-          </li>
-        </Link>
-        <Link
-          className={style.link}
-          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.certificate}
-        >
-          <li
-            className={classNames(
-              style.liNav,
-              activeTab == ABOUT_COMPANY_LINKS.certificate && style.activeMenu,
-            )}
-          >
-            {t('menuCertificate')}
-          </li>
-        </Link>
-        <Link
-          className={style.link}
-          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.partners}
-        >
-          <li
-            className={classNames(
-              style.liNav,
-              activeTab == ABOUT_COMPANY_LINKS.partners && style.activeMenu,
-            )}
-          >
-            {t('menuPartners')}
-          </li>
-        </Link>
-        <Link
-          className={style.link}
-          href={'/aboutCompany?page=' + ABOUT_COMPANY_LINKS.jobs}
-        >
-          <li
-            className={classNames(
-              style.liNav,
-              activeTab == ABOUT_COMPANY_LINKS.jobs && style.activeMenu,
-            )}
-          >
-            {t('menuJobs')}
-          </li>
-        </Link>
+            <li
+              key={item}
+              className={classNames(
+                style.liNav,
+                activeTab == item && style.activeMenu,
+              )}
+            >
+              {t(item)}
+            </li>
+          </Link>
+        ))}
       </ul>
     </nav>
   )

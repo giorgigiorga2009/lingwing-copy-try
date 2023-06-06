@@ -5,9 +5,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 4rem;
   display: flex;
   width: 54.7rem;
+  z-index: 1;
 
   @include mobile {
     gap: 0.3rem;

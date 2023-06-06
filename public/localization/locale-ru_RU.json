@@ -9,10 +9,10 @@
   "users": " ",
   "singUp!": "Регистрация",
 
-  "menuWhyWithUs": "Почему с нами",
-  "menuCertificate": "Сертификат",
-  "menuPartners": "Партнеры",
-  "menuJobs": "Вакансии",
+  "WhyWithUs": "Почему с нами",
+  "Certificate": "Сертификат",
+  "Partners": "Партнеры",
+  "Jobs": "Вакансии",
   "menuBlog": "Блог",
   "menuLicenseAgreement": "Лицензионноe соглашениe ",
   "menuPrivacyPolicy": "Конфиденциальность",
@@ -139,7 +139,7 @@
 
   "APP_PACKAGES_FAQ_TITLE": "Часто задаваемые вопросы",
   "APP_PACKAGE_PACKAGES": "Пакеты",
-  "APP_PACKAGE_DESC": "Активируй платный пакет и выучи в <k>5 раз</k> быстрее",
+  "APP_PACKAGE_DESC": "Активируй платный пакет и выучи в <k>5 раз</k> быстрее!",
   "APP_PACKAGE_LIFETIME": "Бессрочный",
   "APP_PACKAGE_DAILY_NUMBER_OF_TASKS": "Ежедневное количество заданий:",
   "APP_PACKAGE_CERTIFICATE": "Сертификат:",

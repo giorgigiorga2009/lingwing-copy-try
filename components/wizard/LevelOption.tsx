@@ -43,9 +43,12 @@ export const LevelOption: FC<Props> = ({
         </span>
       </div>
       <div className={style.buttons}>
-        <div className={style.aboutButton}>{t('wizardAbout')}</div>
+        <div className={style.aboutButton}>
+          <span>{t('wizardAbout')}</span>
+          {/* <p className={style.iconForMobile}></p> */}
+        </div>
         <Link
-          className={style.startButton}
+          className={classNames(style.startButton, style.link)}
           href={{
             pathname: '/lessons',
             query: { languageTo, languageFrom, courseName },

@@ -5,6 +5,10 @@
   color: $grey-800;
   font-family: SegoeUI;
 
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+
   @include smallWidth {
     font-size: 1rem;
   }
@@ -23,6 +27,7 @@
   padding: 1rem 1rem;
   gap: 1rem;
   margin-top: 3rem;
+  animation: fadeInDown 1s 1 alternate;
 
   @include mobile {
     padding: 0.4rem 0.4rem;
@@ -69,5 +74,12 @@
   @include smallWidth {
     height: 1.3rem;
     width: 1.3rem;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
   }
 }

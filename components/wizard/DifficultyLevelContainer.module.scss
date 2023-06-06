@@ -2,7 +2,9 @@
 
 .container {
   border-radius: 0.625rem;
-  box-shadow: 0 1px 1px $white-300;
+  box-shadow: 0 1px 2px $white-100;
+  border: 0;
+  border-top: 1px solid $white-70;
   position: relative;
   cursor: pointer;
   animation: courseAnim 1s;
@@ -14,9 +16,22 @@
   font-family: SegoeUI;
   align-items: center;
   margin-bottom: 1.5rem;
+  background-color: $white;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+
+  &:hover {
+    background-color: $white-50;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.102),
+      0 4px 8px 3px rgba(60, 64, 67, 0.109);
+    transition: box-shadow 0.08s linear,
+      min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
   &.open {
-    border-radius: 0.625rem 0.625rem 0 0;
+    border-radius: 0.625rem;
     margin-bottom: 0;
   }
 
@@ -202,7 +217,7 @@
 .levelName {
   font-weight: 700;
   color: $grey-300;
-  font-size: 1.625rem;
+  font-size: 1.5rem;
 
   @include mobile {
     font-size: 1.2rem;
@@ -225,12 +240,15 @@
   gap: 0.3rem;
 
   .number {
-    color: $orange-300;
+    color: $orange-500;
     font-weight: 700;
   }
 
   .text {
-    color: $grey-600;
+    color: $grey-700;
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
   @include mobile {
     padding: 0.5rem 0.5rem;
@@ -276,11 +294,13 @@
   top: 4.5rem;
   left: 2rem;
   position: absolute;
-  animation: options 1s;
+  animation: options 0.4s;
   font-weight: 400;
   line-height: 0.9;
   z-index: 1;
-
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
   .open & {
     display: block;
 

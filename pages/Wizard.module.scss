@@ -1,16 +1,16 @@
 @import '@styles/imports.scss';
 
 .container {
-  min-height: 100%;
-  height: fit-content;
-  width: 100%;
+  //min-height: 100%;
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow: scroll;
+  width: 100%;
+  height: 100vh;
+  background-color: $white-50;
 }
 
 .content {
-  height: 90vh;
   min-height: 56rem;
   position: relative;
   overflow: hidden;
@@ -48,11 +48,9 @@
 }
 
 .ball {
+  position: fixed;
   background-image: url('/assets/images/wizard/background-ball.png');
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: contain;
-  position: absolute;
   width: 50rem;
   height: 47.37rem;
   bottom: 0;
