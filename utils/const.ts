@@ -8,16 +8,16 @@ export const FOLLOW_NETWORKS = {
   tiktok: 'https://www.tiktok.com/@lingwing.georgia',
 }
 
-export const FOOTER_LINKS = [
-  'footerAboutUs',
-  'footerCourses',
-  'footerPackages',
-  'footerBlog',
-  'footerApps',
-  'footerPrivacy',
-  'footerFAQ',
-  'footerContact',
-]
+export const FOOTER_LINKS = {
+  footerCourses: '/wizard',
+  footerPackages: '/packages',
+  footerAboutUs: '/aboutCompany?page=WhyWithUs',
+  footerBlog: '',
+  footerApps: '',
+  footerPrivacy: '',
+  footerFAQ: '',
+  footerContact: '',
+}
 
 export const SIDE_MENU_LINKS = {
   English: 'eng',
@@ -30,14 +30,14 @@ export const SIDE_MENU_LINKS = {
   footerFAQ: 'https://lingwing.com/en/faq/general/',
   menuContactUs: 'https://lingwing.com/en/contact',
   menuStudents: 'https://lingwing.com/en/student',
-  menuPrices: 'https://lingwing.com/en/packages',
+  menuPrices: '/packages',
   menuBuyAGift: 'https://lingwing.com/en/packages/giftTaskReview',
   menuPricesCoupon: 'https://lingwing.com/en/packages',
-  menuWhyWithUs: 'https://lingwing.com/en/about-us',
-  menuCertificate: 'https://lingwing.com/en/about-us?page=certificate',
-  menuPartners: 'https://lingwing.com/en/about-us?page=menuPartners',
+  WhyWithUs: '/aboutCompany?page=WhyWithUs',
+  Certificate: '/aboutCompany?page=Certificate',
+  Partners: '/aboutCompany?page=Partners',
   menuBlog: 'https://blog.lingwing.com',
-  menuJobs: 'https://lingwing.com/en/about-us?page=cv',
+  Jobs: '/aboutCompany?page=Jobs',
   menuLicenseAgreement: 'https://lingwing.com/en/licensing-agreement?page=cv',
   menuPrivacyPolicy: 'https://lingwing.com/en/privacy?page=cv',
 } as const
@@ -61,21 +61,21 @@ export const PREMIUM_KEYS: SideMenuKeys[] = [
   'menuPricesCoupon',
 ]
 export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
-  'menuWhyWithUs',
-  'menuCertificate',
-  'menuPartners',
+  'WhyWithUs',
+  'Certificate',
+  'Partners',
   'menuBlog',
-  'menuJobs',
+  'Jobs',
   'menuLicenseAgreement',
   'menuPrivacyPolicy',
 ]
 
-export const ABOUT_COMPANY_LINKS = {
-  whyWithUs: 'why-with-us',
-  certificate: 'certificate',
-  partners: 'partners',
-  jobs: 'jobs',
-}
+export const ABOUT_COMPANY_LINKS = [
+  'WhyWithUs',
+  'Certificate',
+  'Partners',
+  'Jobs',
+]
 
 export const IMAGES_FOR_PARTNERS_PAGE = [
   '../themes/images/partners/beka.png',

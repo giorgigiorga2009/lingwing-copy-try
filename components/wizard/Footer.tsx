@@ -5,12 +5,16 @@ import { useTranslation } from '@utils/useTranslation'
 
 export const Footer: FC = () => {
   const { t } = useTranslation()
+  type Links = keyof typeof FOOTER_LINKS
+  const LINKS = Object.keys(FOOTER_LINKS) as Links[]
 
   return (
     <div className={style.footer}>
-      {FOOTER_LINKS.map(link => (
+      {LINKS.map(link => (
         <div key={link} className={style.link}>
-          {t(link)}
+          <a href={FOOTER_LINKS[link]} key={link} className={style.link}>
+            {t(link)}
+          </a>
         </div>
       ))}
     </div>

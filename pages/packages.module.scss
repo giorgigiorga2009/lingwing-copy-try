@@ -16,10 +16,10 @@
 }
 
 .desc {
-  margin-bottom: 0;
   text-align: center;
   color: $white;
   font-size: 1.5rem;
+  padding: 0 1rem 0 1rem;
   &:lang(ka) {
     font-family: $kaFontTitleBold;
   }
@@ -41,7 +41,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  overflow: scroll;
+  //overflow: scroll;
   overflow-x: hidden;
   background-attachment: local;
   color: $grey-800;

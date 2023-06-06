@@ -1,12 +1,13 @@
 @import '@styles/imports.scss';
 
 .regularPackageBtn {
-  font-size: 1.2rem;
+  font-family: SegoeUI;
+  font-size: 1.1rem;
   border: none;
   color: $white;
   border-radius: 2rem;
-  width: 70%;
-  padding: 0.5rem;
+  width: 65%;
+  padding: 0.4rem;
   background-color: $purple-600;
   cursor: pointer;
   transform: translateY(0);
@@ -20,7 +21,6 @@
 
   &:lang(ka) {
     font-family: $kaFontTitleBold;
-    padding-top: 0.6rem;
   }
 }
 

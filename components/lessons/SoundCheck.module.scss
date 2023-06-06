@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'SegoeUI';
   height: auto;
   width: 56.5rem;
   height: 33.8rem;
@@ -17,11 +18,14 @@
   &.true {
     display: none;
   }
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
 }
 
 .header {
   width: 80%;
-  font-size: 2.25rem;
+  font-size: 2rem;
   color: $grey-800;
   text-align: center;
 }

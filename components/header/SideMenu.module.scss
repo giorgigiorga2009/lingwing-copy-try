@@ -21,7 +21,7 @@
   top: 0rem;
   left: 0rem;
   height: 100%;
-  width: 25rem;
+  width: 30rem;
   position: absolute;
   flex-direction: column;
 
@@ -79,19 +79,30 @@
 .menu {
   display: flex;
   font-family: 'Helvetica Neue';
-  font-size: 1rem;
+  font-size: 0.9rem;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 1.5rem;
   section {
     width: 45%;
+  }
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
   }
 }
 
 .list {
+  color: $black-600;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   text-transform: capitalize;
+  a:hover {
+    color: $purple-300;
+  }
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
 }
 
 .footer {
@@ -104,6 +115,10 @@
   .title {
     color: $grey-100;
     text-align: center;
+
+    &:lang(ka) {
+      font-family: $kaFontTitleBold;
+    }
   }
 }
 

@@ -3,7 +3,7 @@
 .package__container {
   display: flex;
   font-family: 'SegoeUI';
-  margin-top: 40px;
+  margin-top: 2rem;
   overflow-x: scroll;
   justify-content: center;
 
@@ -16,15 +16,15 @@
   position: absolute;
   font-family: 'SegoeUI';
   color: $purple-100;
-  margin-top: -20px;
-  margin-left: 25px;
+  margin-left: 1.5rem;
+  margin-top: -1rem;
 }
 
 .cards {
   display: flex;
   overflow-x: scroll;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 1rem;
+  padding-left: 1rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scroll-padding: 20px;
@@ -45,9 +45,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  width: 100%;
-  margin-top: 540px;
   text-align: center;
 }
 
@@ -62,13 +59,13 @@
   align-items: center;
   width: 100%;
   border: 1px solid $white-100;
-  margin: 40px 12px 50px 12px;
+  margin: 40px 12px 18px 12px;
   border-radius: 8px;
   background-color: $white;
   transition: all 0.2s linear;
   box-shadow: 0 2px 2px hsl(0deg 0% 0% / 0.025),
     0 4px 4px hsl(0deg 0% 0% / 0.025), 0 8px 8px hsl(0deg 0% 0% / 0.025),
-    0 8px 8px hsl(0deg 0% 0% / 0.025), 0 32px 32px hsl(0deg 0% 0% / 0.025);
+    0 8px 8px hsl(0deg 0% 0% / 0.025), 0 16px 16px hsl(0deg 0% 0% / 0.025);
 
   &:hover {
     scale: 102%;
@@ -82,16 +79,15 @@
 }
 
 .package__card__image {
-  padding: 10px;
+  padding: 0.7rem;
   filter: grayscale(100%);
 }
 
 .package__card__imageActive {
-  padding: 10px;
+  padding: 0.7rem;
 }
 
 .button__container {
-  text-align: center;
   width: inherit;
   padding: 1rem;
   border-top: solid $white-100;
@@ -101,6 +97,6 @@
 
 .features__container {
   display: flex;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 1.2rem;
+  padding-bottom: 0.5rem;
 }

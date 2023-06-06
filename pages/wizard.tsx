@@ -14,7 +14,6 @@ import { Reviews } from '@components/Reviews'
 import { PageHead } from '@components/PageHead'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
-import { BackButton } from '@components/BackButton'
 import { useTranslation } from '@utils/useTranslation'
 import type { GetServerSideProps, NextPage } from 'next'
 import { ChooseLanguageStep } from '@components/wizard/ChooseLanguageStep'
@@ -102,22 +101,11 @@ const Wizard: NextPage<WizardProps> = params => {
   }, [step])
 
   useEffect(() => {
-    if (step === 'step2') {
-      if (router.query.languageTo === undefined) {
-        setStep('step1')
-        router.back()
-        setLanguageTo(undefined)
-        return
-      }
-
-      if (
-        languageFrom === undefined &&
-        router.query.languageFrom !== undefined
-      ) {
-        setLanguageTo(undefined)
-        router.replace({ pathname: `/` })
-        return
-      }
+    if (step === 'step2' && router.query.languageTo === undefined) {
+      setStep('step1')
+      router.back()
+      setLanguageTo(undefined)
+      return
     }
 
     if (step === 'step3' && router.query.languageFrom === undefined) {
@@ -138,29 +126,6 @@ const Wizard: NextPage<WizardProps> = params => {
     }
   }, [router.query])
 
-  const goBack = () => {
-    switch (step) {
-      case 'step1':
-        router.push({
-          pathname: '/',
-        })
-        break
-      case 'step2':
-        //setStep('step1')
-        router.push({
-          pathname: '/',
-        })
-        setLanguageTo(undefined)
-        break
-      case 'step3':
-        setLanguageFrom(undefined)
-        languagesFrom?.includes(LOCALES_TO_LANGUAGES[locale as Locale])
-          ? router.back()
-          : setStep('step2')
-        break
-    }
-  }
-
   return (
     <div className={style.container}>
       <div className={style.ball} />
@@ -168,9 +133,7 @@ const Wizard: NextPage<WizardProps> = params => {
       <PageHead text={'wizardPageTitle'} />
 
       <div className={style.content}>
-        <BackButton onClick={goBack} />
         <div className={style.parrot} />
-
         {step === 'step1' && (
           <ChooseLanguageStep
             languages={[...LANGUAGES_TO]}
@@ -184,7 +147,7 @@ const Wizard: NextPage<WizardProps> = params => {
 
         {step === 'step2' && languagesFrom !== undefined && (
           <ChooseLanguageStep
-            languageTo={languageTo}
+            language={languageTo}
             languages={languagesFrom}
             onClick={language => {
               setLanguageFrom(language as LanguageFrom)

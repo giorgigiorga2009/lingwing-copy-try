@@ -29,6 +29,9 @@
   color: $grey-800;
   cursor: pointer;
   margin-top: 1.5rem;
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
 
   @include mobile {
     margin-top: 0.8rem;

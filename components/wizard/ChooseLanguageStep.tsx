@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { PageTitle } from './PageTitle'
 import { WizardTile } from './WizardTile'
 import style from './ChooseLanguageStep.module.scss'
@@ -9,17 +11,19 @@ interface Props {
   languages: LanguageFrom[] | LanguageTo[]
   onClick: (language: LanguageFrom | LanguageTo) => void
   title: string
-  languageTo?: LanguageTo
+  language?: LanguageTo
 }
 export const ChooseLanguageStep: FC<Props> = ({
   languages,
   onClick,
   title,
-  languageTo,
+  language,
 }) => {
+  const router = useRouter()
+
   return (
     <ContentContainer>
-      <PageTitle languageTo={languageTo} text={title} />
+      <PageTitle languageTo={language} text={title} />
       <div className={style.container}>
         {languages.map(language => (
           <WizardTile
