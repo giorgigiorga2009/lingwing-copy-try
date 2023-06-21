@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useState } from 'react'
+import { FC, useState } from 'react'
 import style from './Coupon.module.scss'
 import { PackageButton } from './PackageButton'
 import { useTranslation } from '../../utils/useTranslation'

@@ -2,9 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 import style from './ActionBtns.module.scss'
 
-interface Props {}
-
-const ActionBtns: FC<Props> = ({}): JSX.Element => {
+const ActionBtns: FC = () => {
   return (
     <>
       <div className={style.container}>

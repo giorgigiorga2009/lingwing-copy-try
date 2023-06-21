@@ -109,12 +109,12 @@ export const LoginModal: FC<Props> = ({
                   onChange={setPassword}
                 />
               </div>
-              <div
+              <button
                 className={classNames(style.button, style.disabled)}
                 onClick={signIn}
               >
                 {t('loginSignIn')}
-              </div>
+              </button>
               <a className={style.forgotPasswordLink}>
                 {t('loginForgotPassword')}
               </a>

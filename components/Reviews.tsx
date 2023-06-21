@@ -25,7 +25,11 @@ const Review: FC<CarouselProps> = ({ review }) => {
       </div>
       <div className={style.user}>
         <div className={style.avatarContainer}>
-          <img className={style.avatar} src={review.avatarURL} />
+          <img
+            className={style.avatar}
+            src={review.avatarURL}
+            alt="review avatar"
+          />
         </div>
         <div className={style.userName}>{review.userName}</div>
       </div>
@@ -38,9 +42,15 @@ export const Reviews: FC = () => {
   const [reviewsData, setReviewsData] = useState<ReviewData[]>()
 
   useEffect(() => {
-    getReviews().then(response => {
-      setReviewsData(response)
-    })
+    const fetchData = async () => {
+      try {
+        const response = await getReviews()
+        setReviewsData(response)
+      } catch (error) {
+        console.log('Error while fetching reviews')
+      }
+    }
+    fetchData()
   }, [])
 
   return (

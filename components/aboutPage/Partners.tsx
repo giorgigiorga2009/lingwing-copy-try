@@ -10,9 +10,13 @@ const Certificate: FC = () => {
     <>
       <h2 className={style.subTitle}>{t('APP_ABOUT_US__OUR_PARTNERS')}</h2>
       <div className={style.imageWrapper}>
-        {IMAGES_FOR_PARTNERS_PAGE.map(image => (
-          <div className={style.imageContainer}>
-            <img className={style.imagePartner} src={image} />
+        {IMAGES_FOR_PARTNERS_PAGE.map((image, id) => (
+          <div className={style.imageContainer} key={id}>
+            <img
+              className={style.imagePartner}
+              src={image}
+              alt={image.match(/\/([^/]*)\.[^.]*$/)?.[1] || ''}
+            />
           </div>
         ))}
       </div>

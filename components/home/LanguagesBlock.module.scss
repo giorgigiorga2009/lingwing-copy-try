@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .block {
   display: flex;
@@ -21,6 +21,65 @@
   }
 }
 
+.start {
+  top: -2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  position: absolute;
+  width: 100%;
+  z-index: 7;
+  background-size: contain;
+  background-position: center;
+  transition: all 0.25s linear;
+  background-color: $orange-300;
+  font-family: SegoeUI-SemiBold;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parrot {
+  position: absolute;
+  bottom: 0;
+  right: -4rem;
+  width: 4rem;
+  height: 4rem;
+  z-index: 7;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.25s linear;
+
+  .eng & {
+    background-image: url('/assets/images/languages_background/eng_parrot.png');
+  }
+
+  .esp & {
+    background-image: url('/assets/images/languages_background/esp_parrot.png');
+  }
+
+  .ita & {
+    background-image: url('/assets/images/languages_background/ita_parrot.png');
+  }
+
+  .fre & {
+    background-image: url('/assets/images/languages_background/fre_parrot.png');
+  }
+
+  .rus & {
+    background-image: url('/assets/images/languages_background/rus_parrot.png');
+  }
+
+  .geo & {
+    background-image: url('/assets/images/languages_background/geo_parrot.png');
+  }
+
+  .deu & {
+    background-image: url('/assets/images/languages_background/ger_parrot.png');
+  }
+}
+
 .tileContainer {
   display: flex;
   justify-content: center;
@@ -36,7 +95,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 0.813rem;
   transition: all 0.15s linear;
   text-transform: capitalize;
 
@@ -85,6 +143,7 @@
 
   &:hover {
     transform: scale(1.05, 1.05);
+
     &.eng {
       background-image: url('/assets/images/languages_background/eng_light.jpg');
     }
@@ -127,48 +186,6 @@
   }
 }
 
-.parrot {
-  width: 3.313rem;
-  position: absolute;
-  bottom: 0rem;
-  right: -4rem;
-  width: 4rem;
-  height: 4rem;
-  z-index: 7;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.25s linear;
-
-  .eng & {
-    background-image: url('/assets/images/languages_background/eng_parrot.png');
-  }
-
-  .esp & {
-    background-image: url('/assets/images/languages_background/esp_parrot.png');
-  }
-
-  .ita & {
-    background-image: url('/assets/images/languages_background/ita_parrot.png');
-  }
-
-  .fre & {
-    background-image: url('/assets/images/languages_background/fre_parrot.png');
-  }
-
-  .rus & {
-    background-image: url('/assets/images/languages_background/rus_parrot.png');
-  }
-
-  .geo & {
-    background-image: url('/assets/images/languages_background/geo_parrot.png');
-  }
-
-  .deu & {
-    background-image: url('/assets/images/languages_background/ger_parrot.png');
-  }
-}
-
 .flag {
   width: 5rem;
   height: 5rem;
@@ -196,9 +213,10 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  font-family: 'SegoeUI-SemiBold';
+  font-family: SegoeUI-SemiBold;
   color: $white;
   font-size: 1.25rem;
+
   @include tablet {
     font-size: 1rem;
   }
@@ -206,22 +224,4 @@
   @include mobile {
     font-size: 0.9rem;
   }
-}
-
-.start {
-  top: -2.5rem;
-  height: 2.5rem;
-  font-size: 1.2rem;
-  position: absolute;
-  width: 100%;
-  z-index: 7;
-  background-size: contain;
-  background-position: center;
-  transition: all 0.25s linear;
-  background-color: $orange-300;
-  font-family: 'SegoeUI-SemiBold';
-  color: $white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { PageTitle } from './PageTitle'
 import { WizardTile } from './WizardTile'
@@ -19,8 +18,6 @@ export const ChooseLanguageStep: FC<Props> = ({
   title,
   language,
 }) => {
-  const router = useRouter()
-
   return (
     <ContentContainer>
       <PageTitle languageTo={language} text={title} />

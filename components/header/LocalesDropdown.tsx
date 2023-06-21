@@ -9,7 +9,7 @@ import Foco from 'react-foco'
 import { useRouter } from 'next/router'
 import { LocaleFlag } from './LocaleFlag'
 import { Locale } from '@utils/localization'
-import { FC, Fragment, useState, useEffect } from 'react'
+import { FC, Fragment, useState } from 'react'
 import style from './LocalesDropdown.module.scss'
 
 export const LocalesDropdown: FC = () => {

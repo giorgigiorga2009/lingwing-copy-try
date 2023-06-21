@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .ulNav {
   color: $white;
@@ -30,7 +30,7 @@
 
 .subTitle {
   color: $purple-500;
-  padding: 2vw 0 0 0;
+  padding: 2vw 0 0;
 }
 
 .certificateImage {

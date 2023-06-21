@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .wrapper {
   display: flex;
@@ -9,17 +9,16 @@
   height: 100vh;
   z-index: 1001;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
 }
 
 .container {
-  padding: 2rem 2.2rem 2.2rem 2.2rem;
+  padding: 2rem 2.2rem 2.2rem;
   background-color: $white-100;
-  box-shadow: 0px 8px 16px 0px $black-t;
+  box-shadow: 0 8px 16px 0 $black-t;
   border-radius: 0 1rem 1rem 0;
   display: flex;
-  top: 0rem;
-  left: 0rem;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 30rem;
   position: absolute;
@@ -83,9 +82,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1.5rem;
+
   section {
     width: 45%;
   }
+
   &:lang(ka) {
     font-family: $kaFontTitleBold;
   }
@@ -97,9 +98,11 @@
   flex-direction: column;
   gap: 0.6rem;
   text-transform: capitalize;
+
   a:hover {
     color: $purple-300;
   }
+
   &:lang(ka) {
     font-family: $kaFont;
   }

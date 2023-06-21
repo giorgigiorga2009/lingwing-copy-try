@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .flag {
   width: 4rem;
@@ -39,6 +39,7 @@
 
   &.big {
     border-radius: 100%;
+
     &.eng {
       background-image: url('/assets/images/flags/circle/big/English.png');
     }

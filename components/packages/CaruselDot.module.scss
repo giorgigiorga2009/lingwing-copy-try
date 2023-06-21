@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .dot {
   display: none;
@@ -13,7 +13,7 @@
   transition: 0.2s linear;
 
   &:hover {
-    @extend .dot__hover;
+    @extend %dotHover;
   }
 
   @include mobile {
@@ -25,7 +25,7 @@
   display: block;
 }
 
-.dot__hover {
+%dotHover {
   background-color: $black-100;
   animation: scaleUp 0.2s linear;
   scale: 140%;
@@ -35,6 +35,7 @@
   0% {
     scale: 1;
   }
+
   100% {
     scale: 1.4;
   }

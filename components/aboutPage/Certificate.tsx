@@ -20,6 +20,7 @@ const Certificate: FC = () => {
       <img
         src="../themes/images/v2/certificate/certificate.png"
         className={style.certificateImage}
+        alt="Certificate Template"
       />
     </>
   )

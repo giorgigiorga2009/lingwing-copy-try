@@ -15,9 +15,15 @@ const FAQ: FC<Props> = ({ locale }) => {
   const [faqData, setFaqData] = useState<FaqData[]>()
 
   useEffect(() => {
-    getFAQ(locale).then(response => {
-      setFaqData(response)
-    })
+    const fetchFaqData = async () => {
+      try {
+        const response = await getFAQ(locale)
+        setFaqData(response)
+      } catch (error) {
+        console.error('Failed to fetch FAQ data:', error)
+      }
+    }
+    fetchFaqData()
   }, [locale])
 
   if (!faqData) return null

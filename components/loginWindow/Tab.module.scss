@@ -1,14 +1,18 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .tab {
   cursor: pointer;
-  height: 2.5rem;
+  height: 2.8rem;
   font-weight: 600;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
 
   &.active {
-    border-bottom: 1px solid $purple-500;
+    border-bottom: 2px solid $purple-500;
+  }
+
+  &:hover {
+    color: $purple-500;
   }
 }

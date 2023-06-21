@@ -1,4 +1,4 @@
-@import '../../styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   margin: auto;
@@ -8,22 +8,27 @@
   padding: 1rem;
   width: 100%;
   margin-top: 12vh;
+
   img {
     width: clamp(4rem, 40vw, 16rem);
   }
+
   h3 {
     font-family: SegoeUI-SemiBold;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     text-align: center;
     color: $grey-700;
+
     &:lang(ka) {
       font-family: $kaFont;
       font-weight: normal;
     }
   }
+
   .instruction {
     margin-top: -0.35rem;
   }
+
   .add_lang {
     width: clamp(14rem, 50vw, 20rem);
   }

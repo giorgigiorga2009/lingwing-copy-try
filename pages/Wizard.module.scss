@@ -1,7 +1,6 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
-  //min-height: 100%;
   position: relative;
   overflow-x: hidden;
   overflow: scroll;
@@ -36,12 +35,13 @@
     width: 20rem;
     height: 15rem;
     top: 10rem;
-    left: 0rem;
+    left: 0;
   }
 
   @include mobile {
     display: none;
   }
+
   @include smallWidth {
     display: none;
   }

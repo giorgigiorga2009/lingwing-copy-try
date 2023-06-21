@@ -1,4 +1,12 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
+
+@mixin hoverStyle {
+  background-color: $white-50;
+  box-shadow: 0 1px 3px 0 rgba(60 64 67 / 10.2%),
+    0 4px 8px 3px rgba(60 64 67 / 10.9%);
+  transition: box-shadow 0.08s linear,
+    min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .container {
   border-radius: 0.625rem;
@@ -8,7 +16,7 @@
   position: relative;
   cursor: pointer;
   animation: courseAnim 1s;
-  height: 5.875rem;
+  height: 6rem;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -23,16 +31,14 @@
   }
 
   &:hover {
-    background-color: $white-50;
-    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.102),
-      0 4px 8px 3px rgba(60, 64, 67, 0.109);
-    transition: box-shadow 0.08s linear,
-      min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    @include hoverStyle;
   }
 
   &.open {
     border-radius: 0.625rem;
     margin-bottom: 0;
+
+    @include hoverStyle;
   }
 
   @include mobile {
@@ -82,6 +88,7 @@
     height: 5.438rem;
     margin: 0.6rem -0.413rem 0 0;
   }
+
   @include smallWidth {
     width: 5.438rem;
     height: 5.438rem;
@@ -98,7 +105,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(../../public/assets/images/wizard/standart-level-icon1.png);
+  background-image: url('../../public/assets/images/wizard/standart-level-icon1.png');
 
   @include mobile {
     width: 4rem;
@@ -106,6 +113,7 @@
     right: -0.5rem;
     top: 1.1rem;
   }
+
   @include smallWidth {
     width: 4rem;
     height: 4rem;
@@ -123,7 +131,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(../../public/assets/images/wizard/standart-level-icon2.png);
+  background-image: url('../../public/assets/images/wizard/standart-level-icon2.png');
 
   @include mobile {
     width: 4rem;
@@ -131,6 +139,7 @@
     right: -0.5rem;
     top: 1.1rem;
   }
+
   @include smallWidth {
     width: 4rem;
     height: 4rem;
@@ -157,6 +166,7 @@
     width: 2.2rem;
     height: 2.2rem;
   }
+
   @include smallWidth {
     right: 2.5rem;
     width: 2.2rem;
@@ -165,32 +175,30 @@
 }
 
 .iconArrow {
-  background-image: url(../../public/assets/images/arrows/arrow-up-white.png);
+  background-image: url('../../public/assets/images/arrows/arrow-up-white.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 1.25rem;
   height: 1.25rem;
   background-position: center;
   display: inline-block;
-  -webkit-transition: all linear 250ms;
   transition: all linear 250ms;
 
   @include mobile {
     width: 1rem;
     height: 1rem;
   }
+
   @include smallWidth {
     width: 1rem;
     height: 1rem;
   }
 
   &.up {
-    -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
 
   &.down {
-    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
 }
@@ -216,7 +224,7 @@
 
 .levelName {
   font-weight: 700;
-  color: $grey-300;
+  color: $grey-700;
   font-size: 1.5rem;
 
   @include mobile {
@@ -246,12 +254,14 @@
 
   .text {
     color: $grey-700;
+
     &:lang(ka) {
       font-family: $kaFont;
     }
   }
+
   @include mobile {
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem;
     font-size: 0.8rem;
     right: 6rem;
   }
@@ -262,13 +272,6 @@
 }
 
 @keyframes courseAnim {
-  0%,
-  75%,
-  95%,
-  100% {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
   0% {
     opacity: 0;
     transform: translate3d(0, 3000px, 0);
@@ -283,7 +286,7 @@
   }
 
   100% {
-    transform: translate3d(0, 0, 0);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }
 
@@ -296,11 +299,14 @@
   position: absolute;
   animation: options 0.4s;
   font-weight: 400;
+  font-style: italic;
   line-height: 0.9;
   z-index: 1;
+
   &:lang(ka) {
     font-family: $kaFont;
   }
+
   .open & {
     display: block;
 

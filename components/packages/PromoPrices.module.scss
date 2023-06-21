@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .discount__label {
   position: absolute;
@@ -12,7 +12,7 @@
   top: 1.4rem;
   font-size: 1.4rem;
   color: $white;
-  font-family: 'SegoeUIBlack';
+  font-family: SegoeUIBlack;
 }
 
 .discounted__totalPrice {
@@ -25,7 +25,7 @@
 .totalPrice {
   font-size: 1.3rem;
   color: $black-100;
-  font-family: 'SegoeUI-SemiBold';
+  font-family: SegoeUI-SemiBold;
   margin-bottom: 0.5rem;
 }
 

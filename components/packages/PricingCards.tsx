@@ -107,7 +107,7 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                 {item.sale > 0 && <ShowDiscountLabel discount={item.sale} />}
                 <img
                   src={PACKAGES_IMAGES[index]}
-                  alt="Image for package"
+                  alt="Parrot for package"
                   className={
                     item.mostPopular
                       ? style.package__card__imageActive

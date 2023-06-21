@@ -24,10 +24,10 @@ const AboutCompany: NextPage = () => {
         <h1 className={style.title}>{t('APP_ABOUT_US_COMPANY')}</h1>
         <AboutTabs activeTab={activeTab} />
         <div className={style.mainBlock}>
-          {activeTab === ABOUT_COMPANY_LINKS[0] && <AboutUs />}
-          {activeTab === ABOUT_COMPANY_LINKS[1] && <Certificate />}
-          {activeTab === ABOUT_COMPANY_LINKS[2] && <Partners />}
-          {activeTab === ABOUT_COMPANY_LINKS[3] && <Jobs />}
+          {activeTab === ABOUT_COMPANY_LINKS.About && <AboutUs />}
+          {activeTab === ABOUT_COMPANY_LINKS.Certificate && <Certificate />}
+          {activeTab === ABOUT_COMPANY_LINKS.Partners && <Partners />}
+          {activeTab === ABOUT_COMPANY_LINKS.Jobs && <Jobs />}
         </div>
         <FollowButtons color="grey" />
         <Footer />

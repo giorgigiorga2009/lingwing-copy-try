@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   min-height: 100%;
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   background-image: url('/assets/images/logout/logoutPlane.png');
-  background-position: bottom 0rem right 0rem;
+  background-position: bottom 0 right 0;
   background-repeat: no-repeat;
   background-size: 49.4rem 10.25rem;
   padding: 0 5rem 6rem;
@@ -131,6 +131,7 @@
   height: 2.5rem;
   gap: 0.5rem;
 }
+
 .star {
   background-image: url('/assets/images/ratingStar.png');
   background-size: cover;
@@ -138,6 +139,7 @@
   background-position: center;
   height: 1.06rem;
   width: 1.06rem;
+
   @include mobile {
     height: 0.8rem;
     width: 0.8rem;

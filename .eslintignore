@@ -4,7 +4,8 @@ styles
 .next
 .idea
 .husky
+.github
 devops
+node_modules
 
 *.lock
-

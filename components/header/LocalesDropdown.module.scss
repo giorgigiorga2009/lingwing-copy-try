@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .button {
   cursor: pointer;
@@ -16,6 +16,7 @@
     color: $white;
     font-size: 1rem;
     font-weight: 900;
+
     @include smallWidth {
       display: none;
     }
@@ -64,7 +65,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $white-100;
+    background-color: $white-70;
+  }
+
+  &:last-child {
+    border: none;
   }
 
   &:first-child:hover {
@@ -73,9 +78,5 @@
 
   &:last-child:hover {
     border-radius: 0 0 0.63rem 0.63rem;
-  }
-
-  &:last-child {
-    border: none;
   }
 }

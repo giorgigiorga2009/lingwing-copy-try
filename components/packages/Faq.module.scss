@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .faq__container {
   font-family: $kaFont;
@@ -11,9 +11,9 @@
   margin-bottom: 3rem;
   max-width: 50rem;
   text-align: left;
-  box-shadow: 0 2px 2px hsl(0deg 0% 0% / 0.025),
-    0 4px 4px hsl(0deg 0% 0% / 0.025), 0 8px 8px hsl(0deg 0% 0% / 0.025),
-    0 16px 16px hsl(0deg 0% 0% / 0.025), 0 32px 32px hsl(0deg 0% 0% / 0.025);
+  box-shadow: 0 2px 2px hsl(0deg 0% 0% / 2.5%), 0 4px 4px hsl(0deg 0% 0% / 2.5%),
+    0 8px 8px hsl(0deg 0% 0% / 2.5%), 0 16px 16px hsl(0deg 0% 0% / 2.5%),
+    0 32px 32px hsl(0deg 0% 0% / 2.5%);
 }
 
 .faq__title {
@@ -41,13 +41,14 @@
 
     @include mobile {
       font-size: 0.9rem;
-      padding: 1rem 0.3rem 1rem 0rem;
+      padding: 1rem 0.3rem;
     }
 
     &:hover {
       color: $purple-300;
       background-color: $white-50;
     }
+
     /* Icon */
     &::after {
       margin-top: auto;
@@ -66,37 +67,32 @@
       }
     }
   }
+
   &__answer {
     height: 0;
     overflow: hidden;
     opacity: 0;
     color: $black-800;
-    font-family: 'SegoeUI-SemiBold';
+    font-family: SegoeUI-SemiBold;
     font-size: 1.1rem;
     line-height: 1.6rem;
-    padding: 0rem 3rem 0rem 2rem;
-    -webkit-transition: 0.4s ease;
-    -moz-transition: 0.4s ease;
-    -o-transition: 0.4s ease;
+    padding: 0 3rem 0 2rem;
     transition: 0.4s ease;
 
     @include mobile {
       font-size: 0.9rem;
       line-height: 1.2rem;
-      padding: 0rem 0.1rem 0.1rem 0rem;
+      padding: 0 0.1rem 0.1rem 0;
     }
 
     &__open {
       opacity: 1;
       height: auto;
       padding: 1.5rem 3rem 1.5rem 2rem;
-      -webkit-transition: 0.4s ease;
-      -moz-transition: 0.4s ease;
-      -o-transition: 0.4s ease;
       transition: 0.4s ease;
 
       @include mobile {
-        padding: 1rem 0.1rem 1rem 0.1rem;
+        padding: 1rem 0.1rem;
       }
     }
   }

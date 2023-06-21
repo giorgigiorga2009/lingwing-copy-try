@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .regularPackageBtn {
   font-family: SegoeUI;
@@ -26,6 +26,7 @@
 
 .mostPopularBtn {
   @extend .regularPackageBtn;
+
   background-color: $orange-500;
 
   &:hover {

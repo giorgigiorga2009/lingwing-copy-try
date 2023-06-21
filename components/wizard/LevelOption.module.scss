@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .optionContainer {
   width: 99%;
@@ -8,6 +8,7 @@
   background-color: $white;
   display: flex;
   margin: 0.1rem auto;
+  margin-top: 0.3rem;
   align-items: center;
   padding: 1rem;
   user-select: none;
@@ -20,6 +21,7 @@
     height: 5.5rem;
     padding: 0.7rem;
   }
+
   @include smallWidth {
     height: 5rem;
     padding: 0.7rem;
@@ -41,20 +43,24 @@
   background-size: contain;
   box-shadow: 0 0 15px $white-300;
   border-radius: 50%;
+
   &.course-1 {
-    background-image: url(../../public/assets/images/wizard/mountain-course-1.png);
+    background-image: url('../../public/assets/images/wizard/mountain-course-1.png');
   }
+
   &.course-2 {
-    background-image: url(../../public/assets/images/wizard/mountain-course-2.png);
+    background-image: url('../../public/assets/images/wizard/mountain-course-2.png');
   }
+
   &.course-3 {
-    background-image: url(../../public/assets/images/wizard/mountain-course-3.png);
+    background-image: url('../../public/assets/images/wizard/mountain-course-3.png');
   }
 
   @include mobile {
     width: 3rem;
     height: 3rem;
   }
+
   @include smallWidth {
     width: 2.5rem;
     height: 2.5rem;
@@ -64,7 +70,7 @@
 
 .courseName {
   color: $purple-500;
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   margin-top: -1.2rem;
   text-shadow: -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0 0 #fff,
     -2px 1px 0 #fff, -2px 2px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff,
@@ -77,6 +83,7 @@
   @include mobile {
     font-size: 0.8rem;
   }
+
   @include smallWidth {
     font-size: 0.65rem;
     margin-top: -0.8rem;
@@ -92,6 +99,7 @@
   @include mobile {
     padding-left: 1rem;
   }
+
   @include smallWidth {
     padding-left: 0.5rem;
   }
@@ -99,11 +107,12 @@
 
 .title {
   font-family: SegoeUI-SemiBold;
-  color: $black-800;
+  color: $grey-800;
 
   @include mobile {
     font-size: 0.875rem;
   }
+
   @include smallWidth {
     font-size: 0.8rem;
   }
@@ -117,12 +126,13 @@
   @include mobile {
     font-size: 0.75rem;
   }
+
   @include smallWidth {
     font-size: 0.65rem;
   }
 
   .number {
-    color: $orange-300;
+    color: $orange-500;
     font-weight: 700;
   }
 
@@ -142,6 +152,7 @@
   @include mobile {
     right: 1rem;
   }
+
   @include smallWidth {
     gap: 0.4rem;
     right: 1rem;
@@ -169,8 +180,8 @@
 
   &:hover {
     background-color: $white-50;
-    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.102),
-      0 4px 8px 3px rgba(60, 64, 67, 0.109);
+    box-shadow: 0 1px 3px 0 rgba(60 64 67 / 10.2%),
+      0 4px 8px 3px rgba(60 64 67 / 10.9%);
     transition: box-shadow 0.08s linear,
       min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -180,6 +191,7 @@
     padding: 0 0.5rem;
     height: 2.3rem;
   }
+
   @include smallWidth {
     span {
       display: none;
@@ -211,8 +223,8 @@
 
   &:hover {
     background-color: $orange-450;
-    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-      0 4px 8px 3px rgba(60, 64, 67, 0.149);
+    box-shadow: 0 1px 3px 0 rgba(60 64 67 / 30.2%),
+      0 4px 8px 3px rgba(60 64 67 / 14.9%);
     transition: box-shadow 0.08s linear,
       min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -222,6 +234,7 @@
     padding: 0 0.8rem;
     height: 2.3rem;
   }
+
   @include smallWidth {
     font-size: 0.7rem;
     padding: 0 0.8rem;
