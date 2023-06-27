@@ -70,12 +70,6 @@ export const LoginModal: FC<Props> = ({
     setRepeatPassword(repeatPassword)
   }
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter') {
-      setOpenLogin(!openLogin)
-    }
-  }
-
   const signUp = async () => {
     if (!isEmailValid || !isPasswordSame) return
 
