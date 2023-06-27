@@ -21,6 +21,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
+  console.log(openLogin)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -28,9 +29,10 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
       const logined = token !== null
       setIsAuthenticated(logined)
     }
-  })
+  }, [])
 
   const isDashboard = router.pathname.includes('dashboard')
+  console.log(openLogin)
 
   return (
     <header className={classNames(style.header, style[size])}>
@@ -66,7 +68,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
               className={style.singInButton}
               onClick={() => setOpenLogin(true)}
             >
-              {t('loginSignIn')}
+              {t('AUTH_SIGN_IN')}
             </div>
           </div>
         )}

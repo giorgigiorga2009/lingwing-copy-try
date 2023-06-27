@@ -10,11 +10,11 @@ interface Props {
 
 export const Tab: FC<Props> = ({ onClick, isActive, text }) => {
   return (
-    <div
+    <button
       className={classNames(style.tab, isActive && style.active)}
       onClick={onClick}
     >
       {text}
-    </div>
+    </button>
   )
 }

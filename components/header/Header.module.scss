@@ -96,6 +96,10 @@ header.m .logo {
   &:hover {
     color: $orange-500;
   }
+
+  &:lang(ka) {
+    font-family: $kaFontTitle;
+  }
 }
 
 .leftBlock {
@@ -185,9 +189,7 @@ header.m .logo {
     text-transform: uppercase;
 
     &:lang(ka) {
-      font-family: $kaFont;
-      font-weight: 500;
-      padding-top: 0.125rem;
+      font-family: $kaFontTitle;
     }
 
     &::before {
@@ -197,7 +199,7 @@ header.m .logo {
       height: 1rem;
       position: absolute;
       left: -1.8rem;
-      top: 0.2rem;
+      top: 0.1rem;
       background-image: url('/themes/images/v2/icon-dashboard-purple.png');
       background-size: contain;
       background-repeat: no-repeat;

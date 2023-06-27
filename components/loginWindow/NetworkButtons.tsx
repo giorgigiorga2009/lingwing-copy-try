@@ -17,7 +17,7 @@ export const NetworkButtons: FC<Props> = ({ isSignInTab }) => {
           <div className={style.icon} />
           <div className={style.text}>
             <span>
-              {isSignInTab ? t('loginSignInWith') : t('loginSignUpWith')}
+              {isSignInTab ? t('AUTH_SIGN_IN_WITH') : t('AUTH_SIGN_UP_WITH')}
             </span>
             <span className={style.network}>{network}</span>
           </div>
