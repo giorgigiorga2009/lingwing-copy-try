@@ -11,12 +11,15 @@ export const StartButton: FC = () => {
   const [usersAmount, setUsersAmount] = useState(0)
 
   useEffect(() => {
-    getUsersAmount().then(response => setUsersAmount(response))
+    getUsersAmount()
+      .then(response => {
+        setUsersAmount(response)
+        return response
+      })
+      .catch(error => {
+        console.error('Failed to fetch users amount: ', error)
+      })
   }, [])
-
-  const linkStyles = {
-    textDecoration: 'none',
-  }
 
   return (
     <div className={style.container}>
@@ -27,14 +30,13 @@ export const StartButton: FC = () => {
         </span>
         <span>{t('users')}</span>
       </div>
-
-      <div className={style.button}>
-        <span className={style.bubbleUp} />
-        <Link className={style.link} locale={router.locale} href="/wizard">
+      <Link className={style.link} locale={router.locale} href="/wizard">
+        <div className={style.button}>
+          <span className={style.bubbleUp} />
           <span className={style.text}>{t('homeStartButton')}</span>
-        </Link>
-        <span className={style.bubbleDown} />
-      </div>
+          <span className={style.bubbleDown} />
+        </div>
+      </Link>
     </div>
   )
 }

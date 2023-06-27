@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   display: flex;
@@ -22,6 +22,7 @@
   .grey & {
     color: $grey-800;
   }
+
   &:lang(ka) {
     font-family: $kaFont;
   }
@@ -48,12 +49,15 @@
 
   &.facebook {
     background-image: url('/assets/images/networks/facebook-light-icon.svg');
+
     .grey & {
       background-image: url('/assets/images/networks/facebook-dark-icon.svg');
     }
   }
+
   &.instagram {
     background-image: url('/assets/images/networks/instagram-light-icon.svg');
+
     .grey & {
       background-image: url('/assets/images/networks/instagram-dark-icon.svg');
     }
@@ -61,6 +65,7 @@
 
   &.linkedin {
     background-image: url('/assets/images/networks/linkedin-light-icon.svg');
+
     .grey & {
       background-image: url('/assets/images/networks/linkedin-dark-icon.svg');
     }
@@ -68,6 +73,7 @@
 
   &.youtube {
     background-image: url('/assets/images/networks/youtube-light-icon.svg');
+
     .grey & {
       background-image: url('/assets/images/networks/youtube-dark-icon.svg');
     }
@@ -83,6 +89,7 @@
 
   &:hover {
     border: 2px solid $white;
+
     .grey & {
       border: 2px solid $black;
     }

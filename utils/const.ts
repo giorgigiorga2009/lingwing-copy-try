@@ -70,12 +70,12 @@ export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [
   'menuPrivacyPolicy',
 ]
 
-export const ABOUT_COMPANY_LINKS = [
-  'WhyWithUs',
-  'Certificate',
-  'Partners',
-  'Jobs',
-]
+export const ABOUT_COMPANY_LINKS = {
+  About: 'about',
+  Certificate: 'certificate',
+  Partners: 'partners',
+  Jobs: 'jobs',
+}
 
 export const IMAGES_FOR_PARTNERS_PAGE = [
   '../themes/images/partners/beka.png',

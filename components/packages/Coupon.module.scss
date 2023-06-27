@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .coupon__container {
   max-width: 28rem;
@@ -25,9 +25,9 @@
   padding: 1.5rem;
   border-radius: 2rem;
   border: none;
-  box-shadow: 0 2px 2px hsl(0deg 0% 0% / 0.025),
-    0 4px 4px hsl(0deg 0% 0% / 0.025), 0 8px 8px hsl(0deg 0% 0% / 0.025),
-    0 8px 8px hsl(0deg 0% 0% / 0.025), 0 32px 32px hsl(0deg 0% 0% / 0.025);
+  box-shadow: 0 2px 2px hsl(0deg 0% 0% / 2.5%), 0 4px 4px hsl(0deg 0% 0% / 2.5%),
+    0 8px 8px hsl(0deg 0% 0% / 2.5%), 0 8px 8px hsl(0deg 0% 0% / 2.5%),
+    0 32px 32px hsl(0deg 0% 0% / 2.5%);
 
   &:focus {
     outline: 2px solid $purple-500;

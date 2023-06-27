@@ -51,7 +51,7 @@ const Dashboard: FC = () => {
   const myCourse = myLanguages.map((item: Language, indexOfLang: number) => {
     if (indexOfLang === activeLang) {
       return (
-        <div className={style.started_courses_content} key={item._id}>
+        <div key={item._id}>
           {item.standards
             .filter(elem => elem.courses.length > 0)
             .map((course, indexOfCourse) => {
@@ -71,63 +71,51 @@ const Dashboard: FC = () => {
   })
 
   return (
-    <>
-      <div className={style.container}>
-        <PageHead text="APP_DASHBOARD" />
-        <Header size="s" />
-        <>
-          {!loading && myLanguages && myLanguages.length > 0 && (
-            <div className={style.content}>
-              <div className={style.left_bar}>
-                <h1 className={style.title}>{t('APP_DASHBOARD')}</h1>
-                <div className={style.my_languages}>
-                  <h2 className={style.heading2}>
-                    {t('APP_GENERAL_MY_LANGUAGES')}
-                  </h2>
-                  <div>
-                    {myLanguages &&
-                      myLanguages.map(
-                        (languageItem: Language, indexOfLang: number) => {
-                          return (
-                            <MyLanguage
-                              key={languageItem._id}
-                              languageItem={languageItem}
-                              changeActiveLang={changeActiveLang}
-                              activeLang={activeLang}
-                              indexOfLang={indexOfLang}
-                              t={t}
-                              LANGUAGE_NAMES={LANGUAGE_NAMES}
-                              myCourse={myCourse}
-                            />
-                          )
-                        },
-                      )}
-                    <AddLanguageBtn />
-                    <div className={style.promo_slider_bottom}>
-                      <PromoSlider />
-                    </div>
-                    <DownloadAppBox />
-                  </div>
-                </div>
+    <div className={style.container}>
+      <PageHead text="APP_DASHBOARD" />
+      <Header size="s" />
+      {!loading && myLanguages && myLanguages.length > 0 && (
+        <div className={style.content}>
+          <div className={style.left_bar}>
+            <h1 className={style.title}>{t('APP_DASHBOARD')}</h1>
+            <h2 className={style.heading2}>{t('APP_GENERAL_MY_LANGUAGES')}</h2>
+            <div>
+              {myLanguages &&
+                myLanguages.map(
+                  (languageItem: Language, indexOfLang: number) => {
+                    return (
+                      <MyLanguage
+                        key={languageItem._id}
+                        languageItem={languageItem}
+                        changeActiveLang={changeActiveLang}
+                        activeLang={activeLang}
+                        indexOfLang={indexOfLang}
+                        t={t}
+                        LANGUAGE_NAMES={LANGUAGE_NAMES}
+                        myCourse={myCourse}
+                      />
+                    )
+                  },
+                )}
+              <AddLanguageBtn />
+              <div className={style.promo_slider_bottom}>
+                <PromoSlider />
               </div>
-              <div className={style.started_courses}>
-                <h2 className={style.heading2}>
-                  {t('APP_GENERAL_STARTED_COURSES')}
-                </h2>
-                {myCourse}
-              </div>
+              <DownloadAppBox />
             </div>
-          )}
-          {myLanguages.length === 0 && !loading && <NoCourses />}
-        </>
-        <div className={style.bottom}>
-          <div className={style.follow_us}>
-            <FollowButtons dashboard={true} />
           </div>
-          <Footer />
+          <div className={style.started_courses}>
+            <h2 className={style.heading2}>
+              {t('APP_GENERAL_STARTED_COURSES')}
+            </h2>
+            {myCourse}
+          </div>
         </div>
-      </div>
-    </>
+      )}
+      {myLanguages.length === 0 && !loading && <NoCourses />}
+      <Footer />
+      <FollowButtons dashboard={true} />
+    </div>
   )
 }
 

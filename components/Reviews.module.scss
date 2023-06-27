@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   display: flex;
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   width: 40.6rem;
-  height: 10.62rem;
+  height: 12.62rem;
   border-radius: 1.88rem;
   overflow: hidden;
 }
@@ -30,6 +30,7 @@
   font-size: 1rem;
   color: $grey-700;
   margin-top: 0.5rem;
+
   &:hover {
     text-decoration: underline;
     color: $black;
@@ -42,10 +43,10 @@
   align-items: center;
   justify-content: space-evenly;
   width: 40.6rem;
-  height: 10.62rem;
+  height: 12.62rem;
   margin: auto;
   border-radius: 1.88rem;
-  background: -webkit-radial-gradient(top, $purple-600, $purple-500);
+  background: radial-gradient(at top, $purple-600, $purple-500);
 }
 
 .stars {
@@ -56,6 +57,7 @@
   width: fit-content;
   gap: 0.5rem;
 }
+
 .star {
   background-image: url('/assets/images/ratingStar.png');
   background-size: cover;
@@ -67,7 +69,7 @@
 
 .quote {
   position: relative;
-  max-width: 87%;
+  max-width: 95%;
   width: auto;
   display: flex;
   align-items: center;
@@ -81,8 +83,8 @@
   width: 0.7rem;
   height: 1.13rem;
   position: absolute;
-  top: 0.5rem;
-  left: 0rem;
+  top: 0;
+  left: 0;
 }
 
 .quoteMarkBot {
@@ -92,14 +94,14 @@
   width: 0.7rem;
   height: 1.13rem;
   position: absolute;
-  bottom: 0.5rem;
-  right: 0rem;
+  bottom: 0;
+  right: 0;
 }
 
 .text {
   max-width: 96%;
   width: auto;
-  font-family: 'BPG Nino Mtavruli Bold';
+  font-family: $kaFont;
   text-align: center;
   max-height: 4.5rem;
   color: $white;

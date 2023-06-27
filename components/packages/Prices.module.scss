@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .freePackage {
   font-size: 2rem;
@@ -9,7 +9,7 @@
 .monthPrice {
   color: $black-800;
   font-size: 2rem;
-  font-family: 'SegoeUI';
+  font-family: SegoeUI;
 }
 
 .monthAndTotal {
@@ -24,6 +24,6 @@
 .totalPrice {
   font-size: 1.3rem;
   color: $black-100;
-  font-family: 'SegoeUI-SemiBold';
+  font-family: SegoeUI-SemiBold;
   margin-bottom: 0.6rem;
 }

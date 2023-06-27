@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   z-index: 200;
@@ -29,6 +29,7 @@
   color: $grey-800;
   cursor: pointer;
   margin-top: 1.5rem;
+
   &:lang(ka) {
     font-family: $kaFontTitleBold;
   }
@@ -46,10 +47,7 @@
   width: 8.93rem;
   height: 8.93rem;
   border-radius: 75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 2px 1px rgba(109, 106, 106, 0.3);
+  box-shadow: 0 2px 2px 1px rgba(109 106 106 / 30%);
   cursor: pointer;
   background-color: $white;
 

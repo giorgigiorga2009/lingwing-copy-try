@@ -3,17 +3,21 @@ import Foco from 'react-foco'
 import { Input } from './Input'
 import classNames from 'classnames'
 import { FC, useState } from 'react'
-import { LoginFooter } from './LoginFooter'
+import { useRouter } from 'next/router'
+import FocusTrap from 'focus-trap-react'
+import { AuthButton } from './AuthButton'
+import { SignUpFooter } from './SignUpFooter'
 import style from './LoginModal.module.scss'
 import { NetworkButtons } from './NetworkButtons'
 import { useTranslation } from '@utils/useTranslation'
+import ShowErr from '@components/shared/ShowInputError'
 
 import {
   getEmailValidation,
   getIsPasswordSame,
   getPasswordValidation,
 } from '@utils/validations'
-import { auth, getToken, login } from '@utils/auth'
+import { auth, login } from '@utils/auth'
 
 type Tab = 'signIn' | 'signUp'
 
@@ -22,7 +26,7 @@ const Divider: FC = () => {
   return (
     <div className={style.divider}>
       <span className={style.line} />
-      <span>{t('loginOrWith')}</span>
+      <span>{t('AUTH_OR_WITH')}</span>
       <span className={style.line} />
     </div>
   )
@@ -42,133 +46,162 @@ export const LoginModal: FC<Props> = ({
   setOpenLogin,
 }) => {
   const [tab, setTab] = useState<Tab>('signIn')
+  const router = useRouter()
   const { t } = useTranslation()
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [repeatPassword, setRepeatPassword] = useState<string>('')
 
-  const [isEmailValid, setIsEmailValid] = useState<boolean>()
-  const [isPasswordValid, setIsPasswordValid] = useState<boolean>()
-  const [isPasswordSame, setIsPasswordSame] = useState<boolean>()
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
+  const [isPasswordSame, setIsPasswordSame] = useState<boolean>(true)
 
-  const signUp = () => {
-    const isPasswordCorrect = password === repeatPassword
-    if (!isEmailValid || !isPasswordCorrect) return
+  const [emailExistsError, setEmailExistsError] = useState<boolean>(false)
+  const [emailNotFound, setEmailNotFound] = useState<boolean>(false)
 
-    return auth({ email, password, repeatPassword }).then(response =>
-      console.log(response),
-    )
+  const passwordChangeHandler = (password: string) => {
+    setIsPasswordValid(getPasswordValidation(password))
+    setPassword(password)
   }
 
-  const signIn = () => {
-    return login({ email, password }).then(response => {
-      localStorage.setItem('authToken', response)
-      setOpenLogin(!openLogin)
-    })
+  const repeatPasswordChangeHandler = (repeatPassword: string) => {
+    setIsPasswordSame(getIsPasswordSame(password, repeatPassword))
+    setRepeatPassword(repeatPassword)
+  }
+
+  const signUp = async () => {
+    if (!isEmailValid || !isPasswordSame) return
+
+    try {
+      const response = await auth({ email, password, repeatPassword })
+      response ? signIn() : setEmailExistsError(true)
+    } catch (error) {
+      console.log((error as Error).message)
+    }
+  }
+
+  const signIn = async () => {
+    if (!isEmailValid || !isPasswordValid) return
+
+    try {
+      const response = await login({ email, password })
+
+      if (response) {
+        localStorage.setItem('authToken', response)
+        router.push('/dashboard')
+        setOpenLogin(!openLogin)
+      } else {
+        setEmailNotFound(true)
+      }
+    } catch (error) {
+      console.log((error as Error).message)
+    }
   }
 
   return (
-    <div className={style.wrapper}>
-      <Foco
-        component="div"
-        onClickOutside={onClick}
-        className={classNames(style.modal, className)}
-      >
-        <div className={style.modalHeader}>
-          <Tab
-            onClick={() => setTab('signIn')}
-            isActive={tab === 'signIn'}
-            text={t('loginSignIn')}
-          />
-          <Tab
-            onClick={() => setTab('signUp')}
-            isActive={tab === 'signUp'}
-            text={t('loginSignUp')}
-          />
-          <div className={style.close} onClick={onClick} />
-        </div>
+    <FocusTrap>
+      <div className={style.wrapper}>
+        <Foco
+          component="div"
+          onClickOutside={onClick}
+          className={classNames(style.modal)}
+        >
+          <div className={style.modalHeader}>
+            <Tab
+              onClick={() => setTab('signIn')}
+              isActive={tab === 'signIn'}
+              text={t('AUTH_SIGN_IN')}
+            />
+            <Tab
+              onClick={() => setTab('signUp')}
+              isActive={tab === 'signUp'}
+              text={t('AUTH_SIGN_UP')}
+            />
+            <button className={style.close} onClick={onClick} />
+          </div>
 
-        <div className={style.content}>
-          <NetworkButtons isSignInTab={tab === 'signIn'} />
-          <Divider />
+          <div className={style.content}>
+            <NetworkButtons isSignInTab={tab === 'signIn'} />
+            <Divider />
+            {tab === 'signIn' && (
+              <>
+                <div className={style.form}>
+                  {emailNotFound && (
+                    <ShowErr ErrText={t('AUTH_EMAIL_NOT_FOUND')} />
+                  )}
+                  <Input
+                    type="email"
+                    placeholder={t('AUTH_EMAIL')}
+                    value={email}
+                    onChange={setEmail}
+                    onBlur={email => setIsEmailValid(getEmailValidation(email))}
+                  />
+                  {!isEmailValid && (
+                    <ShowErr ErrText={t('AUTH_EMAIL_NOT_VALID')} />
+                  )}
+                  <Input
+                    type="password"
+                    placeholder={t('AUTH_PASSWORD')}
+                    value={password}
+                    onChange={passwordChangeHandler}
+                  />
+                  {!isPasswordValid && (
+                    <ShowErr ErrText={t('AUTH_PASSWORD_NOT_VALID')} />
+                  )}
+                </div>
+                <div className={style.bottomWrapper}>
+                  <a className={style.forgotPasswordLink}>
+                    {t('AUTH_FORGET_PASSWORD')}
+                  </a>
+                  <AuthButton title={t('AUTH_SIGN_IN')} onClick={signIn} />
+                </div>
+              </>
+            )}
 
-          {tab === 'signIn' && (
-            <>
-              <div className={style.form}>
-                <Input
-                  type="email"
-                  placeholder={t('loginEmail')}
-                  value={email}
-                  onChange={setEmail}
-                />
-                <Input
-                  type="password"
-                  placeholder={t('loginPassword')}
-                  value={password}
-                  onChange={setPassword}
-                />
-              </div>
-              <div
-                className={classNames(style.button, style.disabled)}
-                onClick={signIn}
-              >
-                {t('loginSignIn')}
-              </div>
-              <a className={style.forgotPasswordLink}>
-                {t('loginForgotPassword')}
-              </a>
-            </>
-          )}
+            {tab === 'signUp' && (
+              <>
+                <div className={style.form}>
+                  {emailExistsError && (
+                    <ShowErr ErrText={t('AUTH_ALREADY_REGISTERED')} />
+                  )}
 
-          {tab === 'signUp' && (
-            <>
-              <div className={style.form}>
-                <Input
-                  type="email"
-                  placeholder={t('loginEmail')}
-                  value={email}
-                  onChange={setEmail}
-                  onBlur={email => setIsEmailValid(getEmailValidation(email))}
-                />
-                {isEmailValid === false && (
-                  <span className={style.error}> {t('emailNotValid')} </span>
-                )}
-                <Input
-                  type="password"
-                  placeholder={t('loginPassword')}
-                  value={password}
-                  onChange={setPassword}
-                  onBlur={password =>
-                    setIsPasswordValid(getPasswordValidation(password))
-                  }
-                />
-                {isPasswordValid === false && (
-                  <span className={style.error}>{t('passwordNotValid')} </span>
-                )}
-                <Input
-                  type="password"
-                  placeholder={t('loginRepeatPassword')}
-                  value={repeatPassword}
-                  onChange={setRepeatPassword}
-                  onBlur={repeatPassword =>
-                    setIsPasswordSame(
-                      getIsPasswordSame(password, repeatPassword),
-                    )
-                  }
-                />
-                {isPasswordSame === false && (
-                  <span className={style.error}>{t('passwordNotSame')}</span>
-                )}
-              </div>
-              <button className={classNames(style.button)} onClick={signUp}>
-                {t('loginSignUp')}
-              </button>
-              <LoginFooter />
-            </>
-          )}
-        </div>
-      </Foco>
-    </div>
+                  <Input
+                    type="email"
+                    placeholder={t('AUTH_EMAIL')}
+                    value={email}
+                    onChange={setEmail}
+                    onBlur={email => setIsEmailValid(getEmailValidation(email))}
+                  />
+                  {!isEmailValid && (
+                    <ShowErr ErrText={t('AUTH_EMAIL_NOT_VALID')} />
+                  )}
+                  <Input
+                    type="password"
+                    placeholder={t('AUTH_PASSWORD')}
+                    value={password}
+                    onChange={passwordChangeHandler}
+                  />
+                  {!isPasswordValid && (
+                    <ShowErr ErrText={t('AUTH_PASSWORD_NOT_VALID')} />
+                  )}
+                  <Input
+                    type="password"
+                    placeholder={t('AUTH_REPEAT_PASSWORD')}
+                    value={repeatPassword}
+                    onChange={repeatPasswordChangeHandler}
+                  />
+                  {!isPasswordSame && (
+                    <ShowErr ErrText={t('AUTH_PASSWORD_NOT_SAME')} />
+                  )}
+                </div>
+                <AuthButton title={t('AUTH_SIGN_UP')} onClick={signUp} />
+                <SignUpFooter />
+              </>
+            )}
+          </div>
+        </Foco>
+      </div>
+    </FocusTrap>
   )
 }

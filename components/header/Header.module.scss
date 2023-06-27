@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .header {
   position: absolute;
@@ -9,14 +9,16 @@
   flex-direction: row;
   align-items: center;
   z-index: 1001;
+
   &.m {
     height: 8.43rem;
-    padding: 3.125rem 2.2rem 2.18rem 2.2rem;
+    padding: 3.125rem 2.2rem 2.18rem;
 
     @include tablet {
       padding-left: 5%;
       padding-right: 5%;
     }
+
     @include mobile {
       padding-left: 5%;
       padding-right: 5%;
@@ -24,13 +26,16 @@
       height: 6.185rem;
     }
   }
+
   &.s {
     background-color: $purple-600;
     padding: 0.531rem 2.2rem;
     height: 3.59rem;
+
     @include tablet {
       padding: 0.5rem 2.5%;
     }
+
     @include mobile {
       padding: 0.5rem 2.5%;
     }
@@ -71,9 +76,11 @@
 
 header.m .logo {
   top: 8px;
+
   @include tablet {
     top: 0.75rem;
   }
+
   @include mobile {
     top: 1.06rem;
   }
@@ -88,6 +95,10 @@ header.m .logo {
 
   &:hover {
     color: $orange-500;
+  }
+
+  &:lang(ka) {
+    font-family: $kaFontTitle;
   }
 }
 
@@ -145,9 +156,11 @@ header.m .logo {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1.6rem;
+
   &:hover {
     border: 2px solid $white;
   }
+
   @include mobile {
     width: 2rem;
     height: 2rem;
@@ -169,15 +182,6 @@ header.m .logo {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  &:hover {
-    h4 {
-      color: $orange-500;
-    }
-  }
-
-  @include mobile {
-    display: none;
-  }
 
   h4 {
     color: $white;
@@ -185,9 +189,7 @@ header.m .logo {
     text-transform: uppercase;
 
     &:lang(ka) {
-      font-family: $kaFont;
-      font-weight: 500;
-      padding-top: 0.125rem;
+      font-family: $kaFontTitle;
     }
 
     &::before {
@@ -197,10 +199,20 @@ header.m .logo {
       height: 1rem;
       position: absolute;
       left: -1.8rem;
-      top: 0.2rem;
+      top: 0.1rem;
       background-image: url('/themes/images/v2/icon-dashboard-purple.png');
       background-size: contain;
       background-repeat: no-repeat;
     }
+  }
+
+  &:hover {
+    h4 {
+      color: $orange-500;
+    }
+  }
+
+  @include mobile {
+    display: none;
   }
 }

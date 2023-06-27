@@ -11,23 +11,25 @@ interface Props {
 
 const AboutTabs: FC<Props> = ({ activeTab }) => {
   const { t } = useTranslation()
+  type Tabs = keyof typeof ABOUT_COMPANY_LINKS
+  const TABS = Object.keys(ABOUT_COMPANY_LINKS) as Tabs[]
 
   return (
     <nav className={style.nav}>
       <ul className={style.ulNav}>
-        {ABOUT_COMPANY_LINKS.map(item => (
+        {TABS.map(item => (
           <Link
+            key={item}
             className={style.link}
             href={{
               pathname: '/aboutCompany',
-              query: { page: item },
+              query: { page: ABOUT_COMPANY_LINKS[item] },
             }}
           >
             <li
-              key={item}
               className={classNames(
                 style.liNav,
-                activeTab == item && style.activeMenu,
+                activeTab === ABOUT_COMPANY_LINKS[item] && style.activeMenu,
               )}
             >
               {t(item)}

@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .currentTask {
   display: flex;
@@ -12,7 +12,7 @@
   background-color: $orange-300;
   width: 100%;
   height: 3rem;
-  border-radius: 0 0 0.9rem 0rem;
+  border-radius: 0 0 0.9rem;
   align-items: center;
   padding-left: 0.5rem;
 }

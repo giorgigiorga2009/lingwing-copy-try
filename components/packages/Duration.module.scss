@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .duration {
   width: 100%;
@@ -8,7 +8,7 @@
   border-bottom: solid $white-100;
   background-color: $white-50;
   font-size: 2.6em;
-  font-family: 'SegoeUI';
+  font-family: SegoeUI;
 }
 
 .freePackageName {
@@ -16,7 +16,7 @@
 
   font-size: 2.1em;
   color: $purple-600;
-  padding: 15px 0 5px 0;
+  padding: 15px 0 5px;
 
   &:lang(ka) {
     font-family: $kaFontTitleBold;

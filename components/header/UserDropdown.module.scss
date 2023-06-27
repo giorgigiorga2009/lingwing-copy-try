@@ -1,4 +1,4 @@
-@import '../../styles/imports.scss';
+@import '@styles/imports';
 
 .dropdownContent {
   width: auto;
@@ -25,29 +25,26 @@
   font-size: 1rem;
   font-family: SegoeUI-SemiBold;
   text-align: left;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
   cursor: pointer;
+
   &:lang(ka) {
     font-family: $kaFont;
   }
+
   &:hover {
-    background-color: $white-100;
+    background-color: $white-70;
   }
 }
 
 .dashboard_btn {
-  background-image: url(/themes/images/v2/icon-dashboard-purple.png);
+  background-image: url('/themes/images/v2/icon-dashboard-purple.png');
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1rem;
 }
 
 .log_out_btn {
-  background-image: url(/themes/images/v2/icon-logout.png);
+  background-image: url('/themes/images/v2/icon-logout.png');
   background-repeat: no-repeat;
   background-position: right 1rem center;
 }

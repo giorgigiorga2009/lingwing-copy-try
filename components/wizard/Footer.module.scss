@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .footer {
   display: flex;
@@ -11,7 +11,7 @@
 
   @include tablet {
     gap: 0.7rem;
-    bottom: 0rem;
+    bottom: 0;
   }
 
   @include mobile {
@@ -31,9 +31,7 @@
   color: $grey-100;
   cursor: pointer;
   transition-property: color;
-  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 
   &:hover {
