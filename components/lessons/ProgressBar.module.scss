@@ -1,3 +1,5 @@
+@import '@styles/imports';
+
 .progressBar {
   display: flex;
   flex-direction: column;
@@ -15,20 +17,21 @@
   margin-bottom: 0.2rem;
   position: relative;
 }
+
 .scoreText {
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
   display: flex;
   align-items: center;
-  color: #1c1c1c;
+  color: $grey-300;
 }
 
 .scoreNumber {
   color: #f903e7;
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -39,14 +42,14 @@
 }
 
 .percent {
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 30px;
   display: flex;
   align-items: center;
-  color: #c1bfbb;
+  color: $grey-300;
   position: absolute;
   right: 0.5rem;
 }

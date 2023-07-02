@@ -7,18 +7,60 @@
   min-height: 10vh;
 }
 
+.header {
+  padding: 0.6rem 1.5rem;
+  width: fit-content;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #fce5cc;
+  border-radius: 1.8rem;
+  white-space: nowrap;
+  color: #ff9421;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+
+  .answer & {
+    display: none;
+  }
+}
+
+.arrowDown {
+  margin-left: 3rem;
+  width: 0;
+  height: 0;
+  border-radius: 0 0 0 1rem;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-top: 0.7rem solid #fce5cc;
+  margin-bottom: 0.5rem;
+}
+
 .hint {
   display: flex;
-  background-color: $orange-300;
+  background-color: #b692e3;
+  color: #692e96;
   width: 100%;
-  height: 3rem;
-  border-radius: 0 0 0.9rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: SegoeUI;
+  border-radius: 0 0 1.5rem 0.3rem;
   align-items: center;
-  padding-left: 0.5rem;
+  padding: 2rem 1.8rem 0.4rem;
+  margin-top: -1.8rem;
+  max-width: 30rem;
 }
 
 .hidden {
   display: none;
+}
+
+.hintText {
+  color: $white;
+  padding-left: 0.4rem;
+  text-transform: lowercase;
 }
 
 .bubbleContainer {

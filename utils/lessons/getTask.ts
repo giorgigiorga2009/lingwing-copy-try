@@ -1,6 +1,4 @@
 import axios, { AxiosRequestHeaders } from 'axios'
-import { words } from 'lodash'
-import { LanguageCourse } from './getLanguageCoursesList'
 
 export type InitialTasksData = {
   tasks: InitialTask[]

@@ -69,12 +69,15 @@ export const MistakeCorrectionTask: FC<Props> = ({
     }
   }, [inputText])
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(event.target.value)
+    setIsHintShown(false)
+    setMistakeRepeat(false)
   }
 
-  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter') {
+      event.preventDefault()
       checkAnswer()
     }
   }
@@ -112,16 +115,20 @@ export const MistakeCorrectionTask: FC<Props> = ({
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
 
-      <input
-        type="text"
+      <textarea
+        //type="text"
         className={style.input}
         value={inputText}
+        autoComplete="off"
+        spellCheck="false"
+        data-gramm="false"
         onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
       />
 
-      <div className={style.checkButton} onClick={checkAnswer}>
+      <button className={style.checkButton} onClick={checkAnswer}>
         Check
-      </div>
+      </button>
     </div>
   )
 }

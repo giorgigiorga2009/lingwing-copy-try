@@ -3,7 +3,7 @@ const alerts = document.querySelector('#alerts')
 const content = document.querySelector('#content')
 
 let counter = 0
-let corectTextCount = 0
+//let corectTextCount = 0
 let pressedCmd = ''
 let pressedAlt = ''
 

@@ -13,6 +13,7 @@ interface Props {
   currentMessageIndex: number
   onDivHeight: (height: number) => void
 }
+
 const ChatCurrentTask: FC<Props> = ({
   currentTask,
   isHintShown,
@@ -26,17 +27,18 @@ const ChatCurrentTask: FC<Props> = ({
       {(currentTask.taskType === 'translate' ||
         currentTask.taskType === 'omittedwords') && (
         <div className={style.currentTask}>
+          <div className={style.header}>{currentTask.taskDescription}</div>
+          <div className={style.arrowDown}></div>
           <div className={style.bubbleContainer}>
             <TranslateBubble
               utteranceType="taskDescription"
               isCurrentTask={true}
               taskText={currentTask.taskText}
               correctText={currentTask.correctText as string}
-              taskDescription={currentTask.taskDescription}
               isHintShown={isHintShown}
             />
             <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: {hintText}
+              Hint: <span className={style.hintText}>{hintText}</span>
             </div>
           </div>
         </div>
@@ -44,17 +46,18 @@ const ChatCurrentTask: FC<Props> = ({
 
       {currentTask.taskType === 'mistakecorrection' && (
         <div className={style.currentTask}>
+          <div className={style.header}>{currentTask.taskDescription}</div>
+          <div className={style.arrowDown}></div>
           <div className={style.bubbleContainer}>
             <TranslateBubble
               utteranceType="taskDescription"
               isCurrentTask={true}
               taskText={currentTask.mistakeTaskText}
               correctText={currentTask.correctText as string}
-              taskDescription={currentTask.taskDescription}
               isHintShown={isHintShown}
             />
             <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: {hintText}
+              Hint: <span className={style.hintText}>{hintText}</span>
             </div>
           </div>
         </div>
@@ -69,7 +72,7 @@ const ChatCurrentTask: FC<Props> = ({
               dialogArray={currentTask.correctText as string[]}
             />
             <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: {hintText}
+              Hint: <span className={style.hintText}>{hintText}</span>
             </div>
           </div>
         </div>
@@ -77,6 +80,8 @@ const ChatCurrentTask: FC<Props> = ({
 
       {currentTask.taskType === 'replay' && (
         <div className={style.currentTask}>
+          <div className={style.header}>{currentTask.taskDescription}</div>
+          <div className={style.arrowDown}></div>
           <div className={style.bubbleContainer}>
             <TranslateBubble
               utteranceType="taskDescription"
@@ -84,11 +89,10 @@ const ChatCurrentTask: FC<Props> = ({
               isCurrentTask={true}
               taskText={currentTask.taskText}
               correctText={currentTask.correctText as string}
-              taskDescription={currentTask.taskDescription}
               isHintShown={isHintShown}
             />
             <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: {hintText}
+              Hint: <span className={style.hintText}>{hintText}</span>
             </div>
           </div>
         </div>
@@ -96,6 +100,8 @@ const ChatCurrentTask: FC<Props> = ({
 
       {currentTask.taskType === 'dictation' && (
         <div className={style.currentTask}>
+          <div className={style.header}>{currentTask.taskDescription}</div>
+          <div className={style.arrowDown}></div>
           <div className={style.bubbleContainer}>
             <DictationBubble
               sentenceAudioPath={currentTask.sentenceAudioPath}
@@ -103,11 +109,10 @@ const ChatCurrentTask: FC<Props> = ({
               isCurrentTask={true}
               taskText={currentTask.taskText}
               correctText={currentTask.correctText as string}
-              taskDescription={currentTask.taskDescription}
               isHintShown={isHintShown}
             />
             <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: {hintText}
+              Hint: <span className={style.hintText}>{hintText}</span>
             </div>
           </div>
         </div>

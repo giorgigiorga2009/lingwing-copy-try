@@ -55,6 +55,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const [mistakeRepeat, setMistakeRepeat] = useState(false) // whether or not we should count new mistakes
   const [isAnimating, setIsAnimating] = useState(false) // whether or not the microphone icon should be animating
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [taskProgress, setTaskProgress] = useState('0%')
 
   const correctText = currentTask.correctText as string
   const wordsSynonyms = currentTask.wordsSynonyms
@@ -62,14 +63,25 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   // play audio after word is finished
   useEffect(() => {
-    if (taskType !== 'translate' && taskType !== 'dictation') return
+    if (
+      taskType !== 'translate' &&
+      taskType !== 'dictation' &&
+      taskType !== 'replay'
+    )
+      return
+
     const outputArray = outputText.toLowerCase().trim().split(' ')
     const wordIsFinished =
-      currentTask?.wordsArray[currentWordIndex]?.wordLoweredText ===
-      outputArray[currentWordIndex]?.replace(/[^\w\s-]/g, '').trim()
+      currentTask?.wordsArray[currentWordIndex]?.wordText
+        .toLocaleLowerCase()
+        .replace(/[^\p{L}\p{M}?]/gu, '')
+        .trim() ===
+      outputArray[currentWordIndex]?.replace(/[^\p{L}\p{M}?]/gu, '').trim()
+
     if (wordIsFinished) {
       if (
-        currentTask?.wordsArray[currentWordIndex]?.wordAudioPath !== undefined
+        currentTask?.wordsArray[currentWordIndex]?.wordAudioPath !==
+        'undefined/undefined'
       ) {
         const audio = new Audio(
           `https://cdn.lingwing.com${currentTask?.wordsArray[currentWordIndex]?.wordAudioPath}.mp3`,
@@ -77,6 +89,9 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
         audio.play()
       }
       setCurrentWordIndex(currentWordIndex + 1)
+      setTaskProgress(
+        (outputArray.length / currentTask.wordsArray.length) * 100 + '%',
+      )
     }
   }, [outputText])
 
@@ -88,7 +103,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   // set up speech recognition
   const { finalTranscript } = useSpeechRecognition()
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
 
   // only for voiceRecognition
   useEffect(() => {
@@ -124,13 +139,15 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   //only for keyboardInput
   useEffect(() => {
-    ;(taskType === 'dictation' || taskType === 'translate') && // Depending of taskType choosing text check
+    // Depending of taskType choosing text check
+    ;(taskType === 'dictation' || taskType === 'translate') &&
       setOutputText(
         standardTextCheck({
           ...params,
           currentWord: currentTask?.wordsArray[currentWordIndex]?.wordText,
         }),
       )
+
     taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
   }, [inputText])
 
@@ -149,6 +166,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           courseId,
         })
         if (isSaveSuccessful) {
+          setIsHintShown(false)
+          setTaskProgress('0%')
           setCurrentTaskNumber(currentTaskNumber + 1)
           setInputText('')
           setOutputText('')
@@ -212,7 +231,9 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       : SpeechRecognition.stopListening()
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (outputText.trim() === correctText) return
+
     const currentCharCode = event.target.value.charCodeAt(
       event.target.value.length - 1,
     )
@@ -240,55 +261,58 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }
 
   return (
-    <div className={style.container}>
-      <div className={style.mistakes}> {mistakesCount} </div>
+    <>
+      <div className={style.taskProgress} style={{ width: taskProgress }}></div>
+      <div className={style.container}>
+        <div className={style.mistakes}> {mistakesCount} </div>
 
-      {(taskType === 'dictation' ||
-        taskType === 'translate' ||
-        taskType === 'replay') && (
-        <DictationInput
-          inputRef={inputRef}
-          outputText={outputText}
-          onKeyDown={handleOnKeyDown}
-          onChange={handleChange}
-          onFocus={handleOnFocus}
-        />
-      )}
+        {(taskType === 'dictation' ||
+          taskType === 'translate' ||
+          taskType === 'replay') && (
+          <DictationInput
+            inputRef={inputRef}
+            outputText={outputText}
+            onKeyDown={handleOnKeyDown}
+            onChange={handleChange}
+            onFocus={handleOnFocus}
+          />
+        )}
 
-      {(token !== null || userId !== null) && taskType === 'omittedwords' && (
-        <OmittedWords
-          sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
-          onKeyDown={handleOnKeyDown}
-          setMistakeRepeat={setMistakeRepeat}
-          mistakeRepeat={mistakeRepeat}
-          setMistakesCount={setMistakesCount}
-          mistakesCount={mistakesCount}
-          token={token}
-          userId={userId}
-          languageTo={languageTo}
-          languageFrom={languageFrom}
-          courseId={courseId}
-          setCurrentTaskNumber={setCurrentTaskNumber}
-          currentTaskNumber={currentTaskNumber}
-          currentTask={currentTask}
-          completedTasks={completedTasks}
-          setCompletedTasks={setCompletedTasks}
-          setIsHintShown={setIsHintShown}
-          setHintText={setHintText}
-        />
-      )}
+        {(token !== null || userId !== null) && taskType === 'omittedwords' && (
+          <OmittedWords
+            sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
+            onKeyDown={handleOnKeyDown}
+            setMistakeRepeat={setMistakeRepeat}
+            mistakeRepeat={mistakeRepeat}
+            setMistakesCount={setMistakesCount}
+            mistakesCount={mistakesCount}
+            token={token}
+            userId={userId}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            courseId={courseId}
+            setCurrentTaskNumber={setCurrentTaskNumber}
+            currentTaskNumber={currentTaskNumber}
+            currentTask={currentTask}
+            completedTasks={completedTasks}
+            setCompletedTasks={setCompletedTasks}
+            setIsHintShown={setIsHintShown}
+            setHintText={setHintText}
+          />
+        )}
 
-      <animated.div
-        className={style.microphoneIcon}
-        style={{
-          opacity,
-          transform,
-        }}
-        onClick={handleMicOnClick}
-      >
-        <span className={style.micIcon} key="mic" />
-        {isAnimating && <div className={style.pulsatingCircle} />}
-      </animated.div>
-    </div>
+        <animated.div
+          className={style.microphoneIcon}
+          style={{
+            opacity,
+            transform,
+          }}
+          onClick={handleMicOnClick}
+        >
+          <span className={style.micIcon} key="mic" />
+          {isAnimating && <div className={style.pulsatingCircle} />}
+        </animated.div>
+      </div>
+    </>
   )
 }

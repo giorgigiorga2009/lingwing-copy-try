@@ -1,18 +1,4 @@
-import React from 'react'
-
-const getLetter = (text: string, index: number): string =>
-  text.toLowerCase()[index]
-
-export const isEqual = ({
-  correctText,
-  textToCompare,
-  index,
-}: {
-  correctText: string
-  textToCompare: string
-  index: number
-}): boolean => getLetter(correctText, index) === getLetter(textToCompare, index)
-
+//Only For voice recognition
 const findMatchedWordIndex = ({
   synonyms,
   arrayToSearch,
@@ -23,7 +9,7 @@ const findMatchedWordIndex = ({
   lastAddedWordIndex: number
 }) => {
   for (let i = 0; i < synonyms.length; i++) {
-    let index = arrayToSearch.indexOf(synonyms[i], lastAddedWordIndex)
+    const index = arrayToSearch.indexOf(synonyms[i], lastAddedWordIndex)
     if (index !== -1) {
       return index
     }
@@ -32,6 +18,7 @@ const findMatchedWordIndex = ({
   return -1
 }
 
+//Only For voice recognition
 export const getStringFromRecognition = ({
   correctText,
   finalTranscript,
@@ -57,7 +44,8 @@ export const getStringFromRecognition = ({
       /[.,\/#!$%\^&\*;:{}=\-_`~()]/g,
       '',
     )
-    //переменная в которой будут хранится все отрезанные знаки пунктуации
+
+    //a variable that will store all cuted punctuation marks
     const synonyms = wordsSynonyms[index]
       ? [modifiedWord, ...wordsSynonyms[index]]
       : [modifiedWord]
@@ -78,7 +66,9 @@ export const getStringFromRecognition = ({
   }
   return outputArray.join(' ')
 }
+const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()]$/
 
+//Used only for dialog and repetition tasks
 export const repetitionInputCheck = ({
   correctText,
   inputText,
@@ -100,8 +90,6 @@ export const repetitionInputCheck = ({
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }) => {
-  const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()]$/
-
   const outputTextArray = outputText ? outputText.trim().split(' ') : []
   const correctWordsArray = correctText.split(' ')
   const inputTextArray = inputText ? inputText.split(' ') : []
@@ -137,6 +125,20 @@ export const repetitionInputCheck = ({
   }
 }
 
+const getLetter = (text: string, index: number): string =>
+  text.toLowerCase()[index]
+
+const isEqual = ({
+  correctText,
+  textToCompare,
+  index,
+}: {
+  correctText: string
+  textToCompare: string
+  index: number
+}): boolean => getLetter(correctText, index) === getLetter(textToCompare, index)
+
+//Only used for dictation and translation
 export const standardTextCheck = ({
   inputText,
   correctText,
@@ -170,7 +172,7 @@ export const standardTextCheck = ({
 
   const isCharPunctuation = (index: number) => {
     if (correctText[index]) {
-      return /[.,\/#!$%\^&\*;:{}=\-_`~()]/.test(correctText[index])
+      return regexp.test(correctText[index])
     } else return false
   }
 
@@ -180,6 +182,7 @@ export const standardTextCheck = ({
     } else return false
   }
 
+  //textToShow is Written Text in input + next letter
   let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
 
   //check if only last punctuation left
@@ -200,7 +203,7 @@ export const standardTextCheck = ({
     correctText[index + 2] &&
     isTextEqual
   ) {
-    console.log('Check1', isCharSpace(index + 2), correctText[index + 2])
+    //console.log('Check1', isCharSpace(index + 2), correctText[index + 2])
     return correctText.slice(0, inputText ? inputText.length + 1 : 0)
   }
 

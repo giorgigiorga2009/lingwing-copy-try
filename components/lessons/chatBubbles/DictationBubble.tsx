@@ -9,7 +9,6 @@ const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
 
 interface Props {
   type: 'taskDescription' | 'answer'
-  taskDescription: string
   taskText: string
   correctText: string
   sentenceAudioPath?: string
@@ -18,7 +17,6 @@ interface Props {
 }
 
 export const DictationBubble: FC<Props> = ({
-  taskDescription,
   taskText,
   correctText,
   sentenceAudioPath,
@@ -28,6 +26,13 @@ export const DictationBubble: FC<Props> = ({
 }) => {
   const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
   const hint = isHintShown ? 'hint' : ''
+
+  taskText = taskText
+    .replaceAll('(SH)', '✂️')
+    .replaceAll('(F)', '👧')
+    .replaceAll('(M)', '👦')
+    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+
   return (
     <div
       className={classNames(
@@ -37,7 +42,6 @@ export const DictationBubble: FC<Props> = ({
         style[hint],
       )}
     >
-      <div className={style.header}>{taskDescription}</div>
       <div className={style.content}>
         <span className={style.correctText}>{correctText}</span>
         {isCurrentTask && (
@@ -45,7 +49,10 @@ export const DictationBubble: FC<Props> = ({
             <WaveSurferNext audioURL={audioUrl} />
           </span>
         )}
-        <span className={style.taskText}>{taskText} </span>
+        <span
+          className={style.taskText}
+          dangerouslySetInnerHTML={{ __html: taskText }}
+        ></span>
       </div>
     </div>
   )

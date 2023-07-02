@@ -4,7 +4,6 @@ import style from './TranslateBubble.module.scss'
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
-  taskDescription: string
   taskText: string
   correctText: string
   isCurrentTask: boolean
@@ -13,7 +12,6 @@ interface Props {
 }
 
 export const TranslateBubble: FC<Props> = ({
-  taskDescription,
   taskText,
   correctText,
   utteranceType,
@@ -22,6 +20,13 @@ export const TranslateBubble: FC<Props> = ({
   isHintShown,
 }) => {
   const hint = isHintShown ? 'hint' : ''
+
+  taskText = taskText
+    .replaceAll('(SH)', '✂️')
+    .replaceAll('(F)', '👧')
+    .replaceAll('(M)', '👦')
+    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+
   return (
     <div
       className={classNames(
@@ -32,10 +37,20 @@ export const TranslateBubble: FC<Props> = ({
         style[hint],
       )}
     >
-      <div className={style.header}>{taskDescription}</div>
       <div className={style.content}>
         <span className={style.correctText}>{correctText}</span>
-        <span className={style.taskText}>{taskText} </span>
+        {textType === 'standard' ? (
+          <span
+            className={style.taskText}
+            dangerouslySetInnerHTML={{ __html: taskText }}
+          ></span>
+        ) : (
+          <span className={style.taskText}>
+            {taskText.split(' ').map(word => (
+              <span key={word}>{word + ' '}</span>
+            ))}
+          </span>
+        )}
       </div>
     </div>
   )
