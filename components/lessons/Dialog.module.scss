@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .dialog {
   border: 1px solid black;
@@ -8,7 +8,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  padding: 1rem 0.5rem 0.5rem;
 }
 
 .parrots {
@@ -45,12 +45,10 @@
 .messageRight {
   align-self: flex-end;
   background-color: #e4f7d9;
-  border-radius: 1rem 1rem 0 1rem;
+  border-radius: 1rem 1rem 0;
   padding: 1rem;
   margin: 0 0 1rem 1rem;
 }
-
-@import '../../styles/imports.scss';
 
 .container {
   display: flex;
@@ -60,8 +58,8 @@
   justify-content: center;
   align-items: center;
   background-color: #faf9f8;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 2px 2px 10px 5px rgba(0 0 0 / 3%);
 }
 
 .input {
@@ -111,8 +109,9 @@
 .example {
   color: grey;
 }
+
 .exampleText {
-  &:first-letter {
+  &::first-letter {
     font-weight: bold;
     color: orange;
   }

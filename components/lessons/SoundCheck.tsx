@@ -1,5 +1,5 @@
 import classnames from 'classnames'
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useTranslation } from '@utils/useTranslation'
 import style from './SoundCheck.module.scss'
 
@@ -22,7 +22,7 @@ export const SoundCheck: FC<Props> = ({ setSoundChecked, soundChecked }) => {
       <div className={style.header}>{t('makeSureHear')}</div>
       <div className={style.checkContainer}>
         <div className={style.buttonContainer}>
-          <div
+          <button
             className={style.soundButton}
             onClick={() => {
               audio?.play()
@@ -32,18 +32,12 @@ export const SoundCheck: FC<Props> = ({ setSoundChecked, soundChecked }) => {
         </div>
         <div className={style.label}> {t('checkSound')} </div>
       </div>
-
-      <div
-        className={style.startButtonContainer}
+      <button
+        className={classnames(style.startButton, sound && style.slideOut)}
         onClick={() => setSoundChecked(true)}
       >
-        <div className={classnames(style.testDone, sound && style.slideIn)}>
-          {t('hearSound')}
-        </div>
-        <div className={classnames(style.needTest, sound && style.slideOut)}>
-          {t('startButton')}
-        </div>
-      </div>
+        {sound ? t('hearSound') : t('startButton')}
+      </button>
     </div>
   )
 }

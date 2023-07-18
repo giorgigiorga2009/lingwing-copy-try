@@ -13,7 +13,7 @@
 
 .container {
   padding: 2rem 2.2rem 2.2rem;
-  background-color: $white-100;
+  background-color: #faf9f7;
   box-shadow: 0 8px 16px 0 $black-t;
   border-radius: 0 1rem 1rem 0;
   display: flex;
@@ -101,6 +101,7 @@
 
   a:hover {
     color: $purple-300;
+    transition: color 0.2s;
   }
 
   &:lang(ka) {
