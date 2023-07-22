@@ -38,7 +38,8 @@
     "regenerator-runtime": "^0.13.11",
     "tone": "^14.8.49",
     "waves-ui": "wavesjs/ui",
-    "wavesurfer.js": "^6.4.0"
+    "wavesurfer.js": "^6.4.0",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@types/node": "17.0.41",

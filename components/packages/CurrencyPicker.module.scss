@@ -1,28 +1,23 @@
 @import '@styles/imports';
 
 .currency {
+  opacity: 0;
+  width: 0;
+}
+
+.label {
   cursor: pointer;
-  margin-left: 10px;
-  border-radius: 4px;
-  padding: 2px 5px;
+  padding: 0.3rem;
+  font-family: SegoeUI;
+  color: $purple-100;
+  border-radius: 0.3rem;
 
   &:hover {
-    animation: fadeIn ease 0.5s;
-
-    @extend .currencyBackground;
+    transition: 0.1s linear;
+    background-color: $purple-500;
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0.6;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.currencyBackground {
+.currency:checked + label {
   background-color: $purple-200;
 }

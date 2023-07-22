@@ -3,12 +3,12 @@ import SpeechRecognition, {
 } from 'react-speech-recognition'
 import style from './Dialog.module.scss'
 import { KEYBOARD_OVERRIDE } from '@utils/const'
-import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
 import { FC, useEffect, useRef, useState } from 'react'
 import {
   getStringFromRecognition,
   repetitionInputCheck,
+  CommonProps,
 } from '@utils/lessons/taskInputUtils'
 
 interface DialogProps {
@@ -60,45 +60,27 @@ export const Dialog: FC<DialogProps> = ({
 }
 
 interface DialogInputProps {
+  commonProps: CommonProps
   setCurrentMessageIndex: (index: number) => void
   currentMessageIndex: number
-  token: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
-  userId: string | null
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
   setCurrentMessageIndex,
   currentMessageIndex,
-  token,
-  languageTo,
-  languageFrom,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  currentTask,
-  completedTasks,
-  setCompletedTasks,
+  commonProps,
   setIsHintShown,
   setHintText,
-  userId,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
   const [inputText, setInputText] = useState('')
-  const dialogArray = currentTask.correctText as string[]
-  const wordsSynonyms = currentTask.wordsSynonyms
-  const iLearnFromNameCode = currentTask.iLearnFromNameCode
+  const dialogArray = commonProps.currentTask.correctText as string[]
+  const wordsSynonyms = commonProps.currentTask.wordsSynonyms
+  const iLearnFromNameCode = commonProps.currentTask.iLearnFromNameCode
 
   // set up speech recognition
   const { finalTranscript } = useSpeechRecognition()
@@ -172,7 +154,7 @@ export const DialogInput: FC<DialogInputProps> = ({
 
   useEffect(() => {
     const audio = new Audio(
-      `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`,
+      `https://cdn.lingwing.com${commonProps.currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`,
     )
     audio.play()
   }, [])
@@ -183,30 +165,35 @@ export const DialogInput: FC<DialogInputProps> = ({
         if (currentMessageIndex === dialogArray.length - 1) {
           setIsHintShown(false)
           setCurrentMessageIndex(0)
-          if (token === null && userId === null) return
+          if (commonProps.token === null && commonProps.userId === null) return
           const isSaveSuccessful = await saveTask({
-            userId,
-            token,
-            languageFrom,
-            languageTo,
-            currentTask,
-            courseId,
+            userId: commonProps.userId,
+            token: commonProps.token,
+            languageFrom: commonProps.languageFrom,
+            languageTo: commonProps.languageTo,
+            currentTask: commonProps.currentTask,
+            courseId: commonProps.courseId,
           })
           if (isSaveSuccessful) {
-            setCurrentTaskNumber(currentTaskNumber + 1)
-            completedTasks &&
-              setCompletedTasks([...completedTasks, currentTask])
-            !completedTasks && setCompletedTasks([currentTask])
+            commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+            commonProps.completedTasks &&
+              commonProps.setCompletedTasks([
+                ...commonProps.completedTasks,
+                commonProps.currentTask,
+              ])
+            !commonProps.completedTasks &&
+              commonProps.setCompletedTasks([commonProps.currentTask])
           }
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
         setOutputText('')
         setInputText('')
-        if (!currentTask?.dialogLinesArray[currentMessageIndex + 1]) return
+        if (!commonProps.currentTask?.dialogLinesArray[currentMessageIndex + 1])
+          return
         const audio = new Audio(
           `https://cdn.lingwing.com${
-            currentTask?.dialogLinesArray[currentMessageIndex + 1]
+            commonProps.currentTask?.dialogLinesArray[currentMessageIndex + 1]
               .sentenceAudioPath
           }.mp3`,
         )

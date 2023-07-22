@@ -7,42 +7,24 @@ import {
   repetitionInputCheck,
   getStringFromRecognition,
   standardTextCheck,
+  CommonProps,
 } from '@utils/lessons/taskInputUtils'
 import { animated, useSpring } from 'react-spring'
 import { KEYBOARD_OVERRIDE } from '@utils/const'
 import { DictationInput } from './DictationInput'
 import { OmittedWords } from './OmittedWords'
 import { saveTask } from '@utils/lessons/saveTask'
-import { TaskData } from '@utils/lessons/getTask'
 
 interface TaskInputProps {
+  commonProps: CommonProps
   taskType: string
-  userId: string | null
-  token: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
 
 export const TaskInputContainer: FC<TaskInputProps> = ({
-  userId,
+  commonProps,
   taskType,
-  token,
-  languageTo,
-  languageFrom,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  currentTask,
-  completedTasks,
-  setCompletedTasks,
   setIsHintShown,
   setHintText,
 }) => {
@@ -57,9 +39,9 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
 
-  const correctText = currentTask.correctText as string
-  const wordsSynonyms = currentTask.wordsSynonyms
-  const iLearnFromNameCode = currentTask.iLearnFromNameCode
+  const correctText = commonProps.currentTask.correctText as string
+  const wordsSynonyms = commonProps.currentTask.wordsSynonyms
+  const iLearnFromNameCode = commonProps.currentTask.iLearnFromNameCode
 
   // play audio after word is finished
   useEffect(() => {
@@ -72,7 +54,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
     const outputArray = outputText.toLowerCase().trim().split(' ')
     const wordIsFinished =
-      currentTask?.wordsArray[currentWordIndex]?.wordText
+      commonProps.currentTask?.wordsArray[currentWordIndex]?.wordText
         .toLocaleLowerCase()
         .replace(/[^\p{L}\p{M}?]/gu, '')
         .trim() ===
@@ -80,17 +62,18 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
     if (wordIsFinished) {
       if (
-        currentTask?.wordsArray[currentWordIndex]?.wordAudioPath !==
+        commonProps.currentTask?.wordsArray[currentWordIndex]?.wordAudioPath !==
         'undefined/undefined'
       ) {
         const audio = new Audio(
-          `https://cdn.lingwing.com${currentTask?.wordsArray[currentWordIndex]?.wordAudioPath}.mp3`,
+          `https://cdn.lingwing.com${commonProps.currentTask?.wordsArray[currentWordIndex]?.wordAudioPath}.mp3`,
         )
         audio.play()
       }
       setCurrentWordIndex(currentWordIndex + 1)
       setTaskProgress(
-        (outputArray.length / currentTask.wordsArray.length) * 100 + '%',
+        (outputArray.length / commonProps.currentTask.wordsArray.length) * 100 +
+          '%',
       )
     }
   }, [outputText])
@@ -144,7 +127,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       setOutputText(
         standardTextCheck({
           ...params,
-          currentWord: currentTask?.wordsArray[currentWordIndex]?.wordText,
+          currentWord:
+            commonProps.currentTask?.wordsArray[currentWordIndex]?.wordText,
         }),
       )
 
@@ -152,30 +136,35 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }, [inputText])
 
   useEffect(() => {
-    if (token === null && userId === null) return
+    if (commonProps.token === null && commonProps.userId === null) return
     // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.trim() === correctText) {
       setTimeout(async () => {
         setIsHintShown(false)
         const isSaveSuccessful = await saveTask({
-          userId,
-          token,
-          languageFrom,
-          languageTo,
-          currentTask,
-          courseId,
+          userId: commonProps.userId,
+          token: commonProps.token,
+          languageFrom: commonProps.languageFrom,
+          languageTo: commonProps.languageTo,
+          currentTask: commonProps.currentTask,
+          courseId: commonProps.courseId,
         })
         if (isSaveSuccessful) {
           setIsHintShown(false)
           setTaskProgress('0%')
-          setCurrentTaskNumber(currentTaskNumber + 1)
+          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
           setInputText('')
           setOutputText('')
           setMistakesCount(0)
           setMistakeRepeat(false)
           setCurrentWordIndex(0)
-          completedTasks && setCompletedTasks([...completedTasks, currentTask])
-          !completedTasks && setCompletedTasks([currentTask])
+          commonProps.completedTasks &&
+            commonProps.setCompletedTasks([
+              ...commonProps.completedTasks,
+              commonProps.currentTask,
+            ])
+          !commonProps.completedTasks &&
+            commonProps.setCompletedTasks([commonProps.currentTask])
         }
       }, 1500)
     }
@@ -278,28 +267,20 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           />
         )}
 
-        {(token !== null || userId !== null) && taskType === 'omittedwords' && (
-          <OmittedWords
-            sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
-            onKeyDown={handleOnKeyDown}
-            setMistakeRepeat={setMistakeRepeat}
-            mistakeRepeat={mistakeRepeat}
-            setMistakesCount={setMistakesCount}
-            mistakesCount={mistakesCount}
-            token={token}
-            userId={userId}
-            languageTo={languageTo}
-            languageFrom={languageFrom}
-            courseId={courseId}
-            setCurrentTaskNumber={setCurrentTaskNumber}
-            currentTaskNumber={currentTaskNumber}
-            currentTask={currentTask}
-            completedTasks={completedTasks}
-            setCompletedTasks={setCompletedTasks}
-            setIsHintShown={setIsHintShown}
-            setHintText={setHintText}
-          />
-        )}
+        {(commonProps.token !== null || commonProps.userId !== null) &&
+          taskType === 'omittedwords' && (
+            <OmittedWords
+              sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
+              onKeyDown={handleOnKeyDown}
+              setMistakeRepeat={setMistakeRepeat}
+              mistakeRepeat={mistakeRepeat}
+              setMistakesCount={setMistakesCount}
+              mistakesCount={mistakesCount}
+              commonProps={commonProps}
+              setIsHintShown={setIsHintShown}
+              setHintText={setHintText}
+            />
+          )}
 
         <animated.div
           className={style.microphoneIcon}

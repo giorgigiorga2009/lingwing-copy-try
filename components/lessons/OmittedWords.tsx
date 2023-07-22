@@ -1,26 +1,17 @@
 import style from './OmittedWords.module.scss'
-import { TaskData } from '@utils/lessons/getTask'
+//import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
+import { CommonProps } from '@utils/lessons/taskInputUtils'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
-  // setCorrect: (bool: boolean) => void
+  commonProps: CommonProps
   sentenceArray: string[]
   onKeyDown: (event: React.KeyboardEvent) => void
   setMistakeRepeat: (bool: boolean) => void
   mistakeRepeat: boolean
   setMistakesCount: (values: number) => void
   mistakesCount: number
-  token: string | null
-  userId: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
@@ -28,21 +19,12 @@ interface Props {
 export const OmittedWords: FC<Props> = ({
   sentenceArray,
   // setCorrect,
-  userId,
   onKeyDown,
   setMistakeRepeat,
   mistakeRepeat,
   setMistakesCount,
   mistakesCount,
-  token,
-  languageTo,
-  languageFrom,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  currentTask,
-  completedTasks,
-  setCompletedTasks,
+  commonProps,
   setIsHintShown,
   setHintText,
 }) => {
@@ -91,21 +73,26 @@ export const OmittedWords: FC<Props> = ({
   }
 
   useEffect(() => {
-    if (token === null && userId === null) return
+    if (commonProps.token === null && commonProps.userId === null) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
         const isSaveSuccessful = await saveTask({
-          userId,
-          token,
-          languageFrom,
-          languageTo,
-          currentTask,
-          courseId,
+          userId: commonProps.userId,
+          token: commonProps.token,
+          languageFrom: commonProps.languageFrom,
+          languageTo: commonProps.languageTo,
+          currentTask: commonProps.currentTask,
+          courseId: commonProps.courseId,
         })
         if (isSaveSuccessful) {
-          setCurrentTaskNumber(currentTaskNumber + 1)
-          completedTasks && setCompletedTasks([...completedTasks, currentTask])
-          !completedTasks && setCompletedTasks([currentTask])
+          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+          commonProps.completedTasks &&
+            commonProps.setCompletedTasks([
+              ...commonProps.completedTasks,
+              commonProps.currentTask,
+            ])
+          !commonProps.completedTasks &&
+            commonProps.setCompletedTasks([commonProps.currentTask])
         }
       }, 1500)
     }

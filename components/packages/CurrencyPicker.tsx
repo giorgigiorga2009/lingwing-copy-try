@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import classNames from 'classnames'
+import useStore from '@utils/store'
 import style from './CurrencyPicker.module.scss'
 
 interface Props {
@@ -7,25 +7,32 @@ interface Props {
   identifier: string
   symbol: string
   index: number
-  onClick: () => void
+  //onClick: () => void
 }
 
 export const Currency: FC<Props> = ({
-  selectedCurrency,
+  //selectedCurrency,
   identifier,
   symbol,
   index,
   onClick,
 }) => {
+  const selectedCurrency = useStore(state => state.selectedCurrency)
+  const changeCurrency = useStore(state => state.changeCurrency)
+
+  console.log(selectedCurrency)
   return (
-    <span
-      className={classNames(
-        style.currency,
-        index === selectedCurrency && style.currencyBackground,
-      )}
-      onClick={onClick}
-    >
-      {identifier + symbol}
-    </span>
+    <>
+      <input
+        id={identifier}
+        type="radio"
+        className={style.currency}
+        checked={index === selectedCurrency}
+        onClick={() => changeCurrency(index)}
+      />
+      <label className={style.label} htmlFor={identifier}>
+        {identifier + symbol}
+      </label>
+    </>
   )
 }

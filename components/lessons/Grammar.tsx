@@ -1,7 +1,7 @@
 import style from './Grammar.module.scss'
 import { FC, useEffect, useRef } from 'react'
-import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
+import { CommonProps } from '@utils/lessons/taskInputUtils'
 
 interface Props {
   taskText: string
@@ -28,44 +28,29 @@ export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
 }
 
 interface ButtonProps {
-  userId: string | null
-  token: string | null
-  languageFrom: string | string[]
-  languageTo: string | string[]
-  currentTask: TaskData
-  courseId: string
-  setCurrentTaskNumber: (taskNumber: number) => void
-  currentTaskNumber: number
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
+  commonProps: CommonProps
 }
 
-export const GrammarButton: FC<ButtonProps> = ({
-  userId,
-  token,
-  languageFrom,
-  languageTo,
-  currentTask,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  completedTasks,
-  setCompletedTasks,
-}) => {
+export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
   const handleClick = async () => {
-    if (token === null && userId === null) return
+    if (commonProps.token === null && commonProps.userId === null) return
     const isSaveSuccessful = await saveTask({
-      userId,
-      token,
-      languageFrom,
-      languageTo,
-      currentTask,
-      courseId,
+      userId: commonProps.userId,
+      token: commonProps.token,
+      languageFrom: commonProps.languageFrom,
+      languageTo: commonProps.languageTo,
+      currentTask: commonProps.currentTask,
+      courseId: commonProps.courseId,
     })
     if (isSaveSuccessful) {
-      setCurrentTaskNumber(currentTaskNumber + 1)
-      completedTasks && setCompletedTasks([...completedTasks, currentTask])
-      !completedTasks && setCompletedTasks([currentTask])
+      commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+      commonProps.completedTasks &&
+        commonProps.setCompletedTasks([
+          ...commonProps.completedTasks,
+          commonProps.currentTask,
+        ])
+      !commonProps.completedTasks &&
+        commonProps.setCompletedTasks([commonProps.currentTask])
     }
   }
 

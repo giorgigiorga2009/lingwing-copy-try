@@ -1,3 +1,18 @@
+import { TaskData } from '@utils/lessons/getTask'
+
+export type CommonProps = {
+  userId: string | null
+  token: string | null
+  languageTo: string | string[]
+  languageFrom: string | string[]
+  courseId: string
+  setCurrentTaskNumber: (number: number) => void
+  currentTaskNumber: number
+  currentTask: TaskData
+  completedTasks: TaskData[] | undefined
+  setCompletedTasks: (tasks: TaskData[]) => void
+}
+
 //Only For voice recognition
 const findMatchedWordIndex = ({
   synonyms,

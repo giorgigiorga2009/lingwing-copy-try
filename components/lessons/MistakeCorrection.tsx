@@ -5,65 +5,62 @@ import React, {
   FC,
   useEffect,
 } from 'react'
-import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
+import { CommonProps } from '@utils/lessons/taskInputUtils'
 
 interface Props {
-  token: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  userId: string | null
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
+  commonProps: CommonProps
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
-  userId,
-  token,
-  languageTo,
-  languageFrom,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  currentTask,
-  completedTasks,
-  setCompletedTasks,
+  commonProps,
   setIsHintShown,
   setHintText,
 }) => {
-  const mistakeText = currentTask.errorText
+  const mistakeText = commonProps.currentTask.errorText
 
   const [inputText, setInputText] = useState(mistakeText)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
 
-  const correctText = currentTask.correctText as string
+  const correctText = commonProps.currentTask.correctText as string
+
+  const saveCurrentTask = async () => {
+    try {
+      await saveTask({
+        userId: commonProps.userId,
+        token: commonProps.token,
+        languageFrom: commonProps.languageFrom,
+        languageTo: commonProps.languageTo,
+        currentTask: commonProps.currentTask,
+        courseId: commonProps.courseId,
+      })
+      return true // Indicate that the save was successful
+    } catch (error) {
+      console.error('Error saving task:', error)
+      return false // Indicate that the save was unsuccessful
+    }
+  }
 
   useEffect(() => {
-    if (token === null && userId === null) return
+    if (commonProps.token === null && commonProps.userId === null) return
 
     if (inputText === correctText) {
       setTimeout(async () => {
-        const isSaveSuccessful = await saveTask({
-          userId,
-          token,
-          languageFrom,
-          languageTo,
-          currentTask,
-          courseId,
-        })
+        const isSaveSuccessful = await saveCurrentTask()
         if (isSaveSuccessful) {
-          setCurrentTaskNumber(currentTaskNumber + 1)
           setIsHintShown(false)
-          completedTasks && setCompletedTasks([...completedTasks, currentTask])
-          !completedTasks && setCompletedTasks([currentTask])
+          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+          commonProps.completedTasks &&
+            commonProps.setCompletedTasks([
+              ...commonProps.completedTasks,
+              commonProps.currentTask,
+            ])
+          !commonProps.completedTasks &&
+            commonProps.setCompletedTasks([commonProps.currentTask])
         }
       }, 1500)
     }
@@ -86,20 +83,18 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setMistakeRepeat(false)
       setIsHintShown(false)
-      if (token === null && userId === null) return
-      const isSaveSuccessful = await saveTask({
-        userId,
-        token,
-        languageFrom,
-        languageTo,
-        currentTask,
-        courseId,
-      })
+      if (commonProps.token === null && commonProps.userId === null) return
+      const isSaveSuccessful = await saveCurrentTask()
       if (isSaveSuccessful) {
         setInputText('')
-        setCurrentTaskNumber(currentTaskNumber + 1)
-        completedTasks && setCompletedTasks([...completedTasks, currentTask])
-        !completedTasks && setCompletedTasks([currentTask])
+        commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+        commonProps.completedTasks &&
+          commonProps.setCompletedTasks([
+            ...commonProps.completedTasks,
+            commonProps.currentTask,
+          ])
+        !commonProps.completedTasks &&
+          commonProps.setCompletedTasks([commonProps.currentTask])
       }
     } else {
       if (mistakeRepeat === false) {
