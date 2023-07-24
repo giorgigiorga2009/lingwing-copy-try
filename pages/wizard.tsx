@@ -20,7 +20,7 @@ import { ChooseLanguageStep } from '@components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '@components/wizard/ChooseDifficultyStep'
 
 
-type Step = 'step1' | 'step2' | 'step3';
+type Step = 'step1' | 'step2' | 'step3'
 
 interface WizardProps {
   query: {
