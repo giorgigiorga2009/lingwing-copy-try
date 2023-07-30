@@ -8,8 +8,7 @@ interface Props {
   commonProps: CommonProps
   sentenceArray: string[]
   onKeyDown: (event: React.KeyboardEvent) => void
-  setMistakeRepeat: (bool: boolean) => void
-  mistakeRepeat: boolean
+  isHintShown: boolean
   setMistakesCount: (values: number) => void
   mistakesCount: number
   setIsHintShown: (bool: boolean) => void
@@ -20,8 +19,7 @@ export const OmittedWords: FC<Props> = ({
   sentenceArray,
   // setCorrect,
   onKeyDown,
-  setMistakeRepeat,
-  mistakeRepeat,
+  isHintShown,
   setMistakesCount,
   mistakesCount,
   commonProps,
@@ -47,7 +45,7 @@ export const OmittedWords: FC<Props> = ({
       inputValue.toLowerCase() ===
       missingWord.substring(0, inputValue.length).toLowerCase()
     ) {
-      setMistakeRepeat(false)
+      // setMistakeRepeat(false)
       setIsHintShown(false)
       newWords[index] = missingWord.substring(0, inputValue.length)
       setWords(newWords)
@@ -63,9 +61,8 @@ export const OmittedWords: FC<Props> = ({
         nextInputRef && nextInputRef.focus()
       }
     } else {
-      if (mistakeRepeat === false) {
+      if (!isHintShown) {
         setMistakesCount(mistakesCount + 1)
-        setMistakeRepeat(true)
         setIsHintShown(true)
         setHintText(missingWord)
       }

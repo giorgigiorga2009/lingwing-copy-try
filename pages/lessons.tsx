@@ -45,8 +45,8 @@ const Lessons: NextPage = () => {
   const chatRef = useRef<HTMLDivElement>(null)
 
   const router = useRouter()
-  const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
-
+  const { courseName, languageTo, languageFrom } = router.query
+  //console.log(isHintShown)
   // Use localStorage to set the token state
   useEffect(() => {
     setToken(localStorage.getItem('authToken'))
@@ -303,6 +303,7 @@ const Lessons: NextPage = () => {
           {commonProps && (
             <CurrentTaskInput
               commonProps={commonProps}
+              isHintShown={isHintShown}
               setIsHintShown={setIsHintShown}
               setHintText={setHintText}
               currentMessageIndex={currentMessageIndex}

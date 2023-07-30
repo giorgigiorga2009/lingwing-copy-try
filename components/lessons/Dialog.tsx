@@ -65,6 +65,7 @@ interface DialogInputProps {
   currentMessageIndex: number
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
+  isHintShown: boolean
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
@@ -73,10 +74,10 @@ export const DialogInput: FC<DialogInputProps> = ({
   commonProps,
   setIsHintShown,
   setHintText,
+  isHintShown,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
-  const [mistakeRepeat, setMistakeRepeat] = useState(false)
   const [inputText, setInputText] = useState('')
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
@@ -117,39 +118,35 @@ export const DialogInput: FC<DialogInputProps> = ({
         inputText,
         outputText,
         correctText: dialogArray[currentMessageIndex],
-        setMistakeRepeat,
         setMistakesCount,
         mistakesCount,
-        mistakeRepeat,
         setIsHintShown,
         setHintText,
+        isHintShown,
       }),
     )
   }, [inputText])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const currentCharCode = event.target.value.charCodeAt(
-      event.target.value.length - 1,
-    )
-    let skipOverride = true
+    type LanguageCode = 'geo' | 'eng' | 'rus'
+    const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
+    const baseCode: LanguageCode = commonProps.languageTo as LanguageCode
 
-    for (let i = 0; i < KEYBOARD_OVERRIDE.length; i++) {
-      if (KEYBOARD_OVERRIDE[i].languageNameCode === iLearnFromNameCode) {
-        skipOverride = false
-        for (let j = 0; j < KEYBOARD_OVERRIDE[i].array.length; j++) {
-          if (
-            currentCharCode === KEYBOARD_OVERRIDE[i].array[j].originalCode ||
-            currentCharCode === KEYBOARD_OVERRIDE[i].array[j].alterCode
-          ) {
-            const overriddenText =
-              event.target.value.slice(0, event.target.value.length - 1) +
-              String.fromCharCode(KEYBOARD_OVERRIDE[i].array[j].alterCode)
-            setInputText(overriddenText)
-          }
-        }
-      }
+    const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
+      override =>
+        override.geo === currentCharCode ||
+        override.rus === currentCharCode ||
+        override.eng === currentCharCode,
+    )
+
+    if (overriddenKeyboard) {
+      const overriddenText =
+        event.target.value.slice(0, -1) +
+        String.fromCharCode(overriddenKeyboard[baseCode])
+      setInputText(overriddenText)
+    } else {
+      setInputText(event.target.value)
     }
-    skipOverride && setInputText(event.target.value)
   }
 
   useEffect(() => {

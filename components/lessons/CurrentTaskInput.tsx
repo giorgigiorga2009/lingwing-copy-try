@@ -9,17 +9,20 @@ type CurrentTaskInputProps = {
   commonProps: CommonProps
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
+  isHintShown: boolean
   currentMessageIndex?: number
   setCurrentMessageIndex?: (messageIndex: number) => void
 }
 
 const CurrentTaskInput = ({
   commonProps,
+  isHintShown,
   setIsHintShown,
   setHintText,
   currentMessageIndex,
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
+  //console.log(isHintShown)
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
@@ -29,6 +32,7 @@ const CurrentTaskInput = ({
         <TaskInputContainer
           commonProps={commonProps}
           taskType={commonProps.currentTask.taskType}
+          isHintShown={isHintShown}
           setIsHintShown={setIsHintShown}
           setHintText={setHintText}
         />
@@ -43,6 +47,7 @@ const CurrentTaskInput = ({
           setCurrentMessageIndex={setCurrentMessageIndex}
           setIsHintShown={setIsHintShown}
           setHintText={setHintText}
+          isHintShown={isHintShown}
         />
       ) : null
     case 'mistakecorrection':

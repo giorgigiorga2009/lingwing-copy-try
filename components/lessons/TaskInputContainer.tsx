@@ -18,6 +18,7 @@ import { saveTask } from '@utils/lessons/saveTask'
 interface TaskInputProps {
   commonProps: CommonProps
   taskType: string
+  isHintShown: boolean
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
@@ -25,24 +26,23 @@ interface TaskInputProps {
 export const TaskInputContainer: FC<TaskInputProps> = ({
   commonProps,
   taskType,
+  isHintShown,
   setIsHintShown,
   setHintText,
 }) => {
   const [inputText, setInputText] = useState('') // the text the user has inputted
   const [outputText, setOutputText] = useState('') // the text that should be displayed as output
-  const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
+  //const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
   const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
-  const [isRecording, setIsRecording] = useState(true) // whether or not the user's voice is being recorded
+  const [isRecording, setIsRecording] = useState(false) // whether or not the user's voice is being recorded
   const [mistakesCount, setMistakesCount] = useState(0) // the number of mistakes the user has made
-  const [mistakeRepeat, setMistakeRepeat] = useState(false) // whether or not we should count new mistakes
-  const [isAnimating, setIsAnimating] = useState(false) // whether or not the microphone icon should be animating
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
 
   const correctText = commonProps.currentTask.correctText as string
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  const iLearnFromNameCode = commonProps.currentTask.iLearnFromNameCode
-
+  //const iLearnFromNameCode = commonProps.currentTask.iLearnFromNameCode
+  //console.log(commonProps.languageFrom)
   // play audio after word is finished
   useEffect(() => {
     if (
@@ -51,8 +51,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       taskType !== 'replay'
     )
       return
-
     const outputArray = outputText.toLowerCase().trim().split(' ')
+
     const wordIsFinished =
       commonProps.currentTask?.wordsArray[currentWordIndex]?.wordText
         .toLocaleLowerCase()
@@ -80,24 +80,30 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   // create an animation for the microphone icon
   const { transform, opacity } = useSpring({
-    opacity: isAnimating ? 1 : 0.5,
-    transform: `scale(${isAnimating ? 1.5 : 1})`,
+    opacity: isRecording ? 1 : 0.5,
+    transform: `scale(${isRecording ? 1.5 : 1})`,
   })
 
   // set up speech recognition
-  const { finalTranscript } = useSpeechRecognition()
+  const { finalTranscript, resetTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLTextAreaElement>(null)
+
+  //console.log(finalTranscript + ' finalTranscript')
+  //console.log(correctText + ' correctText')
 
   // only for voiceRecognition
   useEffect(() => {
-    setPartialTranscript(
-      getStringFromRecognition({
-        correctText,
-        finalTranscript,
-        textFromKeyboard,
-        wordsSynonyms,
-      }),
-    )
+    if (finalTranscript === '') return
+
+    // setPartialTranscript(
+    //   getStringFromRecognition({
+    //     correctText,
+    //     finalTranscript,
+    //     textFromKeyboard,
+    //     wordsSynonyms,
+    //   }),
+    // )
+
     setOutputText(
       getStringFromRecognition({
         correctText,
@@ -112,10 +118,9 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     inputText,
     outputText,
     correctText,
-    setMistakeRepeat,
+    isHintShown,
     setMistakesCount,
     mistakesCount,
-    mistakeRepeat,
     setIsHintShown,
     setHintText,
   }
@@ -138,7 +143,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   useEffect(() => {
     if (commonProps.token === null && commonProps.userId === null) return
     // If the output text matches the correct text, save the task and move on to the next one
-    if (outputText.trim() === correctText) {
+    if (outputText.trim() === correctText.trim()) {
       setTimeout(async () => {
         setIsHintShown(false)
         const isSaveSuccessful = await saveTask({
@@ -150,13 +155,12 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           courseId: commonProps.courseId,
         })
         if (isSaveSuccessful) {
-          setIsHintShown(false)
+          //setIsHintShown(false)
           setTaskProgress('0%')
           commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
           setInputText('')
           setOutputText('')
           setMistakesCount(0)
-          setMistakeRepeat(false)
           setCurrentWordIndex(0)
           commonProps.completedTasks &&
             commonProps.setCompletedTasks([
@@ -203,11 +207,10 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       inputRef.current.setSelectionRange(length, length)
     }
     // If there is a partial transcript available, set the output text to the partial transcript
-    partialTranscript && setOutputText(partialTranscript)
+    //partialTranscript && setOutputText(partialTranscript)
   }
 
   const handleMicOnClick = () => {
-    setIsAnimating(!isAnimating)
     if (inputRef.current) {
       // Store the current input value before starting/stopping speech recognition
       const inputValue = inputRef.current.value
@@ -218,36 +221,65 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     isRecording
       ? SpeechRecognition.startListening({ continuous: true })
       : SpeechRecognition.stopListening()
+
+    if (!isRecording) {
+      resetTranscript()
+    }
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (outputText.trim() === correctText) return
+    if (outputText.trim() === correctText.trim()) return
 
-    const currentCharCode = event.target.value.charCodeAt(
-      event.target.value.length - 1,
+    type LanguageCode = 'geo' | 'eng' | 'rus'
+    const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
+    const baseCode: LanguageCode = commonProps.languageTo as LanguageCode
+
+    const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
+      override =>
+        override.geo === currentCharCode ||
+        override.rus === currentCharCode ||
+        override.eng === currentCharCode,
     )
-    let skipOverride = true
 
-    for (let i = 0; i < KEYBOARD_OVERRIDE.length; i++) {
-      if (KEYBOARD_OVERRIDE[i].languageNameCode === iLearnFromNameCode) {
-        skipOverride = false
-        for (let j = 0; j < KEYBOARD_OVERRIDE[i].array.length; j++) {
-          if (
-            currentCharCode === KEYBOARD_OVERRIDE[i].array[j].originalCode ||
-            currentCharCode === KEYBOARD_OVERRIDE[i].array[j].alterCode
-          ) {
-            // override the input text with a character from a different keyboard layout
-            const overriddenText =
-              event.target.value.slice(0, event.target.value.length - 1) +
-              String.fromCharCode(KEYBOARD_OVERRIDE[i].array[j].alterCode)
-            setInputText(overriddenText)
-          }
-        }
-      }
+    if (overriddenKeyboard) {
+      const overriddenText =
+        event.target.value.slice(0, -1) +
+        String.fromCharCode(overriddenKeyboard[baseCode])
+      setInputText(overriddenText)
+    } else {
+      setInputText(event.target.value)
     }
-    skipOverride && setInputText(event.target.value)
-    setInputText(event.target.value)
   }
+
+  // const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  //   if (outputText.trim() === correctText.trim()) return
+
+  //   const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
+
+  //   let skipOverride = true
+  //   console.log(KEYBOARD_OVERRIDE[0])
+
+  //   for (let i = 0; i < KEYBOARD_OVERRIDE.length; i++) {
+  //     if (KEYBOARD_OVERRIDE[i].languageNameCode === commonProps.languageFrom) {
+  //       skipOverride = false
+  //       for (let j = 0; j < KEYBOARD_OVERRIDE[i].array.length; j++) {
+  //         if (
+  //           currentCharCode === KEYBOARD_OVERRIDE[i].array[j].originalCode ||
+  //           currentCharCode === KEYBOARD_OVERRIDE[i].array[j].alterCode
+  //         ) {
+  //           // override the input text with a character from a different keyboard layout
+  //           const overriddenText =
+  //             event.target.value.slice(0, event.target.value.length - 1) +
+  //             String.fromCharCode(KEYBOARD_OVERRIDE[i].array[j].alterCode)
+  //           setInputText(overriddenText)
+  //           return
+  //         }
+  //       }
+  //     }
+  //   }
+  //   skipOverride && setInputText(event.target.value)
+  //   //setInputText(event.target.value)
+  // }
 
   return (
     <>
@@ -272,8 +304,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
             <OmittedWords
               sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
               onKeyDown={handleOnKeyDown}
-              setMistakeRepeat={setMistakeRepeat}
-              mistakeRepeat={mistakeRepeat}
+              isHintShown={isHintShown}
               setMistakesCount={setMistakesCount}
               mistakesCount={mistakesCount}
               commonProps={commonProps}
@@ -291,7 +322,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           onClick={handleMicOnClick}
         >
           <span className={style.micIcon} key="mic" />
-          {isAnimating && <div className={style.pulsatingCircle} />}
+          {isRecording && <div className={style.pulsatingCircle} />}
         </animated.div>
       </div>
     </>

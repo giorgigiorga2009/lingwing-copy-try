@@ -1,8 +1,7 @@
 @import '@styles/imports';
 
 .currency {
-  opacity: 0;
-  width: 0;
+  appearance: none;
 }
 
 .label {
