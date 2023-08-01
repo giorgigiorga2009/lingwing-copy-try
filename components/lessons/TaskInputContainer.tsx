@@ -4,79 +4,83 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
 import {
-  repetitionInputCheck,
+  replayInputCheck,
   getStringFromRecognition,
   standardTextCheck,
   CommonProps,
+  handleChange,
 } from '@utils/lessons/taskInputUtils'
-import { animated, useSpring } from 'react-spring'
-import { KEYBOARD_OVERRIDE } from '@utils/const'
-import { DictationInput } from './DictationInput'
 import { OmittedWords } from './OmittedWords'
+import { DictationInput } from './DictationInput'
 import { saveTask } from '@utils/lessons/saveTask'
+import { animated, useSpring } from 'react-spring'
 
 interface TaskInputProps {
   commonProps: CommonProps
   taskType: string
   isHintShown: boolean
-  setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
+  setIsHintShown: (bool: boolean) => void
 }
 
 export const TaskInputContainer: FC<TaskInputProps> = ({
-  commonProps,
   taskType,
   isHintShown,
-  setIsHintShown,
+  commonProps,
   setHintText,
+  setIsHintShown,
 }) => {
-  const [inputText, setInputText] = useState('') // the text the user has inputted
-  const [outputText, setOutputText] = useState('') // the text that should be displayed as output
-  //const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
-  const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
-  const [isRecording, setIsRecording] = useState(false) // whether or not the user's voice is being recorded
-  const [mistakesCount, setMistakesCount] = useState(0) // the number of mistakes the user has made
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [inputText, setInputText] = useState('')
+  const [outputText, setOutputText] = useState('')
+  const [isRecording, setIsRecording] = useState(false)
+  const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [textFromKeyboard, setTextFromKeyboard] = useState('')
+  const [audios, setAudios] = useState<HTMLAudioElement[]>([])
+  const [currentAudioIndex, setCurrentAudioIndex] = useState<number>(0)
 
-  const correctText = commonProps.currentTask.correctText as string
+  const wordsCount = commonProps.currentTask.wordsArray
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  //const iLearnFromNameCode = commonProps.currentTask.iLearnFromNameCode
-  //console.log(commonProps.languageFrom)
-  // play audio after word is finished
+  const outputArray = outputText.toLowerCase().trim().split(' ')
+  const correctText = commonProps.currentTask.correctText as string
+  const currentWord = commonProps.currentTask?.wordsArray[currentWordIndex]
+
+  // Assume addAudio is a function that adds a new audio to the audios array
+
   useEffect(() => {
-    if (
-      taskType !== 'translate' &&
-      taskType !== 'dictation' &&
-      taskType !== 'replay'
-    )
-      return
-    const outputArray = outputText.toLowerCase().trim().split(' ')
+    if (audios.length > 0) {
+      const currentAudio = audios[currentWordIndex - 1]
+      if (currentAudio) {
+        currentAudio.play()
+      }
+    }
+  }, [currentWordIndex])
+
+  useEffect(() => {
+    const addAudio = (audioUrl: string) => {
+      const newAudio = new Audio(audioUrl)
+      newAudio.onended = () => {
+        setCurrentAudioIndex(prevIndex => prevIndex + 1)
+      }
+      setAudios(prevAudios => [...prevAudios, newAudio])
+    }
+
+    if (!currentWord) return
 
     const wordIsFinished =
-      commonProps.currentTask?.wordsArray[currentWordIndex]?.wordText
-        .toLocaleLowerCase()
-        .replace(/[^\p{L}\p{M}?]/gu, '')
-        .trim() ===
+      currentWord.wordLoweredText.replace(/[^\p{L}\p{M}?]/gu, '').trim() ===
       outputArray[currentWordIndex]?.replace(/[^\p{L}\p{M}?]/gu, '').trim()
 
     if (wordIsFinished) {
-      if (
-        commonProps.currentTask?.wordsArray[currentWordIndex]?.wordAudioPath !==
-        'undefined/undefined'
-      ) {
-        const audio = new Audio(
-          `https://cdn.lingwing.com${commonProps.currentTask?.wordsArray[currentWordIndex]?.wordAudioPath}.mp3`,
-        )
-        audio.play()
+      if (currentWord.wordAudioPath !== 'undefined/undefined') {
+        addAudio(`https://cdn.lingwing.com${currentWord?.wordAudioPath}.mp3`)
       }
+
       setCurrentWordIndex(currentWordIndex + 1)
-      setTaskProgress(
-        (outputArray.length / commonProps.currentTask.wordsArray.length) * 100 +
-          '%',
-      )
+      setTaskProgress((outputArray.length / wordsCount.length) * 100 + '%')
     }
-  }, [outputText])
+  }, [outputText, currentAudioIndex])
 
   // create an animation for the microphone icon
   const { transform, opacity } = useSpring({
@@ -88,28 +92,16 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const { finalTranscript, resetTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
-  //console.log(finalTranscript + ' finalTranscript')
-  //console.log(correctText + ' correctText')
-
   // only for voiceRecognition
   useEffect(() => {
     if (finalTranscript === '') return
 
-    // setPartialTranscript(
-    //   getStringFromRecognition({
-    //     correctText,
-    //     finalTranscript,
-    //     textFromKeyboard,
-    //     wordsSynonyms,
-    //   }),
-    // )
-
     setOutputText(
       getStringFromRecognition({
         correctText,
+        wordsSynonyms,
         finalTranscript,
         textFromKeyboard,
-        wordsSynonyms,
       }),
     )
   }, [finalTranscript])
@@ -119,25 +111,24 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     outputText,
     correctText,
     isHintShown,
-    setMistakesCount,
     mistakesCount,
-    setIsHintShown,
     setHintText,
+    setIsHintShown,
+    setMistakesCount,
   }
 
   //only for keyboardInput
   useEffect(() => {
-    // Depending of taskType choosing text check
-    ;(taskType === 'dictation' || taskType === 'translate') &&
+    if (taskType === 'dictation' || taskType === 'translate') {
       setOutputText(
         standardTextCheck({
           ...params,
-          currentWord:
-            commonProps.currentTask?.wordsArray[currentWordIndex]?.wordText,
+          currentWord: currentWord.wordText,
         }),
       )
+    }
 
-    taskType === 'replay' && setOutputText(repetitionInputCheck({ ...params }))
+    taskType === 'replay' && setOutputText(replayInputCheck({ ...params }))
   }, [inputText])
 
   useEffect(() => {
@@ -147,32 +138,33 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       setTimeout(async () => {
         setIsHintShown(false)
         const isSaveSuccessful = await saveTask({
-          userId: commonProps.userId,
           token: commonProps.token,
-          languageFrom: commonProps.languageFrom,
+          userId: commonProps.userId,
+          courseId: commonProps.courseId,
           languageTo: commonProps.languageTo,
           currentTask: commonProps.currentTask,
-          courseId: commonProps.courseId,
+          languageFrom: commonProps.languageFrom,
         })
         if (isSaveSuccessful) {
-          //setIsHintShown(false)
-          setTaskProgress('0%')
-          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+          setAudios([])
           setInputText('')
           setOutputText('')
           setMistakesCount(0)
+          setTaskProgress('0%')
           setCurrentWordIndex(0)
-          commonProps.completedTasks &&
+          if (commonProps.completedTasks) {
             commonProps.setCompletedTasks([
               ...commonProps.completedTasks,
               commonProps.currentTask,
             ])
-          !commonProps.completedTasks &&
+          } else {
             commonProps.setCompletedTasks([commonProps.currentTask])
+          }
+          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
         }
-      }, 1500)
+      }, 2000)
     }
-  }, [outputText])
+  }, [taskProgress])
 
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
     // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
@@ -206,80 +198,33 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       const length = inputRef.current.value.length
       inputRef.current.setSelectionRange(length, length)
     }
-    // If there is a partial transcript available, set the output text to the partial transcript
-    //partialTranscript && setOutputText(partialTranscript)
   }
-
   const handleMicOnClick = () => {
     if (inputRef.current) {
       // Store the current input value before starting/stopping speech recognition
       const inputValue = inputRef.current.value
       setTextFromKeyboard(inputValue)
     }
-    setIsRecording(!isRecording)
-    // If speech recognition is currently active, stop it. Otherwise, start it.
-    isRecording
+
+    !isRecording
       ? SpeechRecognition.startListening({ continuous: true })
       : SpeechRecognition.stopListening()
 
-    if (!isRecording) {
-      resetTranscript()
-    }
+    !isRecording && resetTranscript()
+
+    setIsRecording(!isRecording)
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextareaChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     if (outputText.trim() === correctText.trim()) return
-
-    type LanguageCode = 'geo' | 'eng' | 'rus'
-    const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
-    const baseCode: LanguageCode = commonProps.languageTo as LanguageCode
-
-    const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
-      override =>
-        override.geo === currentCharCode ||
-        override.rus === currentCharCode ||
-        override.eng === currentCharCode,
+    handleChange(
+      event,
+      commonProps.languageTo as 'geo' | 'eng' | 'rus',
+      setInputText,
     )
-
-    if (overriddenKeyboard) {
-      const overriddenText =
-        event.target.value.slice(0, -1) +
-        String.fromCharCode(overriddenKeyboard[baseCode])
-      setInputText(overriddenText)
-    } else {
-      setInputText(event.target.value)
-    }
   }
-
-  // const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   if (outputText.trim() === correctText.trim()) return
-
-  //   const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
-
-  //   let skipOverride = true
-  //   console.log(KEYBOARD_OVERRIDE[0])
-
-  //   for (let i = 0; i < KEYBOARD_OVERRIDE.length; i++) {
-  //     if (KEYBOARD_OVERRIDE[i].languageNameCode === commonProps.languageFrom) {
-  //       skipOverride = false
-  //       for (let j = 0; j < KEYBOARD_OVERRIDE[i].array.length; j++) {
-  //         if (
-  //           currentCharCode === KEYBOARD_OVERRIDE[i].array[j].originalCode ||
-  //           currentCharCode === KEYBOARD_OVERRIDE[i].array[j].alterCode
-  //         ) {
-  //           // override the input text with a character from a different keyboard layout
-  //           const overriddenText =
-  //             event.target.value.slice(0, event.target.value.length - 1) +
-  //             String.fromCharCode(KEYBOARD_OVERRIDE[i].array[j].alterCode)
-  //           setInputText(overriddenText)
-  //           return
-  //         }
-  //       }
-  //     }
-  //   }
-  //   skipOverride && setInputText(event.target.value)
-  //   //setInputText(event.target.value)
-  // }
 
   return (
     <>
@@ -293,23 +238,23 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           <DictationInput
             inputRef={inputRef}
             outputText={outputText}
-            onKeyDown={handleOnKeyDown}
-            onChange={handleChange}
             onFocus={handleOnFocus}
+            onKeyDown={handleOnKeyDown}
+            onChange={handleTextareaChange}
           />
         )}
 
         {(commonProps.token !== null || commonProps.userId !== null) &&
           taskType === 'omittedwords' && (
             <OmittedWords
-              sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
-              onKeyDown={handleOnKeyDown}
               isHintShown={isHintShown}
-              setMistakesCount={setMistakesCount}
-              mistakesCount={mistakesCount}
               commonProps={commonProps}
-              setIsHintShown={setIsHintShown}
               setHintText={setHintText}
+              onKeyDown={handleOnKeyDown}
+              mistakesCount={mistakesCount}
+              setIsHintShown={setIsHintShown}
+              setMistakesCount={setMistakesCount}
+              sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
             />
           )}
 

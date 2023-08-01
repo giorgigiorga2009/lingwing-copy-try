@@ -48,34 +48,33 @@
 .microphoneIcon {
   position: relative;
   opacity: 0.5;
+}
 
-  &.pulsatingCircle {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.pulsatingCircle {
+  position: absolute;
+  top: -0.77rem;
+  left: -0.77rem;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  opacity: 0.6;
+  background-color: $purple-500;
+  animation: pulsating 1s ease-in-out infinite;
+}
+
+@keyframes pulsating {
+  0% {
+    transform: scale(0.5);
     opacity: 0.6;
-    background-color: blue;
+  }
 
-    @keyframes pulsating {
-      0% {
-        transform: scale(0.5);
-        opacity: 0.6;
-      }
+  50% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
 
-      50% {
-        transform: scale(1);
-        opacity: 0.6;
-      }
-
-      100% {
-        transform: scale(0.5);
-        opacity: 0.6;
-      }
-    }
-
-    animation: pulsating 1s ease-in-out infinite;
+  100% {
+    transform: scale(0.5);
+    opacity: 0.6;
   }
 }

@@ -1,16 +1,42 @@
 import { TaskData } from '@utils/lessons/getTask'
+import { KEYBOARD_OVERRIDE } from '@utils/const'
 
 export type CommonProps = {
-  userId: string | null
+  courseId: string
   token: string | null
+  userId: string | null
+  currentTask: TaskData
+  currentTaskNumber: number
   languageTo: string | string[]
   languageFrom: string | string[]
-  courseId: string
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
+
   completedTasks: TaskData[] | undefined
+  setCurrentTaskNumber: (number: number) => void
   setCompletedTasks: (tasks: TaskData[]) => void
+}
+
+export const handleChange = (
+  event: React.ChangeEvent<HTMLTextAreaElement>,
+  languageTo: 'geo' | 'eng' | 'rus',
+  setInputText: (text: string) => void,
+) => {
+  const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
+
+  const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
+    override =>
+      override.geo === currentCharCode ||
+      override.rus === currentCharCode ||
+      override.eng === currentCharCode,
+  )
+
+  if (overriddenKeyboard) {
+    const overriddenText =
+      event.target.value.slice(0, -1) +
+      String.fromCharCode(overriddenKeyboard[languageTo])
+    setInputText(overriddenText)
+  } else {
+    setInputText(event.target.value)
+  }
 }
 
 //Only For voice recognition
@@ -25,6 +51,9 @@ const findMatchedWordIndex = ({
 }) => {
   for (let i = 0; i < synonyms.length; i++) {
     const index = arrayToSearch.indexOf(synonyms[i], lastAddedWordIndex)
+    if (synonyms[i] === '-') {
+      return lastAddedWordIndex + 1
+    }
     if (index !== -1) {
       return index
     }
@@ -36,9 +65,9 @@ const findMatchedWordIndex = ({
 //Only For voice recognition
 export const getStringFromRecognition = ({
   correctText,
+  wordsSynonyms,
   finalTranscript,
   textFromKeyboard,
-  wordsSynonyms,
 }: {
   correctText: string
   finalTranscript: string
@@ -46,28 +75,33 @@ export const getStringFromRecognition = ({
   wordsSynonyms: [string[]]
 }): string => {
   const correctWordsArray = correctText.split(' ')
-  const transcriptArray = finalTranscript.split(' ')
   const textFromKeyboardArray = textFromKeyboard.split(' ')
+  const transcriptArray = finalTranscript.toLowerCase().split(' ')
   const arrayToSearch = [...textFromKeyboardArray, ...transcriptArray]
+
+  // console.log(correctWordsArray + ' correctWordsArray')
+  // console.log(transcriptArray + ' transcriptArray')
+  // console.log(textFromKeyboardArray + ' textFromKeyboardArray')
+  // console.log(arrayToSearch + ' arrayToSearch')
 
   const outputArray = []
 
   let lastAddedWordIndex = 0
 
   for (let index = 0; index < correctWordsArray.length; index++) {
-    const modifiedWord = correctWordsArray[index].replace(
-      /[.,\/#!$%\^&\*;:{}=\-_`~()]/g,
-      '',
-    )
+    const modifiedWord = correctWordsArray[index]
+      .replace(/[.,\/#!$%\^&\*;:{}=\_`~()]/g, '')
+      .toLowerCase()
     //a variable that will store all cuted punctuation marks
+
     const synonyms = wordsSynonyms[index]
       ? [modifiedWord, ...wordsSynonyms[index]]
       : [modifiedWord]
 
     const transcriptIndex = findMatchedWordIndex({
       synonyms,
-      lastAddedWordIndex,
       arrayToSearch,
+      lastAddedWordIndex,
     })
 
     if (
@@ -79,30 +113,30 @@ export const getStringFromRecognition = ({
       outputArray.push(correctWordsArray[index])
     }
   }
-  return outputArray.join(' ')
+  return outputArray.join(' ') + ' '
 }
 
 const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()]$/
 
 //Used only for dialog and repetition tasks
-export const repetitionInputCheck = ({
-  correctText,
+export const replayInputCheck = ({
   inputText,
   outputText,
   isHintShown,
-  setMistakesCount,
+  correctText,
   mistakesCount,
-  setIsHintShown,
   setHintText,
+  setIsHintShown,
+  setMistakesCount,
 }: {
-  correctText: string
   inputText: string
   outputText: string
+  correctText: string
   isHintShown: boolean
-  setMistakesCount: (count: number) => void
   mistakesCount: number
-  setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
+  setIsHintShown: (bool: boolean) => void
+  setMistakesCount: (count: number) => void
 }) => {
   const correctWordsArray = correctText.split(' ')
   const outputTextArray = outputText ? outputText.trim().split(' ') : []
@@ -134,24 +168,24 @@ export const repetitionInputCheck = ({
 
 export const standardTextCheck = ({
   inputText,
+  outputText,
+  currentWord,
   correctText,
   isHintShown,
-  setMistakesCount,
   mistakesCount,
-  outputText,
-  setIsHintShown,
   setHintText,
-  currentWord,
+  setIsHintShown,
+  setMistakesCount,
 }: {
   inputText: string
-  correctText: string
-  isHintShown: boolean
-  setMistakesCount: (values: number) => void
-  mistakesCount: number
   outputText: string
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (text: string) => void
+  correctText: string
   currentWord: string
+  isHintShown: boolean
+  mistakesCount: number
+  setHintText: (text: string) => void
+  setIsHintShown: (bool: boolean) => void
+  setMistakesCount: (values: number) => void
 }) => {
   const index = inputText.length
   const isSpaceOrMark = /[.,!-]|\s/
@@ -188,148 +222,3 @@ export const standardTextCheck = ({
   }
   return outputText
 }
-
-// const getLetter = (text: string, index: number): string =>
-//   text.toLowerCase()[index]
-
-// const isEqual = ({
-//   correctText,
-//   textToCompare,
-//   index,
-// }: {
-//   correctText: string
-//   textToCompare: string
-//   index: number
-// }): boolean => getLetter(correctText, index) === getLetter(textToCompare, index)
-
-// //Only used for dictation and translation
-// export const standardTextCheck = ({
-//   inputText,
-//   correctText,
-//   setMistakeRepeat,
-//   mistakeRepeat,
-//   setMistakesCount,
-//   mistakesCount,
-//   outputText,
-//   setIsHintShown,
-//   setHintText,
-//   currentWord,
-// }: {
-//   inputText: string
-//   correctText: string
-//   setMistakeRepeat: (bool: boolean) => void
-//   mistakeRepeat: boolean
-//   setMistakesCount: (values: number) => void
-//   mistakesCount: number
-//   outputText: string
-//   setIsHintShown: (bool: boolean) => void
-//   setHintText: (text: string) => void
-//   currentWord: string
-// }) => {
-//   const index = inputText.length - 1
-
-//   const isTextEqual = isEqual({
-//     correctText,
-//     textToCompare: inputText,
-//     index,
-//   })
-
-//   const isCharPunctuation = (index: number) => {
-//     if (correctText[index]) {
-//       return regexp.test(correctText[index])
-//     } else return false
-//   }
-
-//   const isCharSpace = (index: number) => {
-//     if (correctText[index]) {
-//       return /\s/.test(correctText[index])
-//     } else return false
-//   }
-
-//   //textToShow is Written Text in input + next letter
-//   let textToShow = correctText.slice(0, inputText ? inputText.length : 0)
-
-//   //check if only last punctuation left
-//   if (
-//     inputText.length === correctText.length - 1 &&
-//     correctText.length > 1 &&
-//     isCharPunctuation(index + 1)
-//   ) {
-//     setIsHintShown(false)
-//     setMistakeRepeat(false)
-//     return correctText
-//   }
-
-//   // check if punctuation inside word
-//   if (
-//     isCharPunctuation(index + 1) &&
-//     !isCharSpace(index + 2) &&
-//     correctText[index + 2] &&
-//     isTextEqual
-//   ) {
-//     //console.log('Check1', isCharSpace(index + 2), correctText[index + 2])
-//     return correctText.slice(0, inputText ? inputText.length + 1 : 0)
-//   }
-
-//   //check if current char is punctuation and after it space
-//   if (isCharPunctuation(index) && isCharSpace(index + 1)) {
-//     if (inputText.endsWith(' ')) {
-//       setMistakeRepeat(false)
-//       setIsHintShown(false)
-//       if (isCharPunctuation(index + 2) && isCharSpace(index + 3)) {
-//         return correctText.slice(0, inputText ? inputText.length + 3 : 0)
-//       } else {
-//         textToShow += ' '
-//         return textToShow
-//       }
-//     } else {
-//       if (mistakeRepeat === false) {
-//         setIsHintShown(true)
-//         setHintText('(space)')
-//         setMistakesCount(mistakesCount + 1)
-//         setMistakeRepeat(true)
-//       }
-//       return outputText
-//     }
-//   }
-
-//   //check if current char space
-//   if (isCharSpace(index)) {
-//     if (inputText.endsWith(' ')) {
-//       setMistakeRepeat(false)
-//       setIsHintShown(false)
-
-//       return textToShow
-//     } else {
-//       if (mistakeRepeat === false) {
-//         setIsHintShown(true)
-//         setHintText('(space)')
-//         setMistakesCount(mistakesCount + 1)
-//         setMistakeRepeat(true)
-//       }
-//       return outputText
-//     }
-//   }
-
-//   //check if current char punctuation
-//   if (isCharPunctuation(index) && inputText.endsWith(' ')) {
-//     setMistakeRepeat(false)
-//     setIsHintShown(false)
-//     return textToShow
-//   }
-
-//   //if current char not punctuation
-//   if (!isCharPunctuation(index) && isTextEqual) {
-//     setMistakeRepeat(false)
-//     setIsHintShown(false)
-//     return textToShow
-//   } else {
-//     if (mistakeRepeat === false) {
-//       setMistakesCount(mistakesCount + 1)
-//       setMistakeRepeat(true)
-//       setHintText(currentWord)
-//       setIsHintShown(true)
-//     }
-//     return outputText
-//   }
-// }

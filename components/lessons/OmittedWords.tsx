@@ -45,7 +45,6 @@ export const OmittedWords: FC<Props> = ({
       inputValue.toLowerCase() ===
       missingWord.substring(0, inputValue.length).toLowerCase()
     ) {
-      // setMistakeRepeat(false)
       setIsHintShown(false)
       newWords[index] = missingWord.substring(0, inputValue.length)
       setWords(newWords)

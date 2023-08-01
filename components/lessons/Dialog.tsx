@@ -2,13 +2,13 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
 import style from './Dialog.module.scss'
-import { KEYBOARD_OVERRIDE } from '@utils/const'
 import { saveTask } from '@utils/lessons/saveTask'
 import { FC, useEffect, useRef, useState } from 'react'
 import {
   getStringFromRecognition,
-  repetitionInputCheck,
+  replayInputCheck,
   CommonProps,
+  handleChange,
 } from '@utils/lessons/taskInputUtils'
 
 interface DialogProps {
@@ -81,25 +81,15 @@ export const DialogInput: FC<DialogInputProps> = ({
   const [inputText, setInputText] = useState('')
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  const iLearnFromNameCode = commonProps.currentTask.iLearnFromNameCode
 
   // set up speech recognition
   const { finalTranscript } = useSpeechRecognition()
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [partialTranscript, setPartialTranscript] = useState<string>('') // the partial transcript of the user's speech
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
   const [isRecording, setIsRecording] = useState(true) // whether or not the user's voice is being recorded
 
   // only for voiceRecognition
   useEffect(() => {
-    setPartialTranscript(
-      getStringFromRecognition({
-        correctText: dialogArray[currentMessageIndex],
-        finalTranscript,
-        textFromKeyboard,
-        wordsSynonyms,
-      }),
-    )
     setOutputText(
       getStringFromRecognition({
         correctText: dialogArray[currentMessageIndex],
@@ -114,7 +104,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   useEffect(() => {
     if (!inputText) return
     setOutputText(
-      repetitionInputCheck({
+      replayInputCheck({
         inputText,
         outputText,
         correctText: dialogArray[currentMessageIndex],
@@ -127,26 +117,14 @@ export const DialogInput: FC<DialogInputProps> = ({
     )
   }, [inputText])
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    type LanguageCode = 'geo' | 'eng' | 'rus'
-    const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
-    const baseCode: LanguageCode = commonProps.languageTo as LanguageCode
-
-    const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
-      override =>
-        override.geo === currentCharCode ||
-        override.rus === currentCharCode ||
-        override.eng === currentCharCode,
+  const handleTextareaChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    handleChange(
+      event,
+      commonProps.languageTo as 'geo' | 'eng' | 'rus',
+      setInputText,
     )
-
-    if (overriddenKeyboard) {
-      const overriddenText =
-        event.target.value.slice(0, -1) +
-        String.fromCharCode(overriddenKeyboard[baseCode])
-      setInputText(overriddenText)
-    } else {
-      setInputText(event.target.value)
-    }
   }
 
   useEffect(() => {
@@ -208,8 +186,6 @@ export const DialogInput: FC<DialogInputProps> = ({
       const length = inputRef.current.value.length
       inputRef.current.setSelectionRange(length, length)
     }
-    // If there is a partial transcript available, set the output text to the partial transcript
-    partialTranscript && setOutputText(partialTranscript)
   }
 
   const handleMicOnClick = () => {
@@ -228,13 +204,13 @@ export const DialogInput: FC<DialogInputProps> = ({
   return (
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
-      <input
+      <textarea
         onFocus={handleOnFocus}
         ref={inputRef}
         className={style.input}
-        type="text"
+        //  type="text"
         value={outputText}
-        onChange={handleChange}
+        onChange={handleTextareaChange}
       />
 
       <span

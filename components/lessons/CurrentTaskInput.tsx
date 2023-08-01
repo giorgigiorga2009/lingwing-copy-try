@@ -31,10 +31,10 @@ const CurrentTaskInput = ({
       return commonProps ? (
         <TaskInputContainer
           commonProps={commonProps}
-          taskType={commonProps.currentTask.taskType}
           isHintShown={isHintShown}
-          setIsHintShown={setIsHintShown}
           setHintText={setHintText}
+          setIsHintShown={setIsHintShown}
+          taskType={commonProps.currentTask.taskType}
         />
       ) : null
     case 'dialog':
@@ -42,20 +42,20 @@ const CurrentTaskInput = ({
         currentMessageIndex !== undefined &&
         setCurrentMessageIndex ? (
         <DialogInput
-          commonProps={commonProps}
-          currentMessageIndex={currentMessageIndex}
-          setCurrentMessageIndex={setCurrentMessageIndex}
-          setIsHintShown={setIsHintShown}
           setHintText={setHintText}
           isHintShown={isHintShown}
+          commonProps={commonProps}
+          setIsHintShown={setIsHintShown}
+          currentMessageIndex={currentMessageIndex}
+          setCurrentMessageIndex={setCurrentMessageIndex}
         />
       ) : null
     case 'mistakecorrection':
       return commonProps ? (
         <MistakeCorrectionTask
           commonProps={commonProps}
-          setIsHintShown={setIsHintShown}
           setHintText={setHintText}
+          setIsHintShown={setIsHintShown}
         />
       ) : null
     case 'grammar':
