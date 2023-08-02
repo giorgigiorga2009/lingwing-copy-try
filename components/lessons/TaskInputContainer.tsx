@@ -92,6 +92,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const { finalTranscript, resetTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
+  console.log(finalTranscript)
+
   // only for voiceRecognition
   useEffect(() => {
     if (finalTranscript === '') return

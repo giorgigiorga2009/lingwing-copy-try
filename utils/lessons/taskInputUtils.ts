@@ -1,5 +1,5 @@
 import { TaskData } from '@utils/lessons/getTask'
-import { KEYBOARD_OVERRIDE } from '@utils/const'
+import { KEYBOARD_OVERRIDE, LANGUAGES_MAP_OVERRIDE } from '@utils/const'
 
 export type CommonProps = {
   courseId: string
@@ -9,7 +9,6 @@ export type CommonProps = {
   currentTaskNumber: number
   languageTo: string | string[]
   languageFrom: string | string[]
-
   completedTasks: TaskData[] | undefined
   setCurrentTaskNumber: (number: number) => void
   setCompletedTasks: (tasks: TaskData[]) => void
@@ -17,7 +16,7 @@ export type CommonProps = {
 
 export const handleChange = (
   event: React.ChangeEvent<HTMLTextAreaElement>,
-  languageTo: 'geo' | 'eng' | 'rus',
+  languageTo: keyof typeof LANGUAGES_MAP_OVERRIDE,
   setInputText: (text: string) => void,
 ) => {
   const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
@@ -32,7 +31,9 @@ export const handleChange = (
   if (overriddenKeyboard) {
     const overriddenText =
       event.target.value.slice(0, -1) +
-      String.fromCharCode(overriddenKeyboard[languageTo])
+      String.fromCharCode(
+        overriddenKeyboard[LANGUAGES_MAP_OVERRIDE[languageTo]],
+      )
     setInputText(overriddenText)
   } else {
     setInputText(event.target.value)
@@ -90,7 +91,7 @@ export const getStringFromRecognition = ({
 
   for (let index = 0; index < correctWordsArray.length; index++) {
     const modifiedWord = correctWordsArray[index]
-      .replace(/[.,\/#!$%\^&\*;:{}=\_`~()]/g, '')
+      .replace(/[.,\/#!$%\^&\*;:{}=\_`~()¡¿]/g, '')
       .toLowerCase()
     //a variable that will store all cuted punctuation marks
 
@@ -187,7 +188,8 @@ export const standardTextCheck = ({
   setIsHintShown: (bool: boolean) => void
   setMistakesCount: (values: number) => void
 }) => {
-  const index = inputText.length
+  const firstMarkCheck = /^[¡¿]/.test(correctText.charAt(inputText.length - 1))
+  const index = inputText.length + Number(firstMarkCheck)
   const isSpaceOrMark = /[.,!-]|\s/
   const isSpaceHit = /\s/.test(inputText.slice(-1))
   const textToCompare = correctText.charAt(index - 1)

@@ -110,6 +110,16 @@ export const PACKAGES_IMAGES = [
   '/../themes/images/V2/Packages/3-month.png',
 ]
 
+export const LANGUAGES_MAP_OVERRIDE = {
+  geo: 'geo',
+  eng: 'eng',
+  rus: 'rus',
+  esp: 'eng',
+  fre: 'eng',
+  deu: 'eng',
+  ita: 'eng',
+} as const
+
 interface keyboardOverride {
   geo: number
   eng: number

@@ -46,12 +46,12 @@ const Lessons: NextPage = () => {
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
-  //console.log(isHintShown)
+
   // Use localStorage to set the token state
   useEffect(() => {
     setToken(localStorage.getItem('authToken'))
-    const userId = Cookies.get('userId')
-    userId && setUserId(userId)
+    const getUserId = Cookies.get('userId')
+    getUserId && setUserId(getUserId)
   }, [])
 
   //get userId
@@ -75,6 +75,7 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!token && !userId))
       return
+
     getUserCourse({ languageFrom, languageTo, courseName, token, userId })
       .then(courseObject => {
         if (courseObject) {
@@ -88,7 +89,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageFrom, languageTo, courseName, token])
+  }, [languageFrom, languageTo, courseName, token, userId])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
@@ -180,7 +181,6 @@ const Lessons: NextPage = () => {
   const handleGrammarHeight = (height: number) => {
     setGrammarHeight(height)
     setIsGrammarHeightCalled(true)
-    //console.log('setGrammarHeight')
   }
 
   useEffect(() => {
