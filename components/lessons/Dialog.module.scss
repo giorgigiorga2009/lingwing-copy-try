@@ -1,14 +1,16 @@
 @import '@styles/imports';
 
 .dialog {
-  border: 1px solid black;
   height: auto;
   max-height: 80vh;
   width: 99%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 1rem 0.5rem 0.5rem;
+  padding: 1rem;
+  border: 2px solid $white-200;
+  border-radius: 1rem;
+  font-family: SegoeUI;
 }
 
 .parrots {
@@ -35,16 +37,20 @@
 }
 
 .messageLeft {
+  color: $black;
+  min-width: 12rem;
   align-self: flex-start;
-  background-color: #d9eaf6;
+  background-color: $white-100;
   border-radius: 1rem 1rem 1rem 0;
   padding: 1rem;
   margin: 0 1rem 1rem 0;
 }
 
 .messageRight {
+  color: $black;
+  min-width: 12rem;
   align-self: flex-end;
-  background-color: #e4f7d9;
+  background-color: $purple-50;
   border-radius: 1rem 1rem 0;
   padding: 1rem;
   margin: 0 0 1rem 1rem;

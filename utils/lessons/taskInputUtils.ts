@@ -36,6 +36,7 @@ export const handleChange = (
       )
     setInputText(overriddenText)
   } else {
+    console.log('sa')
     setInputText(event.target.value)
   }
 }
@@ -80,11 +81,6 @@ export const getStringFromRecognition = ({
   const transcriptArray = finalTranscript.toLowerCase().split(' ')
   const arrayToSearch = [...textFromKeyboardArray, ...transcriptArray]
 
-  // console.log(correctWordsArray + ' correctWordsArray')
-  // console.log(transcriptArray + ' transcriptArray')
-  // console.log(textFromKeyboardArray + ' textFromKeyboardArray')
-  // console.log(arrayToSearch + ' arrayToSearch')
-
   const outputArray = []
 
   let lastAddedWordIndex = 0
@@ -93,7 +89,6 @@ export const getStringFromRecognition = ({
     const modifiedWord = correctWordsArray[index]
       .replace(/[.,\/#!$%\^&\*;:{}=\_`~()¡¿]/g, '')
       .toLowerCase()
-    //a variable that will store all cuted punctuation marks
 
     const synonyms = wordsSynonyms[index]
       ? [modifiedWord, ...wordsSynonyms[index]]
@@ -117,7 +112,7 @@ export const getStringFromRecognition = ({
   return outputArray.join(' ') + ' '
 }
 
-const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()]$/
+const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()¡¿]$/
 
 //Used only for dialog and repetition tasks
 export const replayInputCheck = ({
@@ -157,14 +152,15 @@ export const replayInputCheck = ({
     punctuations?.match(regexp) && outputTextArray.push(punctuations)
     setIsHintShown(false)
     return outputTextArray.map(word => word.concat(' ')).join('')
-  } else {
-    if (!isHintShown) {
-      setMistakesCount(mistakesCount + 1)
-      setHintText(currentWord)
-      setIsHintShown(true)
-    }
-    return outputText
   }
+
+  if (!isHintShown) {
+    setMistakesCount(mistakesCount + 1)
+    setHintText(currentWord)
+    setIsHintShown(true)
+  }
+
+  return outputText
 }
 
 export const standardTextCheck = ({
@@ -192,29 +188,29 @@ export const standardTextCheck = ({
   const index = inputText.length + Number(firstMarkCheck)
   const isSpaceOrMark = /[.,!-]|\s/
   const isSpaceHit = /\s/.test(inputText.slice(-1))
-  const textToCompare = correctText.charAt(index - 1)
-
-  const isLastLetterCorrect =
-    inputText.slice(-1).toLowerCase() === textToCompare.toLocaleLowerCase()
+  const textToCompare = correctText
+    .replace(/[àáâäãåā]/gi, 'a')
+    .replace(/[èéêëēėę]/gi, 'e')
+    .replace(/[ìíîïī]/gi, 'i')
+    .replace(/[òóôöõøō]/gi, 'o')
+    .replace(/[ùúûüū]/gi, 'u')
+    .charAt(index - 1)
 
   if (isSpaceHit && isSpaceOrMark.test(textToCompare)) {
     for (let i = 0; i < 5; i++) {
-      if (!isSpaceOrMark.test(correctText.slice(index + i - 1, index + i))) {
+      if (!isSpaceOrMark.test(correctText.charAt(index + i - 1))) {
         setIsHintShown(false)
         return correctText.slice(0, index + i - 1)
       }
     }
   }
 
-  if (isLastLetterCorrect) {
+  if (inputText.slice(-1).toLowerCase() === textToCompare.toLocaleLowerCase()) {
     setIsHintShown(false)
-    if (
-      index === correctText.trim().length - 1 &&
+    return index === correctText.trim().length - 1 &&
       isSpaceOrMark.test(correctText.slice(-1))
-    ) {
-      return correctText.trim()
-    }
-    return correctText.trim().slice(0, index)
+      ? correctText.trim()
+      : correctText.trim().slice(0, index)
   }
 
   if (!isHintShown) {
