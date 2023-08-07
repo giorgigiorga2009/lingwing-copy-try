@@ -67,6 +67,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
   }, [inputText])
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    if (inputText === correctText) return
     setInputText(event.target.value)
     setIsHintShown(false)
     setMistakeRepeat(false)
@@ -109,9 +110,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
   return (
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
-
       <textarea
-        //type="text"
         className={style.input}
         value={inputText}
         autoComplete="off"

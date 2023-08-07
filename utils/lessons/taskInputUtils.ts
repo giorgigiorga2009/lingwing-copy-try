@@ -36,7 +36,6 @@ export const handleChange = (
       )
     setInputText(overriddenText)
   } else {
-    console.log('sa')
     setInputText(event.target.value)
   }
 }

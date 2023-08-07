@@ -1,59 +1,107 @@
 @import '@styles/imports';
 
+.title {
+  padding: 0.3rem 0.3rem 0.3rem 1.5rem;
+  background-color: $orange-200;
+  color: $orange-500;
+  width: 8rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+  text-align: center;
+  font-family: SegoeUI;
+  background-image: url('/assets/images/tasks/dialog.png');
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 10% 70%;
+}
+
 .dialog {
   height: auto;
   max-height: 80vh;
-  width: 99%;
+  width: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   border: 2px solid $white-200;
-  border-radius: 1rem;
+  border-radius: 0 1rem 1rem;
   font-family: SegoeUI;
 }
 
-.parrots {
-  background-image: url('/assets/images/tasks/parrotDialog.png');
-  background-repeat: no-repeat;
-  height: 12.25rem;
-  width: 20rem;
-  background-position: center;
+.description {
+  margin: 0 1.2rem 1.2rem 1rem;
+  font-size: 1.1rem;
+
+  span {
+    display: inline-block;
+    margin-right: 0.4rem;
+    font-style: normal;
+    color: $grey-300;
+
+    &::first-letter {
+      color: $orange-650;
+    }
+  }
 }
 
-.dialogStart {
+.bubbleContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 15rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.message {
-  display: flex;
-  justify-content: flex-end;
-  margin: 1rem;
+  width: fit-content;
+  margin: 0 1rem 1rem 0;
 }
 
 .messageLeft {
   color: $black;
-  min-width: 12rem;
+  max-width: 28rem;
   align-self: flex-start;
   background-color: $white-100;
-  border-radius: 1rem 1rem 1rem 0;
-  padding: 1rem;
+  border-radius: 1.3rem 1.3rem 1.3rem 0.3rem;
+  padding: 0 1rem;
   margin: 0 1rem 1rem 0;
 }
 
 .messageRight {
   color: $black;
-  min-width: 12rem;
   align-self: flex-end;
   background-color: $purple-50;
-  border-radius: 1rem 1rem 0;
-  padding: 1rem;
+  border-radius: 1.3rem 1.3rem 0.3rem;
+  padding: 0 1rem;
   margin: 0 0 1rem 1rem;
+}
+
+.currentTask {
+  position: relative;
+  align-self: flex-start;
+  background-color: $white-100;
+  border-radius: 1.3rem 1.3rem 1.3rem 0.3rem;
+  padding: 0 1rem;
+}
+
+.translationLeft {
+  color: $grey-300;
+  margin-top: -0.5rem;
+  font-size: 0.9rem;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+}
+
+.translationRight {
+  color: rgb(116 101 139);
+  margin-top: -0.5rem;
+  font-size: 0.9rem;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+}
+
+.counter {
+  float: right;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: $purple-500;
 }
 
 .container {
@@ -74,14 +122,15 @@
   align-items: center;
   justify-content: flex-start;
   width: 26.7rem;
-  height: 55%;
   font-size: 1.2rem;
-  // background-color: $white;
-  // background: #FFFFFF;
+  resize: none;
   border: 2px solid #e6e6e6;
   border-radius: 50px;
-  padding: 6px 8px 6px 1.5rem;
+  padding: 1.2rem 1rem 0.8rem 2rem;
   color: black;
+  height: 4.4rem;
+  background-color: #f3f3f3;
+  outline-color: $purple-600;
 }
 
 .mistakes {
@@ -112,45 +161,36 @@
   background-repeat: no-repeat;
 }
 
-.example {
-  color: grey;
+.microphoneIcon {
+  position: relative;
+  opacity: 0.5;
 }
 
-.exampleText {
-  &::first-letter {
-    font-weight: bold;
-    color: orange;
+.pulsatingCircle {
+  position: absolute;
+  top: -0.77rem;
+  left: -0.77rem;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  opacity: 0.6;
+  background-color: $purple-500;
+  animation: pulsating 1s ease-in-out infinite;
+}
+
+@keyframes pulsating {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(0.5);
+    opacity: 0.6;
   }
 }
-// .microphoneIcon {
-//   position: relative;
-//   opacity: 0.5;
-
-//   &.pulsatingCircle {
-//     position: absolute;
-//     top: -20px;
-//     left: -20px;
-//     width: 60px;
-//     height: 60px;
-//     border-radius: 50%;
-//     opacity: 0.6;
-//     background-color: blue;
-
-//     @keyframes pulsating {
-//       0% {
-//         transform: scale(0.5);
-//         opacity: 0.6;
-//       }
-//       50% {
-//         transform: scale(1);
-//         opacity: 0.6;
-//       }
-//       100% {
-//         transform: scale(0.5);
-//         opacity: 0.6;
-//       }
-//     }
-
-//     animation: pulsating 1s ease-in-out infinite;
-//   }
-// }

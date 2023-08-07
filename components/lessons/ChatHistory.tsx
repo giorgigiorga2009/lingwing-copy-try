@@ -96,7 +96,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
             )}
             {taskType === 'dialog' && (
               <Dialog
-                dialogArray={task.correctText as string[]}
+                dialogArrayTo={task.correctText as string[]}
                 isHistory={true}
               />
             )}

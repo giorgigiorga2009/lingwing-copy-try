@@ -69,7 +69,10 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     if (!currentWord) return
 
     const wordIsFinished =
-      currentWord.wordLoweredText.replace(/[^\p{L}\p{M}?]/gu, '').trim() ===
+      currentWord.wordText
+        .replace(/[^\p{L}\p{M}?]/gu, '')
+        .toLowerCase()
+        .trim() ===
       outputArray[currentWordIndex]?.replace(/[^\p{L}\p{M}?]/gu, '').trim()
 
     if (wordIsFinished) {
@@ -91,8 +94,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   // set up speech recognition
   const { finalTranscript, resetTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLTextAreaElement>(null)
-
-  console.log(finalTranscript)
 
   // only for voiceRecognition
   useEffect(() => {
@@ -118,7 +119,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setIsHintShown,
     setMistakesCount,
   }
-
+  console.log(currentWord)
   //only for keyboardInput
   useEffect(() => {
     if (taskType === 'dictation' || taskType === 'translate') {

@@ -1,8 +1,12 @@
+import { Hint } from './Hint'
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
+import dynamic from 'next/dynamic'
 import style from './Dialog.module.scss'
 import { saveTask } from '@utils/lessons/saveTask'
+import { TaskData } from '@utils/lessons/getTask'
+import { animated, useSpring } from 'react-spring'
 import { FC, useEffect, useRef, useState } from 'react'
 import {
   getStringFromRecognition,
@@ -11,51 +15,103 @@ import {
   handleChange,
 } from '@utils/lessons/taskInputUtils'
 
+const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
+  ssr: false,
+})
+
 interface DialogProps {
   currentMessageIndex?: number
-  dialogArray: string[]
+  currentTask?: TaskData
+  dialogArrayTo: string[]
+  dialogArrayFrom: string
   isHistory: boolean
+  isHintShown: boolean
+  hintText: string
 }
+
+const description = 'Напишите первые буквы слов'
+  .split(' ')
+  .map(word => <span key={word}>{word + ' '}</span>)
 
 export const Dialog: FC<DialogProps> = ({
   currentMessageIndex = 0,
-  dialogArray,
+  currentTask,
+  dialogArrayTo,
+  dialogArrayFrom,
   isHistory,
+  isHintShown,
+  hintText,
 }) => {
+  const audioUrl = `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
   return (
-    <div className={style.dialog}>
-      {currentMessageIndex === 0 && !isHistory && (
-        <div className={style.dialogStart}>
-          <div className={style.title}>Напишите первые буквы слов</div>
-          <div className={style.parrots} />
-          <div className={style.example}>
-            например:{' '}
-            <span className={style.exampleText}> {dialogArray[0]}</span>{' '}
-          </div>
-        </div>
-      )}
+    <>
+      <div className={style.title}>Dialog</div>
 
-      {currentMessageIndex > 0 &&
-        !isHistory &&
-        dialogArray.slice(0, currentMessageIndex).map((message, index) => (
-          <div
-            key={index}
-            className={index % 2 === 0 ? style.messageRight : style.messageLeft}
-          >
-            {message}
-          </div>
-        ))}
+      <div className={style.dialog}>
+        <span className={style.description}>{description}</span>
 
-      {isHistory &&
-        dialogArray.map((message, index) => (
-          <div
-            key={index}
-            className={index % 2 === 0 ? style.messageRight : style.messageLeft}
-          >
-            {message}
+        {currentMessageIndex >= 0 &&
+          !isHistory &&
+          dialogArrayTo.slice(0, currentMessageIndex).map((message, index) => (
+            <div
+              key={index}
+              className={
+                index % 2 === 0 ? style.messageRight : style.messageLeft
+              }
+            >
+              <span className={style.counter}>
+                {index + 1 + '/' + dialogArrayTo.length}
+              </span>
+              <p>{message}</p>
+              <p
+                className={
+                  index % 2 === 0
+                    ? style.translationRight
+                    : style.translationLeft
+                }
+              >
+                {dialogArrayFrom[index]}
+              </p>
+            </div>
+          ))}
+
+        {!isHistory && (
+          <div className={style.bubbleContainer}>
+            <div className={style.currentTask}>
+              <p>
+                <WaveSurferNext audioURL={audioUrl} />
+              </p>
+            </div>
+            <Hint isHintShown={isHintShown} hintText={hintText} />
           </div>
-        ))}
-    </div>
+        )}
+
+        {isHistory &&
+          dialogArrayTo &&
+          dialogArrayTo.map((message, index) => (
+            <div
+              key={index}
+              className={
+                index % 2 === 0 ? style.messageRight : style.messageLeft
+              }
+            >
+              <span className={style.counter}>
+                {index + 1 + '/' + dialogArrayTo.length}
+              </span>
+              <p>{message}</p>
+              <p
+                className={
+                  index % 2 === 0
+                    ? style.translationRight
+                    : style.translationLeft
+                }
+              >
+                {/* {dialogArrayFrom[index]} */}
+              </p>
+            </div>
+          ))}
+      </div>
+    </>
   )
 }
 
@@ -83,13 +139,14 @@ export const DialogInput: FC<DialogInputProps> = ({
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
 
   // set up speech recognition
-  const { finalTranscript } = useSpeechRecognition()
+  const { finalTranscript, resetTranscript } = useSpeechRecognition()
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const [textFromKeyboard, setTextFromKeyboard] = useState('') // the text inputted by the user from the keyboard
-  const [isRecording, setIsRecording] = useState(true) // whether or not the user's voice is being recorded
+  const [isRecording, setIsRecording] = useState(false) // whether or not the user's voice is being recorded
 
   // only for voiceRecognition
   useEffect(() => {
+    if (finalTranscript === '') return
     setOutputText(
       getStringFromRecognition({
         correctText: dialogArray[currentMessageIndex],
@@ -103,6 +160,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   //only for keyboard
   useEffect(() => {
     if (!inputText) return
+    //console.log(dialogArray[currentMessageIndex])
     setOutputText(
       replayInputCheck({
         inputText,
@@ -128,19 +186,13 @@ export const DialogInput: FC<DialogInputProps> = ({
   }
 
   useEffect(() => {
-    const audio = new Audio(
-      `https://cdn.lingwing.com${commonProps.currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`,
-    )
-    audio.play()
-  }, [])
-
-  useEffect(() => {
+    if (commonProps.token === null && commonProps.userId === null) return
+    // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) {
       setTimeout(async () => {
         if (currentMessageIndex === dialogArray.length - 1) {
           setIsHintShown(false)
           setCurrentMessageIndex(0)
-          if (commonProps.token === null && commonProps.userId === null) return
           const isSaveSuccessful = await saveTask({
             userId: commonProps.userId,
             token: commonProps.token,
@@ -149,33 +201,51 @@ export const DialogInput: FC<DialogInputProps> = ({
             currentTask: commonProps.currentTask,
             courseId: commonProps.courseId,
           })
+
           if (isSaveSuccessful) {
             commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-            commonProps.completedTasks &&
-              commonProps.setCompletedTasks([
-                ...commonProps.completedTasks,
-                commonProps.currentTask,
-              ])
-            !commonProps.completedTasks &&
-              commonProps.setCompletedTasks([commonProps.currentTask])
+            const updatedTasks = commonProps.completedTasks
+              ? [...commonProps.completedTasks, commonProps.currentTask]
+              : [commonProps.currentTask]
+            commonProps.setCompletedTasks(updatedTasks)
           }
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
+        setMistakesCount(0)
         setOutputText('')
         setInputText('')
-        if (!commonProps.currentTask?.dialogLinesArray[currentMessageIndex + 1])
-          return
-        const audio = new Audio(
-          `https://cdn.lingwing.com${
-            commonProps.currentTask?.dialogLinesArray[currentMessageIndex + 1]
-              .sentenceAudioPath
-          }.mp3`,
-        )
-        audio.play()
-      }, 1200) // Specify the delay time in milliseconds
+      }, 2000) // Specify the delay time in milliseconds
     }
   }, [outputText])
+
+  const handleOnKeyDown = (event: React.KeyboardEvent) => {
+    // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
+    if (
+      event.key === 'Space' &&
+      inputRef.current &&
+      inputRef.current.value.endsWith(' ')
+    ) {
+      event.preventDefault()
+      return
+    }
+
+    if (event.key === 'Enter') {
+      event.preventDefault()
+    }
+
+    if (event.key === 'Backspace' || event.key === 'Delete') {
+      event.preventDefault()
+      // setCorrect(true)
+    } else {
+      // setCorrect(false)
+    }
+  }
+
+  const { transform, opacity } = useSpring({
+    opacity: isRecording ? 1 : 0.5,
+    transform: `scale(${isRecording ? 1.5 : 1})`,
+  })
 
   const handleOnFocus = () => {
     // Stop listening for speech when the input field is focused
@@ -194,11 +264,14 @@ export const DialogInput: FC<DialogInputProps> = ({
       const inputValue = inputRef.current.value
       setTextFromKeyboard(inputValue)
     }
-    setIsRecording(!isRecording)
-    // If speech recognition is currently active, stop it. Otherwise, start it.
-    isRecording
+
+    !isRecording
       ? SpeechRecognition.startListening({ continuous: true })
       : SpeechRecognition.stopListening()
+
+    !isRecording && resetTranscript()
+
+    setIsRecording(!isRecording)
   }
 
   return (
@@ -208,16 +281,27 @@ export const DialogInput: FC<DialogInputProps> = ({
         onFocus={handleOnFocus}
         ref={inputRef}
         className={style.input}
-        //  type="text"
+        autoComplete="off"
+        spellCheck="false"
+        data-gramm="false"
         value={outputText}
+        onKeyDown={handleOnKeyDown}
         onChange={handleTextareaChange}
+        placeholder="Type your answer"
+        autoFocus
       />
 
-      <span
-        className={style.micIcon}
-        onClick={() => handleMicOnClick}
-        key="mic"
-      />
+      <animated.div
+        className={style.microphoneIcon}
+        style={{
+          opacity,
+          transform,
+        }}
+        onClick={handleMicOnClick}
+      >
+        <span className={style.micIcon} key="mic" />
+        {isRecording && <div className={style.pulsatingCircle} />}
+      </animated.div>
     </div>
   )
 }

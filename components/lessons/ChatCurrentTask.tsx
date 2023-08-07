@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Hint } from './Hint'
 import { Dialog } from './Dialog'
 import { Grammar } from './Grammar'
 import { TaskData } from '@utils/lessons/getTask'
@@ -21,6 +22,7 @@ const ChatCurrentTask: FC<Props> = ({
   currentMessageIndex,
   onDivHeight,
 }) => {
+  console.log(currentTask)
   return (
     <>
       {currentTask.taskType !== 'grammar' && currentTask.taskType !== 'dialog' && (
@@ -35,7 +37,6 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                //isHintShown={isHintShown}
               />
             )}
             {currentTask.taskType === 'dictation' && (
@@ -45,7 +46,6 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                //isHintShown={isHintShown}
               />
             )}
             {currentTask.taskType === 'mistakecorrection' && (
@@ -54,7 +54,6 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.mistakeTaskText}
                 correctText={currentTask.correctText as string}
-                // isHintShown={isHintShown}
               />
             )}
             {currentTask.taskType === 'replay' && (
@@ -64,12 +63,9 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                //isHintShown={isHintShown}
               />
             )}
-            <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: <span className={style.hintText}>{hintText}</span>
-            </div>
+            <Hint isHintShown={isHintShown} hintText={hintText} />
           </div>
         </div>
       )}
@@ -82,16 +78,15 @@ const ChatCurrentTask: FC<Props> = ({
 
       {currentTask.taskType === 'dialog' && (
         <div className={style.currentTask}>
-          <div className={style.bubbleContainer}>
-            <Dialog
-              isHistory={false}
-              currentMessageIndex={currentMessageIndex}
-              dialogArray={currentTask.correctText as string[]}
-            />
-            <div className={isHintShown ? style.hint : style.hidden}>
-              Hint: <span className={style.hintText}>{hintText}</span>
-            </div>
-          </div>
+          <Dialog
+            isHistory={false}
+            currentTask={currentTask}
+            currentMessageIndex={currentMessageIndex}
+            dialogArrayTo={currentTask.correctText as string[]}
+            dialogArrayFrom={currentTask.taskText as string}
+            isHintShown={isHintShown}
+            hintText={hintText}
+          />
         </div>
       )}
     </>
