@@ -56,10 +56,9 @@ export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
 
   return (
     <div className={style.container}>
-      <div onClick={handleClick} className={style.button}>
-        {' '}
-        Next (Enter){' '}
-      </div>
+      <button onClick={handleClick} className={style.button}>
+        Next (Enter)
+      </button>
     </div>
   )
 }
