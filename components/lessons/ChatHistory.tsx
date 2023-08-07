@@ -25,14 +25,12 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
-                  // isHintShown={isHintShown}
                 />
                 <DictationBubble
                   type="answer"
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
-                  //isHintShown={isHintShown}
                 />
               </>
             )}
@@ -43,14 +41,12 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
-                  // isHintShown={isHintShown}
                 />
                 <TranslateBubble
                   utteranceType="answer"
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
-                  // isHintShown={isHintShown}
                 />
               </>
             )}
@@ -62,14 +58,12 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
                   isCurrentTask={false}
                   taskText={task.mistakeTaskText}
                   correctText={task.correctText as string}
-                  //isHintShown={isHintShown}
                 />
                 <TranslateBubble
                   utteranceType="answer"
                   isCurrentTask={false}
                   taskText={task.mistakeTaskText}
                   correctText={task.correctText as string}
-                  //isHintShown={isHintShown}
                 />
               </>
             )}
@@ -82,7 +76,6 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
-                  //isHintShown={isHintShown}
                 />
                 <TranslateBubble
                   utteranceType="answer"
@@ -90,14 +83,16 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
-                  //isHintShown={isHintShown}
                 />
               </>
             )}
             {taskType === 'dialog' && (
               <Dialog
                 dialogArrayTo={task.correctText as string[]}
+                dialogArrayFrom={task.taskText as string}
                 isHistory={true}
+                isHintShown={false}
+                hintText={''}
               />
             )}
             {taskType === 'grammar' && <Grammar taskText={task.taskText} />}

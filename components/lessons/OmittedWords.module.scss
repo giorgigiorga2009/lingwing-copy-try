@@ -35,26 +35,38 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 40rem;
-  height: 4rem;
-  font-size: 1rem;
-  // background-color: $white;
-  // background: #FFFFFF;
-  border: 2px solid #e6e6e6;
+  max-width: 26.7rem;
+  width: 26.7rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: SegoeUI;
+  resize: none;
+  height: 4.4rem;
+  background-color: #f3f3f3;
+  outline-color: $purple-600;
+  border: none;
   border-radius: 50px;
-  padding: 6px 8px 6px 1.5rem;
-  color: black;
+  padding: 1.2rem 1rem 0.8rem 2rem;
+  color: $black;
   gap: 0.5rem;
 }
 
 .input {
-  padding-left: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border: none;
   width: 6rem;
-  font-size: 1rem;
-  border-bottom: 2px solid #fbbf11;
-  height: 55%;
+  font-size: 1.2rem;
+  color: $black;
+  font-family: SegoeUI;
+  border-bottom: 2px solid $orange-650;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  outline-color: $orange-650;
+
+  &:focus {
+    border-bottom: none;
+  }
 }

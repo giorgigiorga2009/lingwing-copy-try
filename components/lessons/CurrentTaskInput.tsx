@@ -22,7 +22,6 @@ const CurrentTaskInput = ({
   currentMessageIndex,
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
-  //console.log(isHintShown)
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':

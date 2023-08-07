@@ -8,7 +8,6 @@ interface Props {
   correctText: string
   isCurrentTask: boolean
   textType?: 'replay' | 'standard'
-  //isHintShown: boolean
 }
 
 export const TranslateBubble: FC<Props> = ({
@@ -17,11 +16,9 @@ export const TranslateBubble: FC<Props> = ({
   utteranceType,
   isCurrentTask,
   textType = 'standard',
-  //isHintShown,
 }) => {
-  // const hint = isHintShown ? 'hint' : ''
-
   taskText = taskText
+    .replaceAll('(FR)', '🤗')
     .replaceAll('(SH)', '✂️')
     .replaceAll('(F)', '👧')
     .replaceAll('(M)', '👦')
@@ -34,7 +31,6 @@ export const TranslateBubble: FC<Props> = ({
         style[utteranceType],
         style[textType],
         style[`${isCurrentTask}`],
-        //  style[hint],
       )}
     >
       <div className={style.content}>

@@ -46,10 +46,8 @@ export const Dialog: FC<DialogProps> = ({
   return (
     <>
       <div className={style.title}>Dialog</div>
-
       <div className={style.dialog}>
         <span className={style.description}>{description}</span>
-
         {currentMessageIndex >= 0 &&
           !isHistory &&
           dialogArrayTo.slice(0, currentMessageIndex).map((message, index) => (
@@ -106,7 +104,7 @@ export const Dialog: FC<DialogProps> = ({
                     : style.translationLeft
                 }
               >
-                {/* {dialogArrayFrom[index]} */}
+                {dialogArrayFrom[index]}
               </p>
             </div>
           ))}

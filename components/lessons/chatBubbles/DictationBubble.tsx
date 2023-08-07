@@ -13,7 +13,6 @@ interface Props {
   correctText: string
   sentenceAudioPath?: string
   isCurrentTask: boolean
-  //isHintShown: boolean
 }
 
 export const DictationBubble: FC<Props> = ({
@@ -22,12 +21,11 @@ export const DictationBubble: FC<Props> = ({
   sentenceAudioPath,
   type,
   isCurrentTask,
-  //isHintShown,
 }) => {
   const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
-  //const hint = isHintShown ? 'hint' : ''
 
   taskText = taskText
+    .replaceAll('(FR)', '🤗')
     .replaceAll('(SH)', '✂️')
     .replaceAll('(F)', '👧')
     .replaceAll('(M)', '👦')
@@ -39,7 +37,6 @@ export const DictationBubble: FC<Props> = ({
         style.container,
         style[type],
         style[`${isCurrentTask}`],
-        // style[hint],
       )}
     >
       <div className={style.content}>

@@ -46,6 +46,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const correctText = commonProps.currentTask.correctText as string
   const currentWord = commonProps.currentTask?.wordsArray[currentWordIndex]
 
+  console.log(correctText + ' correctText')
   // Assume addAudio is a function that adds a new audio to the audios array
 
   useEffect(() => {
@@ -119,7 +120,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setIsHintShown,
     setMistakesCount,
   }
-  console.log(currentWord)
   //only for keyboardInput
   useEffect(() => {
     if (taskType === 'dictation' || taskType === 'translate') {
@@ -257,7 +257,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
               mistakesCount={mistakesCount}
               setIsHintShown={setIsHintShown}
               setMistakesCount={setMistakesCount}
-              sentenceArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
+              wordsArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
             />
           )}
 

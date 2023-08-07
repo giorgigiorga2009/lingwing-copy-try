@@ -1,12 +1,11 @@
 import style from './OmittedWords.module.scss'
-//import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
 import { CommonProps } from '@utils/lessons/taskInputUtils'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
   commonProps: CommonProps
-  sentenceArray: string[]
+  wordsArray: string[]
   onKeyDown: (event: React.KeyboardEvent) => void
   isHintShown: boolean
   setMistakesCount: (values: number) => void
@@ -16,8 +15,7 @@ interface Props {
 }
 
 export const OmittedWords: FC<Props> = ({
-  sentenceArray,
-  // setCorrect,
+  wordsArray,
   onKeyDown,
   isHintShown,
   setMistakesCount,
@@ -26,12 +24,10 @@ export const OmittedWords: FC<Props> = ({
   setIsHintShown,
   setHintText,
 }) => {
-  const [words, setWords] = useState([''])
-  const [correctWords, setCorrectWords] = useState([''])
+  const [words, setWords] = useState<string[]>([])
+  const [correctWords, setCorrectWords] = useState<string[]>([])
   const inputRefs = useRef<HTMLInputElement[]>([])
-  const inputsCount = sentenceArray
-    .map(item => (/^\[.*\]$/.test(item) ? 1 : 0))
-    .filter(Boolean).length
+  const inputsCount = wordsArray.filter(item => /^\[.*\]$/.test(item)).length
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -39,12 +35,13 @@ export const OmittedWords: FC<Props> = ({
   ) => {
     const inputValue = event.target.value
     const newWords = [...words]
-    const missingWord = sentenceArray[index].slice(1, -1)
+    const missingWord = wordsArray[index].slice(1, -1)
 
-    if (
+    const isTextValid =
       inputValue.toLowerCase() ===
       missingWord.substring(0, inputValue.length).toLowerCase()
-    ) {
+
+    if (isTextValid) {
       setIsHintShown(false)
       newWords[index] = missingWord.substring(0, inputValue.length)
       setWords(newWords)
@@ -54,9 +51,8 @@ export const OmittedWords: FC<Props> = ({
         .find(element => element !== undefined)
 
       if (inputValue.length === missingWord.length) {
-        const newCorrectWords = [...correctWords]
-        newCorrectWords.push(missingWord)
-        setCorrectWords(newCorrectWords)
+        setCorrectWords(prevWords => [...prevWords, missingWord])
+
         nextInputRef && nextInputRef.focus()
       }
     } else {
@@ -100,7 +96,7 @@ export const OmittedWords: FC<Props> = ({
 
   return (
     <div className={style.inputContainer}>
-      {sentenceArray.map((word, index) => {
+      {wordsArray.map((word, index) => {
         if (word.startsWith('[')) {
           const currentValue = words[index]
 
