@@ -22,7 +22,7 @@ export const DictationBubble: FC<Props> = ({
   type,
   isCurrentTask,
 }) => {
-  const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
+  const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
 
   taskText = taskText
     .replaceAll('(FR)', '🤗')
@@ -40,6 +40,7 @@ export const DictationBubble: FC<Props> = ({
       )}
     >
       <div className={style.content}>
+        <div className={style.icon}></div>
         <span className={style.correctText}>{correctText}</span>
         {isCurrentTask && (
           <span className={style.waveform}>

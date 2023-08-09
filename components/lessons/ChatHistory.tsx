@@ -11,7 +11,7 @@ interface HistoryProps {
   isHintShown: boolean
 }
 
-const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
+const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
   return (
     <div className={style.chatHistoryContainer}>
       {completedTasks.map(task => {
@@ -38,12 +38,14 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
               <>
                 <TranslateBubble
                   utteranceType="taskDescription"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
                 />
                 <TranslateBubble
                   utteranceType="answer"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
@@ -55,12 +57,14 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
               <>
                 <TranslateBubble
                   utteranceType="taskDescription"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.mistakeTaskText}
                   correctText={task.correctText as string}
                 />
                 <TranslateBubble
                   utteranceType="answer"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.mistakeTaskText}
                   correctText={task.correctText as string}
@@ -72,14 +76,14 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks, isHintShown }) => {
               <>
                 <TranslateBubble
                   utteranceType="taskDescription"
-                  textType="replay"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
                 />
                 <TranslateBubble
                   utteranceType="answer"
-                  textType="replay"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}

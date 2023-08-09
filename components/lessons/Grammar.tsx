@@ -14,16 +14,19 @@ export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
   useEffect(() => {
     if (grammarRef.current && typeof onDivHeight === 'function') {
       const height = grammarRef.current.offsetHeight
-      onDivHeight(height)
+      onDivHeight(height + 20)
     }
   }, [grammarRef.current])
 
   return (
-    <div
-      ref={grammarRef}
-      className={style.textContainer}
-      dangerouslySetInnerHTML={{ __html: taskText }}
-    />
+    <div>
+      <div className={style.title}>Grammar</div>
+      <div
+        ref={grammarRef}
+        className={style.textContainer}
+        dangerouslySetInnerHTML={{ __html: taskText }}
+      />
+    </div>
   )
 }
 

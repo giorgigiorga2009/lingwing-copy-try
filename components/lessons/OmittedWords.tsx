@@ -1,6 +1,9 @@
 import style from './OmittedWords.module.scss'
 import { saveTask } from '@utils/lessons/saveTask'
-import { CommonProps } from '@utils/lessons/taskInputUtils'
+import {
+  handleChangeOmittedWords,
+  CommonProps,
+} from '@utils/lessons/taskInputUtils'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
@@ -28,31 +31,37 @@ export const OmittedWords: FC<Props> = ({
   const [correctWords, setCorrectWords] = useState<string[]>([])
   const inputRefs = useRef<HTMLInputElement[]>([])
   const inputsCount = wordsArray.filter(item => /^\[.*\]$/.test(item)).length
+  //const [inputText, setInputText] = useState('')
 
-  const handleChange = (
+  const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
-    const inputValue = event.target.value
+    const inputText = handleChangeOmittedWords(
+      event,
+      commonProps.languageTo as 'geo' | 'eng' | 'rus',
+    )
+
+    console.log(inputText)
+    //const inputValue = event.target.value
     const newWords = [...words]
     const missingWord = wordsArray[index].slice(1, -1)
 
     const isTextValid =
-      inputValue.toLowerCase() ===
-      missingWord.substring(0, inputValue.length).toLowerCase()
+      inputText.toLowerCase() ===
+      missingWord.substring(0, inputText.length).toLowerCase()
 
     if (isTextValid) {
       setIsHintShown(false)
-      newWords[index] = missingWord.substring(0, inputValue.length)
+      newWords[index] = missingWord.substring(0, inputText.length)
       setWords(newWords)
 
       const nextInputRef = inputRefs.current
         .slice(index + 1)
         .find(element => element !== undefined)
 
-      if (inputValue.length === missingWord.length) {
+      if (inputText.length === missingWord.length) {
         setCorrectWords(prevWords => [...prevWords, missingWord])
-
         nextInputRef && nextInputRef.focus()
       }
     } else {
@@ -105,7 +114,7 @@ export const OmittedWords: FC<Props> = ({
               className={style.input}
               key={index}
               value={currentValue !== undefined ? currentValue : ''}
-              onChange={event => handleChange(event, index)}
+              onChange={event => handleInputChange(event, index)}
               onKeyDown={onKeyDown}
               ref={el => (inputRefs.current[index] = el!)}
             />

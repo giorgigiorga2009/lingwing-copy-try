@@ -42,11 +42,20 @@ export const Dialog: FC<DialogProps> = ({
   isHintShown,
   hintText,
 }) => {
-  const audioUrl = `https://cdn.lingwing.com${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
+  const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
+
+  const dialogContainerRef = useRef<HTMLDivElement | null>(null)
+  console.log(currentMessageIndex + ' currentMessageIndex')
+  useEffect(() => {
+    if (dialogContainerRef.current) {
+      dialogContainerRef.current.scrollTop = 0 // 2. Set scrollTop to 0
+    }
+  }, [dialogArrayTo]) //Don't work properly
+
   return (
-    <>
+    <div>
       <div className={style.title}>Dialog</div>
-      <div className={style.dialog}>
+      <div className={style.dialog} ref={dialogContainerRef}>
         <span className={style.description}>{description}</span>
         {currentMessageIndex >= 0 &&
           !isHistory &&
@@ -76,9 +85,7 @@ export const Dialog: FC<DialogProps> = ({
         {!isHistory && (
           <div className={style.bubbleContainer}>
             <div className={style.currentTask}>
-              <p>
-                <WaveSurferNext audioURL={audioUrl} />
-              </p>
+              <WaveSurferNext audioURL={audioUrl} />
             </div>
             <Hint isHintShown={isHintShown} hintText={hintText} />
           </div>
@@ -109,7 +116,7 @@ export const Dialog: FC<DialogProps> = ({
             </div>
           ))}
       </div>
-    </>
+    </div>
   )
 }
 
@@ -158,7 +165,6 @@ export const DialogInput: FC<DialogInputProps> = ({
   //only for keyboard
   useEffect(() => {
     if (!inputText) return
-    //console.log(dialogArray[currentMessageIndex])
     setOutputText(
       replayInputCheck({
         inputText,
@@ -176,6 +182,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
+    if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) return
     handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
@@ -213,7 +220,7 @@ export const DialogInput: FC<DialogInputProps> = ({
         setMistakesCount(0)
         setOutputText('')
         setInputText('')
-      }, 2000) // Specify the delay time in milliseconds
+      }, 2000)
     }
   }, [outputText])
 

@@ -15,7 +15,7 @@ export type CommonProps = {
 }
 
 export const handleChange = (
-  event: React.ChangeEvent<HTMLTextAreaElement>,
+  event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   languageTo: keyof typeof LANGUAGES_MAP_OVERRIDE,
   setInputText: (text: string) => void,
 ) => {
@@ -37,6 +37,31 @@ export const handleChange = (
     setInputText(overriddenText)
   } else {
     setInputText(event.target.value)
+  }
+}
+
+export const handleChangeOmittedWords = (
+  event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  languageTo: keyof typeof LANGUAGES_MAP_OVERRIDE,
+) => {
+  const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
+
+  const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
+    override =>
+      override.geo === currentCharCode ||
+      override.rus === currentCharCode ||
+      override.eng === currentCharCode,
+  )
+
+  if (overriddenKeyboard) {
+    const overriddenText =
+      event.target.value.slice(0, -1) +
+      String.fromCharCode(
+        overriddenKeyboard[LANGUAGES_MAP_OVERRIDE[languageTo]],
+      )
+    return overriddenText
+  } else {
+    return event.target.value
   }
 }
 

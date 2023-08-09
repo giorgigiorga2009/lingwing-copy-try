@@ -22,7 +22,6 @@ const ChatCurrentTask: FC<Props> = ({
   currentMessageIndex,
   onDivHeight,
 }) => {
-  console.log(currentTask)
   return (
     <>
       {currentTask.taskType !== 'grammar' && currentTask.taskType !== 'dialog' && (
@@ -34,6 +33,7 @@ const ChatCurrentTask: FC<Props> = ({
               currentTask.taskType === 'omittedwords') && (
               <TranslateBubble
                 utteranceType="taskDescription"
+                textType={currentTask.taskType}
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
@@ -51,6 +51,7 @@ const ChatCurrentTask: FC<Props> = ({
             {currentTask.taskType === 'mistakecorrection' && (
               <TranslateBubble
                 utteranceType="taskDescription"
+                textType={currentTask.taskType}
                 isCurrentTask={true}
                 taskText={currentTask.mistakeTaskText}
                 correctText={currentTask.correctText as string}
@@ -59,7 +60,7 @@ const ChatCurrentTask: FC<Props> = ({
             {currentTask.taskType === 'replay' && (
               <TranslateBubble
                 utteranceType="taskDescription"
-                textType="replay"
+                textType={currentTask.taskType}
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}

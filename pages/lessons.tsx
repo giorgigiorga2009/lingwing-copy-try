@@ -188,17 +188,13 @@ const Lessons: NextPage = () => {
     if (isGrammarHeightCalled && grammarHeight === 0) return
 
     setTimeout(() => {
-      //console.log(grammarHeight, 'grammarHeightUSEEFFECT')
-
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
           chatRef.current.scrollTop =
             chatWrapperRef.current.scrollHeight - grammarHeight
           setGrammarHeight(0)
-          //console.log('grammarScroll')
         } else {
           chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight
-          //console.log('justscroll')
         }
       }
     }, 200)

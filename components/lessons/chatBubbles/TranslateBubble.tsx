@@ -7,7 +7,14 @@ interface Props {
   taskText: string
   correctText: string
   isCurrentTask: boolean
-  textType?: 'replay' | 'standard'
+  textType?:
+    | 'dictation'
+    | 'translate'
+    | 'dialog'
+    | 'omittedwords'
+    | 'replay'
+    | 'mistakecorrection'
+    | 'grammar'
 }
 
 export const TranslateBubble: FC<Props> = ({
@@ -15,7 +22,7 @@ export const TranslateBubble: FC<Props> = ({
   correctText,
   utteranceType,
   isCurrentTask,
-  textType = 'standard',
+  textType,
 }) => {
   taskText = taskText
     .replaceAll('(FR)', '🤗')
@@ -29,13 +36,14 @@ export const TranslateBubble: FC<Props> = ({
       className={classNames(
         style.container,
         style[utteranceType],
-        style[textType],
+        // style[textType],
         style[`${isCurrentTask}`],
       )}
     >
       <div className={style.content}>
+        <div className={style[textType + 'Icon']}></div>
         <span className={style.correctText}>{correctText}</span>
-        {textType === 'standard' ? (
+        {textType !== 'replay' ? (
           <span
             className={style.taskText}
             dangerouslySetInnerHTML={{ __html: taskText }}

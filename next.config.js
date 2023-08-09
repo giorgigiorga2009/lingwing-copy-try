@@ -7,6 +7,7 @@ const nextConfig = {
   },
   env: {
     defaultURL: 'https://api.lingwing.com/api/v2',
+    audioURL: 'https://cdn.lingwing.com',
   },
 }
 

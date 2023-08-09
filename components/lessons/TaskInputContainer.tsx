@@ -46,7 +46,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const correctText = commonProps.currentTask.correctText as string
   const currentWord = commonProps.currentTask?.wordsArray[currentWordIndex]
 
-  console.log(correctText + ' correctText')
   // Assume addAudio is a function that adds a new audio to the audios array
 
   useEffect(() => {
@@ -68,7 +67,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     }
 
     if (!currentWord) return
-
     const wordIsFinished =
       currentWord.wordText
         .replace(/[^\p{L}\p{M}?]/gu, '')
@@ -78,7 +76,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
     if (wordIsFinished) {
       if (currentWord.wordAudioPath !== 'undefined/undefined') {
-        addAudio(`https://cdn.lingwing.com${currentWord?.wordAudioPath}.mp3`)
+        addAudio(`${process.env.audioURL}${currentWord?.wordAudioPath}.mp3`)
       }
 
       setCurrentWordIndex(currentWordIndex + 1)
@@ -138,6 +136,12 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     if (commonProps.token === null && commonProps.userId === null) return
     // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.trim() === correctText.trim()) {
+      if (taskType === 'replay') {
+        const audio = new Audio(
+          `${process.env.audioURL}${commonProps.currentTask.sentenceAudioPath}.mp3`,
+        )
+        audio.play()
+      }
       setTimeout(async () => {
         setIsHintShown(false)
         const isSaveSuccessful = await saveTask({
@@ -165,7 +169,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           }
           commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
         }
-      }, 2000)
+      }, 2200)
     }
   }, [taskProgress])
 

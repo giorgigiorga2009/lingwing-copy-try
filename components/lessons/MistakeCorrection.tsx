@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
-import { CommonProps } from '@utils/lessons/taskInputUtils'
+import { CommonProps, handleChange } from '@utils/lessons/taskInputUtils'
 
 interface Props {
   commonProps: CommonProps
@@ -48,7 +48,8 @@ export const MistakeCorrectionTask: FC<Props> = ({
   useEffect(() => {
     if (commonProps.token === null && commonProps.userId === null) return
 
-    if (inputText === correctText) {
+    if (inputText.replace(/\s+/g, ' ') === correctText) {
+      setInputText(inputText.replace(/\s+/g, ' '))
       setTimeout(async () => {
         const isSaveSuccessful = await saveCurrentTask()
         if (isSaveSuccessful) {
@@ -68,7 +69,14 @@ export const MistakeCorrectionTask: FC<Props> = ({
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     if (inputText === correctText) return
-    setInputText(event.target.value)
+
+    handleChange(
+      event,
+      commonProps.languageTo as 'geo' | 'eng' | 'rus',
+      setInputText,
+    )
+
+    //setInputText(event.target.value)
     setIsHintShown(false)
     setMistakeRepeat(false)
   }
