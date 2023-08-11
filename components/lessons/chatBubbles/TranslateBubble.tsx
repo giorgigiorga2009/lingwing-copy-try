@@ -7,7 +7,7 @@ interface Props {
   taskText: string
   correctText: string
   isCurrentTask: boolean
-  textType?:
+  textType:
     | 'dictation'
     | 'translate'
     | 'dialog'
@@ -36,7 +36,7 @@ export const TranslateBubble: FC<Props> = ({
       className={classNames(
         style.container,
         style[utteranceType],
-        // style[textType],
+        style[textType],
         style[`${isCurrentTask}`],
       )}
     >
