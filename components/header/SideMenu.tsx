@@ -18,9 +18,10 @@ export type SideMenuKeys = keyof typeof SIDE_MENU_LINKS
 interface SectionProps {
   options: SideMenuKeys[]
   title: string
+  onClose: () => void
 }
 
-const Section: FC<SectionProps> = ({ options, title }) => {
+const Section: FC<SectionProps> = ({ options, title, onClose }) => {
   const { t } = useTranslation()
   const router = useRouter()
 
@@ -28,21 +29,21 @@ const Section: FC<SectionProps> = ({ options, title }) => {
     <section>
       <h3>{title}</h3>
       <div className={styles.list}>
-        {options.map(element => (
-          <Link
-            href={{
-              pathname: SIDE_MENU_LINKS[element][0],
-              query:
-                SIDE_MENU_LINKS[element][1] !== ''
-                  ? { page: SIDE_MENU_LINKS[element][1] }
-                  : {},
-            }}
-            locale={router.locale}
-            key={element}
-          >
-            {t(element)}
-          </Link>
-        ))}
+        {options.map(element => {
+          const [pathname, queryKey, queryValue] = SIDE_MENU_LINKS[element]
+          const query = queryKey && queryValue ? { [queryKey]: queryValue } : {}
+
+          return (
+            <Link
+              href={{ pathname, query }}
+              locale={router.locale}
+              key={element}
+              onClick={onClose}
+            >
+              {t(element)}
+            </Link>
+          )
+        })}
       </div>
     </section>
   )
@@ -65,10 +66,26 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         <div className={styles.button} onClick={onClose} />
         <div className={styles.content}>
           <div className={styles.menu}>
-            <Section title={t('footerCourses')} options={COURSES_KEYS} />
-            <Section title={t('menuPremium')} options={PREMIUM_KEYS} />
-            <Section title={t('menuCompany')} options={ABOUT_COMPANY_KEYS} />
-            <Section title={t('menuHelp')} options={HELP_KEYS} />
+            <Section
+              title={t('footerCourses')}
+              options={COURSES_KEYS}
+              onClose={onClose}
+            />
+            <Section
+              title={t('menuPremium')}
+              options={PREMIUM_KEYS}
+              onClose={onClose}
+            />
+            <Section
+              title={t('menuCompany')}
+              options={ABOUT_COMPANY_KEYS}
+              onClose={onClose}
+            />
+            <Section
+              title={t('menuHelp')}
+              options={HELP_KEYS}
+              onClose={onClose}
+            />
           </div>
 
           <div className={styles.footer}>
