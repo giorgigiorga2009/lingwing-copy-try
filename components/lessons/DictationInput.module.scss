@@ -1,17 +1,21 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .input {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  max-width: 26.7rem;
   width: 26.7rem;
-  height: 55%;
   font-size: 1.2rem;
-  // background-color: $white;
-  // background: #FFFFFF;
-  border: 2px solid #e6e6e6;
+  font-weight: bold;
+  font-family: SegoeUI;
+  resize: none;
+  height: 4.4rem;
+  background-color: #f3f3f3;
+  outline-color: $purple-600;
+  border: none;
   border-radius: 50px;
-  padding: 6px 8px 6px 1.5rem;
-  color: black;
+  padding: 1.2rem 1rem 0.8rem 2rem;
+  color: $black;
 }

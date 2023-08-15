@@ -1,89 +1,72 @@
 import style from './OmittedWords.module.scss'
-import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
+import {
+  handleChangeOmittedWords,
+  CommonProps,
+} from '@utils/lessons/taskInputUtils'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
-  // setCorrect: (bool: boolean) => void
-  sentenceArray: string[]
+  commonProps: CommonProps
+  wordsArray: string[]
   onKeyDown: (event: React.KeyboardEvent) => void
-  setMistakeRepeat: (bool: boolean) => void
-  mistakeRepeat: boolean
+  isHintShown: boolean
   setMistakesCount: (values: number) => void
   mistakesCount: number
-  token: string | null
-  userId: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
 
 export const OmittedWords: FC<Props> = ({
-  sentenceArray,
-  // setCorrect,
-  userId,
+  wordsArray,
   onKeyDown,
-  setMistakeRepeat,
-  mistakeRepeat,
+  isHintShown,
   setMistakesCount,
   mistakesCount,
-  token,
-  languageTo,
-  languageFrom,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  currentTask,
-  completedTasks,
-  setCompletedTasks,
+  commonProps,
   setIsHintShown,
   setHintText,
 }) => {
-  const [words, setWords] = useState([''])
-  const [correctWords, setCorrectWords] = useState([''])
+  const [words, setWords] = useState<string[]>([])
+  const [correctWords, setCorrectWords] = useState<string[]>([])
   const inputRefs = useRef<HTMLInputElement[]>([])
-  const inputsCount = sentenceArray
-    .map(item => (/^\[.*\]$/.test(item) ? 1 : 0))
-    .filter(Boolean).length
+  const inputsCount = wordsArray.filter(item => /^\[.*\]$/.test(item)).length
+  //const [inputText, setInputText] = useState('')
 
-  const handleChange = (
+  const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
-    const inputValue = event.target.value
-    const newWords = [...words]
-    const missingWord = sentenceArray[index].slice(1, -1)
+    const inputText = handleChangeOmittedWords(
+      event,
+      commonProps.languageTo as 'geo' | 'eng' | 'rus',
+    )
 
-    if (
-      inputValue.toLowerCase() ===
-      missingWord.substring(0, inputValue.length).toLowerCase()
-    ) {
-      setMistakeRepeat(false)
+    console.log(inputText)
+    //const inputValue = event.target.value
+    const newWords = [...words]
+    const missingWord = wordsArray[index].slice(1, -1)
+
+    const isTextValid =
+      inputText.toLowerCase() ===
+      missingWord.substring(0, inputText.length).toLowerCase()
+
+    if (isTextValid) {
       setIsHintShown(false)
-      newWords[index] = missingWord.substring(0, inputValue.length)
+      newWords[index] = missingWord.substring(0, inputText.length)
       setWords(newWords)
 
       const nextInputRef = inputRefs.current
         .slice(index + 1)
         .find(element => element !== undefined)
 
-      if (inputValue.length === missingWord.length) {
-        const newCorrectWords = [...correctWords]
-        newCorrectWords.push(missingWord)
-        setCorrectWords(newCorrectWords)
+      if (inputText.length === missingWord.length) {
+        setCorrectWords(prevWords => [...prevWords, missingWord])
         nextInputRef && nextInputRef.focus()
       }
     } else {
-      if (mistakeRepeat === false) {
+      if (!isHintShown) {
         setMistakesCount(mistakesCount + 1)
-        setMistakeRepeat(true)
         setIsHintShown(true)
         setHintText(missingWord)
       }
@@ -91,21 +74,26 @@ export const OmittedWords: FC<Props> = ({
   }
 
   useEffect(() => {
-    if (token === null && userId === null) return
+    if (commonProps.token === null && commonProps.userId === null) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
         const isSaveSuccessful = await saveTask({
-          userId,
-          token,
-          languageFrom,
-          languageTo,
-          currentTask,
-          courseId,
+          userId: commonProps.userId,
+          token: commonProps.token,
+          languageFrom: commonProps.languageFrom,
+          languageTo: commonProps.languageTo,
+          currentTask: commonProps.currentTask,
+          courseId: commonProps.courseId,
         })
         if (isSaveSuccessful) {
-          setCurrentTaskNumber(currentTaskNumber + 1)
-          completedTasks && setCompletedTasks([...completedTasks, currentTask])
-          !completedTasks && setCompletedTasks([currentTask])
+          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+          commonProps.completedTasks &&
+            commonProps.setCompletedTasks([
+              ...commonProps.completedTasks,
+              commonProps.currentTask,
+            ])
+          !commonProps.completedTasks &&
+            commonProps.setCompletedTasks([commonProps.currentTask])
         }
       }, 1500)
     }
@@ -117,7 +105,7 @@ export const OmittedWords: FC<Props> = ({
 
   return (
     <div className={style.inputContainer}>
-      {sentenceArray.map((word, index) => {
+      {wordsArray.map((word, index) => {
         if (word.startsWith('[')) {
           const currentValue = words[index]
 
@@ -126,7 +114,7 @@ export const OmittedWords: FC<Props> = ({
               className={style.input}
               key={index}
               value={currentValue !== undefined ? currentValue : ''}
-              onChange={event => handleChange(event, index)}
+              onChange={event => handleInputChange(event, index)}
               onKeyDown={onKeyDown}
               ref={el => (inputRefs.current[index] = el!)}
             />

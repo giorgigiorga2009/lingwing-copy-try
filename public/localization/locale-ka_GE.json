@@ -18,13 +18,13 @@
   "menuPrices": "ფასები",
   "menuBuyAGift": "უყიდე მეგობარს",
   "menuPricesCoupon": "კუპონის აქტივაცია",
-  "WhyWithUs": "რატომ ჩვენთან",
+  "About": "რატომ ჩვენთან",
   "Certificate": "სერტიფიკატი",
   "Partners": "პარტნიორები",
   "Jobs": "ვაკანსია",
   "menuBlog": "ბლოგი",
-  "menuLicenseAgreement": "სალიცენზიო შეთანხმების პირობებს",
-  "menuPrivacyPolicy": "Privacy Policy",
+  "menuLicenseAgreement": "სალიცენზიო შეთანხმება",
+  "menuPrivacyPolicy": "კონფიდენციალურობის პოლიტიკა",
 
 
   "AUTH_EMAIL": "ელ-ფოსტა",

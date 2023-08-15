@@ -21,7 +21,6 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
-  console.log(openLogin)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -32,7 +31,6 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   }, [])
 
   const isDashboard = router.pathname.includes('dashboard')
-  console.log(openLogin)
 
   return (
     <header className={classNames(style.header, style[size])}>

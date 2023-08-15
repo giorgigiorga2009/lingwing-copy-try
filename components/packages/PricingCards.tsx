@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import useStore from '@utils/store'
 import { useRouter } from 'next/router'
 import { CaruselDot } from './CaruselDot'
 import { Currency } from './CurrencyPicker'
@@ -22,11 +23,12 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
   showPackages,
   coupon,
 }) => {
+  const selectedCurrency = useStore(state => state.selectedCurrency)
   const cardRef = useRef<HTMLDivElement>(null!)
   const router = useRouter()
   const getCoupon = router.query.coupon as string
   const [packagesData, setPackagesData] = useState<PackageData>()
-  const [selectedCurrency, setSelectedCurrency] = useState(0)
+  // const [selectedCurrency, setSelectedCurrency] = useState(0)
   const [currentCard, setCurrentCard] = useState(0)
 
   useEffect(() => {
@@ -68,7 +70,7 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                 symbol={currency.symbol}
                 index={index}
                 key={currency.identifier}
-                onClick={() => setSelectedCurrency(index)}
+                //onClick={() => setSelectedCurrency(index)}
                 selectedCurrency={selectedCurrency}
               />
             ))}

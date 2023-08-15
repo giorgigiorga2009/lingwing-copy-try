@@ -45,23 +45,29 @@ const Lessons: NextPage = () => {
   const chatRef = useRef<HTMLDivElement>(null)
 
   const router = useRouter()
-  const { courseName, languageTo, languageFrom } = router.query // Destructure courseName, languageTo, and languageFrom from the router query object
+  const { courseName, languageTo, languageFrom } = router.query
 
   // Use localStorage to set the token state
   useEffect(() => {
     setToken(localStorage.getItem('authToken'))
-    const userId = Cookies.get('userId')
-    userId && setUserId(userId)
+    const getUserId = Cookies.get('userId')
+    getUserId && setUserId(getUserId)
   }, [])
 
   //get userId
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || token || userId) return
-    getUserId({ languageFrom, languageTo, courseName }).then(response => {
-      if (!response) return
-      setUserId(response)
-      Cookies.set('userId', response)
-    })
+    getUserId({ languageFrom, languageTo, courseName })
+      .then(response => {
+        if (!response) return
+        setUserId(response)
+        Cookies.set('userId', response)
+        return response
+      })
+      .catch(error => {
+        console.error('Error fetching user course:', error)
+        throw error
+      })
   }, [languageTo])
 
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
@@ -69,16 +75,21 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!token && !userId))
       return
-    getUserCourse({ languageFrom, languageTo, courseName, token, userId }).then(
-      courseObject => {
+
+    getUserCourse({ languageFrom, languageTo, courseName, token, userId })
+      .then(courseObject => {
         if (courseObject) {
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
           setUserScore(courseObject.score)
         }
-      },
-    )
-  }, [languageFrom, languageTo, courseName, token])
+        return courseObject
+      })
+      .catch(error => {
+        console.error('Error fetching user course:', error)
+        throw error
+      })
+  }, [languageFrom, languageTo, courseName, token, userId])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
@@ -91,7 +102,12 @@ const Lessons: NextPage = () => {
       token,
       courseId,
       userId,
-    }).then(response => setTasksData(response))
+    })
+      .then(response => setTasksData(response))
+      .catch(error => {
+        console.error('Error fetching user course:', error)
+        throw error
+      })
   }, [courseId])
 
   useEffect(() => {
@@ -110,9 +126,14 @@ const Lessons: NextPage = () => {
       token,
       languageCourseId: currentCourseObject.course._id,
       languageId: currentCourseObject.course.iLearn._id,
-    }).then(currentCoursesList =>
-      setCurrentLanguageCoursesList(currentCoursesList),
-    )
+    })
+      .then(currentCoursesList =>
+        setCurrentLanguageCoursesList(currentCoursesList),
+      )
+      .catch(error => {
+        console.error('Error fetching user course:', error)
+        throw error
+      })
   }, [courseId])
 
   // Use the tasksData and currentTaskNumber states to set the current task and its type
@@ -144,17 +165,22 @@ const Lessons: NextPage = () => {
         token,
         courseId,
         userId,
-      }).then(response => {
-        const newDataArray = [...tasksData, ...response]
-        setTasksData(newDataArray)
       })
+        .then(response => {
+          const newDataArray = [...tasksData, ...response]
+          setTasksData(newDataArray)
+          return response
+        })
+        .catch(error => {
+          console.error('Error fetching user course:', error)
+          throw error
+        })
     }
   }, [currentTask])
 
   const handleGrammarHeight = (height: number) => {
     setGrammarHeight(height)
     setIsGrammarHeightCalled(true)
-    console.log('setGrammarHeight')
   }
 
   useEffect(() => {
@@ -162,17 +188,13 @@ const Lessons: NextPage = () => {
     if (isGrammarHeightCalled && grammarHeight === 0) return
 
     setTimeout(() => {
-      console.log(grammarHeight, 'grammarHeightUSEEFFECT')
-
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
           chatRef.current.scrollTop =
             chatWrapperRef.current.scrollHeight - grammarHeight
           setGrammarHeight(0)
-          console.log('grammarScroll')
         } else {
           chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight
-          console.log('justscroll')
         }
       }
     }, 200)
@@ -277,6 +299,7 @@ const Lessons: NextPage = () => {
           {commonProps && (
             <CurrentTaskInput
               commonProps={commonProps}
+              isHintShown={isHintShown}
               setIsHintShown={setIsHintShown}
               setHintText={setHintText}
               currentMessageIndex={currentMessageIndex}

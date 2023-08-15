@@ -13,10 +13,10 @@ export const PageHead: FC<Props> = ({ text }) => {
     <Head>
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <title>{t(text)}</title>
-      <style>
+      {/* <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
-      </style>
+      </style> */}
     </Head>
   )
 }

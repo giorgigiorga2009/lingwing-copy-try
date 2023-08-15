@@ -9,43 +9,48 @@ const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
 
 interface Props {
   type: 'taskDescription' | 'answer'
-  taskDescription: string
   taskText: string
   correctText: string
   sentenceAudioPath?: string
   isCurrentTask: boolean
-  isHintShown: boolean
 }
 
 export const DictationBubble: FC<Props> = ({
-  taskDescription,
   taskText,
   correctText,
   sentenceAudioPath,
   type,
   isCurrentTask,
-  isHintShown,
 }) => {
-  const audioUrl = `https://cdn.lingwing.com${sentenceAudioPath}.mp3`
-  const hint = isHintShown ? 'hint' : ''
+  const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
+
+  taskText = taskText
+    .replaceAll('(FR)', '🤗')
+    .replaceAll('(SH)', '✂️')
+    .replaceAll('(F)', '👧')
+    .replaceAll('(M)', '👦')
+    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+
   return (
     <div
       className={classNames(
         style.container,
         style[type],
         style[`${isCurrentTask}`],
-        style[hint],
       )}
     >
-      <div className={style.header}>{taskDescription}</div>
       <div className={style.content}>
+        <div className={style.icon}></div>
         <span className={style.correctText}>{correctText}</span>
         {isCurrentTask && (
           <span className={style.waveform}>
             <WaveSurferNext audioURL={audioUrl} />
           </span>
         )}
-        <span className={style.taskText}>{taskText} </span>
+        <span
+          className={style.taskText}
+          dangerouslySetInnerHTML={{ __html: taskText }}
+        ></span>
       </div>
     </div>
   )

@@ -97,7 +97,7 @@ const getFormattedLevels = (
     uniqueStudentsCount: level._id.uniqueStudentsCount,
     options: options.map(option => {
       return {
-        title: option.title,
+        title: option.slug,
         studyingTheCourse: option.studyingTheCourse,
         fullDescription: option.fullDescription,
         smallDescription: option.smallDescription,

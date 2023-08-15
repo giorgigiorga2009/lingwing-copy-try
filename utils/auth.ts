@@ -47,20 +47,23 @@ export const auth = ({ email, password, repeatPassword }: Auth) => {
 }
 
 export const login = ({ email, password }: Auth) => {
-  return axios({
-    method: 'post',
-    url: `${process.env.defaultURL}/public/auth/login?lang=eng`,
-    headers: {
-      ...HEADERS,
-      Authorization: 'null',
-    },
-    data: {
-      email,
-      password,
-    },
-  })
-    .then(response => response.data.token)
-    .catch(error => console.log(error))
+  return (
+    axios({
+      method: 'post',
+      url: `${process.env.defaultURL}/public/auth/login?lang=eng`,
+      headers: {
+        ...HEADERS,
+        Authorization: 'null',
+      },
+      data: {
+        email,
+        password,
+      },
+    })
+      //.then(response => response.data.token)   Production
+      .then(response => response.data.data.token)
+      .catch(error => console.log(error))
+  )
 }
 
 export const getUserProfileData = (token: string) => {

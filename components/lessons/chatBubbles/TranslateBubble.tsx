@@ -4,24 +4,33 @@ import style from './TranslateBubble.module.scss'
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
-  taskDescription: string
   taskText: string
   correctText: string
   isCurrentTask: boolean
-  textType?: 'replay' | 'standard'
-  isHintShown: boolean
+  textType:
+    | 'dictation'
+    | 'translate'
+    | 'dialog'
+    | 'omittedwords'
+    | 'replay'
+    | 'mistakecorrection'
+    | 'grammar'
 }
 
 export const TranslateBubble: FC<Props> = ({
-  taskDescription,
   taskText,
   correctText,
   utteranceType,
   isCurrentTask,
-  textType = 'standard',
-  isHintShown,
+  textType,
 }) => {
-  const hint = isHintShown ? 'hint' : ''
+  taskText = taskText
+    .replaceAll('(FR)', '🤗')
+    .replaceAll('(SH)', '✂️')
+    .replaceAll('(F)', '👧')
+    .replaceAll('(M)', '👦')
+    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+
   return (
     <div
       className={classNames(
@@ -29,13 +38,23 @@ export const TranslateBubble: FC<Props> = ({
         style[utteranceType],
         style[textType],
         style[`${isCurrentTask}`],
-        style[hint],
       )}
     >
-      <div className={style.header}>{taskDescription}</div>
       <div className={style.content}>
+        <div className={style[textType + 'Icon']}></div>
         <span className={style.correctText}>{correctText}</span>
-        <span className={style.taskText}>{taskText} </span>
+        {textType !== 'replay' ? (
+          <span
+            className={style.taskText}
+            dangerouslySetInnerHTML={{ __html: taskText }}
+          ></span>
+        ) : (
+          <span className={style.taskText}>
+            {taskText.split(' ').map(word => (
+              <span key={word}>{word + ' '}</span>
+            ))}
+          </span>
+        )}
       </div>
     </div>
   )

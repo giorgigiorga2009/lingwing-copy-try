@@ -1,33 +1,22 @@
 import { ReactElement } from 'react'
 import { DialogInput } from './Dialog'
 import { GrammarButton } from './Grammar'
-import { TaskData } from '@utils/lessons/getTask'
 import { TaskInputContainer } from './TaskInputContainer'
 import { MistakeCorrectionTask } from './MistakeCorrection'
-
-type CommonProps = {
-  userId: string | null
-  token: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  setCurrentTaskNumber: (taskNumber: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
-}
+import { CommonProps } from '@utils/lessons/taskInputUtils'
 
 type CurrentTaskInputProps = {
   commonProps: CommonProps
-  setIsHintShown: (isShown: boolean) => void
+  setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
+  isHintShown: boolean
   currentMessageIndex?: number
   setCurrentMessageIndex?: (messageIndex: number) => void
 }
 
 const CurrentTaskInput = ({
   commonProps,
+  isHintShown,
   setIsHintShown,
   setHintText,
   currentMessageIndex,
@@ -40,10 +29,11 @@ const CurrentTaskInput = ({
     case 'replay':
       return commonProps ? (
         <TaskInputContainer
-          {...commonProps}
-          taskType={commonProps.currentTask.taskType}
-          setIsHintShown={setIsHintShown}
+          commonProps={commonProps}
+          isHintShown={isHintShown}
           setHintText={setHintText}
+          setIsHintShown={setIsHintShown}
+          taskType={commonProps.currentTask.taskType}
         />
       ) : null
     case 'dialog':
@@ -51,23 +41,24 @@ const CurrentTaskInput = ({
         currentMessageIndex !== undefined &&
         setCurrentMessageIndex ? (
         <DialogInput
-          {...commonProps}
+          setHintText={setHintText}
+          isHintShown={isHintShown}
+          commonProps={commonProps}
+          setIsHintShown={setIsHintShown}
           currentMessageIndex={currentMessageIndex}
           setCurrentMessageIndex={setCurrentMessageIndex}
-          setIsHintShown={setIsHintShown}
-          setHintText={setHintText}
         />
       ) : null
     case 'mistakecorrection':
       return commonProps ? (
         <MistakeCorrectionTask
-          {...commonProps}
-          setIsHintShown={setIsHintShown}
+          commonProps={commonProps}
           setHintText={setHintText}
+          setIsHintShown={setIsHintShown}
         />
       ) : null
     case 'grammar':
-      return commonProps ? <GrammarButton {...commonProps} /> : null
+      return commonProps ? <GrammarButton commonProps={commonProps} /> : null
     default:
       return null
   }

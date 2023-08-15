@@ -6,7 +6,8 @@ const nextConfig = {
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
   env: {
-    defaultURL: 'https://api.lingwing.com/api/v2',
+    defaultURL: 'http://api-dev.lingwing.com/api/v2',
+    audioURL: 'https://cdn.lingwing.com',
   },
 }
 

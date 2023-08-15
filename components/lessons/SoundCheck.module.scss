@@ -1,41 +1,43 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'SegoeUI';
-  height: auto;
-  width: 56.5rem;
-  height: 33.8rem;
-  max-width: 60.5rem;
+  font-family: SegoeUI;
+  min-width: 45rem;
+  height: 33rem;
   border-radius: 2.5rem;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   background-color: white;
   gap: 2rem;
   text-align: center;
+
   &.true {
     display: none;
   }
+
   &:lang(ka) {
     font-family: $kaFontTitleBold;
+  }
+
+  @include mobile {
+    height: 100%;
+    width: 100%;
   }
 }
 
 .header {
-  width: 80%;
+  width: 85%;
   font-size: 2rem;
   color: $grey-800;
-  text-align: center;
 }
 
 .checkContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 18.38rem;
+  width: 18.5rem;
 }
 
 .buttonContainer {
@@ -45,93 +47,48 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin: 0.9rem auto 0;
+  margin: 1rem auto 0;
 }
 
 .soundButton {
-  width: 4.38rem;
-  height: 4.38rem;
+  width: 4.5rem;
+  height: 4.5rem;
   cursor: pointer;
   background: url('/assets/images/prepare_sound_play.png') center no-repeat;
   background-color: $orange-500;
-  border-radius: 6.25rem;
-  box-shadow: 1px 2px 1px $grey-100;
+  border-radius: 6.3rem;
+  border: none;
+
   &:hover {
-    background-color: #ffbe2e;
+    background-color: $yellow-600;
+    box-shadow: 1px 2px 1px $grey-100;
   }
 }
 
 .label {
-  font-size: 0.88rem;
   color: $grey-800;
   margin-top: 1rem;
 }
 
-.startButtonContainer {
-  position: relative;
-  width: 13.75rem;
-  height: 2.38rem;
+.startButton {
+  width: 13rem;
+  height: 2.4rem;
   border-radius: 1.63rem;
-  text-transform: uppercase;
-  font-size: 0.94rem;
-  color: $white;
-  overflow: hidden;
-  font-family: SegoeUI;
-}
-
-.needTest {
-  width: 13.75rem;
-  height: 2.38rem;
-  border-radius: 1.63rem;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  background-color: $white-200;
+  cursor: pointer;
   border: 0;
+  color: $white;
+  font-size: 1rem;
+  font-family: SegoeUI;
+  background: linear-gradient(to right, $purple-500 50%, $white-200 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 1s ease-out;
 
   &.slideOut {
-    animation-name: slideOut;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
+    background-position: left bottom;
   }
-}
 
-.testDone {
-  width: 13.75rem;
-  height: 2.38rem;
-  border-radius: 1.63rem;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: -13.75rem;
-  background-color: $purple-500;
-  border: 0;
-
-  &.slideIn {
-    animation-name: slideIn;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    left: -13.75rem;
-  }
-  100% {
-    left: 0rem;
-  }
-}
-@keyframes slideOut {
-  0% {
-    left: 0rem;
-  }
-  100% {
-    left: 13.75rem;
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
   }
 }

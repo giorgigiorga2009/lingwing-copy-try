@@ -1,9 +1,11 @@
+@import '@styles/imports';
+
 .progressBar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   left: 0;
-  width: 42rem;
+  width: 40rem;
   height: 3rem;
   margin-bottom: 1rem;
 }
@@ -15,20 +17,21 @@
   margin-bottom: 0.2rem;
   position: relative;
 }
+
 .scoreText {
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
   display: flex;
   align-items: center;
-  color: #1c1c1c;
+  color: $grey-300;
 }
 
 .scoreNumber {
   color: #f903e7;
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -36,17 +39,19 @@
   display: flex;
   align-items: center;
   padding-left: 0.5rem;
+  animation-name: animate__bounceIn;
+  animation-duration: 0.5s;
 }
 
 .percent {
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 30px;
   display: flex;
   align-items: center;
-  color: #c1bfbb;
+  color: $grey-300;
   position: absolute;
   right: 0.5rem;
 }
@@ -66,4 +71,24 @@
   width: 40%;
   height: 100%;
   border-radius: 0.625rem;
+}
+
+@keyframes animate__bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

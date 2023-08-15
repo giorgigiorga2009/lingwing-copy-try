@@ -1,3 +1,20 @@
+@import '@styles/imports';
+
+.title {
+  margin-top: 1rem;
+  padding: 0.3rem 1.5rem 0.3rem 3rem;
+  background-color: $orange-200;
+  color: $orange-500;
+  width: fit-content;
+  border-radius: 0.8rem 0.8rem 0 0;
+  text-align: center;
+  font-family: SegoeUI;
+  background-image: url('/assets/images/tasks/grammar.png');
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 10% 70%;
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -6,39 +23,43 @@
   justify-content: center;
   align-items: center;
   background-color: #faf9f8;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 2px 2px 10px 5px rgba(0 0 0 / 3%);
 }
 
 .textContainer {
   width: 90%;
   display: flex;
   flex-direction: column;
-  margin-top: 0.3rem;
   height: fit-content;
   min-height: 25rem;
-  padding: 0.5rem 0.5rem 1rem 0.5rem;
-  border-radius: 0.9rem;
+  padding: 0.5rem 0.5rem 1rem;
+  border-radius: 0 1rem 1rem;
   border: #f3f1ed solid 3px;
+  overflow: auto;
 }
 
 .button {
-  display: FLEX;
+  display: flex;
   width: 12.5rem;
   height: 3rem;
   border: 0;
   align-items: center;
   justify-content: center;
-  background: #f39c12;
+  background: $orange-650;
   color: #fff;
-  border-radius: 1.875rem;
+  border-radius: 1.9rem;
   font-family: SegoeUI;
-  outline: 0;
+  font-size: 1rem;
   cursor: pointer;
+
+  &:hover {
+    background: $orange-500;
+  }
 }
 
 .text {
   width: 90%;
   height: fit-content;
-  padding: 1rem 1rem;
+  padding: 1rem;
 }

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Jobs from '@components/aboutPage/Jobs'
-import style from './aboutCompany.module.scss'
+import style from './about-company.module.scss'
 import { Footer } from '@components/wizard/Footer'
 import { ABOUT_COMPANY_LINKS } from '@utils/const'
 import { Header } from '@components/header/Header'

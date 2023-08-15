@@ -5,76 +5,85 @@ import React, {
   FC,
   useEffect,
 } from 'react'
-import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
+import { CommonProps, handleChange } from '@utils/lessons/taskInputUtils'
 
 interface Props {
-  token: string | null
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  courseId: string
-  userId: string | null
-  setCurrentTaskNumber: (number: number) => void
-  currentTaskNumber: number
-  currentTask: TaskData
-  completedTasks: TaskData[] | undefined
-  setCompletedTasks: (tasks: TaskData[]) => void
+  commonProps: CommonProps
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
-  userId,
-  token,
-  languageTo,
-  languageFrom,
-  courseId,
-  setCurrentTaskNumber,
-  currentTaskNumber,
-  currentTask,
-  completedTasks,
-  setCompletedTasks,
+  commonProps,
   setIsHintShown,
   setHintText,
 }) => {
-  const mistakeText = currentTask.errorText
+  const mistakeText = commonProps.currentTask.errorText
 
   const [inputText, setInputText] = useState(mistakeText)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
 
-  const correctText = currentTask.correctText as string
+  const correctText = commonProps.currentTask.correctText as string
+
+  const saveCurrentTask = async () => {
+    try {
+      await saveTask({
+        userId: commonProps.userId,
+        token: commonProps.token,
+        languageFrom: commonProps.languageFrom,
+        languageTo: commonProps.languageTo,
+        currentTask: commonProps.currentTask,
+        courseId: commonProps.courseId,
+      })
+      return true // Indicate that the save was successful
+    } catch (error) {
+      console.error('Error saving task:', error)
+      return false // Indicate that the save was unsuccessful
+    }
+  }
 
   useEffect(() => {
-    if (token === null && userId === null) return
+    if (commonProps.token === null && commonProps.userId === null) return
 
-    if (inputText === correctText) {
+    if (inputText.replace(/\s+/g, ' ') === correctText) {
+      setInputText(inputText.replace(/\s+/g, ' '))
       setTimeout(async () => {
-        const isSaveSuccessful = await saveTask({
-          userId,
-          token,
-          languageFrom,
-          languageTo,
-          currentTask,
-          courseId,
-        })
+        const isSaveSuccessful = await saveCurrentTask()
         if (isSaveSuccessful) {
-          setCurrentTaskNumber(currentTaskNumber + 1)
           setIsHintShown(false)
-          completedTasks && setCompletedTasks([...completedTasks, currentTask])
-          !completedTasks && setCompletedTasks([currentTask])
+          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+          commonProps.completedTasks &&
+            commonProps.setCompletedTasks([
+              ...commonProps.completedTasks,
+              commonProps.currentTask,
+            ])
+          !commonProps.completedTasks &&
+            commonProps.setCompletedTasks([commonProps.currentTask])
         }
       }, 1500)
     }
   }, [inputText])
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputText(event.target.value)
+  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    if (inputText === correctText) return
+
+    handleChange(
+      event,
+      commonProps.languageTo as 'geo' | 'eng' | 'rus',
+      setInputText,
+    )
+
+    //setInputText(event.target.value)
+    setIsHintShown(false)
+    setMistakeRepeat(false)
   }
 
-  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter') {
+      event.preventDefault()
       checkAnswer()
     }
   }
@@ -83,20 +92,18 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setMistakeRepeat(false)
       setIsHintShown(false)
-      if (token === null && userId === null) return
-      const isSaveSuccessful = await saveTask({
-        userId,
-        token,
-        languageFrom,
-        languageTo,
-        currentTask,
-        courseId,
-      })
+      if (commonProps.token === null && commonProps.userId === null) return
+      const isSaveSuccessful = await saveCurrentTask()
       if (isSaveSuccessful) {
         setInputText('')
-        setCurrentTaskNumber(currentTaskNumber + 1)
-        completedTasks && setCompletedTasks([...completedTasks, currentTask])
-        !completedTasks && setCompletedTasks([currentTask])
+        commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+        commonProps.completedTasks &&
+          commonProps.setCompletedTasks([
+            ...commonProps.completedTasks,
+            commonProps.currentTask,
+          ])
+        !commonProps.completedTasks &&
+          commonProps.setCompletedTasks([commonProps.currentTask])
       }
     } else {
       if (mistakeRepeat === false) {
@@ -111,17 +118,19 @@ export const MistakeCorrectionTask: FC<Props> = ({
   return (
     <div className={style.container}>
       <div className={style.mistakes}> {mistakesCount} </div>
-
-      <input
-        type="text"
+      <textarea
         className={style.input}
         value={inputText}
+        autoComplete="off"
+        spellCheck="false"
+        data-gramm="false"
         onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
       />
 
-      <div className={style.checkButton} onClick={checkAnswer}>
+      <button className={style.checkButton} onClick={checkAnswer}>
         Check
-      </div>
+      </button>
     </div>
   )
 }
