@@ -1,0 +1,53 @@
+@import '@styles/imports.scss';
+
+.payWithContainer {
+  display: flex;
+  flex-direction: column;
+  .pHeaderPayWith {
+    margin: 0 0 0.8rem 1.2rem;
+  }
+
+  .payWithTiles {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // @include small {
+    //   flex-direction: column;
+    // }
+  }
+}
+
+.payWithTile {
+  position: relative;
+  margin-left: 0.5rem;
+
+  .purple_tick_for_payment_option {
+    position: absolute;
+    top: -0.4rem;
+    left: 7.2rem;
+  }
+}
+
+.payWithInput {
+  appearance: none;
+  width: 8rem;
+  height: 3.125rem;
+  margin: 0 1rem 1rem 0;
+  border-radius: 0.6rem;
+  border: 2px solid $white-300;
+  outline: none;
+  transition: border-color 0.1s ease-in-out;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 6rem;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid $purple-600;
+  }
+
+  &:checked {
+    border: 2px solid $purple-600;
+  }
+}

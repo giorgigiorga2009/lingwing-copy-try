@@ -192,5 +192,50 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "დააჭირეთ ღილაკს და აირჩიეთ სასურველი კურსი",
 
   "APP_HEADER_MENU_ITEM13": "გამოსვლა",
-  "APP_HEADER_MENU_ITEM14": "პროფილი"
+  "APP_HEADER_MENU_ITEM14": "პროფილი",
+
+
+
+  "ABOUT_COURSE_OPT_OUT_YES": "დიახ",
+  "ABOUT_COURSE_START_LEARNING": "დაიწყე სწავლა",
+
+  "ABOUT_COURSE_INTERESTING": "საინტერესოა!",
+  "ABOUT_COURSE_PEOPLE_PRACTICING": "მომხმარებელი <br/> მეცადინეობს",
+  "ABOUT_COURSE_TOP_SCORES": "ლიდერები",
+  "ABOUT_COURSE_YOU'LL_BE_MIGHTY": "შენ ბევრს მიაღწევ",
+  "ABOUT_COURSE_HOURS": "საათი კურსის გასავლელად",
+  "ABOUT_COURSE_WORDS": "უნიკალური სიტყვა",
+  "ABOUT_COURSE_EXCERCISES": "დავალებება",
+
+
+  "PAYMENT_INFO_CARD_MEMBERSHIP": " თვიანი პრემიუმ პაკეტი",
+  "PAYMENT_CHOOSE_PAYMENT_TYPE": "აირჩიე გადახდის ტიპი",
+  "PAYMENT_PAY_AT_ONCE": "ერთიანად გადახდა",
+  "PAYMENT_MONTHLY_PAYMENT": "ყოველთვიური გადახდა",
+  "PAYMENT_WHAT_YOU_GET": "რა შედის პაკეტში",
+  "PAYMENT_MONTH_SUBSCRIPTION": "თვიანი პაკეტი",
+  "PAYMENT_UNLIMITED": "ულიმიტო დავალებები",
+  "PAYMENT_LANGUAGES_COURSES": "ყველა ენა და კურსი",
+  "PAYMENT_FREE_TESTS": "ტესტი საჩუქრად",
+  "PAYMENT_VOICE_RECOGNITION": "ხმის ამომცნობი ყველა დავალებისთვის",
+  "PAYMENT_FREE": "უფასო",
+  "PREMIUM": "პრემიუმი",
+  "PAYMENT_PAY_WITH": "გადაიხადე",
+  "PAYMENT_SALE_TEXT": "იჩქარეთ, ფასდაკლება მთავრდება:",
+  
+  
+  "PAYMENT_SCHEDULE_HEADER": "თანხის ჩამოჭრა ავტომატურად მოხდება ბარათიდან, მოცემული გრაფიკის მიხედვით.",
+  "PAYMENT_SCHEDULE_DATE": "დღე",
+  "PAYMENT_SCHEDULE_AMOUNT": "თანხა",
+  "PAYMENT_SCHEDULE_LICENSE": "გავეცანი და ვეთანხმები ",
+
+
+  "FREE_PACKAGE_HEADER": "უკეთ გაეცანი პაკეტებს",
+  "PACKAGES_INFO_FREE_TRIAL_HEADER": "5 დღე საცდელი პრემიუმი",
+  "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "გამოსცადე ყველა პრემიუმ ფუნქცია და<br>ისწავლე ულიმიტოდ!",
+  "PACKAGES_INFO_FREE_LEARNING_HEADER": "უფასოდ სწავლის გაგრძელება",
+  "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "უფასო პაკეტით შეძლებ ყოველდღე შეასრულო 15 დავალება თითოეულ ენაზე",
+  "PACKAGES_INFO_PREMIUM_HEADER": "გახდი პრემიუმი",
+  "PACKAGES_INFO_PREMIUM_PARAGRAPH": "გახდი პრემიუმ მომხმარებელი და ისარგებლე სრული ფუნქციონალით",
+  "PACKAGES_INFO_CHOOSE": "არჩევა"
 }

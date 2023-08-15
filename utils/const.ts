@@ -1,4 +1,5 @@
 import { SideMenuKeys } from '../components/header/SideMenu'
+import { PaymentProps } from './getPayments'
 
 export const FOLLOW_NETWORKS = {
   facebook: 'https://www.facebook.com/lingwingcom',
@@ -108,6 +109,17 @@ export const PACKAGES_IMAGES = [
   '/../themes/images/V2/Packages/12-month.png',
   '/../themes/images/V2/Packages/6-month.png',
   '/../themes/images/V2/Packages/3-month.png',
+]
+
+export const paymentSelection: PaymentProps[] = [
+  {
+    value: 'Pay at once',
+    index: 0,
+  },
+  {
+    value: 'Monthly Payment',
+    index: 1,
+  },
 ]
 
 export const LANGUAGES_MAP_OVERRIDE = {

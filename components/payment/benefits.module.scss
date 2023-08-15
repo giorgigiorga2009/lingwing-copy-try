@@ -1,0 +1,30 @@
+@import '@styles/imports.scss';
+
+.featuresContainer {
+  display: flex;
+  column-gap: 3.5vw;
+  padding: 0.3rem;
+
+  div {
+    font-size: 0.9rem;
+    color: $grey-600;
+    row-gap: 0.5rem;
+  }
+  h3 {
+    font-size: 1rem;
+    color: $grey-800;
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tickOrDash {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}

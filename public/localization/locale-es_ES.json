@@ -209,5 +209,49 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "haz clic y elige el curso deseado.",
 
   "APP_HEADER_MENU_ITEM13": "Salir",
-  "APP_HEADER_MENU_ITEM14": "Perfil"
+  "APP_HEADER_MENU_ITEM14": "Perfil",
+
+
+  "ABOUT_COURSE_OPT_OUT_YES": "Si",
+  "ABOUT_COURSE_START_LEARNING": "Empieza a estudiar",
+
+  "ABOUT_COURSE_INTERESTING": "¡Será <br/> interesante!",
+  "ABOUT_COURSE_PEOPLE_PRACTICING": "personas ya <br/> están practicando",
+  "ABOUT_COURSE_TOP_SCORES": "Los <br/> mejores",
+  "ABOUT_COURSE_YOU'LL_BE_MIGHTY": "¡Sé el número 1!",
+  "ABOUT_COURSE_HOURS": "Horas para completar el curso",
+  "ABOUT_COURSE_WORDS": "Cantidad de palabras únicas",
+  "ABOUT_COURSE_EXCERCISES": "Cantidad de ejercicios",
+
+
+  "PAYMENT_INFO_CARD_MEMBERSHIP": "Premium Paquete de meses",
+  "PAYMENT_CHOOSE_PAYMENT_TYPE": "Elije el tipo de pago",
+  "PAYMENT_PAY_AT_ONCE": "Pagar a la vez",
+  "PAYMENT_MONTHLY_PAYMENT": "Pago mensual",
+  "PAYMENT_WHAT_YOU_GET": "Qué obtienes",
+  "PAYMENT_MONTH_SUBSCRIPTION": "suscripción mensual",
+  "PAYMENT_UNLIMITED": "Ejercicios ilimitados diarios",
+  "PAYMENT_LANGUAGES_COURSES": "Todos los idiomas y cursos",
+  "PAYMENT_FREE_TESTS": "2 pruebas gratis",
+  "PAYMENT_VOICE_RECOGNITION": "Reconocimiento de voz para todos los ejercicios",
+  "PAYMENT_FREE": "Gratuito",
+  "PREMIUM": "Premium",
+  "PAYMENT_PAY_WITH": "pagar con",
+  "PAYMENT_SALE_TEXT": "¡Apurarse! La venta termina en:",
+  
+  
+  "PAYMENT_SCHEDULE_HEADER": "La cantidad de dinero se retirará automáticamente de su tarjeta según el calendario.",
+  "PAYMENT_SCHEDULE_DATE": "Dia",
+  "PAYMENT_SCHEDULE_AMOUNT": "Saldo",
+  "PAYMENT_SCHEDULE_LICENSE": "He leído y acepto los términos del ",
+  
+
+  "FREE_PACKAGE_HEADER": "Familiarícete con los paquetes",
+  "PACKAGES_INFO_FREE_TRIAL_HEADER": "Prueba de 5 días",
+  "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "Obtenga todas las funciones premium y ejercicios ilimitados.",
+  "PACKAGES_INFO_FREE_LEARNING_HEADER": "Continuar aprendiendo gratis",
+  "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Puedes completar 15 tareas para cada idioma con un paquete gratis",
+  "PACKAGES_INFO_PREMIUM_HEADER": "Ir Premium",
+  "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Conviértete en un usuario premium y obtén opciones completas",
+  "PACKAGES_INFO_CHOOSE": "Elije"
 }
