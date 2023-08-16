@@ -109,5 +109,52 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "আপনার ভ্রমণ শুরু করতে নিচের বাটনে ক্লিক করুন।",
 
   "APP_HEADER_MENU_ITEM13": "লগআউট",
-  "APP_HEADER_MENU_ITEM14": "আমার একাউন্ট"
+  "APP_HEADER_MENU_ITEM14": "আমার একাউন্ট",
+
+
+
+  
+  "ABOUT_COURSE_OPT_OUT_YES": "হ্যা",
+  "ABOUT_COURSE_START_LEARNING": "শেখা শুরু করুন",
+
+  "ABOUT_COURSE_INTERESTING": "এটি <br/> আকর্ষণীয় হবে!",
+  "ABOUT_COURSE_PEOPLE_PRACTICING": "মানুষ<br/> অনুশীলন করছে",
+  "ABOUT_COURSE_TOP_SCORES": "শীর্ষ<br/>স্কোর",
+  "ABOUT_COURSE_YOU'LL_BE_MIGHTY": "আপনি মহৎ হবেন!",
+  "ABOUT_COURSE_HOURS": "কোর্স সম্পন্ন করতে প্রয়োজনীয়",
+  "ABOUT_COURSE_WORDS": "নতুন শব্দের সংখ্যা",
+  "ABOUT_COURSE_EXCERCISES": "কাজের সংখ্যা",
+
+
+  "PAYMENT_INFO_CARD_MEMBERSHIP": "-মাস প্রিমিয়াম সদস্যপদ",
+  "PAYMENT_CHOOSE_PAYMENT_TYPE": "পেমেন্ট টাইপ নির্বাচন করুন",
+  "PAYMENT_PAY_AT_ONCE": "একবারে পরিশোধ করুন",
+  "PAYMENT_MONTHLY_PAYMENT": "মাসিক পেমেন্ট",
+  "PAYMENT_WHAT_YOU_GET": "দেখুন আপনি কি পেয়েছেন",
+  "PAYMENT_MONTH_SUBSCRIPTION": "মাসিক সাবস্ক্রিপশন",
+  "PAYMENT_UNLIMITED": "অসীম দৈনন্দিন কাজ",
+  "PAYMENT_LANGUAGES_COURSES": "সকল ভাষা ও কোর্সসমূহ",
+  "PAYMENT_FREE_TESTS": "বিনামূল্যে পরীক্ষা",
+  "PAYMENT_VOICE_RECOGNITION": "সকল কাজের জন্য মৌখিক স্বীকৃতি",
+  "PAYMENT_FREE": "বিনামূল্যে",
+  "PREMIUM": "প্রিমিয়াম",
+  "PAYMENT_PAY_WITH": "পরিশোধ করুন",
+  "PAYMENT_SALE_TEXT": "তাড়াতাড়ি! বিক্রয় শেষ হয় এতে:",
+  
+  
+  "PAYMENT_SCHEDULE_HEADER": "সময়সূচি অনুযায়ী আপনার কার্ড থেকে স্বয়ংক্রিয়ভাবে টাকার পরিমাণ প্রত্যাহার করা হবে।",
+  "PAYMENT_SCHEDULE_DATE": "তারিখ",
+  "PAYMENT_SCHEDULE_AMOUNT": "পরিমাণ",
+  "PAYMENT_SCHEDULE_LICENSE": "আমি শর্ত পড়েছি এবং রাজি ",
+
+
+  "FREE_PACKAGE_HEADER": "প্যাকেজসমূহের সাথে আরও পরিচিত হোন",
+  "PACKAGES_INFO_FREE_TRIAL_HEADER": "৫ দিনের ট্রায়াল",
+  "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "সকল প্রিমিয়াম ফিচার এবং অসীম অনুশীলন পান!",
+  "PACKAGES_INFO_FREE_LEARNING_HEADER": "বিনামূল্যে শিখন চালু রাখুন",
+  "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "আপনি প্রতিটির জন্য ১৫টি কাজ সম্পূর্ণ করতে পারবেন একটি বিনামূল্যে প্যাকেজের সাথে ভাষা",
+  "PACKAGES_INFO_PREMIUM_HEADER": "প্রিমিয়ামে যান",
+  "PACKAGES_INFO_PREMIUM_PARAGRAPH": "একজন প্রিমিয়াম ব্যবহারকারী হন এবং সকল অপশন পান",
+  "PACKAGES_INFO_CHOOSE": "পছন্দ করুন"
+
 }

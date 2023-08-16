@@ -1,0 +1,37 @@
+@import '@styles/imports.scss';
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: $white-50;
+  height: 5.5rem;
+
+  .btn {
+    font-family: SegoeUI;
+    color: $white;
+    background-color: $orange-500;
+    border-radius: 1.75rem;
+    font-size: 1.2rem;
+    padding: 0.7rem 2rem;
+    text-transform: uppercase;
+    border: none;
+    transform: translateY(0);
+    transition-duration: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-0.1rem);
+      background-color: $orange-450;
+    }
+
+    &:disabled {
+      background-color: $grey-100;
+    }
+
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
+  }
+}

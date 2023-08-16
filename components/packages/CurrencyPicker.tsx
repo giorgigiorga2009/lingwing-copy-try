@@ -3,7 +3,7 @@ import useStore from '@utils/store'
 import style from './CurrencyPicker.module.scss'
 
 interface Props {
-  selectedCurrency: number
+  // selectedCurrency: number
   identifier: string
   symbol: string
   index: number
@@ -15,12 +15,12 @@ export const Currency: FC<Props> = ({
   identifier,
   symbol,
   index,
-  onClick,
+  //onClick,
 }) => {
   const selectedCurrency = useStore(state => state.selectedCurrency)
   const changeCurrency = useStore(state => state.changeCurrency)
 
-  console.log(selectedCurrency)
+  // console.log(selectedCurrency)
   return (
     <>
       <input
@@ -28,7 +28,7 @@ export const Currency: FC<Props> = ({
         type="radio"
         className={style.currency}
         checked={index === selectedCurrency}
-        onClick={() => changeCurrency(index)}
+        onChange={() => changeCurrency(index)}
       />
       <label className={style.label} htmlFor={identifier}>
         {identifier + symbol}

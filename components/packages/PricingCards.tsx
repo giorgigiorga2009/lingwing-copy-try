@@ -19,6 +19,8 @@ interface scroll {
   scrollWidth: number
 }
 
+export let packageId: string
+
 const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
   showPackages,
   coupon,
@@ -71,7 +73,7 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                 index={index}
                 key={currency.identifier}
                 //onClick={() => setSelectedCurrency(index)}
-                selectedCurrency={selectedCurrency}
+                // selectedCurrency={selectedCurrency}
               />
             ))}
           </div>
@@ -148,7 +150,9 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                           ? 'mostPopularBtn'
                           : 'regularPackageBtn'
                       }
-                      onClick={undefined}
+                      onClick={() => (packageId = item._id)}
+                      // index={index}
+                      packageId={item._id}
                     />
                   }
                 </div>

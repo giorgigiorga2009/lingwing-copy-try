@@ -190,5 +190,50 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Жми на кнопку внизу для начала увлекательного путешествия.",
 
   "APP_HEADER_MENU_ITEM13": "Выход",
-  "APP_HEADER_MENU_ITEM14": "Профиль"
+  "APP_HEADER_MENU_ITEM14": "Профиль",
+
+
+
+  "ABOUT_COURSE_OPT_OUT_YES": "Да",
+  "ABOUT_COURSE_START_LEARNING": "Начни изучение",
+
+  "ABOUT_COURSE_INTERESTING": "Это <br/> интересно!",
+  "ABOUT_COURSE_PEOPLE_PRACTICING": "Людей <br/> обучается",
+  "ABOUT_COURSE_TOP_SCORES": "Счет",
+  "ABOUT_COURSE_YOU'LL_BE_MIGHTY": "У тебя получится!",
+  "ABOUT_COURSE_HOURS": "Кол-во часов для прохождения курса",
+  "ABOUT_COURSE_WORDS": "Кол-во уникальных слов",
+  "ABOUT_COURSE_EXCERCISES": "Кол-во заданий",
+
+
+  "PAYMENT_INFO_CARD_MEMBERSHIP": " месячная премиум подписка",
+  "PAYMENT_CHOOSE_PAYMENT_TYPE": "Выберите тип оплаты",
+  "PAYMENT_PAY_AT_ONCE": "Оплатить сразу",
+  "PAYMENT_MONTHLY_PAYMENT": "Оплатить ежемесечна",
+  "PAYMENT_WHAT_YOU_GET": "Посмотри что получишь",
+  "PAYMENT_MONTH_SUBSCRIPTION": "месячная подписка",
+  "PAYMENT_UNLIMITED": "Неограниченное количество ежедневных заданий",
+  "PAYMENT_LANGUAGES_COURSES": "Все языки и курсы",
+  "PAYMENT_FREE_TESTS": "теста бесплатно",
+  "PAYMENT_VOICE_RECOGNITION": "Распознавание голоса для всех задач",
+  "PAYMENT_FREE": "Бесплатный",
+  "PREMIUM": "Премиум",
+  "PAYMENT_PAY_WITH": "Pay With",
+  "PAYMENT_SALE_TEXT": "Торопиться! Распродажа заканчивается через:",
+  
+  
+  "PAYMENT_SCHEDULE_HEADER": "Сумма денег будет автоматически снята с карты в соответствии с графиком.",
+  "PAYMENT_SCHEDULE_DATE": "День",
+  "PAYMENT_SCHEDULE_AMOUNT": "Сумма",
+  "PAYMENT_SCHEDULE_LICENSE": "Я прочитал и согласен с условиями ",
+
+
+  "FREE_PACKAGE_HEADER": "Ознакомьтесь с пакетами",
+  "PACKAGES_INFO_FREE_TRIAL_HEADER": "5-дневная пробная версия",
+  "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "Получите все премиальные функции и <br> неограниченные упражнения!",
+  "PACKAGES_INFO_FREE_LEARNING_HEADER": "Продолжить бесплатное обучение",
+  "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Пользуясь бесплатным пакетом, ты можешь выполнять по 15 заданий в каждом из языков",
+  "PACKAGES_INFO_PREMIUM_HEADER": "Стань Премиум",
+  "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Стань Премиум-пользователем и получи полный функционал",
+  "PACKAGES_INFO_CHOOSE": "Выбрать"
 }

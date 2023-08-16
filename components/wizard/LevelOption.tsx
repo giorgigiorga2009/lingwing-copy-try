@@ -46,7 +46,7 @@ export const LevelOption: FC<Props> = ({
         <Link
           className={classNames(style.link, style.aboutButton)}
           href={{
-            pathname: '/about_lesson',
+            pathname: '/aboutCourse',
             query: { languageTo, languageFrom, courseName },
           }}
         >

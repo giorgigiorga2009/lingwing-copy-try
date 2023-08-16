@@ -189,6 +189,53 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Click the button below to get your journey started.",
 
    "APP_HEADER_MENU_ITEM13": "Logout",
-  "APP_HEADER_MENU_ITEM14": "My Account"
+  "APP_HEADER_MENU_ITEM14": "My Account",
+
+
+
+  
+  "ABOUT_COURSE_OPT_OUT_YES": "Yes",
+  "ABOUT_COURSE_START_LEARNING": "Start learning",
+
+  "ABOUT_COURSE_INTERESTING": "It Would <br/> be Interesting!",
+  "ABOUT_COURSE_PEOPLE_PRACTICING": "People<br/> Practicing",
+  "ABOUT_COURSE_TOP_SCORES": "Top<br/>scores",
+  "ABOUT_COURSE_YOU'LL_BE_MIGHTY": "You’ll be mighty!",
+  "ABOUT_COURSE_HOURS": "Hours to complete the course",
+  "ABOUT_COURSE_WORDS": "Unique words",
+  "ABOUT_COURSE_EXCERCISES": "Tasks",
+
+
+  "PAYMENT_INFO_CARD_MEMBERSHIP": "-month Premium Membership",
+  "PAYMENT_CHOOSE_PAYMENT_TYPE": "Choose payment type",
+  "PAYMENT_PAY_AT_ONCE": "Pay at once",
+  "PAYMENT_MONTHLY_PAYMENT": "Monthly Payment",
+  "PAYMENT_WHAT_YOU_GET": "See what do you get",
+  "PAYMENT_MONTH_SUBSCRIPTION": "month subscription",
+  "PAYMENT_UNLIMITED": "Unlimited daily tasks",
+  "PAYMENT_LANGUAGES_COURSES": "All languages and courses",
+  "PAYMENT_FREE_TESTS": "Test(s) for free",
+  "PAYMENT_VOICE_RECOGNITION": "Voice recognition for all tasks",
+  "PAYMENT_FREE": "Free",
+  "PREMIUM": "Premium",
+  "PAYMENT_PAY_WITH": "Pay With",
+  "PAYMENT_SALE_TEXT" : "Hurry! Sale ends in:",
+  
+  
+  "PAYMENT_SCHEDULE_HEADER": "The amount of money will be automatically withdrawn from the card according to the schedule.",
+  "PAYMENT_SCHEDULE_DATE": "Date",
+  "PAYMENT_SCHEDULE_AMOUNT": "Amount",
+  "PAYMENT_SCHEDULE_LICENSE": "I have read and agree to the terms of the ",
+
+
+  "PACKAGES_INFO_HEADER": "Get more familiar with the packages",
+  "PACKAGES_INFO_FREE_TRIAL_HEADER": "5 day trial",
+  "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "Get all the premium features and unlimited exercises!",
+  "PACKAGES_INFO_FREE_LEARNING_HEADER": "Continue free learning",
+  "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "You can complete 15 tasks for each language with a free package",
+  "PACKAGES_INFO_PREMIUM_HEADER": "Go Premium",
+  "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Become a Premium user and get full options",
+  "PACKAGES_INFO_CHOOSE": "Choose"
+
 
 }

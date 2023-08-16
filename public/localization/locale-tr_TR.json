@@ -163,6 +163,54 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Seçtiğin kursu başlatmak için düğmeyi tıkla.",
 
    "APP_HEADER_MENU_ITEM13": "Çıkış yap",
-  "APP_HEADER_MENU_ITEM14": "Hesabım"
+  "APP_HEADER_MENU_ITEM14": "Hesabım",
+
+
+
+  "APP_HEADER_MENU_ITEM13": "Çıkış yap",
+  "APP_HEADER_MENU_ITEM14": "Hesabım",
+
+  "ABOUT_COURSE_OPT_OUT_YES": "Evet",
+  "ABOUT_COURSE_START_LEARNING": "Okumaya başlamak",
+
+  "ABOUT_COURSE_INTERESTING": "Bu <br/> ilginç!",
+  "ABOUT_COURSE_PEOPLE_PRACTICING": "Kullanıcı<br/> çalışoyor",
+  "ABOUT_COURSE_TOP_SCORES": "En üst <br/> skor",
+  "ABOUT_COURSE_YOU'LL_BE_MIGHTY": "Kudretli olacaksın!",
+  "ABOUT_COURSE_HOURS": "Kursu tamamlamak için gereken zaman",
+  "ABOUT_COURSE_WORDS": "Benzersiz kelimeler sayısı",
+  "ABOUT_COURSE_EXCERCISES": "Görev sayısı",
+
+
+  "PAYMENT_INFO_CARD_MEMBERSHIP": "Aylık Premium Üyelik",
+  "PAYMENT_CHOOSE_PAYMENT_TYPE": "ödeme türünü seçin",
+  "PAYMENT_PAY_AT_ONCE": "hemen öde",
+  "PAYMENT_MONTHLY_PAYMENT": "Aylık ödeme",
+  "PAYMENT_WHAT_YOU_GET": "bak ne aldın",
+  "PAYMENT_MONTH_SUBSCRIPTION": "aylık abonelik",
+  "PAYMENT_UNLIMITED": "Sınırsız günlük görevler",
+  "PAYMENT_LANGUAGES_COURSES": "Tüm diller ve kurslar",
+  "PAYMENT_FREE_TESTS": "Ücretsiz test(ler)",
+  "PAYMENT_VOICE_RECOGNITION": "Tüm görevler için ses tanıma",
+  "PAYMENT_FREE": "Özgür",
+  "PREMIUM": "Premyum",
+  "PAYMENT_PAY_WITH": "İle ödemek",
+  "PAYMENT_SALE_TEXT": "Acele etmek! Satış şu tarihte sona erer:",
+  
+  
+  "PAYMENT_SCHEDULE_HEADER": "Para miktarı programa göre karttan otomatik olarak çekilecektir.",
+  "PAYMENT_SCHEDULE_DATE": "Gün",
+  "PAYMENT_SCHEDULE_AMOUNT": "Miktar",
+  "PAYMENT_SCHEDULE_LICENSE": "Şartları okudum ve kabul ediyorum ",
+
+
+  "FREE_PACKAGE_HEADER": "Paketleri daha yakından tanıma",
+  "PACKAGES_INFO_FREE_TRIAL_HEADER":  "5 günlük deneme",
+  "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH":  "Tüm premium özellikleri ve <br> sınırsız egzersizleri edinin!",
+  "PACKAGES_INFO_FREE_LEARNING_HEADER": "Ücretsiz öğrenmeye devam et",
+  "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Her biri için 15 görev tamamlayabilirsiniz ücretsiz bir pakete sahip dil",
+  "PACKAGES_INFO_PREMIUM_HEADER": "Premium'a geç",
+  "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Birinci sınıf kullanıcı ol ve tam seçenekler alın",
+  "PACKAGES_INFO_CHOOSE": "Seçmek"
   
 }
