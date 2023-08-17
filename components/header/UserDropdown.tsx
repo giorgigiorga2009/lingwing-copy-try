@@ -23,8 +23,18 @@ export const UserDropdown: FC = () => {
           {t('APP_DASHBOARD')}
         </button>
       </Link>
-      <button className={style.button}>{t('APP_HEADER_MENU_ITEM14')}</button>
-
+      <Link
+        href={{
+          pathname: `/profile`,
+        }}
+        locale={router.locale}
+        as="/profile"
+        className={style.link}
+      >
+        <button className={classNames(style.button)}>
+          {t('APP_HEADER_MENU_ITEM14')}
+        </button>
+      </Link>
       <Link
         href={{
           pathname: '/logout',

@@ -253,5 +253,43 @@
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Puedes completar 15 tareas para cada idioma con un paquete gratis",
   "PACKAGES_INFO_PREMIUM_HEADER": "Ir Premium",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Conviértete en un usuario premium y obtén opciones completas",
-  "PACKAGES_INFO_CHOOSE": "Elije"
+  "PACKAGES_INFO_CHOOSE": "Elije",
+
+  "APP_PROFILE_EDIT": "Editar tu pérfil",
+  "APP_PROFILE_GENDER": "Sexo",
+  "APP_PROFILE_MALE": "Hombre",
+  "APP_PROFILE_FEMALE": "Mujer",
+  "APP_PROFILE_AGE": "Edad",
+  "APP_PROFILE_COUNTRY": "País",
+  "APP_PROFILE_CITY": "Ciudad",
+  "APP_PROFILE_GETTING_NEWS": "Suscripción",
+  "APP_PROFILE_SUBSCRIPTION": "Correo electrónico",
+  "APP_PROFILE_SMS_SUBSCRIPTION": "SMS",
+  "APP_PROFILE_FIRST_NAME": "Nombre",
+  "APP_PROFILE_LAST_NAME": "Apellido",
+  "APP_PROFILE_EMAIL_ADDRESS": "Correo electronico",
+  "APP_PROFILE_MOBILE": "Número de telefono",
+  "APP_PROFILE_YEAR": "Año",
+  "APP_PROFILE_MONTH": "Mes",
+  "APP_PROFILE_DATE": "Dia",
+  "APP_PROFILE_CHANGE_PASSWORD": "Cambiar la contraseña",
+  "APP_PROFILE_CONNECT_SOCIAL": "Enlazar las redes sociales",
+  "APP_PROFILE_CHANGE_IMAGE": "Cambiar foto",
+  "APP_PROFILE_UPLOAD_IMAGE": "Subir una foto",
+  "APP_MARKETING_POLICY_1": "Acepto la ",
+  "APP_MARKETING_POLICY_2": "política de marketing ",
+  "APP_MARKETING_POLICY_3": "directo",
+  "APP_GENERAL_SAVE_CHANGES": "Guardar los cambios",
+
+
+  "APP_GET_IN_TOUCH": "Contáctanos",
+  "FULL_NAME": "Nombre y apellido",
+  "SUBJECT": "Título",
+  "APP_FEEDBACK_MESSAGE": "Mensaje",
+  "MODAL_EMAIL": "Correo electrónico",
+  "CONTACT_MESSAGE_SEND": "Enviar",
+  "CONTACT_MESSAGE_SENT": "Enviar mensaje"
+
+
+  
 }

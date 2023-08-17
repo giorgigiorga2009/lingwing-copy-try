@@ -5,8 +5,10 @@ import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { IntlProvider } from 'react-intl'
 import { Locale, messages } from '@utils/localization'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient()
   const { locale: initialLocale } = useRouter()
   const locale = initialLocale ? initialLocale : 'en'
 
@@ -26,7 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
         })(document);`}
       </Script>
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </IntlProvider>
   )
 }

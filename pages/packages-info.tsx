@@ -5,7 +5,7 @@ import { Header } from '@components/header/Header'
 import { Reviews } from '@components/Reviews'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { Footer } from '@components/wizard/Footer'
-import PlanSelection from '@components/PackagesInfo/planSelection'
+import PlanSelection from '@components/packagesInfo/planSelection'
 
 const packagesInfo = () => {
   const { t } = useTranslation()
