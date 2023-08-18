@@ -85,7 +85,14 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
       reader.readAsDataURL(file)
       const filesize = file.size
       if (filesize >= 150000) {
-        Swal.fire('Oops', 'your picture size is more then average', 'warning')
+        Swal.fire({
+          title: 'Oops',
+          text: 'your picture size is more then average',
+          icon: 'warning',
+          showConfirmButton: true,
+          confirmButtonColor: 'rgb(105 46 150)', // Set your desired button color here
+          confirmButtonText: 'OK',
+        })
       } else {
         reader.onload = () => {
           const dataUrl = reader.result as string
@@ -122,7 +129,14 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
         const res = await UploadImage(token, croppedImage)
         setImageLink(res.data.data)
       } catch (error) {
-        Swal.fire('Error', 'Failed to upload image', 'error')
+        Swal.fire({
+          title: 'Error',
+          text: 'Failed to upload image',
+          icon: 'error',
+          showConfirmButton: true,
+          confirmButtonColor: 'rgb(105 46 150)', // Set your desired button color here
+          confirmButtonText: 'OK',
+        })
         console.error('UploadImage error:', error)
       }
     } else {
