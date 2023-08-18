@@ -21,6 +21,7 @@ import { SoundCheck } from '@components/lessons/SoundCheck'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -226,7 +227,7 @@ const Lessons: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size="s" />
-
+      <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck
           setSoundChecked={setSoundChecked}
@@ -258,6 +259,7 @@ const Lessons: NextPage = () => {
           )}
 
           {/* chat window */}
+
           <div ref={chatRef} className={style.chat}>
             <div ref={chatWrapperRef} className={style.chatWrapper}>
               {/* render done tasks */}

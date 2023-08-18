@@ -2,8 +2,8 @@ import { FC } from 'react'
 import Image from 'next/image'
 import style from './Features.module.scss'
 import { useTranslation } from '@utils/useTranslation'
-import tick from '@public/themes/images/V2/Packages/tick.svg'
-import x from '@public/themes/images/V2/Packages/x.svg'
+import tick from '@public/themes/images/v2/packages/tick.svg'
+import x from '@public/themes/images/v2/packages/x.svg'
 
 interface TickOrX {
   feature: boolean

@@ -18,6 +18,7 @@ import { useTranslation } from '@utils/useTranslation'
 import type { GetServerSideProps, NextPage } from 'next'
 import { ChooseLanguageStep } from '@components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '@components/wizard/ChooseDifficultyStep'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
 
 type Step = 'step1' | 'step2' | 'step3'
 
@@ -48,82 +49,71 @@ const Wizard: NextPage<WizardProps> = params => {
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
   useEffect(() => {
-    if (step === 'step3') return
+    if (!languageTo) return setStep('step1')
 
-    if (languageTo === undefined) {
-      setStep('step1')
-    } else {
-      const languagesFrom = getLanguagesFrom(languageTo)
-      setLanguagesFrom(languagesFrom)
+    const langsFrom = getLanguagesFrom(languageTo)
+    setLanguagesFrom(langsFrom)
 
-      if (languagesFrom.includes(LOCALES_TO_LANGUAGES[locale as Locale])) {
-        setStep('step3')
-        setLanguageFrom(LOCALES_TO_LANGUAGES[locale as Locale])
-      } else {
-        setStep('step2')
+    if (langsFrom.includes(LOCALES_TO_LANGUAGES[locale as Locale])) {
+      setStep('step3')
+      setLanguageFrom(LOCALES_TO_LANGUAGES[locale as Locale])
+      return
+    }
+
+    setStep('step2')
+  }, [languageTo])
+
+  useEffect(() => {
+    if (step === 'step3' && languageTo && languageFrom) {
+      getDifficultyLevels(
+        languageTo,
+        languageFrom,
+        LOCALES_TO_LANGUAGES[locale as Locale],
+      )
+        .then(response => setLanguageLevelData(response))
+        .catch(error => console.log(error))
+    }
+  }, [step])
+
+  useEffect(() => {
+    if (step) {
+      const queries = {
+        step1: {},
+        step2: { languageTo },
+        step3: { languageTo, languageFrom },
       }
+      router.push({ pathname: '/wizard', query: queries[step] })
     }
   }, [step])
 
   useEffect(() => {
-    if (step !== 'step3') return
-    if (languageTo === undefined || languageFrom === undefined) return
-
-    getDifficultyLevels(
-      languageTo,
-      languageFrom,
-      LOCALES_TO_LANGUAGES[locale as Locale],
-    )
-      .then(response => setLanguageLevelData(response))
-      .catch(error => console.log(error))
-  }, [step])
-
-  useEffect(() => {
-    switch (step) {
-      case 'step1':
-        router.push({
-          pathname: '/wizard',
-        })
-        break
-      case 'step2':
-        router.push({
-          pathname: '/wizard',
-          query: { languageTo: languageTo },
-        })
-        break
-      case 'step3':
-        router.push({
-          pathname: '/wizard',
-          query: { languageTo: languageTo, languageFrom: languageFrom },
-        })
-        break
-    }
-  }, [step])
-
-  useEffect(() => {
-    if (step === 'step2' && router.query.languageTo === undefined) {
+    if (step === 'step2' && !router.query.languageTo) {
       setStep('step1')
-      router.back()
       setLanguageTo(undefined)
+      router.back()
       return
     }
 
-    if (step === 'step3' && router.query.languageFrom === undefined) {
-      setLanguageFrom(undefined)
-      languagesFrom?.includes(LOCALES_TO_LANGUAGES[locale as Locale])
-        ? router.back()
-        : setStep('step2')
+    if (step === 'step3' && !router.query.languageFrom) {
+      setLanguageTo(query.languageTo)
+      setStep('step2')
       return
     }
+    // if (step === 'step3' && router.query.languageFrom === undefined) {
+    //   setLanguageFrom(undefined)
+    //   setLanguageTo(query.languageTo)
 
-    if (
-      step === undefined &&
-      router.query.languageTo !== undefined &&
-      router.query.languageFrom !== undefined
-    ) {
+    //   languagesFrom?.includes(LOCALES_TO_LANGUAGES[locale as Locale])
+    //     ? router.back()
+    //     : setStep('step2')
+    //   return
+    // }
+
+    if (!step && router.query.languageTo && router.query.languageFrom) {
       setStep('step3')
       return
     }
+    setLanguageTo(query.languageTo)
   }, [router.query])
 
   return (
@@ -133,7 +123,7 @@ const Wizard: NextPage<WizardProps> = params => {
       <PageHead text={'wizardPageTitle'} />
 
       <div className={style.content}>
-        <div className={style.parrot} />
+        <BackgroundParrot />
         {step === 'step1' && (
           <ChooseLanguageStep
             languages={[...LANGUAGES_TO]}
@@ -145,7 +135,7 @@ const Wizard: NextPage<WizardProps> = params => {
           />
         )}
 
-        {step === 'step2' && languagesFrom !== undefined && (
+        {step === 'step2' && languagesFrom && (
           <ChooseLanguageStep
             language={languageTo}
             languages={languagesFrom}

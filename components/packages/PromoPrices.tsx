@@ -44,7 +44,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import style from './PromoPrices.module.scss'
 import { CurrencySymbol } from './CurrencySymbol'
-import discountImg from '@public/themes/images/V2/Packages/discountCircle.png'
+import discountImg from '@public/themes/images/v2/packages/discountCircle.png'
 import classNames from 'classnames'
 
 interface DiscountedTotalPrice {

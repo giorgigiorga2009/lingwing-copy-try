@@ -15,64 +15,46 @@
   }
 }
 
-.replayIcon {
-  position: absolute;
-  background-color: $green-100;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 1rem;
-  margin: -0.5rem 0 0 -0.1rem;
-  top: 0;
-  z-index: 1;
-  background-image: url('/assets/images/tasks/replay.png');
-  background-repeat: no-repeat;
-  background-size: 1.3rem;
-  background-position: center center;
-}
+.taskDescription {
+  %baseIcon {
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 1rem;
+    margin: 0 0 0 -2.5rem;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: 1.3rem;
+    background-position: center center;
+  }
 
-.translateIcon {
-  position: absolute;
-  background-color: $purple-50;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 1rem;
-  margin: -0.5rem 0 0 -0.1rem;
-  top: 0;
-  z-index: 1;
-  background-image: url('/assets/images/tasks/translate.png');
-  background-repeat: no-repeat;
-  background-size: 1.3rem;
-  background-position: center center;
-}
+  .mistakecorrectionIcon {
+    @extend %baseIcon;
 
-.mistakecorrectionIcon {
-  position: absolute;
-  background-color: $red-100;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 1rem;
-  margin: -0.5rem 0 0 -0.1rem;
-  top: 0;
-  z-index: 1;
-  background-image: url('/assets/images/tasks/mistakecorrection.png');
-  background-repeat: no-repeat;
-  background-size: 1.3rem;
-  background-position: center center;
-}
+    background-color: $red-100;
+    background-image: url('/assets/images/tasks/mistakecorrection.png');
+  }
 
-.omittedwordsIcon {
-  position: absolute;
-  background-color: rgb(211 238 255);
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 1rem;
-  margin: -0.5rem 0 0 -0.1rem;
-  top: 0;
-  z-index: 1;
-  background-image: url('/assets/images/tasks/omittedwords.png');
-  background-repeat: no-repeat;
-  background-size: 1.2rem;
-  background-position: center center;
+  .omittedwordsIcon {
+    @extend %baseIcon;
+
+    background-color: rgb(211 238 255);
+    background-image: url('/assets/images/tasks/omittedwords.png');
+  }
+
+  .translateIcon {
+    @extend %baseIcon;
+
+    background-color: $purple-50;
+    background-image: url('/assets/images/tasks/translate.png');
+  }
+
+  .replayIcon {
+    @extend %baseIcon;
+
+    background-color: $green-100;
+    background-image: url('/assets/images/tasks/replay.png');
+  }
 }
 
 .content {

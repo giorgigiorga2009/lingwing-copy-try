@@ -28,7 +28,7 @@ const Section: FC<SectionProps> = ({ options, title, onClose }) => {
   return (
     <section>
       <h3>{title}</h3>
-      <div className={styles.list}>
+      <nav className={styles.list}>
         {options.map(element => {
           const [pathname, queryKey, queryValue] = SIDE_MENU_LINKS[element]
           const query = queryKey && queryValue ? { [queryKey]: queryValue } : {}
@@ -44,7 +44,7 @@ const Section: FC<SectionProps> = ({ options, title, onClose }) => {
             </Link>
           )
         })}
-      </div>
+      </nav>
     </section>
   )
 }
