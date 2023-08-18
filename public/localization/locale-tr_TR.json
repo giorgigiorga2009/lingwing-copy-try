@@ -211,6 +211,38 @@
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Her biri için 15 görev tamamlayabilirsiniz ücretsiz bir pakete sahip dil",
   "PACKAGES_INFO_PREMIUM_HEADER": "Premium'a geç",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Birinci sınıf kullanıcı ol ve tam seçenekler alın",
-  "PACKAGES_INFO_CHOOSE": "Seçmek"
+  "PACKAGES_INFO_CHOOSE": "Seçmek",
+
+
+  "APP_PROFILE_FIRST_NAME": "İsim",
+  "APP_PROFILE_LAST_NAME": "Soyisim",
+  "APP_PROFILE_EMAIL_ADDRESS": "E-posta adresi",
+  "APP_PROFILE_MOBILE": "Cep numarası",
+  "APP_PROFILE_YEAR": "Yil",
+  "APP_PROFILE_MONTH": "Ay",
+  "APP_PROFILE_DATE": "Gün",
+  "APP_PROFILE_CHANGE_PASSWORD": "Şifreni değiştir",
+  "APP_PROFILE_CONNECT_SOCIAL": "Hesabını sosyal ağlarla bağla",
+  "APP_PROFILE_CHANGE_IMAGE": "Görüntüyü değiştir",
+  "APP_PROFILE_UPLOAD_IMAGE": "Fotoğraf yükle",
+  "APP_PROFILE_GETTING_NEWS": "Getting news",
+  "APP_PROFILE_SUBSCRIPTION": "E-posta aboneliği",
+  "APP_PROFILE_SMS_SUBSCRIPTION": "SMS",
+  "APP_PROFILE_GENDER": "Cinsiyet",
+  "APP_PROFILE_MALE": "Erkek",
+  "APP_PROFILE_FEMALE": "Kadın",
+  "APP_GENERAL_SAVE_CHANGES": "Değişiklikleri Kaydet",
+  "APP_PROFILE_EDIT": "Profil düzenleme",
+  "APP_MARKETING_POLICY_1": "Doğrudan pazarlama ",
+  "APP_MARKETING_POLICY_2": "politikasına  ",
+  "APP_MARKETING_POLICY_3": "katılıyorum",
+
+  "APP_GET_IN_TOUCH": "Lütfen bizimle iletişime geçin",
+  "FULL_NAME": "Ad & soyad",
+  "SUBJECT": "Konu",
+  "APP_FEEDBACK_MESSAGE": "Mesaj",
+  "MODAL_EMAIL": "E-posta",
+  "CONTACT_MESSAGE_SEND": "Gönder",
+  "CONTACT_MESSAGE_SENT": "Mesaj gönderildi!"
   
 }

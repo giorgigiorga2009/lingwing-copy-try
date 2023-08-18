@@ -29,7 +29,7 @@ export const SIDE_MENU_LINKS = {
   German: ['/wizard', 'languageTo', 'deu'],
   Italian: ['/wizard', 'languageTo', 'ita'],
   footerFAQ: ['/faq/general/', '', ''],
-  menuContactUs: ['/contact', '', ''],
+  menuContactUs: ['/contact-us', '', ''],
   menuStudents: ['/student', '', ''],
   menuPrices: ['/packages', '', ''],
   menuBuyAGift: ['packages/giftTaskReview', '', ''],
