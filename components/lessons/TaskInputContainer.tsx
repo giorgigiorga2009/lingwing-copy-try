@@ -1,8 +1,5 @@
 import { useState, useEffect, FC, useRef } from 'react'
 import style from './TaskInputContainer.module.scss'
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from 'react-speech-recognition'
 import {
   replayInputCheck,
   getStringFromRecognition,
@@ -14,6 +11,8 @@ import { OmittedWords } from './OmittedWords'
 import { DictationInput } from './DictationInput'
 import { saveTask } from '@utils/lessons/saveTask'
 import { animated, useSpring } from 'react-spring'
+import { useAudio } from '@utils/lessons/audioUtils'
+import { useSpeechRecognitionLogic } from '@utils/lessons/useSpeechRecognition'
 
 interface TaskInputProps {
   commonProps: CommonProps
@@ -32,13 +31,15 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 }) => {
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
-  const [isRecording, setIsRecording] = useState(false)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [textFromKeyboard, setTextFromKeyboard] = useState('')
-  const [audios, setAudios] = useState<HTMLAudioElement[]>([])
-  const [currentAudioIndex, setCurrentAudioIndex] = useState<number>(0)
+  const { audioIndex, setAudios, wordAudioPlay, addWordAudio, audioPlay } =
+    useAudio()
+  const { isRecording, finalTranscript, toggleRecognition } =
+    useSpeechRecognitionLogic()
 
   const wordsCount = commonProps.currentTask.wordsArray
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
@@ -49,23 +50,10 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   // Assume addAudio is a function that adds a new audio to the audios array
 
   useEffect(() => {
-    if (audios.length > 0) {
-      const currentAudio = audios[currentWordIndex - 1]
-      if (currentAudio) {
-        currentAudio.play()
-      }
-    }
+    wordAudioPlay(currentWordIndex)
   }, [currentWordIndex])
 
   useEffect(() => {
-    const addAudio = (audioUrl: string) => {
-      const newAudio = new Audio(audioUrl)
-      newAudio.onended = () => {
-        setCurrentAudioIndex(prevIndex => prevIndex + 1)
-      }
-      setAudios(prevAudios => [...prevAudios, newAudio])
-    }
-
     if (!currentWord) return
     const wordIsFinished =
       currentWord.wordText
@@ -76,23 +64,18 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
     if (wordIsFinished) {
       if (currentWord.wordAudioPath !== 'undefined/undefined') {
-        addAudio(`${process.env.audioURL}${currentWord?.wordAudioPath}.mp3`)
+        addWordAudio(`${process.env.audioURL}${currentWord?.wordAudioPath}.mp3`)
       }
-
       setCurrentWordIndex(currentWordIndex + 1)
       setTaskProgress((outputArray.length / wordsCount.length) * 100 + '%')
     }
-  }, [outputText, currentAudioIndex])
+  }, [outputText, audioIndex])
 
   // create an animation for the microphone icon
   const { transform, opacity } = useSpring({
     opacity: isRecording ? 1 : 0.5,
     transform: `scale(${isRecording ? 1.5 : 1})`,
   })
-
-  // set up speech recognition
-  const { finalTranscript, resetTranscript } = useSpeechRecognition()
-  const inputRef = useRef<HTMLTextAreaElement>(null)
 
   // only for voiceRecognition
   useEffect(() => {
@@ -132,18 +115,31 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     taskType === 'replay' && setOutputText(replayInputCheck({ ...params }))
   }, [inputText])
 
+  const resetTaskState = () => {
+    setAudios([])
+    setInputText('')
+    setOutputText('')
+    setMistakesCount(0)
+    setIsHintShown(false)
+    setTaskProgress('0%')
+    setCurrentWordIndex(0)
+  }
+
+  const updateCompletedTasks = () => {
+    const newCompletedTasks = commonProps.completedTasks
+      ? [...commonProps.completedTasks, commonProps.currentTask]
+      : [commonProps.currentTask]
+    commonProps.setCompletedTasks(newCompletedTasks)
+    commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+  }
+
   useEffect(() => {
     if (commonProps.token === null && commonProps.userId === null) return
-    // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.trim() === correctText.trim()) {
       if (taskType === 'replay') {
-        const audio = new Audio(
-          `${process.env.audioURL}${commonProps.currentTask.sentenceAudioPath}.mp3`,
-        )
-        audio.play()
+        audioPlay(`${commonProps.currentTask.sentenceAudioPath}.mp3`)
       }
       setTimeout(async () => {
-        setIsHintShown(false)
         const isSaveSuccessful = await saveTask({
           token: commonProps.token,
           userId: commonProps.userId,
@@ -153,21 +149,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           languageFrom: commonProps.languageFrom,
         })
         if (isSaveSuccessful) {
-          setAudios([])
-          setInputText('')
-          setOutputText('')
-          setMistakesCount(0)
-          setTaskProgress('0%')
-          setCurrentWordIndex(0)
-          if (commonProps.completedTasks) {
-            commonProps.setCompletedTasks([
-              ...commonProps.completedTasks,
-              commonProps.currentTask,
-            ])
-          } else {
-            commonProps.setCompletedTasks([commonProps.currentTask])
-          }
-          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+          resetTaskState()
+          updateCompletedTasks()
         }
       }, 2200)
     }
@@ -197,8 +180,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }
 
   const handleOnFocus = () => {
-    // Stop listening for speech when the input field is focused
-    SpeechRecognition.stopListening()
     // Focus on the input field and move the cursor to the end
     if (inputRef.current) {
       inputRef.current.focus()
@@ -206,20 +187,13 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       inputRef.current.setSelectionRange(length, length)
     }
   }
-  const handleMicOnClick = () => {
+  const handleMicClick = () => {
     if (inputRef.current) {
       // Store the current input value before starting/stopping speech recognition
       const inputValue = inputRef.current.value
       setTextFromKeyboard(inputValue)
     }
-
-    !isRecording
-      ? SpeechRecognition.startListening({ continuous: true })
-      : SpeechRecognition.stopListening()
-
-    !isRecording && resetTranscript()
-
-    setIsRecording(!isRecording)
+    toggleRecognition()
   }
 
   const handleTextareaChange = (
@@ -271,7 +245,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
             opacity,
             transform,
           }}
-          onClick={handleMicOnClick}
+          onClick={handleMicClick}
         >
           <span className={style.micIcon} key="mic" />
           {isRecording && <div className={style.pulsatingCircle} />}
