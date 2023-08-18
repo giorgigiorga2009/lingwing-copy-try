@@ -4,7 +4,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition'
 
-export const useSpeechRecognitionLogic = () => {
+export const useSpeechRec = () => {
   const [isRecording, setIsRecording] = useState(false)
   const { finalTranscript, resetTranscript } = useSpeechRecognition()
 

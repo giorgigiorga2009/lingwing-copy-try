@@ -1,9 +1,7 @@
-import { useState, useEffect, FC, useRef } from 'react'
-import style from './TaskInputContainer.module.scss'
 import {
   replayInputCheck,
-  getStringFromRecognition,
-  standardTextCheck,
+  getRecognitionText,
+  textCheck,
   CommonProps,
   handleChange,
 } from '@utils/lessons/taskInputUtils'
@@ -12,7 +10,9 @@ import { DictationInput } from './DictationInput'
 import { saveTask } from '@utils/lessons/saveTask'
 import { animated, useSpring } from 'react-spring'
 import { useAudio } from '@utils/lessons/audioUtils'
-import { useSpeechRecognitionLogic } from '@utils/lessons/useSpeechRecognition'
+import style from './TaskInputContainer.module.scss'
+import { useState, useEffect, FC, useRef } from 'react'
+import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 
 interface TaskInputProps {
   commonProps: CommonProps
@@ -34,39 +34,30 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currWordIndex, setCurrWordIndex] = useState(0)
   const [textFromKeyboard, setTextFromKeyboard] = useState('')
-  const { audioIndex, setAudios, wordAudioPlay, addWordAudio, audioPlay } =
-    useAudio()
-  const { isRecording, finalTranscript, toggleRecognition } =
-    useSpeechRecognitionLogic()
+  const { isRecording, finalTranscript, toggleRecognition } = useSpeechRec()
+  const { audioIndex, setAudios, wordAudioPlay, addAudio, Play } = useAudio()
 
   const wordsCount = commonProps.currentTask.wordsArray
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
   const outputArray = outputText.toLowerCase().trim().split(' ')
   const correctText = commonProps.currentTask.correctText as string
-  const currentWord = commonProps.currentTask?.wordsArray[currentWordIndex]
-
-  // Assume addAudio is a function that adds a new audio to the audios array
+  const currentWord = commonProps.currentTask?.wordsArray[currWordIndex]
 
   useEffect(() => {
-    wordAudioPlay(currentWordIndex)
-  }, [currentWordIndex])
+    wordAudioPlay(currWordIndex)
+  }, [currWordIndex])
 
   useEffect(() => {
     if (!currentWord) return
-    const wordIsFinished =
-      currentWord.wordText
-        .replace(/[^\p{L}\p{M}?]/gu, '')
-        .toLowerCase()
-        .trim() ===
-      outputArray[currentWordIndex]?.replace(/[^\p{L}\p{M}?]/gu, '').trim()
+    const onlyLetters = /[^\p{L}\p{M}?]/gu
+    const currWord = currentWord.wordText.replace(onlyLetters, '').toLowerCase()
+    const lastWord = outputArray[currWordIndex]?.replace(onlyLetters, '').trim()
 
-    if (wordIsFinished) {
-      if (currentWord.wordAudioPath !== 'undefined/undefined') {
-        addWordAudio(`${process.env.audioURL}${currentWord?.wordAudioPath}.mp3`)
-      }
-      setCurrentWordIndex(currentWordIndex + 1)
+    if (currWord.trim() === lastWord) {
+      addAudio(`${currentWord?.wordAudioPath}`)
+      setCurrWordIndex(currWordIndex + 1)
       setTaskProgress((outputArray.length / wordsCount.length) * 100 + '%')
     }
   }, [outputText, audioIndex])
@@ -82,7 +73,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     if (finalTranscript === '') return
 
     setOutputText(
-      getStringFromRecognition({
+      getRecognitionText({
         correctText,
         wordsSynonyms,
         finalTranscript,
@@ -105,7 +96,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   useEffect(() => {
     if (taskType === 'dictation' || taskType === 'translate') {
       setOutputText(
-        standardTextCheck({
+        textCheck({
           ...params,
           currentWord: currentWord.wordText,
         }),
@@ -120,9 +111,9 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setInputText('')
     setOutputText('')
     setMistakesCount(0)
+    setCurrWordIndex(0)
     setIsHintShown(false)
     setTaskProgress('0%')
-    setCurrentWordIndex(0)
   }
 
   const updateCompletedTasks = () => {
@@ -137,7 +128,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     if (commonProps.token === null && commonProps.userId === null) return
     if (outputText.trim() === correctText.trim()) {
       if (taskType === 'replay') {
-        audioPlay(`${commonProps.currentTask.sentenceAudioPath}.mp3`)
+        Play(`${commonProps.currentTask.sentenceAudioPath}`)
       }
       setTimeout(async () => {
         const isSaveSuccessful = await saveTask({
@@ -157,7 +148,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }, [taskProgress])
 
   const handleOnKeyDown = (event: React.KeyboardEvent) => {
-    // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
     if (
       event.key === 'Space' &&
       inputRef.current &&

@@ -89,7 +89,7 @@ const findMatchedWordIndex = ({
 }
 
 //Only For voice recognition
-export const getStringFromRecognition = ({
+export const getRecognitionText = ({
   correctText,
   wordsSynonyms,
   finalTranscript,
@@ -187,7 +187,7 @@ export const replayInputCheck = ({
   return outputText
 }
 
-export const standardTextCheck = ({
+export const textCheck = ({
   inputText,
   outputText,
   currentWord,

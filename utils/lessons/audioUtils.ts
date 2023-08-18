@@ -13,13 +13,14 @@ export const useAudio = () => {
     }
   }
 
-  const audioPlay = (audioUrl: string) => {
-    const audio = new Audio(`${process.env.audioURL}${audioUrl}`)
+  const Play = (audioUrl: string) => {
+    const audio = new Audio(`${process.env.audioURL}${audioUrl}.mp3`)
     audio.play()
   }
 
-  const addWordAudio = (audioUrl: string) => {
-    const newAudio = new Audio(audioUrl)
+  const addAudio = (audioUrl: string) => {
+    if (audioUrl === 'undefined/undefined') return
+    const newAudio = new Audio(`${process.env.audioURL}${audioUrl}.mp3`)
     newAudio.onended = () => {
       setAudioIndex(prevIndex => prevIndex + 1)
     }
@@ -31,7 +32,7 @@ export const useAudio = () => {
     audioIndex,
     setAudios,
     wordAudioPlay,
-    audioPlay,
-    addWordAudio,
+    Play,
+    addAudio,
   }
 }
