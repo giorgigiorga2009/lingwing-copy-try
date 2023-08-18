@@ -46,7 +46,7 @@
       align-items: center;
       .slider {
         transition: 1s;
-        background-color: $white;
+        background-color: $white-200;
         border-radius: 100px;
         padding: 1px;
         margin: 10px;
@@ -64,7 +64,7 @@
           left: 3px;
           width: 17px;
           height: 17px;
-          background-color: $white-300;
+          background-color: $white;
           border-radius: 200px;
           position: absolute;
           will-change: left, background-color;
