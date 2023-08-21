@@ -8,30 +8,25 @@ import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
   commonProps: CommonProps
-  wordsArray: string[]
-  onKeyDown: (event: React.KeyboardEvent) => void
   isHintShown: boolean
-  setMistakesCount: (values: number) => void
-  mistakesCount: number
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
 
 export const OmittedWords: FC<Props> = ({
-  wordsArray,
-  onKeyDown,
   isHintShown,
-  setMistakesCount,
-  mistakesCount,
   commonProps,
   setIsHintShown,
   setHintText,
 }) => {
   const [words, setWords] = useState<string[]>([])
   const [correctWords, setCorrectWords] = useState<string[]>([])
+  const [mistakesCount, setMistakesCount] = useState(0)
+
   const inputRefs = useRef<HTMLInputElement[]>([])
+  const currTask = commonProps.currentTask.correctText as string
+  const wordsArray = currTask.match(/(\[.*?\])|(\S+)/g) ?? []
   const inputsCount = wordsArray.filter(item => /^\[.*\]$/.test(item)).length
-  //const [inputText, setInputText] = useState('')
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -41,26 +36,21 @@ export const OmittedWords: FC<Props> = ({
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
     )
-
-    console.log(inputText)
-    //const inputValue = event.target.value
-    const newWords = [...words]
     const missingWord = wordsArray[index].slice(1, -1)
-
-    const isTextValid =
-      inputText.toLowerCase() ===
-      missingWord.substring(0, inputText.length).toLowerCase()
+    const newWords = [...words]
+    const currentMatch = missingWord.substring(0, inputText.length)
+    const isTextValid = inputText.toLowerCase() === currentMatch.toLowerCase()
 
     if (isTextValid) {
       setIsHintShown(false)
-      newWords[index] = missingWord.substring(0, inputText.length)
+      newWords[index] = currentMatch
       setWords(newWords)
 
-      const nextInputRef = inputRefs.current
-        .slice(index + 1)
-        .find(element => element !== undefined)
-
       if (inputText.length === missingWord.length) {
+        const nextInputRef = inputRefs.current
+          .slice(index + 1)
+          .find(element => element !== undefined)
+
         setCorrectWords(prevWords => [...prevWords, missingWord])
         nextInputRef && nextInputRef.focus()
       }
@@ -73,27 +63,21 @@ export const OmittedWords: FC<Props> = ({
     }
   }
 
+  const updateCompletedTasks = () => {
+    const newCompletedTasks = commonProps.completedTasks
+      ? [...commonProps.completedTasks, commonProps.currentTask]
+      : [commonProps.currentTask]
+    commonProps.setCompletedTasks(newCompletedTasks)
+    commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+  }
+
   useEffect(() => {
-    if (commonProps.token === null && commonProps.userId === null) return
+    if (!commonProps.token && !commonProps.userId) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
-        const isSaveSuccessful = await saveTask({
-          userId: commonProps.userId,
-          token: commonProps.token,
-          languageFrom: commonProps.languageFrom,
-          languageTo: commonProps.languageTo,
-          currentTask: commonProps.currentTask,
-          courseId: commonProps.courseId,
-        })
-        if (isSaveSuccessful) {
-          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-          commonProps.completedTasks &&
-            commonProps.setCompletedTasks([
-              ...commonProps.completedTasks,
-              commonProps.currentTask,
-            ])
-          !commonProps.completedTasks &&
-            commonProps.setCompletedTasks([commonProps.currentTask])
+        const isSaved = await saveTask({ ...commonProps })
+        if (isSaved) {
+          updateCompletedTasks()
         }
       }, 1500)
     }
@@ -102,6 +86,28 @@ export const OmittedWords: FC<Props> = ({
   useEffect(() => {
     inputRefs.current.find(element => element !== undefined)?.focus()
   }, [])
+
+  const handleOnKeyDown = (event: React.KeyboardEvent) => {
+    if (
+      event.key === 'Space' &&
+      inputRefs.current //&&
+      // inputRefs.current.value.endsWith(' ')
+    ) {
+      event.preventDefault()
+      return
+    }
+
+    if (event.key === 'Enter') {
+      event.preventDefault()
+    }
+
+    if (event.key === 'Backspace' || event.key === 'Delete') {
+      event.preventDefault()
+      // setCorrect(true)
+    } else {
+      // setCorrect(false)
+    }
+  }
 
   return (
     <div className={style.inputContainer}>
@@ -115,7 +121,7 @@ export const OmittedWords: FC<Props> = ({
               key={index}
               value={currentValue !== undefined ? currentValue : ''}
               onChange={event => handleInputChange(event, index)}
-              onKeyDown={onKeyDown}
+              onKeyDown={handleOnKeyDown}
               ref={el => (inputRefs.current[index] = el!)}
             />
           )

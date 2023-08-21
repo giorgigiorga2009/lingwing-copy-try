@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  max-width: 26.7rem;
+  //max-width: 26.7rem;
   width: 26.7rem;
   font-size: 1.2rem;
   font-weight: bold;
@@ -18,4 +18,59 @@
   border-radius: 50px;
   padding: 1.2rem 1rem 0.8rem 2rem;
   color: $black;
+}
+
+.inputDone {
+  width: 29rem;
+  background-color: $green-100;
+  outline-color: $green-150;
+  transition: 0.3s ease-in-out;
+}
+
+.mistake {
+  outline-color: $red;
+  transition: 0.2s ease-in-out alternate;
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(0);
+    transition-timing-function: ease-in;
+  }
+
+  37% {
+    transform: translateX(5px);
+    transition-timing-function: ease-out;
+  }
+
+  55% {
+    transform: translateX(-5px);
+    transition-timing-function: ease-in;
+  }
+
+  73% {
+    transform: translateX(4px);
+    transition-timing-function: ease-out;
+  }
+
+  82% {
+    transform: translateX(-4px);
+    transition-timing-function: ease-in;
+  }
+
+  91% {
+    transform: translateX(2px);
+    transition-timing-function: ease-out;
+  }
+
+  96% {
+    transform: translateX(-2px);
+    transition-timing-function: ease-in;
+  }
+
+  100% {
+    transform: translateX(0);
+    transition-timing-function: ease-in;
+  }
 }

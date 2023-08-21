@@ -11,16 +11,16 @@
   background-repeat: no-repeat;
   background-position: 50% 99%;
   height: auto;
-  padding: 4rem 1.5rem 7.75 1.5rem;
+  padding: 4rem 1.5rem 7.75;
   min-height: 100vh;
 
   @include smallWidth {
-    min-height: 0vh;
+    min-height: 0;
     background-position: center;
   }
 
   @include mobile {
-    padding: 3.75rem 1.5rem 0.75rem 1.5rem;
+    padding: 3.75rem 1.5rem 0.75rem;
     background-position: bottom;
     background-size: 100%;
     background-size: 35rem, auto;
@@ -46,16 +46,20 @@
   font-weight: 200;
   font-family: HVDComicSerifPro, bpg_arial_2009;
   text-align: center;
+
   &:lang(ka) {
     font-family: $kaFont;
   }
+
   @include mobile {
     font-size: 5vh;
     margin-top: 6rem;
   }
+
   @include tablet {
     margin-top: 10rem;
   }
+
   @include desktop {
     margin-top: 10rem;
   }
@@ -67,7 +71,8 @@
   grid-gap: 1rem;
   justify-items: center;
   align-items: center;
-  margin: 2rem 0rem;
+  margin: 2rem 0;
+
   @include desktop {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10rem;
@@ -87,13 +92,16 @@
   transition: all 0.5s ease;
   cursor: pointer;
   z-index: 1;
+
   &:hover {
     transform: rotate(0deg);
     transition: all 0.5s ease;
   }
+
   &:lang(ka) {
     font-family: $kaFont;
   }
+
   @include mobile {
     font-size: 1.85vh;
     max-width: 18rem;
@@ -109,9 +117,11 @@
 .quote:nth-child(odd) {
   position: relative;
   right: 12vw;
+
   @include desktop {
-    right: 0vw;
+    right: 0;
     left: -8vw;
+
     &::after {
       content: '';
       position: absolute;
@@ -134,6 +144,7 @@
   @include desktop {
     right: -8vw;
     left: 8vw;
+
     &::after {
       content: '';
       position: absolute;

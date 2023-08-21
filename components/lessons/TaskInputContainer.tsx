@@ -5,7 +5,6 @@ import {
   CommonProps,
   handleChange,
 } from '@utils/lessons/taskInputUtils'
-import { OmittedWords } from './OmittedWords'
 import { DictationInput } from './DictationInput'
 import { saveTask } from '@utils/lessons/saveTask'
 import { animated, useSpring } from 'react-spring'
@@ -39,11 +38,14 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const { isRecording, finalTranscript, toggleRecognition } = useSpeechRec()
   const { audioIndex, setAudios, wordAudioPlay, addAudio, Play } = useAudio()
 
-  const wordsCount = commonProps.currentTask.wordsArray
-  const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  const outputArray = outputText.toLowerCase().trim().split(' ')
-  const correctText = commonProps.currentTask.correctText as string
-  const currentWord = commonProps.currentTask?.wordsArray[currWordIndex]
+  const onlyLetters = /[^\p{L}\p{M}?]/gu
+  const currTask = commonProps.currentTask
+  const wordsSynonyms = currTask.wordsSynonyms
+  const correctText = currTask.correctText as string
+  const writtenWordsArray = outputText.trim().split(' ')
+  const outputArray = writtenWordsArray.filter(item => item !== '-')
+  const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
+  const currentWord = wordsArray[currWordIndex]
 
   useEffect(() => {
     wordAudioPlay(currWordIndex)
@@ -51,14 +53,14 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   useEffect(() => {
     if (!currentWord) return
-    const onlyLetters = /[^\p{L}\p{M}?]/gu
-    const currWord = currentWord.wordText.replace(onlyLetters, '').toLowerCase()
-    const lastWord = outputArray[currWordIndex]?.replace(onlyLetters, '').trim()
 
-    if (currWord.trim() === lastWord) {
+    const writtenWord = outputArray[currWordIndex]?.replace(onlyLetters, '')
+    const currWord = currentWord.wordText.replace(onlyLetters, '')
+
+    if (currWord.trim().toLowerCase() === writtenWord?.trim().toLowerCase()) {
       addAudio(`${currentWord?.wordAudioPath}`)
       setCurrWordIndex(currWordIndex + 1)
-      setTaskProgress((outputArray.length / wordsCount.length) * 100 + '%')
+      setTaskProgress((outputArray.length / wordsArray.length) * 100 + '%')
     }
   }, [outputText, audioIndex])
 
@@ -125,25 +127,20 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }
 
   useEffect(() => {
-    if (commonProps.token === null && commonProps.userId === null) return
+    if (!commonProps.token && !commonProps.userId) return
     if (outputText.trim() === correctText.trim()) {
       if (taskType === 'replay') {
         Play(`${commonProps.currentTask.sentenceAudioPath}`)
       }
       setTimeout(async () => {
-        const isSaveSuccessful = await saveTask({
-          token: commonProps.token,
-          userId: commonProps.userId,
-          courseId: commonProps.courseId,
-          languageTo: commonProps.languageTo,
-          currentTask: commonProps.currentTask,
-          languageFrom: commonProps.languageFrom,
-        })
-        if (isSaveSuccessful) {
+        const audio = new Audio('https://lingwing.com/sounds/true.mp3')
+        audio.play()
+        const isSaved = await saveTask({ ...commonProps })
+        if (isSaved) {
           resetTaskState()
           updateCompletedTasks()
         }
-      }, 2200)
+      }, 2500)
     }
   }, [taskProgress])
 
@@ -189,7 +186,11 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
-    if (outputText.trim() === correctText.trim()) return
+    if (outputText.trim() === correctText.trim()) {
+      const audio = new Audio('https://lingwing.com/sounds/false.mp3')
+      audio.play()
+      return
+    }
     handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
@@ -203,31 +204,31 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       <div className={style.container}>
         <div className={style.mistakes}> {mistakesCount} </div>
 
-        {(taskType === 'dictation' ||
+        {/* {(taskType === 'dictation' ||
           taskType === 'translate' ||
-          taskType === 'replay') && (
-          <DictationInput
-            inputRef={inputRef}
-            outputText={outputText}
-            onFocus={handleOnFocus}
-            onKeyDown={handleOnKeyDown}
-            onChange={handleTextareaChange}
-          />
-        )}
+          taskType === 'replay') && ( */}
+        <DictationInput
+          inputRef={inputRef}
+          outputText={outputText}
+          onFocus={handleOnFocus}
+          onKeyDown={handleOnKeyDown}
+          onChange={handleTextareaChange}
+          taskDone={taskProgress}
+          mistake={isHintShown}
+        />
+        {/* )} */}
 
-        {(commonProps.token !== null || commonProps.userId !== null) &&
+        {/* {
+          //(commonProps.token || commonProps.userId) &&
           taskType === 'omittedwords' && (
             <OmittedWords
               isHintShown={isHintShown}
               commonProps={commonProps}
               setHintText={setHintText}
-              onKeyDown={handleOnKeyDown}
-              mistakesCount={mistakesCount}
               setIsHintShown={setIsHintShown}
-              setMistakesCount={setMistakesCount}
-              wordsArray={correctText.match(/(\[.*?\])|(\S+)/g) ?? []}
             />
-          )}
+          )
+        } */}
 
         <animated.div
           className={style.microphoneIcon}

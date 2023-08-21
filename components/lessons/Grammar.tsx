@@ -35,25 +35,19 @@ interface ButtonProps {
 }
 
 export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
+  const updateCompletedTasks = () => {
+    const newCompletedTasks = commonProps.completedTasks
+      ? [...commonProps.completedTasks, commonProps.currentTask]
+      : [commonProps.currentTask]
+    commonProps.setCompletedTasks(newCompletedTasks)
+    commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+  }
+
   const handleClick = async () => {
-    if (commonProps.token === null && commonProps.userId === null) return
-    const isSaveSuccessful = await saveTask({
-      userId: commonProps.userId,
-      token: commonProps.token,
-      languageFrom: commonProps.languageFrom,
-      languageTo: commonProps.languageTo,
-      currentTask: commonProps.currentTask,
-      courseId: commonProps.courseId,
-    })
+    if (!commonProps.token && !commonProps.userId) return
+    const isSaveSuccessful = await saveTask({ ...commonProps })
     if (isSaveSuccessful) {
-      commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-      commonProps.completedTasks &&
-        commonProps.setCompletedTasks([
-          ...commonProps.completedTasks,
-          commonProps.currentTask,
-        ])
-      !commonProps.completedTasks &&
-        commonProps.setCompletedTasks([commonProps.currentTask])
+      updateCompletedTasks()
     }
   }
 
