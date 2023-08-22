@@ -7,7 +7,11 @@ import React, {
 } from 'react'
 import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
-import { CommonProps, handleChange } from '@utils/lessons/taskInputUtils'
+import {
+  CommonProps,
+  handleChange,
+  updateCompletedTasks,
+} from '@utils/lessons/taskInputUtils'
 
 interface Props {
   commonProps: CommonProps
@@ -46,7 +50,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
         const isSaved = await saveCurrentTask()
         if (isSaved) {
           setIsHintShown(false)
-          updateCompletedTasks()
+          updateCompletedTasks(commonProps)
         }
       }, 1500)
     }
@@ -55,11 +59,9 @@ export const MistakeCorrectionTask: FC<Props> = ({
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     if (inputText === correctText) return
 
-    handleChange(
-      event,
-      commonProps.languageTo as 'geo' | 'eng' | 'rus',
-      setInputText,
-    )
+    setInputText(
+      handleChange(event, commonProps.languageTo as 'geo' | 'eng' | 'rus'),
+    ) //ეს შეიცვალა და დასატესტია
 
     setIsHintShown(false)
     setMistakeRepeat(false)
@@ -72,13 +74,13 @@ export const MistakeCorrectionTask: FC<Props> = ({
     }
   }
 
-  const updateCompletedTasks = () => {
-    const newCompletedTasks = commonProps.completedTasks
-      ? [...commonProps.completedTasks, commonProps.currentTask]
-      : [commonProps.currentTask]
-    commonProps.setCompletedTasks(newCompletedTasks)
-    commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-  }
+  // const updateCompletedTasks = () => {
+  //   const newCompletedTasks = commonProps.completedTasks
+  //     ? [...commonProps.completedTasks, commonProps.currentTask]
+  //     : [commonProps.currentTask]
+  //   commonProps.setCompletedTasks(newCompletedTasks)
+  //   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+  // }
 
   const checkAnswer = async () => {
     if (inputText === correctText) {
@@ -88,7 +90,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
       const isSaved = await saveCurrentTask()
       if (isSaved) {
         setInputText('')
-        updateCompletedTasks()
+        updateCompletedTasks(commonProps)
       }
     } else if (!mistakeRepeat) {
       setMistakesCount(prev => prev + 1)

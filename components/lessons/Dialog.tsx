@@ -11,6 +11,8 @@ import {
   replayInputCheck,
   CommonProps,
   handleChange,
+  updateCompletedTasks,
+  handleOnKeyDown,
 } from '@utils/lessons/taskInputUtils'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import { DialogMessage } from './DialogMessage'
@@ -56,7 +58,6 @@ export const Dialog: FC<DialogProps> = ({
       <div className={style.title}>Dialog</div>
       <div className={style.dialog} ref={dialogContainerRef}>
         <span className={style.description}>{description}</span>
-
         {currentMessageIndex >= 0 &&
           !isHistory &&
           dialogArrayTo
@@ -115,14 +116,16 @@ export const DialogInput: FC<DialogInputProps> = ({
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
-  const [inputText, setInputText] = useState('')
+  // const [inputText, setInputText] = useState('')
+
+  const inputRef = useRef<HTMLTextAreaElement>(null)
+
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
   const { isRecording, finalTranscript, toggleRecognition } = useSpeechRec()
 
   // set up speech recognition
-  const inputRef = useRef<HTMLTextAreaElement>(null)
-  const [textFromKeyboard, setTextFromKeyboard] = useState('')
+  //const [textFromKeyboard, setTextFromKeyboard] = useState('')
 
   // only for voiceRecognition
   useEffect(() => {
@@ -131,38 +134,46 @@ export const DialogInput: FC<DialogInputProps> = ({
       getRecognitionText({
         correctText: dialogArray[currentMessageIndex],
         finalTranscript,
-        textFromKeyboard,
+        textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად
         wordsSynonyms,
       }),
     )
   }, [finalTranscript])
 
   //only for keyboard
-  useEffect(() => {
-    if (!inputText) return
-    setOutputText(
-      replayInputCheck({
-        inputText,
-        outputText,
-        correctText: dialogArray[currentMessageIndex],
-        setMistakesCount,
-        mistakesCount,
-        setIsHintShown,
-        setHintText,
-        isHintShown,
-      }),
-    )
-  }, [inputText])
+  // useEffect(() => {
+  //   if (!inputText) return
+  //   setOutputText(
+  //     replayInputCheck({
+  //       inputText,
+  //       outputText,
+  //       correctText: dialogArray[currentMessageIndex],
+  //       setMistakesCount,
+  //     //  mistakesCount,
+  //       setIsHintShown,
+  //       setHintText,
+  //       isHintShown,
+  //     }),
+  //   )
+  // }, [inputText])
+  const params = {
+    outputText,
+    correctText: dialogArray[currentMessageIndex],
+    setMistakesCount,
+    setIsHintShown,
+    setHintText,
+    isHintShown,
+  }
 
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) return
-    handleChange(
+    const inputText = handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
-      setInputText,
     )
+    setOutputText(replayInputCheck({ inputText, ...params }))
   }
 
   useEffect(() => {
@@ -176,67 +187,68 @@ export const DialogInput: FC<DialogInputProps> = ({
           const isSaved = await saveTask({ ...commonProps })
 
           if (isSaved) {
-            commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-            const updatedTasks = commonProps.completedTasks
-              ? [...commonProps.completedTasks, commonProps.currentTask]
-              : [commonProps.currentTask]
-            commonProps.setCompletedTasks(updatedTasks)
+            // commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+            // const updatedTasks = commonProps.completedTasks
+            //   ? [...commonProps.completedTasks, commonProps.currentTask]
+            //   : [commonProps.currentTask]
+            // commonProps.setCompletedTasks(updatedTasks)
+            updateCompletedTasks(commonProps)
           }
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
         setMistakesCount(0)
         setOutputText('')
-        setInputText('')
+        //setInputText('')
       }, 2000)
     }
   }, [outputText])
 
-  const handleOnKeyDown = (event: React.KeyboardEvent) => {
-    // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
-    if (
-      event.key === 'Space' &&
-      inputRef.current &&
-      inputRef.current.value.endsWith(' ')
-    ) {
-      event.preventDefault()
-      return
-    }
+  // const handleOnKeyDown = (event: React.KeyboardEvent) => {
+  //   // If the spacebar is pressed and the input field ends with a space, prevent the default action (i.e. adding another space)
+  //   if (
+  //     event.key === 'Space' &&
+  //     inputRef.current &&
+  //     inputRef.current.value.endsWith(' ')
+  //   ) {
+  //     event.preventDefault()
+  //     return
+  //   }
 
-    if (event.key === 'Enter') {
-      event.preventDefault()
-    }
+  //   if (event.key === 'Enter') {
+  //     event.preventDefault()
+  //   }
 
-    if (event.key === 'Backspace' || event.key === 'Delete') {
-      event.preventDefault()
-      // setCorrect(true)
-    } else {
-      // setCorrect(false)
-    }
-  }
+  //   if (event.key === 'Backspace' || event.key === 'Delete') {
+  //     event.preventDefault()
+  //     // setCorrect(true)
+  //   } else {
+  //     // setCorrect(false)
+  //   }
+  // }
 
   const { transform, opacity } = useSpring({
     opacity: isRecording ? 1 : 0.5,
     transform: `scale(${isRecording ? 1.5 : 1})`,
   })
 
-  const handleOnFocus = () => {
-    // Focus on the input field and move the cursor to the end
-    if (inputRef.current) {
-      inputRef.current.focus()
-      const length = inputRef.current.value.length
-      inputRef.current.setSelectionRange(length, length)
-    }
-  }
+  // const handleOnFocus = () => {
+  //   // Focus on the input field and move the cursor to the end
+  //   if (inputRef.current) {
+  //     inputRef.current.focus()
+  //     const length = inputRef.current.value.length
+  //     inputRef.current.setSelectionRange(length, length)
+  //   }
+  // }
 
-  const handleMicOnClick = () => {
-    if (inputRef.current) {
-      // Store the current input value before starting/stopping speech recognition
-      const inputValue = inputRef.current.value
-      setTextFromKeyboard(inputValue)
-    }
-    toggleRecognition()
-  }
+  // const handleMicOnClick = () => {
+  //   if (inputRef.current) {
+  //     // Store the current input value before starting/stopping speech recognition
+  //     const inputValue = inputRef.current.value
+  //     setTextFromKeyboard(inputValue)
+  //   }
+  //   toggleRecognition()
+  // }
 
   return (
     <div className={style.container}>
@@ -257,9 +269,13 @@ export const DialogInput: FC<DialogInputProps> = ({
       <DictationInput
         inputRef={inputRef}
         outputText={outputText}
-        onFocus={handleOnFocus}
-        onKeyDown={handleOnKeyDown}
+        // onFocus={handleOnFocus}
+        onKeyDown={(event: React.KeyboardEvent) =>
+          handleOnKeyDown(event, inputRef)
+        }
         onChange={handleTextareaChange}
+        taskDone={taskProgress}
+        mistake={isHintShown}
       />
 
       <animated.div
@@ -268,7 +284,7 @@ export const DialogInput: FC<DialogInputProps> = ({
           opacity,
           transform,
         }}
-        onClick={handleMicOnClick}
+        onClick={() => toggleRecognition()}
       >
         <span className={style.micIcon} key="mic" />
         {isRecording && <div className={style.pulsatingCircle} />}

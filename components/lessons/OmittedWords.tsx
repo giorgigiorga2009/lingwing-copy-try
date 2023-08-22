@@ -1,10 +1,13 @@
 import style from './OmittedWords.module.scss'
 import { saveTask } from '@utils/lessons/saveTask'
 import {
-  handleChangeOmittedWords,
+  handleChange,
   CommonProps,
+  updateCompletedTasks,
+  handleOnKeyDown,
 } from '@utils/lessons/taskInputUtils'
 import React, { FC, useEffect, useRef, useState } from 'react'
+//import updateCompletedTasks from '@utils/lessons/taskInputUtils'
 
 interface Props {
   commonProps: CommonProps
@@ -32,7 +35,7 @@ export const OmittedWords: FC<Props> = ({
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
-    const inputText = handleChangeOmittedWords(
+    const inputText = handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
     )
@@ -63,13 +66,13 @@ export const OmittedWords: FC<Props> = ({
     }
   }
 
-  const updateCompletedTasks = () => {
-    const newCompletedTasks = commonProps.completedTasks
-      ? [...commonProps.completedTasks, commonProps.currentTask]
-      : [commonProps.currentTask]
-    commonProps.setCompletedTasks(newCompletedTasks)
-    commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-  }
+  // const updateCompletedTasks = () => {
+  //   const newCompletedTasks = commonProps.completedTasks
+  //     ? [...commonProps.completedTasks, commonProps.currentTask]
+  //     : [commonProps.currentTask]
+  //   commonProps.setCompletedTasks(newCompletedTasks)
+  //   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+  // }
 
   useEffect(() => {
     if (!commonProps.token && !commonProps.userId) return
@@ -77,7 +80,7 @@ export const OmittedWords: FC<Props> = ({
       setTimeout(async () => {
         const isSaved = await saveTask({ ...commonProps })
         if (isSaved) {
-          updateCompletedTasks()
+          updateCompletedTasks(commonProps)
         }
       }, 1500)
     }
@@ -87,27 +90,27 @@ export const OmittedWords: FC<Props> = ({
     inputRefs.current.find(element => element !== undefined)?.focus()
   }, [])
 
-  const handleOnKeyDown = (event: React.KeyboardEvent) => {
-    if (
-      event.key === 'Space' &&
-      inputRefs.current //&&
-      // inputRefs.current.value.endsWith(' ')
-    ) {
-      event.preventDefault()
-      return
-    }
+  // const handleOnKeyDown = (event: React.KeyboardEvent) => {
+  //   if (
+  //     event.key === 'Space' &&
+  //     inputRefs.current //&&
+  //     // inputRefs.current.value.endsWith(' ')
+  //   ) {
+  //     event.preventDefault()
+  //     return
+  //   }
 
-    if (event.key === 'Enter') {
-      event.preventDefault()
-    }
+  //   if (event.key === 'Enter') {
+  //     event.preventDefault()
+  //   }
 
-    if (event.key === 'Backspace' || event.key === 'Delete') {
-      event.preventDefault()
-      // setCorrect(true)
-    } else {
-      // setCorrect(false)
-    }
-  }
+  //   if (event.key === 'Backspace' || event.key === 'Delete') {
+  //     event.preventDefault()
+  //     // setCorrect(true)
+  //   } else {
+  //     // setCorrect(false)
+  //   }
+  // }
 
   return (
     <div className={style.inputContainer}>
@@ -119,9 +122,11 @@ export const OmittedWords: FC<Props> = ({
             <input
               className={style.input}
               key={index}
-              value={currentValue !== undefined ? currentValue : ''}
+              value={currentValue ?? ''}
               onChange={event => handleInputChange(event, index)}
-              onKeyDown={handleOnKeyDown}
+              onKeyDown={(event: React.KeyboardEvent) =>
+                handleOnKeyDown(event, inputRefs)
+              }
               ref={el => (inputRefs.current[index] = el!)}
             />
           )

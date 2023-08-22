@@ -1,7 +1,10 @@
 import style from './Grammar.module.scss'
 import { FC, useEffect, useRef } from 'react'
 import { saveTask } from '@utils/lessons/saveTask'
-import { CommonProps } from '@utils/lessons/taskInputUtils'
+import {
+  CommonProps,
+  updateCompletedTasks,
+} from '@utils/lessons/taskInputUtils'
 
 interface Props {
   taskText: string
@@ -35,19 +38,19 @@ interface ButtonProps {
 }
 
 export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
-  const updateCompletedTasks = () => {
-    const newCompletedTasks = commonProps.completedTasks
-      ? [...commonProps.completedTasks, commonProps.currentTask]
-      : [commonProps.currentTask]
-    commonProps.setCompletedTasks(newCompletedTasks)
-    commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-  }
+  // const updateCompletedTasks = () => {
+  //   const newCompletedTasks = commonProps.completedTasks
+  //     ? [...commonProps.completedTasks, commonProps.currentTask]
+  //     : [commonProps.currentTask]
+  //   commonProps.setCompletedTasks(newCompletedTasks)
+  //   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+  // }
 
   const handleClick = async () => {
     if (!commonProps.token && !commonProps.userId) return
     const isSaveSuccessful = await saveTask({ ...commonProps })
     if (isSaveSuccessful) {
-      updateCompletedTasks()
+      updateCompletedTasks(commonProps)
     }
   }
 

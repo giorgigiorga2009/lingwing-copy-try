@@ -7,7 +7,7 @@ interface Props {
   outputText: string
   onKeyDown: (event: React.KeyboardEvent) => void
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  onFocus: (event: React.FocusEvent<HTMLElement>) => void
+  // onFocus: (event: React.FocusEvent<HTMLElement>) => void
   taskDone: string
   mistake: boolean
 }
@@ -16,7 +16,7 @@ export const DictationInput: FC<Props> = ({
   outputText,
   onKeyDown,
   onChange,
-  onFocus,
+  //onFocus,
   taskDone,
   mistake,
 }) => {
@@ -35,7 +35,7 @@ export const DictationInput: FC<Props> = ({
       placeholder="Type your answer"
       onKeyDown={onKeyDown}
       onChange={onChange}
-      onFocus={onFocus}
+      //onFocus={onFocus}
       autoFocus
     />
   )
