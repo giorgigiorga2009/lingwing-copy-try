@@ -28,7 +28,7 @@ export const getCurrentLanguageCoursesList = async ({
   languageCourseId: string
   languageId: string
 }): Promise<LanguageCourse[] | undefined> => {
-  const url = `${process.env.defaultURL}/public/getCurrentLanguageCoursesList?lang=${languageTo}&currentCourseId=${languageCourseId}&currentILearnFrom=${languageFrom}&currentLanguageId=${languageId}`
+  const url = `${process.env.DEFAULT_URL}/public/getCurrentLanguageCoursesList?lang=${languageTo}&currentCourseId=${languageCourseId}&currentILearnFrom=${languageFrom}&currentLanguageId=${languageId}`
   const payload = {
     currentLanguageId: languageId,
     currentCourseId: languageCourseId,

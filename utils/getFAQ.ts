@@ -9,7 +9,7 @@ export type FaqData = {
 
 export const getFAQ = (locale: LanguageFrom): Promise<FaqData[]> => {
   return axios
-    .get(`${process.env.defaultURL}/public/faqPricing?lang=${locale}`)
+    .get(`${process.env.DEFAULT_URL}/public/faqPricing?lang=${locale}`)
     .then(response => response.data.data)
 
     .catch(error => console.log(error))

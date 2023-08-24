@@ -11,7 +11,7 @@ export const getUserId = async ({
 }): Promise<string | undefined> => {
   try {
     const response = await axios({
-      url: `${process.env.defaultURL}/public/startLearning/${courseName}/${languageFrom}?lang=${languageTo}`,
+      url: `${process.env.DEFAULT_URL}/public/startLearning/${courseName}/${languageFrom}?lang=${languageTo}`,
     })
     return response.data.data.userKey
   } catch (error) {

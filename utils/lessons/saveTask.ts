@@ -16,7 +16,7 @@ export const saveTask = async ({
   userId: string | null
   currentTask: TaskData
 }): Promise<boolean> => {
-  let url = `${process.env.defaultURL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
+  let url = `${process.env.DEFAULT_URL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
   if (token === null) {
     url = `${url}&userKey=${userId}`
   }
@@ -46,10 +46,10 @@ export const saveTask = async ({
   const config = token ? { headers: { Authorization: token } } : {}
 
   try {
-    const response = await axios.post(url, payload, config)
+    await axios.post(url, payload, config)
     return true
   } catch (error) {
-    console.log(error)
+    console.error('An error occurred while saving task:', error)
     return false
   }
 }
