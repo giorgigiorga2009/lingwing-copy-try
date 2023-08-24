@@ -57,14 +57,13 @@ const Lessons: NextPage = () => {
 
   //get userId
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || !token || !userId) return
+    if (!languageFrom || !languageTo || !courseName) return
 
     getUserId({ languageFrom, languageTo, courseName })
       .then(response => {
         if (!response) return
         setUserId(response)
         Cookies.set('userId', response)
-        //console.log(userId)
         return response
       })
       .catch(error => {
