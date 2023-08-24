@@ -2,7 +2,6 @@ import { FC } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import ActionBtns from './ActionBtns'
-import { useRouter } from 'next/router'
 import style from './MySubCourse.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
 
@@ -10,6 +9,9 @@ interface SubCourseProps {
   name: string
   _id: string
   percent: string
+  iLearn: {
+    nameCode: string
+  }
   languageSubStandard: {
     name: string
   }
@@ -33,9 +35,10 @@ const MySubCourse: FC<Props> = ({
   indexOfCourse,
 }) => {
   const { t } = useTranslation()
-  const router = useRouter()
 
-  const locale = router.locale ?? 'en'
+  const languageTo = subCourse.iLearn.nameCode
+  const languageFrom = subCourse.iLearnFromNameCode
+  const courseName = subCourse.slug
 
   return (
     <>
@@ -62,7 +65,10 @@ const MySubCourse: FC<Props> = ({
         </div>
         <Link
           className={style.link}
-          href={`${locale}/learn/${subCourse.iLearnFromNameCode}/${subCourse.slug}`}
+          href={{
+            pathname: '/lessons',
+            query: { languageTo, languageFrom, courseName },
+          }}
         >
           <button className={style.start_course_btn}>
             {subCourse.status.continue

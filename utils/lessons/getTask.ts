@@ -193,7 +193,7 @@ export const getUserCourse = async ({
   userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
-    if (token && !userId) {
+    if (token) {
       const response = await axios({
         url: `${process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
         headers: {

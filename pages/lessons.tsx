@@ -59,7 +59,7 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName) return
 
-    getUserId({ languageFrom, languageTo, courseName })
+    getUserId({ languageFrom, languageTo, courseName, token })
       .then(response => {
         if (!response) return
         setUserId(response)
@@ -70,7 +70,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageTo])
+  }, [languageTo, token])
 
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
 
