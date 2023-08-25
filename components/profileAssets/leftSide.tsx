@@ -29,6 +29,10 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
     handlePhoneChange(data?.profile.phoneNumber)
   }, [data])
 
+  const birthdayDay = data?.profile?.birthday?.day || 0;
+  const birthdayMonth = data?.profile?.birthday?.month || 0;
+  const birthdayYear = data?.profile?.birthday?.year || 0;
+
   return (
     <div className={style.leftContainer}>
       <ProfileInput
@@ -73,9 +77,9 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
       <div className={style.birthDate}>
         <label htmlFor="birthdate">{t('APP_PROFILE_AGE')}</label>
         <GenerateDate
-          defaultDay={data?.profile.birthday.day}
-          defaultMonth={data?.profile.birthday.month}
-          defaultYear={data?.profile.birthday.year}
+          defaultDay={birthdayDay}
+          defaultMonth={birthdayMonth}
+          defaultYear={birthdayYear}
         />
       </div>
       <div className={style.gender}>

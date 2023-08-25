@@ -1,0 +1,18 @@
+@import '@styles/imports.scss';
+
+.advertiseContainer{
+    width: 100%;
+    .title{
+        color: $black;
+        font-family: SegoeUI,sans-serif;
+        font-size: 1.7rem; 
+        margin-top: 40px;
+        .price{
+            color: $yellow-600;
+        }
+    }
+    .description{
+        font-family: SegoeUI, sans-serif;
+    }
+
+}

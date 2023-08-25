@@ -20,6 +20,7 @@
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "country-state-city": "^3.1.4",
+    "flickity": "^3.0.0",
     "focus-trap-react": "^10.1.4",
     "formik": "^2.4.3",
     "git": "^0.1.5",
@@ -29,6 +30,7 @@
     "next": "^13.0.2",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
+    "react-carousel": "^4.3.0",
     "react-country-region-selector": "^3.6.1",
     "react-dom": "^18.2.0",
     "react-easy-crop": "^5.0.0",
@@ -50,10 +52,12 @@
     "zustand": "^4.3.9"
   },
   "devDependencies": {
+    "@types/flickity": "^2.2.8",
     "@types/istanbul-lib-report": "^3.0.0",
     "@types/node": "17.0.41",
     "@types/react": "18.0.12",
     "@types/react-dom": "18.0.5",
+    "@types/react-slick": "^0.23.10",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "eslint": "8.17.0",
     "eslint-config-next": "^13.4.4",

@@ -189,6 +189,26 @@
   "SUBJECT": "বিষয়",
   "APP_FEEDBACK_MESSAGE": "মেসেজ",
   "MODAL_EMAIL": "ইমেইল",
-  "CONTACT_MESSAGE_SEND": "প্রেরণ করুন"
+  "CONTACT_MESSAGE_SEND": "প্রেরণ করুন",
 
+
+  "APP_FREE_TRIAL1_TITLE2": "৫ দিনের ট্রায়াল শুরু করুন ",
+  "APP_FREE_TRIAL1_TITLE5": " জেল",
+  "APP_FREE_TRIAL1_DESCRIPTION": "সকল প্রিমিয়াম ফিচার পান এবং সীমাহীন কাজ পান!",
+  "APP_FREE_TRIAL1_LOOP1": "সীমাহীন কাজ পান",
+  "APP_FREE_TRIAL1_LOOP2": "বলার মাধ্যমে অনুশীলন করুন",
+  "APP_FREE_TRIAL1_LOOP3": "৫গুণ দ্রুত পড়ুন",
+  "APP_FREE_TRIAL1_LOOP4": "সার্টিফিকেট পান",
+  "APP_FREE_TRIAL1_CONTINUE": "চালিয়ে যান",
+
+  "APP_FREE_TRIAL2_TITLE": "৫ দিনের ট্রায়ালের পরের পরিকল্পনা করুন",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "ট্রায়াল শুরু করুন",
+
+  "APP_PACKAGE_MONTH_ge": " /মাস",
+  "APP_PACKAGE_MONTHS": " মাস",
+
+
+  "APP_AGREE_LICENSE_1": "আমি শর্ত পড়েছি এবং রাজি ",
+  "APP_AGREE_LICENSE_2": ".",
+  "APP_AGREE_LICENSE_3": "আপনি ৫ দিনের মধ্যে এটি বাতিল করতে পারবেন।"
 }
