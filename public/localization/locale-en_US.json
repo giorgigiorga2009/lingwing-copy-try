@@ -148,7 +148,7 @@
   "APP_PACKAGE_ALL_LANGS_AND_COURSES": "All languages & courses:",
   "APP_PACKAGE_VOICE_RECOGNITION": "Voice recognition:",
   "APP_PACKAGE_FREE": "Free",
-  "APP_PACKAGE_MONTHS": "months",
+  "APP_PACKAGE_MONTHS": " months",
   "APP_PACKAGE_MONTH": "Month",
   "APP_PACKAGE_MONTH_ge": "/Month",
   "APP_PACKAGE_UNLIMITED": "Unlimited",
@@ -270,5 +270,23 @@
   "APP_FEEDBACK_MESSAGE": "Message",
   "MODAL_EMAIL": "Email",
   "CONTACT_MESSAGE_SEND": "Send",
-  "CONTACT_MESSAGE_SENT": "Message sent!"
+  "CONTACT_MESSAGE_SENT": "Message sent!",
+
+
+  "APP_FREE_TRIAL1_TITLE2": "Start a 5 days trial for ",
+  "APP_FREE_TRIAL1_TITLE5": " GEL",
+  "APP_FREE_TRIAL1_DESCRIPTION": "Get all premium features and get unlimited tasks!",
+  "APP_FREE_TRIAL1_LOOP1": "Get unlimited tasks",
+  "APP_FREE_TRIAL1_LOOP2": "Perform exercises by speaking",
+  "APP_FREE_TRIAL1_LOOP3": "Study 5 times faster",
+  "APP_FREE_TRIAL1_LOOP4": "Get certificate",
+  "APP_FREE_TRIAL1_CONTINUE": "Continue",
+
+  "APP_FREE_TRIAL2_TITLE": "Choose a plan for after your 5-day trial",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "Start trial",
+
+  "APP_AGREE_LICENSE_1": "I have read and agree to the terms of the ",
+  "loginFooter4": "license agreement",
+  "APP_AGREE_LICENSE_2": ".",
+  "APP_AGREE_LICENSE_3": "You can cancel it within 5-days."
 }

@@ -148,7 +148,7 @@
   "APP_PACKAGE_ALL_LANGS_AND_COURSES": "Все языки и курсы:",
   "APP_PACKAGE_VOICE_RECOGNITION": "Голосовое распознование:",
   "APP_PACKAGE_FREE": "Бесплатный",
-  "APP_PACKAGE_MONTHS": "мес.",
+  "APP_PACKAGE_MONTHS": " мес.",
   "APP_PACKAGE_MONTH": "мес.",
   "APP_PACKAGE_MONTH_ge": "/мес.",
   "APP_PACKAGE_UNLIMITED": "Неограничено",
@@ -269,5 +269,23 @@
   "APP_FEEDBACK_MESSAGE": "Сообщение",
   "MODAL_EMAIL": "эл. почта",
   "CONTACT_MESSAGE_SEND": "Отправить",
-  "CONTACT_MESSAGE_SENT": "Сообщение отправлено!"
+  "CONTACT_MESSAGE_SENT": "Сообщение отправлено!",
+
+
+  "APP_FREE_TRIAL1_TITLE2": "Начни 5-дневную пробную версию за ",
+  "APP_FREE_TRIAL1_TITLE5": " GEL",
+  "APP_FREE_TRIAL1_DESCRIPTION": "Получи все премиальные функции и неограниченное количество заданий!",
+  "APP_FREE_TRIAL1_LOOP1": "Получи неограниченное количество заданий",
+  "APP_FREE_TRIAL1_LOOP2": "Выполняй упражнения, говоря",
+  "APP_FREE_TRIAL1_LOOP3": "Учись в 5 раза быстрее",
+  "APP_FREE_TRIAL1_LOOP4": "Получи сертификат",
+  "APP_FREE_TRIAL1_CONTINUE": "Продолжить",
+  
+  "APP_FREE_TRIAL2_TITLE": "Выбери план для своей 5-дневной пробной версии",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "Начать пробную версию",
+
+  "APP_AGREE_LICENSE_1": "Я прочитал и согласен с условиями ",
+  "loginFooter4": "лицензионного соглашения",
+  "APP_AGREE_LICENSE_2": ".",
+  "APP_AGREE_LICENSE_3": "Можешь отменить в течение 5 дней."
 }

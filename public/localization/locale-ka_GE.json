@@ -149,7 +149,7 @@
   "APP_PACKAGE_ALL_LANGS_AND_COURSES": "ყველა ენა & კურსი:",
   "APP_PACKAGE_VOICE_RECOGNITION": "ხმის ამოცნობა:",
   "APP_PACKAGE_FREE": "უფასო",
-  "APP_PACKAGE_MONTHS": "თვე",
+  "APP_PACKAGE_MONTHS": " თვე",
   "APP_PACKAGE_MONTH": "თვე",
   "APP_PACKAGE_MONTH_ge": "/თვეში",
   "APP_PACKAGE_UNLIMITED": "ულიმიტო",
@@ -271,5 +271,22 @@
   "APP_FEEDBACK_MESSAGE": "შეტყობინება",
   "MODAL_EMAIL": "ელ-ფოსტა",
   "CONTACT_MESSAGE_SEND": "გაგზავნა",
-  "CONTACT_MESSAGE_SENT": "შეტყობინება გაიგზავნა!"
+  "CONTACT_MESSAGE_SENT": "შეტყობინება გაიგზავნა!",
+
+  "APP_FREE_TRIAL1_TITLE2": "5 დღიანი პრემიუმი ",
+  "APP_FREE_TRIAL1_TITLE5": " ლარად",
+  "APP_FREE_TRIAL1_DESCRIPTION": "გამოსცადე ყველა პრემიუმ ფუნქცია და ისწავლე ულიმიტოდ!",
+  "APP_FREE_TRIAL1_LOOP1": "მიიღებ ულიმიტო დავალებებს",
+  "APP_FREE_TRIAL1_LOOP2": "შეასრულებ დავალებებს საუბრით",
+  "APP_FREE_TRIAL1_LOOP3": "ისწავლი 5-ჯერ უფრო სწრაფად",
+  "APP_FREE_TRIAL1_LOOP4": "მიიღებ სერტიფიკატს",
+  "APP_FREE_TRIAL1_CONTINUE": "გაგრძელება",
+
+  "APP_FREE_TRIAL2_TITLE": "აირჩიე პაკეტი, რომელზეც გადახვალ 5 დღის შემდეგ",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "დაიწყე საცდელი პერიოდი",
+
+  "APP_AGREE_LICENSE_1": "გავეცანი და ვეთანხმები ",
+  "loginFooter4": "სალიცენზიო ხელშეკრულების",
+  "APP_AGREE_LICENSE_2": "პირობებს.",
+  "APP_AGREE_LICENSE_3": "გაუქმება შეგიძლია 5-დღის მანძილზე"
 }

@@ -243,6 +243,25 @@
   "APP_FEEDBACK_MESSAGE": "Mesaj",
   "MODAL_EMAIL": "E-posta",
   "CONTACT_MESSAGE_SEND": "Gönder",
-  "CONTACT_MESSAGE_SENT": "Mesaj gönderildi!"
-  
+  "CONTACT_MESSAGE_SENT": "Mesaj gönderildi!",
+
+
+  "APP_FREE_TRIAL1_TITLE2": "5 günlük deneme sürenizi başlatın ",
+  "APP_FREE_TRIAL1_TITLE5": " GEL",
+  "APP_FREE_TRIAL1_DESCRIPTION": "Tüm premium özellikleri ve sınırsız görevleri edinin!",
+  "APP_FREE_TRIAL1_LOOP1": "Sınırsız sayıda görev alın",
+  "APP_FREE_TRIAL1_LOOP2": "Egzersizleri söyleyerek yapın",
+  "APP_FREE_TRIAL1_LOOP3": "5 kat daha hızlı öğrenin",
+  "APP_FREE_TRIAL1_LOOP4": "Sertifika almak",
+  "APP_FREE_TRIAL1_CONTINUE": "Devam etmek",
+
+  "APP_FREE_TRIAL2_TITLE": "Выбери план для своей 5-дневной пробной версии",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "Начать пробную версию",
+
+  "APP_PACKAGE_MONTH_ge": " /Ay",
+  "APP_PACKAGE_MONTHS": " Aylar",
+
+  "APP_AGREE_LICENSE_1": "Şartlarını okudum ve kabul ediyorum",
+  "APP_AGREE_LICENSE_2": ".",
+  "APP_AGREE_LICENSE_3": "5 gün içinde iptal edebilirsiniz."
 }
