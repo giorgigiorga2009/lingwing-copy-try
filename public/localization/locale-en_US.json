@@ -235,7 +235,8 @@
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "You can complete 15 tasks for each language with a free package",
   "PACKAGES_INFO_PREMIUM_HEADER": "Go Premium",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Become a Premium user and get full options",
-  "PACKAGES_INFO_CHOOSE": "Choose"
+  "PACKAGES_INFO_CHOOSE": "Choose",
+  "PACKAGES_INFO_FROM_GEL": "From GEL"
 
 
 }

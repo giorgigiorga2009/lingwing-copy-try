@@ -32,9 +32,21 @@
   margin-top: 12rem;
   box-shadow: 0 0 0.3rem 0.01rem $white-300;
   background-color: $white;
-  background: linear-gradient(to Bottom, $white-100 5rem, $white 5rem);
+  background: linear-gradient(to Bottom, $white-50 5.2rem, $white 5.2rem);
+  
+  @include mobile{
+    width: 95%;
+    font-size: .7rem;
+  }
+  @include smallWidth{
+    background: linear-gradient(to Bottom, $white-50 6.5rem, $white 6.5rem);
+  }
 }
 
 .header {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  text-align: center;
   color: $purple-600;
+  
 }

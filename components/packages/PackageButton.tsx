@@ -25,21 +25,26 @@ import { couponValue } from './Coupon'
 
 interface Props {
   type: 'mostPopularBtn' | 'regularPackageBtn' | 'couponBtn'
-  onClick: VoidFunction | undefined
-  // index: number | undefined
+  onClick?: VoidFunction | undefined
+  index: number
   packageId: string
 }
 
-export const PackageButton: FC<Props> = ({ type, onClick, packageId }) => {
+export const PackageButton: FC<Props> = ({ type, onClick, packageId, index }) => {
   const { t } = useTranslation()
+  const pathname = index === 0 ? '/packagesInfo' : '/payment';
+  const query = index === 0 
+  ? undefined 
+  : {
+      id: packageId,
+      ...(couponValue ? { coupon: couponValue } : {}),
+    };
   return (
     <Link
       href={{
-        pathname: '/payment',
-        query: {
-          id: packageId,
-          ...(couponValue ? { coupon: couponValue } : {}),
-        },
+        pathname,
+        ...(query && { query })
+       
       }}
     >
       <button onClick={onClick} className={style[type]}>

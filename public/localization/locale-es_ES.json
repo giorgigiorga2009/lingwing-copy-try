@@ -246,12 +246,13 @@
   "PAYMENT_SCHEDULE_LICENSE": "He leído y acepto los términos del ",
   
 
-  "FREE_PACKAGE_HEADER": "Familiarícete con los paquetes",
+  "PACKAGES_INFO_HEADER": "Familiarícete con los paquetes",
   "PACKAGES_INFO_FREE_TRIAL_HEADER": "Prueba de 5 días",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "Obtenga todas las funciones premium y ejercicios ilimitados.",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "Continuar aprendiendo gratis",
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Puedes completar 15 tareas para cada idioma con un paquete gratis",
   "PACKAGES_INFO_PREMIUM_HEADER": "Ir Premium",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Conviértete en un usuario premium y obtén opciones completas",
-  "PACKAGES_INFO_CHOOSE": "Elije"
+  "PACKAGES_INFO_CHOOSE": "Elije",
+  "PACKAGES_INFO_FROM_GEL": "De GEL"
 }

@@ -33,6 +33,7 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
   // const [selectedCurrency, setSelectedCurrency] = useState(0)
   const [currentCard, setCurrentCard] = useState(0)
 
+
   useEffect(() => {
     if (!router.isReady) return
     getPackages(coupon === '' ? getCoupon : coupon).then(response => {
@@ -153,6 +154,7 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
                       onClick={() => (packageId = item._id)}
                       // index={index}
                       packageId={item._id}
+                      index={index}
                     />
                   }
                 </div>

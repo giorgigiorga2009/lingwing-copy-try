@@ -228,12 +228,13 @@
   "PAYMENT_SCHEDULE_LICENSE": "Я прочитал и согласен с условиями ",
 
 
-  "FREE_PACKAGE_HEADER": "Ознакомьтесь с пакетами",
+  "PACKAGES_INFO_HEADER": "Ознакомьтесь с пакетами",
   "PACKAGES_INFO_FREE_TRIAL_HEADER": "5-дневная пробная версия",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "Получите все премиальные функции и <br> неограниченные упражнения!",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "Продолжить бесплатное обучение",
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Пользуясь бесплатным пакетом, ты можешь выполнять по 15 заданий в каждом из языков",
   "PACKAGES_INFO_PREMIUM_HEADER": "Стань Премиум",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Стань Премиум-пользователем и получи полный функционал",
-  "PACKAGES_INFO_CHOOSE": "Выбрать"
+  "PACKAGES_INFO_CHOOSE": "Выбрать",
+  "PACKAGES_INFO_FROM_GEL": "С "
 }

@@ -5,10 +5,13 @@ import { Header } from '@components/header/Header'
 import { Reviews } from '@components/Reviews'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { Footer } from '@components/wizard/Footer'
-import PlanSelection from '@components/PackagesInfo/planSelection'
+import PlanSelection from '@components/packages-info/planSelection'
+
 
 const packagesInfo = () => {
   const { t } = useTranslation()
+ 
+
   return (
     <div className={style.container}>
       <Header size="s" loginClassName={style.loginModal} />
@@ -32,20 +35,14 @@ const packagesInfo = () => {
           paragraph={t('PACKAGES_INFO_PREMIUM_PARAGRAPH')}
           buttonText={t('PREMIUM')}
           index={2}
+          fromGelText={t("PACKAGES_INFO_FROM_GEL")}
         />
       </div>
+      <Reviews />
+      <FollowButtons color="grey" />
+      <Footer />
     </div>
   )
 }
 
 export default packagesInfo
-
-{
-  /* <Reviews /> */
-}
-{
-  /* <FollowButtons color="grey" /> */
-}
-{
-  /* <Footer /> */
-}
