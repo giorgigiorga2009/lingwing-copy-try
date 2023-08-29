@@ -168,7 +168,7 @@
   "APP_PACKAGE_ALL_LANGS_AND_COURSES": "Todos los idiomas y cursos:",
   "APP_PACKAGE_VOICE_RECOGNITION": "Reconocimiento de voz:",
   "APP_PACKAGE_FREE": "Gratuito",
-  "APP_PACKAGE_MONTHS": "En mes",
+  "APP_PACKAGE_MONTHS": " En mes",
   "APP_PACKAGE_MONTH": "En mes",
   "APP_PACKAGE_MONTH_ge": "/Por mes",
   "APP_PACKAGE_UNLIMITED": "Ilimitados",
@@ -253,6 +253,5 @@
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Puedes completar 15 tareas para cada idioma con un paquete gratis",
   "PACKAGES_INFO_PREMIUM_HEADER": "Ir Premium",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Conviértete en un usuario premium y obtén opciones completas",
-  "PACKAGES_INFO_CHOOSE": "Elije",
-  "PACKAGES_INFO_FROM_GEL": "De GEL"
+  "PACKAGES_INFO_CHOOSE": "Elije"
 }

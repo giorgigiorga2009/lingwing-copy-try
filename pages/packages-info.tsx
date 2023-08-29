@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './packagesInfo.module.scss'
+import style from './packages-info.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import { Header } from '@components/header/Header'
 import { Reviews } from '@components/Reviews'

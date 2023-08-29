@@ -1,0 +1,21 @@
+@import '@styles/imports.scss';
+
+.profileContainer {
+  background-color: $white;
+  position: relative;
+  width: 100%;
+  max-width: 1030px;
+  margin: 40px auto 170px auto;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 2px 10px 5px #00000008;
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mobile {
+    flex-direction: column;
+    height: 1400px;
+  }
+}

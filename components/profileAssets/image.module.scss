@@ -1,0 +1,63 @@
+@import '@styles/imports.scss';
+
+.container {
+  width: 200px;
+  height: 230px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  .Image {
+    margin-top: 40px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #692e96;
+    background-color: #d9d9d9;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  input[type='file'] {
+    display: none;
+  }
+  .imageCropper {
+    width: 30%;
+    z-index: 2;
+  }
+  strong {
+    margin-bottom: 20px;
+    color: $grey-800;
+  }
+  & .btn {
+    position: absolute;
+    top: 225px;
+    z-index: 2;
+    color: $grey-800;
+    width: 203px;
+    height: 40px;
+    font-weight: bold;
+    font-family: SegoeUI, 'sans-serif';
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $purple-600;
+    &:hover {
+      background-color: $purple-600;
+      color: $white;
+    }
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .resizableBox {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    width: 220px;
+    height: 170px;
+  }
+}

@@ -212,6 +212,58 @@
   "PACKAGES_INFO_PREMIUM_HEADER": "Premium'a geç",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Birinci sınıf kullanıcı ol ve tam seçenekler alın",
   "PACKAGES_INFO_CHOOSE": "Seçmek",
-  "PACKAGES_INFO_FROM_GEL": "GEL'den "
+  "PACKAGES_INFO_FROM_GEL": "GEL'den ",
   
+
+
+  "APP_PROFILE_FIRST_NAME": "İsim",
+  "APP_PROFILE_LAST_NAME": "Soyisim",
+  "APP_PROFILE_EMAIL_ADDRESS": "E-posta adresi",
+  "APP_PROFILE_MOBILE": "Cep numarası",
+  "APP_PROFILE_YEAR": "Yil",
+  "APP_PROFILE_MONTH": "Ay",
+  "APP_PROFILE_DATE": "Gün",
+  "APP_PROFILE_CHANGE_PASSWORD": "Şifreni değiştir",
+  "APP_PROFILE_CONNECT_SOCIAL": "Hesabını sosyal ağlarla bağla",
+  "APP_PROFILE_CHANGE_IMAGE": "Görüntüyü değiştir",
+  "APP_PROFILE_UPLOAD_IMAGE": "Fotoğraf yükle",
+  "APP_PROFILE_GETTING_NEWS": "Getting news",
+  "APP_PROFILE_SUBSCRIPTION": "E-posta aboneliği",
+  "APP_PROFILE_SMS_SUBSCRIPTION": "SMS",
+  "APP_PROFILE_GENDER": "Cinsiyet",
+  "APP_PROFILE_MALE": "Erkek",
+  "APP_PROFILE_FEMALE": "Kadın",
+  "APP_GENERAL_SAVE_CHANGES": "Değişiklikleri Kaydet",
+  "APP_PROFILE_EDIT": "Profil düzenleme",
+  "APP_MARKETING_POLICY_1": "Doğrudan pazarlama ",
+  "APP_MARKETING_POLICY_2": "politikasına  ",
+  "APP_MARKETING_POLICY_3": "katılıyorum",
+
+  "APP_GET_IN_TOUCH": "Lütfen bizimle iletişime geçin",
+  "FULL_NAME": "Ad & soyad",
+  "SUBJECT": "Konu",
+  "APP_FEEDBACK_MESSAGE": "Mesaj",
+  "MODAL_EMAIL": "E-posta",
+  "CONTACT_MESSAGE_SEND": "Gönder",
+  "CONTACT_MESSAGE_SENT": "Mesaj gönderildi!",
+
+
+  "APP_FREE_TRIAL1_TITLE2": "5 günlük deneme sürenizi başlatın ",
+  "APP_FREE_TRIAL1_TITLE5": " GEL",
+  "APP_FREE_TRIAL1_DESCRIPTION": "Tüm premium özellikleri ve sınırsız görevleri edinin!",
+  "APP_FREE_TRIAL1_LOOP1": "Sınırsız sayıda görev alın",
+  "APP_FREE_TRIAL1_LOOP2": "Egzersizleri söyleyerek yapın",
+  "APP_FREE_TRIAL1_LOOP3": "5 kat daha hızlı öğrenin",
+  "APP_FREE_TRIAL1_LOOP4": "Sertifika almak",
+  "APP_FREE_TRIAL1_CONTINUE": "Devam etmek",
+
+  "APP_FREE_TRIAL2_TITLE": "Выбери план для своей 5-дневной пробной версии",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "Начать пробную версию",
+
+  "APP_PACKAGE_MONTH_ge": " /Ay",
+  "APP_PACKAGE_MONTHS": " Aylar",
+
+  "APP_AGREE_LICENSE_1": "Şartlarını okudum ve kabul ediyorum",
+  "APP_AGREE_LICENSE_2": ".",
+  "APP_AGREE_LICENSE_3": "5 gün içinde iptal edebilirsiniz."
 }

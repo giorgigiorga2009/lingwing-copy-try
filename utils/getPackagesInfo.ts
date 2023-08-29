@@ -31,7 +31,6 @@ export interface PackageResponse {
         `${process.env.defaultURL}/public/package/check`,
         {
           packageId: '5900c0aef4938479f8ebbd4a',
-          // promoCode: "7AFE7E",
           selectedCurrency: 'GEL',
         },
         authConfig,
