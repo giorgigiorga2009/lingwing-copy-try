@@ -8,7 +8,7 @@ import { Footer } from '@components/wizard/Footer'
 import PlanSelection from '@components/packages-info/planSelection'
 
 
-const packagesInfo = () => {
+const PackagesInfo = () => {
   const { t } = useTranslation()
  
 
@@ -45,4 +45,4 @@ const packagesInfo = () => {
   )
 }
 
-export default packagesInfo
+export default PackagesInfo
