@@ -1,15 +1,16 @@
-import React from 'react'
-import style from './package.module.scss'
-import { useTranslation } from '@utils/useTranslation'
-import Image from 'next/image'
+import React from 'react';
+import style from './package.module.scss';
+import { useTranslation } from '@utils/useTranslation';
+import Image from 'next/image';
 
 export interface PackageProps {
-  duration: number | undefined
-  recurringPrice: number | undefined
-  image: string
-  identifier: string
-  onClick?: () => void
-  isChecked: boolean
+  duration: number | undefined;
+  recurringPrice: number | undefined;
+  image: string;
+  identifier: string;
+  onClick?: () => void;
+  isChecked: boolean;
+  packageClicked: boolean; // New prop
 }
 
 const Package: React.FC<PackageProps> = ({
@@ -19,21 +20,20 @@ const Package: React.FC<PackageProps> = ({
   identifier,
   onClick,
   isChecked,
+  packageClicked,
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const handleClick = () => {
-    if(onClick){
-      onClick()
+    if (onClick) {
+      onClick();
     }
-  }
+  };
 
-  const price = (recurringPrice! / duration!).toFixed(2)
+  const price = (recurringPrice! / duration!).toFixed(2);
 
   return (
-    <div
-      className={`${style.packageContainer}`}
-    >
+    <div className={`${style.packageContainer}`}>
       <div className={style.duration}>
         <h3>{duration + t('APP_PACKAGE_MONTHS')}</h3>
       </div>
@@ -46,16 +46,20 @@ const Package: React.FC<PackageProps> = ({
         </h3>
       </div>
       <div className={style.select} onClick={handleClick}>
-        <label>
-          {isChecked ? (
-            <a href="https://ecommerce.ufc.ge/ecomm2/ClientHandler">Select</a>
-          ) : (
-            <p>Select</p>
-          )}
-        </label>
+        {isChecked && packageClicked ? ( // Apply red border condition
+          <a
+            href={'https://ecommerce.ufc.ge/ecomm2/ClientHandler'}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <label>Select</label>
+          </a>
+        ) : (
+          <label>Select</label>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Package
+export default Package;

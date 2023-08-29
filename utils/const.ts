@@ -141,6 +141,17 @@ interface keyboardOverride {
   excusable?: string
 }
 
+
+
+
+export const parrotImages = [
+  '/themes/images/v2/packages/12-month.png',
+  '/themes/images/v2/packages/6-month.png',
+  '/themes/images/v2/packages/3-month.png'
+];
+
+
+
 export const KEYBOARD_OVERRIDE: keyboardOverride[] = [
   {
     geo: 4304,
