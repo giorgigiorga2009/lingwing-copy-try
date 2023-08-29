@@ -2,7 +2,7 @@
 
 .packageContainer {
   flex-shrink: 0;
-  width: 210px;
+  width: 180px;
   max-width: 100%; /* Prevent packages from becoming wider than 210px */
   height: 270px;
   border-radius: 10px;
@@ -51,6 +51,12 @@
     align-items: center;
     justify-content: center;
     border-top: 1px solid $white-200;
+    a {
+      font-family: SegoeUI, sans-serif;
+      text-decoration: none;
+      font-size: 1rem;
+      color: $white;
+    }
     label {
       width: 133px;
       height: 30px;
@@ -60,21 +66,16 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      a{
-        font-family: SegoeUI, sans-serif;
-        text-decoration: none;
-        font-size: 1rem;
-        color: $white;
-      }
-      p{
-        font-family: SegoeUI, sans-serif;
-        font-size: 1rem;
-        color: $white;
+      font-family: SegoeUI, sans-serif;
+      font-size: 1rem;
+      color: $white;
+      transition: 300ms background-color;
+      &:hover {
+        background-color: $yellow-600;
       }
     }
   }
-  
 }
-.activeSlide{
+.activeSlide {
   transform: translateX(0);
 }

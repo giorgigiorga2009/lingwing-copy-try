@@ -1,12 +1,12 @@
 import React from 'react'
-import style from './advertise.module.scss'
+import style from './offer.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import SlideShow from '../slideShow/slideShow'
 
 const Advertise = () => {
   const { t } = useTranslation()
   return (
-    <div className={style.advertiseContainer}>
+    <div className={style.offerContainer}>
       <h1 className={style.title}>
         {t('APP_FREE_TRIAL1_TITLE2')}
         <span className={style.price} >1{t('APP_FREE_TRIAL1_TITLE5')} !</span>

@@ -1,12 +1,16 @@
 @import '@styles/imports.scss';
 
-.advertiseContainer{
+.offerContainer{
     width: 100%;
     .title{
         color: $black;
         font-family: SegoeUI,sans-serif;
         font-size: 1.7rem; 
         margin-top: 40px;
+        @include mobile{
+            display: flex;
+            flex-direction: column;
+        }
         .price{
             color: $yellow-600;
         }
@@ -14,5 +18,4 @@
     .description{
         font-family: SegoeUI, sans-serif;
     }
-
 }

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import style from './card.module.scss'
-import Advertise from '../advertise/advertise'
+import Advertise from '../offer/offer'
 import FreeTrialPackages from '../freeTrialPackages/freeTrialPackages'
 import { useTranslation } from '@utils/useTranslation'
 import Image from 'next/image'
