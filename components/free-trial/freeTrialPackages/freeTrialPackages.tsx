@@ -5,6 +5,8 @@ import { PackageData, getPackages } from '@utils/getPackages'
 import Package from '../package/package'
 import parrotImages from '../packageAssets/images'
 import Link from 'next/link'
+import close from '@public/themes/images/v2/gram-clos-p.png'
+import Image from 'next/image'
 
 const FreeTrialPackages = () => {
   const [data, setData] = useState<PackageData>()
@@ -58,6 +60,9 @@ const FreeTrialPackages = () => {
   return (
     <div className={style.trialPackagesContainer}>
       <h2 className={style.title}>{t('APP_FREE_TRIAL2_TITLE')}</h2>
+      <Link href={"/dashboard"}>
+      <Image className={style.close} src={close.src} alt="close" width={20} height={20} />
+      </Link>
       <div className={style.sliderContainer}>
         <div className={style.carousel}>{packageComponents}</div>
       </div>

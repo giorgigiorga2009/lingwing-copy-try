@@ -1,6 +1,7 @@
 @import '@styles/imports.scss';
 
 .trialPackagesContainer {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,6 +12,12 @@
     font-size: 1.6rem;
     font-family: SegoeUI, sans-serif;
     margin-top: 10px;
+  }
+  .close{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
   }
   .sliderContainer {
     width: 100%;
