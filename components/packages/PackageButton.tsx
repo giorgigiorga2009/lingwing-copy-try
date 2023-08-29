@@ -32,7 +32,7 @@ interface Props {
 
 export const PackageButton: FC<Props> = ({ type, onClick, packageId, index }) => {
   const { t } = useTranslation()
-  const pathname = index === 0 ? '/packagesInfo' : '/payment';
+  const pathname = index === 0 ? '/packages-info' : '/payment';
   const query = index === 0 
   ? undefined 
   : {
