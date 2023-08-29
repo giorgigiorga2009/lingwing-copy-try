@@ -30,6 +30,7 @@
   .price {
     width: 100%;
     height: 92px;
+    margin-top: 20px;
     padding: 0 60px;
     display: flex;
     flex-direction: column;
@@ -38,7 +39,7 @@
     h3 {
       font-family: SegoeUI, sans-serif;
       color: $black-100;
-      font-size: 20px;
+      font-size: 1.2rem;
       span {
         color: $orange-500;
       }
@@ -57,12 +58,13 @@
       font-size: 1rem;
       color: $white;
     }
-    label {
+    button {
       width: 133px;
       height: 30px;
       background-color: $white-300;
       border-radius: 30px;
       display: flex;
+      border: 0;
       align-items: center;
       justify-content: center;
       cursor: pointer;

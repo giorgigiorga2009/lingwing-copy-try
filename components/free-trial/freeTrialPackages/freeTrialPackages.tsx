@@ -10,8 +10,7 @@ import Image from 'next/image';
 
 const FreeTrialPackages = () => {
   const [data, setData] = useState<PackageData>();
-  const [isChecked, setIsChecked] = useState(false);
-  const [packageClicked, setPackageClicked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false)
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -25,11 +24,11 @@ const FreeTrialPackages = () => {
   const filteredPackages = packages.filter((_, index) => index !== 0);
 
   const handleCheckboxClick = () => {
-    setIsChecked(!isChecked);
+    setIsChecked(!isChecked)
   };
 
   const handlePackageClicked = () => {
-    setPackageClicked(true);
+    setIsChecked(true)
   };
 
   return (
@@ -48,7 +47,7 @@ const FreeTrialPackages = () => {
               image={parrotImages[index]}
               identifier={identifier}
               isChecked={isChecked}
-              packageClicked={packageClicked}
+              index={index}
               onClick={handlePackageClicked}
             />
           ))}
@@ -57,7 +56,7 @@ const FreeTrialPackages = () => {
       <div className={style.agreement}>
         <label className={style.checkLabel}>
           <input type="checkbox" onClick={handleCheckboxClick} />
-          <div className={style.checkmark} style={{ border: (isChecked || packageClicked) && !isChecked ? '2px solid red' : '' }}></div>
+          <div className={style.checkmark} style={{ border: !isChecked ? '2px solid red' : '' }}></div>
         </label>
         <p>
           {t('APP_AGREE_LICENSE_1') + ' '}
