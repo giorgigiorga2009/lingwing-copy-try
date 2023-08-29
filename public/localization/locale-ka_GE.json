@@ -230,7 +230,7 @@
   "PAYMENT_SCHEDULE_LICENSE": "გავეცანი და ვეთანხმები ",
 
 
-  "FREE_PACKAGE_HEADER": "უკეთ გაეცანი პაკეტებს",
+  "PACKAGES_INFO_HEADER": "უკეთ გაეცანი პაკეტებს",
   "PACKAGES_INFO_FREE_TRIAL_HEADER": "5 დღე საცდელი პრემიუმი",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "გამოსცადე ყველა პრემიუმ ფუნქცია და<br>ისწავლე ულიმიტოდ!",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "უფასოდ სწავლის გაგრძელება",
@@ -238,6 +238,7 @@
   "PACKAGES_INFO_PREMIUM_HEADER": "გახდი პრემიუმი",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "გახდი პრემიუმ მომხმარებელი და ისარგებლე სრული ფუნქციონალით",
   "PACKAGES_INFO_CHOOSE": "არჩევა",
+  "PACKAGES_INFO_FROM_GEL": "თვეში",
 
   "APP_PROFILE_FIRST_NAME": "სახელი",
   "APP_PROFILE_LAST_NAME": "გვარი",

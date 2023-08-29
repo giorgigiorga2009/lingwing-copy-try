@@ -204,7 +204,7 @@
   "PAYMENT_SCHEDULE_LICENSE": "Şartları okudum ve kabul ediyorum ",
 
 
-  "FREE_PACKAGE_HEADER": "Paketleri daha yakından tanıma",
+  "PACKAGES_INFO_HEADER": "Paketleri daha yakından tanıma",
   "PACKAGES_INFO_FREE_TRIAL_HEADER":  "5 günlük deneme",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH":  "Tüm premium özellikleri ve <br> sınırsız egzersizleri edinin!",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "Ücretsiz öğrenmeye devam et",
@@ -212,6 +212,8 @@
   "PACKAGES_INFO_PREMIUM_HEADER": "Premium'a geç",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Birinci sınıf kullanıcı ol ve tam seçenekler alın",
   "PACKAGES_INFO_CHOOSE": "Seçmek",
+  "PACKAGES_INFO_FROM_GEL": "GEL'den ",
+  
 
 
   "APP_PROFILE_FIRST_NAME": "İsim",

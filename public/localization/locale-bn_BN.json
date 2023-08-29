@@ -148,7 +148,7 @@
   "PAYMENT_SCHEDULE_LICENSE": "আমি শর্ত পড়েছি এবং রাজি ",
 
 
-  "FREE_PACKAGE_HEADER": "প্যাকেজসমূহের সাথে আরও পরিচিত হোন",
+  "PACKAGES_INFO_HEADER": "প্যাকেজসমূহের সাথে আরও পরিচিত হোন",
   "PACKAGES_INFO_FREE_TRIAL_HEADER": "৫ দিনের ট্রায়াল",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "সকল প্রিমিয়াম ফিচার এবং অসীম অনুশীলন পান!",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "বিনামূল্যে শিখন চালু রাখুন",
@@ -156,6 +156,7 @@
   "PACKAGES_INFO_PREMIUM_HEADER": "প্রিমিয়ামে যান",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "একজন প্রিমিয়াম ব্যবহারকারী হন এবং সকল অপশন পান",
   "PACKAGES_INFO_CHOOSE": "পছন্দ করুন",
+  "PACKAGES_INFO_FROM_GEL": "জেলের জন্য",
 
   "APP_PROFILE_EDIT": "প্রোফাইল এডিট",
   "APP_PROFILE_GENDER": "লিঙ্গ",
