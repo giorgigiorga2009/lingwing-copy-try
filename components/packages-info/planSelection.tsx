@@ -76,7 +76,7 @@ const PlanSelection: React.FC<PackagesInfoProps> = ({
       <div className={index === 2 ? style.premiumButtonDiv : style.buttonDiv}>
         <Link
           href={
-            index === 2 ? '/packages' : '/freePackage' // needs to be changed to whatever Tornike has named the page
+            index === 2 ? '/packages' : '/free-trial' // needs to be changed to whatever Tornike has named the page
           }
         >
           <button
