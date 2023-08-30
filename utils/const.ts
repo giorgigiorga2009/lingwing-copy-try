@@ -152,6 +152,21 @@ export const parrotImages = [
 
 
 
+export const images = [
+    "/themes/images/v2/forever.png",
+    "/themes/images/v2/microphone.png",
+    "/themes/images/v2/clock.png",
+    "/themes/images/v2/quality.png"
+]
+
+export const texts = [
+  "APP_FREE_TRIAL1_LOOP1",
+  "APP_FREE_TRIAL1_LOOP2",
+  "APP_FREE_TRIAL1_LOOP3",
+  "APP_FREE_TRIAL1_LOOP4"
+]
+
+
 export const KEYBOARD_OVERRIDE: keyboardOverride[] = [
   {
     geo: 4304,

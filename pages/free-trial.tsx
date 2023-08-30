@@ -3,7 +3,7 @@ import React from 'react'
 import style from './free-trial.module.scss'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { Footer } from '@components/wizard/Footer'
-import Card from '@components/free-trial/card/card'
+import Card from '@components/free-trial/container/container'
 
 const freeTrial = () => {
   return (
