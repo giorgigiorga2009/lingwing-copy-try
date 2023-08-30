@@ -10,7 +10,6 @@ export interface PackageProps {
   identifier: string;
   onClick?: () => void;
   isChecked: boolean;
-  index: number;
 }
 
 const Package: React.FC<PackageProps> = ({
@@ -20,7 +19,6 @@ const Package: React.FC<PackageProps> = ({
   identifier,
   onClick,
   isChecked,
-  index,
 }) => {
   const { t } = useTranslation();
 
@@ -40,7 +38,7 @@ const Package: React.FC<PackageProps> = ({
       <div className={style.price}>
         <Image src={image} height={72} width={112} alt="parrot" />
         <h3>
-          <span>{price + ' '}</span>
+          <span>{price}</span>
           {identifier + ' '}
           {t('APP_PACKAGE_MONTH_ge')}
         </h3>
@@ -51,7 +49,7 @@ const Package: React.FC<PackageProps> = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button disabled={!isChecked}>Select</button>
+            <button disabled={!isChecked} onClick={() => isChecked = !isChecked} >Select</button>
           </a>
       </div>
     </div>

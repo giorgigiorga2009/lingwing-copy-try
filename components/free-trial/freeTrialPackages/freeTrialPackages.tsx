@@ -47,7 +47,6 @@ const FreeTrialPackages = () => {
               image={parrotImages[index]}
               identifier={identifier}
               isChecked={isChecked}
-              index={index}
               onClick={handlePackageClicked}
             />
           ))}
@@ -55,8 +54,8 @@ const FreeTrialPackages = () => {
       </div>
       <div className={style.agreement}>
         <label className={style.checkLabel}>
-          <input type="checkbox" onClick={handleCheckboxClick} />
-          <div className={style.checkmark} style={{ border: !isChecked ? '2px solid red' : '' }}></div>
+          <input type="checkbox" checked={isChecked} onChange={() => !isChecked} />
+          <div className={style.checkmark} style={{ border: isChecked ? '2px solid red' : '' }}></div>
         </label>
         <p>
           {t('APP_AGREE_LICENSE_1') + ' '}
