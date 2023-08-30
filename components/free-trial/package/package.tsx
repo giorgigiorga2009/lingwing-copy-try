@@ -10,7 +10,8 @@ export interface PackageProps {
   identifier: string;
   onClick?: () => void;
   isChecked: boolean;
-  index: number;
+  packageClicked: boolean; // New prop
+  index: number; // Added index prop for reference
 }
 
 const Package: React.FC<PackageProps> = ({
@@ -20,6 +21,7 @@ const Package: React.FC<PackageProps> = ({
   identifier,
   onClick,
   isChecked,
+  packageClicked,
   index,
 }) => {
   const { t } = useTranslation();
@@ -46,13 +48,17 @@ const Package: React.FC<PackageProps> = ({
         </h3>
       </div>
       <div className={style.select} onClick={handleClick}>
+        {isChecked && packageClicked ? ( // Apply red border condition
           <a
             href={'https://ecommerce.ufc.ge/ecomm2/ClientHandler'}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button disabled={!isChecked}>Select</button>
+            <button>Select</button>
           </a>
+        ) : (
+          <button>Select</button>
+        )}
       </div>
     </div>
   );
