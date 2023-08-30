@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import style from './slideShow.module.scss'
-import images from '../slideShowAssets/images'
-import texts from '../slideShowAssets/texts'
+import {images, texts} from '@utils/const'
 import { useTranslation } from '@utils/useTranslation'
 
 const SlideShow = () => {
@@ -26,7 +25,7 @@ const SlideShow = () => {
           className={`${style.slide} ${
             index === currentSlideIndex ? style.active : ''
           }`}
-          style={{ backgroundImage: `url(${image.src})` }}
+          style={{ backgroundImage: `url(${image})` }}
         >
           <h3 className={style.slideText}>{t(texts[index])}</h3>
         </div>
