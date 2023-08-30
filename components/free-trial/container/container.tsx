@@ -1,13 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import style from './card.module.scss'
-import Advertise from '../offer/offer'
+import style from './container.module.scss'
+import OfferPackages from '../offerPackages/offerPackages'
 import FreeTrialPackages from '../freeTrialPackages/freeTrialPackages'
 import { useTranslation } from '@utils/useTranslation'
 import Image from 'next/image'
 import arrow from '@public/themes/images/v2/flow-Arrow.png'
-const Card = () => {
+
+
+const Container = () => {
   const [showPackages, setShowPackages] = useState(false)
   const { t } = useTranslation()
 
@@ -25,7 +27,7 @@ const Card = () => {
 
   return (
     <div className={style.advertiseContainer}>
-      <Advertise />
+      <OfferPackages />
       <button className={style.continue} onClick={handleContinueBtn}>
         {t('APP_FREE_TRIAL1_CONTINUE')}
         <Image src={arrow.src} width={15} height={20} alt="arrow" />
@@ -34,4 +36,5 @@ const Card = () => {
   )
 }
 
-export default Card
+export default Container
+

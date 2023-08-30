@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './offer.module.scss'
+import style from './offerPackages.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import SlideShow from '../slideShow/slideShow'
 
