@@ -253,5 +253,19 @@
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "Puedes completar 15 tareas para cada idioma con un paquete gratis",
   "PACKAGES_INFO_PREMIUM_HEADER": "Ir Premium",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Conviértete en un usuario premium y obtén opciones completas",
-  "PACKAGES_INFO_CHOOSE": "Elije"
+  "PACKAGES_INFO_CHOOSE": "Elije",
+
+
+
+  "REG_REMINDER_POP_UP_HEADER": "Esto acaba solo de empezar…",
+  "REG_REMINDER_POP_UP_YOU_HAVE_COMPLETED": "¡Has completado",
+  "REG_REMINDER_OUT_OF": "de los",
+  "REG_REMINDER_TASKS": " ejercicios disponibles!",
+  "REG_REMINDER_REGISTER_AND_CONTINUE": "Registrarme y continuar",
+  "REG_REMINDER_OTHER_COURSES": "Otros cursos",
+  "REG_REMINDER_INITIATION": "Iniciar",
+  "REG_REMINDER_REGISTRATION": "Registo",
+  "REG_REMINDER_BONUS": "Bonus",
+  "REG_REMINDER_PREMIUM": "Premium"
+
 }
