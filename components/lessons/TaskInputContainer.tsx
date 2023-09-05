@@ -96,13 +96,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setIsHintShown,
     setMistakesCount,
   }
-  //only for keyboardInput
-  // useEffect(() => {
-  //   ;(taskType === 'dictation' || taskType === 'translate') &&
-  //     setOutputText(textCheck({ ...params }))
-
-  //   taskType === 'replay' && setOutputText(replayInputCheck({ ...params }))
-  // }, [inputText])
 
   const resetTaskState = () => {
     setAudios([])
@@ -113,14 +106,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setIsHintShown(false)
     setTaskProgress('0%')
   }
-
-  // const updateCompletedTasks = () => {
-  //   const newCompletedTasks = commonProps.completedTasks
-  //     ? [...commonProps.completedTasks, commonProps.currentTask]
-  //     : [commonProps.currentTask]
-  //   commonProps.setCompletedTasks(newCompletedTasks)
-  //   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-  // }
 
   useEffect(() => {
     if (!commonProps.token && !commonProps.userId) return
@@ -139,50 +124,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       }, 2500)
     }
   }, [taskProgress])
-
-  // const handleOnKeyDown = (event: React.KeyboardEvent) => {
-  //   if (
-  //     event.key === 'Space' &&
-  //     inputRef.current &&
-  //     inputRef.current.value.endsWith(' ')
-  //   ) {
-  //     event.preventDefault()
-  //     return
-  //   }
-
-  //   if (event.key === 'Enter') {
-  //     event.preventDefault()
-  //   }
-
-  //   if (event.key === 'Backspace' || event.key === 'Delete') {
-  //     event.preventDefault()
-  //     // setCorrect(true)
-  //   } else {
-  //     // setCorrect(false)
-  //   }
-  // }
-
-  // const handleOnFocus = () => {
-  //   // Focus on the input field and move the cursor to the end
-  //   // if (inputRef.current) {
-  //   //   inputRef.current.focus()
-  //   //   const length = inputRef.current.value.length
-  //   //   inputRef.current.setSelectionRange(length, length)
-  //   //   const inputValue = inputRef.current.value || '';
-  //   // const length = inputValue.length;
-
-  //   // inputRef.current.focus();
-  //   // inputRef.current.setSelectionRange(length, length);
-  //   // }
-  // }
-  // const handleMicClick = () => {
-  //   if (inputRef.current) {
-  //     // Store the current input value before starting/stopping speech recognition
-  //     const inputValue = inputRef.current.value
-  //     setTextFromKeyboard(inputValue)
-  //   }
-  //   toggleRecognition()
-  // }
 
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
@@ -204,10 +145,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       <div className={style.taskProgress} style={{ width: taskProgress }}></div>
       <div className={style.container}>
         <div className={style.mistakes}> {mistakesCount} </div>
-
-        {/* {(taskType === 'dictation' ||
-          taskType === 'translate' ||
-          taskType === 'replay') && ( */}
         <DictationInput
           inputRef={inputRef}
           outputText={outputText}
@@ -219,20 +156,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           taskDone={taskProgress}
           mistake={isHintShown}
         />
-        {/* )} */}
-
-        {/* {
-          //(commonProps.token || commonProps.userId) &&
-          taskType === 'omittedwords' && (
-            <OmittedWords
-              isHintShown={isHintShown}
-              commonProps={commonProps}
-              setHintText={setHintText}
-              setIsHintShown={setIsHintShown}
-            />
-          )
-        } */}
-
         <animated.div
           className={style.microphoneIcon}
           style={{

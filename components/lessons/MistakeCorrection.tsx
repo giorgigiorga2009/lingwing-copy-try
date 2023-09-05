@@ -74,14 +74,6 @@ export const MistakeCorrectionTask: FC<Props> = ({
     }
   }
 
-  // const updateCompletedTasks = () => {
-  //   const newCompletedTasks = commonProps.completedTasks
-  //     ? [...commonProps.completedTasks, commonProps.currentTask]
-  //     : [commonProps.currentTask]
-  //   commonProps.setCompletedTasks(newCompletedTasks)
-  //   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-  // }
-
   const checkAnswer = async () => {
     if (inputText === correctText) {
       setMistakeRepeat(false)

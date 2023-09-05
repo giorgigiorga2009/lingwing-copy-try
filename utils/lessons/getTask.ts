@@ -235,7 +235,7 @@ export const getTasks = async ({
     } = {
       Authorization: token,
     }
-    if (userId !== null && token !== null) {
+    if (userId !== null && token === null) {
       url += `&userKey=${userId}`
       headers = {
         Authorization: null,

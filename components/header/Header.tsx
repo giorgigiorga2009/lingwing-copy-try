@@ -9,7 +9,7 @@ import { FC, useState, useEffect } from 'react'
 import { LocalesDropdown } from './LocalesDropdown'
 import { LoginModal } from '../loginWindow/LoginModal'
 import { useTranslation } from '@utils/useTranslation'
-import { useSession, signIn, signOut } from 'next-auth/react'
+//import { useSession, signIn, signOut } from 'next-auth/react'
 
 interface Props {
   size?: 's' | 'm'
@@ -22,7 +22,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

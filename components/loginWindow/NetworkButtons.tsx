@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import classNames from 'classnames'
-import { signIn } from 'next-auth/react'
+//import { signIn } from 'next-auth/react'
 import { LOGIN_NETWORKS } from '@utils/const'
 import style from './NetworkButtons.module.scss'
 import { useTranslation } from '@utils/useTranslation'
