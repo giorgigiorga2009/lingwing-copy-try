@@ -21,6 +21,7 @@ import { SoundCheck } from '@components/lessons/SoundCheck'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -56,8 +57,9 @@ const Lessons: NextPage = () => {
 
   //get userId
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || token || userId) return
-    getUserId({ languageFrom, languageTo, courseName })
+    if (!languageFrom || !languageTo || !courseName) return
+
+    getUserId({ languageFrom, languageTo, courseName, token })
       .then(response => {
         if (!response) return
         setUserId(response)
@@ -68,7 +70,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageTo])
+  }, [languageTo, token])
 
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
 
@@ -95,6 +97,7 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!token && !courseId))
       return
+
     getTasks({
       languageFrom,
       languageTo,
@@ -226,7 +229,7 @@ const Lessons: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size="s" />
-
+      <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck
           setSoundChecked={setSoundChecked}
@@ -258,6 +261,7 @@ const Lessons: NextPage = () => {
           )}
 
           {/* chat window */}
+
           <div ref={chatRef} className={style.chat}>
             <div ref={chatWrapperRef} className={style.chatWrapper}>
               {/* render done tasks */}

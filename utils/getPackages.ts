@@ -43,7 +43,7 @@ export type PackageData = {
 export const getPackages = (coupon: string): Promise<PackageData> => {
   return axios
     .get(
-      `${process.env.defaultURL}/public/inter/packages${
+      `${process.env.DEFAULT_URL}/public/inter/packages${
         '?coupon=' + (coupon ?? '')
       }`,
     )

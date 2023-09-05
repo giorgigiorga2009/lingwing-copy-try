@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import { DialogInput } from './Dialog'
 import { GrammarButton } from './Grammar'
+import { OmittedWords } from './OmittedWords'
 import { TaskInputContainer } from './TaskInputContainer'
 import { MistakeCorrectionTask } from './MistakeCorrection'
 import { CommonProps } from '@utils/lessons/taskInputUtils'
@@ -25,7 +26,6 @@ const CurrentTaskInput = ({
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
-    case 'omittedwords':
     case 'replay':
       return commonProps ? (
         <TaskInputContainer
@@ -47,6 +47,16 @@ const CurrentTaskInput = ({
           setIsHintShown={setIsHintShown}
           currentMessageIndex={currentMessageIndex}
           setCurrentMessageIndex={setCurrentMessageIndex}
+        />
+      ) : null
+
+    case 'omittedwords':
+      return commonProps ? (
+        <OmittedWords
+          isHintShown={isHintShown}
+          commonProps={commonProps}
+          setHintText={setHintText}
+          setIsHintShown={setIsHintShown}
         />
       ) : null
     case 'mistakecorrection':

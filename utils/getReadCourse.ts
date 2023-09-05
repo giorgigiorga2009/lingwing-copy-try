@@ -75,7 +75,7 @@ export const getReadCourse = async (
 ) => {
   try {
     const response = await axios.get(
-      `${process.env.defaultURL}/public/readCourse/${courseName}?lang=${currentLanguage}`,
+      `${process.env.DEFAULT_URL}/public/readCourse/${courseName}?lang=${currentLanguage}`,
     )
     return response.data.data
   } catch (error) {

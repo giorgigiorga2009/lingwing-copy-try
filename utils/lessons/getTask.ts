@@ -193,18 +193,18 @@ export const getUserCourse = async ({
   userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
-    if (token !== null) {
+    if (token) {
       const response = await axios({
-        url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
+        url: `${process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
         headers: {
           Authorization: token,
         },
       })
       return response.data.data
     }
-    if (userId !== null) {
+    if (userId) {
       const response = await axios({
-        url: `${process.env.defaultURL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
+        url: `${process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
       })
       return response.data.data
     }
@@ -229,7 +229,7 @@ export const getTasks = async ({
 }): Promise<TaskData[]> => {
   try {
     //
-    let url = `${process.env.defaultURL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
+    let url = `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
     let headers: {
       Authorization: string | null
     } = {

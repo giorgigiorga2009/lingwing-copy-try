@@ -32,6 +32,7 @@ const Dashboard: FC = () => {
 
   useEffect(() => {
     handleMyCourses()
+    console.log(handleMyCourses())
     setLoading(false)
   }, [])
 
@@ -47,6 +48,7 @@ const Dashboard: FC = () => {
   const changeActiveLang = (indexOfLang: number) => {
     setActiveLang(indexOfLang)
   }
+  console.log(myLanguages)
 
   const myCourse = myLanguages.map((item: Language, indexOfLang: number) => {
     if (indexOfLang === activeLang) {

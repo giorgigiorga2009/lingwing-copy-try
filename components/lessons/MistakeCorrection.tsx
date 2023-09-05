@@ -7,7 +7,11 @@ import React, {
 } from 'react'
 import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
-import { CommonProps, handleChange } from '@utils/lessons/taskInputUtils'
+import {
+  CommonProps,
+  handleChange,
+  updateCompletedTasks,
+} from '@utils/lessons/taskInputUtils'
 
 interface Props {
   commonProps: CommonProps
@@ -21,47 +25,32 @@ export const MistakeCorrectionTask: FC<Props> = ({
   setHintText,
 }) => {
   const mistakeText = commonProps.currentTask.errorText
+  const correctText = commonProps.currentTask.correctText as string
 
   const [inputText, setInputText] = useState(mistakeText)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
 
-  const correctText = commonProps.currentTask.correctText as string
-
   const saveCurrentTask = async () => {
     try {
-      await saveTask({
-        userId: commonProps.userId,
-        token: commonProps.token,
-        languageFrom: commonProps.languageFrom,
-        languageTo: commonProps.languageTo,
-        currentTask: commonProps.currentTask,
-        courseId: commonProps.courseId,
-      })
-      return true // Indicate that the save was successful
+      await saveTask({ ...commonProps })
+      return true
     } catch (error) {
       console.error('Error saving task:', error)
-      return false // Indicate that the save was unsuccessful
+      return false
     }
   }
 
   useEffect(() => {
-    if (commonProps.token === null && commonProps.userId === null) return
+    if (!commonProps.token && !commonProps.userId) return
 
     if (inputText.replace(/\s+/g, ' ') === correctText) {
       setInputText(inputText.replace(/\s+/g, ' '))
       setTimeout(async () => {
-        const isSaveSuccessful = await saveCurrentTask()
-        if (isSaveSuccessful) {
+        const isSaved = await saveCurrentTask()
+        if (isSaved) {
           setIsHintShown(false)
-          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-          commonProps.completedTasks &&
-            commonProps.setCompletedTasks([
-              ...commonProps.completedTasks,
-              commonProps.currentTask,
-            ])
-          !commonProps.completedTasks &&
-            commonProps.setCompletedTasks([commonProps.currentTask])
+          updateCompletedTasks(commonProps)
         }
       }, 1500)
     }
@@ -70,13 +59,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     if (inputText === correctText) return
 
-    handleChange(
-      event,
-      commonProps.languageTo as 'geo' | 'eng' | 'rus',
-      setInputText,
-    )
+    setInputText(
+      handleChange(event, commonProps.languageTo as 'geo' | 'eng' | 'rus'),
+    ) //ეს შეიცვალა და დასატესტია
 
-    //setInputText(event.target.value)
     setIsHintShown(false)
     setMistakeRepeat(false)
   }
@@ -92,26 +78,17 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setMistakeRepeat(false)
       setIsHintShown(false)
-      if (commonProps.token === null && commonProps.userId === null) return
-      const isSaveSuccessful = await saveCurrentTask()
-      if (isSaveSuccessful) {
+      if (!commonProps.token && !commonProps.userId) return
+      const isSaved = await saveCurrentTask()
+      if (isSaved) {
         setInputText('')
-        commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-        commonProps.completedTasks &&
-          commonProps.setCompletedTasks([
-            ...commonProps.completedTasks,
-            commonProps.currentTask,
-          ])
-        !commonProps.completedTasks &&
-          commonProps.setCompletedTasks([commonProps.currentTask])
+        updateCompletedTasks(commonProps)
       }
-    } else {
-      if (mistakeRepeat === false) {
-        setMistakesCount(mistakesCount + 1)
-        setMistakeRepeat(true)
-        setIsHintShown(true)
-        setHintText(correctText)
-      }
+    } else if (!mistakeRepeat) {
+      setMistakesCount(prev => prev + 1)
+      setMistakeRepeat(true)
+      setIsHintShown(true)
+      setHintText(correctText)
     }
   }
 

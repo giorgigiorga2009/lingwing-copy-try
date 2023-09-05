@@ -129,7 +129,7 @@ export interface PaymentButtonProps {
 
 export const getPayWithList = async (): Promise<PaymentMethod[]> => {
   return await axios
-    .get(`${process.env.defaultURL}/public/paymentMethods/list`)
+    .get(`${process.env.DEFAULT_URL}/public/paymentMethods/list`)
     .then(response => response.data.data)
     .catch(error => {
       console.log(error)
@@ -152,7 +152,7 @@ const authConfig = {
 export const getUserProfileCreationDate = async () => {
   try {
     const response = await axios.get(
-      `${process.env.defaultURL}/user/profile`,
+      `${process.env.DEFAULT_URL}/user/profile`,
       authConfig,
     )
     return response.data.data.info.createDate
@@ -169,7 +169,7 @@ export const getCheckedPackageId = async (
 ): Promise<any> => {
   try {
     const response = await axios.post(
-      `${process.env.defaultURL}/public/package/check`,
+      `${process.env.DEFAULT_URL}/public/package/check`,
       {
         packageId: Id,
         // promoCode: "7AFE7E",
@@ -190,7 +190,7 @@ export const getPackageDataById = async (
 ): Promise<PackageResponse | undefined> => {
   try {
     const res = await axios.get(`
-    ${process.env.defaultURL}/public/getorder/${id}`)
+    ${process.env.DEFAULT_URL}/public/getorder/${id}`)
     return res.data.data
   } catch (error) {
     console.error(error)
