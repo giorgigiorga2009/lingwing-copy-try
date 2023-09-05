@@ -168,7 +168,7 @@
   "APP_PACKAGE_ALL_LANGS_AND_COURSES": "Todos los idiomas y cursos:",
   "APP_PACKAGE_VOICE_RECOGNITION": "Reconocimiento de voz:",
   "APP_PACKAGE_FREE": "Gratuito",
-  "APP_PACKAGE_MONTHS": "En mes",
+  "APP_PACKAGE_MONTHS": " En mes",
   "APP_PACKAGE_MONTH": "En mes",
   "APP_PACKAGE_MONTH_ge": "/Por mes",
   "APP_PACKAGE_UNLIMITED": "Ilimitados",
@@ -246,7 +246,7 @@
   "PAYMENT_SCHEDULE_LICENSE": "He leído y acepto los términos del ",
   
 
-  "FREE_PACKAGE_HEADER": "Familiarícete con los paquetes",
+  "PACKAGES_INFO_HEADER": "Familiarícete con los paquetes",
   "PACKAGES_INFO_FREE_TRIAL_HEADER": "Prueba de 5 días",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "Obtenga todas las funciones premium y ejercicios ilimitados.",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "Continuar aprendiendo gratis",

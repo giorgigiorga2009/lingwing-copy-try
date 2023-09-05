@@ -148,13 +148,68 @@
   "PAYMENT_SCHEDULE_LICENSE": "আমি শর্ত পড়েছি এবং রাজি ",
 
 
-  "FREE_PACKAGE_HEADER": "প্যাকেজসমূহের সাথে আরও পরিচিত হোন",
+  "PACKAGES_INFO_HEADER": "প্যাকেজসমূহের সাথে আরও পরিচিত হোন",
   "PACKAGES_INFO_FREE_TRIAL_HEADER": "৫ দিনের ট্রায়াল",
   "PACKAGES_INFO_FREE_TRIAL_PARAGRAPH": "সকল প্রিমিয়াম ফিচার এবং অসীম অনুশীলন পান!",
   "PACKAGES_INFO_FREE_LEARNING_HEADER": "বিনামূল্যে শিখন চালু রাখুন",
   "PACKAGES_INFO_FREE_LEARNING_PARAGRAPH": "আপনি প্রতিটির জন্য ১৫টি কাজ সম্পূর্ণ করতে পারবেন একটি বিনামূল্যে প্যাকেজের সাথে ভাষা",
   "PACKAGES_INFO_PREMIUM_HEADER": "প্রিমিয়ামে যান",
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "একজন প্রিমিয়াম ব্যবহারকারী হন এবং সকল অপশন পান",
-  "PACKAGES_INFO_CHOOSE": "পছন্দ করুন"
+  "PACKAGES_INFO_CHOOSE": "পছন্দ করুন",
+  "PACKAGES_INFO_FROM_GEL": "জেলের জন্য",
 
+  "APP_PROFILE_EDIT": "প্রোফাইল এডিট",
+  "APP_PROFILE_GENDER": "লিঙ্গ",
+  "APP_PROFILE_MALE": "পুরুষ",
+  "APP_PROFILE_FEMALE": "নারী",
+  "APP_PROFILE_AGE": "বয়স",
+  "APP_PROFILE_COUNTRY": "আপনার দেশ",
+  "APP_PROFILE_CITY": "শহর",
+  "APP_PROFILE_GETTING_NEWS": "খবর পান",
+  "APP_PROFILE_SUBSCRIPTION": "ইমেইল",
+  "APP_PROFILE_SMS_SUBSCRIPTION": "এসএমএস",
+  "APP_PROFILE_FIRST_NAME": "প্রথম নাম",
+  "APP_PROFILE_LAST_NAME": "শেষ নাম",
+  "APP_PROFILE_EMAIL_ADDRESS": "ইমেইল এড্রেস",
+  "APP_PROFILE_MOBILE": "মোবাইল নাম্বার",
+  "APP_PROFILE_YEAR": "বছর",
+  "APP_PROFILE_MONTH": "মাস",
+  "APP_PROFILE_DATE": "তারিখ",
+  "APP_PROFILE_CHANGE_PASSWORD": "আপনার পাসওয়ার্ড পরিবর্তন করুন",
+  "APP_PROFILE_CONNECT_SOCIAL": "আপনার একাউন্ট সামাজিক মাধ্যমের সাথে সংযুক্ত করুন",
+  "APP_PROFILE_CHANGE_IMAGE": "ছবি পরিবর্তন করুন",
+  "APP_PROFILE_UPLOAD_IMAGE": "ছবি আপলোড করুন",
+  "APP_MARKETING_POLICY_1": "আমি রাজি ",
+  "APP_MARKETING_POLICY_2": " সরাসরি মার্কেটিং ",
+  "APP_MARKETING_POLICY_3": "নীতি",
+  "APP_GENERAL_SAVE_CHANGES": "পরিবর্তন সংরক্ষণ করুন",
+
+
+  "FULL_NAME": "পুরো নাম",
+  "APP_GET_IN_TOUCH": "পাশে থাকুন",
+  "SUBJECT": "বিষয়",
+  "APP_FEEDBACK_MESSAGE": "মেসেজ",
+  "MODAL_EMAIL": "ইমেইল",
+  "CONTACT_MESSAGE_SEND": "প্রেরণ করুন",
+
+
+  "APP_FREE_TRIAL1_TITLE2": "৫ দিনের ট্রায়াল শুরু করুন ",
+  "APP_FREE_TRIAL1_TITLE5": " জেল",
+  "APP_FREE_TRIAL1_DESCRIPTION": "সকল প্রিমিয়াম ফিচার পান এবং সীমাহীন কাজ পান!",
+  "APP_FREE_TRIAL1_LOOP1": "সীমাহীন কাজ পান",
+  "APP_FREE_TRIAL1_LOOP2": "বলার মাধ্যমে অনুশীলন করুন",
+  "APP_FREE_TRIAL1_LOOP3": "৫গুণ দ্রুত পড়ুন",
+  "APP_FREE_TRIAL1_LOOP4": "সার্টিফিকেট পান",
+  "APP_FREE_TRIAL1_CONTINUE": "চালিয়ে যান",
+
+  "APP_FREE_TRIAL2_TITLE": "৫ দিনের ট্রায়ালের পরের পরিকল্পনা করুন",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "ট্রায়াল শুরু করুন",
+
+  "APP_PACKAGE_MONTH_ge": " /মাস",
+  "APP_PACKAGE_MONTHS": " মাস",
+
+
+  "APP_AGREE_LICENSE_1": "আমি শর্ত পড়েছি এবং রাজি ",
+  "APP_AGREE_LICENSE_2": ".",
+  "APP_AGREE_LICENSE_3": "আপনি ৫ দিনের মধ্যে এটি বাতিল করতে পারবেন।"
 }
