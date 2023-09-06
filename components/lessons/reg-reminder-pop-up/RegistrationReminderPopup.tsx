@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Link from 'next/link'
 import style from './RegistrationReminderPopup.module.scss'
 import PopUpCircle from './popUpCircle'
@@ -7,10 +7,22 @@ import { useTranslation } from '@utils/useTranslation'
 import { regReminderTitle } from '@utils/const'
 import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
 
-
-const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({completedTasks, totalTasksAmount, languageTo, languageFrom}) => {
+const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
+  completedTasks,
+  totalTasksAmount,
+  languageTo,
+  languageFrom,
+}) => {
   const { t } = useTranslation()
   const [openLogin, setOpenLogin] = useState(false)
+
+  const handleOpenLogin = useCallback(() => {
+    setOpenLogin(true)
+  }, [])
+
+  const handleCloseLogin = useCallback(() => {
+    setOpenLogin(false)
+  }, [])
 
   return (
     <div className={style.container}>
@@ -31,26 +43,26 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({co
             imageClass={item.imageClass}
             title={item.title}
             titleClass={item.titleClass}
+            handleOpenLogin={handleOpenLogin}
           />
         ))}
       </div>
       <div className={style.buttons}>
-        <button
-          className={style.regButton}
-          onClick={() =>  setOpenLogin(true)}
-        >
+        <button className={style.regButton} onClick={handleOpenLogin}>
           {t('REG_REMINDER_REGISTER_AND_CONTINUE')}
         </button>
         {openLogin && (
           <LoginModal
             openLogin={openLogin}
             setOpenLogin={setOpenLogin}
-            onClick={() => setOpenLogin(false)}
+            onClick={handleCloseLogin}
           />
         )}
         <button className={style.coursesButton}>
-          <Link href={`wizard?languageTo=${languageTo}&languageFrom=${languageFrom}`}>
-          {t('REG_REMINDER_OTHER_COURSES')}
+          <Link
+            href={`wizard?languageTo=${languageTo}&languageFrom=${languageFrom}`}
+          >
+            {t('REG_REMINDER_OTHER_COURSES')}
           </Link>
         </button>
       </div>

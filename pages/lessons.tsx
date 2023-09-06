@@ -230,7 +230,7 @@ const Lessons: NextPage = () => {
     <div className={style.container}>
       <Header size="s" />
 
-      { !isUserLoggedIn && completedTasks?.length === 2 && <div className={style.regReminder}>
+      { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
         <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={1000} languageTo={languageTo} languageFrom={languageFrom} />
       </div> }
 

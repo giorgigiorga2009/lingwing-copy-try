@@ -9,6 +9,7 @@ import { FC, useState, useEffect } from 'react'
 import { LocalesDropdown } from './LocalesDropdown'
 import { LoginModal } from '../loginWindow/LoginModal'
 import { useTranslation } from '@utils/useTranslation'
+import loggers from '@components/loggers'
 
 interface Props {
   size?: 's' | 'm'
@@ -24,6 +25,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      loggers.logError(console.error);
       const token = window.localStorage.getItem('authToken') as string
       const logined = token !== null
       setIsAuthenticated(logined)

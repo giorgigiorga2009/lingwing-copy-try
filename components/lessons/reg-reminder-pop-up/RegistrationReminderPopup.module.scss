@@ -110,44 +110,56 @@
   }
 }
 
-@keyframes slideFromRight {
-  from {
-    transform: translateX(100vw);
+
+@keyframes bonBubleAnimOne {
+  0%, 60%, 75%, 90%{
+    animation-timing-function: cubic-bezier(.215,.61,.355,1);
   }
-  80% {
-    transform: translateX(-1rem);
+  0% {
+    opacity: 0;
+    transform: translate3d(3000px,0,0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px,0,0);
+  }
+  75% {
+    transform: translate3d(10px,0,0);
   }
   90% {
-    transform: translateX(1rem);
+    transform: translate3d(-5px,0,0);
   }
-  to {
-    transform: translateX(0);
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }
 
-.mainPart > * {
-  animation: slideFromRight 2s ease-in-out;
 
-  // Using the nth-child pseudo-class to add delay to each child
+.mainPart > * {
+  opacity: 0;
+  animation: bonBubleAnimOne 1s ease-in 1 forwards;
+  animation-fill-mode: forwards;
+
   &:nth-child(1) {
-    animation-delay: 0s;
+    animation-delay: 1.6s;
   }
   &:nth-child(2) {
-    animation-delay: 0.1s;
+    animation-delay: 1.6s;
   }
   &:nth-child(3) {
-    animation-delay: 0.2s;
+    animation-delay: 2s;
   }
   &:nth-child(4) {
-    animation-delay: 0.3s;
+    animation-delay: 2s;
   }
   &:nth-child(5) {
-    animation-delay: 0.4s;
+    animation-delay: 2.4s;
   }
   &:nth-child(6) {
-    animation-delay: 0.5s;
+    animation-delay: 2.4s;
   }
   &:nth-child(7) {
-    animation-delay: 0.6s;
+    animation-delay: 2.8s;
   }
 }
