@@ -288,5 +288,18 @@
   "APP_AGREE_LICENSE_1": "Я прочитал и согласен с условиями ",
   "loginFooter4": "лицензионного соглашения",
   "APP_AGREE_LICENSE_2": ".",
-  "APP_AGREE_LICENSE_3": "Можешь отменить в течение 5 дней."
+  "APP_AGREE_LICENSE_3": "Можешь отменить в течение 5 дней.",
+
+
+
+  "REG_REMINDER_POP_UP_HEADER": "Это только начало!",
+  "REG_REMINDER_POP_UP_YOU_HAVE_COMPLETED": "Ты выполнил",
+  "REG_REMINDER_OUT_OF": "заданий из",
+  "REG_REMINDER_TASKS": "!",
+  "REG_REMINDER_REGISTER_AND_CONTINUE": "Регистрация и продолжение",
+  "REG_REMINDER_OTHER_COURSES": "другие курсы",
+  "REG_REMINDER_INITIATION": "Знакомство",
+  "REG_REMINDER_REGISTRATION": "Регистрация",
+  "REG_REMINDER_BONUS": "Бонус",
+  "REG_REMINDER_PREMIUM": "Премиум"
 }

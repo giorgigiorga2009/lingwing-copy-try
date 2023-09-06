@@ -211,5 +211,18 @@
 
   "APP_AGREE_LICENSE_1": "আমি শর্ত পড়েছি এবং রাজি ",
   "APP_AGREE_LICENSE_2": ".",
-  "APP_AGREE_LICENSE_3": "আপনি ৫ দিনের মধ্যে এটি বাতিল করতে পারবেন।"
+  "APP_AGREE_LICENSE_3": "আপনি ৫ দিনের মধ্যে এটি বাতিল করতে পারবেন।",
+
+
+
+  "REG_REMINDER_POP_UP_HEADER": "এটি মাত্র শুরু",
+  "REG_REMINDER_POP_UP_YOU_HAVE_COMPLETED": "আপনি সম্পন্ন করেছেন",
+  "REG_REMINDER_OUT_OF": "অনুশীলনসমূহ",
+  "REG_REMINDER_TASKS": "কাজগুলো!",
+  "REG_REMINDER_REGISTER_AND_CONTINUE": "নিবন্ধন করুন এবং চালিয়ে যান",
+  "REG_REMINDER_OTHER_COURSES": "অন্যান্য কোর্সসমূহ",
+  "REG_REMINDER_INITIATION": "দীক্ষা",
+  "REG_REMINDER_REGISTRATION": "নিবন্ধন",
+  "REG_REMINDER_BONUS": "বোনাস",
+  "REG_REMINDER_PREMIUM":  "প্রিমিয়াম"
 }

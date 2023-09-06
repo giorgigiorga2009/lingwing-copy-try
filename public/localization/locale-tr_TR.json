@@ -162,10 +162,6 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "Henüz bir kursu secmedin",
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Seçtiğin kursu başlatmak için düğmeyi tıkla.",
 
-   "APP_HEADER_MENU_ITEM13": "Çıkış yap",
-  "APP_HEADER_MENU_ITEM14": "Hesabım",
-
-
 
   "APP_HEADER_MENU_ITEM13": "Çıkış yap",
   "APP_HEADER_MENU_ITEM14": "Hesabım",
@@ -265,5 +261,19 @@
 
   "APP_AGREE_LICENSE_1": "Şartlarını okudum ve kabul ediyorum",
   "APP_AGREE_LICENSE_2": ".",
-  "APP_AGREE_LICENSE_3": "5 gün içinde iptal edebilirsiniz."
+  "APP_AGREE_LICENSE_3": "5 gün içinde iptal edebilirsiniz.",
+
+
+
+  "REG_REMINDER_POP_UP_HEADER":  "Bu sadece başlangiç",
+  "REG_REMINDER_POP_UP_YOU_HAVE_COMPLETED": "Sen",
+  "REG_REMINDER_OUT_OF": "görev tamamladın",
+  "REG_REMINDER_TASKS": "'den.",
+  "REG_REMINDER_REGISTER_AND_CONTINUE": "Yeni bir hesap aç ve devam et",
+  "REG_REMINDER_OTHER_COURSES":  "Diğer kurslar",
+  "REG_REMINDER_INITIATION": "Tanışmak",
+  "REG_REMINDER_REGISTRATION": "Yeni bir hesap aç",
+  "REG_REMINDER_BONUS": "Bonus",
+  "REG_REMINDER_PREMIUM": "Premyum"
+  
 }
