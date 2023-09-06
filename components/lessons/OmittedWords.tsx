@@ -1,66 +1,59 @@
 import style from './OmittedWords.module.scss'
 import { saveTask } from '@utils/lessons/saveTask'
 import {
-  handleChangeOmittedWords,
+  handleChange,
   CommonProps,
+  updateCompletedTasks,
+  handleOnKeyDown,
 } from '@utils/lessons/taskInputUtils'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
   commonProps: CommonProps
-  wordsArray: string[]
-  onKeyDown: (event: React.KeyboardEvent) => void
   isHintShown: boolean
-  setMistakesCount: (values: number) => void
-  mistakesCount: number
   setIsHintShown: (bool: boolean) => void
   setHintText: (text: string) => void
 }
 
 export const OmittedWords: FC<Props> = ({
-  wordsArray,
-  onKeyDown,
   isHintShown,
-  setMistakesCount,
-  mistakesCount,
   commonProps,
   setIsHintShown,
   setHintText,
 }) => {
   const [words, setWords] = useState<string[]>([])
   const [correctWords, setCorrectWords] = useState<string[]>([])
+  const [mistakesCount, setMistakesCount] = useState(0)
+
   const inputRefs = useRef<HTMLInputElement[]>([])
+  const currTask = commonProps.currentTask.correctText as string
+  const wordsArray = currTask.match(/(\[.*?\])|(\S+)/g) ?? []
   const inputsCount = wordsArray.filter(item => /^\[.*\]$/.test(item)).length
-  //const [inputText, setInputText] = useState('')
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
-    const inputText = handleChangeOmittedWords(
+    const inputText = handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
     )
 
-    console.log(inputText)
-    //const inputValue = event.target.value
-    const newWords = [...words]
     const missingWord = wordsArray[index].slice(1, -1)
-
-    const isTextValid =
-      inputText.toLowerCase() ===
-      missingWord.substring(0, inputText.length).toLowerCase()
+    const newWords = [...words]
+    const currentMatch = missingWord.substring(0, inputText.length)
+    const isTextValid = inputText.toLowerCase() === currentMatch.toLowerCase()
 
     if (isTextValid) {
       setIsHintShown(false)
-      newWords[index] = missingWord.substring(0, inputText.length)
+      newWords[index] = currentMatch
       setWords(newWords)
 
-      const nextInputRef = inputRefs.current
-        .slice(index + 1)
-        .find(element => element !== undefined)
-
       if (inputText.length === missingWord.length) {
+        const nextInputRef = inputRefs.current
+          .slice(index + 1)
+          .find(element => element !== undefined)
+
         setCorrectWords(prevWords => [...prevWords, missingWord])
         nextInputRef && nextInputRef.focus()
       }
@@ -74,26 +67,12 @@ export const OmittedWords: FC<Props> = ({
   }
 
   useEffect(() => {
-    if (commonProps.token === null && commonProps.userId === null) return
+    if (!commonProps.token && !commonProps.userId) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
-        const isSaveSuccessful = await saveTask({
-          userId: commonProps.userId,
-          token: commonProps.token,
-          languageFrom: commonProps.languageFrom,
-          languageTo: commonProps.languageTo,
-          currentTask: commonProps.currentTask,
-          courseId: commonProps.courseId,
-        })
-        if (isSaveSuccessful) {
-          commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-          commonProps.completedTasks &&
-            commonProps.setCompletedTasks([
-              ...commonProps.completedTasks,
-              commonProps.currentTask,
-            ])
-          !commonProps.completedTasks &&
-            commonProps.setCompletedTasks([commonProps.currentTask])
+        const isSaved = await saveTask({ ...commonProps })
+        if (isSaved) {
+          updateCompletedTasks(commonProps)
         }
       }, 1500)
     }
@@ -113,9 +92,11 @@ export const OmittedWords: FC<Props> = ({
             <input
               className={style.input}
               key={index}
-              value={currentValue !== undefined ? currentValue : ''}
+              value={currentValue ?? ''}
               onChange={event => handleInputChange(event, index)}
-              onKeyDown={onKeyDown}
+              onKeyDown={(event: React.KeyboardEvent) =>
+                handleOnKeyDown(event, inputRefs)
+              }
               ref={el => (inputRefs.current[index] = el!)}
             />
           )

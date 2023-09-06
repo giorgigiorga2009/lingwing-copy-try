@@ -5,9 +5,9 @@ import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { IntlProvider } from 'react-intl'
 import { Locale, messages } from '@utils/localization'
+import { SessionProvider } from 'next-auth/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const queryClient = new QueryClient()
   const { locale: initialLocale } = useRouter()
   const locale = initialLocale ? initialLocale : 'en'
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         src={'https://www.smartsuppchat.com/loader.js?'}
         strategy="lazyOnload"
       />
-      <Script strategy="lazyOnload">
+      <Script id="smartsupp" strategy="lazyOnload">
         {`var _smartsupp = _smartsupp || {};
         _smartsupp.key = '0696a3568cc098f5267b4220491bdae0748c6d75';
         window.smartsupp||(function(d) {
@@ -28,9 +28,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
         })(document);`}
       </Script>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
+      <SessionProvider session={session}>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </SessionProvider>
     </IntlProvider>
   )
 }

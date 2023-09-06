@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import classNames from 'classnames'
+//import { signIn } from 'next-auth/react'
 import { LOGIN_NETWORKS } from '@utils/const'
 import style from './NetworkButtons.module.scss'
 import { useTranslation } from '@utils/useTranslation'
@@ -13,7 +14,11 @@ export const NetworkButtons: FC<Props> = ({ isSignInTab }) => {
   return (
     <div className={style.container}>
       {LOGIN_NETWORKS.map(network => (
-        <div className={classNames(style.button, style[network])} key={network}>
+        <div
+          className={classNames(style.button, style[network])}
+          key={network}
+          onClick={() => signIn('facebook')}
+        >
           <div className={style.icon} />
           <div className={style.text}>
             <span>
