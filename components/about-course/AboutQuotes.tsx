@@ -10,7 +10,7 @@ const AboutQuotes: React.FC<AboutQuotesProps> = ({ promo }) => {
     <div className={styles.container}>
       <h3 className={styles.title}>{t("ABOUT_COURSE_YOU'LL_BE_MIGHTY")}</h3>
       <div className={styles.quotesContainer}>
-        {promo.map(quote => (
+        {promo?.map(quote => (
           <div key={quote} className={styles.quote}>
             {quote}
           </div>

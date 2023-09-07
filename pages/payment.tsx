@@ -30,15 +30,18 @@ const Payment: React.FC<PaymentProps> = () => {
   const { id, coupon } = router.query
 
   useEffect(() => {
-    getPayWithList().then(res => setPayWithListData(res))
     if (id) {
       getCheckedPackageId(id as string, coupon as string).then(res => {
         if (res?.orderId) {
-          getPackageDataById(res.orderId).then(res => setData(res))
+          getPackageDataById(res.orderId).then(res => setData(res));
         }
-      })
+      });
     }
-  }, [id, coupon])
+  }, [id, coupon]);
+  
+  useEffect(() => {
+    getPayWithList().then(res => setPayWithListData(res));
+  }, []);
 
   useEffect(() => {
     if (data && selectedCurrency !== undefined) {
