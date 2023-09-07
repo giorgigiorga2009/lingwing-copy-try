@@ -16,9 +16,10 @@ function CourseInfo({
   const { t } = useTranslation()
   let yesBubbleText = ''
   let yesBubbleTextEsp = ''
-  const parrotVar = `/../public/assets/images/${languageTo}-parrot.png`
-  const fragVar = `/../public/assets/images/flags/circle/small/${languageTo}-flag.png`
-  const bubbleVar = `/../public/assets/images/bubble.png`
+  let parrotVar = `/../themes/images/v2/${languageTo}-parrot.png`
+  let fragVar = `/../assets/images/flags/circle/small-languageCode/${languageTo}-flag.png`
+  let bubbleVar = `/../themes/images/v2/parrot-course-bubble.png`
+
 
   switch (languageTo) {
     case 'eng':
@@ -80,17 +81,17 @@ function CourseInfo({
           <div className={style.speciesContainer}>
             <div className={style.numbersList}>
               <div className={style.speciesNumber}>
-                <p className={style.statsNum}>{info.tasksQuantity}</p>
+                <p className={style.statsNum}>{info?.tasksQuantity}</p>
                 <p className={style.speciesText}>
                   {t('ABOUT_COURSE_EXCERCISES')}
                 </p>
               </div>
               <div className={style.speciesNumber}>
-                <p className={style.statsNum}>{info.uniqueWordsQuantity}</p>
+                <p className={style.statsNum}>{info?.uniqueWordsQuantity}</p>
                 <p className={style.speciesText}>{t('ABOUT_COURSE_WORDS')}</p>
               </div>
               <div className={style.speciesNumber}>
-                <p className={style.statsNum}>{info.courseFinishTime}</p>
+                <p className={style.statsNum}>{info?.courseFinishTime}</p>
                 <p className={style.speciesText}>{t('ABOUT_COURSE_HOURS')}</p>
               </div>
             </div>
