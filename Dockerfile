@@ -2,7 +2,7 @@
 FROM node:18-alpine
 WORKDIR /app
 COPY package.json yarn.lock /app/
-RUN yarn install --production && cache clean
+RUN yarn install --production --force && yarn cache clean
 COPY . /app/
 RUN yarn build
 CMD yarn start
