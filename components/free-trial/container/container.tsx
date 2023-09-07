@@ -8,7 +8,6 @@ import { useTranslation } from '@utils/useTranslation'
 import Image from 'next/image'
 import arrow from '@public/themes/images/v2/flow-Arrow.png'
 
-
 const Container = () => {
   const [showPackages, setShowPackages] = useState(false)
   const { t } = useTranslation()
@@ -37,4 +36,3 @@ const Container = () => {
 }
 
 export default Container
-

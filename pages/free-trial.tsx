@@ -10,7 +10,7 @@ const freeTrial = () => {
     <>
       <Header size="s" />
       <div className={style.container}>
-        <Card/>
+        <Card />
       </div>
       <div className={style.footer}>
         <FollowButtons color="grey" />

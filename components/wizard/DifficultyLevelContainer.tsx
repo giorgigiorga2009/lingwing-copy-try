@@ -32,7 +32,7 @@ export const DifficultyLevelContainer: FC<Props> = ({
   const languageKey = LOCALES_TO_LANGUAGES[locale]
   return (
     <>
-      <div
+      <button
         className={classNames(style.container, open && style.open)}
         onClick={() => setOpen(!open)}
       >
@@ -71,7 +71,7 @@ export const DifficultyLevelContainer: FC<Props> = ({
             )}
           />
         </div>
-      </div>
+      </button>
       {open && (
         <div className={style.options}>
           {level.options.map((option, index) => (

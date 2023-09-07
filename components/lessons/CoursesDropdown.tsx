@@ -30,11 +30,11 @@ export const CoursesDropdown: FC<Props> = ({
       onClickOutside={() => setOpen(false)}
       className={style.dropdown}
     >
-      <div className={style.button} onClick={() => setOpen(!open)}>
+      <button className={style.button} onClick={() => setOpen(!open)}>
         <div className={classNames(style.flag, style[languageTo])} />
         {currentCourse?.title[interfaceLanguage]}
         <div className={style.arrow} />
-      </div>
+      </button>
       {open && (
         <div className={style.dropdownContent}>
           {languageCoursesList.map((course: LanguageCourse) => (

@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         src={'https://www.smartsuppchat.com/loader.js?'}
         strategy="lazyOnload"
       />
-      <Script id="smartsupp" strategy="lazyOnload">
+      <Script id="" strategy="lazyOnload">
         {`var _smartsupp = _smartsupp || {};
         _smartsupp.key = '0696a3568cc098f5267b4220491bdae0748c6d75';
         window.smartsupp||(function(d) {

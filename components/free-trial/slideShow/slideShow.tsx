@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
 import React, { useState, useEffect } from 'react'
 import style from './slideShow.module.scss'
-import {images, texts} from '@utils/const'
+import { images, texts } from '@utils/const'
 import { useTranslation } from '@utils/useTranslation'
 
 const SlideShow = () => {

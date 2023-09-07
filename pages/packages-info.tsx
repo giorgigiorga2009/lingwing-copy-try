@@ -7,10 +7,8 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import { Footer } from '@components/wizard/Footer'
 import PlanSelection from '@components/packages-info/planSelection'
 
-
 const PackagesInfo = () => {
   const { t } = useTranslation()
- 
 
   return (
     <div className={style.container}>
@@ -35,7 +33,7 @@ const PackagesInfo = () => {
           paragraph={t('PACKAGES_INFO_PREMIUM_PARAGRAPH')}
           buttonText={t('PREMIUM')}
           index={2}
-          fromGelText={t("PACKAGES_INFO_FROM_GEL")}
+          fromGelText={t('PACKAGES_INFO_FROM_GEL')}
         />
       </div>
       <Reviews />

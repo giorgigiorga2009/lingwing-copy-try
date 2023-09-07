@@ -9,7 +9,7 @@ interface SubCourseProps {
   name: string
   _id: string
   percent: string
-  iLearn: {
+  iLearn?: {
     nameCode: string
   }
   languageSubStandard: {
@@ -36,7 +36,7 @@ const MySubCourse: FC<Props> = ({
 }) => {
   const { t } = useTranslation()
 
-  const languageTo = subCourse.iLearn.nameCode
+  const languageTo = subCourse.iLearn?.nameCode
   const languageFrom = subCourse.iLearnFromNameCode
   const courseName = subCourse.slug
 
