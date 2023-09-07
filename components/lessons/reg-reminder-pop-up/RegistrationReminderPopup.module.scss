@@ -1,0 +1,165 @@
+@import '@styles/imports';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60rem;
+  height: fit-content;
+  background-color: $white;
+  box-shadow: 0 0 0.2rem 0.01rem $grey-100;
+  border-radius: 2.5rem;
+  padding: 3rem 4rem;
+  background-image: url('/assets/images/bonnus-bg.png');
+  background-repeat: no-repeat;
+  background-position: 45rem 1rem;
+  background-size: contain;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+
+  @include tablet {
+    width: 96vw;
+    height: auto;
+    padding: 2rem 3rem;
+    background-position: 70vw 0vw;
+  }
+
+  @include mobile {
+    width: 95vw;
+    height: auto;
+    padding: 1.5rem .9rem;
+    background-position: 70vw 0vw;
+  }
+}
+
+.header {
+  color: $purple-600;
+  font-size: 1.4rem;
+  margin: 0;
+
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+.paragraph {
+  display: flex;
+  column-gap: 0.5rem;
+  & p {
+    color: $black-100;
+    font-size: 1.2rem;
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+  & .number {
+    color: $purple-600;
+  }
+}
+
+.mainPart {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+
+  @include mobile {
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    transform: none;
+  }
+}
+
+.buttons {
+  display: flex;
+  column-gap: 1rem;
+  margin-top: 8rem;
+}
+.coursesButton,
+.regButton {
+  font-size: 1.1rem;
+  padding: 0.6rem 2rem;
+  border-radius: 1.8rem;
+  font-family: SegoeUI;
+  color: $white;
+  border: none;
+  background-color: $green-210;
+  box-shadow: 2px 3px 0 $green-500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green-200;
+  }
+  @include mobile{
+    font-size: .8rem;
+  }
+}
+.coursesButton {
+  color: $grey-800;
+  background-color: $white-310;
+  box-shadow: 2px 3px 0 $grey-100;
+  &:hover {
+    background-color: $white-300;
+  }
+  & > a {
+    text-decoration: none;
+    color: $grey-800;
+  }
+}
+
+
+@keyframes bonBubleAnimOne {
+  0%, 60%, 75%, 90%{
+    animation-timing-function: cubic-bezier(.215,.61,.355,1);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(3000px,0,0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px,0,0);
+  }
+  75% {
+    transform: translate3d(10px,0,0);
+  }
+  90% {
+    transform: translate3d(-5px,0,0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+.mainPart > * {
+  opacity: 0;
+  animation: bonBubleAnimOne 1s ease-in 1 forwards;
+  animation-fill-mode: forwards;
+
+  &:nth-child(1) {
+    animation-delay: 1.6s;
+  }
+  &:nth-child(2) {
+    animation-delay: 1.6s;
+  }
+  &:nth-child(3) {
+    animation-delay: 2s;
+  }
+  &:nth-child(4) {
+    animation-delay: 2s;
+  }
+  &:nth-child(5) {
+    animation-delay: 2.4s;
+  }
+  &:nth-child(6) {
+    animation-delay: 2.4s;
+  }
+  &:nth-child(7) {
+    animation-delay: 2.8s;
+  }
+}

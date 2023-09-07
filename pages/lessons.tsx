@@ -21,7 +21,11 @@ import { SoundCheck } from '@components/lessons/SoundCheck'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
+
+import RegistrationReminderPopup from '@components/lessons/reg-reminder-pop-up/RegistrationReminderPopup'
+
 import BackgroundParrot from '@components/shared/BackgroundParrot'
+
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -226,9 +230,16 @@ const Lessons: NextPage = () => {
       }
     : null
 
+    const isUserLoggedIn = !!token;
+    
   return (
     <div className={style.container}>
       <Header size="s" />
+
+      { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
+        <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={1000} languageTo={languageTo} languageFrom={languageFrom} />
+      </div> }
+
       <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck

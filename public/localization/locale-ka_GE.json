@@ -289,5 +289,18 @@
   "APP_AGREE_LICENSE_1": "გავეცანი და ვეთანხმები ",
   "loginFooter4": "სალიცენზიო ხელშეკრულების",
   "APP_AGREE_LICENSE_2": "პირობებს.",
-  "APP_AGREE_LICENSE_3": "გაუქმება შეგიძლია 5-დღის მანძილზე"
+  "APP_AGREE_LICENSE_3": "გაუქმება შეგიძლია 5-დღის მანძილზე",
+
+
+
+  "REG_REMINDER_POP_UP_HEADER": "დარეგისტრირდი და გააგრძელე სწავლა უფასოდ!",
+  "REG_REMINDER_POP_UP_YOU_HAVE_COMPLETED": "შენ შეასრულე",
+  "REG_REMINDER_OUT_OF": "დავალება",
+  "REG_REMINDER_TASKS": "-დან!",
+  "REG_REMINDER_REGISTER_AND_CONTINUE":  "რეგისტრაცია და გაგრძელება",
+  "REG_REMINDER_OTHER_COURSES": "სხვა კურსები",
+  "REG_REMINDER_INITIATION":  "გაცნობა",
+  "REG_REMINDER_REGISTRATION": "რეგისტრაცია",
+  "REG_REMINDER_BONUS": "ბონუსი",
+  "REG_REMINDER_PREMIUM":  "პრემიუმი"
 }

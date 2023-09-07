@@ -289,5 +289,19 @@
   "APP_AGREE_LICENSE_1": "I have read and agree to the terms of the ",
   "loginFooter4": "license agreement",
   "APP_AGREE_LICENSE_2": ".",
-  "APP_AGREE_LICENSE_3": "You can cancel it within 5-days."
+  "APP_AGREE_LICENSE_3": "You can cancel it within 5-days.",
+
+
+
+  "REG_REMINDER_HEADER": "It's just beginning",
+  "REG_REMINDER_YOU_HAVE_COMPLETED": "You have completed",
+  "REG_REMINDER_OUT_OF": "exercises out of",
+  "REG_REMINDER_TASKS": "tasks!",
+  "REG_REMINDER_REGISTER_AND_CONTINUE": "REGISTER AND CONTINUE",
+  "REG_REMINDER_OTHER_COURSES": "Other Courses",
+  "REG_REMINDER_INITIATION": "Inititaion",
+  "REG_REMINDER_REGISTRATION": "Registration",
+  "REG_REMINDER_BONUS": "Bonus",
+  "REG_REMINDER_PREMIUM": "Premium"
+
 }

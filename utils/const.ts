@@ -161,6 +161,38 @@ export const texts = [
   'APP_FREE_TRIAL1_LOOP4',
 ]
 
+export const regReminderTitle = [
+  {
+    imageClass: 'firstImage',
+    title: 'REG_REMINDER_INITIATION',
+    titleClass: 'firstTitle',
+  },
+  {
+    imageClass: 'firstArrow',
+  },
+  {
+    imageClass: 'secondImage',
+    title: 'REG_REMINDER_REGISTRATION',
+    titleClass: 'secondTitle',
+  },
+  {
+    imageClass: 'secondArrow',
+  },
+  {
+    imageClass: 'thirdImage',
+    title: 'REG_REMINDER_BONUS',
+    titleClass: 'thirdTitle',
+  },
+  {
+    imageClass: 'thirdArrow',
+  },
+  {
+    imageClass: 'fourthImage',
+    title: 'REG_REMINDER_PREMIUM',
+    titleClass: 'fourthTitle',
+  },
+]
+
 export const KEYBOARD_OVERRIDE: keyboardOverride[] = [
   {
     geo: 4304,
