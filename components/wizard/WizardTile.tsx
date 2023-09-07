@@ -15,11 +15,11 @@ export const WizardTile: FC<Props> = ({ language, onClick }) => {
   const { t } = useTranslation()
 
   return (
-    <div className={style.container} onClick={onClick}>
+    <button className={style.container} onClick={onClick}>
       <div className={style.circle}>
         <CircleFlag language={language} className={style.flag} />
       </div>
       <div className={style.title}>{t(LANGUAGE_NAMES[language])}</div>
-    </div>
+    </button>
   )
 }

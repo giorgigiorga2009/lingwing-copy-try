@@ -42,7 +42,10 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   return (
     <header className={classNames(style.header, style[size])}>
       <div className={style.leftBlock}>
-        <div className={style.button} onClick={() => setOpenSideMenu(true)} />
+        <button
+          className={style.button}
+          onClick={() => setOpenSideMenu(true)}
+        />
         <Link href="/" className={style.logo_link}>
           <div className={style.logo} />
         </Link>
@@ -70,12 +73,12 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         ) : (
           <div className={style.authorization_box}>
             <UserAvatar />
-            <div
+            <button
               className={style.singInButton}
               onClick={() => setOpenLogin(true)}
             >
               {t('AUTH_SIGN_IN')}
-            </div>
+            </button>
           </div>
         )}
       </div>

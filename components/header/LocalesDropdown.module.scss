@@ -2,11 +2,13 @@
 
 .button {
   cursor: pointer;
-  width: 5rem;
+  width: 6rem;
   display: flex;
   gap: 0.5rem;
   align-items: center;
   height: 3.59rem;
+  border: none;
+  background: none;
 
   @include smallWidth {
     width: auto;
@@ -59,9 +61,12 @@
   display: flex;
   gap: 0.5rem;
   height: 3rem;
+  width: 100%;
   align-items: center;
+  border: none;
   border-bottom: 1px solid $white-200;
   font-weight: 650;
+  background: none;
   cursor: pointer;
 
   &:hover {

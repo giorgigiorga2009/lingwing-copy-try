@@ -32,23 +32,23 @@ export const LocalesDropdown: FC = () => {
       onClickOutside={() => setOpen(false)}
       className={style.dropdown}
     >
-      <div className={style.button} onClick={() => setOpen(!open)}>
+      <button className={style.button} onClick={() => setOpen(!open)}>
         <LocaleFlag language={selected} />
         <h6>{selected.toUpperCase()}</h6>
         <div className={style.arrow} />
-      </div>
+      </button>
       {open && (
         <div className={style.dropdownContent}>
           {LANGUAGE_FROM.map((language: LanguageFrom) => (
             <Fragment key={language}>
               {language !== selected && (
-                <div
+                <button
                   className={style.option}
                   onClick={() => handleClick(language)}
                 >
                   <LocaleFlag language={language} />
                   <div>{LANGUAGE_NAMES[language]}</div>
-                </div>
+                </button>
               )}
             </Fragment>
           ))}

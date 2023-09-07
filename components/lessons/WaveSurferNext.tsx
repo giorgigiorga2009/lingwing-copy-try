@@ -75,7 +75,7 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
   return (
     <div className={style.container}>
       <div>
-        <div
+        <button
           onClick={handlePlayPause}
           className={!playing ? style.playButton : style.pauseButton}
         />

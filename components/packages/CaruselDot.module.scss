@@ -2,15 +2,17 @@
 
 .dot {
   display: none;
+  background: none;
   background-color: $grey-100;
   border-radius: 1rem;
   margin: 1rem;
   margin-top: 2.5rem;
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.5rem;
+  height: 0.7rem;
   opacity: 0.3;
   cursor: pointer;
   transition: 0.2s linear;
+  border: none;
 
   &:hover {
     @extend %dotHover;

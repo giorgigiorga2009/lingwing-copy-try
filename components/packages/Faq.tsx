@@ -33,7 +33,7 @@ const FAQ: FC<Props> = ({ locale }) => {
       <h1 className={style.faq__title}>{t('APP_PACKAGES_FAQ_TITLE')}</h1>
       {faqData.map((faq, index) => (
         <div key={index}>
-          <div
+          <button
             className={classNames(
               style.faq__question,
               clicked === index && style.faq__question__open,
@@ -41,7 +41,7 @@ const FAQ: FC<Props> = ({ locale }) => {
             onClick={() => setClicked(clicked === index ? -1 : index)}
           >
             {faq.question}
-          </div>
+          </button>
           <div
             className={classNames(
               style.faq__answer,

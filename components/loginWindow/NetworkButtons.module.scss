@@ -19,7 +19,11 @@
   border-radius: 1.5rem;
   gap: 1rem;
   color: $white;
+  font-size: 1rem;
+  font-family: SegoeUI;
   cursor: pointer;
+  border: none;
+  background: none;
 
   &.facebook {
     background-color: $facebook;
@@ -46,7 +50,6 @@
   width: 2rem;
   height: 2rem;
   border-radius: 2rem;
-  margin-left: 0.4rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2rem;
