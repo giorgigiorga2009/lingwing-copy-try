@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import classNames from 'classnames'
 import style from './TranslateBubble.module.scss'
+import UserAvatar from '@components/shared/UserAvatar'
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -41,13 +42,17 @@ export const TranslateBubble: FC<Props> = ({
       )}
     >
       <div className={style.content}>
-        <div className={style[textType + 'Icon']}></div>
+        {/* <UserAvatar /> */}
         <span className={style.correctText}>{correctText}</span>
+
         {textType !== 'replay' ? (
-          <span
-            className={style.taskText}
-            dangerouslySetInnerHTML={{ __html: taskText }}
-          ></span>
+          <>
+            <div className={style[textType + 'Icon']} />
+            <span
+              className={style.taskText}
+              dangerouslySetInnerHTML={{ __html: taskText }}
+            ></span>
+          </>
         ) : (
           <span className={style.taskText}>
             {taskText.split(' ').map(word => (

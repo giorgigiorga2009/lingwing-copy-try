@@ -20,6 +20,7 @@ function CourseInfo({
   let fragVar = `/../assets/images/flags/circle/small-languageCode/${languageTo}-flag.png`
   let bubbleVar = `/../themes/images/v2/parrot-course-bubble.png`
 
+
   switch (languageTo) {
     case 'eng':
       yesBubbleText = 'Yes'

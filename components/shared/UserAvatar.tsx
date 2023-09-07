@@ -2,7 +2,7 @@ import React from 'react'
 import style from './UserAvatar.module.scss'
 
 interface Props {
-  image?: string
+  image?: string | null
 }
 const UserAvatar: React.FC<Props> = ({ image }) => {
   return (

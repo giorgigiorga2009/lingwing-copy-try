@@ -53,6 +53,8 @@
   gap: 0.5rem;
   font-weight: 900;
   font-family: $kaFont;
+  border: none;
+  background: none;
 
   &:hover,
   &:focus {
@@ -87,6 +89,10 @@
   text-decoration: none;
   font-family: $kaFont;
 
+  &:last-child {
+    border: none;
+  }
+
   &:hover {
     color: $purple-300;
     background-color: $white-70;
@@ -98,10 +104,6 @@
 
   &:last-child:hover {
     border-radius: 0 0 0.63rem 0.63rem;
-  }
-
-  &:last-child {
-    border: none;
   }
 }
 

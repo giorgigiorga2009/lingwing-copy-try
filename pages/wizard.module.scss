@@ -20,33 +20,6 @@
   }
 }
 
-.parrot {
-  background-image: url('/assets/images/wizard/parrot.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  width: 24vw;
-  height: 27vh;
-  top: 5rem;
-  left: 10rem;
-
-  @include tablet {
-    width: 20rem;
-    height: 15rem;
-    top: 10rem;
-    left: 0;
-  }
-
-  @include mobile {
-    display: none;
-  }
-
-  @include smallWidth {
-    display: none;
-  }
-}
-
 .ball {
   position: fixed;
   background-image: url('/assets/images/wizard/background-ball.png');

@@ -4,6 +4,7 @@ import UserAvatar from '../shared/UserAvatar'
 import { UserDropdown } from './UserDropdown'
 import { FC, useEffect, useState } from 'react'
 import { getUserProfileData } from '../../utils/auth'
+//import { useSession, signIn, signOut } from "next-auth/react"
 
 interface UserProfile {
   profile: {
@@ -18,6 +19,8 @@ interface UserProfile {
 const User: FC = () => {
   const [userData, setUserData] = useState<UserProfile | null>(null)
   const [openDropdown, setOpenDropdown] = useState<boolean>(false)
+  //const { data: session } = useSession()
+
   useEffect(() => {
     handleUserProfile()
   }, [])
@@ -38,7 +41,7 @@ const User: FC = () => {
       onClickOutside={() => setOpenDropdown(false)}
     >
       {userData && (
-        <div
+        <button
           className={style.button}
           onClick={() => setOpenDropdown(!openDropdown)}
         >
@@ -50,8 +53,23 @@ const User: FC = () => {
           </p>
           <div className={style.arrow} />
           {openDropdown && <UserDropdown />}
-        </div>
+        </button>
       )}
+      {/* {session && (
+        <div
+          className={style.button}
+          onClick={() => setOpenDropdown(!openDropdown)}
+        >
+          <UserAvatar image={session.user?.image} />
+          <p className={style.first_name}>
+            {session.user?.name 
+              ? session.user.name 
+              : session.user?.email  }
+          </p>
+          <div className={style.arrow} />
+          {openDropdown && <UserDropdown />}
+        </div>
+      )} */}
     </Foco>
   )
 }

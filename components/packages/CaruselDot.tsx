@@ -10,9 +10,9 @@ interface Props {
 
 export const CaruselDot: FC<Props> = ({ index, current, scrollHandler }) => {
   return (
-    <div
+    <button
       className={classNames(style.dot, index === current && style.dot__hover)}
       onClick={scrollHandler}
-    ></div>
+    ></button>
   )
 }

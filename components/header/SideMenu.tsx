@@ -28,7 +28,7 @@ const Section: FC<SectionProps> = ({ options, title, onClose }) => {
   return (
     <section>
       <h3>{title}</h3>
-      <div className={styles.list}>
+      <nav className={styles.list}>
         {options.map(element => {
           const [pathname, queryKey, queryValue] = SIDE_MENU_LINKS[element]
           const query = queryKey && queryValue ? { [queryKey]: queryValue } : {}
@@ -44,7 +44,7 @@ const Section: FC<SectionProps> = ({ options, title, onClose }) => {
             </Link>
           )
         })}
-      </div>
+      </nav>
     </section>
   )
 }
@@ -63,7 +63,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         className={styles.container}
         onClickOutside={onClose}
       >
-        <div className={styles.button} onClick={onClose} />
+        <button className={styles.button} onClick={onClose} />
         <div className={styles.content}>
           <div className={styles.menu}>
             <Section
@@ -94,11 +94,15 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
               <a
                 className={classNames(styles.market, styles.apple)}
                 href="https://play.google.com/store/apps/details?id=org.android.lingwing.app"
-              />
+              >
+                Android App
+              </a>
               <a
                 className={classNames(styles.market, styles.google)}
                 href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755"
-              />
+              >
+                iOS App
+              </a>
             </div>
           </div>
         </div>

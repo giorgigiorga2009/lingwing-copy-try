@@ -29,9 +29,9 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
     handlePhoneChange(data?.profile.phoneNumber)
   }, [data])
 
-  const birthdayDay = data?.profile?.birthday?.day || 0;
-  const birthdayMonth = data?.profile?.birthday?.month || 0;
-  const birthdayYear = data?.profile?.birthday?.year || 0;
+  const birthdayDay = data?.profile?.birthday?.day || 0
+  const birthdayMonth = data?.profile?.birthday?.month || 0
+  const birthdayYear = data?.profile?.birthday?.year || 0
 
   return (
     <div className={style.leftContainer}>

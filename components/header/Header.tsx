@@ -9,7 +9,11 @@ import { FC, useState, useEffect } from 'react'
 import { LocalesDropdown } from './LocalesDropdown'
 import { LoginModal } from '../loginWindow/LoginModal'
 import { useTranslation } from '@utils/useTranslation'
+
 import loggers from '@components/loggers'
+
+//import { useSession, signIn, signOut } from 'next-auth/react'
+
 
 interface Props {
   size?: 's' | 'm'
@@ -22,6 +26,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
+  // const { data: session } = useSession()
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -37,7 +42,10 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   return (
     <header className={classNames(style.header, style[size])}>
       <div className={style.leftBlock}>
-        <div className={style.button} onClick={() => setOpenSideMenu(true)} />
+        <button
+          className={style.button}
+          onClick={() => setOpenSideMenu(true)}
+        />
         <Link href="/" className={style.logo_link}>
           <div className={style.logo} />
         </Link>
@@ -45,6 +53,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
       </div>
       <div className={style.rightBlock}>
         <LocalesDropdown />
+        {/* </div>{session ? ( */}
         {isAuthenticated ? (
           <>
             {!isDashboard && (
@@ -64,12 +73,12 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         ) : (
           <div className={style.authorization_box}>
             <UserAvatar />
-            <div
+            <button
               className={style.singInButton}
               onClick={() => setOpenLogin(true)}
             >
               {t('AUTH_SIGN_IN')}
-            </div>
+            </button>
           </div>
         )}
       </div>

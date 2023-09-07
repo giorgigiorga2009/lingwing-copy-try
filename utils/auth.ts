@@ -14,7 +14,7 @@ const HEADERS = {
 export const getToken = ({ email, password, repeatPassword }: Auth) => {
   return axios({
     method: 'post',
-    url: `${process.env.defaultURL}/public/auth/signup?lang=eng`,
+    url: `${process.env.DEFAULT_URL}/public/auth/signup?lang=eng`,
     headers: {
       ...HEADERS,
       Authorization: 'null',
@@ -35,7 +35,7 @@ export const auth = ({ email, password, repeatPassword }: Auth) => {
   return getToken({ email, password, repeatPassword })
     .then(response =>
       axios({
-        url: `${process.env.defaultURL}/user/profile?lang=eng`,
+        url: `${process.env.DEFAULT_URL}/user/profile?lang=eng`,
         headers: {
           ...HEADERS,
           Authorization: response,
@@ -50,7 +50,7 @@ export const login = ({ email, password }: Auth) => {
   return (
     axios({
       method: 'post',
-      url: `${process.env.defaultURL}/public/auth/login?lang=eng`,
+      url: `${process.env.DEFAULT_URL}/public/auth/login?lang=eng`,
       headers: {
         ...HEADERS,
         Authorization: 'null',
@@ -68,7 +68,7 @@ export const login = ({ email, password }: Auth) => {
 
 export const getUserProfileData = (token: string) => {
   return axios({
-    url: `${process.env.defaultURL}/user/profile?lang=eng`,
+    url: `${process.env.DEFAULT_URL}/user/profile?lang=eng`,
     headers: {
       ...HEADERS,
       Authorization: token,

@@ -17,32 +17,6 @@ export type CommonProps = {
 export const handleChange = (
   event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   languageTo: keyof typeof LANGUAGES_MAP_OVERRIDE,
-  setInputText: (text: string) => void,
-) => {
-  const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
-
-  const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
-    override =>
-      override.geo === currentCharCode ||
-      override.rus === currentCharCode ||
-      override.eng === currentCharCode,
-  )
-
-  if (overriddenKeyboard) {
-    const overriddenText =
-      event.target.value.slice(0, -1) +
-      String.fromCharCode(
-        overriddenKeyboard[LANGUAGES_MAP_OVERRIDE[languageTo]],
-      )
-    setInputText(overriddenText)
-  } else {
-    setInputText(event.target.value)
-  }
-}
-
-export const handleChangeOmittedWords = (
-  event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  languageTo: keyof typeof LANGUAGES_MAP_OVERRIDE,
 ) => {
   const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
 
@@ -64,6 +38,31 @@ export const handleChangeOmittedWords = (
     return event.target.value
   }
 }
+
+// export const handleChangeOmittedWords = (
+//   event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+//   languageTo: keyof typeof LANGUAGES_MAP_OVERRIDE,
+// ) => {
+//   const currentCharCode = event.target.value.slice(-1).charCodeAt(0)
+
+//   const overriddenKeyboard = KEYBOARD_OVERRIDE.find(
+//     override =>
+//       override.geo === currentCharCode ||
+//       override.rus === currentCharCode ||
+//       override.eng === currentCharCode,
+//   )
+
+//   if (overriddenKeyboard) {
+//     const overriddenText =
+//       event.target.value.slice(0, -1) +
+//       String.fromCharCode(
+//         overriddenKeyboard[LANGUAGES_MAP_OVERRIDE[languageTo]],
+//       )
+//     return overriddenText
+//   } else {
+//     return event.target.value
+//   }
+// }
 
 //Only For voice recognition
 const findMatchedWordIndex = ({
@@ -89,7 +88,7 @@ const findMatchedWordIndex = ({
 }
 
 //Only For voice recognition
-export const getStringFromRecognition = ({
+export const getRecognitionText = ({
   correctText,
   wordsSynonyms,
   finalTranscript,
@@ -144,7 +143,7 @@ export const replayInputCheck = ({
   outputText,
   isHintShown,
   correctText,
-  mistakesCount,
+  // mistakesCount,
   setHintText,
   setIsHintShown,
   setMistakesCount,
@@ -153,10 +152,10 @@ export const replayInputCheck = ({
   outputText: string
   correctText: string
   isHintShown: boolean
-  mistakesCount: number
+  //mistakesCount: number
   setHintText: (text: string) => void
   setIsHintShown: (bool: boolean) => void
-  setMistakesCount: (count: number) => void
+  setMistakesCount: (callback: (prev: number) => number) => void
 }) => {
   const correctWordsArray = correctText.split(' ')
   const outputTextArray = outputText ? outputText.trim().split(' ') : []
@@ -179,7 +178,7 @@ export const replayInputCheck = ({
   }
 
   if (!isHintShown) {
-    setMistakesCount(mistakesCount + 1)
+    setMistakesCount(prev => prev + 1)
     setHintText(currentWord)
     setIsHintShown(true)
   }
@@ -187,13 +186,13 @@ export const replayInputCheck = ({
   return outputText
 }
 
-export const standardTextCheck = ({
+export const textCheck = ({
   inputText,
   outputText,
   currentWord,
   correctText,
   isHintShown,
-  mistakesCount,
+  // mistakesCount,
   setHintText,
   setIsHintShown,
   setMistakesCount,
@@ -203,12 +202,12 @@ export const standardTextCheck = ({
   correctText: string
   currentWord: string
   isHintShown: boolean
-  mistakesCount: number
+  //mistakesCount: number
   setHintText: (text: string) => void
   setIsHintShown: (bool: boolean) => void
-  setMistakesCount: (values: number) => void
+  setMistakesCount: (callback: (prev: number) => number) => void
 }) => {
-  const firstMarkCheck = /^[¡¿]/.test(correctText.charAt(inputText.length - 1))
+  const firstMarkCheck = /^[¡¿-]/.test(correctText.charAt(inputText.length - 1))
   const index = inputText.length + Number(firstMarkCheck)
   const isSpaceOrMark = /[.,!-]|\s/
   const isSpaceHit = /\s/.test(inputText.slice(-1))
@@ -218,6 +217,8 @@ export const standardTextCheck = ({
     .replace(/[ìíîïī]/gi, 'i')
     .replace(/[òóôöõøō]/gi, 'o')
     .replace(/[ùúûüū]/gi, 'u')
+    .replace(/[ç]/gi, 'c')
+    .replace(/[ß]/gi, 's')
     .charAt(index - 1)
 
   if (isSpaceHit && isSpaceOrMark.test(textToCompare)) {
@@ -238,9 +239,44 @@ export const standardTextCheck = ({
   }
 
   if (!isHintShown) {
-    setMistakesCount(mistakesCount + 1)
+    setMistakesCount(prev => prev + 1)
     setHintText(isSpaceOrMark.test(textToCompare) ? '(Space)' : currentWord)
     setIsHintShown(true)
   }
   return outputText
+}
+
+export const handleOnKeyDown = (
+  event: React.KeyboardEvent,
+  inputRef:
+    | React.RefObject<HTMLTextAreaElement>
+    | React.RefObject<HTMLInputElement[]>,
+) => {
+  if (
+    event.key === 'Space' &&
+    inputRef.current //&&
+    //inputRef.current.value.endsWith(' ')
+  ) {
+    event.preventDefault()
+    return
+  }
+
+  if (event.key === 'Enter') {
+    event.preventDefault()
+  }
+
+  if (event.key === 'Backspace' || event.key === 'Delete') {
+    event.preventDefault()
+    // setCorrect(true)
+  } else {
+    // setCorrect(false)
+  }
+}
+
+export const updateCompletedTasks = (commonProps: CommonProps) => {
+  const newCompletedTasks = commonProps.completedTasks
+    ? [...commonProps.completedTasks, commonProps.currentTask]
+    : [commonProps.currentTask]
+  commonProps.setCompletedTasks(newCompletedTasks)
+  commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
 }

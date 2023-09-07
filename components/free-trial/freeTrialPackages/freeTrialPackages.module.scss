@@ -14,12 +14,12 @@
     font-family: SegoeUI, sans-serif;
     margin-top: 10px;
   }
-  .close{
+  .close {
     position: absolute;
     right: 15px;
     top: 15px;
     cursor: pointer;
-    @include mobile{
+    @include mobile {
       display: none;
     }
   }
@@ -41,13 +41,14 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-padding: 0 50px;
-      div{
+      div {
         scroll-snap-align: start;
       }
       &.activeSlide {
-        transform: translateX(calc(50% - 210px/2)); /* Adjust 210px to match the width of your slide */
+        transform: translateX(
+          calc(50% - 210px / 2)
+        ); /* Adjust 210px to match the width of your slide */
       }
-
     }
   }
   .agreement {
@@ -108,4 +109,3 @@
     }
   }
 }
-

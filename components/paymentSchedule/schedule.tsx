@@ -26,8 +26,8 @@ function Schedule() {
 
   useEffect(() => {
     const nextDates: string[] = []
-    let nextDate = new Date(currentDate)
-    let number: number[] = []
+    const nextDate = new Date(currentDate)
+    const number: number[] = []
 
     for (let i = 1; i <= duration; i++) {
       nextDates.push(nextDate.toISOString().split('T')[0])

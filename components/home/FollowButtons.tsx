@@ -24,7 +24,9 @@ export const FollowButtons: FC<Props> = ({ color = 'white', dashboard }) => {
             href={FOLLOW_NETWORKS[label]}
             key={label}
             className={classNames(style.followButton, style[label])}
-          />
+          >
+            Social Networks
+          </a>
         ))}
       </div>
     </div>
