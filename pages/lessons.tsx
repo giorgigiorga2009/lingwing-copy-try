@@ -26,7 +26,6 @@ import RegistrationReminderPopup from '@components/lessons/reg-reminder-pop-up/R
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 
-
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
   const [currentTask, setCurrentTask] = useState<TaskData>()
@@ -230,15 +229,22 @@ const Lessons: NextPage = () => {
       }
     : null
 
-    const isUserLoggedIn = !!token;
-    
+  const isUserLoggedIn = !!token
+
   return (
     <div className={style.container}>
       <Header size="s" />
 
-      { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
-        <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={1000} languageTo={languageTo} languageFrom={languageFrom} />
-      </div> }
+      {!isUserLoggedIn && completedTasks?.length === 1 && (
+        <div className={style.regReminder}>
+          <RegistrationReminderPopup
+            completedTasks={completedTasks.length}
+            totalTasksAmount={1000}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+          />
+        </div>
+      )}
 
       <BackgroundParrot />
       {!isSoundChecked && (

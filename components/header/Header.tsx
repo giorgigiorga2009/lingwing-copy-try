@@ -14,7 +14,6 @@ import loggers from '@components/loggers'
 
 //import { useSession, signIn, signOut } from 'next-auth/react'
 
-
 interface Props {
   size?: 's' | 'm'
   loginClassName?: string
@@ -30,7 +29,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      loggers.logError(console.error);
+      loggers.logError(console.error)
       const token = window.localStorage.getItem('authToken') as string
       const logined = token !== null
       setIsAuthenticated(logined)

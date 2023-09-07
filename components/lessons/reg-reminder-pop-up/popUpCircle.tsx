@@ -6,7 +6,7 @@ interface PopUpCircleProps {
   imageClass: string
   title?: string
   titleClass?: string
-  handleOpenLogin: () => void 
+  handleOpenLogin: () => void
 }
 
 const PopUpCircle: React.FC<PopUpCircleProps> = ({
