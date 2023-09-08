@@ -261,7 +261,7 @@ const Lessons: NextPage = () => {
     <div className={style.container}>
       <Header size="s" />
 
-      { !isUserLoggedIn && completedTasks?.length === 10 && <div className={style.regReminder}>
+      { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
         <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={courseData.info.tasksQuantity} languageTo={languageTo} languageFrom={languageFrom} />
       </div> }
 

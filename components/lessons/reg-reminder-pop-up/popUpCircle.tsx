@@ -17,12 +17,12 @@ const PopUpCircle: React.FC<PopUpCircleProps> = ({
 }) => {
   const { t } = useTranslation()
   return (
-    <div className={style.container} onClick={handleOpenLogin}>
+    <button className={style.container} onClick={handleOpenLogin}>
       <div className={style.mainPart}>
         <div className={style[imageClass]}></div>
         {title && <p className={style[titleClass || '']}>{t(title)}</p>}
       </div>
-    </div>
+      </button>
   )
 }
 
