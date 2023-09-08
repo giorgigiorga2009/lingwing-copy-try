@@ -9,6 +9,7 @@ import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import CourseInfo from '@components/about-course/CourseInfo'
 import AboutQuotes from '@components/about-course/AboutQuotes'
 import { useQuery } from 'react-query'
+import Loader from '@components/loaders/loader'
 
 const AboutCourse = () => {
   const router = useRouter()
@@ -42,11 +43,7 @@ const AboutCourse = () => {
     <div className={style.mainConainer}>
       <Header size="s" loginClassName={style.loginModal} />
       {isLoading ? (
-        <div className={style.snippet} data-title="dot-pulse">
-          <div className={style.stage}>
-            <div className={style.dotPulse}></div>
-          </div>
-        </div>
+        <Loader />
       ) : isError ? (
         <div>Error fetching course data.</div>
       ) : (

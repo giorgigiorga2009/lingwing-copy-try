@@ -50,7 +50,7 @@ const Dashboard: FC = () => {
   }
   console.log(myLanguages)
 
-  const myCourse = myLanguages.map((item: Language, indexOfLang: number) => {
+  const myCourse = myLanguages?.map((item: Language, indexOfLang: number) => {
     if (indexOfLang === activeLang) {
       return (
         <div key={item._id}>
@@ -114,7 +114,7 @@ const Dashboard: FC = () => {
           </div>
         </div>
       )}
-      {myLanguages.length === 0 && !loading && <NoCourses />}
+      {myLanguages?.length === 0 && !loading && <NoCourses />}
       <Footer />
       <FollowButtons dashboard={true} />
     </div>

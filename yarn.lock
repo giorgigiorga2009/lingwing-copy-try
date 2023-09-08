@@ -36,13 +36,6 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@babel/runtime@^7.20.13":
-  version "7.22.15"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.15.tgz#38f46494ccf6cf020bd4eed7124b425e83e523b8"
-  integrity sha512-T0O+aa+4w0u06iNmapipJXMV4HoUir03hpx3/YqXXhu9xim3w+dVphjFWl1OH8NbZHw5Lbm9k45drDkgq2VNNA==
-  dependencies:
-    regenerator-runtime "^0.14.0"
-
 "@csstools/css-parser-algorithms@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@csstools/css-parser-algorithms/-/css-parser-algorithms-2.3.1.tgz#ec4fc764ba45d2bb7ee2774667e056aa95003f3a"
@@ -1242,6 +1235,11 @@ detect-node@^2.0.4, detect-node@^2.1.0:
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.1.0.tgz#c9c70775a49c3d03bc2c06d9a73be550f978f8b1"
   integrity sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==
 
+diacritics@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/diacritics/-/diacritics-1.3.0.tgz#3efa87323ebb863e6696cebb0082d48ff3d6f7a1"
+  integrity sha512-wlwEkqcsaxvPJML+rDh/2iS824jbREk6DUMUKkEaSlxdYHeS43cClJtsWglvw2RfeXGm6ohKDqsXteJ5sP5enA==
+
 diff-sequences@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-26.6.2.tgz#48ba99157de1923412eed41db6b6d4aa9ca7c0b1"
@@ -2072,6 +2070,13 @@ husky@^8.0.1:
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.3.tgz#4936d7212e46d1dea28fef29bb3a108872cd9184"
   integrity sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==
 
+i18n-iso-countries@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/i18n-iso-countries/-/i18n-iso-countries-7.6.0.tgz#4e2eac7043210a5552e7fd116b74d4f36a90b960"
+  integrity sha512-HPKjOUKS0BkjiY4ayrsuFbu7Ock++pXLs+FAOYl4WfTL5L0ploEH68fiRAP6Zev5g/jvMFt54KcPGJcb942wbg==
+  dependencies:
+    diacritics "1.3.0"
+
 ignore@^5.2.0, ignore@^5.2.4:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
@@ -2892,11 +2897,6 @@ object.values@^1.1.6:
     call-bind "^1.0.2"
     define-properties "^1.2.0"
     es-abstract "^1.22.1"
-
-oblivious-set@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/oblivious-set/-/oblivious-set-1.0.0.tgz#c8316f2c2fb6ff7b11b6158db3234c49f733c566"
-  integrity sha512-z+pI07qxo4c2CulUHCDf9lcqDlMSo72N/4rLUpRXf6fu+q8vjt8y0xS+Tlf8NTJDdTXHbdeO1n3MlbctwEoXZw==
 
 oblivious-set@1.0.0:
   version "1.0.0"
