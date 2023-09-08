@@ -3,6 +3,7 @@ import { CountryDropdown } from 'react-country-region-selector'
 import { Country, City } from 'country-state-city'
 import styles from './countrySelector.module.scss'
 import { useTranslation } from '@utils/useTranslation'
+import { fetchUserLocation } from '@utils/getUserLocation'
 
 interface CustomCity {
   name: string
@@ -24,9 +25,20 @@ const CountrySelector: React.FC<Props> = ({
   const { t } = useTranslation()
 
   useEffect(() => {
-    setCountry(defaultCountry)
+    const getUserLocation = async () => {
+        const data = await fetchUserLocation();
+        if (data) {
+            setCountry(data.country_name);
+            setCity(data.city);
+        }
+    };
+
+    getUserLocation();
+}, []);
+
+  useEffect(() => {
     setCity(defaultCity)
-  }, [defaultCountry, defaultCity])
+  }, [defaultCity])
 
   const handleCountryChange = (selectedCountry: string) => {
     setCountry(selectedCountry)
