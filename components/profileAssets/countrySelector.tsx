@@ -4,6 +4,15 @@ import { Country, City } from 'country-state-city'
 import styles from './countrySelector.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import { fetchUserLocation } from '@utils/getUserLocation'
+// import countries from 'i18n-iso-countries'
+// import 'i18n-iso-countries/langs/ka.json'
+
+// countries.registerLocale(require('i18n-iso-countries/langs/ka.json'))
+
+// const getCountryNameInGeorgian = (alpha2Code: string) => {
+//   return countries.getName(alpha2Code, 'ka', { select: 'official' })
+// }
+
 
 interface CustomCity {
   name: string
@@ -21,24 +30,22 @@ const CountrySelector: React.FC<Props> = ({
 }) => {
   const [country, setCountry] = useState(defaultCountry)
   const [city, setCity] = useState(defaultCity)
-
+  
   const { t } = useTranslation()
-
+  const translatedCityName = (name: string): string => t(name)
+  
   useEffect(() => {
     const getUserLocation = async () => {
-        const data = await fetchUserLocation();
-        if (data) {
-            setCountry(data.country_name);
-            setCity(data.city);
-        }
-    };
+      const data = await fetchUserLocation()
+      if (data) {
+        // const translatedCountry = getCountryNameInGeorgian(data.country_code)
+        setCountry(data.country_name)
+        setCity(translatedCityName(data.city) || data.city)
+      }
+    }
 
-    getUserLocation();
-}, []);
-
-  useEffect(() => {
-    setCity(defaultCity)
-  }, [defaultCity])
+    getUserLocation()
+  }, [])
 
   const handleCountryChange = (selectedCountry: string) => {
     setCountry(selectedCountry)
@@ -56,7 +63,7 @@ const CountrySelector: React.FC<Props> = ({
       const cities = City.getCitiesOfCountry(countryCode)
       return (
         cities?.map(city => ({
-          name: city.name,
+          name: translatedCityName(city.name),
           countryCode,
         })) || []
       )
