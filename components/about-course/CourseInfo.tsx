@@ -16,9 +16,9 @@ function CourseInfo({
   const { t } = useTranslation()
   let yesBubbleText = ''
   let yesBubbleTextEsp = ''
-  let parrotVar = `/../themes/images/v2/${languageTo}-parrot.png`
-  let fragVar = `/../assets/images/flags/circle/small-languageCode/${languageTo}-flag.png`
-  let bubbleVar = `/../themes/images/v2/parrot-course-bubble.png`
+  const parrotVar = `/../themes/images/v2/${languageTo}-parrot.png`
+  const fragVar = `/../assets/images/flags/circle/small-languageCode/${languageTo}-flag.png`
+  const bubbleVar = `/../themes/images/v2/parrot-course-bubble.png`
 
 
   switch (languageTo) {
