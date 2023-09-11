@@ -37,7 +37,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: lingwing_user:1
+          task-definition: arn:aws:ecs:eu-west-1:568226476789:task-definition/lingwing_user:1
           container-name: lingwing_user
           image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
