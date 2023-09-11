@@ -21,10 +21,6 @@ const User: FC = () => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false)
   //const { data: session } = useSession()
 
-  useEffect(() => {
-    handleUserProfile()
-  }, [])
-
   const handleUserProfile = () => {
     if (typeof window !== 'undefined') {
       const token = window.localStorage.getItem('authToken') as string
@@ -33,6 +29,10 @@ const User: FC = () => {
       )
     }
   }
+  useEffect(() => {
+    handleUserProfile()
+  }, [])
+
 
   return (
     <Foco
