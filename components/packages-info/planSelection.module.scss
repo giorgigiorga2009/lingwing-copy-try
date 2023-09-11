@@ -26,13 +26,13 @@
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 50%;
-  border: .3rem solid $orange-300;
+  border: 0.3rem solid $orange-300;
   background: $purple-600;
   cursor: pointer;
-  
-  &:hover{
-    transition: .1s;
-    border: .4rem solid $orange-300;
+
+  &:hover {
+    transition: 0.1s;
+    border: 0.4rem solid $orange-300;
   }
 }
 
@@ -62,7 +62,6 @@
 .premiumHeader {
   flex: 0 0 40%;
 }
-
 
 .rocketParrot {
   position: absolute;

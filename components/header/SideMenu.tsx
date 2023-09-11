@@ -63,7 +63,7 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         className={styles.container}
         onClickOutside={onClose}
       >
-        <div className={styles.button} onClick={onClose} />
+        <button className={styles.button} onClick={onClose} />
         <div className={styles.content}>
           <div className={styles.menu}>
             <Section
@@ -94,11 +94,15 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
               <a
                 className={classNames(styles.market, styles.apple)}
                 href="https://play.google.com/store/apps/details?id=org.android.lingwing.app"
-              />
+              >
+                Android App
+              </a>
               <a
                 className={classNames(styles.market, styles.google)}
                 href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755"
-              />
+              >
+                iOS App
+              </a>
             </div>
           </div>
         </div>

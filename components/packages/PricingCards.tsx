@@ -33,12 +33,19 @@ const PricingCards: FC<{ showPackages: number[]; coupon: string }> = ({
   // const [selectedCurrency, setSelectedCurrency] = useState(0)
   const [currentCard, setCurrentCard] = useState(0)
 
-
   useEffect(() => {
     if (!router.isReady) return
-    getPackages(coupon === '' ? getCoupon : coupon).then(response => {
-      setPackagesData(response)
-    })
+
+    const fetchData = async () => {
+      try {
+        const response = await getPackages(coupon === '' ? getCoupon : coupon)
+        setPackagesData(response)
+      } catch (err) {
+        console.error('Error fetching packages:', err)
+      }
+    }
+
+    fetchData()
   }, [router.isReady, coupon])
 
   if (!packagesData) return null

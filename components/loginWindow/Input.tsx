@@ -13,8 +13,12 @@ export const Input: FC<Props> = ({
   type,
   placeholder,
   value,
-  onChange = () => {},
-  onBlur = () => {},
+  onChange = () => {
+    ('')
+  },
+  onBlur = () => {
+    ('')
+  },
 }) => {
   return (
     <input

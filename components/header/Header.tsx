@@ -30,7 +30,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      loggers.logError(console.error);
+      // loggers.logError(console.error);'
       const token = window.localStorage.getItem('authToken') as string
       const logined = token !== null
       setIsAuthenticated(logined)
@@ -42,7 +42,10 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   return (
     <header className={classNames(style.header, style[size])}>
       <div className={style.leftBlock}>
-        <div className={style.button} onClick={() => setOpenSideMenu(true)} />
+        <button
+          className={style.button}
+          onClick={() => setOpenSideMenu(true)}
+        />
         <Link href="/" className={style.logo_link}>
           <div className={style.logo} />
         </Link>
@@ -70,12 +73,12 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         ) : (
           <div className={style.authorization_box}>
             <UserAvatar />
-            <div
+            <button
               className={style.singInButton}
               onClick={() => setOpenLogin(true)}
             >
               {t('AUTH_SIGN_IN')}
-            </div>
+            </button>
           </div>
         )}
       </div>

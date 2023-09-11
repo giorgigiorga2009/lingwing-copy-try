@@ -16,10 +16,10 @@ export const LANGUAGES_TO = [
   'eng',
   'esp',
   'geo',
-  'rus',
   'fre',
   'deu',
   'ita',
+  'rus',
 ] as const
 
 export const LANGUAGES_TO_LOCALES = {

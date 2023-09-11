@@ -31,7 +31,7 @@
 
 // export default Coupon
 
-import { FC, SetStateAction, useState } from 'react'
+import { FC, useState } from 'react'
 import style from './Coupon.module.scss'
 import { CouponButton } from './CouponButton'
 import { useTranslation } from '../../utils/useTranslation'

@@ -31,6 +31,7 @@
 .faq {
   &__question {
     display: flex;
+    border: none;
     border-bottom: 0.1rem solid $white-100;
     color: $purple-500;
     justify-content: space-between;
@@ -38,6 +39,8 @@
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
+    width: 100%;
+    background: none;
 
     @include mobile {
       font-size: 0.9rem;

@@ -302,5 +302,16 @@
   "REG_REMINDER_INITIATION":  "გაცნობა",
   "REG_REMINDER_REGISTRATION": "რეგისტრაცია",
   "REG_REMINDER_BONUS": "ბონუსი",
-  "REG_REMINDER_PREMIUM":  "პრემიუმი"
+  "REG_REMINDER_PREMIUM":  "პრემიუმი",
+
+  "Tbilisi": "თბილისი",
+    "Batumi": "ბათუმი",
+    "Sach-Khere": "საჩხერე",
+    "Kutaisi": "ქუთაისი",
+    "Gori": "გორი",
+    "Rustavi": "რუსთავი",
+    "Zugdidi": "ზუგდიდი",
+    "Telavi": "თელავი",
+    "Poti": "ფოთი",
+    "Khashuri": "ხაშური"
 }

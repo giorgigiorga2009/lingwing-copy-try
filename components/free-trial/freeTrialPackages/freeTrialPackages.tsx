@@ -23,24 +23,31 @@ const FreeTrialPackages = () => {
         console.error('An error occurred:', err)
       }
     }
-
     fetchData()
   }, [])
 
-  const packages = data?.packages ?? [];
-  const identifier = packages[0]?.currency[0]._id.symbol!;
-  const filteredPackages = packages.filter((_, index) => index !== 0);
+  const packages = data?.packages ?? []
+  const identifier = packages[0]?.currency[0]._id.symbol
+  const filteredPackages = packages.filter((_, index) => index !== 0)
+
   const handleCheckboxClick = () => {
-    setIsChecked(!isChecked);
-  };
+    setIsChecked(!isChecked)
+  }
   const handlePackageClicked = () => {
-    setPackageClicked(true);
-  };
+    setPackageClicked(true)
+  }
+
   return (
     <div className={style.trialPackagesContainer}>
       <h2 className={style.title}>{t('APP_FREE_TRIAL2_TITLE')}</h2>
       <Link href="/dashboard">
-        <Image className={style.close} src={close.src} alt="close" width={20} height={20} />
+        <Image
+          className={style.close}
+          src={close.src}
+          alt="close"
+          width={20}
+          height={20}
+        />
       </Link>
       <div className={style.sliderContainer}>
         <div className={style.carousel}>
@@ -62,7 +69,15 @@ const FreeTrialPackages = () => {
       <div className={style.agreement}>
         <label className={style.checkLabel}>
           <input type="checkbox" onClick={handleCheckboxClick} />
-          <div className={style.checkmark} style={{ border: (isChecked || packageClicked) && !isChecked ? '2px solid red' : '' }}></div>
+          <div
+            className={style.checkmark}
+            style={{
+              border:
+                (isChecked || packageClicked) && !isChecked
+                  ? '2px solid red'
+                  : '',
+            }}
+          ></div>
         </label>
         <p>
           {t('APP_AGREE_LICENSE_1') + ' '}
@@ -74,4 +89,4 @@ const FreeTrialPackages = () => {
     </div>
   );
 };
-export default FreeTrialPackages;
+export default FreeTrialPackages

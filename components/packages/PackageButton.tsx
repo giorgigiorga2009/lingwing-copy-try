@@ -30,21 +30,26 @@ interface Props {
   packageId: string
 }
 
-export const PackageButton: FC<Props> = ({ type, onClick, packageId, index }) => {
+export const PackageButton: FC<Props> = ({
+  type,
+  onClick,
+  packageId,
+  index,
+}) => {
   const { t } = useTranslation()
-  const pathname = index === 0 ? '/packages-info' : '/payment';
-  const query = index === 0 
-  ? undefined 
-  : {
-      id: packageId,
-      ...(couponValue ? { coupon: couponValue } : {}),
-    };
+  const pathname = index === 0 ? '/packages-info' : '/payment'
+  const query =
+    index === 0
+      ? undefined
+      : {
+          id: packageId,
+          ...(couponValue ? { coupon: couponValue } : {}),
+        }
   return (
     <Link
       href={{
         pathname,
-        ...(query && { query })
-       
+        ...(query && { query }),
       }}
     >
       <button onClick={onClick} className={style[type]}>

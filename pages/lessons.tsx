@@ -23,6 +23,9 @@ import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
 
 import RegistrationReminderPopup from '@components/lessons/reg-reminder-pop-up/RegistrationReminderPopup'
+import { getReadCourse } from '@utils/getReadCourse'
+import { LOCALES_TO_LANGUAGES } from '@utils/languages'
+import { useQuery } from 'react-query'
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 
@@ -230,14 +233,36 @@ const Lessons: NextPage = () => {
       }
     : null
 
+    // for tasks quantity only 
     const isUserLoggedIn = !!token;
+
+    const currentLanguage =
+    router.locale &&
+    LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
+
+    const fetchCourseData = async () => {
+      if (currentLanguage && courseName) {
+        try {
+          const data = await getReadCourse(currentLanguage, courseName)
+          return data
+        } catch (error) {
+          throw new Error(String(error))
+        }
+      }
+    }
     
+  const {
+    data: courseData,
+  } = useQuery(['courseData', currentLanguage, courseName], fetchCourseData)
+    ///
+
+
   return (
     <div className={style.container}>
       <Header size="s" />
 
       { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
-        <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={1000} languageTo={languageTo} languageFrom={languageFrom} />
+        <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={courseData.info.tasksQuantity} languageTo={languageTo} languageFrom={languageFrom} />
       </div> }
 
       <BackgroundParrot />

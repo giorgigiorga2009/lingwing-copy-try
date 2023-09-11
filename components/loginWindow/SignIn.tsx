@@ -54,7 +54,7 @@ export const SignIn: FC<Props> = ({
         {!isPasswordValid && <ShowErr ErrText={t('AUTH_PASSWORD_NOT_VALID')} />}
       </div>
       <div className={style.bottomWrapper}>
-        <a className={style.forgotPasswordLink}>{t('AUTH_FORGET_PASSWORD')}</a>
+        {/* <a className={style.forgotPasswordLink}>{t('AUTH_FORGET_PASSWORD')}</a> */}
         <AuthButton
           title={t('AUTH_SIGN_IN')}
           onClick={() => isEmailValid && isPasswordValid && signIn()}

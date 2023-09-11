@@ -25,7 +25,7 @@ const Scores: React.FC<ScoresProps> = ({
         />
         <div className={style.bubbleContainer}>
           <p className={style.totalPractitionersNum}>
-            {studyingTheCourse.toLocaleString('en-US')}
+            {studyingTheCourse?.toLocaleString('en-US')}
           </p>
           <p
             className={style.peoplePracticing}
@@ -48,7 +48,7 @@ const Scores: React.FC<ScoresProps> = ({
           dangerouslySetInnerHTML={{ __html: t('ABOUT_COURSE_TOP_SCORES') }}
         />
         <div className={style.topUsers}>
-          {top.map((data, index) => {
+          {top?.map((data, index) => {
             const length = initialLength - index * 10
             return (
               <LeaderBoard key={data.position} data={data} length={length} />

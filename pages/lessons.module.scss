@@ -195,18 +195,17 @@
 }
 
 .regReminder {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(5px); 
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px); 
   z-index: 9999; 
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-  animation: fadeInBlur .5s forwards;
+  animation: fadeInBlur .8s forwards;
+  -webkit-overflow-scrolling: touch;
 
 }
 
