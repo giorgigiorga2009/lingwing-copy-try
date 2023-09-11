@@ -40,6 +40,7 @@ jobs:
           task-definition: lingwing_user:1
           container-name: lingwing_user
           image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
