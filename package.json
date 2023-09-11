@@ -48,6 +48,7 @@
     "react-transition-group": "^4.4.5",
     "regenerator-runtime": "^0.13.11",
     "sweetalert2": "^11.7.23",
+    "swr": "^2.2.2",
     "tone": "^14.8.49",
     "waves-ui": "wavesjs/ui",
     "wavesurfer.js": "^6.4.0",

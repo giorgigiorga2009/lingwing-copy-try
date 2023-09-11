@@ -40,7 +40,7 @@ export const SIDE_MENU_LINKS = {
   menuBlog: ['https://blog.lingwing.com', '', ''],
   Jobs: ['/about-company', 'page', 'jobs'],
   menuLicenseAgreement: ['/licensing-agreement', '', ''],
-  menuPrivacyPolicy: ['/privacy', '', ''],
+  menuPrivacyPolicy: ['/privacy-policy', '', ''],
 } as const
 
 export const COURSES_KEYS: SideMenuKeys[] = [
