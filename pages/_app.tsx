@@ -6,9 +6,7 @@ import type { AppProps } from 'next/app'
 import { IntlProvider } from 'react-intl'
 import { Locale, messages } from '@utils/localization'
 import { SessionProvider } from 'next-auth/react'
-import { QueryClient, QueryClientProvider } from 'react-query'
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  const queryClient = new QueryClient()
   const { locale: initialLocale } = useRouter()
   const locale = initialLocale ? initialLocale : 'en'
 
@@ -29,9 +27,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         })(document);`}
       </Script>
       <SessionProvider session={session}>
-        <QueryClientProvider client={queryClient}>
           <Component {...pageProps} />
-        </QueryClientProvider>
       </SessionProvider>
     </IntlProvider>
   )
