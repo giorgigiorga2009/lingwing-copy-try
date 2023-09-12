@@ -9,9 +9,9 @@
   align-items: center;
   justify-content: space-between;
   .Image {
-    margin-top: 40px;
-    width: 130px;
-    height: 130px;
+    margin-top: 3rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     border: 3px solid #692e96;
     background-color: #d9d9d9;
@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: center;
   }
+  
   input[type='file'] {
     display: none;
   }
