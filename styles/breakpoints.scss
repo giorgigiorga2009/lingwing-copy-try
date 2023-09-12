@@ -7,6 +7,8 @@ $small_desktop_height: 900px;
 $small_height: 650px;
 $height_800: 800px;
 
+
+
 @mixin smallWidth {
   @media (max-width: $super_small) {
     @content;

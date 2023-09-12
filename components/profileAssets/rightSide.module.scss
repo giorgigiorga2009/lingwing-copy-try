@@ -3,7 +3,7 @@
 .rightContainer {
   background-color: $white;
   width: 50%;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0rem 1.25rem 1.25rem 0rem;
   height: 100%;
   display: flex;
   align-items: center;
@@ -20,11 +20,11 @@
     background-color: $google;
   }
   .socialLinks {
-    width: 100%;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    height: 50px;
     flex-wrap: wrap;
     row-gap: 20px;
     padding: 0px 90px 120px 90px;
@@ -35,6 +35,7 @@
       padding: 0px 10px 120px 10px;
     }
   }
+  
   .switches {
     width: 65%;
     height: 50px;
@@ -130,18 +131,23 @@
     }
   }
   button {
-    position: absolute;
-    bottom: -105px;
-    right: 0;
-    padding: 0px 20px;
-    height: 47px;
-    border: 50px;
+    // position: absolute;
+    // bottom: -105px;
+    // right: 0;
+    margin-top: 2rem;
+    // width: 50%;
+    // padding: 0px 1.5rem;
+    height: 2rem;
+    // border: none;
     background-color: $purple-600;
     color: $white-100;
     font-family: SegoeUI, 'sans-serif';
     font-size: 18px;
-    border-radius: 50px;
+    border-radius: 1rem;
     cursor: pointer;
+    @include mobile{
+      width: 100%;
+    }
   }
   @include mobile {
     width: 100%;
@@ -151,6 +157,7 @@
     }
     .agree {
       justify-content: center;
+      width: 90%;
     }
   }
 }
