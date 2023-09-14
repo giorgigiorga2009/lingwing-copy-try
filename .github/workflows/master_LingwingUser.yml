@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_f7f033713aa14a92962a22846661284b }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_ddded4362d4e47f59fbed3a94e9ea4f9 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_d4e68453be2e48e5a5ccbced377054cc }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_2b487f7f820b4979a86fe4094fd31e9d }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_f7f033713aa14a92962a22846661284b }}/soundma/lingwinguser:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d4e68453be2e48e5a5ccbced377054cc }}/soundma/lingwing-new-front:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'LingwingUser'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_14d5666c13b849ae87d700273968a9ab }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_f7f033713aa14a92962a22846661284b }}/soundma/lingwinguser:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ccfe4da884904896abccfe81a01b7828 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d4e68453be2e48e5a5ccbced377054cc }}/soundma/lingwing-new-front:${{ github.sha }}'
