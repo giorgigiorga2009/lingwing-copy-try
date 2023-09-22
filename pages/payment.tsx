@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { useTranslation } from '@utils/useTranslation'
@@ -20,11 +20,13 @@ import PaymentOption from '@components/payment/PaymentOption'
 import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
+import useStore from '@utils/store'
+
 
 const Payment: React.FC<PaymentProps> = () => {
   const { t } = useTranslation()
   const router = useRouter()
-  const [selectedCurrency, setSelectedCurrency] = useState<number>(0)
+  const selectedCurrency = useStore(state => state.selectedCurrency)
   const [payWithListData, setPayWithListData] = useState<PaymentMethod[]>([])
   const [data, setData] = useState<PackageResponse>()
   const { id, coupon } = router.query

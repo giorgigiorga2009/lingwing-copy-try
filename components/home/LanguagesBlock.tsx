@@ -41,8 +41,8 @@ const LanguageTile: FC<Props> = ({ language }) => {
 export const LanguagesBlock: FC = () => {
   return (
     <div className={style.block}>
-      {LANGUAGES_TO.map(language => (
-        <div className={style.item}>
+      {LANGUAGES_TO.map((language, key) => (
+        <div className={style.item} key={key}>
           <LanguageTile  language={language} key={language} />
         </div>
       ))}

@@ -3,9 +3,12 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import ActionBtns from './ActionBtns'
 import style from './MySubCourse.module.scss'
+import Image from 'next/image'
 import { useTranslation } from '../../utils/useTranslation'
+import CertificateBtn from './certificateBtn'
 
 interface SubCourseProps {
+  certificate: boolean
   name: string
   _id: string
   percent: string
@@ -70,11 +73,15 @@ const MySubCourse: FC<Props> = ({
             query: { languageTo, languageFrom, courseName },
           }}
         >
-          <button className={style.start_course_btn}>
-            {subCourse.status.continue
-              ? t('APP_GENERAL_CONTINUE')
-              : subCourse.status.start && t('startButton')}
-          </button>
+          {subCourse.certificate ? (
+           <CertificateBtn/>
+          ) : (
+            <button className={style.start_course_btn}>
+              {subCourse.status.continue
+                ? t('APP_GENERAL_CONTINUE')
+                : subCourse.status.start && t('startButton')}
+            </button>
+          )}
         </Link>
       </div>
     </>

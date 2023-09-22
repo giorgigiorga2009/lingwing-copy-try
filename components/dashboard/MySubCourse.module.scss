@@ -128,6 +128,7 @@
   }
 
   .start_course_btn {
+    position: relative;
     border: 0.125rem solid $orange-500;
     border-radius: 1.25rem;
     color: $white;
@@ -157,4 +158,5 @@
       width: 100%;
     }
   }
+  
 }
