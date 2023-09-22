@@ -8,6 +8,9 @@
     transform: translateY(170%);
     pointer-events: none;
     transition: all 0.3s ease; // Add a transition for smooth movement
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
   .labelTop {
     transform: translateY(0);

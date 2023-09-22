@@ -3,7 +3,7 @@
 .leftContainer {
   width: 50%;
   background-color: $white-100;
-  padding: 1rem 3.5rem;
+  padding: 0rem 3.5rem;
   border-radius: 20px 0px 0px 20px;
 
   & > div {
@@ -36,6 +36,10 @@
       color: $grey-800;
       left: 27px;
       top: -27px;
+
+      &:lang(ka) {
+        font-family: $kaFont;
+      }
     }
   }
   .birthDate {
@@ -44,19 +48,28 @@
   }
   .gender {
     width: 100%;
-    height: 3rem;
+    height: 2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    justify-content: space-around;
+    gap: 1rem;
     padding-right: 1rem;
     margin-top: 1.2rem;
 
     label {
       position: static;
-      font-size: .8rem;
+      font-size: .9rem;
       cursor: pointer;
+      transition: background-image .2s ease-in-out;
+      
+      @include smallWidth{
+        font-size: .7rem;
+      }
+      @include tablet{
+        font-size: .8rem;
+      }
     }
+
     .maleLabel{
       background-image: url('/assets/images/icons8-male-50.png');
       background-repeat: no-repeat;
@@ -71,15 +84,15 @@
       background-position: 0rem 0rem;
       padding-left: 1rem;
     }
-    .femaleLabelActive{
-      background-image: url('/assets/images/icons8-woman-50.png');
+    .femaleLabel{
+      background-image: url('/assets/images/icons8-woman-50-active.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 0rem 0rem;
       padding-left: 1rem;
     }
-    .femaleLabel{
-      background-image: url('/assets/images/icons8-woman-50-active.png');
+    .femaleLabelActive{
+      background-image: url('/assets/images/icons8-woman-50.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 0rem 0rem;

@@ -15,6 +15,10 @@
     border: 1px solid $grey-800;
     font-family: SegoeUI, 'sans-serif';
     padding: 6px 10px;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
     
   }
   .select1 {

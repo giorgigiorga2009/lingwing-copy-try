@@ -1,15 +1,19 @@
 @import '@styles/imports.scss';
 
 .container {
-  width: 200px;
-  height: 230px;
   display: flex;
   position: relative;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 210px;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
   .Image {
-    margin-top: 3rem;
+    margin-top: 2rem;
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
@@ -34,8 +38,6 @@
     color: $grey-800;
   }
   & .btn {
-    position: absolute;
-    top: 225px;
     z-index: 2;
     color: $grey-800;
     width: 203px;
@@ -47,12 +49,16 @@
     align-items: center;
     justify-content: center;
     border: 2px solid $purple-600;
+    cursor: pointer;
+    border-radius: 20px;
+
     &:hover {
       background-color: $purple-600;
       color: $white;
     }
-    cursor: pointer;
-    border-radius: 20px;
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
   .resizableBox {
     position: absolute;
