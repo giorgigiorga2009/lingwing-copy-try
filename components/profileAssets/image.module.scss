@@ -25,6 +25,9 @@
     align-items: center;
     justify-content: center;
   }
+  label{
+    cursor: pointer;
+  }
   
   input[type='file'] {
     display: none;

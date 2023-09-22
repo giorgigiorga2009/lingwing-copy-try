@@ -99,7 +99,7 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
            onChange={() => setGender(1)}
           />
 
-          <label htmlFor="male" className={gender === 1 ? style.maleLabelActive : style.maleLabel}>
+          <label htmlFor="male" className={gender === 1 ? style.maleLabelActive : style.maleLabel} data-text={t('APP_PROFILE_MALE')}>
             {t('APP_PROFILE_MALE')}
             </label>
 
