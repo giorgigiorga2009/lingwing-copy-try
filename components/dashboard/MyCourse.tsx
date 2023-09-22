@@ -13,6 +13,7 @@ interface Course {
 }
 
 interface SubCourse {
+  certificate: boolean
   name: string
   _id: string
   percent: string

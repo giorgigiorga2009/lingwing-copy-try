@@ -25,6 +25,10 @@
     align-items: center;
     justify-content: center;
   }
+  label{
+    cursor: pointer;
+    color: $grey-800;
+  }
   
   input[type='file'] {
     display: none;

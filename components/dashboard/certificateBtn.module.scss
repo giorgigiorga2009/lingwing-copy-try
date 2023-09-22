@@ -1,0 +1,57 @@
+@import '@styles/imports';
+
+.container{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.certificateButton {
+    border: 0.125rem solid $orange-500;
+    border-radius: 1.25rem;
+    color: $white;
+    background-color: $orange-500;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.4375rem 2rem 0.4375rem 1.25rem;
+    transition: all 0.2s linear;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing:.02rem;
+   
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
+
+    &:hover {
+      border-color: $orange-450;
+      background-color: $orange-450;
+      transform: translateY(-0.0313rem);
+      box-shadow: 0 0.125rem 0.625rem rgba($black, 0.08);
+    }
+
+    @include mobile {
+      padding: 0.3rem 1.8rem 0.3rem 0.8rem;
+    }
+
+    @include smallWidth {
+      width: 100%;
+    }
+  }
+  .imgContainer{
+      position: absolute;
+      right: -2rem;
+      @include mobile{
+        right: -1rem;
+      }
+  }
+  
+  .img{
+    width: 4rem;
+    height: 4rem;
+    @include mobile{
+        width: 3rem;
+        height: 3rem;
+    }
+  }
+  
