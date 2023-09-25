@@ -4,6 +4,11 @@
     position: relative;
     display: flex;
     align-items: center;
+    transition: all 0.2s linear;
+
+    &:hover{
+      transform: translateY(-0.0313rem);
+    }
 }
 
 .certificateButton {
@@ -26,7 +31,6 @@
     &:hover {
       border-color: $orange-450;
       background-color: $orange-450;
-      transform: translateY(-0.0313rem);
       box-shadow: 0 0.125rem 0.625rem rgba($black, 0.08);
     }
 
