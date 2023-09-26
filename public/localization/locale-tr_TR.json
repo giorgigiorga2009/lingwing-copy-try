@@ -165,6 +165,7 @@
 
   "APP_HEADER_MENU_ITEM13": "Çıkış yap",
   "APP_HEADER_MENU_ITEM14": "Hesabım",
+  "APP_HEADER_PAYMENTS":  "Ödemeler",
 
   "ABOUT_COURSE_OPT_OUT_YES": "Evet",
   "ABOUT_COURSE_START_LEARNING": "Okumaya başlamak",
@@ -274,6 +275,21 @@
   "REG_REMINDER_INITIATION": "Tanışmak",
   "REG_REMINDER_REGISTRATION": "Yeni bir hesap aç",
   "REG_REMINDER_BONUS": "Bonus",
-  "REG_REMINDER_PREMIUM": "Premyum"
-  
+  "REG_REMINDER_PREMIUM": "Premyum",
+
+
+  "CERTIFICATE_DOWNLOAD": "Sertifikayı İndir",
+
+
+  "PAYMENTS_STATS_REMAINING": "Kalan prim günleri",
+  "PAYMENTS_STATS_TESTS": "Satın alınan testler",
+  "PAYMENTS_STATS_TASKS": "Görevler",
+  "PAYMENTS_STATS_YOUR_CARD": "Senin kartın",
+  "PAYMENTS_STATS_ADD_CARD": "Kart ekle",
+  "PAYMENTS_STATS_HISTORY": "İşlem geçmişi",
+  "PAYMENTS_STATS_PRODUCT": "Ürün",
+  "PAYMENTS_STATS_STATUS": "Durum",
+  "PAYMENTS_STATS_METHOD": "Yöntem",
+  "PAYMENTS_STATS_AMOUNT": "Miktar",
+  "PAYMENTS_STATS_PAYMENT_DATE": "Ödeme tarihi"
 }

@@ -188,8 +188,9 @@
   "APP_DASHBOARD_EMPTY_PARAGRAPH_1": "Oops, you have not started any course yet",
   "APP_DASHBOARD_EMPTY_PARAGRAPH_2": "Click the button below to get your journey started.",
 
-   "APP_HEADER_MENU_ITEM13": "Logout",
+  "APP_HEADER_MENU_ITEM13": "Logout",
   "APP_HEADER_MENU_ITEM14": "My Account",
+  "APP_HEADER_PAYMENTS": "Payments",
 
 
 
@@ -302,6 +303,22 @@
   "REG_REMINDER_INITIATION": "Inititaion",
   "REG_REMINDER_REGISTRATION": "Registration",
   "REG_REMINDER_BONUS": "Bonus",
-  "REG_REMINDER_PREMIUM": "Premium"
+  "REG_REMINDER_PREMIUM": "Premium",
+
+  
+  "CERTIFICATE_DOWNLOAD": "Download Certificate",
+
+
+  "PAYMENTS_STATS_REMAINING": "The remaining premium days",
+  "PAYMENTS_STATS_TESTS": "Bought tests",
+  "PAYMENTS_STATS_TASKS": "Tasks",
+  "PAYMENTS_STATS_YOUR_CARD": "Your card",
+  "PAYMENTS_STATS_ADD_CARD": "Add card",
+  "PAYMENTS_STATS_HISTORY": "Transaction history",
+  "PAYMENTS_STATS_PRODUCT": "Product",
+  "PAYMENTS_STATS_STATUS": "Status",
+  "PAYMENTS_STATS_METHOD": "Method",
+  "PAYMENTS_STATS_AMOUNT": "Amount",
+  "PAYMENTS_STATS_PAYMENT_DATE": "Payment Date"
 
 }

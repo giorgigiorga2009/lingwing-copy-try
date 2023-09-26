@@ -1,11 +1,30 @@
 @import '@styles/imports';
 
 ._HFont {
+  display: flex;
+  column-gap: 3.5rem; //html2pdf mixes georgian letters to each other if rem is smaller than 3.5rem
   color: #2c0c49;
   font-family: 'CalibriRegular';
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 1rem;
+}
+.certificateWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  .downloadButton {
+    padding: .6rem 1.2rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: .3rem;
+    color: $white;
+    cursor: pointer;
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
 }
 
 .certificateBody {

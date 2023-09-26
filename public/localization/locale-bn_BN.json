@@ -110,6 +110,7 @@
 
   "APP_HEADER_MENU_ITEM13": "লগআউট",
   "APP_HEADER_MENU_ITEM14": "আমার একাউন্ট",
+  "APP_HEADER_PAYMENTS": "পেমন্ট",
 
 
 
@@ -224,5 +225,21 @@
   "REG_REMINDER_INITIATION": "দীক্ষা",
   "REG_REMINDER_REGISTRATION": "নিবন্ধন",
   "REG_REMINDER_BONUS": "বোনাস",
-  "REG_REMINDER_PREMIUM":  "প্রিমিয়াম"
+  "REG_REMINDER_PREMIUM":  "প্রিমিয়াম",
+
+
+  "CERTIFICATE_DOWNLOAD": "সার্টিফিকেট ডাউনলোড করুন",
+
+
+  "PAYMENTS_STATS_REMAINING": "প্রিমিয়াম দিন বাকি আছে",
+  "PAYMENTS_STATS_TESTS": "ক্রয়কৃত পরীক্ষা",
+  "PAYMENTS_STATS_TASKS": "কাজ",
+  "PAYMENTS_STATS_YOUR_CARD": "আপনার কার্ড",
+  "PAYMENTS_STATS_ADD_CARD": "কার্ড যোগ করুন",
+  "PAYMENTS_STATS_HISTORY": "লেনদেনের ইতিহাস",
+  "PAYMENTS_STATS_PRODUCT": "কাজ",
+  "PAYMENTS_STATS_STATUS": "স্ট্যাটাস",
+  "PAYMENTS_STATS_METHOD": "পদ্ধতি",
+  "PAYMENTS_STATS_AMOUNT": "পরিমাণ",
+  "PAYMENTS_STATS_PAYMENT_DATE": "পেমন্ট তারিখ"
 }

@@ -193,6 +193,7 @@
 
   "APP_HEADER_MENU_ITEM13": "გამოსვლა",
   "APP_HEADER_MENU_ITEM14": "პროფილი",
+  "APP_HEADER_PAYMENTS": "გადახდები",
 
 
 
@@ -416,6 +417,22 @@
   "Vani" : "ვანი",
   "Zestap’oni" : "ზესტაფონი",
   "Zhinvali" : "ჟინვალი",
-  "Zugdidi" : "ზუგდიდი"
+  "Zugdidi" : "ზუგდიდი",
+
+
+  "CERTIFICATE_DOWNLOAD": "ჩამოტვირთეთ სერთიფიკატი",
+
+
+  "PAYMENTS_STATS_REMAINING":  "დარჩენილი პრემიუმ დღეები",
+  "PAYMENTS_STATS_TESTS": "ნაყიდი ტესტები",
+  "PAYMENTS_STATS_TASKS": "დავალებები",
+  "PAYMENTS_STATS_YOUR_CARD": "ბარათი",
+  "PAYMENTS_STATS_ADD_CARD": "ბარათის დამატება",
+  "PAYMENTS_STATS_HISTORY": "ტრანზაქციების ისტორია",
+  "PAYMENTS_STATS_PRODUCT": "პროდუქტი",
+  "PAYMENTS_STATS_STATUS": "სტატუსი",
+  "PAYMENTS_STATS_METHOD": "მეთოდი",
+  "PAYMENTS_STATS_AMOUNT": "თანხა",
+  "PAYMENTS_STATS_PAYMENT_DATE":  "გადახდის თარიღი"
 
 }

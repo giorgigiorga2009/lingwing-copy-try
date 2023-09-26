@@ -1,0 +1,126 @@
+@import '@styles/imports';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-image: url('/assets/images/wizard/parrot.png');
+  background-repeat: no-repeat;
+  background-position: top 10% left;
+  height: 100%;
+  width: 100%;
+  background-color: $white-50;
+}
+
+.containerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 10rem;
+}
+.payments {
+  color: $black-600;
+  font-weight: bold;
+  font-size: 2.6rem;
+  font-family: 'BPG Nino Mtavruli';
+  margin-bottom: 2rem;
+
+  @include mobile{
+    font-size: 2rem;
+  }
+}
+.container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  row-gap: 2rem;
+  flex-direction: column;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  @include desktop {
+    width: 55rem;
+  }
+
+  @include mobile {
+    width: 95%;
+  }
+
+}
+.cross{
+  position: absolute;
+  right: 1.4rem;
+  top: 1rem;
+  font-size: 1.75rem;
+  color: rgba(0,0,0,.3);
+  cursor: pointer;
+
+  @include mobile{
+    font-size: 1.2rem;
+  }
+}
+
+.firstRow {
+  display: flex;
+  flex-direction: column;
+
+  @include smallWidth{
+    margin-top: 2rem;
+  }
+  .firstRowContent {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 4rem;
+    color: $grey-800;
+    font-size: 0.9rem;
+    line-height: 1.4;
+
+    .statsNum {
+      font-weight: bold;
+    }
+  }
+}
+
+.subTitle {
+  color: $orange-500;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.secondRow {
+  display: flex;
+  row-gap: 2rem;
+  flex-direction: column;
+  border-top: 0.1px solid $white-310;
+  width: 100%;
+  padding: 1rem 0;
+  button {
+    width: fit-content;
+    border: none;
+    background-color: transparent;
+    color: $denimBlue;
+    cursor: pointer;
+  }
+}
+
+.thirdRow {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  border-top: 1px solid $white-310;
+  padding: 1rem 0;
+  width: 100%;
+  .history {
+    position: relative;
+    display: flex;
+    column-gap: 4rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
