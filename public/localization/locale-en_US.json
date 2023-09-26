@@ -305,6 +305,10 @@
   "REG_REMINDER_BONUS": "Bonus",
   "REG_REMINDER_PREMIUM": "Premium",
 
+  
+  "CERTIFICATE_DOWNLOAD": "Download Certificate",
+
+
   "PAYMENTS_STATS_REMAINING": "The remaining premium days",
   "PAYMENTS_STATS_TESTS": "Bought tests",
   "PAYMENTS_STATS_TASKS": "Tasks",

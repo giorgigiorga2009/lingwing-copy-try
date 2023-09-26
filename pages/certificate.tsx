@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { getCertificate } from '@utils/getCertificate'
 import style from '@pages/certificate.module.scss'
 import Image from 'next/image'
@@ -11,10 +11,9 @@ import bulletLineImage from '/public/themes/images/v2/certificate/bullet-line.pn
 import signatureImage from '/public/themes/images/v2/certificate/signature.png'
 import { generateCertificateTextProps } from '@utils/getCertificate'
 import { useRouter } from 'next/router'
-
+import { useTranslation } from '@utils/useTranslation'
 
 const generateCertificateText = (data: generateCertificateTextProps) => {
-   
   return (
     <div className={style.certificateBody}>
       <div className={style.certificateBg}>
@@ -43,7 +42,8 @@ const generateCertificateText = (data: generateCertificateTextProps) => {
             </div>
             <div className={style.user}>
               <h2 className={style._HFont}>
-                {data.firstName} {data.lastName}
+                <div>{data.firstName}</div>
+                <div>{data.lastName}</div>
               </h2>
             </div>
             <div className={style.text}>
@@ -115,27 +115,51 @@ const generateCertificateText = (data: generateCertificateTextProps) => {
 }
 
 const CertificatePage = () => {
-  const [certificateData, setCertificateData] = useState(null)
+  const {t} = useTranslation()
+  const [certificateData, setCertificateData] =
+    useState<generateCertificateTextProps | null>(null)
   const router = useRouter()
   const { userCourseId } = router.query
+  const certificateRef = useRef(null)
+  const pdfOptions = {
+    margin: 10,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
+    jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' },
+  }
+
+  const handleDownload = () => {
+    if (typeof window !== 'undefined' && certificateRef.current) {
+      let element = certificateRef.current
+      const html2pdfFunction = require('html2pdf.js')
+      html2pdfFunction()
+        .from(element)
+        .set(pdfOptions)
+        .save(`LingWing-${certificateData?.level}-certificate.pdf`)
+    }
+  }
+
   useEffect(() => {
     if (typeof userCourseId === 'string') {
-        getCertificate(userCourseId)
-          .then(data => {
-            setCertificateData(data)
-          })
-          .catch(error => {
-            console.error('Error fetching certificate:', error)
-          })
-      }
-    }, [userCourseId])
+      getCertificate(userCourseId)
+        .then(data => {
+          setCertificateData(data)
+        })
+        .catch(error => {
+          console.error('Error fetching certificate:', error)
+        })
+    }
+  }, [userCourseId])
 
   if (!certificateData)
     return <div>Error fetching certificate. Please try again later.</div>
 
   return (
     <div className={style.certificateWrapper}>
-      {generateCertificateText(certificateData)}
+      <div ref={certificateRef}>{generateCertificateText(certificateData)}</div>
+      <button onClick={handleDownload} className={style.downloadButton}>
+        {t("CERTIFICATE_DOWNLOAD")}
+      </button>
     </div>
   )
 }
