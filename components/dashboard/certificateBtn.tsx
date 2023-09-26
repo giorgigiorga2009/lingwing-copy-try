@@ -21,8 +21,8 @@ const CertificateBtn: React.FC<CertificateBtnProps> = ({userCourseId }) => {
           className={style.img}
           src={certificateImage}
           alt=""
-          height={2000}
-          width={2000}
+          height={1000}
+          width={1000}
         />
       </div>
     </div>

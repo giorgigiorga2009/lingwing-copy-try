@@ -10,9 +10,8 @@ export interface generateCertificateTextProps{
     coursePeriod: CoursePeriod
 }
 type MonthYear = {
-    
-    month: number;  // e.g., 11
-    year: number;   // e.g., 2020
+    month: number;  
+    year: number;   
 };
 type CoursePeriod = {
     start: MonthYear;
@@ -22,7 +21,7 @@ type CoursePeriod = {
 export const getCertificate = (userCourseId: string) => {
   return axios
     .post(`
-    https://api.lingwing.com/api/v2/public/certificate`, {
+    ${process.env.DEFAULT_URL}/public/certificate`, {
       userCourseId: userCourseId,
     })
     .then(response => response.data.data)

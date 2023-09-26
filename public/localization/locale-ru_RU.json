@@ -191,6 +191,7 @@
 
   "APP_HEADER_MENU_ITEM13": "Выход",
   "APP_HEADER_MENU_ITEM14": "Профиль",
+  "APP_HEADER_PAYMENTS": "Платежи",
 
 
 
@@ -301,5 +302,19 @@
   "REG_REMINDER_INITIATION": "Знакомство",
   "REG_REMINDER_REGISTRATION": "Регистрация",
   "REG_REMINDER_BONUS": "Бонус",
-  "REG_REMINDER_PREMIUM": "Премиум"
+  "REG_REMINDER_PREMIUM": "Премиум",
+
+
+
+  "PAYMENTS_STATS_REMAINING": "Оставшиеся премиальные дни",
+  "PAYMENTS_STATS_TESTS": "Купленные тесты",
+  "PAYMENTS_STATS_TASKS": "Задачи",
+  "PAYMENTS_STATS_YOUR_CARD":  "Карта",
+  "PAYMENTS_STATS_ADD_CARD": "Добавить карту",
+  "PAYMENTS_STATS_HISTORY": "История транзакций",
+  "PAYMENTS_STATS_PRODUCT": "Продукт",
+  "PAYMENTS_STATS_STATUS": "Статус",
+  "PAYMENTS_STATS_METHOD": "Метод",
+  "PAYMENTS_STATS_AMOUNT": "Сумма",
+  "PAYMENTS_STATS_PAYMENT_DATE": "Дата платежа"
 }

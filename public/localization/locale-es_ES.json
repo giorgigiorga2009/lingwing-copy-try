@@ -210,6 +210,7 @@
 
   "APP_HEADER_MENU_ITEM13": "Salir",
   "APP_HEADER_MENU_ITEM14": "Perfil",
+  "APP_HEADER_PAYMENTS": "Pagos",
 
 
   "ABOUT_COURSE_OPT_OUT_YES": "Si",
@@ -266,6 +267,19 @@
   "REG_REMINDER_INITIATION": "Iniciar",
   "REG_REMINDER_REGISTRATION": "Registo",
   "REG_REMINDER_BONUS": "Bonus",
-  "REG_REMINDER_PREMIUM": "Premium"
+  "REG_REMINDER_PREMIUM": "Premium",
+
+  
+  "PAYMENTS_STATS_REMAINING": "Días premium restantes",
+  "PAYMENTS_STATS_TESTS": "Tests compradas",
+  "PAYMENTS_STATS_TASKS": "Ejercicios",
+  "PAYMENTS_STATS_YOUR_CARD": "Su tarjeta",
+  "PAYMENTS_STATS_ADD_CARD": "Añade una tarjeta",
+  "PAYMENTS_STATS_HISTORY": "Historial de transacciones",
+  "PAYMENTS_STATS_PRODUCT": "Producto",
+  "PAYMENTS_STATS_STATUS": "Estado",
+  "PAYMENTS_STATS_METHOD": "Método",
+  "PAYMENTS_STATS_AMOUNT": "Saldo",
+  "PAYMENTS_STATS_PAYMENT_DATE":  "Fecha de pago"
 
 }
