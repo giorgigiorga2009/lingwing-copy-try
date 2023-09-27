@@ -66,8 +66,8 @@ const MySubCourse: FC<Props> = ({
           </h6>
           <ActionBtns />
         </div>
-        {subCourse.certificate ? (
-          <CertificateBtn userCourseId={subCourse.userCourseId}/>
+        {subCourse.status.continue ? (
+          <CertificateBtn userCourseId="5faf93cc0b59817890059927"/>
         ) : (
           <Link
             className={style.link}

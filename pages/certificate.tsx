@@ -12,6 +12,7 @@ import signatureImage from '/public/themes/images/v2/certificate/signature.png'
 import { generateCertificateTextProps } from '@utils/getCertificate'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@utils/useTranslation'
+import ReactDOMServer from 'react-dom/server'
 
 const generateCertificateText = (data: generateCertificateTextProps) => {
   return (
@@ -114,6 +115,10 @@ const generateCertificateText = (data: generateCertificateTextProps) => {
   )
 }
 
+const generateInMemoryCertificate = (data: generateCertificateTextProps) => {
+  return ReactDOMServer.renderToString(generateCertificateText(data));
+}
+
 const CertificatePage = () => {
   const {t} = useTranslation()
   const [certificateData, setCertificateData] =
@@ -128,14 +133,17 @@ const CertificatePage = () => {
     jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' },
   }
 
-  const handleDownload = () => {
-    if (typeof window !== 'undefined' && certificateRef.current) {
-      let element = certificateRef.current
-      const html2pdfFunction = require('html2pdf.js')
+   const handleDownload = async () => {
+    if (typeof window !== 'undefined' && typeof userCourseId === 'string') {
+      let freshData = await getCertificate(userCourseId);
+
+      const element = generateInMemoryCertificate(freshData); 
+
+      const html2pdfFunction = require('html2pdf.js');
       html2pdfFunction()
         .from(element)
         .set(pdfOptions)
-        .save(`LingWing-${certificateData?.level}-certificate.pdf`)
+        .save(`LingWing-${freshData?.level}-certificate.pdf`);
     }
   }
 
