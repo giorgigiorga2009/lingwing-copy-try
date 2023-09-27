@@ -19,7 +19,7 @@ type CoursePeriod = {
 
 export const getCertificate = (userCourseId: string) => {
   return axios
-    .post( `https://api.lingwing.com/api/v2/public/certificate`,
+    .post( `${process.env.DEFAULT_URL}/certificate`,
       {
         userCourseId: userCourseId,
       },
