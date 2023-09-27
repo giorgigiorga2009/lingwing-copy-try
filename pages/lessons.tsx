@@ -29,7 +29,6 @@ import { useQuery } from 'react-query'
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 
-
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
   const [currentTask, setCurrentTask] = useState<TaskData>()
@@ -233,37 +232,44 @@ const Lessons: NextPage = () => {
       }
     : null
 
-    // for tasks quantity only 
-    const isUserLoggedIn = !!token;
+  // for tasks quantity only
+  const isUserLoggedIn = !!token
 
-    const currentLanguage =
+  const currentLanguage =
     router.locale &&
     LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
 
-    const fetchCourseData = async () => {
-      if (currentLanguage && courseName) {
-        try {
-          const data = await getReadCourse(currentLanguage, courseName)
-          return data
-        } catch (error) {
-          throw new Error(String(error))
-        }
+  const fetchCourseData = async () => {
+    if (currentLanguage && courseName) {
+      try {
+        const data = await getReadCourse(currentLanguage, courseName)
+        return data
+      } catch (error) {
+        throw new Error(String(error))
       }
     }
-    
-  const {
-    data: courseData,
-  } = useQuery(['courseData', currentLanguage, courseName], fetchCourseData)
-    ///
+  }
 
+  const { data: courseData } = useQuery(
+    ['courseData', currentLanguage, courseName],
+    fetchCourseData,
+  )
+  ///
 
   return (
     <div className={style.container}>
       <Header size="s" />
 
-      { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
-        <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={courseData.info.tasksQuantity} languageTo={languageTo} languageFrom={languageFrom} />
-      </div> }
+      {!isUserLoggedIn && completedTasks?.length === 10 && (
+        <div className={style.regReminder}>
+          <RegistrationReminderPopup
+            completedTasks={completedTasks.length}
+            totalTasksAmount={courseData.info.tasksQuantity}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+          />
+        </div>
+      )}
 
       <BackgroundParrot />
       {!isSoundChecked && (

@@ -39,7 +39,7 @@ const Dashboard: FC = () => {
     if (typeof window !== 'undefined') {
       const token = window.localStorage.getItem('authToken') as string
       return getMyCoursesData(token).then(response =>
-        setMyLanguages(response.data.languages),
+        setMyLanguages(response?.data.languages),
       )
     }
   }

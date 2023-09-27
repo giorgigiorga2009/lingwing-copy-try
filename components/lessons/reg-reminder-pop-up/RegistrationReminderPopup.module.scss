@@ -7,13 +7,14 @@
   width: 60rem;
   height: fit-content;
   background-color: $white;
-  box-shadow: 0 .11rem 0.2rem 0.01rem $grey-100;
+  box-shadow: 0 .11rem 0.3rem 0.005rem $grey-100;
   border-radius: 2.5rem;
   padding: 3rem 4rem;
   background-image: url('/assets/images/bonnus-bg.png');
   background-repeat: no-repeat;
   background-position: 45rem 1rem;
   background-size: contain;
+  overflow: auto;
 
   &:lang(ka) {
     font-family: $kaFont;
@@ -23,14 +24,15 @@
     width: 96vw;
     height: auto;
     padding: 2rem 3rem;
-    background-position: 70vw 0vw;
+    background-position: 72.5vw 0vw;
   }
 
   @include mobile {
-    width: 95vw;
-    height: auto;
-    padding: 1.5rem .9rem;
-    background-position: 70vw 0vw;
+    width: 100vw;
+    height: 100vh;
+    padding: 3.5rem 1rem;
+    background-position: 50vw 0vw;
+    border-radius: 0;
   }
 }
 
@@ -41,12 +43,15 @@
 
   @include mobile {
     font-size: 1rem;
+    padding-bottom: 1rem;
   }
 }
 .paragraph {
   display: flex;
   column-gap: 0.5rem;
+  flex-wrap: wrap;
   & p {
+    white-space: nowrap;
     color: $black-100;
     font-size: 1.2rem;
     @include mobile {
@@ -71,6 +76,7 @@
     row-gap: 1rem;
     transform: none;
     margin-top: 1rem;
+    padding-bottom: 1rem;
   }
   @include smallWidth{
     column-gap: .1rem;
@@ -102,6 +108,10 @@
   }
   @include mobile{
     font-size: .8rem;
+    padding: .3rem .6rem;
+  }
+  @include smallWidth{
+    font-size: .7rem;
   }
 }
 .coursesButton {
