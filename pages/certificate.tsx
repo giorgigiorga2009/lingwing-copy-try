@@ -127,10 +127,9 @@ const CertificatePage = () => {
   const { userCourseId } = router.query
   const certificateRef = useRef(null)
   const pdfOptions = {
-    margin: 10,
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
-    jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' },
+    html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true},
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
   }
 
    const handleDownload = async () => {

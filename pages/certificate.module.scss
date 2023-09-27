@@ -10,11 +10,13 @@
   margin-bottom: 1rem;
 }
 .certificateWrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
+  
+  
   .downloadButton {
+    position: absolute;
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
     padding: .6rem 1.2rem;
     background-color: #007bff;
     border: none;
@@ -31,12 +33,13 @@
   .certificateBg {
     width: 29.7cm;
     height: 20.9cm;
-    position: relative;
+    // position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
+    margin: 0 auto;
 
+    
     .bg {
       width: 29.7cm;
       height: 20.9cm;
@@ -47,7 +50,7 @@
       position: relative;
       width: 26.6cm;
       height: 17.9cm;
-      padding: 1%;
+      // padding: 1%;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -55,7 +58,7 @@
 
       .bgI {
         position: absolute;
-        width: 26.6cm;
+        width: 100%;
         height: 17.9cm;
       }
 
@@ -94,7 +97,7 @@
         color: #683398;
 
         img {
-          width: 18%;
+          max-width: 18%;
           height: 35%;
           left: 3%;
           position: absolute;
