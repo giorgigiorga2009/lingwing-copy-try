@@ -304,6 +304,14 @@
   "REG_REMINDER_REGISTRATION": "Registration",
   "REG_REMINDER_BONUS": "Bonus",
   "REG_REMINDER_PREMIUM": "Premium",
+  "REG_REMINDER_TRANSACTION" :  "Transaction completed successfully",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Package is activated ",
+  "REG_REMINDER_DASHBOARD": "GO TO DASHBOARD",
+  "REG_REMINDER_REMEMBER_CARD": "Remember card",
+
+
+
+
 
   
   "CERTIFICATE_DOWNLOAD": "Download Certificate",

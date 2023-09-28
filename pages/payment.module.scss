@@ -41,15 +41,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom, $white-100 5.5rem, $white 5.5rem);
+  background: linear-gradient(to bottom, $white-100 4.5rem, $white 4.5rem);
   margin-top: 12rem;
   max-width: 33.125rem;
   border-radius: 1.5rem;
-  padding: 0 1rem;
+  padding: 0rem;
 
-  // @include small{
-  //   width: 98%;
-  // }
+  @include mobile{
+    width: 98%;
+  }
 
   .currency {
     position: absolute;
@@ -90,4 +90,17 @@
       margin-left: 0;
     }
   }
+}
+.regReminder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px); 
+  z-index: 9999; 
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  animation: fadeInBlur .8s forwards;
+
 }

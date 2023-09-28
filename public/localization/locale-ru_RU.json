@@ -303,6 +303,10 @@
   "REG_REMINDER_REGISTRATION": "Регистрация",
   "REG_REMINDER_BONUS": "Бонус",
   "REG_REMINDER_PREMIUM": "Премиум",
+  "REG_REMINDER_TRANSACTION" : "Транзакция успешно завершена",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Aктивирован пакет",
+  "REG_REMINDER_DASHBOARD": "Панель управления",
+  "REG_REMINDER_REMEMBER_CARD": "Запомнить карту",
 
 
   "CERTIFICATE_DOWNLOAD": "Скачать сертификат",

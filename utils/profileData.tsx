@@ -28,7 +28,7 @@ export const prepareJsonData = (
     lastName: e.currentTarget.lastName.value || '',
     avatar: profilePicture || '',
     email: e.currentTarget.email.value || '',
-    gender: e.currentTarget.gender.value || 1,
+    gender: e.currentTarget.gender.value || 0,
     phoneNumber: phoneNumber || '',
     birthday: {
       year: e.currentTarget.year.value || null,

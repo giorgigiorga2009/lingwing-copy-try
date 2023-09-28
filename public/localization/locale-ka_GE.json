@@ -304,7 +304,10 @@
   "REG_REMINDER_REGISTRATION": "რეგისტრაცია",
   "REG_REMINDER_BONUS": "ბონუსი",
   "REG_REMINDER_PREMIUM":  "პრემიუმი",
-
+  "REG_REMINDER_TRANSACTION" : "ტრანზაქცია წარმატებით დასრულდა",
+  "REG_REMINDER_PACKAGE_ACTIVATED":  "გააქტიურებულია პაკეტი",
+  "REG_REMINDER_DASHBOARD": "ჩემი გვერდი",
+  "REG_REMINDER_REMEMBER_CARD": "ბარათის დამახსოვრება",
 
 
   "Abasha" : "აბაშა",

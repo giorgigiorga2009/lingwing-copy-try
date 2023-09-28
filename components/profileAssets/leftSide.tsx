@@ -7,7 +7,6 @@ import { useTranslation } from '@utils/useTranslation'
 import { ProfileData } from '@utils/profileEdit'
 import GenerateDate from './generateDate'
 import CountrySelector from './countrySelector'
-import classNames from 'classnames'
 
 type Props = {
   data?: ProfileData
@@ -30,7 +29,7 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
   }
 
   useEffect(() => {
-    handlePhoneChange(data?.profile.phoneNumber)
+    handlePhoneChange(data?.profile?.phoneNumber)
   }, [data])
 
   const birthdayDay = data?.profile?.birthday?.day || 0
@@ -113,7 +112,7 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
             checked={gender === 2}
             onChange={() => setGender(2)}
           />
-          <label htmlFor="female" className={gender === 1 ? style.femaleLabelActive : style.femaleLabel}>
+          <label htmlFor="female" className={gender === 2  ? style.femaleLabelActive : style.femaleLabel}>
             {t('APP_PROFILE_FEMALE')}
             </label>
         </div>

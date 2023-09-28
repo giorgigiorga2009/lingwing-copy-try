@@ -89,7 +89,7 @@ function Schedule() {
             </span>
             <a
               className={style.a}
-              href="/dashboard"
+              href="/licensing-agreement"
               target="_blank"
               rel="noopener noreferrer"
             >

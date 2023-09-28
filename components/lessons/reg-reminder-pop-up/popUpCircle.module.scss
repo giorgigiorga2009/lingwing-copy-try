@@ -113,5 +113,56 @@
 }
 
 
+// this is for after Pay pop up
+
+.firstImageAfterPayment{
+    background-image: url('/themes/images/v2/bon-initialion.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.secondImageAfterPayment{
+    background-image: url('/themes/images/v2/bon-registration-active.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.thirdImageAfterPayment{
+    background-image: url('/themes/images/v2/bon-bonus-active.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.fourthImageAfterPayment{
+    background-image: url('/themes/images/v2/bon-get-more-active.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
 
 
+.firstArrowAfterPayment,
+.secondArrowAfterPayment,
+.thirdArrowAfterPayment{
+    @include mobile{
+        display: none;
+    }
+}
+
+.firstArrowAfterPayment{
+    background-image: url('/themes/images/v2/bon-arr-active.png');
+    width: 2.6rem;
+    height: 1rem;
+    transform: translateY(-1.5rem);
+}
+
+.secondArrowAfterPayment{
+    background-image: url('/themes/images/v2/bon-arr-active-top.png');
+    width: 2.6rem;
+    height: 1rem;
+    transform: translateY(-1.5rem);
+
+}
+.thirdArrowAfterPayment{
+    background-image: url('/themes/images/v2/bon-arr-active.png');
+    width: 2.6rem;
+    height: 1rem;
+    transform: translateY(-1.5rem);
+
+}

@@ -226,6 +226,10 @@
   "REG_REMINDER_REGISTRATION": "নিবন্ধন",
   "REG_REMINDER_BONUS": "বোনাস",
   "REG_REMINDER_PREMIUM":  "প্রিমিয়াম",
+  "REG_REMINDER_TRANSACTION" : "লেনদেন সফলভাবে সম্পন্ন হয়েছে",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "প্যাকেজ সক্রিয় হয়েছে ",
+  "REG_REMINDER_DASHBOARD": "ড্যাশবোর্ডে যান",
+  "REG_REMINDER_REMEMBER_CARD": "কার্ড মনে রাখুন",
 
 
   "CERTIFICATE_DOWNLOAD": "সার্টিফিকেট ডাউনলোড করুন",

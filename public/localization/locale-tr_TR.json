@@ -276,6 +276,10 @@
   "REG_REMINDER_REGISTRATION": "Yeni bir hesap aç",
   "REG_REMINDER_BONUS": "Bonus",
   "REG_REMINDER_PREMIUM": "Premyum",
+  "REG_REMINDER_TRANSACTION" : "İşlem başarıyla tamamlandı",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Paket aktif hale getirildi ",
+  "REG_REMINDER_DASHBOARD": "Benim sayfam",
+  "REG_REMINDER_REMEMBER_CARD": "Kartı hatırla",
 
 
   "CERTIFICATE_DOWNLOAD": "Sertifikayı İndir",

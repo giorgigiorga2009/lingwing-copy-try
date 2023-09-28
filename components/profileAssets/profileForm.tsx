@@ -1,7 +1,6 @@
 import React, { useState, FormEvent, useEffect } from 'react'
 import prepareJsonData from '@utils/profileData'
 import { PutData, ProfileData, GetProfileData } from '@utils/profileEdit'
-import { useTranslation } from '@utils/useTranslation'
 import style from './profileForm.module.scss'
 import Swal from 'sweetalert2'
 import LeftSide from './leftSide'
@@ -12,7 +11,6 @@ const ProfileForm = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('')
   const [profilePicture, setProfilePicture] = useState<string>('')
 
-  const { t } = useTranslation()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +25,15 @@ const ProfileForm = () => {
 
     fetchData()
   }, [])
+  // console.log(data)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const token = localStorage.getItem('authToken')
-
+    if (!token) {
+      console.error("No token found in local storage.");
+      return;
+    }
     const jsonData = prepareJsonData(e, phoneNumber, profilePicture)
 
     try {
