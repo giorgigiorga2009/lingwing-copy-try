@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import style from './RegistrationReminderPopup.module.scss';
 import PopUpCircle from './popUpCircle';
-import { LoginModal } from '@components/loginWindow/LoginModal';
-import { useTranslation } from '@utils/useTranslation';
-import { regReminderTitle } from '@utils/const';
 import Image from 'next/image';
 import greenTick from '@public/themes/images/v2/bon-check.png';
+import { LoginModal } from '@components/loginWindow/LoginModal';
+import { regReminderTitle } from '@utils/const';
+import { useTranslation } from '@utils/useTranslation';
 import { PaymentsProps, getUserPayements } from '@utils/getUserPayemnts';
 import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder';
 

@@ -310,9 +310,6 @@
   "REG_REMINDER_REMEMBER_CARD": "Remember card",
 
 
-
-
-
   
   "CERTIFICATE_DOWNLOAD": "Download Certificate",
 
@@ -327,6 +324,17 @@
   "PAYMENTS_STATS_STATUS": "Status",
   "PAYMENTS_STATS_METHOD": "Method",
   "PAYMENTS_STATS_AMOUNT": "Amount",
-  "PAYMENTS_STATS_PAYMENT_DATE": "Payment Date"
+  "PAYMENTS_STATS_PAYMENT_DATE": "Payment Date",
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Fill in data and get free exercises!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continue", 
+  "FILL_PROFILE_FOR_TASKS_SKIP": "Skip",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Obtain free exercises"
+
+
+
+
+
 
 }

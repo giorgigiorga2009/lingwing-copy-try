@@ -245,5 +245,12 @@
   "PAYMENTS_STATS_STATUS": "স্ট্যাটাস",
   "PAYMENTS_STATS_METHOD": "পদ্ধতি",
   "PAYMENTS_STATS_AMOUNT": "পরিমাণ",
-  "PAYMENTS_STATS_PAYMENT_DATE": "পেমন্ট তারিখ"
+  "PAYMENTS_STATS_PAYMENT_DATE": "পেমন্ট তারিখ",
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "তথ্য পূরণ করুন এবং বিনামূল্যে অনুশীলন পান!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "চালিয়ে যান",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "এড়িয়ে যান",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "বিনামূল্যে অনুশীলন পান"
+
 }

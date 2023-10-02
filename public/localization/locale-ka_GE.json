@@ -436,6 +436,11 @@
   "PAYMENTS_STATS_STATUS": "სტატუსი",
   "PAYMENTS_STATS_METHOD": "მეთოდი",
   "PAYMENTS_STATS_AMOUNT": "თანხა",
-  "PAYMENTS_STATS_PAYMENT_DATE":  "გადახდის თარიღი"
+  "PAYMENTS_STATS_PAYMENT_DATE":  "გადახდის თარიღი",
 
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "შეავსე მონაცემები და მიიღე უფასო დავალებები!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "გაგრძელება", 
+  "FILL_PROFILE_FOR_TASKS_SKIP": "გამოტოვება",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN":  "უფასო დავალებების მიღება"
 }

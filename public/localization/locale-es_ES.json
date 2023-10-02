@@ -287,6 +287,11 @@
   "PAYMENTS_STATS_STATUS": "Estado",
   "PAYMENTS_STATS_METHOD": "Método",
   "PAYMENTS_STATS_AMOUNT": "Saldo",
-  "PAYMENTS_STATS_PAYMENT_DATE":  "Fecha de pago"
+  "PAYMENTS_STATS_PAYMENT_DATE":  "Fecha de pago",
 
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Rellena los datos y consigue 30 ejercicios gratuitos!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continuar",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "Saltar",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Conseguir ejercicios gratuitos"
 }

@@ -28,6 +28,8 @@ import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { useQuery } from 'react-query'
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
+import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
+import { GetProfileData, ProfileData } from '@utils/profileEdit'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -50,6 +52,10 @@ const Lessons: NextPage = () => {
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
+  const [showProfileFiller, setShowProfileFiller] = useState<boolean>(false)
+  const [profileData, setPRofileData] = useState<ProfileData | undefined>(
+    undefined,
+  )
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
@@ -255,6 +261,26 @@ const Lessons: NextPage = () => {
     fetchCourseData,
   )
   ///
+  /// for FillPRoflieForTasks
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const responseData = await GetProfileData(token)
+        setPRofileData(responseData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    fetchProfileData()
+  }, [])
+
+  useEffect(() => {
+    if (completedTasks?.length === 8 && profileData?.profile.firstName === '') {
+      setShowProfileFiller(true)
+    }
+  }, [completedTasks])
+  ///
 
   return (
     <div className={style.container}>
@@ -269,6 +295,11 @@ const Lessons: NextPage = () => {
             languageTo={languageTo}
             languageFrom={languageFrom}
           />
+        </div>
+      )}
+      {isUserLoggedIn && showProfileFiller && (
+        <div className={style.regReminder}>
+          <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
 

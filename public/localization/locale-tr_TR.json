@@ -295,5 +295,11 @@
   "PAYMENTS_STATS_STATUS": "Durum",
   "PAYMENTS_STATS_METHOD": "Yöntem",
   "PAYMENTS_STATS_AMOUNT": "Miktar",
-  "PAYMENTS_STATS_PAYMENT_DATE": "Ödeme tarihi"
+  "PAYMENTS_STATS_PAYMENT_DATE": "Ödeme tarihi",
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Verileri doldurun ve ücretsiz alıştırmalar alın!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Devam et",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "görmezden gelin",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Ücretsiz egzersizler edinin"
 }
