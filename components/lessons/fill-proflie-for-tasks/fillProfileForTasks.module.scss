@@ -1,15 +1,5 @@
 @import '@styles/imports';
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  background-image: url('/assets/images/wizard/parrot.png');
-  background-repeat: no-repeat;
-  background-position: top 10% left;
-  height: 100%;
-  width: 100%;
-  background-color: $white-50;
-}
 
 .container {
     display: flex;

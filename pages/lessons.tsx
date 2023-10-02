@@ -276,7 +276,7 @@ const Lessons: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if (completedTasks?.length === 8 && profileData?.profile.firstName === '') {
+    if (completedTasks?.length === 1) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
