@@ -303,6 +303,23 @@
   "REG_REMINDER_REGISTRATION": "Регистрация",
   "REG_REMINDER_BONUS": "Бонус",
   "REG_REMINDER_PREMIUM": "Премиум",
+  "REG_REMINDER_TRANSACTION" : "Транзакция успешно завершена",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Aктивирован пакет",
+  "REG_REMINDER_DASHBOARD": "Панель управления",
+  "REG_REMINDER_REMEMBER_CARD": "Запомнить карту",
+
+  "REG_REMINDER_DAILY_LIMIT": "",
+  "REG_REMINDER_YOU":  "",
+  "REG_REMINDER_FREE_TASKS_IN":  "бесплатные задания будут активированы",
+  "REG_REMINDER_HOURS": "часов",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Изучи язык в",
+  "REG_REMINDER_5_TIMES": "5 раза",
+  "REG_REMINDER_MORE_COMFORTABLE": "быстрее и комфортнее",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Выбрать Премиум-пакет",
+  "REG_REMINDER_5_DAY_TRIAL": "5-дневная пробная версия",
+  "REG_REMINDER_MONTHS": "мес.",
+  "REG_REMINDER_GEL": " GEL",
+
 
 
   "CERTIFICATE_DOWNLOAD": "Скачать сертификат",
@@ -318,5 +335,13 @@
   "PAYMENTS_STATS_STATUS": "Статус",
   "PAYMENTS_STATS_METHOD": "Метод",
   "PAYMENTS_STATS_AMOUNT": "Сумма",
-  "PAYMENTS_STATS_PAYMENT_DATE": "Дата платежа"
+  "PAYMENTS_STATS_PAYMENT_DATE": "Дата платежа",
+
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Заполни данные и получи бесплатные упражнения!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Продолжить",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "Пропустить",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Получи бесплатные упражнения"
+
 }

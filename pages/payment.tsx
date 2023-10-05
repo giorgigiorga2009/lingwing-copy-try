@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { useTranslation } from '@utils/useTranslation'
@@ -21,6 +21,7 @@ import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
+import RegistrationReminderPopup from '@components/lessons/reg-reminder-pop-up/RegistrationReminderPopup'
 
 
 const Payment: React.FC<PaymentProps> = () => {
@@ -129,6 +130,13 @@ const Payment: React.FC<PaymentProps> = () => {
       <Reviews />
       <FollowButtons color="grey" />
       <Footer />
+      <div className={styles.regReminder}>
+          <RegistrationReminderPopup
+            popUpNumber={2}
+            packetTitle={data?.packages[0].title}
+          />
+        </div>
+         
     </div>
   )
 }

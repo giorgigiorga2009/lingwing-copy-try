@@ -44,7 +44,7 @@ const PaymentOption: React.FC<PaymentOptionProps> = ({
   return (
     <div>
       {paymentSelection.map(option => (
-        <div key={option.value} className={styles.otionsWrapper}>
+        <div key={option.value} className={styles.optionsWrapper}>
           <div
             className={
               selectedOption === option.value ? styles.optionContainer : ''

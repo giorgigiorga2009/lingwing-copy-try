@@ -12,6 +12,7 @@ import signatureImage from '/public/themes/images/v2/certificate/signature.png'
 import { generateCertificateTextProps } from '@utils/getCertificate'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@utils/useTranslation'
+import ReactDOMServer from 'react-dom/server'
 
 const generateCertificateText = (data: generateCertificateTextProps) => {
   return (
@@ -114,28 +115,34 @@ const generateCertificateText = (data: generateCertificateTextProps) => {
   )
 }
 
+const generateInMemoryCertificate = (data: generateCertificateTextProps) => {
+  return ReactDOMServer.renderToString(generateCertificateText(data))
+}
+
 const CertificatePage = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   const [certificateData, setCertificateData] =
     useState<generateCertificateTextProps | null>(null)
   const router = useRouter()
   const { userCourseId } = router.query
   const certificateRef = useRef(null)
   const pdfOptions = {
-    margin: 10,
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
-    jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
   }
 
-  const handleDownload = () => {
-    if (typeof window !== 'undefined' && certificateRef.current) {
-      let element = certificateRef.current
+  const handleDownload = async () => {
+    if (typeof window !== 'undefined' && typeof userCourseId === 'string') {
+      let freshData = await getCertificate(userCourseId)
+
+      const element = generateInMemoryCertificate(freshData)
+
       const html2pdfFunction = require('html2pdf.js')
       html2pdfFunction()
         .from(element)
         .set(pdfOptions)
-        .save(`LingWing-${certificateData?.level}-certificate.pdf`)
+        .save(`LingWing-${freshData?.level}-certificate.pdf`)
     }
   }
 
@@ -158,7 +165,7 @@ const CertificatePage = () => {
     <div className={style.certificateWrapper}>
       <div ref={certificateRef}>{generateCertificateText(certificateData)}</div>
       <button onClick={handleDownload} className={style.downloadButton}>
-        {t("CERTIFICATE_DOWNLOAD")}
+        {t('CERTIFICATE_DOWNLOAD')}
       </button>
     </div>
   )

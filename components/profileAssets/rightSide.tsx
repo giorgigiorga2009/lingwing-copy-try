@@ -95,7 +95,7 @@ const RightSide: React.FC<Props> = ({
         <input name="Agree" type="checkbox" required />
         <p>
           {t('APP_MARKETING_POLICY_1')}{' '}
-          <Link href="#">{t('APP_MARKETING_POLICY_2')}</Link>
+          <Link href="privacy-policy">{t('APP_MARKETING_POLICY_2')}</Link>
           {t('APP_MARKETING_POLICY_3')}
         </p>
       </div>

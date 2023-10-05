@@ -304,6 +304,26 @@
   "REG_REMINDER_REGISTRATION": "Registration",
   "REG_REMINDER_BONUS": "Bonus",
   "REG_REMINDER_PREMIUM": "Premium",
+  "REG_REMINDER_TRANSACTION" :  "Transaction completed successfully",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Package is activated ",
+  "REG_REMINDER_DASHBOARD": "GO TO DASHBOARD",
+  "REG_REMINDER_REMEMBER_CARD": "Remember card",
+
+  "REG_REMINDER_DAILY_LIMIT": " language daily task limit expired",
+  "REG_REMINDER_YOU": "You",
+  "REG_REMINDER_FREE_TASKS_IN": "will get daily free tasks in ",
+  "REG_REMINDER_HOURS": "hours",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Learn a language",
+  "REG_REMINDER_5_TIMES": "5 times",
+  "REG_REMINDER_MORE_COMFORTABLE": "faster and more comfortable",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Choose Premium Package",
+  "REG_REMINDER_5_DAY_TRIAL": "5 day trial",
+  "REG_REMINDER_MONTHS": "Months",
+  "REG_REMINDER_GEL": " GEL",
+
+
+
+
 
   
   "CERTIFICATE_DOWNLOAD": "Download Certificate",
@@ -319,6 +339,19 @@
   "PAYMENTS_STATS_STATUS": "Status",
   "PAYMENTS_STATS_METHOD": "Method",
   "PAYMENTS_STATS_AMOUNT": "Amount",
-  "PAYMENTS_STATS_PAYMENT_DATE": "Payment Date"
+  "PAYMENTS_STATS_PAYMENT_DATE": "Payment Date",
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Fill in data and get free exercises!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continue", 
+  "FILL_PROFILE_FOR_TASKS_SKIP": "Skip",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Obtain free exercises"
+
+
+
+
+
+
+
 
 }

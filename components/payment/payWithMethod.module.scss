@@ -11,9 +11,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    // @include small {
-    //   flex-direction: column;
-    // }
+    @include smallWidth {
+      flex-direction: column;
+    }
   }
 }
 

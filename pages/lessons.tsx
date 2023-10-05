@@ -28,7 +28,8 @@ import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { useQuery } from 'react-query'
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
-
+import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
+import { GetProfileData, ProfileData } from '@utils/profileEdit'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -51,9 +52,17 @@ const Lessons: NextPage = () => {
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
-
+  const [showProfileFiller, setShowProfileFiller] = useState<boolean>(false)
+  const [profileData, setPRofileData] = useState<ProfileData | undefined>(
+    undefined,
+  )
+  
+  
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
+  const [language, setLanguage] = useState<string>('English');
+
+
 
   // Use localStorage to set the token state
   useEffect(() => {
@@ -233,38 +242,78 @@ const Lessons: NextPage = () => {
       }
     : null
 
-    // for tasks quantity only 
-    const isUserLoggedIn = !!token;
+  // for tasks quantity only
+  const isUserLoggedIn = !!token
 
-    const currentLanguage =
+  const currentLanguage =
     router.locale &&
     LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
 
-    const fetchCourseData = async () => {
-      if (currentLanguage && courseName) {
-        try {
-          const data = await getReadCourse(currentLanguage, courseName)
-          return data
-        } catch (error) {
-          throw new Error(String(error))
-        }
+  const fetchCourseData = async () => {
+    if (currentLanguage && courseName) {
+      try {
+        const data = await getReadCourse(currentLanguage, courseName)
+        return data
+      } catch (error) {
+        throw new Error(String(error))
       }
     }
-    
-  const {
-    data: courseData,
-  } = useQuery(['courseData', currentLanguage, courseName], fetchCourseData)
-    ///
+  }
 
+  const { data: courseData } = useQuery(
+    ['courseData', currentLanguage, courseName],
+    fetchCourseData,
+  )
+  ///
+  /// for FillPRoflieForTasks
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const responseData = await GetProfileData(token)
+        setPRofileData(responseData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    fetchProfileData()
+  }, [])
+
+  useEffect(() => {
+    if (completedTasks?.length === 1) {
+      setShowProfileFiller(true)
+    }
+  }, [completedTasks])
+  ///
 
   return (
     <div className={style.container}>
       <Header size="s" />
 
-      { !isUserLoggedIn && completedTasks?.length === 1 && <div className={style.regReminder}>
-        <RegistrationReminderPopup completedTasks={completedTasks.length} totalTasksAmount={courseData.info.tasksQuantity} languageTo={languageTo} languageFrom={languageFrom} />
-      </div> }
-
+      {!isUserLoggedIn && completedTasks?.length === 2 && (
+        <div className={style.regReminder}>
+          <RegistrationReminderPopup
+            popUpNumber={1}
+            completedTasks={completedTasks.length}
+            totalTasksAmount={courseData.info.tasksQuantity}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+          />
+        </div>
+      )}
+      {isUserLoggedIn && showProfileFiller && (
+        <div className={style.regReminder}>
+          <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
+        </div>
+      )}
+       {!isUserLoggedIn && completedTasks?.length === 1 && (
+      <div className={style.regReminder}>
+          <RegistrationReminderPopup
+          language={language}
+            popUpNumber={2}
+          />
+        </div>
+ )}
       <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck

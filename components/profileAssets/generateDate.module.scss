@@ -38,6 +38,16 @@
       // border-left: none;
     }
   }
+  .lighterborderColor{
+    border: 2px solid $white-200;
+
+     &:focus{
+      border-top: 1px solid $white-200;
+      border-bottom: 1px solid $white-200;
+      border-left: 1px solid $white-200;
+      border-right: 2px solid $white-200;
+    }
+  }
   @include mobile {
     width: 100%;
     justify-content: start;

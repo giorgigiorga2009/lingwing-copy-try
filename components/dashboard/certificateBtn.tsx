@@ -15,7 +15,6 @@ const CertificateBtn: React.FC<CertificateBtnProps> = ({userCourseId }) => {
     <div className={style.container}>
       <a href={`/certificate?userCourseId=${userCourseId}`} target="_blank" rel="noopener noreferrer">
         <button className={style.certificateButton}>{t('Certificate')}</button>
-      </a>
       <div className={style.imgContainer}>
         <Image
           className={style.img}
@@ -25,6 +24,7 @@ const CertificateBtn: React.FC<CertificateBtnProps> = ({userCourseId }) => {
           width={1000}
         />
       </div>
+      </a>
     </div>
   )
 }

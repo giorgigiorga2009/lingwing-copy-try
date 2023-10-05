@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "format": "yarn prettier --write ."
+    "format": "yarn prettier --write .",
+    "start-next-logger": "NODE_OPTIONS='-r next-logger' next start"
   },
   "dependencies": {
     "@dschoon/react-waves": "^4.0.3",
@@ -32,6 +33,7 @@
     "make-plural": "^7.1.0",
     "next": "^13.0.2",
     "next-auth": "^4.23.1",
+    "next-logger": "^3.0.2",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-carousel": "^4.3.0",
