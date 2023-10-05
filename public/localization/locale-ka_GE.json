@@ -309,6 +309,18 @@
   "REG_REMINDER_DASHBOARD": "ჩემი გვერდი",
   "REG_REMINDER_REMEMBER_CARD": "ბარათის დამახსოვრება",
 
+  "REG_REMINDER_DAILY_LIMIT": " ენის დავალებების დღიური ლიმიტი ამოიწურა",
+  "REG_REMINDER_YOU": "",
+  "REG_REMINDER_FREE_TASKS_IN": "უფასო დავალებები გაგიაქტიურდება",
+  "REG_REMINDER_HOURS": "საათი",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "მოხსენი ყველანაირი შეზღუდვა, ისწავლე ენა",
+  "REG_REMINDER_5_TIMES": "5-ჯერ",
+  "REG_REMINDER_MORE_COMFORTABLE": "უფრო სწრაფად",
+  "REG_REMINDER_CHOOSE_PREMIUM": "აირჩიე პრემიუმ პაკეტი",
+  "REG_REMINDER_5_DAY_TRIAL":  "5 დღე საცდელი პრემიუმი",
+  "REG_REMINDER_MONTHS": "თვე",
+  "REG_REMINDER_GEL": " ლარად",
+
 
   "Abasha" : "აბაშა",
   "Adigeni" : "ადიგენი",

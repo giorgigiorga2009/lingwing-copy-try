@@ -308,6 +308,19 @@
   "REG_REMINDER_DASHBOARD": "Панель управления",
   "REG_REMINDER_REMEMBER_CARD": "Запомнить карту",
 
+  "REG_REMINDER_DAILY_LIMIT": "",
+  "REG_REMINDER_YOU":  "",
+  "REG_REMINDER_FREE_TASKS_IN":  "бесплатные задания будут активированы",
+  "REG_REMINDER_HOURS": "часов",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Изучи язык в",
+  "REG_REMINDER_5_TIMES": "5 раза",
+  "REG_REMINDER_MORE_COMFORTABLE": "быстрее и комфортнее",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Выбрать Премиум-пакет",
+  "REG_REMINDER_5_DAY_TRIAL": "5-дневная пробная версия",
+  "REG_REMINDER_MONTHS": "мес.",
+  "REG_REMINDER_GEL": " GEL",
+
+
 
   "CERTIFICATE_DOWNLOAD": "Скачать сертификат",
 

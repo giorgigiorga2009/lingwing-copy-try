@@ -111,6 +111,65 @@
     transform: translateY(-1.5rem);
 
 }
+// this is for after daily task limit expired
+
+.firstImageAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-initialion.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.secondImageAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-registration-active.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.thirdImageAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-bonus-active.png');
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.fourthImageAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-get-more.png');
+    width: 6.5rem;
+    height: 6.5rem;
+    transition: .4s;
+    
+    &:hover{
+        background-image: url('/themes/images/v2/bon-get-more-active.png');
+    }
+}
+
+
+.firstArrowAfterLimitExpired,
+.secondArrowAfterLimitExpired,
+.thirdArrowAfterLimitExpired{
+    @include mobile{
+        display: none;
+        
+    }
+}
+
+.firstArrowAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-arr-active.png');
+    width: 2.6rem;
+    height: 1rem;
+    transform: translateY(-1.5rem);
+}
+
+.secondArrowAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-arr-active-top.png');
+    width: 2.6rem;
+    height: 1rem;
+    transform: translateY(-1.5rem);
+
+}
+.thirdArrowAfterLimitExpired{
+    background-image: url('/themes/images/v2/bon-arr.png');
+    width: 2.6rem;
+    height: 1rem;
+    transform: translateY(-1.5rem);
+
+}
 
 
 // this is for after Pay pop up

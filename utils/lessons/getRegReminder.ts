@@ -1,7 +1,8 @@
 export interface RegistrationReminderPopupProps {
+  language?: string | string[] | undefined
   packetTitle?: string
   creditCard?: string
-  isRegReminder: boolean
+  popUpNumber: number
   completedTasks?: number
   totalTasksAmount?: number
   languageTo?: string | string[] | undefined

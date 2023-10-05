@@ -35,6 +35,7 @@ const FillProfileForTasks: React.FC<Props> = ({ onClose }) => {
       await PutData(jsonData, token)
       if (isShowingSecondSide) {
         onClose()
+        //here needs to be added api call to give away bonus tasks 
       } else {
         setIsShowingSecondSide(true)
       }

@@ -280,6 +280,19 @@
   "REG_REMINDER_PACKAGE_ACTIVATED": "Paket aktif hale getirildi ",
   "REG_REMINDER_DASHBOARD": "Benim sayfam",
   "REG_REMINDER_REMEMBER_CARD": "Kartı hatırla",
+  
+  "REG_REMINDER_DAILY_LIMIT": " dilinde günlük görev sınırı dolmuştur",
+  "REG_REMINDER_YOU": "Günluk",
+  "REG_REMINDER_FREE_TASKS_IN":  "sınırsız görevler gün bitene kadar etkinleştirilecektir",
+  "REG_REMINDER_HOURS": "Saat",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Learn a language",
+  "REG_REMINDER_5_TIMES": "5 times",
+  "REG_REMINDER_MORE_COMFORTABLE": "faster and more comfortable",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Premyum paketi seç",
+  "REG_REMINDER_5_DAY_TRIAL": "5 günlük deneme",
+  "REG_REMINDER_MONTHS":  "Ay",
+  "REG_REMINDER_GEL":  " GEL",
+
 
 
   "CERTIFICATE_DOWNLOAD": "Sertifikayı İndir",

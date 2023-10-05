@@ -56,9 +56,13 @@ const Lessons: NextPage = () => {
   const [profileData, setPRofileData] = useState<ProfileData | undefined>(
     undefined,
   )
-
+  
+  
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
+  const [language, setLanguage] = useState<string>('English');
+
+
 
   // Use localStorage to set the token state
   useEffect(() => {
@@ -286,10 +290,10 @@ const Lessons: NextPage = () => {
     <div className={style.container}>
       <Header size="s" />
 
-      {!isUserLoggedIn && completedTasks?.length === 1 && (
+      {!isUserLoggedIn && completedTasks?.length === 2 && (
         <div className={style.regReminder}>
           <RegistrationReminderPopup
-            isRegReminder={true}
+            popUpNumber={1}
             completedTasks={completedTasks.length}
             totalTasksAmount={courseData.info.tasksQuantity}
             languageTo={languageTo}
@@ -302,7 +306,14 @@ const Lessons: NextPage = () => {
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-
+       {!isUserLoggedIn && completedTasks?.length === 1 && (
+      <div className={style.regReminder}>
+          <RegistrationReminderPopup
+          language={language}
+            popUpNumber={2}
+          />
+        </div>
+ )}
       <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck

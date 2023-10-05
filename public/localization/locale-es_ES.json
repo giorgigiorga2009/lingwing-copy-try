@@ -273,6 +273,19 @@
   "REG_REMINDER_DASHBOARD": "Mi página",
   "REG_REMINDER_REMEMBER_CARD": "recordar tarjeta",
 
+  "REG_REMINDER_DAILY_LIMIT": "Se acabó el límite de los ejercicios diarios de ",
+  "REG_REMINDER_YOU": "diarios",
+  "REG_REMINDER_FREE_TASKS_IN": "দৈনন্দিন বিনামূল্যের কাজ পাবেন ",
+  "REG_REMINDER_HOURS": "Horas",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Estudia idiomas ",
+  "REG_REMINDER_5_TIMES": "5 veces",
+  "REG_REMINDER_MORE_COMFORTABLE": "más rápido",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Elije el paquete Premium",
+  "REG_REMINDER_5_DAY_TRIAL": "Prueba de 5 días",
+  "REG_REMINDER_MONTHS": "En mes",
+  "REG_REMINDER_GEL": " GEL",
+
+
 
   "CERTIFICATE_DOWNLOAD": "Descargar Certificado",
 
