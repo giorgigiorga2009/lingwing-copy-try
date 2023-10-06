@@ -56,6 +56,7 @@ const UpdatePassword: NextPage = () => {
         newPassword,
         repeatPassword,
         token,
+        expirationToken: '',
       })
       showAlert(t('PASSWORD_CHANGED_SUCCESS'), '', false)
         .then(result => {
