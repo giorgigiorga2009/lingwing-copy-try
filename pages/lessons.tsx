@@ -22,7 +22,7 @@ import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
 
-import RegistrationReminderPopup from '@components/lessons/reg-reminder-pop-up/RegistrationReminderPopup'
+import LessonsFlowPopUps from '@components/lessons/reg-reminder-pop-up/lessonsFlowPopUps'
 import { getReadCourse } from '@utils/getReadCourse'
 import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { useQuery } from 'react-query'
@@ -293,7 +293,7 @@ const Lessons: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if (completedTasks?.length === 120) {
+    if (completedTasks?.length === 12) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
@@ -319,7 +319,7 @@ const Lessons: NextPage = () => {
       <Header size="s" />
       {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <div className={style.regReminder}>
-          <RegistrationReminderPopup
+          <LessonsFlowPopUps
             popUpNumber={1}
             completedTasks={completedTasks.length}
             totalTasksAmount={courseData.info.tasksQuantity}
@@ -328,14 +328,14 @@ const Lessons: NextPage = () => {
           />
         </div>
       )}
-      {isUserLoggedIn && showProfileFiller && (
+      {isUserLoggedIn && showProfileFiller && !profileData?.profile.firstName && (
         <div className={style.regReminder}>
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-      {isUserLoggedIn && dailyTaskLeft  === 0 && (
+      {isUserLoggedIn && dailyTaskLeft  ===  0 && (
       <div className={style.regReminder}>
-          <RegistrationReminderPopup
+          <LessonsFlowPopUps
           popUpNumber={2}
           dailyLimitDate={dailyReachedLimitDate}
           duration={packagesData?.packages[1].duration}

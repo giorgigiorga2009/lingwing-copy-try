@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import style from './RegistrationReminderPopup.module.scss'
+import style from './lessonsFlowPopUps.module.scss'
 import PopUpCircle from './popUpCircle'
 import Image from 'next/image'
 import greenTick from '@public/themes/images/v2/bon-check.png'
@@ -12,13 +12,13 @@ import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
 import { ReccuringPrice } from '@components/packages/Prices'
 import CountDown from '@components/payment/CountDown'
 
-const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
+const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
+  popUpNumber,
   dailyLimitDate,
   duration,
   price,
   language,
   packetTitle,
-  popUpNumber,
   completedTasks,
   totalTasksAmount,
   languageTo,
@@ -202,4 +202,4 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
   )
 }
 
-export default RegistrationReminderPopup
+export default LessonsFlowPopUps
