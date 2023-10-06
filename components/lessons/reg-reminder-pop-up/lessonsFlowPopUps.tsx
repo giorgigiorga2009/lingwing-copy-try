@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import style from './RegistrationReminderPopup.module.scss'
+import style from './lessonsFlowPopUps.module.scss'
 import PopUpCircle from './popUpCircle'
 import Image from 'next/image'
 import greenTick from '@public/themes/images/v2/bon-check.png'
@@ -9,11 +9,16 @@ import { regReminderTitle } from '@utils/const'
 import { useTranslation } from '@utils/useTranslation'
 import { PaymentsProps, getUserPayements } from '@utils/getUserPayemnts'
 import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
+import { ReccuringPrice } from '@components/packages/Prices'
+import CountDown from '@components/payment/CountDown'
 
-const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
+const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
+  popUpNumber,
+  dailyLimitDate,
+  duration,
+  price,
   language,
   packetTitle,
-  popUpNumber,
   completedTasks,
   totalTasksAmount,
   languageTo,
@@ -33,7 +38,9 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
     } else if (popUpNumber === 2) {
       return (
         <>
-          <p className={style.header}>{`${language}${t('REG_REMINDER_DAILY_LIMIT')}`}</p>
+          <p className={style.header}>{`${language}${t(
+            'REG_REMINDER_DAILY_LIMIT',
+          )}`}</p>
         </>
       )
     } else if (popUpNumber === 3) {
@@ -46,7 +53,6 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
     }
     return null
   }
-
   const renderParagraphContent = () => {
     if (popUpNumber === 1) {
       return (
@@ -63,7 +69,8 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
         <>
           <p>{t('REG_REMINDER_YOU')}</p>
           <p>{t('REG_REMINDER_FREE_TASKS_IN')}</p>
-          <p className={style.number}>{'12:00'}</p>
+          {/* <p className={style.number}>{'12:00'}</p> */}
+          <CountDown forLessonsFlowN2={true} dailyLimitDate={dailyLimitDate} />
           <p>{t('REG_REMINDER_HOURS')}</p>
         </>
       )
@@ -135,13 +142,15 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
       return (
         <>
           <button className={style.regButton}>
-          <Link href="/packages">{t('REG_REMINDER_CHOOSE_PREMIUM')}</Link>
+            <Link href="/packages">{t('REG_REMINDER_CHOOSE_PREMIUM')}</Link>
           </button>
 
           <div className={style.priceWrapper}>
-            <p>{t("REG_REMINDER_MONTHS")}</p>
-            <p className={style.monthlyPrice}>'25'</p>
-            <p>{t("REG_REMINDER_GEL")}</p>
+            <p>{t('REG_REMINDER_MONTHS')}</p>
+            <p className={style.monthlyPrice}>
+              <ReccuringPrice
+              whereTo={1} price={price || 0} duration={duration || 0} symbol="GEL" />
+            </p>
           </div>
           <button className={style.orangeButton}>
             <Link href="/free-trial">{t('REG_REMINDER_5_DAY_TRIAL')}</Link>
@@ -186,13 +195,11 @@ const RegistrationReminderPopup: React.FC<RegistrationReminderPopupProps> = ({
           />
         ))}
       </div>
-     <div className={style.paragraph}>
-       {renderCheckboxWithCardDetails()}
-      </div>
+      <div className={style.paragraph}>{renderCheckboxWithCardDetails()}</div>
 
       <div className={style.buttons}>{renderButton()}</div>
     </div>
   )
 }
 
-export default RegistrationReminderPopup
+export default LessonsFlowPopUps
