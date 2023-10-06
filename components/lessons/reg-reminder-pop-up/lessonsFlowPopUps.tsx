@@ -69,7 +69,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
         <>
           <p>{t('REG_REMINDER_YOU')}</p>
           <p>{t('REG_REMINDER_FREE_TASKS_IN')}</p>
-          {/* <p className={style.number}>{'12:00'}</p> */}
           <CountDown forLessonsFlowN2={true} dailyLimitDate={dailyLimitDate} />
           <p>{t('REG_REMINDER_HOURS')}</p>
         </>
