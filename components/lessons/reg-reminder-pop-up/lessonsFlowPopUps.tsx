@@ -92,7 +92,7 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
           <p>{t('REG_REMINDER_MORE_COMFORTABLE')}</p>
         </>
       )
-    } else if (popUpNumber === 3 && paymentsData) {
+    } else if (popUpNumber === 3 && paymentsData?.creditCard.isAttached) {
       return (
         <div className={style.cardNumbers}>
           <label className={style.checkBoxContainer}>
@@ -113,6 +113,7 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
     }
     return null
   }
+  console.log(paymentsData)
 
   const renderButton = () => {
     if (popUpNumber === 1) {

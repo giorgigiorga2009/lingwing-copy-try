@@ -130,12 +130,12 @@ const Payment: React.FC<PaymentProps> = () => {
       <Reviews />
       <FollowButtons color="grey" />
       <Footer />
-      {/* <div className={styles.regReminder}>
-          <RegistrationReminderPopup
+      <div className={styles.regReminder}>
+          <LessonsFlowPopUps
             popUpNumber={3}
             packetTitle={data?.packages[0].title}
           />
-        </div> */}
+        </div>
          
     </div>
   )
