@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Input } from './Input'
 import { FC, useState } from 'react'
 import style from './SignIn.module.scss'
@@ -54,7 +55,9 @@ export const SignIn: FC<Props> = ({
         {!isPasswordValid && <ShowErr ErrText={t('AUTH_PASSWORD_NOT_VALID')} />}
       </div>
       <div className={style.bottomWrapper}>
-        {/* <a className={style.forgotPasswordLink}>{t('AUTH_FORGET_PASSWORD')}</a> */}
+        <Link href={'/update-password'} className={style.forgotPasswordLink}>
+          {t('AUTH_FORGET_PASSWORD')}
+        </Link>
         <AuthButton
           title={t('AUTH_SIGN_IN')}
           onClick={() => isEmailValid && isPasswordValid && signIn()}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { NextPage } from 'next'
 import Image from 'next/image'
 import { useTranslation } from '@utils/useTranslation'
 import styles from './payment.module.scss'
@@ -21,7 +22,7 @@ import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 
-const Payment: React.FC<PaymentProps> = () => {
+const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()
   const router = useRouter()
   const [selectedCurrency, setSelectedCurrency] = useState<number>(0)

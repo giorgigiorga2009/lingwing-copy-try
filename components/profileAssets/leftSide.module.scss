@@ -1,10 +1,10 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .leftContainer {
   width: 50%;
   background-color: $white-100;
   padding: 20px 51px;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 20px 0 0 20px;
   padding-bottom: 30px;
 
   & > div {
@@ -12,10 +12,12 @@
     position: relative;
     margin-top: 42px;
     padding-left: 10px;
+
     .phone {
       margin-left: 10px;
       max-width: 100%;
     }
+
     input {
       width: 100%;
       max-width: 25rem;
@@ -26,11 +28,13 @@
       height: 2.5rem;
       border-radius: 50px;
       border: 1px solid $grey-800;
+
       &:focus {
         border: none;
         outline: 2px solid $purple-500;
       }
     }
+
     label {
       position: absolute;
       font-family: SegoeUI, 'sans-serif';
@@ -39,10 +43,12 @@
       top: -27px;
     }
   }
+
   .birthDate {
     width: 100%;
     display: flex;
   }
+
   .gender {
     width: 100%;
     height: 50px;
@@ -51,14 +57,17 @@
     justify-content: space-between;
     padding-right: 3.5rem;
     margin-top: 10px;
+
     label {
       position: static;
     }
+
     div {
       width: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
+
       input[type='radio'] {
         width: 20px;
         height: 20px;
@@ -66,10 +75,12 @@
       }
     }
   }
+
   @include mobile {
     width: 100%;
-    border-radius: 20px 20px 0px 0px;
-    padding: 0px 20px;
+    border-radius: 20px 20px 0 0;
+    padding: 0 20px;
+
     div {
       input {
         width: 100%;

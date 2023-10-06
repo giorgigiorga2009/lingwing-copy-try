@@ -19,8 +19,9 @@
     "@types/wavesurfer.js": "^6.0.3",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
-    "dotenv": "^16.3.1",
     "country-state-city": "^3.1.4",
+    "dompurify": "^3.0.6",
+    "dotenv": "^16.3.1",
     "flickity": "^3.0.0",
     "focus-trap-react": "^10.1.4",
     "formik": "^2.4.3",
@@ -54,6 +55,7 @@
     "zustand": "^4.3.9"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.3",
     "@types/flickity": "^2.2.8",
     "@types/istanbul-lib-report": "^3.0.0",
     "@types/node": "17.0.41",

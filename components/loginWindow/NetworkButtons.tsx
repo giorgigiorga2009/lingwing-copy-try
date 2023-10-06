@@ -17,7 +17,7 @@ export const NetworkButtons: FC<Props> = ({ isSignInTab }) => {
         <button
           className={classNames(style.button, style[network])}
           key={network}
-          onClick={() => signIn('facebook')}
+          onClick={() => signIn(network, { callbackUrl: '/dashboard' })}
         >
           <div className={style.icon} />
           <div className={style.text}>

@@ -173,11 +173,13 @@
   border-radius: 0 0 10px 10px;
   box-shadow: 2px 2px 10px 5px rgba(0 0 0 / 3%);
 }
+
 // registration reminder
 @keyframes slideDown {
   0% {
     transform: translateY(-2rem);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -188,6 +190,7 @@
     opacity: 0;
     filter: blur(10px);
   }
+
   100% {
     opacity: 1;
     filter: blur(0);

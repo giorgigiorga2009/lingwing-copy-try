@@ -1,9 +1,9 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .rightContainer {
   background-color: $white;
   width: 50%;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0 20px 20px 0;
   height: 100%;
   display: flex;
   align-items: center;
@@ -14,11 +14,13 @@
     font-family: SegoeUI, 'sans-serif';
     color: $grey-800;
   }
+
   .imageCropper {
     width: 100%;
     height: 30px;
     background-color: $google;
   }
+
   .socialLinks {
     width: 100%;
     height: 50px;
@@ -27,23 +29,28 @@
     justify-content: space-between;
     flex-wrap: wrap;
     row-gap: 20px;
-    padding: 0px 90px 120px 90px;
+    padding: 0 90px 120px;
+
     @media screen and (max-width: 875px) {
-      padding: 0px 40px 120px 40px;
+      padding: 0 40px 120px;
     }
+
     @include smallWidth {
-      padding: 0px 10px 120px 10px;
+      padding: 0 10px 120px;
     }
   }
+
   .switches {
     width: 65%;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     .switch {
       display: flex;
       align-items: center;
+
       .slider {
         transition: 1s;
         background-color: $white-200;
@@ -57,6 +64,7 @@
         display: inline-block;
         width: 60px;
         height: 27px;
+
         &::after {
           content: '';
           display: flex;
@@ -71,24 +79,29 @@
           transition: 0.5s;
         }
       }
+
       & input[type='checkbox']:checked + .slider {
         background-color: $purple-600;
         transition: 0.5s;
       }
+
       & input[type='checkbox']:checked + .slider::after {
         left: 40px;
         transition: 0.5s;
       }
+
       & input[type='checkbox'] {
         display: none;
         transition: 0.5s;
       }
+
       label {
         font-family: SegoeUI, 'sans-serif';
         color: $grey-800;
       }
     }
   }
+
   .changePassword {
     width: 60%;
     height: 30px;
@@ -97,17 +110,20 @@
     gap: 10px;
     justify-content: flex-start;
     margin-top: 20px;
+
     a {
       text-decoration: none;
       font-size: 18px;
       font-family: SegoeUI, 'sans-serif';
       color: $grey-800;
     }
+
     img:nth-child(1) {
       width: 25px;
       height: 25px;
     }
   }
+
   .agree {
     width: 70%;
     height: 20px;
@@ -120,20 +136,23 @@
       width: 20px;
       height: 20px;
     }
+
     p {
       color: $grey-800;
       font-family: SegoeUI, 'sans-serif';
+
       a {
         text-decoration: none;
         color: $purple-500;
       }
     }
   }
-  button {
+
+  .button {
     position: absolute;
     bottom: -105px;
     right: 0;
-    padding: 0px 20px;
+    padding: 0 20px;
     height: 47px;
     border: 50px;
     background-color: $purple-600;
@@ -143,12 +162,15 @@
     border-radius: 50px;
     cursor: pointer;
   }
+
   @include mobile {
     width: 100%;
     align-items: center;
+
     .changePassword {
       justify-content: center;
     }
+
     .agree {
       justify-content: center;
     }

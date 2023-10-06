@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import style from './leftSide.module.scss'
-import ProfileInput from './profileInput'
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-import { useTranslation } from '@utils/useTranslation'
-import { ProfileData } from '@utils/profileEdit'
 import GenerateDate from './generateDate'
+import ProfileInput from './profileInput'
+import style from './leftSide.module.scss'
+import 'react-phone-number-input/style.css'
 import CountrySelector from './countrySelector'
+import { ProfileData } from '@utils/profileEdit'
+import PhoneInput from 'react-phone-number-input'
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from '@utils/useTranslation'
 
 type Props = {
   data?: ProfileData

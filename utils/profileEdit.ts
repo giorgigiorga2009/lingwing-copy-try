@@ -39,7 +39,7 @@ export interface ProfileData {
 export const PutData = async (formObject: {}, token: string | null) => {
   try {
     const response = await axios.put(
-      `${process.env.defaultURL}/user/profile`,
+      `${process.env.DEFAULT_URL}/user/profile`,
       formObject,
       {
         headers: {
@@ -59,11 +59,14 @@ export const PutData = async (formObject: {}, token: string | null) => {
 
 export const GetProfileData = async (token: string | null) => {
   try {
-    const response = await axios.get(`${process.env.defaultURL}/user/profile`, {
-      headers: {
-        Authorization: token!,
+    const response = await axios.get(
+      `${process.env.DEFAULT_URL}/user/profile`,
+      {
+        headers: {
+          Authorization: token!,
+        },
       },
-    })
+    )
 
     // Return the response data
     return response.data.data
@@ -82,7 +85,7 @@ export const UploadImage = async (token: string | null, image?: string) => {
       formData.append('file', image)
 
       const response = await axios.post(
-        `${process.env.defaultURL}/user/profile/avatar/upload`,
+        `${process.env.DEFAULT_URL}/user/profile/avatar/upload`,
         formData,
         {
           headers: {

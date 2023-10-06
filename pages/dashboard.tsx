@@ -1,5 +1,7 @@
+import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import style from './dashboard.module.scss'
+import { useSession } from 'next-auth/react'
 import { Locale } from '../utils/localization'
 import { FC, useEffect, useState } from 'react'
 import { PageHead } from '../components/PageHead'
@@ -22,24 +24,23 @@ interface Language {
   standards: any[]
 }
 
-const Dashboard: FC = () => {
+const Dashboard: NextPage = () => {
   const { t } = useTranslation()
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(true)
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [activeLang, setActiveLang] = useState<number>(0)
   const locale = router.locale ?? 'en'
+  const { data: session } = useSession()
 
   useEffect(() => {
     handleMyCourses()
-    console.log(handleMyCourses())
     setLoading(false)
   }, [])
 
   const handleMyCourses = () => {
-    if (typeof window !== 'undefined') {
-      const token = window.localStorage.getItem('authToken') as string
-      return getMyCoursesData(token).then(response =>
+    if (session) {
+      return getMyCoursesData(session.user.accessToken).then(response =>
         setMyLanguages(response.data.languages),
       )
     }
@@ -48,7 +49,6 @@ const Dashboard: FC = () => {
   const changeActiveLang = (indexOfLang: number) => {
     setActiveLang(indexOfLang)
   }
-  console.log(myLanguages)
 
   const myCourse = myLanguages.map((item: Language, indexOfLang: number) => {
     if (indexOfLang === activeLang) {

@@ -266,6 +266,23 @@
   "REG_REMINDER_INITIATION": "Iniciar",
   "REG_REMINDER_REGISTRATION": "Registo",
   "REG_REMINDER_BONUS": "Bonus",
-  "REG_REMINDER_PREMIUM": "Premium"
+  "REG_REMINDER_PREMIUM": "Premium",
+
+  "PASSWORD_ERROR": "Error",
+  "PASSWORD_CHANGE": "Cambiar contraseña",
+  "PASSWORD_CHANGE_SET": "Guardar la contraseña",
+  "PASSWORD_CHANGE_CURRENT_PASSWORD": "Contraseña actual",
+  "PASSWORD_CHANGE_NEW_PASSWORD": "Contraseña nueva",
+  "PASSWORD_CHANGE_REPEAT_NEW_PASSWORD": "Repite la contraseña nueva",
+  "PASSWORD_CHANGE_PASSWORDS_DONT_MATCH": "Las contraseñas no coinciden",
+  "PASSWORD_CHANGED_SUCCESS": "Su contraseña se ha cambiado",
+  "CURRENTPASSWORD_DONT_MATCH": "La contraseña actual que ingresaste es incorrecta",
+
+  "RESET_PASSWORD": "Restablecer la contraseña",
+  "RESET_PASSWORD_SEND_LINK": "Enviar enlace de reinicio",
+  "RESET_PASSWORD_DESCRIPTION": "Ingrese la dirección de correo electrónico que utilizó para registrarse y le enviaremos un enlace para restablecer la contraseña.",
+  "RESET_PASSWORD_NOT_MATCH": "las contraseñas no coinciden",
+  "RESET_PASSWORD_EXPIRED_TOKEN": "El enlace para restablecer la contraseña ha caducado, intente restablecer su contraseña nuevamente.",
+  "RESET_PASSWORD_EMAIL_SENT": "Si el correo electrónico que especificó existe en nuestro sistema, le hemos enviado un enlace para restablecer la contraseña."
 
 }

@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
 import style from './licensing-agreement.module.scss'
 import { Header } from '@components/header/Header'
@@ -10,7 +11,7 @@ import {
   fetchData,
 } from '@utils/htmlRenderer'
 
-const LicencingAgreement = () => {
+const LicencingAgreement: NextPage = () => {
   const { t } = useTranslation()
   const { isLoading, isError, data: fetchedData } = useLicencingAgreementData()
   const [data, setData] = useState<string | null>(null)

@@ -301,5 +301,24 @@
   "REG_REMINDER_INITIATION": "Знакомство",
   "REG_REMINDER_REGISTRATION": "Регистрация",
   "REG_REMINDER_BONUS": "Бонус",
-  "REG_REMINDER_PREMIUM": "Премиум"
+  "REG_REMINDER_PREMIUM": "Премиум",
+
+  "PASSWORD_ERROR": "Ошибка",
+  "PASSWORD_CHANGE": "Сменить пароль",
+  "PASSWORD_CHANGE_SET": "Сохраните пароль",
+  "PASSWORD_CHANGE_CURRENT_PASSWORD": "текущий пароль",
+  "PASSWORD_CHANGE_NEW_PASSWORD": "новый пароль",
+  "PASSWORD_CHANGE_REPEAT_NEW_PASSWORD": "Повторите новый пароль",
+  "PASSWORD_CHANGE_MIN_SYMBOLS": "Впишите минимум 6 символов",
+  "PASSWORD_CHANGE_PASSWORDS_DONT_MATCH": "Пароли не совпадают",
+  "PASSWORD_CHANGED_SUCCESS": "Пароль успешно изменен",
+  "CURRENTPASSWORD_DONT_MATCH": "Текущий пароль, который вы ввели, неверен",
+
+  "RESET_PASSWORD": "Восстановление пароля",
+  "RESET_PASSWORD_SEND_LINK": "Отправить ссылку",
+  "RESET_PASSWORD_DESCRIPTION": "Введите адрес эл. почты, который Вы указали во время регистрации и Мы отправим Вам инструкцию О восстановлении пароля",
+  "RESET_PASSWORD_NOT_MATCH": "Пароли не совпадают",
+  "RESET_PASSWORD_EXPIRED_TOKEN": "Срок действия ссылки для сброса пароля истек, попробуйте сбросить пароль еще раз.",
+  "RESET_PASSWORD_EMAIL_SENT": "Если указанный адрес эл. почты существует в нашей системе, Вам уже отправлена ссылка на восстановление пароля."
+
 }

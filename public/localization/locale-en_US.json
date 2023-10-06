@@ -291,8 +291,6 @@
   "APP_AGREE_LICENSE_2": ".",
   "APP_AGREE_LICENSE_3": "You can cancel it within 5-days.",
 
-
-
   "REG_REMINDER_HEADER": "It's just beginning",
   "REG_REMINDER_YOU_HAVE_COMPLETED": "You have completed",
   "REG_REMINDER_OUT_OF": "exercises out of",
@@ -302,6 +300,24 @@
   "REG_REMINDER_INITIATION": "Inititaion",
   "REG_REMINDER_REGISTRATION": "Registration",
   "REG_REMINDER_BONUS": "Bonus",
-  "REG_REMINDER_PREMIUM": "Premium"
+  "REG_REMINDER_PREMIUM": "Premium",
+
+  "PASSWORD_ERROR": "Error",
+  "PASSWORD_CHANGE": "Change Password",
+  "PASSWORD_CHANGE_SET": "Save Password",
+  "PASSWORD_CHANGE_CURRENT_PASSWORD": "Current Password",
+  "PASSWORD_CHANGE_NEW_PASSWORD": "New Password",
+  "PASSWORD_CHANGE_REPEAT_NEW_PASSWORD": "Repeat New Password",
+  "PASSWORD_CHANGE_PASSWORDS_DONT_MATCH": "Passwords don't match",
+  "PASSWORD_CHANGED_SUCCESS": "Password was changed successfully",
+  "CURRENTPASSWORD_DONT_MATCH": "Current password you entered is incorrect",
+
+  "RESET_PASSWORD": "Reset password",
+  "RESET_PASSWORD_SEND_LINK": "Send Reset Link",
+  "RESET_PASSWORD_DESCRIPTION": "Enter the E-mail address you used to sign up and we will send a reset password link",
+  "RESET_PASSWORD_NOT_MATCH": "Passwords don't match",
+  "RESET_PASSWORD_EXPIRED_TOKEN": "The password reset link has expired, try to reset your password again.",
+  "RESET_PASSWORD_EMAIL_SENT": "If the email you specified exists in our system, we've sent a password reset link to it."
+
 
 }

@@ -40,7 +40,7 @@
   "AUTH_FOOTER2": "სალიცენზიო ხელშეკრულების",
   "AUTH_FOOTER3": "და ",
   "AUTH_FOOTER4": "კონფიდენციალურობის პოლიტიკას",
-  "AUTH_EMAIL_NOT_VALID": "არასწორია ელ-ფოსტის ფორმატი",
+  "AUTH_EMAIL_NOT_VALID": "არასწორი ელ-ფოსტის ფორმატი",
   "AUTH_PASSWORD_NOT_VALID": "პაროლი უნდა იყოს მინიმუმ 6 სიმბოლო და არ შეიცავდეს გამოტოვებებს",
   "AUTH_PASSWORD_NOT_SAME": "პაროლები არ ემთხვევა",
   "AUTH_EMAIL_NOT_FOUND": "ელ-ფოსტა ან პაროლი არ არის სწორი.",
@@ -302,5 +302,23 @@
   "REG_REMINDER_INITIATION":  "გაცნობა",
   "REG_REMINDER_REGISTRATION": "რეგისტრაცია",
   "REG_REMINDER_BONUS": "ბონუსი",
-  "REG_REMINDER_PREMIUM":  "პრემიუმი"
+  "REG_REMINDER_PREMIUM":  "პრემიუმი",
+
+  "PASSWORD_ERROR": "შეცდომა",
+  "PASSWORD_CHANGE": "პაროლის შეცვლა",
+  "PASSWORD_CHANGE_SET": "პაროლის შენახვა",
+  "PASSWORD_CHANGE_CURRENT_PASSWORD": "მიმდინარე პაროლი",
+  "PASSWORD_CHANGE_NEW_PASSWORD": "ახალი პაროლი",
+  "PASSWORD_CHANGE_REPEAT_NEW_PASSWORD": "გაიმეორეთ ახალი პაროლი",
+  "PASSWORD_CHANGE_PASSWORDS_DONT_MATCH": "პაროლები არ ემთხვევა",
+  "PASSWORD_CHANGED_SUCCESS": "პაროლი წარმატებით შეიცვალა",
+  "CURRENTPASSWORD_DONT_MATCH": "შეყვანილი მიმდინარე პაროლი არ არის სწორი",
+
+  "RESET_PASSWORD": "პაროლის აღდგენა",
+  "RESET_PASSWORD_SEND_LINK": "ბმულის გაგზავნა",
+  "RESET_PASSWORD_DESCRIPTION": "შეიყვანე რეგისტრაციისას მითითებული ელ-ფოსტის მისამართი, რომელზეც გამოგიგზავნით პაროლის აღდგენის ბმულს",
+  "RESET_PASSWORD_NOT_MATCH": "პაროლები არ ემთხვევა",
+  "RESET_PASSWORD_EXPIRED_TOKEN": "პაროლის აღდგენის ბმულს ვადა გაუვიდა, სცედე პაროლის აღდგენა ხელახლა.",
+  "RESET_PASSWORD_EMAIL_SENT": "თუ მითითებული ელ. ფოსტა ჩვენს სისტემაში არსებობს, შენ უკვე გამოგეგზავნა პაროლის აღდგენის ბმული."
+
 }

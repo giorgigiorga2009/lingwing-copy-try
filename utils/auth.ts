@@ -6,6 +6,22 @@ interface Auth {
   repeatPassword?: string
 }
 
+export interface socialAuth {
+  provider: string
+  id: string
+  name?: string | null
+  email?: string | null
+  image?: string | null
+}
+
+interface resetPassword {
+  currentPassword: string
+  newPassword: string
+  repeatPassword: string
+  token: string | undefined
+  expirationToken: string | string[] | undefined
+}
+
 const HEADERS = {
   'Content-Type': 'application/json;charset=UTF-8',
   Accept: 'application/json, text/plain, */*',
@@ -76,4 +92,77 @@ export const getUserProfileData = (token: string) => {
   })
     .then(response => response.data)
     .catch(error => console.log(error))
+}
+
+export const socialLogin = ({
+  provider,
+  id,
+  name,
+  email,
+  image,
+}: socialAuth) => {
+  return (
+    axios({
+      method: 'post',
+      url: `${process.env.DEFAULT_URL}/public/auth/social`,
+      headers: {
+        ...HEADERS,
+        //Authorization: 'null',
+      },
+      data: {
+        provider,
+        id,
+        name,
+        email,
+        image,
+      },
+    })
+      //.then(response => response.data.token)   Production
+      .then(response => response.data.token)
+      .catch(error => console.log(error))
+  )
+}
+
+export const resetPassword = ({
+  currentPassword,
+  newPassword,
+  repeatPassword,
+  token,
+  expirationToken,
+}: resetPassword) => {
+  return axios({
+    method: 'post',
+    url: `${process.env.DEFAULT_URL}/public/auth/reset`,
+    headers: {
+      ...HEADERS,
+      Authorization: token || '',
+    },
+    data: {
+      currentPassword,
+      password: newPassword,
+      confirmPassword: repeatPassword,
+      token: expirationToken,
+    },
+  })
+    .then(response => response.data.data)
+    .catch(error => {
+      throw error
+    })
+}
+
+export const forgotPassword = (email: string) => {
+  return axios({
+    method: 'post',
+    url: `${process.env.DEFAULT_URL}/public/auth/forgot`,
+    headers: {
+      ...HEADERS,
+    },
+    data: {
+      email,
+    },
+  })
+    .then(response => response.data.data)
+    .catch(error => {
+      throw error
+    })
 }

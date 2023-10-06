@@ -2,10 +2,9 @@ import { Tab } from './Tab'
 import Foco from 'react-foco'
 import { SignUp } from './SignUp'
 import { SignIn } from './SignIn'
-import { login } from '@utils/auth'
 import classNames from 'classnames'
 import { FC, useState } from 'react'
-import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
 import FocusTrap from 'focus-trap-react'
 import style from './LoginModal.module.scss'
 import { NetworkButtons } from './NetworkButtons'
@@ -31,25 +30,21 @@ interface Props {
 }
 
 export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
-  const [tab, setTab] = useState<Tab>('signIn')
-  const router = useRouter()
   const { t } = useTranslation()
-
+  const [tab, setTab] = useState<Tab>('signIn')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [emailNotFound, setEmailNotFound] = useState<boolean>(false)
 
-  const signIn = async () => {
+  const signInto = async () => {
     try {
-      const response = await login({ email, password })
+      const response = await signIn('credentials', {
+        email,
+        password,
+        callbackUrl: '/dashboard',
+      })
 
-      if (response) {
-        localStorage.setItem('authToken', response)
-        router.push('/dashboard')
-        setOpenLogin(!openLogin)
-      } else {
-        setEmailNotFound(true)
-      }
+      response?.ok === false ? setEmailNotFound(true) : setOpenLogin(!openLogin)
     } catch (error) {
       console.log((error as Error).message)
     }
@@ -82,7 +77,7 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
             <Divider />
             {tab === 'signIn' && (
               <SignIn
-                signIn={signIn}
+                signIn={signInto}
                 err={emailNotFound}
                 email={email}
                 setEmail={setEmail}
@@ -92,7 +87,7 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
             )}
             {tab === 'signUp' && (
               <SignUp
-                signIn={signIn}
+                signIn={signInto}
                 email={email}
                 setEmail={setEmail}
                 password={password}

@@ -209,8 +209,6 @@
   "PACKAGES_INFO_PREMIUM_PARAGRAPH": "Birinci sınıf kullanıcı ol ve tam seçenekler alın",
   "PACKAGES_INFO_CHOOSE": "Seçmek",
   "PACKAGES_INFO_FROM_GEL": "GEL'den ",
-  
-
 
   "APP_PROFILE_FIRST_NAME": "İsim",
   "APP_PROFILE_LAST_NAME": "Soyisim",
@@ -263,8 +261,6 @@
   "APP_AGREE_LICENSE_2": ".",
   "APP_AGREE_LICENSE_3": "5 gün içinde iptal edebilirsiniz.",
 
-
-
   "REG_REMINDER_POP_UP_HEADER":  "Bu sadece başlangiç",
   "REG_REMINDER_POP_UP_YOU_HAVE_COMPLETED": "Sen",
   "REG_REMINDER_OUT_OF": "görev tamamladın",
@@ -274,6 +270,23 @@
   "REG_REMINDER_INITIATION": "Tanışmak",
   "REG_REMINDER_REGISTRATION": "Yeni bir hesap aç",
   "REG_REMINDER_BONUS": "Bonus",
-  "REG_REMINDER_PREMIUM": "Premyum"
+  "REG_REMINDER_PREMIUM": "Premyum",
+
+  "PASSWORD_ERROR": "Hata",
+  "PASSWORD_CHANGE": "Şifre değiştir",
+  "PASSWORD_CHANGE_SET": "Şifreyi kaydet",
+  "PASSWORD_CHANGE_CURRENT_PASSWORD": "Şimdiki şifre",
+  "PASSWORD_CHANGE_NEW_PASSWORD": "Yeni şifre",
+  "PASSWORD_CHANGE_REPEAT_NEW_PASSWORD": "Yeni şifreyi tekrar girin",
+  "PASSWORD_CHANGE_PASSWORDS_DONT_MATCH": "Parolalar eşleşmiyor",
+  "PASSWORD_CHANGED_SUCCESS": "Şifre başarıyla değiştirildi",
+  "CURRENTPASSWORD_DONT_MATCH": "Girdiğiniz mevcut şifre yanlış",
   
+  "RESET_PASSWORD": "Şifreyi yenile",
+  "RESET_PASSWORD_SEND_LINK": "Link gönder",
+  "RESET_PASSWORD_DESCRIPTION": "Kaydolmak için kullandığınız e-posta adresini girin ve şifre yenileme hakkında size bir link göndereceğiz",
+  "RESET_PASSWORD_NOT_MATCH": "Şifreler birbirine eşleşmiyor",
+  "RESET_PASSWORD_EXPIRED_TOKEN": "Süresi geçti, lütfen verileri tekrar giriniz!",
+  "RESET_PASSWORD_EMAIL_SENT": "Belirtiğin e-posta sistemimizde mevcutsa, şifre sıfırlama bağlantısı gönderilir."
+
 }

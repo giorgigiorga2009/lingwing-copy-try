@@ -1,22 +1,32 @@
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import style from './profile.module.scss'
+import { useSession } from 'next-auth/react'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
-import { FollowButtons } from '@components/home/FollowButtons'
-import { useRouter } from 'next/router'
-import ProfileForm from '@components/profileAssets/profileForm'
 import { useTranslation } from '@utils/useTranslation'
+import { FollowButtons } from '@components/home/FollowButtons'
+import ProfileForm from '@components/profileAssets/profileForm'
 
-const Profile: React.FC = () => {
+const Profile: NextPage = () => {
   const router = useRouter()
   const { t } = useTranslation()
+  const { data: session, status } = useSession()
   useEffect(() => {
-    const token = localStorage.getItem('authToken')
-    if (!token) {
-      // Redirect to the home page or any other desired page
+    if (status === 'authenticated') {
+      const token = session?.user.accessToken
+      if (!token) {
+        router.push('/')
+      }
+    } else if (status === 'unauthenticated') {
       router.push('/')
     }
-  }, [router])
+  }, [])
+
+  if (status === 'loading') {
+    return <div>Loading...</div> // Render a loading state or any placeholder
+  }
 
   return (
     <div className={style.background}>

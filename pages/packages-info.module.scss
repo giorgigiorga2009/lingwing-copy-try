@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   display: flex;
@@ -6,7 +6,7 @@
   row-gap: 5rem;
   font-family: SegoeUI;
   align-items: center;
-  background-image: url(/assets/images/background-letters.svg);
+  background-image: url('/assets/images/background-letters.svg');
   background-position: left top, left top;
   background-repeat: repeat, no-repeat;
   position: relative;
@@ -38,6 +38,7 @@
     width: 95%;
     font-size: 0.7rem;
   }
+
   @include smallWidth {
     background: linear-gradient(to Bottom, $white-50 6.5rem, $white 6.5rem);
   }
