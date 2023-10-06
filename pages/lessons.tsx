@@ -30,6 +30,8 @@ import { useQuery } from 'react-query'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
 import { GetProfileData, ProfileData } from '@utils/profileEdit'
+import { getPackageDataById, PackageResponse } from '@utils/getPayments'
+import { getPackages, PackageData } from '@utils/getPackages'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -56,6 +58,14 @@ const Lessons: NextPage = () => {
   const [profileData, setPRofileData] = useState<ProfileData | undefined>(
     undefined,
   )
+  const [packagesData, setPackagesData] = useState<PackageData>();
+  const [dailyTaskLeft, setDailyTaskLeft] = useState(0);
+  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0);
+  const [dailyReachedLimitDate, setDailyReachedLimitDate] =  useState<Date | string | undefined>();
+  
+  
+  
+  
   
   
   const router = useRouter()
@@ -100,6 +110,9 @@ const Lessons: NextPage = () => {
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
           setUserScore(courseObject.score)
+          setDailyTaskLeft(courseObject.info.dailyTaskLeft)
+          setunAuthuserDailyLimit(courseObject.course.configuration.unAuthUserDailyLimit)
+          setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
         }
         return courseObject
       })
@@ -280,17 +293,31 @@ const Lessons: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if (completedTasks?.length === 1) {
+    if (completedTasks?.length === 120) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
   ///
 
+  /// this is for pop ups > N2
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getPackages('');
+        setPackagesData(response);
+      } catch (err) {
+      }
+    }
+  
+    fetchData();
+  }, []);
+
+  ///
+
   return (
     <div className={style.container}>
       <Header size="s" />
-
-      {!isUserLoggedIn && completedTasks?.length === 2 && (
+      {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <div className={style.regReminder}>
           <RegistrationReminderPopup
             popUpNumber={1}
@@ -306,11 +333,14 @@ const Lessons: NextPage = () => {
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-       {!isUserLoggedIn && completedTasks?.length === 1 && (
+      {isUserLoggedIn && dailyTaskLeft  === 0 && (
       <div className={style.regReminder}>
           <RegistrationReminderPopup
+          popUpNumber={2}
+          dailyLimitDate={dailyReachedLimitDate}
+          duration={packagesData?.packages[1].duration}
+          price={packagesData?.packages[1].currency[0].recurringPrice}
           language={language}
-            popUpNumber={2}
           />
         </div>
  )}
