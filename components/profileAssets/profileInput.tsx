@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import style from './profileInput.module.scss'
 
 interface Props {
+  required?: boolean
   name: string
   type: string
   text: string
@@ -9,9 +10,11 @@ interface Props {
   onBlur: () => void
   focused: boolean
   value?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ProfileInput: React.FC<Props> = ({
+  required,
   name,
   type,
   text,
@@ -45,6 +48,7 @@ const ProfileInput: React.FC<Props> = ({
         type={type}
         onChange={handleInputChange}
         value={inputValue}
+        required={required}
       />
     </div>
   )

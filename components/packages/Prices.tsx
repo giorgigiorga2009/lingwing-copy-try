@@ -2,8 +2,10 @@ import { FC } from 'react'
 import style from './Prices.module.scss'
 import { CurrencySymbol } from './CurrencySymbol'
 import { useTranslation } from '@utils/useTranslation'
+import classNames from 'classnames'
 
 interface ReccuringPrice {
+  whereTo?: number
   price: number
   duration: number
   symbol: string
@@ -21,6 +23,7 @@ export const FreePackagePrice: FC = () => {
 }
 
 export const ReccuringPrice: FC<ReccuringPrice> = ({
+  whereTo,
   price,
   duration,
   symbol,
@@ -28,10 +31,10 @@ export const ReccuringPrice: FC<ReccuringPrice> = ({
   const { t } = useTranslation()
 
   return (
-    <div className={style.monthPrice}>
-      {(price / duration).toFixed(1)}
-      <CurrencySymbol symbol={symbol} />
-      <span className={style.monthAndTotal}>{t('APP_PACKAGE_MONTH_ge')}</span>
+    <div className={classNames(style.monthPrice, {[style.monthPriceForFlowPopUp]: whereTo === 1})}>
+      {(price / duration).toFixed(1)}{' '}
+      <CurrencySymbol symbol={symbol} whereTo={whereTo}/>
+      <span className={style.monthAndTotal}>{whereTo === 1 ? '' : t('APP_PACKAGE_MONTH_ge')}</span>
     </div>
   )
 }

@@ -23,18 +23,16 @@ const FreeTrialPackages = () => {
         console.error('An error occurred:', err)
       }
     }
-
     fetchData()
   }, [])
 
   const packages = data?.packages ?? []
   const identifier = packages[0]?.currency[0]._id.symbol
-  const filteredPackages = packages.filter((_, index) => index !== 0)
+  const filteredPackages = packages.filter((_, index) => index !== 0);
 
   const handleCheckboxClick = () => {
     setIsChecked(!isChecked)
   }
-
   const handlePackageClicked = () => {
     setPackageClicked(true)
   }
@@ -89,7 +87,6 @@ const FreeTrialPackages = () => {
         </p>
       </div>
     </div>
-  )
-}
-
+  );
+};
 export default FreeTrialPackages

@@ -7,10 +7,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 1.8rem;
   label {
     position: absolute;
     margin: 10px 0;
+    
   }
   .country {
     width: 100%;
@@ -28,6 +29,10 @@
     border-radius: 30px;
     border: 1px solid $grey-800;
     margin: 10px 0;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
     &:focus {
       border: 2px solid $grey-800;
     }

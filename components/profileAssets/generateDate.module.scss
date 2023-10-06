@@ -9,21 +9,44 @@
   justify-content: center;
   select {
     width: 122%;
-    height: 41px;
+    height: 2.5rem;
     color: $black;
     background-color: $white;
     border: 1px solid $grey-800;
     font-family: SegoeUI, 'sans-serif';
     padding: 6px 10px;
-    &:focus {
-      border: 2px solid $grey-800;
+
+    &:lang(ka) {
+      font-family: $kaFont;
     }
+    
   }
   .select1 {
     border-radius: 50px 0 0 50px;
+    &:focus{
+      border-top: 2px solid $grey-800;
+      border-bottom: 2px solid $grey-800;
+      border-left: 2px solid $grey-800;
+    }
   }
   .select3 {
     border-radius: 0px 50px 50px 0;
+    &:focus{
+      border-top: 2px solid $grey-800;
+      border-bottom: 2px solid $grey-800;
+      border-right: 2px solid $grey-800;
+      // border-left: none;
+    }
+  }
+  .lighterborderColor{
+    border: 2px solid $white-200;
+
+     &:focus{
+      border-top: 1px solid $white-200;
+      border-bottom: 1px solid $white-200;
+      border-left: 1px solid $white-200;
+      border-right: 2px solid $white-200;
+    }
   }
   @include mobile {
     width: 100%;

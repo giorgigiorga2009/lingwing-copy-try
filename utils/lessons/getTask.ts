@@ -171,6 +171,15 @@ export type CourseObject = {
     }
   }
   iLearnFromNameCode: string
+  info: {
+    attachCreditCardAgain: boolean
+    bonus: number
+    dailyTaskLeft: number
+    daysLeft: number
+    freeTrialDaysLeft: number
+    freeTrialIsUsed: boolean
+    premium: boolean
+  }
   learnMode: number
   dailyReachedLimitDate: string
   sentDailyTaskCounter: number

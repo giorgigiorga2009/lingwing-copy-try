@@ -30,7 +30,36 @@ export type PackageData = {
         percent: number
       }
     },
+    {
+      _id: string
+      title: string
+      duration: number
+      sale: number
+      mostPopular: boolean
+
+      currency: [
+        {
+          price: number
+          oldPrice: number
+          recurringPrice: number
+          _id: { symbol: string }
+        },
+      ]
+
+      feature: {
+        tasks: number
+        certificate: boolean
+        grammarAndStatistics: boolean
+        voiceRecognition: boolean
+      }
+
+      discountUsers: {
+        active: boolean
+        percent: number
+      }
+    },
   ]
+  
 
   currencies: [
     {
@@ -38,6 +67,7 @@ export type PackageData = {
       symbol: string
     },
   ]
+  
 }
 
 export const getPackages = (coupon: string): Promise<PackageData> => {

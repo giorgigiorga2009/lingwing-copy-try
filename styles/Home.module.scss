@@ -1,6 +1,9 @@
 @import './imports';
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   background-color: $purple-600;
   background-image: url('/assets/images/background-letters.svg'),
     -webkit-radial-gradient(center, circle cover, rgba(255 255 255 / 15%) 0, rgba(
@@ -16,8 +19,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  overflow: hidden;
-  
+  overflow-y: auto;
 }
 
 .styledTitle {
@@ -37,7 +39,7 @@
 .title {
   font-family: HVDComicSerifPro;
   font-weight: 500;
-  margin-bottom: 1.7rem;
+  margin-bottom: 2rem;
   color: $white;
   font-size: 3.2rem;
   text-shadow: 1px 1px 3px rgb(0 0 0 / 60%);
@@ -54,7 +56,7 @@
 
   @include mobile {
     font-size: 1.5rem;
-    margin: 1rem 1rem 4rem;
+    margin: 1rem 0rem 0rem 0rem;
   }
 
   @include tablet {
@@ -77,9 +79,11 @@
 
 
   @include tablet {
-    margin-top: 6rem;
+    margin-top: 8rem;
   }
-
+  @include mobile {
+    margin-top: 5rem;
+  }
 }
 
 .parrot {

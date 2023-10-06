@@ -40,7 +40,7 @@ export const SIDE_MENU_LINKS = {
   menuBlog: ['https://blog.lingwing.com', '', ''],
   Jobs: ['/about-company', 'page', 'jobs'],
   menuLicenseAgreement: ['/licensing-agreement', '', ''],
-  menuPrivacyPolicy: ['/privacy', '', ''],
+  menuPrivacyPolicy: ['/privacy-policy', '', ''],
 } as const
 
 export const COURSES_KEYS: SideMenuKeys[] = [
@@ -105,10 +105,10 @@ export const LOGOUT_SCREENSHOTS = [
 ]
 
 export const PACKAGES_IMAGES = [
-  '/../themes/images/V2/Packages/free_package.png',
-  '/../themes/images/V2/Packages/12-month.png',
-  '/../themes/images/V2/Packages/6-month.png',
-  '/../themes/images/V2/Packages/3-month.png',
+  '/../themes/images/v2/packages/free_package.png',
+  '/../themes/images/v2/packages/12-month.png',
+  '/../themes/images/v2/packages/6-month.png',
+  '/../themes/images/v2/packages/3-month.png',
 ]
 
 export const paymentSelection: PaymentProps[] = [

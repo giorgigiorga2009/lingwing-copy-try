@@ -3,20 +3,18 @@
 .container {
   width: 100%;
   position: relative;
-  margin-top: 42px;
-  padding-left: 10px;
   label {
     position: absolute;
-    left: 10px;
-    top: 0;
     transform: translateY(170%);
     pointer-events: none;
     transition: all 0.3s ease; // Add a transition for smooth movement
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
   .labelTop {
-    top: 20;
     transform: translateY(0);
-    font-size: 15px;
+    font-size: .7rem;
     color: $grey-800;
   }
 }

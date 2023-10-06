@@ -4,57 +4,59 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 60rem;
+  width: 100%;
+  max-width: 60rem;
   height: fit-content;
   background-color: $white;
-  box-shadow: 0 0 0.2rem 0.01rem $grey-100;
-  border-radius: 2.5rem;
+  box-shadow: 0 0.11rem 0.3rem 0.005rem $grey-100;
+  border-radius: 3rem;
   padding: 3rem 4rem;
   background-image: url('/assets/images/bonnus-bg.png');
   background-repeat: no-repeat;
-  background-position: 45rem 1rem;
+  background-position: right bottom;
   background-size: contain;
+  // overflow-y: auto;
 
   &:lang(ka) {
     font-family: $kaFont;
   }
+}
 
-  @include tablet {
-    width: 96vw;
-    height: auto;
-    padding: 2rem 3rem;
-    background-position: 70vw 0vw;
-  }
-
-  @include mobile {
-    width: 95vw;
-    height: auto;
-    padding: 1.5rem 0.9rem;
-    background-position: 70vw 0vw;
-  }
+.headerContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 .header {
   color: $purple-600;
   font-size: 1.4rem;
   margin: 0;
-
-  @include mobile {
-    font-size: 1rem;
-  }
 }
 .paragraph {
   display: flex;
+  align-items: center;
   column-gap: 0.5rem;
+  flex-wrap: wrap;
   & p {
+    white-space: nowrap;
     color: $black-100;
     font-size: 1.2rem;
     @include mobile {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
   & .number {
     color: $purple-600;
+  }
+  .blackedOut{
+    color: $black;
+  }
+  .activated {
+    color: $black-800;
+    span {
+      color: $liberty-black;
+    }
   }
 }
 
@@ -70,14 +72,33 @@
     justify-content: center;
     row-gap: 1rem;
     transform: none;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  @include smallWidth {
+    column-gap: 0.1rem;
   }
 }
 
+.cardNumbers {
+  margin-top: 2rem;
+}
+
+.checkBoxContainer {
+  font-size: 1.2rem;
+  color: $black-800;
+}
+
 .buttons {
+  position: relative;
   display: flex;
   column-gap: 1rem;
-  margin-top: 8rem;
+  margin-top: 5rem;
+  @include mobile {
+    margin-top: 1rem;
+  }
 }
+.orangeButton,
 .coursesButton,
 .regButton {
   font-size: 1.1rem;
@@ -93,17 +114,64 @@
   &:hover {
     background-color: $green-200;
   }
+  & > a {
+    text-decoration: none;
+    color: $white;
+  }
   @include mobile {
     font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+  @include smallWidth {
+    font-size: 0.7rem;
   }
 }
+
+.priceWrapper{
+  position: absolute;
+  display: flex;
+  column-gap: .3rem;
+  top: 2.5rem;
+  left: 5rem;
+
+  p:nth-child(1){
+    font-family: "BPG Nino Mtavruli";
+    font-size: 16px;
+    color: #333;
+  }
+
+  @include mobile{
+    display: none;
+  }
+}
+.monthlyPrice{
+  font-family: "BPG Nino Mtavruli";
+  font-size: 16px;
+  color: $green-200;
+  
+}
+
+
+
+
+.orangeButton{
+  background-color: $orange-400;
+    box-shadow: 2px 3px 0 $orange-700;
+    height: fit-content;
+
+    &:hover {
+      background-color: $orange-700
+    }
+}
+
 .coursesButton {
-  color: $grey-800;
   background-color: $white-310;
   box-shadow: 2px 3px 0 $grey-100;
+
   &:hover {
     background-color: $white-300;
   }
+
   & > a {
     text-decoration: none;
     color: $grey-800;
@@ -143,24 +211,24 @@
   animation-fill-mode: forwards;
 
   &:nth-child(1) {
-    animation-delay: 1.6s;
+    animation-delay: 1s;
   }
   &:nth-child(2) {
-    animation-delay: 1.6s;
+    animation-delay: 1s;
   }
   &:nth-child(3) {
-    animation-delay: 2s;
+    animation-delay: 1.4s;
   }
   &:nth-child(4) {
-    animation-delay: 2s;
+    animation-delay: 1.4s;
   }
   &:nth-child(5) {
-    animation-delay: 2.4s;
+    animation-delay: 1.8s;
   }
   &:nth-child(6) {
-    animation-delay: 2.4s;
+    animation-delay: 1.8s;
   }
   &:nth-child(7) {
-    animation-delay: 2.8s;
+    animation-delay: 2.2s;
   }
 }

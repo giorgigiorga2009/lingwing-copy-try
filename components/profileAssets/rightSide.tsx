@@ -60,8 +60,11 @@ const RightSide: React.FC<Props> = ({ data }) => {
           height={20}
         />
       </div>
+
       <h4>{t('APP_PROFILE_GETTING_NEWS')}</h4>
+
       <div className={style.switches}>
+        
         <label className={style.switch}>
           <input
             name="newsletterSubscription"
@@ -71,6 +74,7 @@ const RightSide: React.FC<Props> = ({ data }) => {
           <span className={style.slider}></span>
           <label htmlFor="">{t('APP_PROFILE_SUBSCRIPTION')}</label>
         </label>
+
         <label className={style.switch}>
           <input
             name="smsSubscription"
@@ -81,6 +85,7 @@ const RightSide: React.FC<Props> = ({ data }) => {
           <label htmlFor="">{t('APP_PROFILE_SMS_SUBSCRIPTION')}</label>
         </label>
       </div>
+
       <div className={style.changePassword}>
         <Image src={padlock.src} width={12} height={20} alt="" />
         <Link href="/update-password">{t('APP_PROFILE_CHANGE_PASSWORD')}</Link>
@@ -90,7 +95,7 @@ const RightSide: React.FC<Props> = ({ data }) => {
         <input name="Agree" type="checkbox" required />
         <p>
           {t('APP_MARKETING_POLICY_1')}{' '}
-          <Link href="#">{t('APP_MARKETING_POLICY_2')}</Link>
+          <Link href="privacy-policy">{t('APP_MARKETING_POLICY_2')}</Link>
           {t('APP_MARKETING_POLICY_3')}
         </p>
       </div>

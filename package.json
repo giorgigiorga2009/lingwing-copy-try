@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "format": "yarn prettier --write ."
+    "format": "yarn prettier --write .",
+    "start-next-logger": "NODE_OPTIONS='-r next-logger' next start"
   },
   "dependencies": {
     "@dschoon/react-waves": "^4.0.3",
@@ -20,17 +21,19 @@
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "country-state-city": "^3.1.4",
-    "dompurify": "^3.0.6",
     "dotenv": "^16.3.1",
     "flickity": "^3.0.0",
     "focus-trap-react": "^10.1.4",
     "formik": "^2.4.3",
     "git": "^0.1.5",
+    "html2pdf.js": "^0.10.1",
+    "i18n-iso-countries": "^7.6.0",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "make-plural": "^7.1.0",
     "next": "^13.0.2",
     "next-auth": "^4.23.1",
+    "next-logger": "^3.0.2",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-carousel": "^4.3.0",
@@ -48,6 +51,7 @@
     "react-transition-group": "^4.4.5",
     "regenerator-runtime": "^0.13.11",
     "sweetalert2": "^11.7.23",
+    "swr": "^2.2.2",
     "tone": "^14.8.49",
     "waves-ui": "wavesjs/ui",
     "wavesurfer.js": "^6.4.0",
@@ -59,8 +63,8 @@
     "@types/flickity": "^2.2.8",
     "@types/istanbul-lib-report": "^3.0.0",
     "@types/node": "17.0.41",
-    "@types/react": "18.0.12",
-    "@types/react-dom": "18.0.5",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "@types/react-slick": "^0.23.10",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "eslint": "8.17.0",
@@ -78,7 +82,8 @@
     "stylelint": "^15.7.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-scss": "^5.0.1",
-    "typescript": "4.7.3"
+    "typescript": "4.7.3",
+    "webpack-bundle-analyzer": "^4.9.1"
   },
   "lint-staged": {
     "**/*": [

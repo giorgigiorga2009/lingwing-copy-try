@@ -14,7 +14,6 @@ const ProfileForm = () => {
   const [profilePicture, setProfilePicture] = useState<string>('')
   const [data, setData] = useState<ProfileData | undefined>(undefined)
 
-  const { t } = useTranslation()
 
   const fetchData = async () => {
     try {
@@ -30,6 +29,7 @@ const ProfileForm = () => {
   useEffect(() => {
     fetchData()
   }, [])
+  // console.log(data)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

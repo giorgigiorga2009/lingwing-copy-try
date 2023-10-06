@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from './generateDate.module.scss'
 import { useTranslation } from '@utils/useTranslation'
+import classNames from 'classnames'
 
 interface Option {
   value: number | string
@@ -8,6 +9,9 @@ interface Option {
 }
 
 interface Props {
+  required?: boolean
+  onChange?: any
+  BRadius?: string
   defaultYear?: number | null
   defaultMonth?: number | null
   defaultDay?: number | null
@@ -49,6 +53,8 @@ const generateDays = (month: number, year: number): Option[] => {
 }
 
 const GenerateDate: React.FC<Props> = ({
+  required,
+  BRadius: borderColor,
   defaultDay,
   defaultMonth,
   defaultYear,
@@ -102,8 +108,9 @@ const GenerateDate: React.FC<Props> = ({
     <div className={style.container}>
       <select
         name="year"
-        className={style.select1}
+        className={classNames(style.select1, {[style.lighterborderColor]: borderColor === 'lighterBorderColor'})}
         value={selectedYear?.value}
+        required={required}
         onChange={e =>
           handleYearChange(
             years.find(year => year.value == e.target.value) || null,
@@ -119,7 +126,10 @@ const GenerateDate: React.FC<Props> = ({
       </select>
       <select
         name="month"
+        className={classNames({[style.lighterborderColor]: borderColor === 'lighterBorderColor'})}
+
         value={selectedMonth?.value}
+        required={required}
         onChange={e =>
           handleMonthChange(
             months.find(month => month.value == e.target.value) || null,
@@ -135,8 +145,9 @@ const GenerateDate: React.FC<Props> = ({
       </select>
       <select
         name="day"
-        className={style.select3}
+        className={classNames(style.select3, {[style.lighterborderColor]: borderColor === 'lighterBorderColor'})}
         value={selectedDay?.value}
+        required={required}
         onChange={e =>
           handleDayChange(
             days.find(day => day.value === e.target.value) || null,

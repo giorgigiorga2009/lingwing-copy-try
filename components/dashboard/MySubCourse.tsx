@@ -4,8 +4,11 @@ import classNames from 'classnames'
 import ActionBtns from './ActionBtns'
 import style from './MySubCourse.module.scss'
 import { useTranslation } from '../../utils/useTranslation'
+import CertificateBtn from './certificateBtn'
 
 interface SubCourseProps {
+  userCourseId?: string
+  certificate: boolean
   name: string
   _id: string
   percent: string
@@ -63,19 +66,23 @@ const MySubCourse: FC<Props> = ({
           </h6>
           <ActionBtns />
         </div>
-        <Link
-          className={style.link}
-          href={{
-            pathname: '/lessons',
-            query: { languageTo, languageFrom, courseName },
-          }}
-        >
-          <button className={style.start_course_btn}>
-            {subCourse.status.continue
-              ? t('APP_GENERAL_CONTINUE')
-              : subCourse.status.start && t('startButton')}
-          </button>
-        </Link>
+        {subCourse.certificate ? (
+          <CertificateBtn userCourseId={subCourse.userCourseId}/>
+        ) : (
+          <Link
+            className={style.link}
+            href={{
+              pathname: '/lessons',
+              query: { languageTo, languageFrom, courseName },
+            }}
+          >
+            <button className={style.start_course_btn}>
+              {subCourse.status.continue
+                ? t('APP_GENERAL_CONTINUE')
+                : subCourse.status.start && t('startButton')}
+            </button>
+          </Link>
+        )}
       </div>
     </>
   )

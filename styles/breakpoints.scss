@@ -5,6 +5,9 @@ $tablet_end: 1023px;
 $desktop_start: 1024px;
 $small_desktop_height: 900px;
 $small_height: 650px;
+$height_800: 800px;
+
+
 
 @mixin smallWidth {
   @media (max-width: $super_small) {
@@ -33,6 +36,12 @@ $small_height: 650px;
 @mixin smallHeight {
   @media (max-height: $small_height) {
     @content;
+  }
+}
+
+@mixin height800 {
+  @media (max-height: $height_800){
+    @content
   }
 }
 

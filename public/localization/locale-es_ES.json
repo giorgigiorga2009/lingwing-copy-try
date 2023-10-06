@@ -210,6 +210,7 @@
 
   "APP_HEADER_MENU_ITEM13": "Salir",
   "APP_HEADER_MENU_ITEM14": "Perfil",
+  "APP_HEADER_PAYMENTS": "Pagos",
 
 
   "ABOUT_COURSE_OPT_OUT_YES": "Si",
@@ -283,6 +284,45 @@
   "RESET_PASSWORD_DESCRIPTION": "Ingrese la dirección de correo electrónico que utilizó para registrarse y le enviaremos un enlace para restablecer la contraseña.",
   "RESET_PASSWORD_NOT_MATCH": "las contraseñas no coinciden",
   "RESET_PASSWORD_EXPIRED_TOKEN": "El enlace para restablecer la contraseña ha caducado, intente restablecer su contraseña nuevamente.",
-  "RESET_PASSWORD_EMAIL_SENT": "Si el correo electrónico que especificó existe en nuestro sistema, le hemos enviado un enlace para restablecer la contraseña."
+  "RESET_PASSWORD_EMAIL_SENT": "Si el correo electrónico que especificó existe en nuestro sistema, le hemos enviado un enlace para restablecer la contraseña.",
+ 
+  "REG_REMINDER_TRANSACTION" : "Tú transacción se ha completado correctamente",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "El paquete",
+  "REG_REMINDER_DASHBOARD": "Mi página",
+  "REG_REMINDER_REMEMBER_CARD": "recordar tarjeta",
 
+  "REG_REMINDER_DAILY_LIMIT": "Se acabó el límite de los ejercicios diarios de ",
+  "REG_REMINDER_YOU": "diarios",
+  "REG_REMINDER_FREE_TASKS_IN": "দৈনন্দিন বিনামূল্যের কাজ পাবেন ",
+  "REG_REMINDER_HOURS": "Horas",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Estudia idiomas ",
+  "REG_REMINDER_5_TIMES": "5 veces",
+  "REG_REMINDER_MORE_COMFORTABLE": "más rápido",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Elije el paquete Premium",
+  "REG_REMINDER_5_DAY_TRIAL": "Prueba de 5 días",
+  "REG_REMINDER_MONTHS": "En mes",
+  "REG_REMINDER_GEL": " GEL",
+
+
+
+  "CERTIFICATE_DOWNLOAD": "Descargar Certificado",
+
+  
+  "PAYMENTS_STATS_REMAINING": "Días premium restantes",
+  "PAYMENTS_STATS_TESTS": "Tests compradas",
+  "PAYMENTS_STATS_TASKS": "Ejercicios",
+  "PAYMENTS_STATS_YOUR_CARD": "Su tarjeta",
+  "PAYMENTS_STATS_ADD_CARD": "Añade una tarjeta",
+  "PAYMENTS_STATS_HISTORY": "Historial de transacciones",
+  "PAYMENTS_STATS_PRODUCT": "Producto",
+  "PAYMENTS_STATS_STATUS": "Estado",
+  "PAYMENTS_STATS_METHOD": "Método",
+  "PAYMENTS_STATS_AMOUNT": "Saldo",
+  "PAYMENTS_STATS_PAYMENT_DATE":  "Fecha de pago",
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Rellena los datos y consigue 30 ejercicios gratuitos!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continuar",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "Saltar",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Conseguir ejercicios gratuitos"
 }

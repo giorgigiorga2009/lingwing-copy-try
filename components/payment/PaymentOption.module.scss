@@ -1,6 +1,6 @@
 @import '@styles/imports.scss';
 
-.otionsWrapper {
+.optionsWrapper {
   padding: 0 0.9rem;
 }
 
@@ -41,10 +41,10 @@
     border: 2px solid $purple-600;
   }
 
-  // @include small{
-  //   max-width: 27.5rem;
-  //   width: 90vw;
-  // }
+  @include mobile{
+    max-width: 27.5rem;
+    width: 90vw;
+  }
 }
 
 .purple_tick {

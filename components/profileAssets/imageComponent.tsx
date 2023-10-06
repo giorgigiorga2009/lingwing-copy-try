@@ -158,11 +158,24 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
   }
   return (
     <div className={style.container}>
-      <img
-        src={croppedImage ? croppedImage : defaultImage}
-        className={style.Image}
-        alt="Upload your avatar"
-      />
+      <div className={style.Image}>
+        {croppedImage ? (
+          <img src={croppedImage} alt="User avatar" />
+        ) : (
+          <>
+          <label htmlFor="upload">
+            {t("APP_PROFILE_UPLOAD_IMAGE")}
+          </label>
+          <input
+            id="upload"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+          />
+        </>
+        )}
+      </div>
+
       {!showCroppedImage && (
         <>
           <label htmlFor="upload" className={style.btn}>

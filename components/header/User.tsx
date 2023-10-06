@@ -20,10 +20,6 @@ const User: FC = () => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false)
   const [userData, setUserData] = useState<UserProfile | null>(null)
 
-  useEffect(() => {
-    handleUserProfile()
-  }, [])
-
   const handleUserProfile = () => {
     if (typeof window !== 'undefined' && session && !session?.user.email) {
       return getUserProfileData(session.user.accessToken).then(response =>
@@ -31,6 +27,11 @@ const User: FC = () => {
       )
     }
   }
+  useEffect(() => {
+    handleUserProfile()
+  }, [])
+
+
   return (
     <Foco
       component="div"

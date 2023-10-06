@@ -165,6 +165,7 @@
 
   "APP_HEADER_MENU_ITEM13": "Çıkış yap",
   "APP_HEADER_MENU_ITEM14": "Hesabım",
+  "APP_HEADER_PAYMENTS":  "Ödemeler",
 
   "ABOUT_COURSE_OPT_OUT_YES": "Evet",
   "ABOUT_COURSE_START_LEARNING": "Okumaya başlamak",
@@ -287,6 +288,45 @@
   "RESET_PASSWORD_DESCRIPTION": "Kaydolmak için kullandığınız e-posta adresini girin ve şifre yenileme hakkında size bir link göndereceğiz",
   "RESET_PASSWORD_NOT_MATCH": "Şifreler birbirine eşleşmiyor",
   "RESET_PASSWORD_EXPIRED_TOKEN": "Süresi geçti, lütfen verileri tekrar giriniz!",
-  "RESET_PASSWORD_EMAIL_SENT": "Belirtiğin e-posta sistemimizde mevcutsa, şifre sıfırlama bağlantısı gönderilir."
+  "RESET_PASSWORD_EMAIL_SENT": "Belirtiğin e-posta sistemimizde mevcutsa, şifre sıfırlama bağlantısı gönderilir.",
 
+  "REG_REMINDER_TRANSACTION" : "İşlem başarıyla tamamlandı",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Paket aktif hale getirildi ",
+  "REG_REMINDER_DASHBOARD": "Benim sayfam",
+  "REG_REMINDER_REMEMBER_CARD": "Kartı hatırla",
+  
+  "REG_REMINDER_DAILY_LIMIT": " dilinde günlük görev sınırı dolmuştur",
+  "REG_REMINDER_YOU": "Günluk",
+  "REG_REMINDER_FREE_TASKS_IN":  "sınırsız görevler gün bitene kadar etkinleştirilecektir",
+  "REG_REMINDER_HOURS": "Saat",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Learn a language",
+  "REG_REMINDER_5_TIMES": "5 times",
+  "REG_REMINDER_MORE_COMFORTABLE": "faster and more comfortable",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Premyum paketi seç",
+  "REG_REMINDER_5_DAY_TRIAL": "5 günlük deneme",
+  "REG_REMINDER_MONTHS":  "Ay",
+  "REG_REMINDER_GEL":  " GEL",
+
+
+
+  "CERTIFICATE_DOWNLOAD": "Sertifikayı İndir",
+
+
+  "PAYMENTS_STATS_REMAINING": "Kalan prim günleri",
+  "PAYMENTS_STATS_TESTS": "Satın alınan testler",
+  "PAYMENTS_STATS_TASKS": "Görevler",
+  "PAYMENTS_STATS_YOUR_CARD": "Senin kartın",
+  "PAYMENTS_STATS_ADD_CARD": "Kart ekle",
+  "PAYMENTS_STATS_HISTORY": "İşlem geçmişi",
+  "PAYMENTS_STATS_PRODUCT": "Ürün",
+  "PAYMENTS_STATS_STATUS": "Durum",
+  "PAYMENTS_STATS_METHOD": "Yöntem",
+  "PAYMENTS_STATS_AMOUNT": "Miktar",
+  "PAYMENTS_STATS_PAYMENT_DATE": "Ödeme tarihi",
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Verileri doldurun ve ücretsiz alıştırmalar alın!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Devam et",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "görmezden gelin",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Ücretsiz egzersizler edinin"
 }

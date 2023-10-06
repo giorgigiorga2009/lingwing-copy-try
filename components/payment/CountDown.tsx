@@ -3,10 +3,18 @@ import style from './CountDown.module.scss'
 import { getUserProfileCreationDate } from '@utils/getPayments'
 import { useTranslation } from '@utils/useTranslation'
 
-const CountdownTimer: React.FC = () => {
+interface CountDownTimerProps {
+  forLessonsFlowN2?: boolean
+  dailyLimitDate?: string | Date
+}
+
+const CountdownTimer: React.FC<CountDownTimerProps> = ({
+  forLessonsFlowN2,
+  dailyLimitDate,
+}) => {
   const { t } = useTranslation()
   const [countdown, setCountdown] = useState<string>('')
-  const [count, setCount] = useState<string>('')
+  const [count, setCount] = useState<string | Date>('')
 
   useEffect(() => {
     if (count !== '') {
@@ -22,14 +30,21 @@ const CountdownTimer: React.FC = () => {
   }, [])
 
   const getCountTime = async () => {
-    const profileCreationDate = await getUserProfileCreationDate()
-    setCount(new Date(profileCreationDate).toISOString())
+    let dateToUse
+
+    if (forLessonsFlowN2 && dailyLimitDate) {
+      dateToUse = dailyLimitDate
+    } else {
+      dateToUse = await getUserProfileCreationDate()
+    }
+
+    setCount(new Date(dateToUse).toISOString())
   }
 
   const updateCountdown = () => {
     const currentTime = new Date()
     const profileCreationTime = new Date(count)
-    profileCreationTime.setUTCDate(profileCreationTime.getUTCDate() + 20) // 1 = 24h
+    profileCreationTime.setUTCDate(profileCreationTime.getUTCDate() + 1) // 1 = 24h
 
     const timeRemaining = profileCreationTime.getTime() - currentTime.getTime()
 
@@ -51,16 +66,22 @@ const CountdownTimer: React.FC = () => {
   }
   const currentTime = new Date()
   const endTime = new Date(count)
-  endTime.setUTCDate(endTime.getUTCDate() + 20)
+  endTime.setUTCDate(endTime.getUTCDate() + 1)
   const timeRemaining = endTime.getTime() - currentTime.getTime()
 
   return (
-    <div className={timeRemaining <= 0 ? style.timeIsUp : style.container}>
-      <div className={style.timeLeft}>
-        <span className={style.saleText}>{t('PAYMENT_SALE_TEXT')}</span>
-        <span>{countdown}</span>
-      </div>
-    </div>
+    <>
+      {forLessonsFlowN2 ? (
+        <span className={style.forLessonsFlowN2}>{countdown}</span>
+      ) : (
+        <div className={timeRemaining <= 0 ? style.timeIsUp : style.container}>
+          <div className={style.timeLeft}>
+            <span className={style.saleText}>{t('PAYMENT_SALE_TEXT')}</span>
+            <span>{countdown}</span>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

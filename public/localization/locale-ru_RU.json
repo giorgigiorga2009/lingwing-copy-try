@@ -191,6 +191,7 @@
 
   "APP_HEADER_MENU_ITEM13": "Выход",
   "APP_HEADER_MENU_ITEM14": "Профиль",
+  "APP_HEADER_PAYMENTS": "Платежи",
 
 
 
@@ -319,6 +320,46 @@
   "RESET_PASSWORD_DESCRIPTION": "Введите адрес эл. почты, который Вы указали во время регистрации и Мы отправим Вам инструкцию О восстановлении пароля",
   "RESET_PASSWORD_NOT_MATCH": "Пароли не совпадают",
   "RESET_PASSWORD_EXPIRED_TOKEN": "Срок действия ссылки для сброса пароля истек, попробуйте сбросить пароль еще раз.",
-  "RESET_PASSWORD_EMAIL_SENT": "Если указанный адрес эл. почты существует в нашей системе, Вам уже отправлена ссылка на восстановление пароля."
+  "RESET_PASSWORD_EMAIL_SENT": "Если указанный адрес эл. почты существует в нашей системе, Вам уже отправлена ссылка на восстановление пароля.",
+  "REG_REMINDER_TRANSACTION" : "Транзакция успешно завершена",
+  "REG_REMINDER_PACKAGE_ACTIVATED": "Aктивирован пакет",
+  "REG_REMINDER_DASHBOARD": "Панель управления",
+  "REG_REMINDER_REMEMBER_CARD": "Запомнить карту",
+
+  "REG_REMINDER_DAILY_LIMIT": "",
+  "REG_REMINDER_YOU":  "",
+  "REG_REMINDER_FREE_TASKS_IN":  "бесплатные задания будут активированы",
+  "REG_REMINDER_HOURS": "часов",
+  "REG_REMINDER_LEARN_A_LANGUAGE": "Изучи язык в",
+  "REG_REMINDER_5_TIMES": "5 раза",
+  "REG_REMINDER_MORE_COMFORTABLE": "быстрее и комфортнее",
+  "REG_REMINDER_CHOOSE_PREMIUM": "Выбрать Премиум-пакет",
+  "REG_REMINDER_5_DAY_TRIAL": "5-дневная пробная версия",
+  "REG_REMINDER_MONTHS": "мес.",
+  "REG_REMINDER_GEL": " GEL",
+
+
+
+  "CERTIFICATE_DOWNLOAD": "Скачать сертификат",
+
+
+  "PAYMENTS_STATS_REMAINING": "Оставшиеся премиальные дни",
+  "PAYMENTS_STATS_TESTS": "Купленные тесты",
+  "PAYMENTS_STATS_TASKS": "Задачи",
+  "PAYMENTS_STATS_YOUR_CARD":  "Карта",
+  "PAYMENTS_STATS_ADD_CARD": "Добавить карту",
+  "PAYMENTS_STATS_HISTORY": "История транзакций",
+  "PAYMENTS_STATS_PRODUCT": "Продукт",
+  "PAYMENTS_STATS_STATUS": "Статус",
+  "PAYMENTS_STATS_METHOD": "Метод",
+  "PAYMENTS_STATS_AMOUNT": "Сумма",
+  "PAYMENTS_STATS_PAYMENT_DATE": "Дата платежа",
+
+
+
+  "FILL_PROFILE_FOR_TASKS_HEADER": "Заполни данные и получи бесплатные упражнения!",
+  "FILL_PROFILE_FOR_TASKS_CONTINUE": "Продолжить",
+  "FILL_PROFILE_FOR_TASKS_SKIP": "Пропустить",
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Получи бесплатные упражнения"
 
 }

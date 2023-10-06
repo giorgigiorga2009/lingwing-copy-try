@@ -23,10 +23,10 @@
       max-width: 25rem;
       font-family: SegoeUI, 'sans-serif';
       color: $black;
-      font-size: 15px;
+      font-size: .9rem;
       padding-left: 20px;
       height: 2.5rem;
-      border-radius: 50px;
+      border-radius: 3rem;
       border: 1px solid $grey-800;
 
       &:focus {
@@ -41,6 +41,10 @@
       color: $grey-800;
       left: 27px;
       top: -27px;
+
+      &:lang(ka) {
+        font-family: $kaFont;
+      }
     }
   }
 
@@ -51,17 +55,57 @@
 
   .gender {
     width: 100%;
-    height: 50px;
+    height: 2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-right: 3.5rem;
-    margin-top: 10px;
+    justify-content: space-around;
+    gap: 1rem;
+    padding-right: 1rem;
+    margin-top: 1.2rem;
 
     label {
       position: static;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: background-image .2s ease-in-out;
+      
+      @include smallWidth{
+        font-size: .7rem;
+      }
+      @include tablet{
+        font-size: .8rem;
+      }
     }
 
+    .maleLabel{
+      background-image: url('/assets/images/icons8-male-50.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0rem 0rem;
+      padding-left: 1rem;
+    }
+    .maleLabelActive{
+      background-image: url('/assets/images/icons8-standing-man-50.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0rem 0rem;
+      padding-left: 1rem;
+    }
+    .femaleLabel{
+      background-image: url('/assets/images/icons8-woman-50.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0rem 0rem;
+      padding-left: 1rem;
+    }
+    .femaleLabelActive{
+      background-image: url('/assets/images/icons8-woman-50-active.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0rem 0rem;
+      padding-left: 1rem;
+    }
+    
     div {
       width: 90px;
       display: flex;
@@ -69,9 +113,11 @@
       justify-content: center;
 
       input[type='radio'] {
-        width: 20px;
-        height: 20px;
-        accent-color: $purple-500;
+        // width: 1.25rem;
+        // height: 1.25rem;
+        // accent-color: $purple-500;
+        // outline: none;
+        display: none;
       }
     }
   }

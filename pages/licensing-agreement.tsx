@@ -8,7 +8,6 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import {
   useLicencingAgreementData,
   HTMLRenderer,
-  fetchData,
 } from '@utils/htmlRenderer'
 
 const LicencingAgreement: NextPage = () => {
