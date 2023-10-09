@@ -4,7 +4,7 @@ import style from './fillProfileForTasks.module.scss'
 
 interface Props {
   isShowingSecondSide: boolean
-  onSubmit: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onSubmit: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onClose: () => void
 }
 

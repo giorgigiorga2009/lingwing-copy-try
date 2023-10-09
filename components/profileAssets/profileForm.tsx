@@ -14,7 +14,6 @@ const ProfileForm = () => {
   const [profilePicture, setProfilePicture] = useState<string>('')
   const [data, setData] = useState<ProfileData | undefined>(undefined)
 
-
   const fetchData = async () => {
     try {
       if (session) {

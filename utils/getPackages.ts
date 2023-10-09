@@ -59,7 +59,6 @@ export type PackageData = {
       }
     },
   ]
-  
 
   currencies: [
     {
@@ -67,7 +66,6 @@ export type PackageData = {
       symbol: string
     },
   ]
-  
 }
 
 export const getPackages = (coupon: string): Promise<PackageData> => {

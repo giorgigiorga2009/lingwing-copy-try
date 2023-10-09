@@ -37,11 +37,9 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
       return <p className={style.header}>{t('REG_REMINDER_HEADER')}</p>
     } else if (popUpNumber === 2) {
       return (
-        <>
-          <p className={style.header}>{`${language}${t(
-            'REG_REMINDER_DAILY_LIMIT',
-          )}`}</p>
-        </>
+        <p className={style.header}>{`${language}${t(
+          'REG_REMINDER_DAILY_LIMIT',
+        )}`}</p>
       )
     } else if (popUpNumber === 3) {
       return (
@@ -149,7 +147,11 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
             <p>{t('REG_REMINDER_MONTHS')}</p>
             <p className={style.monthlyPrice}>
               <ReccuringPrice
-              whereTo={1} price={price || 0} duration={duration || 0} symbol="GEL" />
+                whereTo={1}
+                price={price || 0}
+                duration={duration || 0}
+                symbol="GEL"
+              />
             </p>
           </div>
           <button className={style.orangeButton}>

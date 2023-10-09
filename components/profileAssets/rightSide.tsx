@@ -64,7 +64,6 @@ const RightSide: React.FC<Props> = ({ data }) => {
       <h4>{t('APP_PROFILE_GETTING_NEWS')}</h4>
 
       <div className={style.switches}>
-        
         <label className={style.switch}>
           <input
             name="newsletterSubscription"

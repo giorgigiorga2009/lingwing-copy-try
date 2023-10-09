@@ -31,10 +31,16 @@ export const ReccuringPrice: FC<ReccuringPrice> = ({
   const { t } = useTranslation()
 
   return (
-    <div className={classNames(style.monthPrice, {[style.monthPriceForFlowPopUp]: whereTo === 1})}>
+    <div
+      className={classNames(style.monthPrice, {
+        [style.monthPriceForFlowPopUp]: whereTo === 1,
+      })}
+    >
       {(price / duration).toFixed(1)}{' '}
-      <CurrencySymbol symbol={symbol} whereTo={whereTo}/>
-      <span className={style.monthAndTotal}>{whereTo === 1 ? '' : t('APP_PACKAGE_MONTH_ge')}</span>
+      <CurrencySymbol symbol={symbol} whereTo={whereTo} />
+      <span className={style.monthAndTotal}>
+        {whereTo === 1 ? '' : t('APP_PACKAGE_MONTH_ge')}
+      </span>
     </div>
   )
 }

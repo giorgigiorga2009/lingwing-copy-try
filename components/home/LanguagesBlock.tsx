@@ -43,7 +43,7 @@ export const LanguagesBlock: FC = () => {
     <div className={style.block}>
       {LANGUAGES_TO.map((language, key) => (
         <div className={style.item} key={key}>
-          <LanguageTile  language={language} key={language} />
+          <LanguageTile language={language} key={language} />
         </div>
       ))}
     </div>

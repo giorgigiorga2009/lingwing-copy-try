@@ -19,17 +19,16 @@ const AboutCourse = () => {
     router.locale &&
     LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
 
-    const fetchCourseData = async () => {
-      if (currentLanguage && courseName) {
-        try {
-          const data = await getReadCourse(currentLanguage, courseName)
-          return data
-        } catch (error) {
-          throw new Error(String(error))
-        }
+  const fetchCourseData = async () => {
+    if (currentLanguage && courseName) {
+      try {
+        const data = await getReadCourse(currentLanguage, courseName)
+        return data
+      } catch (error) {
+        throw new Error(String(error))
       }
     }
-    
+  }
 
   const {
     data: courseData,

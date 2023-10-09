@@ -49,7 +49,7 @@
   & .number {
     color: $purple-600;
   }
-  .blackedOut{
+  .blackedOut {
     color: $black;
   }
   .activated {
@@ -127,41 +127,37 @@
   }
 }
 
-.priceWrapper{
+.priceWrapper {
   position: absolute;
   display: flex;
-  column-gap: .3rem;
+  column-gap: 0.3rem;
   top: 2.5rem;
   left: 5rem;
 
-  p:nth-child(1){
-    font-family: "BPG Nino Mtavruli";
+  p:nth-child(1) {
+    font-family: 'BPG Nino Mtavruli';
     font-size: 16px;
     color: #333;
   }
 
-  @include mobile{
+  @include mobile {
     display: none;
   }
 }
-.monthlyPrice{
-  font-family: "BPG Nino Mtavruli";
+.monthlyPrice {
+  font-family: 'BPG Nino Mtavruli';
   font-size: 16px;
   color: $green-200;
-  
 }
 
-
-
-
-.orangeButton{
+.orangeButton {
   background-color: $orange-400;
-    box-shadow: 2px 3px 0 $orange-700;
-    height: fit-content;
+  box-shadow: 2px 3px 0 $orange-700;
+  height: fit-content;
 
-    &:hover {
-      background-color: $orange-700
-    }
+  &:hover {
+    background-color: $orange-700;
+  }
 }
 
 .coursesButton {

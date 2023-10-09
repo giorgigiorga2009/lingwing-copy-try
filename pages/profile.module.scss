@@ -23,15 +23,15 @@
     z-index: 3;
     margin: 0 auto;
 
-    @include desktop{
+    @include desktop {
       width: 100%;
     }
     h1 {
-      margin: 7rem auto .7rem auto;
+      margin: 7rem auto 0.7rem auto;
       color: $orange-650;
       font-size: 3rem;
       font-family: SegoeUI, 'sans-serif';
-      @include mobile{
+      @include mobile {
         font-size: 1.2rem;
       }
     }

@@ -32,6 +32,7 @@ import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fill
 import { GetProfileData, ProfileData } from '@utils/profileEdit'
 import { getPackageDataById, PackageResponse } from '@utils/getPayments'
 import { getPackages, PackageData } from '@utils/getPackages'
+import { useSession } from 'next-auth/react'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -58,25 +59,21 @@ const Lessons: NextPage = () => {
   const [profileData, setPRofileData] = useState<ProfileData | undefined>(
     undefined,
   )
-  const [packagesData, setPackagesData] = useState<PackageData>();
-  const [dailyTaskLeft, setDailyTaskLeft] = useState(0);
-  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0);
-  const [dailyReachedLimitDate, setDailyReachedLimitDate] =  useState<Date | string | undefined>();
-  
-  
-  
-  
-  
-  
+  const [packagesData, setPackagesData] = useState<PackageData>()
+  const [dailyTaskLeft, setDailyTaskLeft] = useState(0)
+  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0)
+  const [dailyReachedLimitDate, setDailyReachedLimitDate] = useState<
+    Date | string | undefined
+  >()
+
   const router = useRouter()
+  const { data: session } = useSession()
   const { courseName, languageTo, languageFrom } = router.query
-  const [language, setLanguage] = useState<string>('English');
-
-
+  const [language, setLanguage] = useState<string>('English')
 
   // Use localStorage to set the token state
   useEffect(() => {
-    setToken(localStorage.getItem('authToken'))
+    session && setToken(session?.user.accessToken)
     const getUserId = Cookies.get('userId')
     getUserId && setUserId(getUserId)
   }, [])
@@ -111,7 +108,9 @@ const Lessons: NextPage = () => {
           setCourseId(courseObject._id)
           setUserScore(courseObject.score)
           setDailyTaskLeft(courseObject.info.dailyTaskLeft)
-          setunAuthuserDailyLimit(courseObject.course.configuration.unAuthUserDailyLimit)
+          setunAuthuserDailyLimit(
+            courseObject.course.configuration.unAuthUserDailyLimit,
+          )
           setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
         }
         return courseObject
@@ -303,14 +302,13 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getPackages('');
-        setPackagesData(response);
-      } catch (err) {
-      }
+        const response = await getPackages('')
+        setPackagesData(response)
+      } catch (err) {}
     }
-  
-    fetchData();
-  }, []);
+
+    fetchData()
+  }, [])
 
   ///
 
@@ -333,17 +331,17 @@ const Lessons: NextPage = () => {
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-      {isUserLoggedIn && dailyTaskLeft  ===  0 && (
-      <div className={style.regReminder}>
+      {isUserLoggedIn && dailyTaskLeft === 0 && (
+        <div className={style.regReminder}>
           <LessonsFlowPopUps
-          popUpNumber={2}
-          dailyLimitDate={dailyReachedLimitDate}
-          duration={packagesData?.packages[1].duration}
-          price={packagesData?.packages[1].currency[0].recurringPrice}
-          language={language}
+            popUpNumber={2}
+            dailyLimitDate={dailyReachedLimitDate}
+            duration={packagesData?.packages[1].duration}
+            price={packagesData?.packages[1].currency[0].recurringPrice}
+            language={language}
           />
         </div>
- )}
+      )}
       <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck

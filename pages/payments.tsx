@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import style from '@pages/payments.module.scss'
-import { getUserPayements } from '@utils/getUserPayemnts'
 import { Header } from '@components/header/Header'
 import { useTranslation } from '@utils/useTranslation'
 import { useRouter } from 'next/router'
-import { PaymentsProps } from '@utils/getUserPayemnts'
+import { PaymentsProps, getUserPayements } from '@utils/getUserPayemnts'
+import { useSession } from 'next-auth/react'
 
 const Payments = () => {
   const { t } = useTranslation()
   const [paymentsData, setPaymentsData] = useState<PaymentsProps | null>(null)
   const router = useRouter()
+  const { data: session } = useSession()
 
   const goBack = () => {
     router.back()
   }
   useEffect(() => {
-    const authToken = localStorage.getItem('authToken')
-    if (typeof authToken === 'string') {
-      getUserPayements(authToken)
+    if (session) {
+      getUserPayements(session.user.accessToken)
         .then(data => {
           setPaymentsData(data)
+          return data
         })
         .catch(error => {
           console.error('Error fetching certificate:', error)

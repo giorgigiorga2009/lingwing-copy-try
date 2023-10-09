@@ -5,10 +5,7 @@ import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'
-import {
-  useLicencingAgreementData,
-  HTMLRenderer,
-} from '@utils/htmlRenderer'
+import { useLicencingAgreementData, HTMLRenderer } from '@utils/htmlRenderer'
 
 const LicencingAgreement: NextPage = () => {
   const { t } = useTranslation()

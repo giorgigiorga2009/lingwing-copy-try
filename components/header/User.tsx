@@ -31,7 +31,6 @@ const User: FC = () => {
     handleUserProfile()
   }, [])
 
-
   return (
     <Foco
       component="div"

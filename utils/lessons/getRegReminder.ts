@@ -1,5 +1,5 @@
 export interface RegistrationReminderPopupProps {
-  dailyLimitDate?:  string | Date
+  dailyLimitDate?: string | Date
   duration?: number
   price?: number
   language?: string | string[] | undefined
@@ -56,7 +56,8 @@ export type PackageDataForLessonsFlow = {
           recurringPrice: number
           _id: { symbol: string }
         },
-      ]}
+      ]
+    },
   ]
   currencies: [
     {
