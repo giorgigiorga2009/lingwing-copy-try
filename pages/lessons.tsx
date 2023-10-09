@@ -59,7 +59,7 @@ const Lessons: NextPage = () => {
     undefined,
   )
   const [packagesData, setPackagesData] = useState<PackageData>();
-  const [dailyTaskLeft, setDailyTaskLeft] = useState(0);
+  const [dailyTaskLeft, setDailyTaskLeft] = useState<number>();
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0);
   const [dailyReachedLimitDate, setDailyReachedLimitDate] =  useState<Date | string | undefined>();
   

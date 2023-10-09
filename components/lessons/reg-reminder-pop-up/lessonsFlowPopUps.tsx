@@ -113,7 +113,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
     }
     return null
   }
-  console.log(paymentsData)
 
   const renderButton = () => {
     if (popUpNumber === 1) {
@@ -179,12 +178,10 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
 
   return (
     <div className={style.container}>
-      <div>
         <div>
           {renderHeaderContent()}
           <div className={style.paragraph}>{renderParagraphContent()}</div>
         </div>
-      </div>
       <div className={style.mainPart}>
         {regReminderTitle.map((item, index) => (
           <PopUpCircle
@@ -196,7 +193,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
         ))}
       </div>
       <div className={style.paragraph}>{renderCheckboxWithCardDetails()}</div>
-
       <div className={style.buttons}>{renderButton()}</div>
     </div>
   )
