@@ -22,7 +22,7 @@ import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
 
-import LessonsFlowPopUps from '@components/lessons/reg-reminder-pop-up/lessonsFlowPopUps'
+import LessonsFlowPopUps from '@components/lessons/lessonsFlowPopUps/lessonsFlowPopUps'
 import { getReadCourse } from '@utils/getReadCourse'
 import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { useQuery } from 'react-query'
@@ -62,9 +62,6 @@ const Lessons: NextPage = () => {
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>();
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0);
   const [dailyReachedLimitDate, setDailyReachedLimitDate] =  useState<Date | string | undefined>();
-  
-  
-  
   
   
   
