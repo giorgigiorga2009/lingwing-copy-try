@@ -69,7 +69,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
         <>
           <p>{t('REG_REMINDER_YOU')}</p>
           <p>{t('REG_REMINDER_FREE_TASKS_IN')}</p>
-          {/* <p className={style.number}>{'12:00'}</p> */}
           <CountDown forLessonsFlowN2={true} dailyLimitDate={dailyLimitDate} />
           <p>{t('REG_REMINDER_HOURS')}</p>
         </>
@@ -93,7 +92,7 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
           <p>{t('REG_REMINDER_MORE_COMFORTABLE')}</p>
         </>
       )
-    } else if (popUpNumber === 3 && paymentsData) {
+    } else if (popUpNumber === 3 && paymentsData?.creditCard.isAttached) {
       return (
         <div className={style.cardNumbers}>
           <label className={style.checkBoxContainer}>
@@ -179,12 +178,10 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
 
   return (
     <div className={style.container}>
-      <div>
         <div>
           {renderHeaderContent()}
           <div className={style.paragraph}>{renderParagraphContent()}</div>
         </div>
-      </div>
       <div className={style.mainPart}>
         {regReminderTitle.map((item, index) => (
           <PopUpCircle
@@ -196,7 +193,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
         ))}
       </div>
       <div className={style.paragraph}>{renderCheckboxWithCardDetails()}</div>
-
       <div className={style.buttons}>{renderButton()}</div>
     </div>
   )

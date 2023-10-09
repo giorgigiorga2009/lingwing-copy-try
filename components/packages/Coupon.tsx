@@ -58,6 +58,7 @@ const Coupon: FC<Props> = ({ onClick }) => {
         <CouponButton
           type={'couponBtn'}
           onClick={() => onClick(couponInputText)}
+          value={couponInputText}
         />
       </span>
     </div>
