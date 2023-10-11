@@ -454,5 +454,21 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "შეავსე მონაცემები და მიიღე უფასო დავალებები!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "გაგრძელება", 
   "FILL_PROFILE_FOR_TASKS_SKIP": "გამოტოვება",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN":  "უფასო დავალებების მიღება"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN":  "უფასო დავალებების მიღება",
+
+
+  "STATS_PER_PERCENT_PROGRESS": "კურსის პროგრესი",
+  "STATS_PER_PERCENT_GRAMMAR": "გრამატიკა",
+  "STATS_PER_PERCENT_COMPLETED": "შესრულებული დავალება",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "ყოჩაღ, ასე გააგრძელე",
+  "STATS_PER_PERCENT_CONTINUE": "გაგრძელება",
+  "STATS_PER_PERCENT_TIME": "დრო",
+
+
+  "RATE_LINGWING_MODAL_RATE": "შეაფასე",
+  "RATE_LINGWING_MODAL_TEXT":  "დაგვითმე 60 წამი და გაგვიზიარე შენი შთაბეჭდილებები, შენი აზრი ჩვენთვის მნიშვნელოვანია! ",
+  "RATE_LINGWING_MODAL_THANK_YOU": "წინასწარ უღრმესი მადლობა",
+  "RATE_LINGWING_MODAL_RATE_US": "შეგვაფასე"
+
+
 }

@@ -1,0 +1,70 @@
+import React from 'react'
+import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
+import style from './lessonsFlowPopUps.module.scss'
+import { useTranslation } from '@utils/useTranslation'
+import { useCallback, useState } from 'react'
+import { LoginModal } from '@components/loginWindow/LoginModal'
+import Link from 'next/link'
+import { ReccuringPrice } from '@components/packages/Prices'
+
+
+
+
+const RenderButtons: React.FC<RegistrationReminderPopupProps> = ({popUpNumber, languageTo, languageFrom, price, duration}) => {
+    const { t } = useTranslation()
+    const [openLogin, setOpenLogin] = useState(false)
+
+    const handleOpenLogin = useCallback(() => setOpenLogin(true), [])
+    const handleCloseLogin = useCallback(() => setOpenLogin(false), [])
+
+    if (popUpNumber === 1) {
+      return (
+        <>
+          <button className={style.regButton} onClick={handleOpenLogin}>
+            {t('REG_REMINDER_REGISTER_AND_CONTINUE')}
+          </button>
+          {openLogin && (
+            <LoginModal
+              openLogin={openLogin}
+              setOpenLogin={setOpenLogin}
+              onClick={handleCloseLogin}
+            />
+          )}
+          <button className={style.coursesButton}>
+            <Link
+              href={`wizard?languageTo=${languageTo}&languageFrom=${languageFrom}`}
+            >
+              {t('REG_REMINDER_OTHER_COURSES')}
+            </Link>
+          </button>
+        </>
+      )
+    } else if (popUpNumber === 2) {
+      return (
+        <>
+          <button className={style.regButton}>
+            <Link href="/packages">{t('REG_REMINDER_CHOOSE_PREMIUM')}</Link>
+          </button>
+
+          <div className={style.priceWrapper}>
+            <p>{t('REG_REMINDER_MONTHS')}</p>
+            <p className={style.monthlyPrice}>
+              <ReccuringPrice
+              whereTo={1} price={price || 0} duration={duration || 0} symbol="GEL" />
+            </p>
+          </div>
+          <button className={style.orangeButton}>
+            <Link href="/free-trial">{t('REG_REMINDER_5_DAY_TRIAL')}</Link>
+          </button>
+        </>
+      )
+    } else if (popUpNumber === 3) {
+      return (
+        <button className={style.regButton}>
+          <Link href="/dashboard">{t('REG_REMINDER_DASHBOARD')}</Link>
+        </button>
+      )
+    }
+  }
+
+  export default RenderButtons

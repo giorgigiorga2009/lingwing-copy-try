@@ -306,5 +306,23 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "Rellena los datos y consigue 30 ejercicios gratuitos!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continuar",
   "FILL_PROFILE_FOR_TASKS_SKIP": "Saltar",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Conseguir ejercicios gratuitos"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Conseguir ejercicios gratuitos",
+
+
+
+  "STATS_PER_PERCENT_PROGRESS": "Progreso del curso",
+  "STATS_PER_PERCENT_GRAMMAR": "Gramática aprendida",
+  "STATS_PER_PERCENT_COMPLETED": "Tareas completadas",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "¡Bien hecho, sigue aprendiendo!",
+  "STATS_PER_PERCENT_CONTINUE": "Continuar",
+  "STATS_PER_PERCENT_TIME": "Tiempo",
+
+
+  "RATE_LINGWING_MODAL_RATE": "Evaluar",
+  "RATE_LINGWING_MODAL_TEXT": "Danos 60 segundos y comparte tus impresiones, ¡Tu opinión es importante para nosotros! ",
+  "RATE_LINGWING_MODAL_THANK_YOU": "Gracias de antemano",
+  "RATE_LINGWING_MODAL_RATE_US": "Evaluar"
+
+
+
 }

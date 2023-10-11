@@ -314,5 +314,22 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "Verileri doldurun ve ücretsiz alıştırmalar alın!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "Devam et",
   "FILL_PROFILE_FOR_TASKS_SKIP": "görmezden gelin",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Ücretsiz egzersizler edinin"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Ücretsiz egzersizler edinin",
+
+
+
+  "STATS_PER_PERCENT_PROGRESS": "Kurs İlerlemesi",
+  "STATS_PER_PERCENT_GRAMMAR": "Öğrenilen Dilbilgisi",
+  "STATS_PER_PERCENT_COMPLETED": "Tamamlanan Görevler",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "aferin, öğrenmeye devam et!",
+  "STATS_PER_PERCENT_CONTINUE": "Devam et",
+  "STATS_PER_PERCENT_TIME": "Zaman",
+
+
+
+  "RATE_LINGWING_MODAL_RATE": "Rate",
+  "RATE_LINGWING_MODAL_TEXT": "Give us 60 seconds and share  your impressions. Your opinion is important to us ",
+  "RATE_LINGWING_MODAL_THANK_YOU": "Thank you in advance",
+  "RATE_LINGWING_MODAL_RATE_US": "Rate Us"
+
 }
