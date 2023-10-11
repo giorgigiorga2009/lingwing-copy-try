@@ -31,10 +31,8 @@ import BackgroundParrot from '@components/shared/BackgroundParrot'
 import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
 import { GetProfileData, ProfileData } from '@utils/profileEdit'
 import { getPackages, PackageData } from '@utils/getPackages'
-import StatsPagePerOnePercent, {
-  StatsDataProps,
-} from '@components/lessons/statsPerOnePercent/statsPagePerOnePercent'
-import { getStatsPerPercent } from '@utils/lessons/getStatsPerPercent'
+import StatsPagePerOnePercent from '@components/lessons/statsPerOnePercent/statsPagePerOnePercent'
+import { getStatsPerPercent, StatsDataProps } from '@utils/lessons/getStatsPerPercent'
 import RateLingwingModal from '@components/lessons/rateLingwing/rateLingwing'
 
 const Lessons: NextPage = () => {
