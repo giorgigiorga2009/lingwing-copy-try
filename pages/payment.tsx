@@ -22,6 +22,7 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
 import LessonsFlowPopUps from '@components/lessons/lessonsFlowPopUps/lessonsFlowPopUps'
+import RateLingwing from '@components/lessons/rateLingwing/rateLingwing'
 
 
 const Payment: React.FC<PaymentProps> = () => {
@@ -135,6 +136,9 @@ const Payment: React.FC<PaymentProps> = () => {
             popUpNumber={3}
             packetTitle={data?.packages[0].title}
           />
+        </div> */}
+        {/* <div className={styles.regReminder}>
+        <RateLingwing/>
         </div> */}
          
     </div>

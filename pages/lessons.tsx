@@ -30,8 +30,12 @@ import { useQuery } from 'react-query'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
 import { GetProfileData, ProfileData } from '@utils/profileEdit'
-import { getPackageDataById, PackageResponse } from '@utils/getPayments'
 import { getPackages, PackageData } from '@utils/getPackages'
+import StatsPagePerOnePercent, {
+  StatsDataProps,
+} from '@components/lessons/statsPerOnePercent/statsPagePerOnePercent'
+import { getStatsPerPercent } from '@utils/lessons/getStatsPerPercent'
+import RateLingwingModal from '@components/lessons/rateLingwing/rateLingwing'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -58,18 +62,21 @@ const Lessons: NextPage = () => {
   const [profileData, setPRofileData] = useState<ProfileData | undefined>(
     undefined,
   )
-  const [packagesData, setPackagesData] = useState<PackageData>();
-  const [dailyTaskLeft, setDailyTaskLeft] = useState<number>();
-  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0);
-  const [dailyReachedLimitDate, setDailyReachedLimitDate] =  useState<Date | string | undefined>();
-  
-  
-  
+  const [packagesData, setPackagesData] = useState<PackageData>()
+  const [dailyTaskLeft, setDailyTaskLeft] = useState<number>()
+  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0)
+  const [dailyReachedLimitDate, setDailyReachedLimitDate] = useState<
+    Date | string | undefined
+  >()
+  const [isStatsVisible, setIsStatsVisible] = useState<boolean>(false)
+  const [statsData, setStatsData] = useState<StatsDataProps>()
+  const previousPercentRef = useRef(1)
+  const [isRateLingwingVisible, setIsRateLingwingVisible] =
+    useState<boolean>(true)
+
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
-  const [language, setLanguage] = useState<string>('English');
-
-
+  const [language, setLanguage] = useState<string>('English')
 
   // Use localStorage to set the token state
   useEffect(() => {
@@ -108,7 +115,9 @@ const Lessons: NextPage = () => {
           setCourseId(courseObject._id)
           setUserScore(courseObject.score)
           setDailyTaskLeft(courseObject.info.dailyTaskLeft)
-          setunAuthuserDailyLimit(courseObject.course.configuration.unAuthUserDailyLimit)
+          setunAuthuserDailyLimit(
+            courseObject.course.configuration.unAuthUserDailyLimit,
+          )
           setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
         }
         return courseObject
@@ -300,15 +309,32 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getPackages('');
-        setPackagesData(response);
+        const response = await getPackages('')
+        setPackagesData(response)
+      } catch (err) {}
+    }
+
+    fetchData()
+  }, [])
+
+  /// statsComponent
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const accomplishStats = await getStatsPerPercent({
+          userCourseId: '652506ec13871d0f3fe1a8bc',
+        })
+        setStatsData(accomplishStats)
+        if (Math.floor(accomplishStats.percent) > previousPercentRef.current) {
+          setIsStatsVisible(true)
+          previousPercentRef.current = Math.floor(accomplishStats.percent)
+        }
       } catch (err) {
+        console.error('An error occurred:', err)
       }
     }
-  
-    fetchData();
-  }, []);
-
+    fetchData()
+  }, [])
   ///
 
   return (
@@ -330,17 +356,33 @@ const Lessons: NextPage = () => {
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-      {isUserLoggedIn && dailyTaskLeft  ===  0 && (
-      <div className={style.regReminder}>
+      {isUserLoggedIn && dailyTaskLeft === 0 && (
+        <div className={style.regReminder}>
           <LessonsFlowPopUps
-          popUpNumber={2}
-          dailyLimitDate={dailyReachedLimitDate}
-          duration={packagesData?.packages[1].duration}
-          price={packagesData?.packages[1].currency[0].recurringPrice}
-          language={language}
+            popUpNumber={2}
+            dailyLimitDate={dailyReachedLimitDate}
+            duration={packagesData?.packages[1].duration}
+            price={packagesData?.packages[1].currency[0].recurringPrice}
+            language={language}
           />
         </div>
- )}
+      )}
+
+      {isUserLoggedIn && isStatsVisible && (
+        <div className={style.perOnePercent}>
+          <StatsPagePerOnePercent
+            onClose={() => setIsStatsVisible(false)}
+            statsData={statsData}
+          />
+        </div>
+      )}
+
+      {completedTasks?.length === 20 && isRateLingwingVisible && (
+        <div className={style.rateLingwing}>
+          <RateLingwingModal onClose={() => setIsRateLingwingVisible(false)} />
+        </div>
+      )}
+
       <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck
