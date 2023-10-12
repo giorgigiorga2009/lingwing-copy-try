@@ -13,6 +13,10 @@
   &.answer {
     margin-left: auto;
   }
+
+  @include mobile {
+    font-size: 1rem;
+  }
 }
 
 .taskDescription {
@@ -28,6 +32,13 @@
     background-repeat: no-repeat;
     background-size: 1.1rem;
     background-position: center center;
+
+    @include mobile {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-size: 1.1rem;
+      margin: 0 0 0 -1.9rem;
+    }
   }
 }
 
@@ -43,12 +54,17 @@
   min-width: 13rem;
   color: #1c1c1c;
   max-width: 28rem;
+
+  @include mobile {
+    min-width: 12rem;
+    max-width: 15rem;
+    line-height: 1.1rem;
+  }
 }
 
 .taskText {
-  color: $black;
+  color: $black-800;
   font-weight: bold;
-  line-height: 1.6rem;
   padding: 1rem 1.8rem;
   background-color: #f2f2f2;
   border-radius: 2rem 2rem 2rem 0.3rem;
@@ -64,6 +80,10 @@
   .standard & {
     font-weight: bold;
   }
+
+  @include mobile {
+    padding: 0.7rem 1.2rem;
+  }
 }
 
 .correctText {
@@ -76,12 +96,15 @@
   background-color: #692e96;
   border-radius: 2rem 2rem 0.3rem;
 
-  // transform: scale(0);
-  // transform-origin: 0 0;
-  // animation: bounce 500ms linear both;
-
   .taskDescription & {
     display: none;
+  }
+
+  @include mobile {
+    min-width: 12rem;
+    max-width: 15rem;
+    padding: 0.7rem 1.2rem;
+    line-height: 1.1rem;
   }
 }
 
@@ -91,8 +114,7 @@
   justify-content: center;
   max-width: 35rem;
   color: $black;
-  line-height: 1.6rem;
-  padding: 1rem 2.5rem;
+  padding: 0.8rem 2rem;
   background-color: #f2f2f2;
   border-radius: 2rem 2rem 2rem 0.3rem;
 

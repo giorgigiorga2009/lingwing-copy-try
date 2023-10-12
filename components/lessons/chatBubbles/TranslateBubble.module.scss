@@ -13,6 +13,10 @@
   &.answer {
     margin-left: auto;
   }
+
+  @include mobile {
+    font-size: 1rem;
+  }
 }
 
 .taskDescription {
@@ -26,6 +30,13 @@
     background-repeat: no-repeat;
     background-size: 1.3rem;
     background-position: center center;
+
+    @include mobile {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-size: 1.1rem;
+      margin: 0 0 0 -1.9rem;
+    }
   }
 
   .mistakecorrectionIcon {
@@ -64,10 +75,16 @@
   min-width: 13rem;
   max-width: 30rem;
   line-height: 1.6rem;
+
+  @include mobile {
+    min-width: 12rem;
+    max-width: 26rem;
+    line-height: 1.1rem;
+  }
 }
 
 .taskText {
-  color: $black;
+  color: $black-800;
   font-weight: bold;
   padding: 1rem 1.8rem;
   background-color: #f2f2f2;
@@ -102,9 +119,9 @@
     }
   }
 
-  // .standard & {
-  //   font-weight: bold;
-  // }
+  @include mobile {
+    padding: 0.7rem 1.2rem;
+  }
 }
 
 .correctText {
@@ -118,6 +135,13 @@
 
   .taskDescription & {
     display: none;
+  }
+
+  @include mobile {
+    min-width: 12rem;
+    max-width: 15rem;
+    padding: 0.7rem 1.2rem;
+    line-height: 1.1rem;
   }
 }
 

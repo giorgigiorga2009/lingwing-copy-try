@@ -98,12 +98,19 @@ const Lessons: NextPage = () => {
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
 
   useEffect(() => {
+    console.log(languageFrom)
+    console.log(languageTo)
+    console.log(token)
+    console.log(courseName)
+    console.log(userId)
     if (!languageFrom || !languageTo || !courseName || (!token && !userId))
       return
 
     getUserCourse({ languageFrom, languageTo, courseName, token, userId })
       .then(courseObject => {
+        console.log(courseObject)
         if (courseObject) {
+          console.log('cherami')
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
           setUserScore(courseObject.score)
@@ -119,7 +126,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageFrom, languageTo, courseName, token, userId])
+  }, [languageFrom, languageTo, courseName, token, userId, currentTaskNumber])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
@@ -142,19 +149,27 @@ const Lessons: NextPage = () => {
   }, [courseId])
 
   useEffect(() => {
+    console.log('krwiali')
+    console.log(languageFrom)
+    console.log(languageTo)
+    console.log(token + 'toka')
+    console.log(currentCourseObject)
+
     if (
       !languageFrom ||
       !languageTo ||
-      !courseName ||
-      !token ||
-      !courseId ||
+      // !courseName ||
+      !session?.user.accessToken ||
+      // !courseId ||
       !currentCourseObject
     )
       return
+
+    console.log('kudamodzuebuli')
     getCurrentLanguageCoursesList({
       languageFrom,
       languageTo,
-      token,
+      token: session?.user.accessToken,
       languageCourseId: currentCourseObject.course._id,
       languageId: currentCourseObject.course.iLearn._id,
     })
@@ -165,7 +180,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [courseId])
+  }, [currentCourseObject])
 
   // Use the tasksData and currentTaskNumber states to set the current task and its type
   useEffect(() => {
@@ -352,13 +367,17 @@ const Lessons: NextPage = () => {
 
       {isSoundChecked && (
         <div className={style.content}>
-          {/* <div className={style.foldersContainer}>
-          <span className={style.course}>Course</span>
-          <span className={style.folderName}>Grammar</span>
-          <span className={style.folderName}>Levels</span>
-          <span className={style.folderName}>Statistics</span>
-        </div> */}
-
+          <div className={style.foldersContainer}>
+            {currentLanguageCoursesList && (
+              <CoursesDropdown
+                languageCoursesList={currentLanguageCoursesList}
+                languageTo={languageTo as string}
+              />
+            )}
+            <span className={style.folderName}>Grammar</span>
+            <span className={style.folderName}>Levels</span>
+            <span className={style.folderName}>Statistics</span>
+          </div>
           {currentCourseObject && (
             <ProgressBar
               currentCourseObject={currentCourseObject}
@@ -366,15 +385,7 @@ const Lessons: NextPage = () => {
             />
           )}
 
-          {currentLanguageCoursesList && (
-            <CoursesDropdown
-              languageCoursesList={currentLanguageCoursesList}
-              languageTo={languageTo as string}
-            />
-          )}
-
           {/* chat window */}
-
           <div ref={chatRef} className={style.chat}>
             <div ref={chatWrapperRef} className={style.chatWrapper}>
               {/* render done tasks */}
@@ -401,7 +412,7 @@ const Lessons: NextPage = () => {
 
           {/* Render needed type of input render or placeholder */}
 
-          {!commonProps && (
+          {/* {!commonProps && (
             <div className={style.loadingInputContainer}>
               <div className={style.mistakes}> 0 </div>
               <input
@@ -411,7 +422,7 @@ const Lessons: NextPage = () => {
               />
               <span className={style.micIcon} key="mic" />
             </div>
-          )}
+          )} */}
 
           {commonProps && (
             <CurrentTaskInput

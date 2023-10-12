@@ -5,25 +5,39 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 26.7rem;
+  width: 72%;
   font-size: 1.2rem;
   font-weight: bold;
   font-family: SegoeUI;
   resize: none;
   height: 4.4rem;
   background-color: #f3f3f3;
-  outline-color: $purple-600;
   border: none;
   border-radius: 50px;
   padding: 1.2rem 1rem 0.8rem 2rem;
-  color: $black;
+  color: $black-800;
+
+  @include mobile {
+    height: 3rem;
+    padding: 0.7rem 1rem 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  &:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    border: 2px solid $purple-500;
+  }
 }
 
 .inputDone {
-  width: 29rem;
+  width: 75%;
   background-color: $green-100;
-  outline-color: $green-150;
   transition: 0.3s ease-in-out;
+
+  &:focus {
+    border: 2px solid $green-150;
+  }
 }
 
 .mistake {

@@ -8,6 +8,7 @@
     url('../public/assets/images/background-wave.svg') no-repeat;
   background-attachment: local;
   background-position: auto, 5rem, 7rem;
+
   .footer {
     width: 100%;
     height: 3rem;
@@ -15,10 +16,12 @@
     align-items: center;
     position: absolute;
     bottom: -6rem;
+
     @include mobile {
       bottom: -8rem;
     }
   }
+
   .container {
     position: relative;
     width: 100%;
@@ -44,13 +47,15 @@
     padding: 10px 69px;
     border-radius: 2vw;
     background-color: $white-70;
-    box-shadow: 0px 1px 100px 10px $black-25;
+    box-shadow: 0 1px 100px 10px $black-25;
     margin: 0 auto;
     z-index: 2;
+
     .send {
       font-size: 3rem;
       margin-bottom: 250px;
     }
+
     form {
       display: flex;
       flex-direction: column;
@@ -63,15 +68,18 @@
           top: 12.5rem;
         }
       }
+
       #emailandsubmit {
         width: 100%;
         height: 52px;
         display: flex;
         justify-content: space-between;
         gap: 50px;
+
         input {
           width: 53%;
         }
+
         button {
           background-color: $purple-500;
           padding: 15px 60px;
@@ -83,17 +91,21 @@
           font-weight: bold;
           color: $white;
           cursor: pointer;
+
           &:hover {
             background-color: $purple-600;
           }
+
           &:active {
             border: 2px solid $black;
           }
         }
+
         @include mobile {
           input {
             width: 100%;
           }
+
           button {
             width: 100%;
           }
@@ -108,6 +120,7 @@
       margin-bottom: 70px;
       margin-left: 20px;
     }
+
     textarea {
       width: 100%;
       height: 200px;
@@ -117,10 +130,12 @@
       outline: none;
       border: 1px solid $grey-800;
       resize: none;
+
       @include mobile {
         padding: 10px;
       }
     }
+
     form div label {
       position: absolute;
       margin-left: 25px;
@@ -142,6 +157,7 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+
       .error {
         position: absolute;
         top: 52px;
@@ -153,9 +169,11 @@
           font-size: 13px;
         }
       }
+
       .labelanimUp {
         top: -10px;
       }
+
       input {
         width: 100%;
         height: 52px;
