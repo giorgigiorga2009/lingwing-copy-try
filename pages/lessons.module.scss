@@ -194,44 +194,31 @@
   }
 }
 
+.modalBase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2; 
+  animation: fadeInBlur .4s forwards;
+}
+
 .regReminder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  height: 90%;
+  @extend .modalBase;
   backdrop-filter: blur(5px); 
-  z-index: 9999; 
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-  animation: fadeInBlur .8s forwards;
-  
-}
-.perOnePercent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  margin-top: 4rem;
-  z-index: 2; 
-  animation: fadeInBlur .4s forwards;
+  animation-duration: .8s;
 }
 
-.rateLingwing{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  margin-top: 4rem;
-  z-index: 2; 
-  animation: fadeInBlur .4s forwards;
+.perOnePercent, .rateLingwing {
+  @extend .modalBase;
+}
+
+.rateLingwing {
   backdrop-filter: blur(5px); 
-  background-color: rgba(0, 0, 0, 0.25),
-
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 

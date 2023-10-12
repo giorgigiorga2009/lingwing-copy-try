@@ -47,7 +47,7 @@
     align-items: center;
   }
   p {
-    color: #ebebeb;
+    color: $white-200;
     font-size: 18px;
     margin-bottom: 18px;
     margin-top: 147px;
@@ -56,7 +56,7 @@
   }
 
   .title {
-    color: #fec302;
+    color: $orange-310;
     font-size: 2.8rem;
     font-weight: 700;
     font-family: SegoeUI-SemiBold;
@@ -81,24 +81,24 @@
 
     .grammar,
     .tasks {
-      color: #fff;
+      color: $white;
       font-size: 18px;
       margin-bottom: 7px;
       font-family: SegoeUI-SemiBold;
 
       span {
-        color: #ffc501;
+        color: $orange-320;
       }
       .chart {
         width: 100%;
-        background-color: #7b3aab;
+        background-color: $purple-500;
         border-radius: 15px;
         height: 12px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         overflow: hidden;
 
         .filled {
-          background: linear-gradient(to right, #dc9213, #ffc401);
+          background: linear-gradient(to right, $orange-650, $orange-310);
           border-radius: 15px;
           height: 100%;
           transition: width 0.3s ease;
@@ -118,7 +118,6 @@
     font-size: 22px;
     padding: .5rem 5rem .7rem 2rem;
     border-radius: 30px;
-    // margin-right: 40px;
     font-family: SegoeUI;
     transition: all .2s linear;
     border: none;

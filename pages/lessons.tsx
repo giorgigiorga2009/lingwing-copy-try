@@ -124,7 +124,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageFrom, languageTo, courseName, token, userId])
+  }, [languageFrom, languageTo, courseName, token, userId, completedTasks])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
@@ -297,7 +297,7 @@ const Lessons: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if (completedTasks?.length === 12) {
+    if (completedTasks?.length === 12 && !profileData?.profile.firstName) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
@@ -332,13 +332,13 @@ const Lessons: NextPage = () => {
       }
     }
     fetchData()
-  }, [])
+  }, [completedTasks])
   ///
 
   return (
     <div className={style.container}>
       <Header size="s" />
-      {isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
+      {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <div className={style.regReminder}>
           <LessonsFlowPopUps
             popUpNumber={1}
@@ -349,12 +349,12 @@ const Lessons: NextPage = () => {
           />
         </div>
       )}
-      {isUserLoggedIn && showProfileFiller && !profileData?.profile.firstName && (
+      {isUserLoggedIn && showProfileFiller &&  (
         <div className={style.regReminder}>
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-      {isUserLoggedIn && !dailyTaskLeft && (
+      {isUserLoggedIn && !dailyTaskLeft && !currentCourseObject?.info.bonus && (
         <div className={style.regReminder}>
           <LessonsFlowPopUps
             popUpNumber={2}
