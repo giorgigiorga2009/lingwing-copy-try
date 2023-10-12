@@ -61,8 +61,8 @@ const Lessons: NextPage = () => {
     undefined,
   )
   const [packagesData, setPackagesData] = useState<PackageData>()
-  const [dailyTaskLeft, setDailyTaskLeft] = useState<number>()
-  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0)
+  const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
+  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
   const [dailyReachedLimitDate, setDailyReachedLimitDate] = useState<
     Date | string | undefined
   >()
@@ -338,7 +338,7 @@ const Lessons: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size="s" />
-      {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
+      {isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <div className={style.regReminder}>
           <LessonsFlowPopUps
             popUpNumber={1}
@@ -354,7 +354,7 @@ const Lessons: NextPage = () => {
           <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
         </div>
       )}
-      {isUserLoggedIn && dailyTaskLeft === 0 && (
+      {isUserLoggedIn && !dailyTaskLeft && (
         <div className={style.regReminder}>
           <LessonsFlowPopUps
             popUpNumber={2}
