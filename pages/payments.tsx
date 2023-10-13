@@ -19,9 +19,8 @@ const Payments = () => {
     const fetchUserPayments = async () => {
       if (typeof authToken === 'string') {
         try {
-          const data = await getUserPayements(authToken);
+          const data = await getUserPayements(authToken)
           setPaymentsData(data)
-          
         } catch (error) {
           console.error('Error fetching certificate:', error)
         }
@@ -36,9 +35,9 @@ const Payments = () => {
       <div className={style.containerWrapper}>
         <div className={style.payments}>{t('APP_HEADER_PAYMENTS')}</div>
         <div className={style.container}>
-          <span className={style.cross} onClick={goBack}>
+          <button className={style.cross} onClick={goBack}>
             ✕
-          </span>
+          </button>
           <div className={style.firstRow}>
             <div className={style.firstRowContent}>
               <div>{t('PAYMENTS_STATS_REMAINING')}</div>
