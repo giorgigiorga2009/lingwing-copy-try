@@ -1,11 +1,9 @@
-import { useRouter } from 'next/router'
 import style from './dashboard.module.scss'
-import { Locale } from '../utils/localization'
 import { FC, useEffect, useState } from 'react'
 import { PageHead } from '../components/PageHead'
 import { Header } from '../components/header/Header'
 import { Footer } from '../components/wizard/Footer'
-import MyCourse from '../components/dashboard/MyCourse'
+import MyCourse, { SubCourse } from '../components/dashboard/MyCourse'
 import { useTranslation } from '../utils/useTranslation'
 import { getMyCoursesData } from '../utils/getMyCourses'
 import NoCourses from '../components/dashboard/NoCourses'
@@ -14,27 +12,34 @@ import PromoSlider from '../components/dashboard/PromoSlider'
 import { FollowButtons } from '../components/home/FollowButtons'
 import DownloadAppBox from '../components/shared/DownloadAppBox'
 import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
-import { LOCALES_TO_LANGUAGES, LANGUAGE_NAMES } from '../utils/languages'
+import { LANGUAGE_NAMES } from '../utils/languages'
+
+
+interface Standard {
+  courses: SubCourse[]
+  name: string
+  uniqueStudentsCount: number
+  smallDescription: string
+  fullDescription: string | null
+}
 
 interface Language {
   _id: string
   nameCode: string
-  standards: any[]
+  standards: Standard[]
 }
 
 const Dashboard: FC = () => {
   const { t } = useTranslation()
-  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(true)
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [activeLang, setActiveLang] = useState<number>(0)
-  const locale = router.locale ?? 'en'
 
   useEffect(() => {
     handleMyCourses()
     setLoading(false)
   }, [])
-
+  console.log(myLanguages)
   const handleMyCourses = () => {
     if (typeof window !== 'undefined') {
       const token = window.localStorage.getItem('authToken') as string

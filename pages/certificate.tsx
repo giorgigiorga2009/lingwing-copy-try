@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getCertificate } from '@utils/getCertificate'
+import { getCertificate, generateCertificateTextProps } from '@utils/getCertificate'
 import style from '@pages/certificate.module.scss'
 import Image from 'next/image'
 import certificateBg from '/public/themes/images/v2/certificate/bg.png'
@@ -9,11 +9,9 @@ import parrotImage from '/public/themes/images/v2/certificate/user-parrot.png'
 import footerImage from '/public/themes/images/v2/certificate/footer.png'
 import bulletLineImage from '/public/themes/images/v2/certificate/bullet-line.png'
 import signatureImage from '/public/themes/images/v2/certificate/signature.png'
-import { generateCertificateTextProps } from '@utils/getCertificate'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@utils/useTranslation'
 import ReactDOMServer from 'react-dom/server'
-import html2pdfFunction from 'html2pdf.js';
 
 const generateCertificateText = (data: generateCertificateTextProps) => {
   return (
@@ -138,8 +136,8 @@ const CertificatePage = () => {
       const freshData = await getCertificate(userCourseId)
 
       const element = generateInMemoryCertificate(freshData)
-
-      // const html2pdfFunction = require('html2pdf.js') changed because of yarn build error / if crashed add eslint disable comment just for that line
+      // eslint-disable-next-line
+      const html2pdfFunction = require('html2pdf.js')
       html2pdfFunction()
         .from(element)
         .set(pdfOptions)
@@ -147,31 +145,31 @@ const CertificatePage = () => {
     }
   }
 
-  // useEffect(() => {                               build error
+  // useEffect(() => {
   //   if (typeof userCourseId === 'string') {
-  //     getCertificate(userCourseId)                      here can be added return null btw. to avoid error
+  //     getCertificate(userCourseId)
   //       .then(data => {
   //         setCertificateData(data)
+  //         return null
   //       })
   //       .catch(error => {
   //         console.error('Error fetching certificate:', error)
   //       })
   //   }
-  // }, [userCourseId])
   useEffect(() => {
     const fetchCertificate = async () => {
       if (typeof userCourseId === 'string') {
         try {
-          const data = await getCertificate(userCourseId);
-          setCertificateData(data);
+          const data = await getCertificate(userCourseId)
+          setCertificateData(data)
         } catch (error) {
-          console.error('Error fetching certificate:', error);
+          console.error('Error fetching certificate:', error)
         }
       }
-    };
-  
-    fetchCertificate();
-  }, [userCourseId]);
+    }
+
+    fetchCertificate()
+  }, [userCourseId])
 
   if (!certificateData)
     return <div>Error fetching certificate. Please try again later.</div>

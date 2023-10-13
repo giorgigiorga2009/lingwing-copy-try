@@ -7,7 +7,7 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       type: 'credentials',
       credentials: {},
-      authorize(credentials, req) {
+      authorize(credentials) {
         const { email, password } = credentials as {
           email: string
           password: string
