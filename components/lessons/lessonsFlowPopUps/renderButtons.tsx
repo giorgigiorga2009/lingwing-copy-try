@@ -8,8 +8,6 @@ import Link from 'next/link'
 import { ReccuringPrice } from '@components/packages/Prices'
 
 
-
-
 const RenderButtons: React.FC<RegistrationReminderPopupProps> = ({popUpNumber, languageTo, languageFrom, price, duration}) => {
     const { t } = useTranslation()
     const [openLogin, setOpenLogin] = useState(false)
@@ -64,6 +62,8 @@ const RenderButtons: React.FC<RegistrationReminderPopupProps> = ({popUpNumber, l
           <Link href="/dashboard">{t('REG_REMINDER_DASHBOARD')}</Link>
         </button>
       )
+    }else {
+      return null;  
     }
   }
 

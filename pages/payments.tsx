@@ -16,15 +16,18 @@ const Payments = () => {
   }
   useEffect(() => {
     const authToken = localStorage.getItem('authToken')
-    if (typeof authToken === 'string') {
-      getUserPayements(authToken)
-        .then(data => {
+    const fetchUserPayments = async () => {
+      if (typeof authToken === 'string') {
+        try {
+          const data = await getUserPayements(authToken);
           setPaymentsData(data)
-        })
-        .catch(error => {
+          
+        } catch (error) {
           console.error('Error fetching certificate:', error)
-        })
+        }
+      }
     }
+    fetchUserPayments()
   }, [])
 
   return (

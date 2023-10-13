@@ -29,11 +29,12 @@ import { useQuery } from 'react-query'
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
-import { GetProfileData, ProfileData } from '@utils/profileEdit'
+import { ProfileData } from '@utils/profileEdit'
 import { getPackages, PackageData } from '@utils/getPackages'
 import StatsPagePerOnePercent from '@components/lessons/statsPerOnePercent/statsPagePerOnePercent'
 import { getStatsPerPercent, StatsDataProps } from '@utils/lessons/getStatsPerPercent'
 import RateLingwingModal from '@components/lessons/rateLingwing/rateLingwing'
+import { getUserProfileData } from '@utils/auth'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -286,7 +287,7 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const responseData = await GetProfileData(token)
+        const responseData = await getUserProfileData("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2OTY4NDU4NDA2NTYsImV4cCI6MTc3NjQyMDI0MDY1NiwidXNlcl9pZCI6IjY0Yzc5NDhkZGNlMTkzNmNjNzgxMDM3MSJ9.6qGfba1OT2vViv321FQDEpEdPhwc7kvizqexcM_sMHs")
         setPRofileData(responseData)
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -297,7 +298,7 @@ const Lessons: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if (completedTasks?.length === 12 && !profileData?.profile.firstName) {
+    if (completedTasks?.length === 8 && !profileData?.profile.lastName) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])

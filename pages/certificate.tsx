@@ -13,6 +13,7 @@ import { generateCertificateTextProps } from '@utils/getCertificate'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@utils/useTranslation'
 import ReactDOMServer from 'react-dom/server'
+import html2pdfFunction from 'html2pdf.js';
 
 const generateCertificateText = (data: generateCertificateTextProps) => {
   return (
@@ -134,11 +135,11 @@ const CertificatePage = () => {
 
   const handleDownload = async () => {
     if (typeof window !== 'undefined' && typeof userCourseId === 'string') {
-      let freshData = await getCertificate(userCourseId)
+      const freshData = await getCertificate(userCourseId)
 
       const element = generateInMemoryCertificate(freshData)
 
-      const html2pdfFunction = require('html2pdf.js')
+      // const html2pdfFunction = require('html2pdf.js') changed because of yarn build error / if crashed add eslint disable comment just for that line
       html2pdfFunction()
         .from(element)
         .set(pdfOptions)
@@ -146,17 +147,31 @@ const CertificatePage = () => {
     }
   }
 
+  // useEffect(() => {                               build error
+  //   if (typeof userCourseId === 'string') {
+  //     getCertificate(userCourseId)                      here can be added return null btw. to avoid error
+  //       .then(data => {
+  //         setCertificateData(data)
+  //       })
+  //       .catch(error => {
+  //         console.error('Error fetching certificate:', error)
+  //       })
+  //   }
+  // }, [userCourseId])
   useEffect(() => {
-    if (typeof userCourseId === 'string') {
-      getCertificate(userCourseId)
-        .then(data => {
-          setCertificateData(data)
-        })
-        .catch(error => {
-          console.error('Error fetching certificate:', error)
-        })
-    }
-  }, [userCourseId])
+    const fetchCertificate = async () => {
+      if (typeof userCourseId === 'string') {
+        try {
+          const data = await getCertificate(userCourseId);
+          setCertificateData(data);
+        } catch (error) {
+          console.error('Error fetching certificate:', error);
+        }
+      }
+    };
+  
+    fetchCertificate();
+  }, [userCourseId]);
 
   if (!certificateData)
     return <div>Error fetching certificate. Please try again later.</div>

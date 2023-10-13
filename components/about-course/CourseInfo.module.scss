@@ -45,13 +45,10 @@
   }
 }
 .flagstyle {
-  @include tablet {
     width: 5rem;
-    height: 5rem;
-  }
+    height:auto;
   @include mobile {
     width: 4rem;
-    height: 4rem;
   }
 }
 
