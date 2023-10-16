@@ -39,7 +39,6 @@ const Dashboard: FC = () => {
     handleMyCourses()
     setLoading(false)
   }, [])
-  console.log(myLanguages)
   const handleMyCourses = () => {
     if (typeof window !== 'undefined') {
       const token = window.localStorage.getItem('authToken') as string
