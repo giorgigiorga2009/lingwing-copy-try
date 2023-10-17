@@ -9,15 +9,19 @@ import logo from '@public/themes/images/v2/logo-for-email.png'
 import { RateLingwingProps } from '@utils/lessons/getStatsPerPercent'
 
 
-const RateLingwingModal: React.FC<RateLingwingProps> = ({ onClose }) => {
+const RateLingwingModal: React.FC<RateLingwingProps> = ({ completedTasks }) => {
   const { t } = useTranslation()
+  const [isRateLingwingVisible, setIsRateLingwingVisible] =
+  useState<boolean>(true)
+
 
   return (
+    completedTasks?.length === 20 && isRateLingwingVisible &&(
     <div className={style.modal}>
       <div className={style.wrapper}>
         <div className={style.container}>
           <div className={style.leftSide}>
-            <button onClick={onClose}>✕</button>
+            <button onClick={()=> setIsRateLingwingVisible(false)}>✕</button>
             <h2 className={style.title}>
               {t('RATE_LINGWING_MODAL_RATE')}
               <Image src={logo} alt="" className={style.logo} />
@@ -41,6 +45,8 @@ const RateLingwingModal: React.FC<RateLingwingProps> = ({ onClose }) => {
         <Image src={stars} alt="" className={style.stars} />
       </div>
     </div>
+
+    )
   )
 }
 

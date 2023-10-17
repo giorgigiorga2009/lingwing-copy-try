@@ -1,15 +1,18 @@
 
 import axios from "axios"
+import { TaskData } from "./getTask"
 
 export interface RateLingwingProps {
-  onClose: () => void
+  // onClose: () => void
+  completedTasks?: TaskData[]
 }
 
 
 export interface StatsPagePerOnePercentProps {
-  
-  onClose: () => void
+  completedTasks?: TaskData[]
+  courseId: string
   statsData?: StatsDataProps
+  isUserLoggedIn: boolean
 }
 export interface StatsDataProps {
   grammar: {
