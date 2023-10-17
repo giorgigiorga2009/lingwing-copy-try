@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import style from '@pages/payments.module.scss'
-import { getUserPayements } from '@utils/getUserPayemnts'
+import { getUserPayements, PaymentsProps } from '@utils/getUserPayemnts'
 import { Header } from '@components/header/Header'
 import { useTranslation } from '@utils/useTranslation'
 import { useRouter } from 'next/router'
-import { PaymentsProps } from '@utils/getUserPayemnts'
 
 const Payments = () => {
   const { t } = useTranslation()

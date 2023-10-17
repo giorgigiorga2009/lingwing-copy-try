@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import style from './AboutTabs.module.scss'
+import Image from 'next/image'
 import { useTranslation } from '@utils/useTranslation'
+import certificateImage from '@public/themes/images/v2/certificate/certificate.png'
 
 const Certificate: FC = () => {
   const { t } = useTranslation()
@@ -17,10 +19,12 @@ const Certificate: FC = () => {
       </h2>
       <p>{t('APP_ABOUT_CERTIFICATE_TEXT_4')}</p>
       <p>{t('APP_ABOUT_CERTIFICATE_TEXT_5')}</p>
-      <img
-        src="../themes/images/v2/certificate/certificate.png"
+      <Image
+        src={certificateImage}
         className={style.certificateImage}
         alt="Certificate Template"
+        width={700}
+        height={700}
       />
     </>
   )

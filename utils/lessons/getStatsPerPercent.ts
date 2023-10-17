@@ -7,6 +7,7 @@ export interface RateLingwingProps {
 
 
 export interface StatsPagePerOnePercentProps {
+  
   onClose: () => void
   statsData?: StatsDataProps
 }
@@ -29,11 +30,11 @@ interface Props{
 
 export const getStatsPerPercent =async ({userCourseId}: Props) => {
     const headers = {
-        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2OTYzMjMyNDkxMzUsImV4cCI6MTcyNDU3NjA0OTEzNSwidXNlcl9pZCI6IjY1MWFjNDViYWQyOWI4MGY2MTVmMmMwMiJ9.uiBF6ENvdPUa5L9CDxlrItugJhPWmjXGYu4iMagq2V0', 
+        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2OTY4NDU4NDA2NTYsImV4cCI6MTc3NjQyMDI0MDY1NiwidXNlcl9pZCI6IjY0Yzc5NDhkZGNlMTkzNmNjNzgxMDM3MSJ9.6qGfba1OT2vViv321FQDEpEdPhwc7kvizqexcM_sMHs', 
       };
 
     return await axios
-    .get(`https://api.lingwing.com/api/v2/user/learn/statisticPerPercent/${userCourseId}`, {headers: headers})
+    .get(`${process.env.DEFAULT_URL}/user/learn/statisticPerPercent/${userCourseId}`, {headers: headers})
     .then(response => response.data.data)
     .catch(error => {
       console.log(error)

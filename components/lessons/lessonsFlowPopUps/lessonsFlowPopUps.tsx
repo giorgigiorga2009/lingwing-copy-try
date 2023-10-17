@@ -38,43 +38,43 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   }, [popUpNumber])
 
   return (
-    <div className={style.container}>
-      <div>
-        <RenderHeaderContent popUpNumber={popUpNumber} language={language} />
+    <div className={style.regReminder}>
+      <div className={style.container}>
+          <RenderHeaderContent popUpNumber={popUpNumber} language={language} />
+          <div className={style.paragraph}>
+            <RenderParagraphContent
+              popUpNumber={popUpNumber}
+              completedTasks={completedTasks}
+              dailyLimitDate={dailyLimitDate}
+              totalTasksAmount={totalTasksAmount}
+              packetTitle={packetTitle}
+            />
+          </div>
+        <div className={style.mainPart}>
+          {regReminderTitle.map((item, index) => (
+            <PopUpCircle
+              popUpNumber={popUpNumber}
+              key={index}
+              {...item}
+              handleOpenLogin={handleOpenLogin}
+            />
+          ))}
+        </div>
         <div className={style.paragraph}>
-          <RenderParagraphContent
+          <RenderCheckboxWithCardDetails
             popUpNumber={popUpNumber}
-            completedTasks={completedTasks}
-            dailyLimitDate={dailyLimitDate}
-            totalTasksAmount={totalTasksAmount}
-            packetTitle={packetTitle}
+            paymentsData={paymentsData}
           />
         </div>
-      </div>
-      <div className={style.mainPart}>
-        {regReminderTitle.map((item, index) => (
-          <PopUpCircle
+        <div className={style.buttons}>
+          <RenderButtons
             popUpNumber={popUpNumber}
-            key={index}
-            {...item}
-            handleOpenLogin={handleOpenLogin}
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            price={price}
+            duration={duration}
           />
-        ))}
-      </div>
-      <div className={style.paragraph}>
-        <RenderCheckboxWithCardDetails
-          popUpNumber={popUpNumber}
-          paymentsData={paymentsData}
-        />
-      </div>
-      <div className={style.buttons}>
-        <RenderButtons
-          popUpNumber={popUpNumber}
-          languageTo={languageTo}
-          languageFrom={languageFrom}
-          price={price}
-          duration={duration}
-        />
+        </div>
       </div>
     </div>
   )
