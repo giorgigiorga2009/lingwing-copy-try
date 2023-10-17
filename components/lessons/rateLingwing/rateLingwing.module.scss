@@ -1,26 +1,50 @@
 @import '@styles/imports';
 
-.wrapper{
-    position: relative;
-    .stars {
-        position: absolute;
-        top: -1.4rem;
-        right: -9rem;
-        transform: translateX(-50%);
-        width: 15rem;
-        height: auto;
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  animation: fadeInBlur 0.4s forwards;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.25);
+}
 
-        @include mobile{
-          width: 12rem;
-          height: auto;
-          top: -1rem;
-          right: -7rem;
-        }
-        
-        @include smallWidth{
-          display: none;
-        }
-      }
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.wrapper {
+  position: relative;
+  .stars {
+    position: absolute;
+    top: -1.4rem;
+    right: -9rem;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: auto;
+
+    @include mobile {
+      width: 12rem;
+      height: auto;
+      top: -1rem;
+      right: -7rem;
+    }
+
+    @include smallWidth {
+      display: none;
+    }
+  }
 }
 
 .container {
@@ -64,7 +88,7 @@
       width: 10rem;
       height: auto;
 
-      @include mobile{
+      @include mobile {
         width: 7rem;
       }
     }
@@ -88,5 +112,3 @@
     }
   }
 }
-
-

@@ -20,7 +20,6 @@ const FillProfileForTasks: React.FC<Props> = ({ onClose }) => {
   const [phoneNumber, setPhoneNumber] = useState<string>('')
   const [gender, setGender] = useState<number>(0)
 
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const token = localStorage.getItem('authToken')
@@ -35,7 +34,7 @@ const FillProfileForTasks: React.FC<Props> = ({ onClose }) => {
       await PutData(jsonData, token)
       if (isShowingSecondSide) {
         onClose()
-        //here needs to be added api call to give away bonus tasks 
+        //here needs to be added api call to give away bonus tasks
       } else {
         setIsShowingSecondSide(true)
       }
@@ -45,8 +44,8 @@ const FillProfileForTasks: React.FC<Props> = ({ onClose }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={style.wrapper}>
+    <div className={style.modal}>
+      <form onSubmit={handleSubmit}>
         <div className={style.container}>
           <div className={style.title}>
             <Image src={giftIcon} alt="" width={30} height={30} />
@@ -70,8 +69,8 @@ const FillProfileForTasks: React.FC<Props> = ({ onClose }) => {
             />
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   )
 }
 

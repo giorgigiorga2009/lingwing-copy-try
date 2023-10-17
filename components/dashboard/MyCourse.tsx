@@ -9,10 +9,10 @@ interface Course {
   name: string
   uniqueStudentsCount: number
   courses: SubCourse[]
-  index: number
+  index?: number
 }
 
-interface SubCourse {
+export interface SubCourse {
   certificate: boolean
   name: string
   _id: string

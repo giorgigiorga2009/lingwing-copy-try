@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import style from '@pages/payments.module.scss'
-import { getUserPayements } from '@utils/getUserPayemnts'
+import { getUserPayements, PaymentsProps } from '@utils/getUserPayemnts'
 import { Header } from '@components/header/Header'
 import { useTranslation } from '@utils/useTranslation'
 import { useRouter } from 'next/router'
-import { PaymentsProps } from '@utils/getUserPayemnts'
 
 const Payments = () => {
   const { t } = useTranslation()
@@ -16,15 +15,17 @@ const Payments = () => {
   }
   useEffect(() => {
     const authToken = localStorage.getItem('authToken')
-    if (typeof authToken === 'string') {
-      getUserPayements(authToken)
-        .then(data => {
+    const fetchUserPayments = async () => {
+      if (typeof authToken === 'string') {
+        try {
+          const data = await getUserPayements(authToken)
           setPaymentsData(data)
-        })
-        .catch(error => {
+        } catch (error) {
           console.error('Error fetching certificate:', error)
-        })
+        }
+      }
     }
+    fetchUserPayments()
   }, [])
 
   return (
@@ -33,9 +34,9 @@ const Payments = () => {
       <div className={style.containerWrapper}>
         <div className={style.payments}>{t('APP_HEADER_PAYMENTS')}</div>
         <div className={style.container}>
-          <span className={style.cross} onClick={goBack}>
+          <button className={style.cross} onClick={goBack}>
             ✕
-          </span>
+          </button>
           <div className={style.firstRow}>
             <div className={style.firstRowContent}>
               <div>{t('PAYMENTS_STATS_REMAINING')}</div>

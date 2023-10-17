@@ -1,5 +1,28 @@
 @import '@styles/imports';
 
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    animation: fadeInBlur .4s forwards;
+    backdrop-filter: blur(2px);
+  }
+
+  @keyframes fadeInBlur {
+    0% {
+      opacity: 0;
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
 .container {
   position: relative;
   display: flex;
@@ -168,7 +191,7 @@
     }
    .time{
     color: $white;
-    margin-right: .4rem;
+    margin: 0 .4rem;
    }
    .timeSpent{
     color: $orange-450;

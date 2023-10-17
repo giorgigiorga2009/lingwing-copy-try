@@ -29,11 +29,13 @@ import { useQuery } from 'react-query'
 
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
-import { GetProfileData, ProfileData } from '@utils/profileEdit'
+import { ProfileData } from '@utils/profileEdit'
 import { getPackages, PackageData } from '@utils/getPackages'
 import StatsPagePerOnePercent from '@components/lessons/statsPerOnePercent/statsPagePerOnePercent'
 import { getStatsPerPercent, StatsDataProps } from '@utils/lessons/getStatsPerPercent'
 import RateLingwingModal from '@components/lessons/rateLingwing/rateLingwing'
+import { getUserProfileData } from '@utils/auth'
+import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>()
@@ -60,6 +62,8 @@ const Lessons: NextPage = () => {
   const [profileData, setPRofileData] = useState<ProfileData | undefined>(
     undefined,
   )
+  const [userLastName, setUserLastName] = useState<string>();
+  
   const [packagesData, setPackagesData] = useState<PackageData>()
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
@@ -270,6 +274,7 @@ const Lessons: NextPage = () => {
     if (currentLanguage && courseName) {
       try {
         const data = await getReadCourse(currentLanguage, courseName)
+        setLanguage(data.title)
         return data
       } catch (error) {
         throw new Error(String(error))
@@ -286,7 +291,7 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const responseData = await GetProfileData(token)
+        const responseData = await getUserProfileData("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2OTY4NDU4NDA2NTYsImV4cCI6MTc3NjQyMDI0MDY1NiwidXNlcl9pZCI6IjY0Yzc5NDhkZGNlMTkzNmNjNzgxMDM3MSJ9.6qGfba1OT2vViv321FQDEpEdPhwc7kvizqexcM_sMHs")
         setPRofileData(responseData)
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -294,14 +299,11 @@ const Lessons: NextPage = () => {
     }
 
     fetchProfileData()
-  }, [])
-
-  useEffect(() => {
-    if (completedTasks?.length === 12 && !profileData?.profile.firstName) {
+    if (completedTasks?.length === 8 && !profileData?.profile?.lastName) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
-  ///
+
 
   /// this is for pop ups > N2
   useEffect(() => {
@@ -320,7 +322,7 @@ const Lessons: NextPage = () => {
     const fetchData = async () => {
       try {
         const accomplishStats = await getStatsPerPercent({
-          userCourseId: '652506ec13871d0f3fe1a8bc',
+          userCourseId: courseId,
         })
         setStatsData(accomplishStats)
         if (Math.floor(accomplishStats.percent) > previousPercentRef.current) {
@@ -331,55 +333,35 @@ const Lessons: NextPage = () => {
         console.error('An error occurred:', err)
       }
     }
-    fetchData()
+    if (courseId) {
+      fetchData();
+  }
   }, [completedTasks])
   ///
 
   return (
     <div className={style.container}>
       <Header size="s" />
-      {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
-        <div className={style.regReminder}>
-          <LessonsFlowPopUps
-            popUpNumber={1}
-            completedTasks={completedTasks.length}
-            totalTasksAmount={courseData.info.tasksQuantity}
-            languageTo={languageTo}
-            languageFrom={languageFrom}
-          />
-        </div>
-      )}
-      {isUserLoggedIn && showProfileFiller &&  (
-        <div className={style.regReminder}>
-          <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
-        </div>
-      )}
-      {isUserLoggedIn && !dailyTaskLeft && !currentCourseObject?.info.bonus && (
-        <div className={style.regReminder}>
-          <LessonsFlowPopUps
-            popUpNumber={2}
-            dailyLimitDate={dailyReachedLimitDate}
-            duration={packagesData?.packages[1].duration}
-            price={packagesData?.packages[1].currency[0].recurringPrice}
-            language={language}
-          />
-        </div>
-      )}
-
-      {isUserLoggedIn && isStatsVisible && (
-        <div className={style.perOnePercent}>
-          <StatsPagePerOnePercent
-            onClose={() => setIsStatsVisible(false)}
-            statsData={statsData}
-          />
-        </div>
-      )}
-
-      {completedTasks?.length === 20 && isRateLingwingVisible && (
-        <div className={style.rateLingwing}>
-          <RateLingwingModal onClose={() => setIsRateLingwingVisible(false)} />
-        </div>
-      )}
+      <CombinedModalComponent
+        isUserLoggedIn={isUserLoggedIn}
+        completedTasks={completedTasks}
+        unAuthuserDailyLimit={unAuthuserDailyLimit}
+        courseData={courseData}
+        languageTo={languageTo}
+        languageFrom={languageFrom}
+        showProfileFiller={showProfileFiller}
+        setShowProfileFiller={setShowProfileFiller}
+        dailyTaskLeft={dailyTaskLeft}
+        currentCourseObject={currentCourseObject}
+        dailyReachedLimitDate={dailyReachedLimitDate}
+        packagesData={packagesData}
+        language={language}
+        isStatsVisible={isStatsVisible}
+        setIsStatsVisible={setIsStatsVisible}
+        statsData={statsData}
+        isRateLingwingVisible={isRateLingwingVisible}
+        setIsRateLingwingVisible={setIsRateLingwingVisible}
+      />
 
       <BackgroundParrot />
       {!isSoundChecked && (

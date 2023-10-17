@@ -42,6 +42,18 @@
       width: 100%;
     }
   }
+  .thirdButton{
+    @extend .certificateButton;
+    background-color: $purple-700;
+    border: 2px solid $purple-700;
+    &:hover {
+      border-color: $purple-600;
+      background-color: $purple-600;
+      box-shadow: 0 0.125rem 0.625rem rgba($black, 0.08);
+    }
+    
+  }
+
   .imgContainer{
       position: absolute;
       right: -1rem;

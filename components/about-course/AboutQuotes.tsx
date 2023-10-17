@@ -3,6 +3,7 @@ import styles from './AboutQuotes.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import { AboutQuotesProps } from '@utils/getReadCourse'
 import parrot from '@public/assets/images/challengeurself.svg'
+import Image from 'next/image'
 
 const AboutQuotes: React.FC<AboutQuotesProps> = ({ promo }) => {
   const { t } = useTranslation()
@@ -16,10 +17,12 @@ const AboutQuotes: React.FC<AboutQuotesProps> = ({ promo }) => {
           </div>
         ))}
       </div>
-      <img
+      <Image
         src={parrot.src}
         alt="Parrot holding torch"
         className={styles.engParrot}
+        width={150}
+        height={200}
       />
     </div>
   )

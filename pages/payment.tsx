@@ -21,8 +21,8 @@ import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
-import LessonsFlowPopUps from '@components/lessons/lessonsFlowPopUps/lessonsFlowPopUps'
-import RateLingwing from '@components/lessons/rateLingwing/rateLingwing'
+// import LessonsFlowPopUps from '@components/lessons/lessonsFlowPopUps/lessonsFlowPopUps'
+// import RateLingwing from '@components/lessons/rateLingwing/rateLingwing'
 
 
 const Payment: React.FC<PaymentProps> = () => {

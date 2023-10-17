@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
 import { useTranslation } from '@utils/useTranslation'
 import style from './fillProfileForTasks.module.scss'
 
