@@ -13,7 +13,6 @@ import { getUserProfileData } from '@utils/auth'
 import { TaskData } from '@utils/lessons/getTask'
 
 interface Props {
-  // onClose: () => void
   completedTasks?: TaskData[]
   isUserLoggedIn: boolean
 }
@@ -72,9 +71,11 @@ const FillProfileForTasks: React.FC<Props> = ({
     }
   }, [completedTasks])
 
+  if (!isUserLoggedIn || !showProfileFiller) {
+    return null;
+  }
   return (
-    isUserLoggedIn &&
-    showProfileFiller && (
+    
       <div className={style.modal}>
         <form onSubmit={handleSubmit}>
           <div className={style.container}>
@@ -103,7 +104,6 @@ const FillProfileForTasks: React.FC<Props> = ({
         </form>
       </div>
     )
-  )
 }
 
 export default FillProfileForTasks

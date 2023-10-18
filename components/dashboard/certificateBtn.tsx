@@ -7,7 +7,7 @@ import purpleCertificate from '@public/themes/images/v1/svg/purple-certicicate.s
 import classNames from 'classnames'
 
 type CertificateBtnProps = {
-  userCourseId: any
+  userCourseId?: string
   indexOfSubCourse: number
 }
 
