@@ -74,6 +74,6 @@ export const getUserProfileData = (token: string) => {
       Authorization: token,
     },
   })
-    .then(response => response.data.data)
+    .then(response => response.data)
     .catch(error => console.log(error))
 }
