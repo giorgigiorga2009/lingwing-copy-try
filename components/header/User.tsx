@@ -41,7 +41,7 @@ const User: FC = () => {
       onClickOutside={() => setOpenDropdown(false)}
     >
       {userData && (
-        <button
+        <div
           className={style.button}
           onClick={() => setOpenDropdown(!openDropdown)}
         >
@@ -53,7 +53,7 @@ const User: FC = () => {
           </p>
           <div className={style.arrow} />
           {openDropdown && <UserDropdown />}
-        </button>
+        </div>
       )}
       {/* {session && (
         <div

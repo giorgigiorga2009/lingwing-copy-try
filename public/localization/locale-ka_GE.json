@@ -468,7 +468,14 @@
   "RATE_LINGWING_MODAL_RATE": "შეაფასე",
   "RATE_LINGWING_MODAL_TEXT":  "დაგვითმე 60 წამი და გაგვიზიარე შენი შთაბეჭდილებები, შენი აზრი ჩვენთვის მნიშვნელოვანია! ",
   "RATE_LINGWING_MODAL_THANK_YOU": "წინასწარ უღრმესი მადლობა",
-  "RATE_LINGWING_MODAL_RATE_US": "შეგვაფასე"
+  "RATE_LINGWING_MODAL_RATE_US": "შეგვაფასე",
+
+
+
+
+  "FAQ_TITLE": "ხშირად დასმული კითხვები",
+  "FAQ_QUICK_SEARCH": "სწრაფი ძიება კატეგორიაში"
+
 
 
 }
