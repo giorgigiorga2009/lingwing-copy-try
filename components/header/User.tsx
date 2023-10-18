@@ -4,7 +4,7 @@ import UserAvatar from '../shared/UserAvatar'
 import { UserDropdown } from './UserDropdown'
 import { FC, useEffect, useState } from 'react'
 import { getUserProfileData } from '../../utils/auth'
-//import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 interface UserProfile {
   profile: {

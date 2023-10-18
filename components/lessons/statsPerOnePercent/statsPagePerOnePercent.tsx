@@ -1,31 +1,65 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './statsPagePerOnePercent.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import CircularProgress from './circularProgress'
 import wallClock from '@public/themes/images/v2/clock-with-dots.png'
 import parrot from '@public/themes/images/v2/pr-parrot.png'
 import Image from 'next/image'
-import { StatsPagePerOnePercentProps } from '@utils/lessons/getStatsPerPercent'
-
-
+import {
+  StatsDataProps,
+  StatsPagePerOnePercentProps,
+  getStatsPerPercent,
+} from '@utils/lessons/getStatsPerPercent'
 
 const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
-  onClose,
-  statsData
+  courseId,
+  completedTasks,
+  isUserLoggedIn,
 }) => {
   const { t } = useTranslation()
+  const [statsData, setStatsData] = useState<StatsDataProps>()
+  const [isStatsVisible, setIsStatsVisible] = useState<boolean>(false)
+  const previousPercentRef = useRef(0)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const accomplishStats = await getStatsPerPercent({
+          userCourseId: courseId,
+        })
+        setStatsData(accomplishStats)
+        if (previousPercentRef.current === 0) {
+          previousPercentRef.current = Math.floor(accomplishStats.percent)
+        }
+        if (Math.floor(accomplishStats.percent) > previousPercentRef.current) {
+          setIsStatsVisible(true)
+          previousPercentRef.current = Math.floor(accomplishStats.percent)
+        }
+      } catch (err) {
+        console.error('An error occurred:', err)
+      }
+    }
+    if (courseId) {
+      fetchData()
+    }
+  }, [completedTasks])
 
   function secondsToHMS(seconds: number) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const sec = seconds % 60;
+    const hours = Math.floor(seconds / 3600)
+    const minutes = Math.floor((seconds % 3600) / 60)
+    const sec = seconds % 60
 
-    const formatted = [hours, minutes, sec].map(v => v < 10 ? '0' + v : v).join(':');
-    
-    return formatted;
-}
+    const formatted = [hours, minutes, sec]
+      .map(v => (v < 10 ? '0' + v : v))
+      .join(':')
 
- 
+    return formatted
+  }
+
+  if (!isUserLoggedIn || !isStatsVisible) {
+    return null
+  }
+
   return (
     <div className={style.modal}>
       <div className={style.container}>
@@ -49,24 +83,43 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
               <div className={style.chart}>
                 <div
                   className={style.filled}
-                  style={{ width: `${(statsData?.grammar.current || 0) / (statsData?.grammar.max || 1) * 100 }%` }}
+                  style={{
+                    width: `${
+                      ((statsData?.grammar.current || 0) /
+                        (statsData?.grammar.max || 1)) *
+                      100
+                    }%`,
+                  }}
                 ></div>
               </div>
             </div>
             <div className={style.tasks}>
               <div>
-                {t('STATS_PER_PERCENT_COMPLETED')} <span> {statsData?.tasks.current} / {statsData?.tasks.max}</span>
+                {t('STATS_PER_PERCENT_COMPLETED')}{' '}
+                <span>
+                  {' '}
+                  {statsData?.tasks.current} / {statsData?.tasks.max}
+                </span>
               </div>
               <div className={style.chart}>
                 <div
                   className={style.filled}
-                  style={{ width: `${(statsData?.tasks.current || 0) / (statsData?.tasks.max || 1) * 100}%` }}
-                  ></div>
+                  style={{
+                    width: `${
+                      ((statsData?.tasks.current || 0) /
+                        (statsData?.tasks.max || 1)) *
+                      100
+                    }%`,
+                  }}
+                ></div>
               </div>
             </div>
           </div>
           <p>{t('STATS_PER_PERCENT_KEEP_LEARNING')}</p>
-          <button onClick={onClose} className={style.continueButton}>
+          <button
+            onClick={() => setIsStatsVisible(false)}
+            className={style.continueButton}
+          >
             <span>{t('STATS_PER_PERCENT_CONTINUE')}</span>
             <span className={style.arrow}></span>
           </button>
@@ -84,7 +137,10 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
               className={style.image}
             />
             <span className={style.time}>{t('STATS_PER_PERCENT_TIME')}</span>
-            <span className={style.timeSpent}>{secondsToHMS(statsData?.timeSpent || 0)}</span>        </div>
+            <span className={style.timeSpent}>
+              {secondsToHMS(statsData?.timeSpent || 0)}
+            </span>{' '}
+          </div>
           <Image src={parrot} alt="" className={style.parrot} />
         </div>
       </div>

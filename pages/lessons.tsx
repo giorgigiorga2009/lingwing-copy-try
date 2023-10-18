@@ -21,20 +21,7 @@ import { SoundCheck } from '@components/lessons/SoundCheck'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
-
-import LessonsFlowPopUps from '@components/lessons/lessonsFlowPopUps/lessonsFlowPopUps'
-import { getReadCourse } from '@utils/getReadCourse'
-import { LOCALES_TO_LANGUAGES } from '@utils/languages'
-import { useQuery } from 'react-query'
-
 import BackgroundParrot from '@components/shared/BackgroundParrot'
-import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
-import { ProfileData } from '@utils/profileEdit'
-import { getPackages, PackageData } from '@utils/getPackages'
-import StatsPagePerOnePercent from '@components/lessons/statsPerOnePercent/statsPagePerOnePercent'
-import { getStatsPerPercent, StatsDataProps } from '@utils/lessons/getStatsPerPercent'
-import RateLingwingModal from '@components/lessons/rateLingwing/rateLingwing'
-import { getUserProfileData } from '@utils/auth'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
 
 const Lessons: NextPage = () => {
@@ -58,27 +45,15 @@ const Lessons: NextPage = () => {
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
-  const [showProfileFiller, setShowProfileFiller] = useState<boolean>(false)
-  const [profileData, setPRofileData] = useState<ProfileData | undefined>(
-    undefined,
-  )
-  const [userLastName, setUserLastName] = useState<string>();
-  
-  const [packagesData, setPackagesData] = useState<PackageData>()
+
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
   const [dailyReachedLimitDate, setDailyReachedLimitDate] = useState<
     Date | string | undefined
   >()
-  const [isStatsVisible, setIsStatsVisible] = useState<boolean>(false)
-  const [statsData, setStatsData] = useState<StatsDataProps>()
-  const previousPercentRef = useRef(1)
-  const [isRateLingwingVisible, setIsRateLingwingVisible] =
-    useState<boolean>(true)
 
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
-  const [language, setLanguage] = useState<string>('English')
 
   // Use localStorage to set the token state
   useEffect(() => {
@@ -266,101 +241,20 @@ const Lessons: NextPage = () => {
   // for tasks quantity only
   const isUserLoggedIn = !!token
 
-  const currentLanguage =
-    router.locale &&
-    LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
-
-  const fetchCourseData = async () => {
-    if (currentLanguage && courseName) {
-      try {
-        const data = await getReadCourse(currentLanguage, courseName)
-        setLanguage(data.title)
-        return data
-      } catch (error) {
-        throw new Error(String(error))
-      }
-    }
-  }
-
-  const { data: courseData } = useQuery(
-    ['courseData', currentLanguage, courseName],
-    fetchCourseData,
-  )
-  ///
-  /// for FillPRoflieForTasks
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        const responseData = await getUserProfileData("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2OTY4NDU4NDA2NTYsImV4cCI6MTc3NjQyMDI0MDY1NiwidXNlcl9pZCI6IjY0Yzc5NDhkZGNlMTkzNmNjNzgxMDM3MSJ9.6qGfba1OT2vViv321FQDEpEdPhwc7kvizqexcM_sMHs")
-        setPRofileData(responseData)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-
-    fetchProfileData()
-    if (completedTasks?.length === 8 && !profileData?.profile?.lastName) {
-      setShowProfileFiller(true)
-    }
-  }, [completedTasks])
-
-
-  /// this is for pop ups > N2
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getPackages('')
-        setPackagesData(response)
-      } catch (err) {}
-    }
-
-    fetchData()
-  }, [])
-
-  /// statsComponent
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const accomplishStats = await getStatsPerPercent({
-          userCourseId: courseId,
-        })
-        setStatsData(accomplishStats)
-        if (Math.floor(accomplishStats.percent) > previousPercentRef.current) {
-          setIsStatsVisible(true)
-          previousPercentRef.current = Math.floor(accomplishStats.percent)
-        }
-      } catch (err) {
-        console.error('An error occurred:', err)
-      }
-    }
-    if (courseId) {
-      fetchData();
-  }
-  }, [completedTasks])
-  ///
-
   return (
     <div className={style.container}>
       <Header size="s" />
       <CombinedModalComponent
+        courseName={courseName}
+        courseId={courseId}
         isUserLoggedIn={isUserLoggedIn}
         completedTasks={completedTasks}
         unAuthuserDailyLimit={unAuthuserDailyLimit}
-        courseData={courseData}
         languageTo={languageTo}
         languageFrom={languageFrom}
-        showProfileFiller={showProfileFiller}
-        setShowProfileFiller={setShowProfileFiller}
         dailyTaskLeft={dailyTaskLeft}
         currentCourseObject={currentCourseObject}
         dailyReachedLimitDate={dailyReachedLimitDate}
-        packagesData={packagesData}
-        language={language}
-        isStatsVisible={isStatsVisible}
-        setIsStatsVisible={setIsStatsVisible}
-        statsData={statsData}
-        isRateLingwingVisible={isRateLingwingVisible}
-        setIsRateLingwingVisible={setIsRateLingwingVisible}
       />
 
       <BackgroundParrot />
