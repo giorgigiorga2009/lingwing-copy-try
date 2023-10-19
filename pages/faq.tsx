@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './faq.module.scss'
 import { Header } from '@components/header/Header'
 import { useTranslation } from '@utils/useTranslation'
@@ -8,15 +8,15 @@ import { useRouter } from 'next/router'
 import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { Locale } from '@utils/localization'
 import classNames from 'classnames'
+import { Footer } from '@components/wizard/Footer'
+import { FollowButtons } from '@components/home/FollowButtons'
 
 const Faq: NextPage = () => {
   const { t } = useTranslation()
   const [faqData, setFaqData] = useState<ApiResponse>()
-  const [typeOfQuestion, setTypeOfQuestion] = useState<number>(0)
-  const [clicked, setClicked] = useState(-1)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [filteredQuestions, setFilteredQuestions] = useState(
-    faqData?.data[typeOfQuestion].objects,
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0)
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState<number | null>(
+    null,
   )
 
   const router = useRouter()
@@ -35,73 +35,57 @@ const Faq: NextPage = () => {
     fetchFaqData()
   }, [locale])
 
-  useEffect(() => {
-    if (faqData && searchTerm) {
-      const lowercasedFilter = searchTerm.toLowerCase()
-      const filtered = faqData.data[typeOfQuestion].objects.filter(faq => {
-        return (
-          faq.question[locales].toLowerCase().includes(lowercasedFilter) ||
-          faq.answer[locales].toLowerCase().includes(lowercasedFilter)
-        )
-      })
-      setFilteredQuestions(filtered)
-    } else {
-      setFilteredQuestions(faqData?.data[typeOfQuestion].objects)
-    }
-  }, [searchTerm, faqData, typeOfQuestion, locales])
-
   return (
     <div className={style.wrapper}>
       <Header size="s" loginClassName={style.loginModal} />
       <div className={style.titleContainer}>{t('FAQ_TITLE')}</div>
-      <div className={style.mainPart}>
-        <div className={style.buttonContainer}>
-          {faqData?.data.map((category, index) => (
+      <main className={style.mainPart}>
+        <aside className={style.buttonContainer}>
+          {faqData?.data.map(({ _id }, index) => (
             <button
-              key={index}
-              onClick={() => setTypeOfQuestion(index)}
+              key={_id?.id ?? index}
+              onClick={() => setActiveCategoryIndex(index)}
               className={classNames(style.buttons, {
-                [style.activeButton]: typeOfQuestion === index,
+                [style.activeButton]: activeCategoryIndex === index,
               })}
             >
-              {category._id?.name}
+              {_id?.name}
             </button>
           ))}
-        </div>
-        <div className={style.QAContainer}>
-          <div className={style.titleSearchBar}>
-            <h2>{faqData?.data[typeOfQuestion]._id?.name}</h2>
-              <input
-                type="text"
-                placeholder={t("FAQ_QUICK_SEARCH")}
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-                className={style.searchBar}
-              />
-          </div>
-          {filteredQuestions?.map((faq, index) => (
-            <div key={index}>
-              <button
-                className={classNames(
-                  style.faq__question,
-                  clicked === index && style.faq__question__open,
-                )}
-                onClick={() => setClicked(clicked === index ? -1 : index)}
-              >
-                {faq.question[locales]}
-              </button>
-              <div
-                className={classNames(
-                  style.faq__answer,
-                  index === clicked && style.faq__answer__open,
-                )}
-              >
-                {faq.answer[locales]}
+        </aside>
+        <section className={style.QAContainer}>
+          <h2>{faqData?.data[activeCategoryIndex]._id?.name}</h2>
+          {faqData?.data[activeCategoryIndex].objects.map(
+            ({ question, answer }, index) => (
+              <div key={index}>
+                <button
+                  className={classNames(
+                    style.faq__question,
+                    activeQuestionIndex === index && style.faq__question__open,
+                  )}
+                  onClick={() =>
+                    setActiveQuestionIndex(
+                      activeQuestionIndex === index ? null : index,
+                    )
+                  }
+                >
+                  {question[locales]}
+                </button>
+                <div
+                  className={classNames(
+                    style.faq__answer,
+                    index === activeQuestionIndex && style.faq__answer__open,
+                  )}
+                >
+                  {answer[locales]}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
+            ),
+          )}
+        </section>
+      </main>
+      <FollowButtons color="grey" />
+      <Footer />
     </div>
   )
 }

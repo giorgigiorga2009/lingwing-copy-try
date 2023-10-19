@@ -16,7 +16,7 @@ export const FOOTER_LINKS = {
   footerBlog: 'https://blog.lingwing.com',
   footerApps: '',
   footerPrivacy: '/privacy',
-  footerFAQ: '/faq/general/',
+  footerFAQ: '/faq',
   footerContact: '/contact',
 }
 
@@ -28,7 +28,7 @@ export const SIDE_MENU_LINKS = {
   French: ['/wizard', 'languageTo', 'fre'],
   German: ['/wizard', 'languageTo', 'deu'],
   Italian: ['/wizard', 'languageTo', 'ita'],
-  footerFAQ: ['/faq/general/', '', ''],
+  footerFAQ: ['/faq', '', ''],
   menuContactUs: ['/contact-us', '', ''],
   menuStudents: ['/student', '', ''],
   menuPrices: ['/packages', '', ''],

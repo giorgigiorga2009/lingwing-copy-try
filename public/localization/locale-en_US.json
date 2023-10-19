@@ -365,7 +365,21 @@
 
 
   "FAQ_TITLE": "Frequently Asked Questions",
-  "FAQ_QUICK_SEARCH": "Quick search in category"
+  "FAQ_QUICK_SEARCH": "Quick search in category",
+  "FAQ_ANSWER_HELPFUL": "Did you find this asnwer helpful?",
+  "FAQ_YES": "yes",
+  "FAQ_NO": "no",
+  "FAQ_NO_ANSWER_FOUND": "Did not find the answer which that helps you?",
+  "FAQ_SOLUTION": "Please fill in the form below and we will try to reach you as soon as posible",
+  "FAQ_FORM_EMAIL": "Email address",
+  "FAQ_FORM_SUBMIT": "Submit",
+  "FAQ_FILTER_EMPTY": "No Records found with your search criterias"
+
+
+
+
+
+
 
 
 

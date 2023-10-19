@@ -335,7 +335,16 @@
 
 
   "FAQ_TITLE": "Frequently Asked Questions",
-  "FAQ_QUICK_SEARCH": "Kategoride hızlı arama"
+  "FAQ_QUICK_SEARCH": "Kategoride hızlı arama",
+  "FAQ_ANSWER_HELPFUL": "Bu cevabı faydalı buldunuz mu?",
+  "FAQ_YES": "Evet",
+  "FAQ_NO": "hayır",
+  "FAQ_NO_ANSWER_FOUND": "Size yardımcı olan cevabı bulamadınız mı?",
+  "FAQ_SOLUTION": "Lütfen aşağıdaki formu doldurun ve mümkün olan en kısa sürede size ulaşmaya çalışacağız.",
+  "FAQ_FORM_EMAIL": "E-posta adresi",
+  "FAQ_FORM_SUBMIT": "Gönder",
+  "FAQ_FILTER_EMPTY": "Arama kriterlerinizde kalıcı kayıt bulunamadı."
+
 
 
 }

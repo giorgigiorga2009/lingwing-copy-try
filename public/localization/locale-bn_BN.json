@@ -284,7 +284,15 @@
 
 
   "FAQ_TITLE": "Frequently Asked Questions",
-  "FAQ_QUICK_SEARCH": "ক্যাটাগরি থেকে দ্রুত খুঁজুন"
+  "FAQ_QUICK_SEARCH": "ক্যাটাগরি থেকে দ্রুত খুঁজুন",
+  "FAQ_ANSWER_HELPFUL": "এই উত্তরটি সহায়ক লেগেছে?",
+  "FAQ_YES": "হ্যা",
+  "FAQ_NO": "না",
+  "FAQ_NO_ANSWER_FOUND": "উত্তরটি খুঁজে পাননি যা আপনাকে সহায়তা করবে?",
+  "FAQ_SOLUTION": "নিচের ফর্মটি পূরণ করুন এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার কাছে পৌঁছাবো",
+  "FAQ_FORM_EMAIL": "ইমেইল এড্রেস",
+  "FAQ_FORM_SUBMIT": "সাবমিট",
+  "FAQ_FILTER_EMPTY": "আপনার খোঁজের কোন রেকর্ড পাওয়া যায়নি"
 
 
 }

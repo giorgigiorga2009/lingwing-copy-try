@@ -8,36 +8,35 @@ export type FaqData = {
 }
 
 type QuestionAndAnswer = {
-  eng: string;
-  rus: string;
-  geo: string;
-  tur: string;
-  ben: string;
-  esp: string;
-};
+  eng: string
+  rus: string
+  geo: string
+  tur: string
+  ben: string
+  esp: string
+}
 
 type FAQObject = {
-  _id: string;
-  code: number;
-  question: QuestionAndAnswer;
-  answer: QuestionAndAnswer;
-};
+  _id: string
+  code: number
+  question: QuestionAndAnswer
+  answer: QuestionAndAnswer
+}
 
 type FAQCategory = {
   _id: {
-    id: string;
-    code: number;
-    slug: string;
-    name: string;
-  };
-  objects: FAQObject[];
-};
+    id: string
+    code: number
+    slug: string
+    name: string
+  }
+  objects: FAQObject[]
+}
 
 export type ApiResponse = {
-  status: number;
-  data: FAQCategory[];
-};
-
+  status: number
+  data: FAQCategory[]
+}
 
 export const getFAQ = (locale: LanguageFrom): Promise<FaqData[]> => {
   return axios
@@ -47,7 +46,6 @@ export const getFAQ = (locale: LanguageFrom): Promise<FaqData[]> => {
     .catch(error => console.log(error))
 }
 
-
 export const getFAQs = (locale: LanguageFrom): Promise<ApiResponse> => {
   return axios
     .get(`${process.env.DEFAULT_URL}/public/faq?lang=${locale}`)
@@ -55,3 +53,15 @@ export const getFAQs = (locale: LanguageFrom): Promise<ApiResponse> => {
 
     .catch(error => console.log(error))
 }
+
+// export const putQuestion = async (object: any) => {
+//   try {
+//     const response = await axios.put(
+//       `${process.env.DEFAULT_URL}/public/faq/custom/add`,
+//       object,
+//     )
+//     return response
+//   } catch (error) {
+//     throw error
+//   }
+// }

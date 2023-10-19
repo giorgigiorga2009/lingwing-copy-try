@@ -20,32 +20,57 @@
   background-repeat: no-repeat;
   background-position: top left;
   background-color: $purple-600;
-  background-size: cover;
+  background-size: 100rem;
+
+  @include mobile{
+    font-size: 3rem;
+  }
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+
 }
 
 .mainPart {
   display: flex;
+  justify-content: space-around;
   column-gap: 2rem;
   background-image: url('/assets/images/background-wave-course.svg'),
     url('/assets/images/background-letters.svg');
   background-repeat: no-repeat no-repeat;
   background-position: top center;
   background-attachment: relative;
+  background-size: 90rem;
   padding: 144px 24px 100px 24px;
   background-color: $white-50;
+
+  &::after{
+    content: '';
+    flex: 1;
+  }
+
+  @include mobile{
+    flex-direction: column;
+  }
+
 }
 
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  flex: 25%;
+  flex: 0 0 25%;
+  border-radius: 1rem;
   box-shadow: 0 0 8px $grey-100;
   height: fit-content;
-  border-radius: 1rem;
+
+  @include mobile{
+    flex: 0 0 100%;
+  }
   .buttons {
+    max-width: 30rem;
     background-color: $white;
     border: 1px solid $white;
-    padding: 22px 27px;
+    padding: 1.2rem;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
@@ -63,38 +88,28 @@
       border-bottom-right-radius: 15px;
       border-bottom-left-radius: 15px;
     }
+    &:lang(ka) {
+      font-family: $kaFontTitleBold;
+    }
+
   }
   .activeButton {
     background-color: $white-100;
     color: $purple-600;
     background-image: url('/themes/images/v2/arrrow-right-purple.png');
   }
+  
 }
 .QAContainer {
-  flex: 75%;
+  flex: 0 0 65%;
   background-color: $white-50;
-  .titleSearchBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     h2 {
       color: $black;
       font-size: 35px;
     }
-    .searchBar {
-      width: 50%;
-      height: 3rem;
-      border: 2px solid #d6d6d6;
-      border-radius: 50px;
-      padding: 2px 20px 2px 15px;
-      font-size: 1rem;
-      font-family: SegoeUI;
-      background-image: url('/themes/images/v2/search-icon-black.png');
-      background-repeat: no-repeat;
-      background-position: center right 1.5rem;
-      cursor: pointer;
+    &:lang(ka) {
+      font-family: $kaFontTitleBold;
     }
-  }
 }
 
 .faq {
@@ -111,6 +126,10 @@
     width: 100%;
     background: none;
     text-align: left;
+
+    &:lang(ka) {
+      font-family: $kaFontTitleBold;
+    }
 
     @include mobile {
       font-size: 0.9rem;
@@ -141,6 +160,9 @@
   }
 
   &__answer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
     height: 0;
     overflow: hidden;
     opacity: 0;
@@ -150,6 +172,10 @@
     line-height: 1.6rem;
     padding: 0 3rem 0 2rem;
     transition: 0.4s ease;
+
+    &:lang(ka) {
+      font-family: $kaFontTitleBold;
+    }
 
     @include mobile {
       font-size: 0.9rem;

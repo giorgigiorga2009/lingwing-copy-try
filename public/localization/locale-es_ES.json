@@ -326,7 +326,16 @@
 
 
   "FAQ_TITLE": "Preguntas más frecuentes",
-  "FAQ_QUICK_SEARCH": "Busqueda rápida"
+  "FAQ_QUICK_SEARCH": "Busqueda rápida",
+  "FAQ_ANSWER_HELPFUL":  "¿Has encontrado la respuesta?",
+  "FAQ_YES": "Sí",
+  "FAQ_NO": "No",
+  "FAQ_NO_ANSWER_FOUND": "¿No has encontrado la respuesta que te ayude?",
+  "FAQ_SOLUTION": "Envianos un mensaje, nosotros te ayudarémos",
+  "FAQ_FORM_EMAIL": "Correo electrónico",
+  "FAQ_FORM_SUBMIT": "Enviar",
+  "FAQ_FILTER_EMPTY": "Hemos encontrado 0 registros"
+
 
 
 
