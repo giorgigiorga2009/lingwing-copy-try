@@ -21,6 +21,7 @@
   background-position: top left;
   background-color: $purple-600;
   background-size: 100rem;
+  margin: 0;
 
   @include mobile{
     font-size: 3rem;
