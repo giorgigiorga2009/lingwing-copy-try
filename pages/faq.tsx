@@ -35,6 +35,7 @@ const Faq: NextPage = () => {
     }
     fetchFaqData()
   }, [locale])
+  
 
   return (
     <div className={style.wrapper}>
