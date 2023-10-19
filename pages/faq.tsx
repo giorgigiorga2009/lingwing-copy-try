@@ -11,6 +11,7 @@ import classNames from 'classnames'
 import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
 
+
 const Faq: NextPage = () => {
   const { t } = useTranslation()
   const [faqData, setFaqData] = useState<ApiResponse>()
@@ -34,11 +35,12 @@ const Faq: NextPage = () => {
     }
     fetchFaqData()
   }, [locale])
+  
 
   return (
     <div className={style.wrapper}>
       <Header size="s" loginClassName={style.loginModal} />
-      <div className={style.titleContainer}>{t('FAQ_TITLE')}</div>
+      <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
       <main className={style.mainPart}>
         <aside className={style.buttonContainer}>
           {faqData?.data.map(({ _id }, index) => (
