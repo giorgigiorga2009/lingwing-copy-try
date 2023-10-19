@@ -360,10 +360,31 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "Fill in data and get free exercises!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continue", 
   "FILL_PROFILE_FOR_TASKS_SKIP": "Skip",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Obtain free exercises"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Obtain free exercises",
 
-
-
+  "LEARNING_MODE": "Learning mode",
+  "LEARNING_MODE_CHOOSE_LEARNING_MODE": "Choose a learning mode",
+  "LEARNING_MODE_INTENSIVE_LEARNING": "Intensive",
+  "LEARNING_MODE_WHO_DONT_KNOW": "For those who don't know this level at all.",
+  "LEARNING_MODE_LEARN_MORE": "Learn more...",
+  "LEARNING_MODE_LEARN_LESS": "Show less...",
+  "LEARNING_MODE_STRENGTHEN": "For those who want to strengthen their knowledge for existing level.",
+  "LEARNING_MODE_FAST": "Fast",
+  "LEARNING_MODE_REACTIVE": "Reactive",
+  "LEARNING_MODE_TIME_1": "15 Hours",
+  "LEARNING_MODE_TIME_2": "25 Hours",
+  "LEARNING_MODE_TIME_3": "35 Hours",
+  "LEARNING_MODE_WHO_WANTS_REPEAT": "For those who want to repeat this level.",
+  "LEARNING_MODE_CHANGE": "Change learning mode",
+  "LEARNING_MODE_CAN_CHANGE_LATER": "You can change mode later",
+  "LEARNING_MODE_YOUR_CHOICE": "Your choice",
+  "LEARNING_MODE_OUR_ADVICE": "Our advice",
+  "LEARNING_MODE_ENDED": "Ended",
+  "LEARNING_MODE_BTN_SELECT": "Select",
+  "LEARNING_MODE_BTN_CONTINUE": "Continue",
+  "LEARNING_MODE_DESCRIPTION_1": "The learning mode is tailored to you if you have forgotten the content of this course and you only need to recall it.<br>The program does not repeat the learned material. In addition, you can leave any assignment and go to the next task.<br><br><em>*Correctly performed tasks are no longer repeated.</em>",
+  "LEARNING_MODE_DESCRIPTION_2": "This learning mode is tailored to you if your knowledge of the course's material isn't good, and you need to strengthen it.<br>While teaching a new material program will simultaneously replicate the old one only once. The program will repeat tasks performed incorrectly until they aren't properly executed.<br><br><em>*Correctly performed tasks are repeated once.</em>",
+  "LEARNING_MODE_DESCRIPTION_3": "This mode of study is tailored to you if you don't know the material of the course at all.<br>The program gives you new material and simultaneously, repeats the old one, until It isn't convinced, that you thoroughly learned the course, and you are ready to start the next course.<br><br><em>*Correctly performed tasks are repeated for 2 times.</em>"
 
 
 

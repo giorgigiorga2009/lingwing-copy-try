@@ -4,7 +4,6 @@ import { Dialog } from './Dialog'
 import { Grammar } from './Grammar'
 import { TaskData } from '@utils/lessons/getTask'
 import style from './ChatCurrentTask.module.scss'
-import { DictationBubble } from './chatBubbles/DictationBubble'
 import { TranslateBubble } from './chatBubbles/TranslateBubble'
 
 interface Props {
@@ -37,12 +36,14 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
+                answers={currentTask.answers}
               />
             )}
             {currentTask.taskType === 'dictation' && (
-              <DictationBubble
+              <TranslateBubble
                 sentenceAudioPath={currentTask.sentenceAudioPath}
-                type="taskDescription"
+                utteranceType="taskDescription"
+                textType={currentTask.taskType}
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}

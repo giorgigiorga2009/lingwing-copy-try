@@ -324,5 +324,31 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "Rellena los datos y consigue 30 ejercicios gratuitos!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "Continuar",
   "FILL_PROFILE_FOR_TASKS_SKIP": "Saltar",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Conseguir ejercicios gratuitos"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Conseguir ejercicios gratuitos",
+
+  "LEARNING_MODE": "Modo de aprendizaje",
+  "LEARNING_MODE_CHOOSE_LEARNING_MODE": "Elija un modo de aprendizaje",
+  "LEARNING_MODE_INTENSIVE_LEARNING": "Intensivo",
+  "LEARNING_MODE_WHO_DONT_KNOW": "Para aquellos que no conocen este nivel en absoluto.",
+  "LEARNING_MODE_LEARN_MORE": "Aprende más...",
+  "LEARNING_MODE_LEARN_LESS": "Muestra menos...",
+  "LEARNING_MODE_STRENGTHEN": "Para aquellos que quieran fortalecer sus conocimientos para el nivel existente.",
+  "LEARNING_MODE_FAST": "Rápido",
+  "LEARNING_MODE_REACTIVE": "Reactivo",
+  "LEARNING_MODE_TIME_1": "15 horas",
+  "LEARNING_MODE_TIME_2": "25 horas",
+  "LEARNING_MODE_TIME_3": "35 horas",
+  "LEARNING_MODE_WHO_WANTS_REPEAT": "Para los que quieran repetir este nivel.",
+  "LEARNING_MODE_CHANGE": "Cambiar el modo de aprendizaje",
+  "LEARNING_MODE_CAN_CHANGE_LATER": "Puedes cambiar de modo más tarde",
+  "LEARNING_MODE_YOUR_CHOICE": "Tu elección",
+  "LEARNING_MODE_OUR_ADVICE": "Nuestro consejo",
+  "LEARNING_MODE_ENDED": "Terminado",
+  "LEARNING_MODE_BTN_SELECT": "Seleccionar",
+  "LEARNING_MODE_BTN_CONTINUE": "Continuar",
+  "LEARNING_MODE_DESCRIPTION_1": "El modo de aprendizaje se adapta a usted si ha olvidado el contenido de este curso y solo necesita recordarlo. <br> El programa no repite el material aprendido. Además, puede dejar cualquier tarea y pasar a la siguiente. <br> <br> <em> * Las asignaciones hechas correctamente no se repiten.",
+  "LEARNING_MODE_DESCRIPTION_2": "Este modo de aprendizaje se adapta a usted si su conocimiento del material del curso no es bueno y necesita fortalecerlo. <br> Mientras enseña un nuevo programa de material, simultáneamente se reproducirá el anterior solo una vez. El programa repetirá las tareas realizadas incorrectamente hasta que no se ejecuten correctamente. <br> <br> <em> * Las tareas realizadas correctamente se repiten una vez. </em>",
+  "LEARNING_MODE_DESCRIPTION_3": "Esta modalidad de estudio se adapta a ti si no conoces en absoluto el material del curso. <br> El programa te entrega material nuevo y simultáneamente, repite el anterior, hasta que no te convenza, que has aprendido a fondo. el curso y estará listo para comenzar el siguiente. <br> <em> * Las tareas realizadas correctamente se repiten 2 veces. </em>"
+
+
 }

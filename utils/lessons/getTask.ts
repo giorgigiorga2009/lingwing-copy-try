@@ -15,6 +15,7 @@ interface InitialTask {
   segment: ''
   showGenderHint: false
   errorLimit: 3
+  answers: number[]
   taskType: {
     name: string
     nameCode: string
@@ -122,6 +123,7 @@ export interface TaskData {
       sentenceAudioPath: string
     },
   ]
+  answers: number[]
   wordsArray: {
     wordAudioPath: string
     wordLoweredText: string
@@ -180,7 +182,7 @@ export type CourseObject = {
     freeTrialIsUsed: boolean
     premium: boolean
   }
-  learnMode: number
+  learnMode: 1 | 2 | 3
   dailyReachedLimitDate: string
   sentDailyTaskCounter: number
   percent: string
@@ -282,6 +284,7 @@ export const getTasks = async ({
         taskText: task.iLearnFrom[0].text,
         mistakeTaskText: task.iLearnFrom[0].hint,
         dialogLinesArray: dialogLinesArray,
+        answers: task.answers,
         wordsArray:
           task?.wordsAudio?.words &&
           task.wordsAudio.words.data.map(word => {

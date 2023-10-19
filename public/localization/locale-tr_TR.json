@@ -328,5 +328,30 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "Verileri doldurun ve ücretsiz alıştırmalar alın!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "Devam et",
   "FILL_PROFILE_FOR_TASKS_SKIP": "görmezden gelin",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Ücretsiz egzersizler edinin"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "Ücretsiz egzersizler edinin",
+
+  "LEARNING_MODE": "Öğrenme modu",
+  "LEARNING_MODE_CHOOSE_LEARNING_MODE": "Bir öğrenme modu seçin",
+  "LEARNING_MODE_INTENSIVE_LEARNING": "Yoğun öğrenme",
+  "LEARNING_MODE_WHO_DONT_KNOW": "Bu seviyeyi hiç bilmeyenler için.",
+  "LEARNING_MODE_LEARN_MORE": "Daha fazla bilgi edin...",
+  "LEARNING_MODE_LEARN_LESS": "Daha az göster...",
+  "LEARNING_MODE_STRENGTHEN": "Mevcut seviyeye yönelik bilgilerini güçlendirmek isteyenler için.",
+  "LEARNING_MODE_FAST": "Hızlı",
+  "LEARNING_MODE_REACTIVE": "Reaktif",
+  "LEARNING_MODE_TIME_1": "15 Saatler",
+  "LEARNING_MODE_TIME_2": "25 Saatler",
+  "LEARNING_MODE_TIME_3": "35 Saatler",
+  "LEARNING_MODE_WHO_WANTS_REPEAT": "Bu seviyeyi tekrarlamak isteyenler için.",
+  "LEARNING_MODE_CHANGE": "Öğrenme modunu değiştir",
+  "LEARNING_MODE_CAN_CHANGE_LATER": "Modu daha sonra değiştirebilirsiniz",
+  "LEARNING_MODE_YOUR_CHOICE": "Senin seçimin",
+  "LEARNING_MODE_OUR_ADVICE": "Bizim tavsiyemiz",
+  "LEARNING_MODE_ENDED": "Bitti",
+  "LEARNING_MODE_BTN_SELECT": "Seçme",
+  "LEARNING_MODE_BTN_CONTINUE": "Devam etmek",
+  "LEARNING_MODE_DESCRIPTION_1": "Bu kursun içeriğini unuttuysanız ve yalnızca hatırlamanız gerekiyorsa öğrenme modu size göre uyarlanır.<br>Program öğrenilen materyali tekrarlamaz. Ayrıca herhangi bir ödevden ayrılıp bir sonraki göreve geçebilirsiniz.<br><br><em>*Doğru gerçekleştirilen görevler artık tekrarlanmaz</em>",
+  "LEARNING_MODE_DESCRIPTION_2": "Kurs materyali hakkındaki bilginiz iyi değilse ve onu güçlendirmeniz gerekiyorsa, bu öğrenme modu sizin için özel olarak tasarlanmıştır.<br>Yeni bir materyal öğretirken aynı anda eskisini yalnızca bir kez kopyalayacaktır. Program, yanlış gerçekleştirilen görevleri, düzgün bir şekilde yürütülene kadar tekrarlayacaktır.<br><br><em>*Doğru gerçekleştirilen görevler bir kez tekrarlanır.</em>",
+  "LEARNING_MODE_DESCRIPTION_3": "Kursun materyalini hiç bilmiyorsanız, bu çalışma şekli sizin için özel olarak tasarlanmıştır.<br>Program size yeni materyal verir ve aynı anda eskisini tekrarlar, ta ki iyice öğrendiğinize ikna olana kadar. Kursu tamamladığınızda bir sonraki kursa başlamaya hazırsınız.<br><em>*Doğru gerçekleştirilen görevler 2 kez tekrarlanır.</em>"
+
 }

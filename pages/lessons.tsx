@@ -1,13 +1,3 @@
-import {
-  CourseObject,
-  getTasks,
-  getUserCourse,
-  TaskData,
-} from '@utils/lessons/getTask'
-import {
-  getCurrentLanguageCoursesList,
-  LanguageCourse,
-} from '@utils/lessons/getLanguageCoursesList'
 import { NextPage } from 'next'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
@@ -18,9 +8,16 @@ import { useEffect, useState, useRef } from 'react'
 import ProgressBar from '@components/lessons/ProgressBar'
 import ChatHistory from '@components/lessons/ChatHistory'
 import { SoundCheck } from '@components/lessons/SoundCheck'
+import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
-import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
+import Wrapper from '@components/lessons/learnMenu/Wrapper'
+import {
+  CourseObject,
+  getTasks,
+  getUserCourse,
+  TaskData,
+} from '@utils/lessons/getTask'
 
 import LessonsFlowPopUps from '@components/lessons/reg-reminder-pop-up/lessonsFlowPopUps'
 import { getReadCourse } from '@utils/getReadCourse'
@@ -46,9 +43,11 @@ const Lessons: NextPage = () => {
   const [isSoundChecked, setSoundChecked] = useState(false)
   const [isHintShown, setIsHintShown] = useState(false)
   const [hintText, setHintText] = useState('')
-  const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
-    LanguageCourse[] | undefined
-  >()
+
+  const [tab, setTab] = useState<
+    'course' | 'levels' | 'grammar' | 'levels' | 'statistics'
+  >('course')
+
   const [userScore, setUserScore] = useState(0)
   const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
   const [grammarHeight, setGrammarHeight] = useState<number>(0)
@@ -76,7 +75,7 @@ const Lessons: NextPage = () => {
     session && setToken(session?.user.accessToken)
     const getUserId = Cookies.get('userId')
     getUserId && setUserId(getUserId)
-  }, [])
+  }, [session])
 
   //get userId
   useEffect(() => {
@@ -98,19 +97,12 @@ const Lessons: NextPage = () => {
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
 
   useEffect(() => {
-    console.log(languageFrom)
-    console.log(languageTo)
-    console.log(token)
-    console.log(courseName)
-    console.log(userId)
     if (!languageFrom || !languageTo || !courseName || (!token && !userId))
       return
 
     getUserCourse({ languageFrom, languageTo, courseName, token, userId })
       .then(courseObject => {
-        console.log(courseObject)
         if (courseObject) {
-          console.log('cherami')
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
           setUserScore(courseObject.score)
@@ -148,49 +140,11 @@ const Lessons: NextPage = () => {
       })
   }, [courseId])
 
-  useEffect(() => {
-    console.log('krwiali')
-    console.log(languageFrom)
-    console.log(languageTo)
-    console.log(token + 'toka')
-    console.log(currentCourseObject)
-
-    if (
-      !languageFrom ||
-      !languageTo ||
-      // !courseName ||
-      !session?.user.accessToken ||
-      // !courseId ||
-      !currentCourseObject
-    )
-      return
-
-    console.log('kudamodzuebuli')
-    getCurrentLanguageCoursesList({
-      languageFrom,
-      languageTo,
-      token: session?.user.accessToken,
-      languageCourseId: currentCourseObject.course._id,
-      languageId: currentCourseObject.course.iLearn._id,
-    })
-      .then(currentCoursesList =>
-        setCurrentLanguageCoursesList(currentCoursesList),
-      )
-      .catch(error => {
-        console.error('Error fetching user course:', error)
-        throw error
-      })
-  }, [currentCourseObject])
-
   // Use the tasksData and currentTaskNumber states to set the current task and its type
   useEffect(() => {
     if (!tasksData) return
     setCurrentTask(tasksData[currentTaskNumber])
   }, [currentTaskNumber, tasksData])
-
-  useEffect(() => {
-    if (!currentTask) return
-  }, [currentTask])
 
   //fetch new portion of tasks
   useEffect(() => {
@@ -291,7 +245,7 @@ const Lessons: NextPage = () => {
     ['courseData', currentLanguage, courseName],
     fetchCourseData,
   )
-  ///
+
   /// for FillPRoflieForTasks
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -324,8 +278,6 @@ const Lessons: NextPage = () => {
 
     fetchData()
   }, [])
-
-  ///
 
   return (
     <div className={style.container}>
@@ -366,75 +318,64 @@ const Lessons: NextPage = () => {
       )}
 
       {isSoundChecked && (
-        <div className={style.content}>
-          <div className={style.foldersContainer}>
-            {currentLanguageCoursesList && (
-              <CoursesDropdown
-                languageCoursesList={currentLanguageCoursesList}
-                languageTo={languageTo as string}
+        <>
+          <LearnMenu
+            languageTo={languageTo}
+            languageFrom={languageFrom}
+            token={token}
+            currentCourseObject={currentCourseObject}
+            setTab={setTab}
+          />
+          <div className={style.content}>
+            {currentCourseObject && (
+              <ProgressBar
+                currentCourseObject={currentCourseObject}
+                userScore={userScore}
               />
             )}
-            <span className={style.folderName}>Grammar</span>
-            <span className={style.folderName}>Levels</span>
-            <span className={style.folderName}>Statistics</span>
-          </div>
-          {currentCourseObject && (
-            <ProgressBar
-              currentCourseObject={currentCourseObject}
-              userScore={userScore}
-            />
-          )}
-
-          {/* chat window */}
-          <div ref={chatRef} className={style.chat}>
-            <div ref={chatWrapperRef} className={style.chatWrapper}>
-              {/* render done tasks */}
-              {completedTasks && (
-                <ChatHistory
-                  completedTasks={completedTasks}
-                  isHintShown={isHintShown}
-                />
-              )}
-
-              {/* render current task or placeholder */}
-              {currentTask && (
-                <ChatCurrentTask
-                  currentTask={currentTask}
-                  currentMessageIndex={currentMessageIndex}
-                  isHintShown={isHintShown}
-                  hintText={hintText}
-                  onDivHeight={handleGrammarHeight}
-                />
-              )}
-              {!currentTask && <div className={style.blankBubble} />}
-            </div>
-          </div>
-
-          {/* Render needed type of input render or placeholder */}
-
-          {/* {!commonProps && (
-            <div className={style.loadingInputContainer}>
-              <div className={style.mistakes}> 0 </div>
-              <input
-                className={style.loadingInput}
-                type="text"
-                placeholder="Loading..."
+            {tab !== 'course' && currentCourseObject && (
+              <Wrapper
+                token={token ?? ''}
+                learnMode={currentCourseObject.learnMode}
+                userCourseId={courseId}
+                tab={tab}
               />
-              <span className={style.micIcon} key="mic" />
-            </div>
-          )} */}
+            )}
 
-          {commonProps && (
-            <CurrentTaskInput
-              commonProps={commonProps}
-              isHintShown={isHintShown}
-              setIsHintShown={setIsHintShown}
-              setHintText={setHintText}
-              currentMessageIndex={currentMessageIndex}
-              setCurrentMessageIndex={setCurrentMessageIndex}
-            />
-          )}
-        </div>
+            {tab === 'course' && commonProps && (
+              <>
+                <div ref={chatRef} className={style.chat}>
+                  <div ref={chatWrapperRef} className={style.chatWrapper}>
+                    {completedTasks && (
+                      <ChatHistory
+                        completedTasks={completedTasks}
+                        isHintShown={isHintShown}
+                      />
+                    )}
+                    {currentTask && (
+                      <ChatCurrentTask
+                        currentTask={currentTask}
+                        currentMessageIndex={currentMessageIndex}
+                        isHintShown={isHintShown}
+                        hintText={hintText}
+                        onDivHeight={handleGrammarHeight}
+                      />
+                    )}
+                    {!currentTask && <div className={style.blankBubble} />}
+                  </div>
+                </div>
+                <CurrentTaskInput
+                  commonProps={commonProps}
+                  isHintShown={isHintShown}
+                  setIsHintShown={setIsHintShown}
+                  setHintText={setHintText}
+                  currentMessageIndex={currentMessageIndex}
+                  setCurrentMessageIndex={setCurrentMessageIndex}
+                />
+              </>
+            )}
+          </div>
+        </>
       )}
     </div>
   )

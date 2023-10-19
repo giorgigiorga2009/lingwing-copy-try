@@ -25,55 +25,6 @@
   margin-top: 5rem;
 }
 
-.foldersContainer {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: -9rem;
-  top: 10rem;
-  gap: 1.5rem;
-  align-items: flex-end;
-  font-weight: 500;
-  font-size: 1rem;
-  font-family: SegoeUI;
-  color: $grey-300;
-}
-
-.folderName {
-  cursor: pointer;
-
-  &:hover {
-    color: #692e96;
-  }
-
-  &:active {
-    color: #692e96;
-    cursor: pointer;
-  }
-}
-
-// .score {
-//   display: block;
-//   max-width: 5em;
-//   height: 1em;
-//   margin: auto;
-//   background: #eee;
-//   background: linear-gradient(90deg, #692e96 var(--rating, 50%), #eee 0);
-//   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" ><path fill="%23000" d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z"/></svg>')
-//     0 0/1em 1em;
-// }
-
-// .count {
-//   font-family: 'Kumbh Sans';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 30px;
-//   display: flex;
-//   align-items: center;
-//   color: #c1bfbb;
-// }
-
 .chat {
   display: flex;
   padding: 0.8rem 3.4rem 2rem;
@@ -84,7 +35,7 @@
   overflow-x: auto;
   overflow: scroll;
   scroll-behavior: smooth;
-  border-radius: 0.625rem 0.625rem 0 0;
+  border-radius: 1rem 1rem 0 0;
 
   @include mobile {
     height: calc(100vh - 12rem);
@@ -97,18 +48,6 @@
   width: 100%;
   gap: 0.5rem;
 }
-
-// .test {
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   display: flex;
-//   flex-direction: column;
-//   overflow-y: auto;
-//   height: 30rem;
-//   border: 0.2rem solid black;
-//   z-index: 1001;
-// }
 
 .blankBubble {
   position: relative;
@@ -134,42 +73,6 @@
   bottom: 1rem;
   left: calc(50% - 5.6rem);
 }
-
-// .rating {
-//   position: absolute;
-//   right: 0;
-//   top: 10rem;
-//   width: 18rem;
-//   height: 40rem;
-//   background-color: $white-t;
-//   border-radius: 1rem;
-// }
-
-// .loadingInput {
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   justify-content: flex-start;
-//   width: 26.7rem;
-//   height: 4rem;
-//   font-size: 1.2rem;
-//   border: 2px solid #e6e6e6;
-//   border-radius: 50px;
-//   padding: 6px 8px 6px 1.5rem;
-//   color: black;
-// }
-
-// .loadingInputContainer {
-//   display: flex;
-//   width: 100%;
-//   height: 7.25rem;
-//   gap: 1.5rem;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #f2f2f2;
-//   border-radius: 0 0 10px 10px;
-//   box-shadow: 2px 2px 10px 5px rgba(0 0 0 / 3%);
-// }
 
 // registration reminder
 @keyframes slideDown {
@@ -205,34 +108,6 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 4px 6px rgba(0 0 0 / 10%));
   animation: fadeInBlur 0.5s forwards;
 }
-
-// .mistakes {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   background: #dbceec;
-//   border: 4px solid #b692e3;
-//   border-radius: 100%;
-//   width: 2.88rem;
-//   height: 2.88rem;
-//   font-family: 'Lilita One';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 24px;
-//   line-height: 30px;
-//   color: #692e96;
-// }
-
-// .micIcon {
-//   display: flex;
-//   cursor: pointer;
-//   width: 1rem;
-//   height: 1.3rem;
-//   background-image: url('/assets/images/tasks/microphone.png');
-//   background-size: contain;
-//   background-position: center;
-//   background-repeat: no-repeat;
-// }

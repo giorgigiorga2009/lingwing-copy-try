@@ -70,6 +70,7 @@
 
 .content {
   display: flex;
+  position: relative;
   flex-direction: column;
   font-family: 'Kumbh Sans';
   min-width: 13rem;
@@ -84,7 +85,9 @@
 }
 
 .taskText {
+  display: flex;
   color: $black-800;
+  justify-content: center;
   font-weight: bold;
   padding: 1rem 1.8rem;
   background-color: #f2f2f2;
@@ -142,6 +145,50 @@
     max-width: 15rem;
     padding: 0.7rem 1.2rem;
     line-height: 1.1rem;
+  }
+}
+
+.levelsContainer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 3.3rem;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: -4rem;
+}
+
+.levels {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: $white-100;
+  border-radius: 1rem;
+
+  &.true {
+    background-color: red;
+  }
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 35rem;
+  color: $black;
+  padding: 0.8rem 2rem;
+  background-color: #f2f2f2;
+  border-radius: 2rem 2rem 2rem 0.3rem;
+
+  .true & {
+    transform: scale(0);
+    transform-origin: 0 0;
+    animation: bounce 700ms linear both;
+    animation-delay: 400ms;
+  }
+
+  .answer & {
+    display: none;
   }
 }
 
