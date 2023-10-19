@@ -3,13 +3,14 @@ import style from './faq.module.scss'
 import { Header } from '@components/header/Header'
 import { useTranslation } from '@utils/useTranslation'
 import { ApiResponse, getFAQs } from '@utils/getFAQ'
-import { NextPage } from 'next'
+import { Metadata, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { Locale } from '@utils/localization'
 import classNames from 'classnames'
 import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
+
 
 const Faq: NextPage = () => {
   const { t } = useTranslation()
@@ -38,7 +39,7 @@ const Faq: NextPage = () => {
   return (
     <div className={style.wrapper}>
       <Header size="s" loginClassName={style.loginModal} />
-      <div className={style.titleContainer}>{t('FAQ_TITLE')}</div>
+      <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
       <main className={style.mainPart}>
         <aside className={style.buttonContainer}>
           {faqData?.data.map(({ _id }, index) => (
