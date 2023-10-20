@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
   background-position: top left;
   background-color: $purple-600;
-
+  
   @include smallWidth {
     height: 50rem;
     align-items: start;

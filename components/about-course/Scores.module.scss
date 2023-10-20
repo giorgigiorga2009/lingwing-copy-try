@@ -10,14 +10,15 @@
 
   @include desktop {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    column-gap: 4rem;
     margin-top: -6px;
   }
 }
 
 .leftContainer {
   @include desktop {
-    max-width: 55vh;
+    max-width: 35%;
   }
 }
 
@@ -36,7 +37,7 @@
   @include desktop {
     background-position: 16vw 11%;
 
-    min-width: 39vw;
+    width: 35%;
   }
 }
 
