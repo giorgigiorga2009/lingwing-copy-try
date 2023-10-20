@@ -42,19 +42,16 @@
     max-width: 28.5rem;
     height: 31.5rem;
     width: auto;
-    margin: 8rem 4vw 1rem 0rem;
+    margin: 8rem 4vw 1rem 0;
   }
 }
 
 .flagstyle {
-  @include tablet {
-    width: 5rem;
-    height: 5rem;
-  }
+  width: 5rem;
+  height: auto;
 
   @include mobile {
     width: 4rem;
-    height: 4rem;
   }
 }
 

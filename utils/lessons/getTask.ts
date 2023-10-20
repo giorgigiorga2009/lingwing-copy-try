@@ -258,6 +258,7 @@ export const getTasks = async ({
     })
 
     const data = response.data.data
+
     const tasks = data.tasks.map((task: InitialTask) => {
       const dialogLinesArray =
         task?.wordsAudio?.dialog &&

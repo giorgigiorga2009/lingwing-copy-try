@@ -1,4 +1,8 @@
+import { PaymentsProps } from '@utils/getUserPayemnts'
+
 export interface RegistrationReminderPopupProps {
+  courseName?: string | string[]
+  paymentsData?: PaymentsProps | null
   dailyLimitDate?: string | Date
   duration?: number
   price?: number

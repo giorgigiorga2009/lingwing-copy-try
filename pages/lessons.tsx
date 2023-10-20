@@ -18,21 +18,12 @@ import {
   getUserCourse,
   TaskData,
 } from '@utils/lessons/getTask'
-
-import LessonsFlowPopUps from '@components/lessons/reg-reminder-pop-up/lessonsFlowPopUps'
-import { getReadCourse } from '@utils/getReadCourse'
-import { LOCALES_TO_LANGUAGES } from '@utils/languages'
-import { useQuery } from 'react-query'
-
-import BackgroundParrot from '@components/shared/BackgroundParrot'
-import FillProfileForTasks from '@components/lessons/fill-proflie-for-tasks/fillProfileForTasks'
-import { GetProfileData, ProfileData } from '@utils/profileEdit'
-import { getPackageDataById, PackageResponse } from '@utils/getPayments'
-import { getPackages, PackageData } from '@utils/getPackages'
 import { useSession } from 'next-auth/react'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
+import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
 
 const Lessons: NextPage = () => {
-  const [tasksData, setTasksData] = useState<TaskData[]>()
+  const [tasksData, setTasksData] = useState<TaskData[]>([])
   const [currentTask, setCurrentTask] = useState<TaskData>()
   const [currentTaskNumber, setCurrentTaskNumber] = useState(0)
   const [token, setToken] = useState<string | null>(null)
@@ -54,13 +45,9 @@ const Lessons: NextPage = () => {
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
-  const [showProfileFiller, setShowProfileFiller] = useState<boolean>(false)
-  const [profileData, setPRofileData] = useState<ProfileData | undefined>(
-    undefined,
-  )
-  const [packagesData, setPackagesData] = useState<PackageData>()
-  const [dailyTaskLeft, setDailyTaskLeft] = useState(0)
-  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(0)
+
+  const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
+  const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
   const [dailyReachedLimitDate, setDailyReachedLimitDate] = useState<
     Date | string | undefined
   >()
@@ -68,7 +55,6 @@ const Lessons: NextPage = () => {
   const router = useRouter()
   const { data: session } = useSession()
   const { courseName, languageTo, languageFrom } = router.query
-  const [language, setLanguage] = useState<string>('English')
 
   // Use localStorage to set the token state
   useEffect(() => {
@@ -112,6 +98,7 @@ const Lessons: NextPage = () => {
           )
           setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
         }
+
         return courseObject
       })
       .catch(error => {
@@ -124,7 +111,6 @@ const Lessons: NextPage = () => {
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!token && !courseId))
       return
-
     getTasks({
       languageFrom,
       languageTo,
@@ -226,89 +212,22 @@ const Lessons: NextPage = () => {
   // for tasks quantity only
   const isUserLoggedIn = !!token
 
-  const currentLanguage =
-    router.locale &&
-    LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
-
-  const fetchCourseData = async () => {
-    if (currentLanguage && courseName) {
-      try {
-        const data = await getReadCourse(currentLanguage, courseName)
-        return data
-      } catch (error) {
-        throw new Error(String(error))
-      }
-    }
-  }
-
-  const { data: courseData } = useQuery(
-    ['courseData', currentLanguage, courseName],
-    fetchCourseData,
-  )
-
-  /// for FillPRoflieForTasks
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        const responseData = await GetProfileData(token)
-        setPRofileData(responseData)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-
-    fetchProfileData()
-  }, [])
-
-  useEffect(() => {
-    if (completedTasks?.length === 12) {
-      setShowProfileFiller(true)
-    }
-  }, [completedTasks])
-  ///
-
-  /// this is for pop ups > N2
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getPackages('')
-        setPackagesData(response)
-      } catch (err) {}
-    }
-
-    fetchData()
-  }, [])
-
   return (
     <div className={style.container}>
       <Header size="s" />
-      {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
-        <div className={style.regReminder}>
-          <LessonsFlowPopUps
-            popUpNumber={1}
-            completedTasks={completedTasks.length}
-            totalTasksAmount={courseData.info.tasksQuantity}
-            languageTo={languageTo}
-            languageFrom={languageFrom}
-          />
-        </div>
-      )}
-      {isUserLoggedIn && showProfileFiller && !profileData?.profile.firstName && (
-        <div className={style.regReminder}>
-          <FillProfileForTasks onClose={() => setShowProfileFiller(false)} />
-        </div>
-      )}
-      {isUserLoggedIn && dailyTaskLeft === 0 && (
-        <div className={style.regReminder}>
-          <LessonsFlowPopUps
-            popUpNumber={2}
-            dailyLimitDate={dailyReachedLimitDate}
-            duration={packagesData?.packages[1].duration}
-            price={packagesData?.packages[1].currency[0].recurringPrice}
-            language={language}
-          />
-        </div>
-      )}
+      <CombinedModalComponent
+        courseName={courseName}
+        courseId={courseId}
+        isUserLoggedIn={isUserLoggedIn}
+        completedTasks={completedTasks}
+        unAuthuserDailyLimit={unAuthuserDailyLimit}
+        languageTo={languageTo}
+        languageFrom={languageFrom}
+        dailyTaskLeft={dailyTaskLeft}
+        currentCourseObject={currentCourseObject}
+        dailyReachedLimitDate={dailyReachedLimitDate}
+      />
+
       <BackgroundParrot />
       {!isSoundChecked && (
         <SoundCheck

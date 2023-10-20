@@ -14,7 +14,7 @@ const AboutTabs: FC<Props> = ({ activeTab }) => {
   const router = useRouter()
 
   type Tabs = keyof typeof ABOUT_COMPANY_LINKS
-  const TABS = Object.keys(ABOUT_COMPANY_LINKS) as Tabs[]
+  // const TABS = Object.keys(ABOUT_COMPANY_LINKS) as Tabs[]
 
   return (
     <nav className={style.nav}>

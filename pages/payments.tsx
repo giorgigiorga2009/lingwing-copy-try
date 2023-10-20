@@ -16,17 +16,21 @@ const Payments = () => {
     router.back()
   }
   useEffect(() => {
-    if (session) {
-      getUserPayements(session.user.accessToken)
-        .then(data => {
-          setPaymentsData(data)
-          return data
-        })
-        .catch(error => {
-          console.error('Error fetching certificate:', error)
-        })
+    const fetchUserPayments = () => {
+      if (session) {
+        getUserPayements(session.user.accessToken)
+          .then(data => {
+            setPaymentsData(data)
+            return data
+          })
+          .catch(error => {
+            console.error('Error fetching certificate:', error)
+          })
+      }
     }
-  }, [])
+
+    fetchUserPayments()
+  }, [session])
 
   return (
     <div className={style.wrapper}>
@@ -34,9 +38,9 @@ const Payments = () => {
       <div className={style.containerWrapper}>
         <div className={style.payments}>{t('APP_HEADER_PAYMENTS')}</div>
         <div className={style.container}>
-          <span className={style.cross} onClick={goBack}>
+          <button className={style.cross} onClick={goBack}>
             ✕
-          </span>
+          </button>
           <div className={style.firstRow}>
             <div className={style.firstRowContent}>
               <div>{t('PAYMENTS_STATS_REMAINING')}</div>

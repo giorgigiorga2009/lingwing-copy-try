@@ -33,6 +33,18 @@ export const UserDropdown: FC = () => {
         </div>
       </Link>
       <Link
+        href={{
+          pathname: `/payments`,
+        }}
+        locale={router.locale}
+        as="/payments"
+        className={style.link}
+      >
+        <button className={classNames(style.button)}>
+          {t('APP_HEADER_PAYMENTS')}
+        </button>
+      </Link>
+      <Link
         href={{ pathname: '/logout' }}
         onClick={() => signOut({ redirect: false })}
       >

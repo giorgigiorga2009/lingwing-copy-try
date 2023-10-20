@@ -22,7 +22,6 @@ import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
-import LessonsFlowPopUps from '@components/lessons/reg-reminder-pop-up/lessonsFlowPopUps'
 import { useSession } from 'next-auth/react'
 
 const Payment: NextPage<PaymentProps> = () => {
@@ -140,10 +139,13 @@ const Payment: NextPage<PaymentProps> = () => {
       <FollowButtons color="grey" />
       <Footer />
       {/* <div className={styles.regReminder}>
-          <RegistrationReminderPopup
-            popUpNumber={2}
+          <LessonsFlowPopUps
+            popUpNumber={3}
             packetTitle={data?.packages[0].title}
           />
+        </div> */}
+      {/* <div className={styles.regReminder}>
+        <RateLingwing/>
         </div> */}
     </div>
   )

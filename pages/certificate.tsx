@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getCertificate } from '@utils/getCertificate'
+import {
+  getCertificate,
+  generateCertificateTextProps,
+} from '@utils/getCertificate'
 import style from '@pages/certificate.module.scss'
 import Image from 'next/image'
 import certificateBg from '/public/themes/images/v2/certificate/bg.png'
@@ -9,7 +12,6 @@ import parrotImage from '/public/themes/images/v2/certificate/user-parrot.png'
 import footerImage from '/public/themes/images/v2/certificate/footer.png'
 import bulletLineImage from '/public/themes/images/v2/certificate/bullet-line.png'
 import signatureImage from '/public/themes/images/v2/certificate/signature.png'
-import { generateCertificateTextProps } from '@utils/getCertificate'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@utils/useTranslation'
 import ReactDOMServer from 'react-dom/server'
@@ -134,10 +136,10 @@ const CertificatePage = () => {
 
   const handleDownload = async () => {
     if (typeof window !== 'undefined' && typeof userCourseId === 'string') {
-      let freshData = await getCertificate(userCourseId)
+      const freshData = await getCertificate(userCourseId)
 
       const element = generateInMemoryCertificate(freshData)
-
+      // eslint-disable-next-line
       const html2pdfFunction = require('html2pdf.js')
       html2pdfFunction()
         .from(element)
@@ -146,16 +148,30 @@ const CertificatePage = () => {
     }
   }
 
+  // useEffect(() => {
+  //   if (typeof userCourseId === 'string') {
+  //     getCertificate(userCourseId)
+  //       .then(data => {
+  //         setCertificateData(data)
+  //         return null
+  //       })
+  //       .catch(error => {
+  //         console.error('Error fetching certificate:', error)
+  //       })
+  //   }
   useEffect(() => {
-    if (typeof userCourseId === 'string') {
-      getCertificate(userCourseId)
-        .then(data => {
+    const fetchCertificate = async () => {
+      if (typeof userCourseId === 'string') {
+        try {
+          const data = await getCertificate(userCourseId)
           setCertificateData(data)
-        })
-        .catch(error => {
+        } catch (error) {
           console.error('Error fetching certificate:', error)
-        })
+        }
+      }
     }
+
+    fetchCertificate()
   }, [userCourseId])
 
   if (!certificateData)

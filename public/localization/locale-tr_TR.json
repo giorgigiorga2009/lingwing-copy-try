@@ -352,6 +352,36 @@
   "LEARNING_MODE_BTN_CONTINUE": "Devam etmek",
   "LEARNING_MODE_DESCRIPTION_1": "Bu kursun içeriğini unuttuysanız ve yalnızca hatırlamanız gerekiyorsa öğrenme modu size göre uyarlanır.<br>Program öğrenilen materyali tekrarlamaz. Ayrıca herhangi bir ödevden ayrılıp bir sonraki göreve geçebilirsiniz.<br><br><em>*Doğru gerçekleştirilen görevler artık tekrarlanmaz</em>",
   "LEARNING_MODE_DESCRIPTION_2": "Kurs materyali hakkındaki bilginiz iyi değilse ve onu güçlendirmeniz gerekiyorsa, bu öğrenme modu sizin için özel olarak tasarlanmıştır.<br>Yeni bir materyal öğretirken aynı anda eskisini yalnızca bir kez kopyalayacaktır. Program, yanlış gerçekleştirilen görevleri, düzgün bir şekilde yürütülene kadar tekrarlayacaktır.<br><br><em>*Doğru gerçekleştirilen görevler bir kez tekrarlanır.</em>",
-  "LEARNING_MODE_DESCRIPTION_3": "Kursun materyalini hiç bilmiyorsanız, bu çalışma şekli sizin için özel olarak tasarlanmıştır.<br>Program size yeni materyal verir ve aynı anda eskisini tekrarlar, ta ki iyice öğrendiğinize ikna olana kadar. Kursu tamamladığınızda bir sonraki kursa başlamaya hazırsınız.<br><em>*Doğru gerçekleştirilen görevler 2 kez tekrarlanır.</em>"
+  "LEARNING_MODE_DESCRIPTION_3": "Kursun materyalini hiç bilmiyorsanız, bu çalışma şekli sizin için özel olarak tasarlanmıştır.<br>Program size yeni materyal verir ve aynı anda eskisini tekrarlar, ta ki iyice öğrendiğinize ikna olana kadar. Kursu tamamladığınızda bir sonraki kursa başlamaya hazırsınız.<br><em>*Doğru gerçekleştirilen görevler 2 kez tekrarlanır.</em>",
+
+
+  "STATS_PER_PERCENT_PROGRESS": "Kurs İlerlemesi",
+  "STATS_PER_PERCENT_GRAMMAR": "Öğrenilen Dilbilgisi",
+  "STATS_PER_PERCENT_COMPLETED": "Tamamlanan Görevler",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "aferin, öğrenmeye devam et!",
+  "STATS_PER_PERCENT_CONTINUE": "Devam et",
+  "STATS_PER_PERCENT_TIME": "Zaman",
+
+
+
+  "RATE_LINGWING_MODAL_RATE": "Rate",
+  "RATE_LINGWING_MODAL_TEXT": "Give us 60 seconds and share  your impressions. Your opinion is important to us ",
+  "RATE_LINGWING_MODAL_THANK_YOU": "Thank you in advance",
+  "RATE_LINGWING_MODAL_RATE_US": "Rate Us",
+
+
+
+  "FAQ_TITLE": "Frequently Asked Questions",
+  "FAQ_QUICK_SEARCH": "Kategoride hızlı arama",
+  "FAQ_ANSWER_HELPFUL": "Bu cevabı faydalı buldunuz mu?",
+  "FAQ_YES": "Evet",
+  "FAQ_NO": "hayır",
+  "FAQ_NO_ANSWER_FOUND": "Size yardımcı olan cevabı bulamadınız mı?",
+  "FAQ_SOLUTION": "Lütfen aşağıdaki formu doldurun ve mümkün olan en kısa sürede size ulaşmaya çalışacağız.",
+  "FAQ_FORM_EMAIL": "E-posta adresi",
+  "FAQ_FORM_SUBMIT": "Gönder",
+  "FAQ_FILTER_EMPTY": "Arama kriterlerinizde kalıcı kayıt bulunamadı."
+
+
 
 }

@@ -362,6 +362,34 @@
   "FILL_PROFILE_FOR_TASKS_SKIP": "Skip",
   "FILL_PROFILE_FOR_TASKS_OBTAIN": "Obtain free exercises",
 
+
+
+  "STATS_PER_PERCENT_PROGRESS": "Course Progress",
+  "STATS_PER_PERCENT_GRAMMAR": "Learned Grammar",
+  "STATS_PER_PERCENT_COMPLETED": "Tasks Completed",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "well done, keep learning!",
+  "STATS_PER_PERCENT_CONTINUE": "Continue",
+  "STATS_PER_PERCENT_TIME": "Time",
+
+
+  "RATE_LINGWING_MODAL_RATE": "Rate",
+  "RATE_LINGWING_MODAL_TEXT": "Give us 60 seconds and share your impressions.Your opinion is important to us",
+  "RATE_LINGWING_MODAL_THANK_YOU": "Thank you in advance",
+  "RATE_LINGWING_MODAL_RATE_US": "Rate Us",
+
+
+
+  "FAQ_TITLE": "Frequently Asked Questions",
+  "FAQ_QUICK_SEARCH": "Quick search in category",
+  "FAQ_ANSWER_HELPFUL": "Did you find this asnwer helpful?",
+  "FAQ_YES": "yes",
+  "FAQ_NO": "no",
+  "FAQ_NO_ANSWER_FOUND": "Did not find the answer which that helps you?",
+  "FAQ_SOLUTION": "Please fill in the form below and we will try to reach you as soon as posible",
+  "FAQ_FORM_EMAIL": "Email address",
+  "FAQ_FORM_SUBMIT": "Submit",
+  "FAQ_FILTER_EMPTY": "No Records found with your search criterias",
+
   "LEARNING_MODE": "Learning mode",
   "LEARNING_MODE_CHOOSE_LEARNING_MODE": "Choose a learning mode",
   "LEARNING_MODE_INTENSIVE_LEARNING": "Intensive",
@@ -385,9 +413,5 @@
   "LEARNING_MODE_DESCRIPTION_1": "The learning mode is tailored to you if you have forgotten the content of this course and you only need to recall it.<br>The program does not repeat the learned material. In addition, you can leave any assignment and go to the next task.<br><br><em>*Correctly performed tasks are no longer repeated.</em>",
   "LEARNING_MODE_DESCRIPTION_2": "This learning mode is tailored to you if your knowledge of the course's material isn't good, and you need to strengthen it.<br>While teaching a new material program will simultaneously replicate the old one only once. The program will repeat tasks performed incorrectly until they aren't properly executed.<br><br><em>*Correctly performed tasks are repeated once.</em>",
   "LEARNING_MODE_DESCRIPTION_3": "This mode of study is tailored to you if you don't know the material of the course at all.<br>The program gives you new material and simultaneously, repeats the old one, until It isn't convinced, that you thoroughly learned the course, and you are ready to start the next course.<br><br><em>*Correctly performed tasks are repeated for 2 times.</em>"
-
-
-
-
 
 }

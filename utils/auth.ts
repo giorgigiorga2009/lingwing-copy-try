@@ -84,7 +84,7 @@ export const login = ({ email, password }: Auth) => {
 
 export const getUserProfileData = (token: string) => {
   return axios({
-    url: `${process.env.DEFAULT_URL}/user/profile?lang=eng`,
+    url: `${process.env.DEFAULT_URL}/user/profile`,
     headers: {
       ...HEADERS,
       Authorization: token,

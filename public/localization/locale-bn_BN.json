@@ -265,6 +265,34 @@
   "FILL_PROFILE_FOR_TASKS_HEADER": "তথ্য পূরণ করুন এবং বিনামূল্যে অনুশীলন পান!",
   "FILL_PROFILE_FOR_TASKS_CONTINUE": "চালিয়ে যান",
   "FILL_PROFILE_FOR_TASKS_SKIP": "এড়িয়ে যান",
-  "FILL_PROFILE_FOR_TASKS_OBTAIN": "বিনামূল্যে অনুশীলন পান"
+  "FILL_PROFILE_FOR_TASKS_OBTAIN": "বিনামূল্যে অনুশীলন পান",
+
+
+
+  "STATS_PER_PERCENT_PROGRESS": "কোর্সের অগ্রগতি",
+  "STATS_PER_PERCENT_GRAMMAR": "ব্যাকরণ শিখেছেন",
+  "STATS_PER_PERCENT_COMPLETED": "কাজ সমাপ্ত",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "ভাল হয়েছে, শিখতে থাকুন!",
+  "STATS_PER_PERCENT_CONTINUE": "চালিয়ে যান",
+  "STATS_PER_PERCENT_TIME": "সময়",
+
+
+  "RATE_LINGWING_MODAL_RATE": "রেট",
+  "RATE_LINGWING_MODAL_TEXT": "আমদের ৬০ সেকেন্ড দিন  এবং আপনার   ফিডব্যাক শেয়ার করুন।  আপনার মতামত আমাদের কাছে গুরুত্বপূর্ণ ",
+  "RATE_LINGWING_MODAL_THANK_YOU": "আপনাকে অগ্রীম ধন্যবাদ",
+  "RATE_LINGWING_MODAL_RATE_US": "আমাদের রেট করুন",
+
+
+  "FAQ_TITLE": "Frequently Asked Questions",
+  "FAQ_QUICK_SEARCH": "ক্যাটাগরি থেকে দ্রুত খুঁজুন",
+  "FAQ_ANSWER_HELPFUL": "এই উত্তরটি সহায়ক লেগেছে?",
+  "FAQ_YES": "হ্যা",
+  "FAQ_NO": "না",
+  "FAQ_NO_ANSWER_FOUND": "উত্তরটি খুঁজে পাননি যা আপনাকে সহায়তা করবে?",
+  "FAQ_SOLUTION": "নিচের ফর্মটি পূরণ করুন এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার কাছে পৌঁছাবো",
+  "FAQ_FORM_EMAIL": "ইমেইল এড্রেস",
+  "FAQ_FORM_SUBMIT": "সাবমিট",
+  "FAQ_FILTER_EMPTY": "আপনার খোঁজের কোন রেকর্ড পাওয়া যায়নি"
+
 
 }

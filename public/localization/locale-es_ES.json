@@ -348,7 +348,36 @@
   "LEARNING_MODE_BTN_CONTINUE": "Continuar",
   "LEARNING_MODE_DESCRIPTION_1": "El modo de aprendizaje se adapta a usted si ha olvidado el contenido de este curso y solo necesita recordarlo. <br> El programa no repite el material aprendido. Además, puede dejar cualquier tarea y pasar a la siguiente. <br> <br> <em> * Las asignaciones hechas correctamente no se repiten.",
   "LEARNING_MODE_DESCRIPTION_2": "Este modo de aprendizaje se adapta a usted si su conocimiento del material del curso no es bueno y necesita fortalecerlo. <br> Mientras enseña un nuevo programa de material, simultáneamente se reproducirá el anterior solo una vez. El programa repetirá las tareas realizadas incorrectamente hasta que no se ejecuten correctamente. <br> <br> <em> * Las tareas realizadas correctamente se repiten una vez. </em>",
-  "LEARNING_MODE_DESCRIPTION_3": "Esta modalidad de estudio se adapta a ti si no conoces en absoluto el material del curso. <br> El programa te entrega material nuevo y simultáneamente, repite el anterior, hasta que no te convenza, que has aprendido a fondo. el curso y estará listo para comenzar el siguiente. <br> <em> * Las tareas realizadas correctamente se repiten 2 veces. </em>"
+  "LEARNING_MODE_DESCRIPTION_3": "Esta modalidad de estudio se adapta a ti si no conoces en absoluto el material del curso. <br> El programa te entrega material nuevo y simultáneamente, repite el anterior, hasta que no te convenza, que has aprendido a fondo. el curso y estará listo para comenzar el siguiente. <br> <em> * Las tareas realizadas correctamente se repiten 2 veces. </em>",
+
+
+  "STATS_PER_PERCENT_PROGRESS": "Progreso del curso",
+  "STATS_PER_PERCENT_GRAMMAR": "Gramática aprendida",
+  "STATS_PER_PERCENT_COMPLETED": "Tareas completadas",
+  "STATS_PER_PERCENT_KEEP_LEARNING": "¡Bien hecho, sigue aprendiendo!",
+  "STATS_PER_PERCENT_CONTINUE": "Continuar",
+  "STATS_PER_PERCENT_TIME": "Tiempo",
+
+
+  "RATE_LINGWING_MODAL_RATE": "Evaluar",
+  "RATE_LINGWING_MODAL_TEXT": "Danos 60 segundos y comparte tus impresiones, ¡Tu opinión es importante para nosotros! ",
+  "RATE_LINGWING_MODAL_THANK_YOU": "Gracias de antemano",
+  "RATE_LINGWING_MODAL_RATE_US": "Evaluar",
+
+
+
+  "FAQ_TITLE": "Preguntas más frecuentes",
+  "FAQ_QUICK_SEARCH": "Busqueda rápida",
+  "FAQ_ANSWER_HELPFUL":  "¿Has encontrado la respuesta?",
+  "FAQ_YES": "Sí",
+  "FAQ_NO": "No",
+  "FAQ_NO_ANSWER_FOUND": "¿No has encontrado la respuesta que te ayude?",
+  "FAQ_SOLUTION": "Envianos un mensaje, nosotros te ayudarémos",
+  "FAQ_FORM_EMAIL": "Correo electrónico",
+  "FAQ_FORM_SUBMIT": "Enviar",
+  "FAQ_FILTER_EMPTY": "Hemos encontrado 0 registros"
+
+
 
 
 }
