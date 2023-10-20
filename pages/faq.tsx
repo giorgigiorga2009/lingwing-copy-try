@@ -10,7 +10,7 @@ import { Locale } from '@utils/localization'
 import classNames from 'classnames'
 import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
-
+import Head from 'next/head'
 
 const Faq: NextPage = () => {
   const { t } = useTranslation()
@@ -35,11 +35,13 @@ const Faq: NextPage = () => {
     }
     fetchFaqData()
   }, [locale])
-  
 
   return (
     <div className={style.wrapper}>
-      <Header size="s" loginClassName={style.loginModal} />
+      <Head>
+        <title>{t('FAQ_TITLE')}</title>
+      </Head>
+      {/* <Header size="s" loginClassName={style.loginModal} /> */}
       <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
       <main className={style.mainPart}>
         <aside className={style.buttonContainer}>
@@ -86,8 +88,8 @@ const Faq: NextPage = () => {
           )}
         </section>
       </main>
-      <FollowButtons color="grey" />
-      <Footer />
+      {/* <FollowButtons color="grey" /> */}
+      {/* <Footer /> */}
     </div>
   )
 }
