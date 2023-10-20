@@ -39,6 +39,10 @@ const Faq: NextPage = () => {
   return (
     <div className={style.wrapper}>
       <Head>
+        <meta
+          name="description"
+          content="Find answers to frequently asked questions about our services, products, and processes. Get clarity and support on common topics and inquiries."
+        />
         <title>{t('FAQ_TITLE')}</title>
       </Head>
       {/* <Header size="s" loginClassName={style.loginModal} /> */}
