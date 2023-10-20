@@ -45,7 +45,7 @@ const Faq: NextPage = () => {
         />
         <title>{t('FAQ_TITLE')}</title>
       </Head>
-      {/* <Header size="s" loginClassName={style.loginModal} /> */}
+      <Header size="s" loginClassName={style.loginModal} />
       <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
       <main className={style.mainPart}>
         <aside className={style.buttonContainer}>
@@ -92,8 +92,8 @@ const Faq: NextPage = () => {
           )}
         </section>
       </main>
-      {/* <FollowButtons color="grey" /> */}
-      {/* <Footer /> */}
+      <FollowButtons color="grey" />
+      <Footer />
     </div>
   )
 }
