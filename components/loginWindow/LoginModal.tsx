@@ -42,6 +42,7 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
         email,
         password,
         callbackUrl: '/dashboard',
+        redirect: false,
       })
 
       response?.ok === false ? setEmailNotFound(true) : setOpenLogin(!openLogin)

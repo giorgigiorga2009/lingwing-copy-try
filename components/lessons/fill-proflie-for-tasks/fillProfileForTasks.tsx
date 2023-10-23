@@ -63,7 +63,7 @@ const FillProfileForTasks: React.FC<Props> = ({
     }
 
     fetchProfileData()
-    if (completedTasks?.length === 8 && !profileData?.profile?.lastName) {
+    if (completedTasks?.length === 20 && profileData?.profile?.lastName === '') {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
@@ -72,33 +72,36 @@ const FillProfileForTasks: React.FC<Props> = ({
     return null
   }
   return (
-    <div className={style.modal}>
-      <form onSubmit={handleSubmit}>
-        <div className={style.container}>
-          <div className={style.title}>
-            <Image src={giftIcon} alt="" width={30} height={30} />
-            <span>{t('FILL_PROFILE_FOR_TASKS_HEADER')}</span>
-          </div>
-          <div className={style.form}>
-            {!isShowingSecondSide ? (
-              <UserProfileFields />
-            ) : (
-              <ContactAndAgreementFields
-                phoneNumber={phoneNumber}
-                setPhoneNumber={setPhoneNumber}
-                gender={gender}
-                setGender={setGender}
+    isUserLoggedIn &&
+    showProfileFiller && (
+      <div className={style.modal}>
+        <form onSubmit={handleSubmit}>
+          <div className={style.container}>
+            <div className={style.title}>
+              <Image src={giftIcon} alt="" width={30} height={30} />
+              <span>{t('FILL_PROFILE_FOR_TASKS_HEADER')}</span>
+            </div>
+            <div className={style.form}>
+              {!isShowingSecondSide ? (
+                <UserProfileFields />
+              ) : (
+                <ContactAndAgreementFields
+                  phoneNumber={phoneNumber}
+                  setPhoneNumber={setPhoneNumber}
+                  gender={gender}
+                  setGender={setGender}
+                />
+              )}
+              <ProfileFormButtons
+                isShowingSecondSide={isShowingSecondSide}
+                onSubmit={() => handleSubmit}
+                onClose={() => setShowProfileFiller(false)}
               />
-            )}
-            <ProfileFormButtons
-              isShowingSecondSide={isShowingSecondSide}
-              onSubmit={() => handleSubmit}
-              onClose={() => setShowProfileFiller(false)}
-            />
+            </div>
           </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    )
   )
 }
 

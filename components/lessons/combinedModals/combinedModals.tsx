@@ -61,6 +61,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
       )}
 
       <StatsPagePerOnePercent
+      token={token}
         isUserLoggedIn={isUserLoggedIn}
         courseId={courseId}
         completedTasks={completedTasks}

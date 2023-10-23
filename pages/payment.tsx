@@ -45,7 +45,6 @@ const Payment: NextPage<PaymentProps> = () => {
             coupon as string,
             session?.user.accessToken,
           )
-          console.log(checkedPackage.orderId)
           if (checkedPackage) {
             console.log('alarmaaa')
             const packageData = await getPackageDataById(
