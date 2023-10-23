@@ -1,4 +1,8 @@
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import style from './dashboard.module.scss'
+import { useSession } from 'next-auth/react'
+import { Locale } from '../utils/localization'
 import { FC, useEffect, useState } from 'react'
 import { PageHead } from '../components/PageHead'
 import { Header } from '../components/header/Header'
@@ -14,7 +18,6 @@ import DownloadAppBox from '../components/shared/DownloadAppBox'
 import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
 import { LANGUAGE_NAMES } from '../utils/languages'
 
-
 interface Standard {
   courses: SubCourse[]
   name: string
@@ -29,21 +32,22 @@ interface Language {
   standards: Standard[]
 }
 
-const Dashboard: FC = () => {
+const Dashboard: NextPage = () => {
   const { t } = useTranslation()
   const [loading, setLoading] = useState<boolean>(true)
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [activeLang, setActiveLang] = useState<number>(0)
+  // const locale = router.locale ?? 'en'
+  const { data: session } = useSession()
 
   useEffect(() => {
     handleMyCourses()
     setLoading(false)
   }, [])
   const handleMyCourses = () => {
-    if (typeof window !== 'undefined') {
-      const token = window.localStorage.getItem('authToken') as string
-      return getMyCoursesData(token).then(response =>
-        setMyLanguages(response?.data.languages),
+    if (session) {
+      return getMyCoursesData(session.user.accessToken).then(response =>
+        setMyLanguages(response.data.languages),
       )
     }
   }

@@ -3,7 +3,6 @@ import { Dialog } from './Dialog'
 import { Grammar } from './Grammar'
 import style from './ChatHistory.module.scss'
 import { TaskData } from '@utils/lessons/getTask'
-import { DictationBubble } from './chatBubbles/DictationBubble'
 import { TranslateBubble } from './chatBubbles/TranslateBubble'
 
 interface HistoryProps {
@@ -20,14 +19,16 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
           <div key={task.ordinalNumber} className={style.chatHistory}>
             {taskType === 'dictation' && (
               <>
-                <DictationBubble
-                  type="taskDescription"
+                <TranslateBubble
+                  utteranceType="taskDescription"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
                 />
-                <DictationBubble
-                  type="answer"
+                <TranslateBubble
+                  utteranceType="answer"
+                  textType={taskType}
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}

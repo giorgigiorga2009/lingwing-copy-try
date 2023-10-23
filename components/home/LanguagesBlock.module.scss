@@ -7,7 +7,6 @@
   flex-wrap: wrap;
   gap: 1.5rem;
 
-
   @include tablet {
     flex-wrap: wrap;
     width: 40rem;
@@ -21,11 +20,9 @@
     gap: 1rem;
     margin-top: 5rem;
     .item {
-      flex: 0 0 calc(18%);  
+      flex: 0 0 calc(18%);
     }
   }
-
-  
 }
 
 .start {

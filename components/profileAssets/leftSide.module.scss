@@ -1,35 +1,40 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .leftContainer {
   width: 50%;
   background-color: $white-100;
-  padding: 0rem 3.5rem;
-  border-radius: 20px 0px 0px 20px;
+  padding: 20px 51px;
+  border-radius: 20px 0 0 20px;
+  padding-bottom: 30px;
 
   & > div {
     width: 100%;
     position: relative;
     margin-top: 42px;
     padding-left: 10px;
+
     .phone {
       margin-left: 10px;
       max-width: 100%;
     }
+
     input {
       width: 100%;
       max-width: 25rem;
       font-family: SegoeUI, 'sans-serif';
       color: $black;
-      font-size: .9rem;
+      font-size: 0.9rem;
       padding-left: 20px;
       height: 2.5rem;
       border-radius: 3rem;
       border: 1px solid $grey-800;
+
       &:focus {
         border: none;
         outline: 2px solid $purple-500;
       }
     }
+
     label {
       position: absolute;
       font-family: SegoeUI, 'sans-serif';
@@ -42,10 +47,12 @@
       }
     }
   }
+
   .birthDate {
     width: 100%;
     display: flex;
   }
+
   .gender {
     width: 100%;
     height: 2rem;
@@ -58,52 +65,53 @@
 
     label {
       position: static;
-      font-size: .9rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: background-image .2s ease-in-out;
-      
-      @include smallWidth{
-        font-size: .7rem;
+      transition: background-image 0.2s ease-in-out;
+
+      @include smallWidth {
+        font-size: 0.7rem;
       }
-      @include tablet{
-        font-size: .8rem;
+      @include tablet {
+        font-size: 0.8rem;
       }
     }
 
-    .maleLabel{
+    .maleLabel {
       background-image: url('/assets/images/icons8-male-50.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 0rem 0rem;
       padding-left: 1rem;
     }
-    .maleLabelActive{
+    .maleLabelActive {
       background-image: url('/assets/images/icons8-standing-man-50.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 0rem 0rem;
       padding-left: 1rem;
     }
-    .femaleLabel{
+    .femaleLabel {
       background-image: url('/assets/images/icons8-woman-50.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 0rem 0rem;
       padding-left: 1rem;
     }
-    .femaleLabelActive{
+    .femaleLabelActive {
       background-image: url('/assets/images/icons8-woman-50-active.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 0rem 0rem;
       padding-left: 1rem;
     }
-    
+
     div {
       width: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
+
       input[type='radio'] {
         // width: 1.25rem;
         // height: 1.25rem;
@@ -113,10 +121,12 @@
       }
     }
   }
+
   @include mobile {
     width: 100%;
-    border-radius: 20px 20px 0px 0px;
-    padding: 0px 20px;
+    border-radius: 20px 20px 0 0;
+    padding: 0 20px;
+
     div {
       input {
         width: 100%;

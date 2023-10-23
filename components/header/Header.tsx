@@ -5,15 +5,11 @@ import { SideMenu } from './SideMenu'
 import { useRouter } from 'next/router'
 import style from './Header.module.scss'
 import UserAvatar from '../shared/UserAvatar'
-import { FC, useState, useEffect } from 'react'
+import { FC, useState } from 'react'
 import { LocalesDropdown } from './LocalesDropdown'
 import { LoginModal } from '../loginWindow/LoginModal'
 import { useTranslation } from '@utils/useTranslation'
-
-import loggers from '@components/loggers'
-
-//import { useSession, signIn, signOut } from 'next-auth/react'
-
+import { useSession } from 'next-auth/react'
 
 interface Props {
   size?: 's' | 'm'
@@ -23,20 +19,9 @@ interface Props {
 export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [openSideMenu, setOpenSideMenu] = useState(false)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
-  // const { data: session } = useSession()
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // loggers.logError(console.error);
-      const token = window.localStorage.getItem('authToken') as string
-      const logined = token !== null
-      setIsAuthenticated(logined)
-    }
-  }, [])
-
+  const { data: session } = useSession()
   const isDashboard = router.pathname.includes('dashboard')
 
   return (
@@ -53,8 +38,7 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
       </div>
       <div className={style.rightBlock}>
         <LocalesDropdown />
-        {/* </div>{session ? ( */}
-        {isAuthenticated ? (
+        {session ? (
           <>
             {!isDashboard && (
               <Link

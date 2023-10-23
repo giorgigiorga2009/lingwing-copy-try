@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getCertificate, generateCertificateTextProps } from '@utils/getCertificate'
+import {
+  getCertificate,
+  generateCertificateTextProps,
+} from '@utils/getCertificate'
 import style from '@pages/certificate.module.scss'
 import Image from 'next/image'
 import certificateBg from '/public/themes/images/v2/certificate/bg.png'

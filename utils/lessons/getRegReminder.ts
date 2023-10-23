@@ -1,9 +1,9 @@
-import { PaymentsProps } from "@utils/getUserPayemnts"
+import { PaymentsProps } from '@utils/getUserPayemnts'
 
 export interface RegistrationReminderPopupProps {
   courseName?: string | string[]
-  paymentsData?: PaymentsProps | null 
-  dailyLimitDate?:  string | Date
+  paymentsData?: PaymentsProps | null
+  dailyLimitDate?: string | Date
   duration?: number
   price?: number
   language?: string | string[] | undefined
@@ -60,7 +60,8 @@ export type PackageDataForLessonsFlow = {
           recurringPrice: number
           _id: { symbol: string }
         },
-      ]}
+      ]
+    },
   ]
   currencies: [
     {

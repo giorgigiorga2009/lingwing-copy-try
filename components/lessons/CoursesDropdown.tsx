@@ -33,7 +33,7 @@ export const CoursesDropdown: FC<Props> = ({
       <button className={style.button} onClick={() => setOpen(!open)}>
         <div className={classNames(style.flag, style[languageTo])} />
         {currentCourse?.title[interfaceLanguage]}
-        <div className={style.arrow} />
+        {/* <div className={style.arrow} /> */}
       </button>
       {open && (
         <div className={style.dropdownContent}>

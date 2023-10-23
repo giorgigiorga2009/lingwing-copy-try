@@ -5,10 +5,11 @@ import { useTranslation } from '@utils/useTranslation'
 import { ProfileData, PutData } from '@utils/profileEdit'
 import Image from 'next/image'
 import giftIcon from '@public/themes/images/v2/gift_icon.png'
-import prepareJsonData from '@utils/profileData'
+import { prepareJsonData } from '@utils/profileData'
 import UserProfileFields from './userProfileFields'
 import ContactAndAgreementFields from './contactAndAgreementFields'
 import ProfileFormButtons from './buttons'
+import { useSession } from 'next-auth/react'
 import { getUserProfileData } from '@utils/auth'
 import { TaskData } from '@utils/lessons/getTask'
 
@@ -25,6 +26,7 @@ const FillProfileForTasks: React.FC<Props> = ({
   const [isShowingSecondSide, setIsShowingSecondSide] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState<string>('')
   const [gender, setGender] = useState<number>(0)
+  const { data: session } = useSession()
   const [showProfileFiller, setShowProfileFiller] = useState<boolean>(false)
   const [profileData, setPRofileData] = useState<ProfileData | undefined>(
     undefined,
@@ -32,16 +34,11 @@ const FillProfileForTasks: React.FC<Props> = ({
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const token = localStorage.getItem('authToken')
-    if (!token) {
-      console.error('No token found in local storage.')
-      return
-    }
     const jsonData = prepareJsonData(e, phoneNumber)
     setIsShowingSecondSide(true)
 
     try {
-      await PutData(jsonData, token)
+      session && (await PutData(jsonData, session?.user.accessToken))
       if (isShowingSecondSide) {
         setShowProfileFiller(false)
         //here needs to be added api call to give away bonus tasks
@@ -72,38 +69,37 @@ const FillProfileForTasks: React.FC<Props> = ({
   }, [completedTasks])
 
   if (!isUserLoggedIn || !showProfileFiller) {
-    return null;
+    return null
   }
   return (
-    
-      <div className={style.modal}>
-        <form onSubmit={handleSubmit}>
-          <div className={style.container}>
-            <div className={style.title}>
-              <Image src={giftIcon} alt="" width={30} height={30} />
-              <span>{t('FILL_PROFILE_FOR_TASKS_HEADER')}</span>
-            </div>
-            <div className={style.form}>
-              {!isShowingSecondSide ? (
-                <UserProfileFields />
-              ) : (
-                <ContactAndAgreementFields
-                  phoneNumber={phoneNumber}
-                  setPhoneNumber={setPhoneNumber}
-                  gender={gender}
-                  setGender={setGender}
-                />
-              )}
-              <ProfileFormButtons
-                isShowingSecondSide={isShowingSecondSide}
-                onSubmit={() => handleSubmit}
-                onClose={() => setShowProfileFiller(false)}
-              />
-            </div>
+    <div className={style.modal}>
+      <form onSubmit={handleSubmit}>
+        <div className={style.container}>
+          <div className={style.title}>
+            <Image src={giftIcon} alt="" width={30} height={30} />
+            <span>{t('FILL_PROFILE_FOR_TASKS_HEADER')}</span>
           </div>
-        </form>
-      </div>
-    )
+          <div className={style.form}>
+            {!isShowingSecondSide ? (
+              <UserProfileFields />
+            ) : (
+              <ContactAndAgreementFields
+                phoneNumber={phoneNumber}
+                setPhoneNumber={setPhoneNumber}
+                gender={gender}
+                setGender={setGender}
+              />
+            )}
+            <ProfileFormButtons
+              isShowingSecondSide={isShowingSecondSide}
+              onSubmit={() => handleSubmit}
+              onClose={() => setShowProfileFiller(false)}
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  )
 }
 
 export default FillProfileForTasks

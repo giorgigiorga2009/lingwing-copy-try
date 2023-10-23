@@ -15,8 +15,9 @@
   @include smallWidth {
     height: 50rem;
     align-items: start;
-    padding: 0rem 1.5rem;
+    padding: 0 1.5rem;
   }
+
   @include mobile {
     height: 50rem;
   }
@@ -41,12 +42,14 @@
     max-width: 28.5rem;
     height: 31.5rem;
     width: auto;
-    margin: 8rem 4vw 1rem 0rem;
+    margin: 8rem 4vw 1rem 0;
   }
 }
+
 .flagstyle {
-    width: 5rem;
-    height:auto;
+  width: 5rem;
+  height: auto;
+
   @include mobile {
     width: 4rem;
   }
@@ -63,6 +66,7 @@
   }
  
 }
+
 .bubbleContainerEsp {
   position: relative;
   top: 0.5rem;
@@ -99,7 +103,6 @@
   transform: scale(-1, 1);
 
   @include smallWidth {
-    margin-top: 15%;
     max-width: 11rem;
     margin-top: 20%;
   }
@@ -120,13 +123,14 @@
   flex-direction: column;
   justify-content: center;
   background-image: url('/assets/images/logoutPlane.png');
-  background-position: 0px 60vh;
+  background-position: 0 60vh;
   background-repeat: no-repeat;
   background-size: contain;
 
   @include smallWidth {
     background-position: 0 88%;
   }
+
   @include mobile {
     background-position: 0 85%;
     margin-top: 4rem;
@@ -153,6 +157,7 @@
   @include smallWidth {
     text-align: left;
   }
+
   @include desktop {
     align-items: start;
   }
@@ -166,6 +171,7 @@
   @include mobile {
     max-height: 11vh;
   }
+
   @include desktop {
     // margin-bottom: .5rem;
   }
@@ -181,17 +187,21 @@
   h2 {
     font-weight: 100;
     font-family: HVDComicSerifPro, bpg_arial_2009;
+
     @include mobile {
       font-size: 1.7rem;
     }
+
     @include tablet {
       max-width: none;
       font-size: 5vw;
     }
+
     @include desktop {
       max-width: none;
       font-size: 3.2vw;
     }
+
     &:lang(ka) {
       font-family: $kaFont;
     }
@@ -204,6 +214,7 @@
   margin-top: -2%;
   text-align: start;
   font-family: SegoeUI;
+
   @include mobile {
     font-size: 1.1rem;
   }
@@ -211,6 +222,7 @@
   @include tablet {
     margin: 0.25rem 0;
   }
+
   @include desktop {
     margin: -1.563rem 0;
   }
@@ -227,10 +239,12 @@
   @include smallWidth {
     margin-bottom: 13%;
   }
+
   @include mobile {
     margin-bottom: 10rem;
     font-size: 1rem;
   }
+
   @include tablet {
     display: flex; // do we need those displays?
     margin-bottom: 10.25rem;
@@ -244,6 +258,7 @@
 
 .numbersList {
   display: initial;
+
   @include tablet {
     display: initial;
   }
@@ -258,9 +273,11 @@
   font-weight: 700;
   max-width: 12.5rem;
   text-align: start;
+
   @include mobile {
     font-size: 0.95rem;
   }
+
   @include tablet {
     max-width: 12.5rem;
     margin-right: 5rem;
@@ -289,6 +306,7 @@
 
 .speciesText {
   font-family: SegoeUI;
+
   &:lang(ka) {
     font-family: $kaFont;
   }

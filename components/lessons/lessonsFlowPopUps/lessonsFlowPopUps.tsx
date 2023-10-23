@@ -32,8 +32,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   const [packagesData, setPackagesData] = useState<PackageData>()
   const [language, setLanguage] = useState<string>('English')
 
-
-
   const handleOpenLogin = useCallback(() => setOpenLogin(true), [])
 
   useEffect(() => {
@@ -82,16 +80,16 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   return (
     <div className={style.regReminder}>
       <div className={style.container}>
-          <RenderHeaderContent popUpNumber={popUpNumber} language={language} />
-          <div className={style.paragraph}>
-            <RenderParagraphContent
-              popUpNumber={popUpNumber}
-              completedTasks={completedTasks}
-              dailyLimitDate={dailyLimitDate}
-              totalTasksAmount={courseData?.info.tasksQuantity}
-              packetTitle={packetTitle}
-            />
-          </div>
+        <RenderHeaderContent popUpNumber={popUpNumber} language={language} />
+        <div className={style.paragraph}>
+          <RenderParagraphContent
+            popUpNumber={popUpNumber}
+            completedTasks={completedTasks}
+            dailyLimitDate={dailyLimitDate}
+            totalTasksAmount={courseData?.info.tasksQuantity}
+            packetTitle={packetTitle}
+          />
+        </div>
         <div className={style.mainPart}>
           {regReminderTitle.map((item, index) => (
             <PopUpCircle

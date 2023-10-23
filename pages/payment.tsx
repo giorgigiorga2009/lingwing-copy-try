@@ -1,5 +1,6 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { NextPage } from 'next'
 import Image from 'next/image'
 import { useTranslation } from '@utils/useTranslation'
 import styles from './payment.module.scss'
@@ -21,17 +22,16 @@ import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
-// import LessonsFlowPopUps from '@components/lessons/lessonsFlowPopUps/lessonsFlowPopUps'
-// import RateLingwing from '@components/lessons/rateLingwing/rateLingwing'
+import { useSession } from 'next-auth/react'
 
-
-const Payment: React.FC<PaymentProps> = () => {
+const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()
   const router = useRouter()
   const selectedCurrency = useStore(state => state.selectedCurrency)
   const [payWithListData, setPayWithListData] = useState<PaymentMethod[]>([])
   const [data, setData] = useState<PackageResponse>()
   const { id, coupon } = router.query
+  const { data: session } = useSession()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,13 +39,20 @@ const Payment: React.FC<PaymentProps> = () => {
         const payWithList = await getPayWithList()
         setPayWithListData(payWithList)
 
-        if (id) {
+        if (id && session) {
           const checkedPackage = await getCheckedPackageId(
             id as string,
             coupon as string,
+            session?.user.accessToken,
           )
-          if (checkedPackage?.orderId) {
-            const packageData = await getPackageDataById(checkedPackage.orderId)
+          console.log(checkedPackage.orderId)
+          if (checkedPackage) {
+            console.log('alarmaaa')
+            const packageData = await getPackageDataById(
+              checkedPackage.orderId,
+              session?.user.accessToken,
+            )
+            console.log(packageData, 'ss')
             setData(packageData)
           }
         }
@@ -112,7 +119,7 @@ const Payment: React.FC<PaymentProps> = () => {
             {t('PAYMENT_INFO_CARD_MEMBERSHIP')}
           </span>
         </h2>
-        <CountdownTimer />
+        <CountdownTimer token={session?.user.accessToken} />
         <div className={styles.pHeader}>
           <p>{t('PAYMENT_CHOOSE_PAYMENT_TYPE')}</p>
         </div>
@@ -137,10 +144,9 @@ const Payment: React.FC<PaymentProps> = () => {
             packetTitle={data?.packages[0].title}
           />
         </div> */}
-        {/* <div className={styles.regReminder}>
+      {/* <div className={styles.regReminder}>
         <RateLingwing/>
         </div> */}
-         
     </div>
   )
 }

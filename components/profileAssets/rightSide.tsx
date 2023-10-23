@@ -1,13 +1,13 @@
+import Link from 'next/link'
+import Social from './Social'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import style from './rightSide.module.scss'
 import ImageComponent from './imageComponent'
-import Social from './Social'
-import arrow from '@/public/assets/images/arrows/arrow-right-white-v2.png'
-import { facebook, linkedin, google, twitter, padlock } from './imports'
-import { useTranslation } from '@utils/useTranslation'
 import { ProfileData } from '@utils/profileEdit'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useTranslation } from '@utils/useTranslation'
+import { facebook, linkedin, google, twitter, padlock } from './imports'
+import arrow from '@/public/assets/images/arrows/arrow-right-white-v2.png'
 
 type Props = {
   data?: ProfileData
@@ -15,13 +15,9 @@ type Props = {
   onProfilePictureChange: (value: string) => void
 }
 
-const RightSide: React.FC<Props> = ({
-  data,
-  ProfilePicture,
-  onProfilePictureChange,
-}) => {
-  const [profilePicture, setProfilePicture] = useState<string>('')
+const RightSide: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation()
+  const [profilePicture, setProfilePicture] = useState<string>('')
 
   return (
     <div className={style.rightContainer}>
@@ -32,29 +28,33 @@ const RightSide: React.FC<Props> = ({
       <h4>{t('APP_PROFILE_CONNECT_SOCIAL')}</h4>
       <div className={style.socialLinks}>
         <Social
+          network="facebook"
           image={facebook.src}
-          arrow={arrow.src}
+          arrowOrTic={data?.socials.facebook.enabled}
           color="rgb(82, 91, 172)"
           width={12}
           height={20}
         />
         <Social
+          network="google"
           image={google.src}
-          arrow={arrow.src}
+          arrowOrTic={data?.socials.google.enabled}
           color="rgb(227, 78, 78)"
           width={27}
           height={20}
         />
         <Social
+          network="twitter"
           image={twitter.src}
-          arrow={arrow.src}
+          arrowOrTic={data?.socials.twitter.enabled}
           color="rgb(95, 193, 249)"
           width={24}
           height={20}
         />
         <Social
+          network="linkedin"
           image={linkedin.src}
-          arrow={arrow.src}
+          arrowOrTic={data?.socials.linkedin.enabled}
           color="rgb(85, 98, 216)"
           width={18}
           height={20}
@@ -64,7 +64,6 @@ const RightSide: React.FC<Props> = ({
       <h4>{t('APP_PROFILE_GETTING_NEWS')}</h4>
 
       <div className={style.switches}>
-        
         <label className={style.switch}>
           <input
             name="newsletterSubscription"
@@ -88,7 +87,7 @@ const RightSide: React.FC<Props> = ({
 
       <div className={style.changePassword}>
         <Image src={padlock.src} width={12} height={20} alt="" />
-        <Link href="#">{t('APP_PROFILE_CHANGE_PASSWORD')}</Link>
+        <Link href="/update-password">{t('APP_PROFILE_CHANGE_PASSWORD')}</Link>
         <Image src={arrow.src} width={12} height={20} alt="" />
       </div>
       <div className={style.agree}>
@@ -99,7 +98,9 @@ const RightSide: React.FC<Props> = ({
           {t('APP_MARKETING_POLICY_3')}
         </p>
       </div>
-      <button type="submit">{t('APP_GENERAL_SAVE_CHANGES')}</button>
+      <button className={style.button} type="submit">
+        {t('APP_GENERAL_SAVE_CHANGES')}
+      </button>
     </div>
   )
 }

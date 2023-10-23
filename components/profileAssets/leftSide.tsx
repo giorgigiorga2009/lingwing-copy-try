@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import style from './leftSide.module.scss'
-import ProfileInput from './profileInput'
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-import { useTranslation } from '@utils/useTranslation'
-import { ProfileData } from '@utils/profileEdit'
 import GenerateDate from './generateDate'
+import ProfileInput from './profileInput'
+import style from './leftSide.module.scss'
+import 'react-phone-number-input/style.css'
 import CountrySelector from './countrySelector'
+import { ProfileData } from '@utils/profileEdit'
+import PhoneInput from 'react-phone-number-input'
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from '@utils/useTranslation'
 
 type Props = {
   data?: ProfileData
@@ -18,9 +18,8 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
   const [lastNameFocus, setLastNameFocus] = useState<boolean>(false)
   const [emailFocus, setEmailFocus] = useState<boolean>(false)
   const [phoneNumber, setPhoneNumber] = useState<string>('')
-  const [gender, setGender] = useState<number>(data?.profile?.gender || 0);
+  const [gender, setGender] = useState<number>(data?.profile?.gender || 0)
 
-  
   const { t } = useTranslation()
 
   const handlePhoneChange = (value?: string) => {
@@ -90,18 +89,21 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
         <label htmlFor="gender">{t('APP_PROFILE_GENDER')}:</label>
         <div>
           <input
-           type="radio"
-           name="gender"
-           id="male"
-           value="1"
-           checked={gender === 1}
-           onChange={() => setGender(1)}
+            type="radio"
+            name="gender"
+            id="male"
+            value="1"
+            checked={gender === 1}
+            onChange={() => setGender(1)}
           />
 
-          <label htmlFor="male" className={gender === 1 ? style.maleLabelActive : style.maleLabel} data-text={t('APP_PROFILE_MALE')}>
+          <label
+            htmlFor="male"
+            className={gender === 1 ? style.maleLabelActive : style.maleLabel}
+            data-text={t('APP_PROFILE_MALE')}
+          >
             {t('APP_PROFILE_MALE')}
-            </label>
-
+          </label>
         </div>
         <div>
           <input
@@ -112,9 +114,14 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
             checked={gender === 2}
             onChange={() => setGender(2)}
           />
-          <label htmlFor="female" className={gender === 2  ? style.femaleLabelActive : style.femaleLabel}>
+          <label
+            htmlFor="female"
+            className={
+              gender === 2 ? style.femaleLabelActive : style.femaleLabel
+            }
+          >
             {t('APP_PROFILE_FEMALE')}
-            </label>
+          </label>
         </div>
       </div>
 

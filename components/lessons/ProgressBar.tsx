@@ -20,7 +20,10 @@ const ProgressBar: FC<Props> = ({ currentCourseObject, userScore }) => {
         </span>
       </div>
       <div className={style.progressContainer}>
-        <span className={style.progress} />
+        <span
+          className={style.progress}
+          style={{ width: parseFloat(currentCourseObject.percent) + '%' }}
+        />
       </div>
     </div>
   )

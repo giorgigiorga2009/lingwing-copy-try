@@ -1,0 +1,65 @@
+@import '@styles/imports';
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: SegoeUI;
+  flex-direction: column;
+  background-color: $white-100;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+}
+
+.window {
+  display: flex;
+  width: 100%;
+  min-height: 29rem;
+  max-height: 29rem;
+  max-width: 45rem;
+  padding: 1.5rem;
+  border-radius: 2vw;
+  background-color: $white;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 8%;
+
+  label {
+    align-self: flex-start;
+    font-size: 0.9rem;
+    color: $grey-300;
+    margin-left: 11%;
+    margin-top: auto;
+  }
+
+  input {
+    font-size: 1.2rem;
+    color: $black;
+    border-radius: 2rem;
+    height: 3rem;
+    width: 90%;
+    max-width: 35rem;
+    padding: 0 0 0.2rem 1.2rem;
+    border: 2px solid $grey-100;
+    outline-color: $purple-500;
+  }
+
+  button {
+    border-radius: 2rem;
+    height: 3rem;
+    width: 15rem;
+    border: none;
+    font-family: SegoeUI;
+    font-size: 1rem;
+    color: $grey-800;
+    margin: 1.5rem;
+    cursor: pointer;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
+  }
+}

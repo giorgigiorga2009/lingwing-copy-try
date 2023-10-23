@@ -1,9 +1,7 @@
-
-
 declare global {
-    namespace NodeJS {
-        interface Global {
-            areLogsEnabled?: boolean;
-        }
+  namespace NodeJS {
+    interface Global {
+      areLogsEnabled?: boolean
     }
+  }
 }

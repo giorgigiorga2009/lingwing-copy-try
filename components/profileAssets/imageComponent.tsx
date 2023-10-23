@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
-import style from './image.module.scss'
-import Cropper from 'react-easy-crop'
-import { Area, Point } from 'react-easy-crop'
 import Swal from 'sweetalert2'
+import Cropper from 'react-easy-crop'
+import style from './image.module.scss'
+import { useSession } from 'next-auth/react'
+import { Area, Point } from 'react-easy-crop'
 import { UploadImage } from '@utils/profileEdit'
 import { useTranslation } from '@utils/useTranslation'
+import React, { useState, useEffect, useRef } from 'react'
 
 type Prop = {
   CroppedImage: (image: string) => void
@@ -12,6 +13,7 @@ type Prop = {
 }
 
 export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
+  const { data: session } = useSession()
   const [image, setImage] = useState<string>('')
   const [crop, setCrop] = useState<Area>({ x: 0, y: 0, width: 1, height: 1 })
   const [croppedImage, setCroppedImage] = useState<string>('')
@@ -122,22 +124,23 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
   }
 
   const handleClick = async (e: React.MouseEvent<HTMLInputElement>) => {
-    const token = localStorage.getItem('authToken')
-    if (e.currentTarget.value === t('APP_PROFILE_UPLOAD_IMAGE')) {
-      handleSave()
-      try {
-        const res = await UploadImage(token, croppedImage)
-        setImageLink(res.data.data)
-      } catch (error) {
-        Swal.fire({
-          title: 'Error',
-          text: 'Failed to upload image',
-          icon: 'error',
-          showConfirmButton: true,
-          confirmButtonColor: 'rgb(105 46 150)', // Set your desired button color here
-          confirmButtonText: 'OK',
-        })
-        console.error('UploadImage error:', error)
+    if (session) {
+      if (e.currentTarget.value === t('APP_PROFILE_UPLOAD_IMAGE')) {
+        handleSave()
+        try {
+          const res = await UploadImage(session.user.accessToken, croppedImage)
+          setImageLink(res.data.data)
+        } catch (error) {
+          Swal.fire({
+            title: 'Error',
+            text: 'Failed to upload image',
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonColor: 'rgb(105 46 150)', // Set your desired button color here
+            confirmButtonText: 'OK',
+          })
+          console.error('UploadImage error:', error)
+        }
       }
     } else {
       e.preventDefault()
@@ -160,16 +163,14 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
           <img src={croppedImage} alt="User avatar" />
         ) : (
           <>
-          <label htmlFor="upload">
-            {t("APP_PROFILE_UPLOAD_IMAGE")}
-          </label>
-          <input
-            id="upload"
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-          />
-        </>
+            <label htmlFor="upload">{t('APP_PROFILE_UPLOAD_IMAGE')}</label>
+            <input
+              id="upload"
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
+          </>
         )}
       </div>
 

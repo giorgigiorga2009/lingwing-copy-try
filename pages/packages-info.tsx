@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextPage } from 'next'
 import style from './packages-info.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import { Header } from '@components/header/Header'
@@ -7,7 +8,7 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import { Footer } from '@components/wizard/Footer'
 import PlanSelection from '@components/packages-info/planSelection'
 
-const PackagesInfo = () => {
+const PackagesInfo: NextPage = () => {
   const { t } = useTranslation()
 
   return (
