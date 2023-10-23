@@ -138,7 +138,7 @@ export const getPayWithList = async (): Promise<PaymentMethod[]> => {
 }
 
 export const getUserProfileCreationDate = async (
-  authToken: string | undefined,
+  authToken: string | null,
 ) => {
   try {
     const response = await axios.get(

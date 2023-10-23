@@ -6,7 +6,7 @@ import { useTranslation } from '@utils/useTranslation'
 interface CountDownTimerProps {
   forLessonsFlowN2?: boolean
   dailyLimitDate?: string | Date
-  token: string | undefined
+  token: string | null
 }
 
 const CountdownTimer: React.FC<CountDownTimerProps> = ({

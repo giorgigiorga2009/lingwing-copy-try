@@ -216,6 +216,7 @@ const Lessons: NextPage = () => {
     <div className={style.container}>
       <Header size="s" />
       <CombinedModalComponent
+      token={token}
         courseName={courseName}
         courseId={courseId}
         isUserLoggedIn={isUserLoggedIn}

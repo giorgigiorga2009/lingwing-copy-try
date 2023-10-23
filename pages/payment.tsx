@@ -119,7 +119,7 @@ const Payment: NextPage<PaymentProps> = () => {
             {t('PAYMENT_INFO_CARD_MEMBERSHIP')}
           </span>
         </h2>
-        <CountdownTimer token={session?.user.accessToken} />
+        <CountdownTimer token={session?.user.accessToken as string | null} />
         <div className={styles.pHeader}>
           <p>{t('PAYMENT_CHOOSE_PAYMENT_TYPE')}</p>
         </div>
