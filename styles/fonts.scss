@@ -12,6 +12,7 @@
       format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -22,6 +23,7 @@
       format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -34,6 +36,7 @@
       format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -47,6 +50,7 @@
       format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -59,6 +63,7 @@
       format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -73,6 +78,7 @@
       format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -87,6 +93,7 @@
       format('truetype'),
     url('../public/assets/fonts/BPG-Nino-Mtavruli/bpg-nino-mtavruli-webfont.svg#bpg_nino_mtavruliregular')
       format('svg');
+      font-display: swap;
 }
 
 
@@ -104,6 +111,7 @@
       format('truetype'),
     url('../public/assets/fonts/BGP-Nino-Mtavruli-Bold/bpg-nino-mtavruli-bold-webfont.svg#bpg_nino_mtavrulibold')
       format('svg');
+      font-display: swap;
 }
 
 @font-face {
@@ -115,6 +123,7 @@
     url('../public/assets/fonts/bpg_arial_2009.ttf') format('truetype'),
     url('../public/assets/fonts/bpg_arial_2009.svg#bpg_arial_2009')
       format('svg');
+      font-display: swap;
 }
 
 
@@ -131,6 +140,7 @@
       format('truetype'),
     url('../public/assets/fonts/BGP-Ingiri/bpg-ingiri-webfont.svg#bpg_ingiriregular')
       format('svg');
+      font-display: swap;
 }
 
 @font-face {
@@ -143,6 +153,7 @@
     url('../public/assets/fonts/loyola/Loyola.svg#Loyola') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -155,6 +166,7 @@
     url('../public/assets/fonts/Helvetica-GEO-75-MT/HelveticaNeueLTGEO75Mt-Bold.svg') format('SVG');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 
@@ -168,6 +180,7 @@
     url('../public/assets/fonts/NotoSansGeorgian-Medium/NotoSansGeorgian-Medium.svg') format('SVG');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -180,6 +193,7 @@
     url('../public/assets/fonts/NotoSansGeorgian-SemiBold/NotoSansGeorgian-SemiBold.svg') format('SVG');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 $kaFont: 'Noto Sans Georgian SemiBold';
