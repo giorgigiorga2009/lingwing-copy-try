@@ -56,19 +56,22 @@
   position: relative;
   top: 7rem;
   right: 7.5rem;
+  display: none;
 
-  @media (max-width: 1600px) {
-    display: none;
+  @include desktop-wide{
+    display: block;
   }
+ 
 }
 .bubbleContainerEsp {
   position: relative;
   top: 0.5rem;
   right: 12rem;
   rotate: -28deg;
+  display: none;
 
-  @media (max-width: 1650px) {
-    display: none;
+  @include desktop-wide{
+    display: block;
   }
 }
 

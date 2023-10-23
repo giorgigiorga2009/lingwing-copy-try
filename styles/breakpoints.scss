@@ -3,6 +3,7 @@ $mobile_end: 767px;
 $tablet_start: 768px;
 $tablet_end: 1023px;
 $desktop_start: 1024px;
+$desktop_wide: 1650px;
 $small_desktop_height: 900px;
 $small_height: 650px;
 $height_800: 800px;
@@ -29,6 +30,11 @@ $height_800: 800px;
 
 @mixin desktop {
   @media (min-width: $desktop_start) {
+    @content;
+  }
+}
+@mixin desktop-wide{
+  @media (min-width: $desktop_wide){
     @content;
   }
 }
