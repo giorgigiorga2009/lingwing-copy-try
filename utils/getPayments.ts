@@ -137,23 +137,17 @@ export const getPayWithList = async (): Promise<PaymentMethod[]> => {
     })
 }
 
-let authToken = ''
-if (typeof window !== 'undefined') {
-  authToken = localStorage.getItem('authToken') || ''
-}
-const authConfig = {
-  headers: {
-    Authorization: authToken,
-  },
-}
-
-// returns countDown
-
-export const getUserProfileCreationDate = async () => {
+export const getUserProfileCreationDate = async (
+  authToken: string | null,
+) => {
   try {
     const response = await axios.get(
       `${process.env.DEFAULT_URL}/user/profile`,
-      authConfig,
+      {
+        headers: {
+          Authorization: authToken ?? '',
+        },
+      },
     )
     return response.data.data.info.createDate
   } catch (error) {
@@ -166,6 +160,7 @@ export const getUserProfileCreationDate = async () => {
 export const getCheckedPackageId = async (
   Id: string,
   coupon: string,
+  authToken: string,
 ): Promise<any> => {
   try {
     const response = await axios.post(
@@ -176,7 +171,11 @@ export const getCheckedPackageId = async (
         promoCode: coupon,
         selectedCurrency: 'GEL',
       },
-      authConfig,
+      {
+        headers: {
+          Authorization: authToken,
+        },
+      },
     )
     return response.data.data
   } catch (error) {
@@ -187,12 +186,20 @@ export const getCheckedPackageId = async (
 
 export const getPackageDataById = async (
   id: string | number,
+  authToken: string | undefined,
 ): Promise<PackageResponse | undefined> => {
   try {
-    const res = await axios.get(`
-    ${process.env.DEFAULT_URL}/public/getorder/${id}`)
+    const res = await axios.get(
+      `${process.env.DEFAULT_URL}/public/getorder/${id}`,
+      {
+        headers: {
+          Authorization: authToken ?? '',
+        },
+      },
+    )
     return res.data.data
   } catch (error) {
     console.error(error)
+    throw error
   }
 }

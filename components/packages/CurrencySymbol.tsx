@@ -7,6 +7,14 @@ interface Props {
   symbol: string
 }
 
-export const CurrencySymbol: FC<Props> = ({whereTo, symbol }) => {
-  return <span className={classNames(style.symbol, {[style.symbolForFlowPopUp]: whereTo === 1})}>{symbol}</span>
+export const CurrencySymbol: FC<Props> = ({ whereTo, symbol }) => {
+  return (
+    <span
+      className={classNames(style.symbol, {
+        [style.symbolForFlowPopUp]: whereTo === 1,
+      })}
+    >
+      {symbol}
+    </span>
+  )
 }

@@ -13,7 +13,6 @@ import { fetchUserLocation } from '@utils/getUserLocation'
 //   return countries.getName(alpha2Code, 'ka', { select: 'official' })
 // }
 
-
 interface CustomCity {
   name: string
   countryCode: string
@@ -30,10 +29,10 @@ const CountrySelector: React.FC<Props> = ({
 }) => {
   const [country, setCountry] = useState(defaultCountry)
   const [city, setCity] = useState(defaultCity)
-  
+
   const { t } = useTranslation()
   const translatedCityName = (name: string): string => t(name)
-  
+
   useEffect(() => {
     const getUserLocation = async () => {
       const data = await fetchUserLocation()

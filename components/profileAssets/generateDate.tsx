@@ -108,7 +108,9 @@ const GenerateDate: React.FC<Props> = ({
     <div className={style.container}>
       <select
         name="year"
-        className={classNames(style.select1, {[style.lighterborderColor]: borderColor === 'lighterBorderColor'})}
+        className={classNames(style.select1, {
+          [style.lighterborderColor]: borderColor === 'lighterBorderColor',
+        })}
         value={selectedYear?.value}
         required={required}
         onChange={e =>
@@ -126,8 +128,9 @@ const GenerateDate: React.FC<Props> = ({
       </select>
       <select
         name="month"
-        className={classNames({[style.lighterborderColor]: borderColor === 'lighterBorderColor'})}
-
+        className={classNames({
+          [style.lighterborderColor]: borderColor === 'lighterBorderColor',
+        })}
         value={selectedMonth?.value}
         required={required}
         onChange={e =>
@@ -145,7 +148,9 @@ const GenerateDate: React.FC<Props> = ({
       </select>
       <select
         name="day"
-        className={classNames(style.select3, {[style.lighterborderColor]: borderColor === 'lighterBorderColor'})}
+        className={classNames(style.select3, {
+          [style.lighterborderColor]: borderColor === 'lighterBorderColor',
+        })}
         value={selectedDay?.value}
         required={required}
         onChange={e =>

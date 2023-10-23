@@ -10,7 +10,7 @@ interface Props {
   onBlur: () => void
   focused: boolean
   value?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const ProfileInput: React.FC<Props> = ({

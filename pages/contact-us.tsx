@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import React, { useState } from 'react'
 import style from './contact-us.module.scss'
 import { useFormik } from 'formik'
@@ -19,7 +20,7 @@ const validationSchema = Yup.object({
     .max(50),
 })
 
-const ContactUs = () => {
+const ContactUs: NextPage = () => {
   const [fullnameAnim, setFullnameAnim] = useState(false)
   const [subjectAnim, setSubjectAnim] = useState(false)
   const [messageAnim, setMessageAnim] = useState(false)

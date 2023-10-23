@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
 import style from './privacy-policy.module.scss'
 import { Header } from '@components/header/Header'
@@ -6,7 +7,7 @@ import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { usePrivacyPolicyData, HTMLRenderer } from '@utils/htmlRenderer'
 
-function PrivacyPolicy() {
+const PrivacyPolicy: NextPage = () => {
   const { t } = useTranslation()
   const { isLoading, isError, data: fetchedData } = usePrivacyPolicyData()
   const [data, setData] = useState<string | null>(null)

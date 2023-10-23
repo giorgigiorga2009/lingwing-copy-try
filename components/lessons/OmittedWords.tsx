@@ -1,4 +1,5 @@
 import style from './OmittedWords.module.scss'
+import { animated, useSpring } from 'react-spring'
 import { saveTask } from '@utils/lessons/saveTask'
 import {
   handleChange,
@@ -24,6 +25,7 @@ export const OmittedWords: FC<Props> = ({
   const [words, setWords] = useState<string[]>([])
   const [correctWords, setCorrectWords] = useState<string[]>([])
   const [mistakesCount, setMistakesCount] = useState(0)
+  const [taskProgress, setTaskProgress] = useState('0%')
 
   const inputRefs = useRef<HTMLInputElement[]>([])
   const currTask = commonProps.currentTask.correctText as string
@@ -48,6 +50,7 @@ export const OmittedWords: FC<Props> = ({
       setIsHintShown(false)
       newWords[index] = currentMatch
       setWords(newWords)
+      setTaskProgress(correctWords.length / wordsArray.length + '%')
 
       if (inputText.length === missingWord.length) {
         const nextInputRef = inputRefs.current
@@ -83,27 +86,33 @@ export const OmittedWords: FC<Props> = ({
   }, [])
 
   return (
-    <div className={style.inputContainer}>
-      {wordsArray.map((word, index) => {
-        if (word.startsWith('[')) {
-          const currentValue = words[index]
+    <>
+      <div className={style.taskProgress} style={{ width: taskProgress }}></div>
+      <div className={style.container}>
+        <div className={style.mistakes}> {mistakesCount} </div>
+        <div className={style.inputContainer}>
+          {wordsArray.map((word, index) => {
+            if (word.startsWith('[')) {
+              const currentValue = words[index]
 
-          return (
-            <input
-              className={style.input}
-              key={index}
-              value={currentValue ?? ''}
-              onChange={event => handleInputChange(event, index)}
-              onKeyDown={(event: React.KeyboardEvent) =>
-                handleOnKeyDown(event, inputRefs)
-              }
-              ref={el => (inputRefs.current[index] = el!)}
-            />
-          )
-        } else {
-          return <span key={index}>{word} </span>
-        }
-      })}
-    </div>
+              return (
+                <input
+                  className={style.input}
+                  key={index}
+                  value={currentValue ?? ''}
+                  onChange={event => handleInputChange(event, index)}
+                  onKeyDown={(event: React.KeyboardEvent) =>
+                    handleOnKeyDown(event, inputRefs)
+                  }
+                  ref={el => (inputRefs.current[index] = el!)}
+                />
+              )
+            } else {
+              return <span key={index}>{word} </span>
+            }
+          })}
+        </div>
+      </div>
+    </>
   )
 }

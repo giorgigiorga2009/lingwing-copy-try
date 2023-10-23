@@ -59,11 +59,14 @@ export const PutData = async (formObject: {}, token: string | null) => {
 
 export const GetProfileData = async (token: string | null) => {
   try {
-    const response = await axios.get(`${process.env.DEFAULT_URL}/user/profile`, {
-      headers: {
-        Authorization: token!,
+    const response = await axios.get(
+      `${process.env.DEFAULT_URL}/user/profile`,
+      {
+        headers: {
+          Authorization: token!,
+        },
       },
-    })
+    )
 
     // Return the response data
     return response.data.data

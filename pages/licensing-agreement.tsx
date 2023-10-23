@@ -1,15 +1,13 @@
+import { NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
 import style from './licensing-agreement.module.scss'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'
-import {
-  useLicencingAgreementData,
-  HTMLRenderer,
-} from '@utils/htmlRenderer'
+import { useLicencingAgreementData, HTMLRenderer } from '@utils/htmlRenderer'
 
-const LicencingAgreement = () => {
+const LicencingAgreement: NextPage = () => {
   const { t } = useTranslation()
   const { isLoading, isError, data: fetchedData } = useLicencingAgreementData()
   const [data, setData] = useState<string | null>(null)

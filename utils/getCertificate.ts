@@ -19,11 +19,9 @@ type CoursePeriod = {
 
 export const getCertificate = (userCourseId: string) => {
   return axios
-    .post( `${process.env.DEFAULT_URL}/certificate`,
-      {
-        userCourseId: userCourseId,
-      },
-    )
+    .post(`${process.env.DEFAULT_URL}/certificate`, {
+      userCourseId: userCourseId,
+    })
     .then(response => response.data.data)
     .catch(error => console.log(error))
 }

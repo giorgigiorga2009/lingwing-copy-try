@@ -6,11 +6,13 @@ import { useTranslation } from '@utils/useTranslation'
 interface CountDownTimerProps {
   forLessonsFlowN2?: boolean
   dailyLimitDate?: string | Date
+  token: string | null
 }
 
 const CountdownTimer: React.FC<CountDownTimerProps> = ({
   forLessonsFlowN2,
   dailyLimitDate,
+  token,
 }) => {
   const { t } = useTranslation()
   const [countdown, setCountdown] = useState<string>('')
@@ -35,7 +37,7 @@ const CountdownTimer: React.FC<CountDownTimerProps> = ({
     if (forLessonsFlowN2 && dailyLimitDate) {
       dateToUse = dailyLimitDate
     } else {
-      dateToUse = await getUserProfileCreationDate()
+      dateToUse = await getUserProfileCreationDate(token)
     }
 
     setCount(new Date(dateToUse).toISOString())

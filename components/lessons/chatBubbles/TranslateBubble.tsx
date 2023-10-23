@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import style from './TranslateBubble.module.scss'
 import UserAvatar from '@components/shared/UserAvatar'
@@ -8,6 +9,7 @@ interface Props {
   taskText: string
   correctText: string
   isCurrentTask: boolean
+  sentenceAudioPath?: string
   textType:
     | 'dictation'
     | 'translate'
@@ -16,14 +18,21 @@ interface Props {
     | 'replay'
     | 'mistakecorrection'
     | 'grammar'
+  answers?: number[]
 }
+
+const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
+  ssr: false,
+})
 
 export const TranslateBubble: FC<Props> = ({
   taskText,
   correctText,
   utteranceType,
   isCurrentTask,
+  sentenceAudioPath,
   textType,
+  answers,
 }) => {
   taskText = taskText
     .replaceAll('(FR)', '🤗')
@@ -31,6 +40,8 @@ export const TranslateBubble: FC<Props> = ({
     .replaceAll('(F)', '👧')
     .replaceAll('(M)', '👦')
     .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+
+  const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
 
   return (
     <div
@@ -48,10 +59,31 @@ export const TranslateBubble: FC<Props> = ({
         {textType !== 'replay' ? (
           <>
             <div className={style[textType + 'Icon']} />
-            <span
-              className={style.taskText}
-              dangerouslySetInnerHTML={{ __html: taskText }}
-            ></span>
+            {isCurrentTask && textType === 'dictation' ? (
+              <span className={style.waveform}>
+                <WaveSurferNext audioURL={audioUrl} />
+              </span>
+            ) : (
+              <span
+                className={style.taskText}
+                dangerouslySetInnerHTML={{ __html: taskText }}
+              ></span>
+            )}
+            {
+              // answers &&
+              utteranceType === 'taskDescription' && (
+                <div className={style.levelsContainer}>
+                  <div
+                    className={classNames(
+                      style.levels,
+                      //style[(!!answers[0]).toString()],
+                    )}
+                  ></div>
+                  <div className={style.levels}></div>
+                  <div className={style.levels}></div>
+                </div>
+              )
+            }
           </>
         ) : (
           <span className={style.taskText}>

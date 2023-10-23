@@ -1,11 +1,10 @@
 import Foco from 'react-foco'
 import style from './User.module.scss'
+import { useSession } from 'next-auth/react'
 import UserAvatar from '../shared/UserAvatar'
 import { UserDropdown } from './UserDropdown'
 import { FC, useEffect, useState } from 'react'
-import { getUserProfileData } from '../../utils/auth'
-// import { useSession, signIn, signOut } from "next-auth/react"
-
+import { getUserProfileData } from '@utils/auth'
 interface UserProfile {
   profile: {
     avatar: string
@@ -17,14 +16,13 @@ interface UserProfile {
 }
 
 const User: FC = () => {
-  const [userData, setUserData] = useState<UserProfile | null>(null)
+  const { data: session } = useSession()
   const [openDropdown, setOpenDropdown] = useState<boolean>(false)
-  //const { data: session } = useSession()
+  const [userData, setUserData] = useState<UserProfile | null>(null)
 
   const handleUserProfile = () => {
-    if (typeof window !== 'undefined') {
-      const token = window.localStorage.getItem('authToken') as string
-      return getUserProfileData(token).then(response =>
+    if (typeof window !== 'undefined' && session && !session?.user.email) {
+      return getUserProfileData(session.user.accessToken).then(response =>
         setUserData(response.data),
       )
     }
@@ -33,7 +31,6 @@ const User: FC = () => {
     handleUserProfile()
   }, [])
 
-
   return (
     <Foco
       component="div"
@@ -41,7 +38,7 @@ const User: FC = () => {
       onClickOutside={() => setOpenDropdown(false)}
     >
       {userData && (
-        <button 
+        <button
           className={style.button}
           onClick={() => setOpenDropdown(!openDropdown)}
         >
@@ -55,21 +52,19 @@ const User: FC = () => {
           {openDropdown && <UserDropdown />}
         </button>
       )}
-      {/* {session && (
-        <div
+      {session && !userData && (
+        <button
           className={style.button}
           onClick={() => setOpenDropdown(!openDropdown)}
         >
-          <UserAvatar image={session.user?.image} />
+          <UserAvatar image={session.user?.picture} />
           <p className={style.first_name}>
-            {session.user?.name 
-              ? session.user.name 
-              : session.user?.email  }
+            {session.user?.name ? session.user.name : session.user?.email}
           </p>
           <div className={style.arrow} />
           {openDropdown && <UserDropdown />}
-        </div>
-      )} */}
+        </button>
+      )}
     </Foco>
   )
 }

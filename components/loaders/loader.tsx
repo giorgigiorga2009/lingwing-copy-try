@@ -1,8 +1,8 @@
-import React from 'react';
-import style from './loader.module.scss';
+import React from 'react'
+import style from './loader.module.scss'
 
 const Loader = () => {
-  const { snippet, stage, dotPulse } = style;
+  const { snippet, stage, dotPulse } = style
 
   return (
     <div className={snippet} data-title="dot-pulse">
@@ -10,7 +10,7 @@ const Loader = () => {
         <div className={dotPulse} />
       </div>
     </div>
-  );
+  )
 }
 
-export default Loader;
+export default Loader

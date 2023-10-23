@@ -7,6 +7,7 @@ import { CourseObject, TaskData } from '@utils/lessons/getTask'
 import { PackageData } from '@utils/getPackages'
 
 type CombinedPopupProps = {
+  token: string | null
   courseName?: string | string[]
   courseId: string
   isUserLoggedIn: boolean
@@ -22,6 +23,7 @@ type CombinedPopupProps = {
 
 const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
   const {
+    token,
     courseName,
     courseId,
     isUserLoggedIn,
@@ -38,6 +40,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
     <>
       {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <LessonsFlowPopUps
+        token={token}
           popUpNumber={1}
           completedTasks={completedTasks.length}
           languageTo={languageTo}
@@ -50,6 +53,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
       />
       {isUserLoggedIn && !dailyTaskLeft && !currentCourseObject?.info.bonus && (
         <LessonsFlowPopUps
+        token={token}
           popUpNumber={2}
           dailyLimitDate={dailyReachedLimitDate}
           courseName={courseName}
@@ -57,6 +61,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
       )}
 
       <StatsPagePerOnePercent
+      token={token}
         isUserLoggedIn={isUserLoggedIn}
         courseId={courseId}
         completedTasks={completedTasks}

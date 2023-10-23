@@ -12,16 +12,6 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 const Stars: FC = () => {
-  useEffect(() => {
-    handleLogOut()
-  }, [])
-
-  const handleLogOut = () => {
-    if (typeof window !== 'undefined') {
-      window.localStorage.removeItem('authToken')
-    }
-  }
-
   return (
     <div>
       <div className={classNames(style.google, style.market)} />

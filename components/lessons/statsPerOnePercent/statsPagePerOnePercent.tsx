@@ -15,6 +15,7 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
   courseId,
   completedTasks,
   isUserLoggedIn,
+  token,
 }) => {
   const { t } = useTranslation()
   const [statsData, setStatsData] = useState<StatsDataProps>()
@@ -25,7 +26,7 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
     const fetchData = async () => {
       try {
         const accomplishStats = await getStatsPerPercent({
-          userCourseId: courseId,
+          userCourseId: courseId, token: token
         })
         setStatsData(accomplishStats)
         if (previousPercentRef.current === 0.1) {

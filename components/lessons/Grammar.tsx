@@ -38,14 +38,6 @@ interface ButtonProps {
 }
 
 export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
-  // const updateCompletedTasks = () => {
-  //   const newCompletedTasks = commonProps.completedTasks
-  //     ? [...commonProps.completedTasks, commonProps.currentTask]
-  //     : [commonProps.currentTask]
-  //   commonProps.setCompletedTasks(newCompletedTasks)
-  //   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
-  // }
-
   const handleClick = async () => {
     if (!commonProps.token && !commonProps.userId) return
     const isSaveSuccessful = await saveTask({ ...commonProps })

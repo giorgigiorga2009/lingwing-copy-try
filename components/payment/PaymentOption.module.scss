@@ -41,7 +41,7 @@
     border: 2px solid $purple-600;
   }
 
-  @include mobile{
+  @include mobile {
     max-width: 27.5rem;
     width: 90vw;
   }

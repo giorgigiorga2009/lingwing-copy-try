@@ -19,11 +19,10 @@
     &:lang(ka) {
       font-family: $kaFont;
     }
-    
   }
   .select1 {
     border-radius: 50px 0 0 50px;
-    &:focus{
+    &:focus {
       border-top: 2px solid $grey-800;
       border-bottom: 2px solid $grey-800;
       border-left: 2px solid $grey-800;
@@ -31,17 +30,17 @@
   }
   .select3 {
     border-radius: 0px 50px 50px 0;
-    &:focus{
+    &:focus {
       border-top: 2px solid $grey-800;
       border-bottom: 2px solid $grey-800;
       border-right: 2px solid $grey-800;
       // border-left: none;
     }
   }
-  .lighterborderColor{
+  .lighterborderColor {
     border: 2px solid $white-200;
 
-     &:focus{
+    &:focus {
       border-top: 1px solid $white-200;
       border-bottom: 1px solid $white-200;
       border-left: 1px solid $white-200;

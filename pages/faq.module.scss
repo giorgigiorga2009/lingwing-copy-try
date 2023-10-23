@@ -23,13 +23,12 @@
   background-size: 100rem;
   margin: 0;
 
-  @include mobile{
+  @include mobile {
     font-size: 3rem;
   }
   &:lang(ka) {
     font-family: $kaFontTitleBold;
   }
-
 }
 
 .mainPart {
@@ -45,15 +44,14 @@
   padding: 144px 24px 100px 24px;
   background-color: $white-50;
 
-  &::after{
+  &::after {
     content: '';
     flex: 1;
   }
 
-  @include mobile{
+  @include mobile {
     flex-direction: column;
   }
-
 }
 
 .buttonContainer {
@@ -63,9 +61,10 @@
   border-radius: 1rem;
   box-shadow: 0 0 8px $grey-100;
   height: fit-content;
+
+  @include mobile {
   max-width: 20rem;
   
-  @include mobile{
     flex: 0 0 100%;
     max-width: 30rem;
   }
@@ -93,25 +92,23 @@
     &:lang(ka) {
       font-family: $kaFontTitleBold;
     }
-
   }
   .activeButton {
     background-color: $white-100;
     color: $purple-600;
     background-image: url('/themes/images/v2/arrrow-right-purple.png');
   }
-  
 }
 .QAContainer {
   flex: 0 0 65%;
   background-color: $white-50;
-    h2 {
-      color: $black;
-      font-size: 35px;
-    }
-    &:lang(ka) {
-      font-family: $kaFontTitleBold;
-    }
+  h2 {
+    color: $black;
+    font-size: 35px;
+  }
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
 }
 
 .faq {

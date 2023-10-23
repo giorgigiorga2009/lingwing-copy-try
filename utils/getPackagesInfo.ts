@@ -27,7 +27,7 @@ export const getCheckedPackageInfo = async (): Promise<any> => {
     const response = await axios.post(
       `${process.env.defaultURL}/public/package/check`,
       {
-        packageId: '5900c0aef4938479f8ebbd4a',
+        packageId: '5900c0aef4938479f8ebbd4a', // ??????????????????????????
         selectedCurrency: 'GEL',
       },
       authConfig,

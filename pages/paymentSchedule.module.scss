@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   display: flex;
@@ -7,19 +7,19 @@
   font-family: SegoeUI;
   align-items: center;
   justify-content: center;
-  background-image: url(/assets/images/background-letters.svg),
-    url(/assets/images/background-wave.svg);
+  background-image: url('/assets/images/background-letters.svg'),
+    url('/assets/images/background-wave.svg');
   background-position: left top, left top;
   background-repeat: repeat, no-repeat;
   position: relative;
   height: 100%;
   width: 100%;
-  position: relative;
   overflow: scroll;
   overflow-x: hidden;
   background-attachment: local;
   color: $grey-800;
   z-index: 0;
+
   & .rocketParrot {
     display: none;
     position: absolute;
@@ -27,14 +27,17 @@
     height: auto;
     right: 8%;
     top: 20%;
+
     @include desktop {
       display: inherit;
     }
   }
+
   &:lang(ka) {
     font-family: $kaFont;
   }
 }
+
 .rocketParrot {
   z-index: -1;
 }

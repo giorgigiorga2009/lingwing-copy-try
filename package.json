@@ -61,6 +61,7 @@
     "zustand": "^4.3.9"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.3",
     "@types/flickity": "^2.2.8",
     "@types/istanbul-lib-report": "^3.0.0",
     "@types/node": "17.0.41",

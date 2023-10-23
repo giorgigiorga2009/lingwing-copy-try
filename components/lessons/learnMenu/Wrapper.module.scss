@@ -1,0 +1,15 @@
+@import '@styles/imports';
+
+.wrapper {
+  height: calc(100vh - 12rem);
+  max-width: 40rem;
+  background-color: $white;
+  align-self: center;
+  justify-self: center;
+  margin-bottom: 3rem;
+  margin-top: 0.2rem;
+  border-radius: 1rem;
+  padding: 0 4%;
+  width: 100%;
+  overflow: scroll;
+}
