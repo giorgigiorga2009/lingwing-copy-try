@@ -4,6 +4,7 @@ import { SignUp } from './SignUp'
 import { SignIn } from './SignIn'
 import classNames from 'classnames'
 import { FC, useState } from 'react'
+import { useRouter } from 'next/router'
 import { signIn } from 'next-auth/react'
 import FocusTrap from 'focus-trap-react'
 import style from './LoginModal.module.scss'
@@ -30,6 +31,7 @@ interface Props {
 }
 
 export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
+  const router = useRouter()
   const { t } = useTranslation()
   const [tab, setTab] = useState<Tab>('signIn')
   const [email, setEmail] = useState<string>('')
@@ -41,10 +43,15 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
       const response = await signIn('credentials', {
         email,
         password,
-        callbackUrl: '/dashboard',
+        redirect: false,
       })
 
-      response?.ok === false ? setEmailNotFound(true) : setOpenLogin(!openLogin)
+      if (response?.ok === false) {
+        setEmailNotFound(true)
+      } else {
+        setOpenLogin(!openLogin)
+        router.push({ pathname: '/dashboard' })
+      }
     } catch (error) {
       console.log((error as Error).message)
     }

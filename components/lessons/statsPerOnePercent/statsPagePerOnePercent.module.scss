@@ -17,6 +17,7 @@
     opacity: 0;
     filter: blur(10px);
   }
+
   100% {
     opacity: 1;
     filter: blur(0);
@@ -42,10 +43,10 @@
     #894cb7 63%,
     #7131a0 100%
   );
-  position: relative;
   height: 606px;
   overflow: hidden;
   padding: 5rem;
+
   &:lang(ka) {
     font-family: $kaFont;
   }
@@ -60,6 +61,7 @@
     overflow-y: auto;
   }
 }
+
 .leftSide {
   display: flex;
   flex-direction: column;
@@ -69,6 +71,7 @@
     order: 1;
     align-items: center;
   }
+
   p {
     color: $white-200;
     font-size: 18px;
@@ -98,6 +101,7 @@
     margin-top: 60px;
     row-gap: 2rem;
     z-index: 5;
+
     @include mobile {
       width: 15rem;
     }
@@ -112,6 +116,7 @@
       span {
         color: $orange-320;
       }
+
       .chart {
         width: 100%;
         background-color: $purple-500;
@@ -158,8 +163,10 @@
       background-repeat: no-repeat;
       transition: all 0.2s linear;
     }
+
     &:hover {
       transform: translateY(-0.05rem);
+
       .arrow {
         right: 1.5rem;
       }
@@ -183,13 +190,16 @@
 
   .timeContainer {
     display: flex;
+
     .image {
       transform: translateY(-0.2rem);
     }
+
     .time {
       color: $white;
       margin: 0 0.4rem;
     }
+
     .timeSpent {
       color: $orange-450;
       font-size: 1.25rem;
@@ -198,10 +208,12 @@
         font-size: 1rem;
       }
     }
+
     @include mobile {
       font-size: 1rem;
     }
   }
+
   .parrot {
     opacity: 0;
     animation: growFromBottom 1s forwards;
@@ -218,6 +230,7 @@
     transform: translateY(100%);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0%);
     opacity: 1;
@@ -247,6 +260,7 @@
   background-size: contain;
   z-index: 5;
 }
+
 .starTwo {
   position: absolute;
   right: 271px;
@@ -257,10 +271,12 @@
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 5;
+
   @include mobile {
     display: none;
   }
 }
+
 .starThree {
   position: absolute;
   right: 75px;
@@ -272,6 +288,7 @@
   background-size: contain;
   z-index: 5;
 }
+
 .starFour {
   position: absolute;
   right: 330px;
@@ -283,6 +300,7 @@
   background-size: contain;
   z-index: 5;
 }
+
 .starFive {
   position: absolute;
   right: 50px;

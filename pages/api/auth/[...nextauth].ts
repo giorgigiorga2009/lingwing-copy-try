@@ -9,6 +9,7 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       type: 'credentials',
       credentials: {},
+
       async authorize(credentials) {
         const { email, password } = credentials as {
           email: string
@@ -26,17 +27,6 @@ export const authOptions: NextAuthOptions = {
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID || '',
       clientSecret: process.env.FACEBOOK_SECRET || '',
-      // profileUrl:
-      //   'https://graph.facebook.com/v12.0/me?fields=id,name,email,first_name,last_name',
-      // profile(profile) {
-      //   return {
-      //     id: profile.id,
-      //     name: profile.name,
-      //     email: profile.email,
-      //     first_name: profile.first_name,
-      //     last_name: profile.last_name,
-      //   }
-      // },
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID || '',
@@ -46,6 +36,7 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
+
   callbacks: {
     async jwt({ token, account, user, profile }) {
       if (account?.provider === 'facebook' || account?.provider === 'google') {

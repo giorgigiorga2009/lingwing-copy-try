@@ -375,9 +375,11 @@
   "FAQ_SOLUTION": "Envianos un mensaje, nosotros te ayudarémos",
   "FAQ_FORM_EMAIL": "Correo electrónico",
   "FAQ_FORM_SUBMIT": "Enviar",
-  "FAQ_FILTER_EMPTY": "Hemos encontrado 0 registros"
+  "FAQ_FILTER_EMPTY": "Hemos encontrado 0 registros",
 
-
-
+  "RATING_TOP_SCORES": "PRINCIPALES PUNTUACIONES",
+  "RATING_TOP_20": "Тop 20",
+  "RATING_DAILY": "Clasificación diaria",
+  "RATING_WEEKLY": "Clasificación semanal"
 
 }

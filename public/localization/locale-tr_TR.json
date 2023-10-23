@@ -380,8 +380,11 @@
   "FAQ_SOLUTION": "Lütfen aşağıdaki formu doldurun ve mümkün olan en kısa sürede size ulaşmaya çalışacağız.",
   "FAQ_FORM_EMAIL": "E-posta adresi",
   "FAQ_FORM_SUBMIT": "Gönder",
-  "FAQ_FILTER_EMPTY": "Arama kriterlerinizde kalıcı kayıt bulunamadı."
+  "FAQ_FILTER_EMPTY": "Arama kriterlerinizde kalıcı kayıt bulunamadı.",
 
-
+  "RATING_TOP_SCORES": "EN İYİ SKORLAR",
+  "RATING_TOP_20": "Тop 20",
+  "RATING_DAILY": "Günlük değerlendirme",
+  "RATING_WEEKLY": "Haftalık değerlendirme"
 
 }

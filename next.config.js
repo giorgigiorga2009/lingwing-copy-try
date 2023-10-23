@@ -9,6 +9,14 @@ const nextConfig = {
     DEFAULT_URL: process.env.DEFAULT_URL,
     audioURL: process.env.AUDIO_URL,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn-dev.lingwing.com',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
