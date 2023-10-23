@@ -5,6 +5,7 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const authOptions: NextAuthOptions = {
+   secret: process.env.SECRET || 'a_default_local_secret',
   providers: [
     CredentialsProvider({
       type: 'credentials',
