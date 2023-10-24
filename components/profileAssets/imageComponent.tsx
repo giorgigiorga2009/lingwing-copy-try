@@ -1,11 +1,11 @@
 import Swal from 'sweetalert2'
-import Cropper from 'react-easy-crop'
+import Cropper, { Area, Point } from 'react-easy-crop'
 import style from './image.module.scss'
 import { useSession } from 'next-auth/react'
-import { Area, Point } from 'react-easy-crop'
 import { UploadImage } from '@utils/profileEdit'
 import { useTranslation } from '@utils/useTranslation'
 import React, { useState, useEffect, useRef } from 'react'
+import NextImage from 'next/image'
 
 type Prop = {
   CroppedImage: (image: string) => void
@@ -129,6 +129,7 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
         handleSave()
         try {
           const res = await UploadImage(session.user.accessToken, croppedImage)
+          console.log(res.data.data)
           setImageLink(res.data.data)
         } catch (error) {
           Swal.fire({
@@ -160,7 +161,7 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
     <div className={style.container}>
       <div className={style.Image}>
         {croppedImage ? (
-          <img src={croppedImage} alt="User avatar" />
+          <NextImage src={croppedImage} alt="User avatar" height={200} width={200}/>
         ) : (
           <>
             <label htmlFor="upload">{t('APP_PROFILE_UPLOAD_IMAGE')}</label>

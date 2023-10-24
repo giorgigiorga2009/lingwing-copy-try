@@ -1,6 +1,6 @@
 import { FormEvent } from 'react'
 
-type jsonData = {
+export type jsonData = {
   firstName: string
   lastName: string
   avatar: string
