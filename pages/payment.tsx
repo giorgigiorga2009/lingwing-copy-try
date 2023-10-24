@@ -25,7 +25,8 @@ import useStore from '@utils/store'
 import { useSession } from 'next-auth/react'
 import { LoginModal } from '@components/loginWindow/LoginModal'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
-import { style } from 'wavesurfer.js/src/util'
+
+
 
 const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()
@@ -46,7 +47,7 @@ const Payment: NextPage<PaymentProps> = () => {
     {
       !session?.user.accessToken && setOpenLogin(true)
     }
-  }, [session])
+  }, [session, id])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,12 +62,10 @@ const Payment: NextPage<PaymentProps> = () => {
             session?.user.accessToken,
           )
           if (checkedPackage) {
-            console.log('alarmaaa')
             const packageData = await getPackageDataById(
               checkedPackage.orderId,
               session?.user.accessToken,
             )
-            console.log(packageData, 'ss')
             setData(packageData)
           }
         }
@@ -76,7 +75,7 @@ const Payment: NextPage<PaymentProps> = () => {
     }
 
     fetchData()
-  }, [id, coupon])
+  }, [id, coupon, session])
 
   useEffect(() => {
     if (data && selectedCurrency !== undefined) {
