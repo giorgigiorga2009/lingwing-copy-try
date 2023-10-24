@@ -129,6 +129,7 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
         handleSave()
         try {
           const res = await UploadImage(session.user.accessToken, croppedImage)
+          console.log(res.data.data)
           setImageLink(res.data.data)
         } catch (error) {
           Swal.fire({
