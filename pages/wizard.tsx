@@ -19,6 +19,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 import { ChooseLanguageStep } from '@components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '@components/wizard/ChooseDifficultyStep'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
+import { useSession } from 'next-auth/react'
 
 type Step = 'step1' | 'step2' | 'step3'
 
@@ -48,6 +49,9 @@ const Wizard: NextPage<WizardProps> = params => {
   const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
+  const {data: session} = useSession()
+  const token = session?.user.accessToken as string
+
   useEffect(() => {
     if (!languageTo) return setStep('step1')
 
@@ -66,6 +70,7 @@ const Wizard: NextPage<WizardProps> = params => {
   useEffect(() => {
     if (step === 'step3' && languageTo && languageFrom) {
       getDifficultyLevels(
+        token as string,
         languageTo,
         languageFrom,
         LOCALES_TO_LANGUAGES[locale as Locale],

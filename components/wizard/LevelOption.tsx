@@ -59,7 +59,15 @@ export const LevelOption: FC<Props> = ({
             query: { languageTo, languageFrom, courseName },
           }}
         >
-          {t('startButton')}
+          {option.status.continue ? (
+            <>{t('APP_GENERAL_CONTINUE')}</>
+          ) : option.status.start ? (
+            <>{t('startButton')}</>
+          ) : option.status.retake ? (
+            <>{t('retake')}</>
+          ) : (
+            <>{t('buy')}</>
+          )}
         </Link>
       </div>
     </div>
