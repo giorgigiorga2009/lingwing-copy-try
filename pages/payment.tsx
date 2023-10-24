@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { NextPage } from 'next'
 import Image from 'next/image'
@@ -23,6 +23,9 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
 import { useSession } from 'next-auth/react'
+import { LoginModal } from '@components/loginWindow/LoginModal'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
+import { style } from 'wavesurfer.js/src/util'
 
 const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()
@@ -32,6 +35,18 @@ const Payment: NextPage<PaymentProps> = () => {
   const [data, setData] = useState<PackageResponse>()
   const { id, coupon } = router.query
   const { data: session } = useSession()
+  const [openLogin, setOpenLogin] = useState(false)
+
+  const handleCloseLogin = useCallback(() => {
+    setOpenLogin(false)
+    router.push('/')
+  }, [router])
+
+  useEffect(() => {
+    {
+      !session?.user.accessToken && setOpenLogin(true)
+    }
+  }, [session])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,6 +102,20 @@ const Payment: NextPage<PaymentProps> = () => {
       ? data?.packages[0].currency[selectedCurrency].recurringPrice /
         data?.packages[0].duration
       : undefined
+
+  if (!session?.user.accessToken) {
+    return (
+      <>
+      <BackgroundParrot/>
+      <LoginModal
+      lighterBG={true}
+        openLogin={openLogin}
+        setOpenLogin={setOpenLogin}
+        onClick={handleCloseLogin}
+      />
+      </>
+    )
+  }
 
   return (
     <div className={styles.container}>

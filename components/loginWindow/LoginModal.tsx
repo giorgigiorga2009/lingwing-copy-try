@@ -23,13 +23,14 @@ const Divider: FC = () => {
   )
 }
 interface Props {
+  lighterBG?: boolean
   onClick: () => void
   className?: string
   openLogin: boolean
   setOpenLogin: (bool: boolean) => void
 }
 
-export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
+export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin, lighterBG }) => {
   const { t } = useTranslation()
   const [tab, setTab] = useState<Tab>('signIn')
   const [email, setEmail] = useState<string>('')
@@ -53,7 +54,7 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin }) => {
 
   return (
     <FocusTrap>
-      <div className={style.wrapper}>
+      <div className={classNames(style.wrapper, {[style.lighterBG]: lighterBG})}>
         <Foco
           component="div"
           onClickOutside={onClick}
