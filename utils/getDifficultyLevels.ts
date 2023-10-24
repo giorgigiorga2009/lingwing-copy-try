@@ -92,7 +92,7 @@ const getLevelOptionsData = (
       `${URL_LEVEL_OPTIONS}/${languageTo}/${languageFrom}/${id}?lang=${locale}`,
       {
         headers: {
-          Authorization: token,
+          Authorization: token || '',
         },
       },
     )
