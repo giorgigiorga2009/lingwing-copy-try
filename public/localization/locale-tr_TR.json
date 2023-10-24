@@ -385,6 +385,9 @@
   "RATING_TOP_SCORES": "EN İYİ SKORLAR",
   "RATING_TOP_20": "Тop 20",
   "RATING_DAILY": "Günlük değerlendirme",
-  "RATING_WEEKLY": "Haftalık değerlendirme"
+  "RATING_WEEKLY": "Haftalık değerlendirme",
+
+  "GRAMMAR_TITLE": "Mevcut ders grameri"
+
 
 }

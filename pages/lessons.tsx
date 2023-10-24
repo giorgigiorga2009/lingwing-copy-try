@@ -265,7 +265,8 @@ const Lessons: NextPage = () => {
               <Wrapper
                 token={token ?? ''}
                 learnMode={currentCourseObject.learnMode}
-                userCourseId={courseId}
+                userCourseId={currentCourseObject.course._id}
+                languageFrom={languageFrom}
                 tab={tab}
               />
             )}

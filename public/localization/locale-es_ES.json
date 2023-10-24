@@ -380,6 +380,9 @@
   "RATING_TOP_SCORES": "PRINCIPALES PUNTUACIONES",
   "RATING_TOP_20": "Тop 20",
   "RATING_DAILY": "Clasificación diaria",
-  "RATING_WEEKLY": "Clasificación semanal"
+  "RATING_WEEKLY": "Clasificación semanal",
+
+  "GRAMMAR_TITLE": "Las gramáticas del curso"
+
 
 }

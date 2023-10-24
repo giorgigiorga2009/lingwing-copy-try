@@ -417,5 +417,8 @@
   "RATING_TOP_SCORES": "TOP SCORES",
   "RATING_TOP_20": "Top 20",
   "RATING_DAILY": "Daily Rating",
-  "RATING_WEEKLY": "Weekly Rating"
+  "RATING_WEEKLY": "Weekly Rating",
+
+  "GRAMMAR_TITLE": "Current course grammar"
+
 }

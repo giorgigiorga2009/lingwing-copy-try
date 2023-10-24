@@ -415,6 +415,9 @@
   "RATING_TOP_SCORES": "ЛУЧШИЕ РЕЗУЛЬТАТЫ",
   "RATING_TOP_20": "Топ-20",
   "RATING_DAILY": "Ежедневный рейтинг",
-  "RATING_WEEKLY": "Рейтинг недели"
+  "RATING_WEEKLY": "Рейтинг недели",
+
+  "GRAMMAR_TITLE": "Грамматика текущего курса"
+
 
 }
