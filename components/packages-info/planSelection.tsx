@@ -5,12 +5,7 @@ import style from './planSelection.module.scss'
 import classNames from 'classnames'
 import rocketParrot from '@public/assets/images/rocketParrot.png'
 import starIcon from '@public/assets/images/pr-star-icon.png'
-import { PackageResponse } from '@utils/getPayments'
-import {
-  PackagesInfoProps,
-  getCheckedPackageInfo,
-  getPackageDataByIdInfo,
-} from '@utils/getPackagesInfo'
+import { PackageData, PackagesInfoProps, getPackages } from '@utils/getPackages'
 
 const PlanSelection: React.FC<PackagesInfoProps> = ({
   header,
@@ -19,35 +14,22 @@ const PlanSelection: React.FC<PackagesInfoProps> = ({
   index,
   fromGelText,
 }) => {
-  const [data, setData] = useState<PackageResponse | undefined>(undefined)
+  const [data, setData] = useState<PackageData>()
 
-  useEffect(() => {
-    let isMounted = true
-
-    async function fetchPackageData() {
+  useEffect(()=> {
+    const loadPackages = async()=>{
       try {
-        const checkedPackage = await getCheckedPackageInfo()
-        if (checkedPackage?.orderId && isMounted) {
-          const packageData = await getPackageDataByIdInfo(
-            checkedPackage.orderId,
-          )
-          setData(packageData as PackageResponse | undefined)
-        }
+        const response = await getPackages('')
+        setData(response)
       } catch (error) {
-        console.error('An error occurred while fetching package data:', error)
       }
     }
-
-    fetchPackageData()
-
-    return () => {
-      isMounted = false
-    }
+    loadPackages()
   }, [])
 
   const isPremium = index === 2
-  const monthlyPayment = data?.packages[0].currency[0].recurringPrice
-    ? data.packages[0].currency[0].recurringPrice / data.packages[0].duration
+  const monthlyPayment = data?.packages[1].currency[0].recurringPrice
+    ? data.packages[1].currency[0].recurringPrice / data.packages[1].duration
     : undefined
 
   return (
@@ -91,7 +73,7 @@ const PlanSelection: React.FC<PackagesInfoProps> = ({
           </button>
         </Link>
         <div className={style.monthlyPayment}>
-          {isPremium && `${fromGelText} ${monthlyPayment}`}
+          {isPremium && `${fromGelText} ${monthlyPayment?.toFixed(1)}`}
         </div>
       </div>
     </div>
