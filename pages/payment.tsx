@@ -25,8 +25,7 @@ import useStore from '@utils/store'
 import { useSession } from 'next-auth/react'
 import { LoginModal } from '@components/loginWindow/LoginModal'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
-
-
+import Loader from '@components/loaders/loader'
 
 const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()
@@ -37,6 +36,7 @@ const Payment: NextPage<PaymentProps> = () => {
   const { id, coupon } = router.query
   const { data: session } = useSession()
   const [openLogin, setOpenLogin] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const handleCloseLogin = useCallback(() => {
     setOpenLogin(false)
@@ -44,9 +44,14 @@ const Payment: NextPage<PaymentProps> = () => {
   }, [router])
 
   useEffect(() => {
-    {
-      !session?.user.accessToken && setOpenLogin(true)
-    }
+   if(session?.user.accessToken){
+    setIsLoading(false);
+   }else{
+    const timeout = setTimeout(()=> setIsLoading(false), 1000);
+    return () => clearTimeout(timeout);
+   }
+
+   !session?.user.accessToken && setOpenLogin(true)
   }, [session, id])
 
   useEffect(() => {
@@ -96,22 +101,27 @@ const Payment: NextPage<PaymentProps> = () => {
     }
   }, [data, selectedCurrency])
 
+
   const monthlyPayment =
     data?.packages[0].currency[selectedCurrency].recurringPrice !== undefined
       ? data?.packages[0].currency[selectedCurrency].recurringPrice /
         data?.packages[0].duration
       : undefined
 
+  if (isLoading) {
+    return <Loader /> 
+  }
+
   if (!session?.user.accessToken) {
     return (
       <>
-      <BackgroundParrot/>
-      <LoginModal
-      lighterBG={true}
-        openLogin={openLogin}
-        setOpenLogin={setOpenLogin}
-        onClick={handleCloseLogin}
-      />
+        <BackgroundParrot />
+        <LoginModal
+          lighterBG={true}
+          openLogin={openLogin}
+          setOpenLogin={setOpenLogin}
+          onClick={handleCloseLogin}
+        />
       </>
     )
   }
