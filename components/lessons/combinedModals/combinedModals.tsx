@@ -5,6 +5,7 @@ import StatsPagePerOnePercent from '../statsPerOnePercent/statsPagePerOnePercent
 import RateLingwingModal from '../rateLingwing/rateLingwing'
 import { CourseObject, TaskData } from '@utils/lessons/getTask'
 import { PackageData } from '@utils/getPackages'
+import MicEnableModal from '../micEnableModal/micEnableModal'
 
 type CombinedPopupProps = {
   token: string | null
@@ -40,7 +41,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
     <>
       {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <LessonsFlowPopUps
-        token={token}
+          token={token}
           popUpNumber={1}
           completedTasks={completedTasks.length}
           languageTo={languageTo}
@@ -53,7 +54,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
       />
       {isUserLoggedIn && !dailyTaskLeft && !currentCourseObject?.info.bonus && (
         <LessonsFlowPopUps
-        token={token}
+          token={token}
           popUpNumber={2}
           dailyLimitDate={dailyReachedLimitDate}
           courseName={courseName}
@@ -61,13 +62,14 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
       )}
 
       <StatsPagePerOnePercent
-      token={token}
+        token={token}
         isUserLoggedIn={isUserLoggedIn}
         courseId={courseId}
         completedTasks={completedTasks}
       />
 
       <RateLingwingModal completedTasks={completedTasks} />
+      <MicEnableModal completedTasks={completedTasks} />
     </>
   )
 }

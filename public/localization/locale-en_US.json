@@ -412,6 +412,19 @@
   "LEARNING_MODE_BTN_CONTINUE": "Continue",
   "LEARNING_MODE_DESCRIPTION_1": "The learning mode is tailored to you if you have forgotten the content of this course and you only need to recall it.<br>The program does not repeat the learned material. In addition, you can leave any assignment and go to the next task.<br><br><em>*Correctly performed tasks are no longer repeated.</em>",
   "LEARNING_MODE_DESCRIPTION_2": "This learning mode is tailored to you if your knowledge of the course's material isn't good, and you need to strengthen it.<br>While teaching a new material program will simultaneously replicate the old one only once. The program will repeat tasks performed incorrectly until they aren't properly executed.<br><br><em>*Correctly performed tasks are repeated once.</em>",
-  "LEARNING_MODE_DESCRIPTION_3": "This mode of study is tailored to you if you don't know the material of the course at all.<br>The program gives you new material and simultaneously, repeats the old one, until It isn't convinced, that you thoroughly learned the course, and you are ready to start the next course.<br><br><em>*Correctly performed tasks are repeated for 2 times.</em>"
+  "LEARNING_MODE_DESCRIPTION_3": "This mode of study is tailored to you if you don't know the material of the course at all.<br>The program gives you new material and simultaneously, repeats the old one, until It isn't convinced, that you thoroughly learned the course, and you are ready to start the next course.<br><br><em>*Correctly performed tasks are repeated for 2 times.</em>",
+
+
+  "LESSONS_MIC_MODAL_HEADING": "Accomplish tasks by speaking!",
+  "LESSONS_MIC_MODAL_TITLE": "Improve your foreign language skills",
+  "LESSONS_MIC_MODAL_LI1": "Make sure your",
+  "LESSONS_MIC_MODAL_LI1_SPAN": "microphone",
+  "LESSONS_MIC_MODAL_LI1_IS_ON": "is on",
+  "LESSONS_MIC_MODAL_LI2": "Try to make exercises",
+  "LESSONS_MIC_MODAL_LI2_AREA": "in a silent area",
+  "LESSONS_MIC_MODAL_LI3": "Use",
+  "LESSONS_MIC_MODAL_LI3_HEADPHONES": "headphones",
+  "LESSONS_MIC_MODAL_LI3_RESULT": "for a better result",
+  "LESSONS_MIC_MODAL_MIC": "Turn on the microphone"
 
 }
