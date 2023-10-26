@@ -410,7 +410,21 @@
   "FAQ_SOLUTION":  "Заполните данную форму и мы с Вами свяжемся",
   "FAQ_FORM_EMAIL": "электронная почта",
   "FAQ_FORM_SUBMIT": "Отправить",
-  "FAQ_FILTER_EMPTY": "Под указанным Вами фильтром найдено 0 записей"
+  "FAQ_FILTER_EMPTY": "Под указанным Вами фильтром найдено 0 записей",
+
+
+  "LESSONS_MIC_MODAL_HEADING": "Accomplish tasks by speaking!",
+  "LESSONS_MIC_MODAL_TITLE": "Improve your foreign language skills",
+  "LESSONS_MIC_MODAL_LI1": "Make sure your",
+  "LESSONS_MIC_MODAL_LI1_SPAN": "microphone",
+  "LESSONS_MIC_MODAL_LI1_IS_ON": "is on",
+  "LESSONS_MIC_MODAL_LI2": "Try to make exercises",
+  "LESSONS_MIC_MODAL_LI2_AREA": "in a silent area",
+  "LESSONS_MIC_MODAL_LI3": "Use",
+  "LESSONS_MIC_MODAL_LI3_HEADPHONES": "headphones",
+  "LESSONS_MIC_MODAL_LI3_RESULT": "for a better result",
+  "LESSONS_MIC_MODAL_MIC": "Turn on the microphone"
+
 
 
 

@@ -42,6 +42,7 @@ const Payment: NextPage<PaymentProps> = () => {
     setOpenLogin(false)
     router.push('/')
   }, [router])
+ 
 
   useEffect(() => {
    if(session?.user.accessToken){

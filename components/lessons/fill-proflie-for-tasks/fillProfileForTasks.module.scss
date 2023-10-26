@@ -8,22 +8,12 @@
   width: 100%;
   height: 100%;
   z-index: 2;
-  animation: fadeInBlur 0.8s forwards;
+  animation: fadeInBlurForModals 0.8s forwards;
   backdrop-filter: blur(5px);
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-@keyframes fadeInBlur {
-  0% {
-    opacity: 0;
-    filter: blur(10px);
-  }
 
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
 
 .container {
   display: flex;
