@@ -77,7 +77,7 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   return (
     <div className={style.regReminder}>
       <div className={style.container}>
-        <RenderHeaderContent popUpNumber={popUpNumber} language={language} token={token} />
+        <RenderHeaderContent popUpNumber={popUpNumber} language={courseData?.title} token={token} />
         <div className={style.paragraph}>
           <RenderParagraphContent
           token={token}
