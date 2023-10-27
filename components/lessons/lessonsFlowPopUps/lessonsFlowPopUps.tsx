@@ -32,14 +32,13 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
 
   useEffect(() => {
     if (popUpNumber === 3) {
-      const authToken = localStorage.getItem('authToken')
-      if (typeof authToken === 'string') {
-        getUserPayements(authToken)
+      if (typeof token === 'string') {
+        getUserPayements(token)
           .then(data => setPaymentsData(data))
           .catch(error => console.error('Error fetching certificate:', error))
       }
     }
-  }, [popUpNumber])
+  }, [popUpNumber, token])
 
   useEffect(() => {
     const fetchData = async () => {
