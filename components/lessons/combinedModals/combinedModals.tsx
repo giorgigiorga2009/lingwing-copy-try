@@ -41,6 +41,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
     <>
       {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
         <LessonsFlowPopUps
+          courseName={courseName}
           token={token}
           popUpNumber={1}
           completedTasks={completedTasks.length}

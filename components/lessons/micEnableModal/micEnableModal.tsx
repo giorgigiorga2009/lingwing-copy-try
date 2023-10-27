@@ -33,7 +33,7 @@ const MicEnableModal: React.FC<MicEnableModalProps> = ({ completedTasks }) => {
     }
   }
 
-  if (completedTasks?.length !== 15) {
+  if (completedTasks?.length !== 15  ) {
     return null
   }
   return (
@@ -55,7 +55,7 @@ const MicEnableModal: React.FC<MicEnableModalProps> = ({ completedTasks }) => {
           ></button>
           <span className={style.parrot}></span>
           <div className={style.title}>
-            <Image src={micPurple} alt="" />
+            <Image src={micPurple} alt="" width={100} height={100} className={style.purpleMic}/>
             <h2>{t('LESSONS_MIC_MODAL_HEADING')}</h2>
           </div>
           <p>{t('LESSONS_MIC_MODAL_TITLE')}</p>

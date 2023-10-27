@@ -27,20 +27,18 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   const [openLogin, setOpenLogin] = useState(false)
   const [paymentsData, setPaymentsData] = useState<PaymentsProps | null>(null)
   const [packagesData, setPackagesData] = useState<PackageData>()
-  const [language, setLanguage] = useState<string>('English')
 
   const handleOpenLogin = useCallback(() => setOpenLogin(true), [])
 
   useEffect(() => {
     if (popUpNumber === 3) {
-      const authToken = localStorage.getItem('authToken')
-      if (typeof authToken === 'string') {
-        getUserPayements(authToken)
+      if (typeof token === 'string') {
+        getUserPayements(token)
           .then(data => setPaymentsData(data))
           .catch(error => console.error('Error fetching certificate:', error))
       }
     }
-  }, [popUpNumber])
+  }, [popUpNumber, token])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +59,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
     if (currentLanguage && courseName) {
       try {
         const data = await getReadCourse(currentLanguage, courseName)
-        setLanguage(data.title)
         return data
       } catch (error) {
         throw new Error(String(error))
@@ -77,7 +74,7 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   return (
     <div className={style.regReminder}>
       <div className={style.container}>
-        <RenderHeaderContent popUpNumber={popUpNumber} language={language} token={token} />
+        <RenderHeaderContent popUpNumber={popUpNumber} language={courseData?.title} token={token} />
         <div className={style.paragraph}>
           <RenderParagraphContent
           token={token}

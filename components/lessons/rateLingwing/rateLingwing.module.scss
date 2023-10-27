@@ -82,6 +82,9 @@
         width: 7rem;
       }
     }
+    @include smallWidth{
+      width: 100%;
+    }
   }
   .facebook {
     position: relative;

@@ -239,6 +239,24 @@ export const getTasks = async ({
   courseId: string
 }): Promise<TaskData[]> => {
   try {
+    //commented axios works!!! it is easyer to read 
+    // let data
+    // if (token) {
+    //   const response = await axios({
+    //     url: `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
+    //     headers: {
+    //       Authorization: token,
+    //     },
+    //   })
+    //   data = response.data.data
+    // }
+    // if(userId){
+    //   const response = await axios({
+    //     url: `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
+
+    //   })
+    //   data = response.data.data
+    // }
     //
     let url = `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
     let headers: {
@@ -249,12 +267,12 @@ export const getTasks = async ({
     if (userId !== null && token === null) {
       url += `&userKey=${userId}`
       headers = {
-        Authorization: null,
+        Authorization: '',
       }
     }
     const response = await axios({
       url,
-      headers: headers as AxiosRequestHeaders,
+      headers: headers as AxiosRequestHeaders || '',
     })
 
     const data = response.data.data

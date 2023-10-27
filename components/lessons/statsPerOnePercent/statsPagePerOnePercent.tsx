@@ -40,8 +40,8 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
         console.error('An error occurred:', err)
       }
     }
-    if (courseId) {
-      fetchData()
+    if (courseId && token) { 
+      fetchData();
     }
   }, [completedTasks])
 

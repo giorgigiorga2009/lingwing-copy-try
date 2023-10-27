@@ -101,6 +101,10 @@
       @include mobile {
         font-size: 2.4vw;
       }
+      .purpleMic{
+        height: 2.5rem;
+        width: auto;
+      }
     }
 
     @mixin divider {
