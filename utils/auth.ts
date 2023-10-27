@@ -31,10 +31,10 @@ export const getToken = ({ email, password, repeatPassword }: Auth) => {
   return axios({
     method: 'post',
     url: `${process.env.DEFAULT_URL}/public/auth/signup?lang=eng`,
-    headers: {
-      ...HEADERS,
-      Authorization: 'null',
-    },
+    // headers: {
+    //   ...HEADERS,
+    //   Authorization: 'null',
+    // },
     data: {
       profile: {
         email,
@@ -67,10 +67,10 @@ export const login = ({ email, password }: Auth) => {
     axios({
       method: 'post',
       url: `${process.env.DEFAULT_URL}/public/auth/login?lang=eng`,
-      headers: {
-        ...HEADERS,
-        Authorization: 'null',
-      },
+      // headers: {
+      //   ...HEADERS,
+      //   Authorization: 'null',
+      // },
       data: {
         email,
         password,
@@ -105,10 +105,10 @@ export const socialLogin = ({
     axios({
       method: 'post',
       url: `${process.env.DEFAULT_URL}/public/auth/social`,
-      headers: {
-        ...HEADERS,
-        //Authorization: 'null',
-      },
+      // headers: {
+      //   ...HEADERS,
+      //   //Authorization: 'null',
+      // },
       data: {
         provider,
         id,
@@ -154,9 +154,9 @@ export const forgotPassword = (email: string) => {
   return axios({
     method: 'post',
     url: `${process.env.DEFAULT_URL}/public/auth/forgot`,
-    headers: {
-      ...HEADERS,
-    },
+    // headers: {
+    //   ...HEADERS,
+    // },
     data: {
       email,
     },
