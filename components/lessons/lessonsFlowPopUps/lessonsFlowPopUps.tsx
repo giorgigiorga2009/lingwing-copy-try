@@ -27,7 +27,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   const [openLogin, setOpenLogin] = useState(false)
   const [paymentsData, setPaymentsData] = useState<PaymentsProps | null>(null)
   const [packagesData, setPackagesData] = useState<PackageData>()
-  const [language, setLanguage] = useState<string>('English')
 
   const handleOpenLogin = useCallback(() => setOpenLogin(true), [])
 
@@ -61,7 +60,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
     if (currentLanguage && courseName) {
       try {
         const data = await getReadCourse(currentLanguage, courseName)
-        setLanguage(data.title)
         return data
       } catch (error) {
         throw new Error(String(error))
