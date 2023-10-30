@@ -387,7 +387,9 @@
   "RATING_DAILY": "Günlük değerlendirme",
   "RATING_WEEKLY": "Haftalık değerlendirme",
 
-  "GRAMMAR_TITLE": "Mevcut ders grameri"
+  "GRAMMAR_TITLE": "Mevcut ders grameri",
+
+  "STATISTICS_COURSE": "Kurs İstatistikleri"
 
 
 }

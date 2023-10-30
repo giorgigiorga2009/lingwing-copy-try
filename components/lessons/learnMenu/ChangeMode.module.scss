@@ -14,6 +14,7 @@
   &.true {
     border-radius: 1rem;
     border: 2px solid $purple-500;
+    background-color: $white-50;
   }
 
   &:lang(ka) {
@@ -43,10 +44,10 @@
   height: 5rem;
   font-size: 1.5rem;
   font-family: SegoeUI;
-  color: $black-600;
+  color: $purple-600;
 
   &:lang(ka) {
-    font-family: $kaFont;
+    font-family: $kaFontTitle;
   }
 }
 

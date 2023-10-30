@@ -54,9 +54,9 @@ const AllGrammar: FC<Props> = ({ courseId, LanguageFrom, token }) => {
 
   return (
     <div className={style.container}>
-      <h1 className={style.title}>{t('GRAMMAR_TITLE')}</h1>
+      <div className={style.title}>{t('GRAMMAR_TITLE')}</div>
       {grammarData.map((grammar: Grammar, index) => (
-        <div key={index}>
+        <div key={index} className={style.wrapper}>
           <button
             className={classNames(
               style.grammarTitle,

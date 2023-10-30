@@ -382,7 +382,10 @@
   "RATING_DAILY": "Clasificación diaria",
   "RATING_WEEKLY": "Clasificación semanal",
 
-  "GRAMMAR_TITLE": "Las gramáticas del curso"
+  "GRAMMAR_TITLE": "Las gramáticas del curso",
+
+  "STATISTICS_COURSE": "Estadísticas del curso"
+
 
 
 }

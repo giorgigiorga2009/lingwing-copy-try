@@ -2,6 +2,7 @@ import { FC } from 'react'
 import style from './Wrapper.module.scss'
 import ChangeMode from './ChangeMode'
 import AllGrammar from './AllGrammar'
+import Statistics from './Statistics'
 
 interface ChangeModeProps {
   learnMode: 1 | 2 | 3
@@ -34,6 +35,7 @@ const Wrapper: FC<ChangeModeProps> = ({
           token={token}
         />
       )}
+      {tab === 'statistics' && <Statistics />}
     </div>
   )
 }

@@ -419,6 +419,9 @@
   "RATING_DAILY": "Daily Rating",
   "RATING_WEEKLY": "Weekly Rating",
 
-  "GRAMMAR_TITLE": "Current course grammar"
+  "GRAMMAR_TITLE": "Current course grammar",
+
+  "STATISTICS_COURSE": "Course Statistics"
+
 
 }

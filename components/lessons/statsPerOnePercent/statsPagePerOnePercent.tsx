@@ -126,7 +126,10 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
         </div>
         <div className={style.rightSide}>
           <div className={style.circularProgress}>
-            <CircularProgress percentage={statsData?.percent || 0} />
+            <CircularProgress
+              percentage={statsData?.percent || 0}
+              page={'OnePercentPage'}
+            />
           </div>
           <div className={style.timeContainer}>
             <Image

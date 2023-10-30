@@ -229,7 +229,7 @@ const Lessons: NextPage = () => {
         currentCourseObject={currentCourseObject}
         dailyReachedLimitDate={dailyReachedLimitDate}
       />
-      {currentCourseObject && token && (
+      {isSoundChecked && currentCourseObject && token && (
         <Ratings
           courseId={currentCourseObject?.course._id}
           userScore={userScore}
