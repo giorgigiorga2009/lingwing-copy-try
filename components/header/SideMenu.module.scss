@@ -79,6 +79,9 @@
   color: $purple-500;
   margin-bottom: 1rem;
   z-index: 1;
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
 
   section {
     width: 10rem;
@@ -118,6 +121,10 @@
   .title {
     color: $grey-100;
     text-align: center;
+
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
 }
 

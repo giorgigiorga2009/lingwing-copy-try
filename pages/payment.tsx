@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { NextPage } from 'next'
 import Image from 'next/image'
@@ -23,6 +23,9 @@ import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
 import useStore from '@utils/store'
 import { useSession } from 'next-auth/react'
+import { LoginModal } from '@components/loginWindow/LoginModal'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
+import Loader from '@components/loaders/loader'
 
 const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()
@@ -32,6 +35,24 @@ const Payment: NextPage<PaymentProps> = () => {
   const [data, setData] = useState<PackageResponse>()
   const { id, coupon } = router.query
   const { data: session } = useSession()
+  const [openLogin, setOpenLogin] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  const handleCloseLogin = useCallback(() => {
+    setOpenLogin(false)
+    router.push('/')
+  }, [router])
+
+  useEffect(() => {
+    if (session?.user.accessToken) {
+      setIsLoading(false)
+    } else {
+      const timeout = setTimeout(() => setIsLoading(false), 1000)
+      return () => clearTimeout(timeout)
+    }
+
+    !session?.user.accessToken && setOpenLogin(true)
+  }, [session, id])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,14 +66,11 @@ const Payment: NextPage<PaymentProps> = () => {
             coupon as string,
             session?.user.accessToken,
           )
-          console.log(checkedPackage.orderId)
           if (checkedPackage) {
-            console.log('alarmaaa')
             const packageData = await getPackageDataById(
               checkedPackage.orderId,
               session?.user.accessToken,
             )
-            console.log(packageData, 'ss')
             setData(packageData)
           }
         }
@@ -62,7 +80,7 @@ const Payment: NextPage<PaymentProps> = () => {
     }
 
     fetchData()
-  }, [id, coupon])
+  }, [id, coupon, session])
 
   useEffect(() => {
     if (data && selectedCurrency !== undefined) {
@@ -88,6 +106,24 @@ const Payment: NextPage<PaymentProps> = () => {
       ? data?.packages[0].currency[selectedCurrency].recurringPrice /
         data?.packages[0].duration
       : undefined
+
+  if (isLoading) {
+    return <Loader />
+  }
+
+  if (!session?.user.accessToken) {
+    return (
+      <>
+        <BackgroundParrot />
+        <LoginModal
+          lighterBG={true}
+          openLogin={openLogin}
+          setOpenLogin={setOpenLogin}
+          onClick={handleCloseLogin}
+        />
+      </>
+    )
+  }
 
   return (
     <div className={styles.container}>
@@ -119,7 +155,7 @@ const Payment: NextPage<PaymentProps> = () => {
             {t('PAYMENT_INFO_CARD_MEMBERSHIP')}
           </span>
         </h2>
-        <CountdownTimer token={session?.user.accessToken} />
+        <CountdownTimer token={session?.user.accessToken as string | null} />
         <div className={styles.pHeader}>
           <p>{t('PAYMENT_CHOOSE_PAYMENT_TYPE')}</p>
         </div>

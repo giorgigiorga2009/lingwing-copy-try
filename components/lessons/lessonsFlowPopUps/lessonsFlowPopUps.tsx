@@ -15,35 +15,30 @@ import { getReadCourse } from '@utils/getReadCourse'
 import { useQuery } from 'react-query'
 
 const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
+  token,
   courseName,
   popUpNumber,
   dailyLimitDate,
-  // duration,
-  // price,
-  // language,
   packetTitle,
   completedTasks,
-  // totalTasksAmount,
   languageTo,
   languageFrom,
 }) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [paymentsData, setPaymentsData] = useState<PaymentsProps | null>(null)
   const [packagesData, setPackagesData] = useState<PackageData>()
-  const [language, setLanguage] = useState<string>('English')
 
   const handleOpenLogin = useCallback(() => setOpenLogin(true), [])
 
   useEffect(() => {
     if (popUpNumber === 3) {
-      const authToken = localStorage.getItem('authToken')
-      if (typeof authToken === 'string') {
-        getUserPayements(authToken)
+      if (typeof token === 'string') {
+        getUserPayements(token)
           .then(data => setPaymentsData(data))
           .catch(error => console.error('Error fetching certificate:', error))
       }
     }
-  }, [popUpNumber])
+  }, [popUpNumber, token])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,7 +59,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
     if (currentLanguage && courseName) {
       try {
         const data = await getReadCourse(currentLanguage, courseName)
-        setLanguage(data.title)
         return data
       } catch (error) {
         throw new Error(String(error))
@@ -80,9 +74,14 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   return (
     <div className={style.regReminder}>
       <div className={style.container}>
-        <RenderHeaderContent popUpNumber={popUpNumber} language={language} />
+        <RenderHeaderContent
+          popUpNumber={popUpNumber}
+          language={courseData?.title}
+          token={token}
+        />
         <div className={style.paragraph}>
           <RenderParagraphContent
+            token={token}
             popUpNumber={popUpNumber}
             completedTasks={completedTasks}
             dailyLimitDate={dailyLimitDate}
@@ -102,12 +101,14 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
         </div>
         <div className={style.paragraph}>
           <RenderCheckboxWithCardDetails
+            token={token}
             popUpNumber={popUpNumber}
             paymentsData={paymentsData}
           />
         </div>
         <div className={style.buttons}>
           <RenderButtons
+            token={token}
             popUpNumber={popUpNumber}
             languageTo={languageTo}
             languageFrom={languageFrom}

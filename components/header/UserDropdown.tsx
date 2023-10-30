@@ -40,9 +40,9 @@ export const UserDropdown: FC = () => {
         as="/payments"
         className={style.link}
       >
-        <button className={classNames(style.button)}>
+        <div className={classNames(style.button)}>
           {t('APP_HEADER_PAYMENTS')}
-        </button>
+        </div>
       </Link>
       <Link
         href={{ pathname: '/logout' }}

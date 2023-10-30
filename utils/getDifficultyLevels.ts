@@ -47,6 +47,14 @@ export interface Option {
   studyingTheCourse: number
   fullDescription: string
   smallDescription: string
+  status: Status
+}
+
+type Status = {
+  buy: boolean
+  continue: boolean
+  retake: boolean
+  start: boolean
 }
 
 export type LanguageLevel = {
@@ -73,6 +81,7 @@ const getLevelsData = (
 }
 
 const getLevelOptionsData = (
+  token: string,
   id: string,
   languageTo: LanguageTo,
   languageFrom: LanguageFrom,
@@ -81,6 +90,11 @@ const getLevelOptionsData = (
   return axios
     .get(
       `${URL_LEVEL_OPTIONS}/${languageTo}/${languageFrom}/${id}?lang=${locale}`,
+      {
+        headers: {
+          Authorization: token || '',
+        },
+      },
     )
     .then(response => response.data.data)
     .catch(error => console.log(error))
@@ -101,12 +115,14 @@ const getFormattedLevels = (
         studyingTheCourse: option.studyingTheCourse,
         fullDescription: option.fullDescription,
         smallDescription: option.smallDescription,
+        status: option.status,
       }
     }),
   }
 }
 
 export const getDifficultyLevels = (
+  token: string,
   languageTo: LanguageTo,
   languageFrom: LanguageFrom,
   locale: LanguageFrom,
@@ -114,6 +130,7 @@ export const getDifficultyLevels = (
   return getLevelsData(languageTo, languageFrom, locale).then(response => {
     const data = response.map((level: LanguageLevelData) => {
       const result: Promise<LanguageLevel> = getLevelOptionsData(
+        token,
         level._id._id,
         languageTo,
         languageFrom,

@@ -525,6 +525,22 @@
   "FAQ_FORM_SUBMIT": "გაგზავმა",
   "FAQ_FILTER_EMPTY": "თქვენს მიერ მითითებული ფილტრით ნაპოვნია 0 ჩანაწერი",
 
+
+  "LESSONS_MIC_MODAL_HEADING": "შეასრულე დავალებები ლაპარაკით!",
+  "LESSONS_MIC_MODAL_TITLE": "გაიუმჯობესე უცხო ენაზე საუბრის უნარი",
+  "LESSONS_MIC_MODAL_LI1": "დარწმუნდი, რომ შენი",
+  "LESSONS_MIC_MODAL_LI1_SPAN": "მიკროფონი",
+  "LESSONS_MIC_MODAL_LI1_IS_ON": "ჩართულია",
+  "LESSONS_MIC_MODAL_LI2": "ეცადე დავალებები შეასრულო",
+  "LESSONS_MIC_MODAL_LI2_AREA": "ჩუმ გარემოში",
+  "LESSONS_MIC_MODAL_LI3": "უკეთესი შედეგისთვის გამოიყენე",
+  "LESSONS_MIC_MODAL_LI3_HEADPHONES": "ყურსასმენები",
+  "LESSONS_MIC_MODAL_LI3_RESULT": " ",
+  "LESSONS_MIC_MODAL_MIC": "მიკროფონის ჩართვა",
+
+
+
+
   "RATING_TOP_SCORES": "რეიტინგები",
   "RATING_TOP_20": "ტოპ 20",
   "RATING_DAILY": "დღიური\nრეიტინგი",

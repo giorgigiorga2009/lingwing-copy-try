@@ -10,14 +10,15 @@
 
   @include desktop {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    column-gap: 5rem;
     margin-top: -6px;
   }
 }
 
 .leftContainer {
   @include desktop {
-    max-width: 55vh;
+    max-width: 30%;
   }
 }
 
@@ -29,20 +30,18 @@
 
   @include tablet {
     background-position: 44vw 0vh;
-
     min-width: 27vw;
   }
 
   @include desktop {
     background-position: 16vw 11%;
-
-    min-width: 39vw;
+    width: 30%;
   }
 }
 
 .title {
   font-family: HVDComicSerifPro, bpg_arial_2009;
-  font-size: 7vh;
+  font-size: 5vh;
   line-height: 7vh;
   color: $purple-600;
   margin-top: 4rem;
@@ -103,8 +102,8 @@
 .peoplePracticing {
   position: absolute;
   font-family: SegoeUI;
-  font-size: 3.5vh;
-  top: 10vh;
+  font-size: 3vh;
+  top: 11vh;
   color: $purple-600;
   line-height: 3.5vh;
   left: 6vh;
@@ -124,14 +123,14 @@
   position: relative;
   bottom: 3vh;
   font-family: SegoeUI, bpg_arial_2009;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: $black-800;
   margin-bottom: 2vh;
   &:lang(ka) {
     font-family: $kaFont;
   }
   @include mobile {
-    font-size: 2.5vh;
+    font-size: 2vh;
   }
 }
 

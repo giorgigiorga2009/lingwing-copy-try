@@ -4,6 +4,7 @@ import { useTranslation } from '@utils/useTranslation'
 import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
 
 const RenderParagraphContent: React.FC<RegistrationReminderPopupProps> = ({
+  token,
   popUpNumber,
   completedTasks,
   dailyLimitDate,
@@ -26,7 +27,11 @@ const RenderParagraphContent: React.FC<RegistrationReminderPopupProps> = ({
       <>
         <p>{t('REG_REMINDER_YOU')}</p>
         <p>{t('REG_REMINDER_FREE_TASKS_IN')}</p>
-        <CountDown forLessonsFlowN2={true} dailyLimitDate={dailyLimitDate} />
+        <CountDown
+          forLessonsFlowN2={true}
+          dailyLimitDate={dailyLimitDate}
+          token={token}
+        />
         <p>{t('REG_REMINDER_HOURS')}</p>
       </>
     )

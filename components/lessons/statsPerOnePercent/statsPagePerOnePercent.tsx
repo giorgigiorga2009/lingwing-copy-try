@@ -15,20 +15,22 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
   courseId,
   completedTasks,
   isUserLoggedIn,
+  token,
 }) => {
   const { t } = useTranslation()
   const [statsData, setStatsData] = useState<StatsDataProps>()
   const [isStatsVisible, setIsStatsVisible] = useState<boolean>(false)
-  const previousPercentRef = useRef(0)
+  const previousPercentRef = useRef(0.1)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const accomplishStats = await getStatsPerPercent({
           userCourseId: courseId,
+          token: token,
         })
         setStatsData(accomplishStats)
-        if (previousPercentRef.current === 0) {
+        if (previousPercentRef.current === 0.1) {
           previousPercentRef.current = Math.floor(accomplishStats.percent)
         }
         if (Math.floor(accomplishStats.percent) > previousPercentRef.current) {
@@ -39,7 +41,7 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
         console.error('An error occurred:', err)
       }
     }
-    if (courseId) {
+    if (courseId && token) {
       fetchData()
     }
   }, [completedTasks])

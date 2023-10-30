@@ -10,11 +10,10 @@ const nextConfig = {
     audioURL: process.env.AUDIO_URL,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn-dev.lingwing.com',
-      },
+    domains: [
+      'cdn-dev.lingwing.com',
+      'platform-lookaside.fbsbx.com',
+      'lh3.googleusercontent.com',
     ],
   },
 }

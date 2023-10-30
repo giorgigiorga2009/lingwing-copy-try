@@ -292,7 +292,22 @@
   "FAQ_SOLUTION": "নিচের ফর্মটি পূরণ করুন এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার কাছে পৌঁছাবো",
   "FAQ_FORM_EMAIL": "ইমেইল এড্রেস",
   "FAQ_FORM_SUBMIT": "সাবমিট",
-  "FAQ_FILTER_EMPTY": "আপনার খোঁজের কোন রেকর্ড পাওয়া যায়নি"
+  "FAQ_FILTER_EMPTY": "আপনার খোঁজের কোন রেকর্ড পাওয়া যায়নি",
+
+
+  "LESSONS_MIC_MODAL_HEADING": "বলার মাধ্যমে কাজ সম্পন্ন করুন!",
+  "LESSONS_MIC_MODAL_TITLE": "আপনার বিদেশী ভাষা দক্ষতা উন্নত করুন",
+  "LESSONS_MIC_MODAL_LI1": "নিশ্চিত করুন আপনার",
+  "LESSONS_MIC_MODAL_LI1_SPAN": "মাইক্রোফোন",
+  "LESSONS_MIC_MODAL_LI1_IS_ON": "চালু কিনা",
+  "LESSONS_MIC_MODAL_LI2": "অনুশীলন করার চেষ্টা করুন",
+  "LESSONS_MIC_MODAL_LI2_AREA": "একটি নীরব জায়গায়",
+  "LESSONS_MIC_MODAL_LI3": "হেডফোন",
+  "LESSONS_MIC_MODAL_LI3_HEADPHONES": "ব্যবহার করুন আরও ভালো ফলাফলের জন্য",
+  "LESSONS_MIC_MODAL_LI3_RESULT": " ",
+  "LESSONS_MIC_MODAL_MIC": "মাইক্রোফোন চালু করুন"
+
+
 
 
 }

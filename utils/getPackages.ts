@@ -67,6 +67,13 @@ export type PackageData = {
     },
   ]
 }
+export interface PackagesInfoProps {
+  header: string
+  paragraph: string
+  buttonText: string
+  index: number | string
+  fromGelText?: string
+}
 
 export const getPackages = (coupon: string): Promise<PackageData> => {
   return axios

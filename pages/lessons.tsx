@@ -218,6 +218,7 @@ const Lessons: NextPage = () => {
       <Header size="s" />
 
       <CombinedModalComponent
+        token={token}
         courseName={courseName}
         courseId={courseId}
         isUserLoggedIn={isUserLoggedIn}

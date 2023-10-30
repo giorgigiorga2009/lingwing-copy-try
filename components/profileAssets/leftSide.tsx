@@ -18,7 +18,9 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
   const [lastNameFocus, setLastNameFocus] = useState<boolean>(false)
   const [emailFocus, setEmailFocus] = useState<boolean>(false)
   const [phoneNumber, setPhoneNumber] = useState<string>('')
-  const [gender, setGender] = useState<number>(data?.profile?.gender || 0)
+  const [gender, setGender] = useState<number | undefined>(
+    data?.profile?.gender,
+  )
 
   const { t } = useTranslation()
 
@@ -29,6 +31,7 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
 
   useEffect(() => {
     handlePhoneChange(data?.profile?.phoneNumber)
+    setGender(data?.profile.gender)
   }, [data])
 
   const birthdayDay = data?.profile?.birthday?.day || 0

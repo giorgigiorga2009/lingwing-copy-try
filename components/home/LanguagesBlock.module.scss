@@ -8,17 +8,15 @@
   gap: 1.5rem;
 
   @include tablet {
-    flex-wrap: wrap;
     width: 40rem;
     max-width: 100%;
   }
 
   @include mobile {
-    flex-wrap: wrap;
     max-width: 100%;
     padding: 0 2%;
     gap: 1rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     .item {
       flex: 0 0 calc(18%);
     }

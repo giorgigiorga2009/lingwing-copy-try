@@ -377,6 +377,21 @@
   "FAQ_FORM_SUBMIT": "Enviar",
   "FAQ_FILTER_EMPTY": "Hemos encontrado 0 registros",
 
+
+
+  "LESSONS_MIC_MODAL_HEADING": "Haz los deberes hablando!",
+  "LESSONS_MIC_MODAL_TITLE": "Mejora las habilidades de hablar",
+  "LESSONS_MIC_MODAL_LI1": "Asegúrate que el",
+  "LESSONS_MIC_MODAL_LI1_SPAN": "micrófono",
+  "LESSONS_MIC_MODAL_LI1_IS_ON": "está activo",
+  "LESSONS_MIC_MODAL_LI2": "es recomendable que estés en",
+  "LESSONS_MIC_MODAL_LI2_AREA": "un sitio tranquilo",
+  "LESSONS_MIC_MODAL_LI3": "para mejor resultados usa los",
+  "LESSONS_MIC_MODAL_LI3_HEADPHONES": "cascos",
+  "LESSONS_MIC_MODAL_LI3_RESULT": " ",
+  "LESSONS_MIC_MODAL_MIC": "Activar el micrófono",
+
+
   "RATING_TOP_SCORES": "PRINCIPALES PUNTUACIONES",
   "RATING_TOP_20": "Тop 20",
   "RATING_DAILY": "Clasificación diaria",

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { jsonData } from './profileData'
 
 export interface ProfileData {
   local: {
@@ -36,7 +37,7 @@ export interface ProfileData {
   }
 }
 
-export const PutData = async (formObject: {}, token: string | null) => {
+export const PutData = async (formObject: jsonData, token: string | null) => {
   try {
     const response = await axios.put(
       `${process.env.DEFAULT_URL}/user/profile`,
@@ -95,6 +96,7 @@ export const UploadImage = async (token: string | null, image?: string) => {
         },
       )
       //take res image
+      console.log('avatar', response.data)
       return response.data
 
       // Handle the response here
