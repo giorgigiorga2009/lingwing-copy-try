@@ -26,7 +26,8 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
     const fetchData = async () => {
       try {
         const accomplishStats = await getStatsPerPercent({
-          userCourseId: courseId, token: token
+          userCourseId: courseId,
+          token: token,
         })
         setStatsData(accomplishStats)
         if (previousPercentRef.current === 0.1) {
@@ -40,8 +41,8 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
         console.error('An error occurred:', err)
       }
     }
-    if (courseId && token) { 
-      fetchData();
+    if (courseId && token) {
+      fetchData()
     }
   }, [completedTasks])
 
@@ -127,7 +128,10 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
         </div>
         <div className={style.rightSide}>
           <div className={style.circularProgress}>
-            <CircularProgress percentage={statsData?.percent || 0} />
+            <CircularProgress
+              percentage={statsData?.percent || 0}
+              page={'OnePercentPage'}
+            />
           </div>
           <div className={style.timeContainer}>
             <Image

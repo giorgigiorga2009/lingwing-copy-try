@@ -27,7 +27,11 @@ const RenderParagraphContent: React.FC<RegistrationReminderPopupProps> = ({
       <>
         <p>{t('REG_REMINDER_YOU')}</p>
         <p>{t('REG_REMINDER_FREE_TASKS_IN')}</p>
-        <CountDown forLessonsFlowN2={true} dailyLimitDate={dailyLimitDate} token={token}/>
+        <CountDown
+          forLessonsFlowN2={true}
+          dailyLimitDate={dailyLimitDate}
+          token={token}
+        />
         <p>{t('REG_REMINDER_HOURS')}</p>
       </>
     )

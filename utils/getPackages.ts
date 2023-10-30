@@ -75,8 +75,6 @@ export interface PackagesInfoProps {
   fromGelText?: string
 }
 
-
-
 export const getPackages = (coupon: string): Promise<PackageData> => {
   return axios
     .get(

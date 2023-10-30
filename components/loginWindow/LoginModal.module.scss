@@ -1,6 +1,5 @@
 @import '@styles/imports';
 
-
 .wrapper {
   display: flex;
   align-items: center;
@@ -31,13 +30,12 @@
   opacity: 0.5;
 }
 
-.lighterBG{
+.lighterBG {
   @extend .wrapper;
   backdrop-filter: none;
 }
-.lighterBG::before{
+.lighterBG::before {
   background-color: $white-300;
-
 }
 .modal {
   display: flex;

@@ -161,7 +161,12 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
     <div className={style.container}>
       <div className={style.Image}>
         {croppedImage ? (
-          <NextImage src={croppedImage} alt="User avatar" height={200} width={200}/>
+          <NextImage
+            src={croppedImage}
+            alt="User avatar"
+            height={200}
+            width={200}
+          />
         ) : (
           <>
             <label htmlFor="upload">{t('APP_PROFILE_UPLOAD_IMAGE')}</label>

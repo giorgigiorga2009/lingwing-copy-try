@@ -239,7 +239,7 @@ export const getTasks = async ({
   courseId: string
 }): Promise<TaskData[]> => {
   try {
-    //commented axios works!!! it is easyer to read 
+    //commented axios works!!! it is easyer to read
     // let data
     // if (token) {
     //   const response = await axios({
@@ -272,7 +272,7 @@ export const getTasks = async ({
     }
     const response = await axios({
       url,
-      headers: headers as AxiosRequestHeaders || '',
+      headers: (headers as AxiosRequestHeaders) || '',
     })
 
     const data = response.data.data

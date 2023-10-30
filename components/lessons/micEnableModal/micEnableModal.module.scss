@@ -15,17 +15,17 @@
   background-size: 100%;
   animation: fadeInBlurForModals 0.4s forwards;
   outline: none;
-  
+
   &:lang(ka) {
     font-family: $kaFont;
   }
-  
+
   @include mobile {
     max-width: 99%;
     height: 32rem;
   }
-  
-  @include smallWidth{
+
+  @include smallWidth {
     height: 26rem;
   }
 }
@@ -67,7 +67,7 @@
       opacity: 0.6;
       border: none;
       outline: none;
-      @include mobile{
+      @include mobile {
         background-size: 1rem;
       }
     }
@@ -86,7 +86,7 @@
         background-size: 18vw;
         bottom: 0;
       }
-      @include smallWidth{
+      @include smallWidth {
         display: none;
       }
     }
@@ -101,7 +101,7 @@
       @include mobile {
         font-size: 2.4vw;
       }
-      .purpleMic{
+      .purpleMic {
         height: 2.5rem;
         width: auto;
       }
@@ -164,7 +164,7 @@
           font-size: 2.65vw;
         }
       }
-      @include mobile{
+      @include mobile {
         transform: translateX(-2rem);
       }
     }
@@ -188,11 +188,11 @@
       font-family: 'BPG Nino Mtavruli Bold';
       transition: all 0.2s linear;
       cursor: pointer;
-      
+
       @include mobile {
         font-size: 1rem;
         background-position: 12rem center;
-        padding: .6rem 4rem .4rem 1rem;
+        padding: 0.6rem 4rem 0.4rem 1rem;
       }
     }
   }

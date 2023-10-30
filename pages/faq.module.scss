@@ -63,8 +63,8 @@
   height: fit-content;
 
   @include mobile {
-  max-width: 20rem;
-  
+    max-width: 20rem;
+
     flex: 0 0 100%;
     max-width: 30rem;
   }
