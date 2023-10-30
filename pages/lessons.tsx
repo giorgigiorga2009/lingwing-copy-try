@@ -263,6 +263,7 @@ const Lessons: NextPage = () => {
               />
             )}
             {tab !== 'course' && currentCourseObject && (
+               <Scrollbars ref={chatRef}>
               <Wrapper
                 token={token ?? ''}
                 learnMode={currentCourseObject.learnMode}
@@ -270,6 +271,7 @@ const Lessons: NextPage = () => {
                 languageFrom={languageFrom}
                 tab={tab}
               />
+              </Scrollbars>
             )}
             {tab === 'course' && commonProps && (
               <>
