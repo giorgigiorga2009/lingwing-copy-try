@@ -16,6 +16,7 @@ const UserAvatar: React.FC<Props> = ({ image }) => {
           alt="User avatar"
           width={100}
           height={100}
+          className={style.Image}
         />
       }
     </div>
