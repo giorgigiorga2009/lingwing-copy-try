@@ -34,12 +34,16 @@ export const TranslateBubble: FC<Props> = ({
   textType,
   answers,
 }) => {
-  taskText = taskText
-    .replaceAll('(FR)', '🤗')
-    .replaceAll('(SH)', '✂️')
-    .replaceAll('(F)', '👧')
-    .replaceAll('(M)', '👦')
-    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+  if (typeof taskText === 'string') {
+    taskText = taskText
+      .replaceAll('(FR)', '🤗')
+      .replaceAll('(SH)', '✂️')
+      .replaceAll('(F)', '👧')
+      .replaceAll('(M)', '👦')
+      .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+  } else {
+    console.error('taskText is not a string:', taskText)
+  }
 
   const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
 
