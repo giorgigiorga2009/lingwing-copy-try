@@ -36,14 +36,14 @@ export const TranslateBubble: FC<Props> = ({
 }) => {
   if (typeof taskText === 'string') {
     taskText = taskText
-    .replaceAll('(FR)', '🤗')
-    .replaceAll('(SH)', '✂️')
-    .replaceAll('(F)', '👧')
-    .replaceAll('(M)', '👦')
-    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
-} else {
-    console.error('taskText is not a string:', taskText);
-}
+      .replaceAll('(FR)', '🤗')
+      .replaceAll('(SH)', '✂️')
+      .replaceAll('(F)', '👧')
+      .replaceAll('(M)', '👦')
+      .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+  } else {
+    console.error('taskText is not a string:', taskText)
+  }
 
   const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
 
@@ -91,8 +91,8 @@ export const TranslateBubble: FC<Props> = ({
           </>
         ) : (
           <span className={style.taskText}>
-            {taskText.split(' ').map(word => (
-              <span key={word}>{word + ' '}</span>
+            {taskText.split(' ').map((word, index) => (
+              <span key={word + '-' + index}>{word + ' '}</span>
             ))}
           </span>
         )}

@@ -31,10 +31,6 @@
   background: $white;
   height: calc(100vh - 18rem);
   width: 100%;
-  overflow-y: auto;
-  overflow-x: auto;
-  overflow: scroll;
-  scroll-behavior: smooth;
   border-radius: 1rem 1rem 0 0;
 
   @include mobile {
