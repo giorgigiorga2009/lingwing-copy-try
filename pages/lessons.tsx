@@ -12,6 +12,7 @@ import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import Wrapper from '@components/lessons/learnMenu/Wrapper'
+import Ratings from '@components/lessons/usersRating/Ratings'
 import {
   CourseObject,
   getTasks,
@@ -126,12 +127,6 @@ const Lessons: NextPage = () => {
       })
   }, [courseId])
 
-  // Use the tasksData and currentTaskNumber states to set the current task and its type
-  useEffect(() => {
-    if (!tasksData) return
-    setCurrentTask(tasksData[currentTaskNumber])
-  }, [currentTaskNumber, tasksData])
-
   //fetch new portion of tasks
   useEffect(() => {
     if (
@@ -163,6 +158,12 @@ const Lessons: NextPage = () => {
         })
     }
   }, [currentTask])
+
+  // Use the tasksData and currentTaskNumber states to set the current task and its type
+  useEffect(() => {
+    if (!tasksData) return
+    setCurrentTask(tasksData[currentTaskNumber])
+  }, [currentTaskNumber, tasksData])
 
   const handleGrammarHeight = (height: number) => {
     setGrammarHeight(height)
@@ -215,8 +216,9 @@ const Lessons: NextPage = () => {
   return (
     <div className={style.container}>
       <Header size="s" />
+
       <CombinedModalComponent
-      token={token}
+        token={token}
         courseName={courseName}
         courseId={courseId}
         isUserLoggedIn={isUserLoggedIn}
@@ -228,8 +230,15 @@ const Lessons: NextPage = () => {
         currentCourseObject={currentCourseObject}
         dailyReachedLimitDate={dailyReachedLimitDate}
       />
-
+      {isSoundChecked && currentCourseObject && token && (
+        <Ratings
+          courseId={currentCourseObject?.course._id}
+          userScore={userScore}
+          token={token}
+        />
+      )}
       <BackgroundParrot />
+
       {!isSoundChecked && (
         <SoundCheck
           setSoundChecked={setSoundChecked}
@@ -257,11 +266,11 @@ const Lessons: NextPage = () => {
               <Wrapper
                 token={token ?? ''}
                 learnMode={currentCourseObject.learnMode}
-                userCourseId={courseId}
+                userCourseId={currentCourseObject.course._id}
+                languageFrom={languageFrom}
                 tab={tab}
               />
             )}
-
             {tab === 'course' && commonProps && (
               <>
                 <div ref={chatRef} className={style.chat}>

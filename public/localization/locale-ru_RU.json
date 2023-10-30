@@ -423,9 +423,17 @@
   "LESSONS_MIC_MODAL_LI3": "Use",
   "LESSONS_MIC_MODAL_LI3_HEADPHONES": "headphones",
   "LESSONS_MIC_MODAL_LI3_RESULT": "for a better result",
-  "LESSONS_MIC_MODAL_MIC": "Turn on the microphone"
+  "LESSONS_MIC_MODAL_MIC": "Turn on the microphone",
 
 
+  "RATING_TOP_SCORES": "ЛУЧШИЕ РЕЗУЛЬТАТЫ",
+  "RATING_TOP_20": "Топ-20",
+  "RATING_DAILY": "Ежедневный рейтинг",
+  "RATING_WEEKLY": "Рейтинг недели",
+
+  "GRAMMAR_TITLE": "Грамматика текущего курса",
+
+  "STATISTICS_COURSE": "Статистика курса "
 
 
 

@@ -414,6 +414,15 @@
   "LEARNING_MODE_DESCRIPTION_2": "This learning mode is tailored to you if your knowledge of the course's material isn't good, and you need to strengthen it.<br>While teaching a new material program will simultaneously replicate the old one only once. The program will repeat tasks performed incorrectly until they aren't properly executed.<br><br><em>*Correctly performed tasks are repeated once.</em>",
   "LEARNING_MODE_DESCRIPTION_3": "This mode of study is tailored to you if you don't know the material of the course at all.<br>The program gives you new material and simultaneously, repeats the old one, until It isn't convinced, that you thoroughly learned the course, and you are ready to start the next course.<br><br><em>*Correctly performed tasks are repeated for 2 times.</em>",
 
+  "RATING_TOP_SCORES": "TOP SCORES",
+  "RATING_TOP_20": "Top 20",
+  "RATING_DAILY": "Daily Rating",
+  "RATING_WEEKLY": "Weekly Rating",
+
+  "GRAMMAR_TITLE": "Current course grammar",
+
+  "STATISTICS_COURSE": "Course Statistics",
+
 
   "LESSONS_MIC_MODAL_HEADING": "Accomplish tasks by speaking!",
   "LESSONS_MIC_MODAL_TITLE": "Improve your foreign language skills",

@@ -536,11 +536,19 @@
   "LESSONS_MIC_MODAL_LI3": "უკეთესი შედეგისთვის გამოიყენე",
   "LESSONS_MIC_MODAL_LI3_HEADPHONES": "ყურსასმენები",
   "LESSONS_MIC_MODAL_LI3_RESULT": " ",
-  "LESSONS_MIC_MODAL_MIC": "მიკროფონის ჩართვა"
+  "LESSONS_MIC_MODAL_MIC": "მიკროფონის ჩართვა",
 
 
 
 
+  "RATING_TOP_SCORES": "რეიტინგები",
+  "RATING_TOP_20": "ტოპ 20",
+  "RATING_DAILY": "დღიური\nრეიტინგი",
+  "RATING_WEEKLY": "კვირის\nრეიტინგი",
+
+  "GRAMMAR_TITLE": "მიმდინარე კურსის გრამატიკა",
+
+  "STATISTICS_COURSE": "კურსის სტატისტიკა"
 
 
 

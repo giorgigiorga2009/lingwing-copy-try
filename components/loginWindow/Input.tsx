@@ -14,10 +14,10 @@ export const Input: FC<Props> = ({
   placeholder,
   value,
   onChange = () => {
-    ('')
+    ;('')
   },
   onBlur = () => {
-    ('')
+    ;('')
   },
 }) => {
   return (

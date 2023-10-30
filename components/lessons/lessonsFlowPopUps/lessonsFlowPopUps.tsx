@@ -74,10 +74,14 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   return (
     <div className={style.regReminder}>
       <div className={style.container}>
-        <RenderHeaderContent popUpNumber={popUpNumber} language={courseData?.title} token={token} />
+        <RenderHeaderContent
+          popUpNumber={popUpNumber}
+          language={courseData?.title}
+          token={token}
+        />
         <div className={style.paragraph}>
           <RenderParagraphContent
-          token={token}
+            token={token}
             popUpNumber={popUpNumber}
             completedTasks={completedTasks}
             dailyLimitDate={dailyLimitDate}
@@ -97,14 +101,14 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
         </div>
         <div className={style.paragraph}>
           <RenderCheckboxWithCardDetails
-          token={token}
+            token={token}
             popUpNumber={popUpNumber}
             paymentsData={paymentsData}
           />
         </div>
         <div className={style.buttons}>
           <RenderButtons
-          token={token}
+            token={token}
             popUpNumber={popUpNumber}
             languageTo={languageTo}
             languageFrom={languageFrom}

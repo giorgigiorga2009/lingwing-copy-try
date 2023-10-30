@@ -1,0 +1,141 @@
+@import '@styles/imports';
+
+.showContainer {
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin-right: 0.5rem;
+  top: 50%;
+}
+
+.showText {
+  transform: rotate(270deg);
+  margin-right: -1.5rem;
+  background: none;
+  border: none;
+  font-family: SegoeUI;
+  color: $purple-500;
+  cursor: pointer;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+}
+
+.showButton {
+  height: 1.5rem;
+  background: none;
+  border: none;
+  background-repeat: no-repeat;
+  background-image: url('/assets/images/rectangle_top.png');
+  cursor: pointer;
+}
+
+.hideButton {
+  height: 1.5rem;
+  background: none;
+  border: none;
+  background-repeat: no-repeat;
+  background-image: url('/assets/images/rectangle_top2.png');
+  cursor: pointer;
+}
+
+.container {
+  position: absolute;
+  width: 12rem;
+  right: 0;
+  top: 0;
+  margin-top: 14vh;
+  font-family: SegoeUI;
+  font-size: 0.85rem;
+  margin-right: 2rem;
+  transform: translateX(130%);
+  transition: transform 0.4s ease-out;
+
+  &.show {
+    transform: translateX(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+
+  button {
+    cursor: pointer;
+    margin-top: 0.2rem;
+    border: none;
+    background-repeat: no-repeat;
+  }
+}
+
+.buttonLeft {
+  background: none;
+  background-image: url('/assets/images/rectangle_top.png');
+}
+
+.buttonRight {
+  background: none;
+  background-image: url('/assets/images/rectangle_top2.png');
+}
+
+.title {
+  color: $purple-500;
+  font-size: 1.1rem;
+  padding-top: 0;
+
+  &:lang(ka) {
+    font-family: $kaFontTitleBold;
+  }
+}
+
+.usersContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 65vh;
+  gap: 1rem;
+  opacity: 1;
+}
+
+.userWrapper {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.image {
+  border-radius: 3rem;
+}
+
+.position {
+  position: absolute;
+  background-color: $orange-200;
+  border-radius: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.1rem;
+  color: $orange-500;
+  font-size: 0.8rem;
+}
+
+.name {
+  color: $grey-800;
+  margin-bottom: 0.4rem;
+}
+
+.ratingTitle {
+  color: $grey-300;
+}
+
+.rating {
+  padding: 0 0.4rem 0.1rem;
+  border-radius: 1rem;
+  background-color: $purple-200;
+  color: $white;
+}

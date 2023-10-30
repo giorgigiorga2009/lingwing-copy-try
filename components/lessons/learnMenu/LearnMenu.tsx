@@ -59,6 +59,9 @@ const LearnMenu: FC<Props> = ({
       <button className={style.folderName} onClick={() => setTab('grammar')}>
         Grammar
       </button>
+      <button className={style.folderName} onClick={() => setTab('grammar')}>
+        Vocabulary
+      </button>
       <button className={style.folderName} onClick={() => setTab('levels')}>
         Levels
       </button>

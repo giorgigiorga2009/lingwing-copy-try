@@ -49,7 +49,7 @@ const Wizard: NextPage<WizardProps> = params => {
   const [languagesFrom, setLanguagesFrom] = useState<LanguageFrom[]>()
   const [languageLevelData, setLanguageLevelData] = useState<LanguageLevel[]>()
 
-  const {data: session} = useSession()
+  const { data: session } = useSession()
   const token = session?.user.accessToken as string
 
   useEffect(() => {

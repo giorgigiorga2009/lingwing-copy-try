@@ -16,13 +16,12 @@ const PlanSelection: React.FC<PackagesInfoProps> = ({
 }) => {
   const [data, setData] = useState<PackageData>()
 
-  useEffect(()=> {
-    const loadPackages = async()=>{
+  useEffect(() => {
+    const loadPackages = async () => {
       try {
         const response = await getPackages('')
         setData(response)
-      } catch (error) {
-      }
+      } catch (error) {}
     }
     loadPackages()
   }, [])

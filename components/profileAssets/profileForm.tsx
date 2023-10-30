@@ -3,7 +3,7 @@ import LeftSide from './leftSide'
 import RightSide from './rightSide'
 import { useSession } from 'next-auth/react'
 import style from './profileForm.module.scss'
-import {prepareJsonData} from '@utils/profileData'
+import { prepareJsonData } from '@utils/profileData'
 import React, { useState, FormEvent, useEffect } from 'react'
 import { PutData, ProfileData, GetProfileData } from '@utils/profileEdit'
 

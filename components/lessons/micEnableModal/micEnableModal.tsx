@@ -33,7 +33,7 @@ const MicEnableModal: React.FC<MicEnableModalProps> = ({ completedTasks }) => {
     }
   }
 
-  if (completedTasks?.length !== 15  ) {
+  if (completedTasks?.length !== 15) {
     return null
   }
   return (
@@ -55,29 +55,43 @@ const MicEnableModal: React.FC<MicEnableModalProps> = ({ completedTasks }) => {
           ></button>
           <span className={style.parrot}></span>
           <div className={style.title}>
-            <Image src={micPurple} alt="" width={100} height={100} className={style.purpleMic}/>
+            <Image
+              src={micPurple}
+              alt=""
+              width={100}
+              height={100}
+              className={style.purpleMic}
+            />
             <h2>{t('LESSONS_MIC_MODAL_HEADING')}</h2>
           </div>
           <p>{t('LESSONS_MIC_MODAL_TITLE')}</p>
           <ul>
             <li>
               <span>{t('LESSONS_MIC_MODAL_LI1')}</span>
-              <span className={style.colored}>{t('LESSONS_MIC_MODAL_LI1_SPAN')}</span>
+              <span className={style.colored}>
+                {t('LESSONS_MIC_MODAL_LI1_SPAN')}
+              </span>
               <span>{t('LESSONS_MIC_MODAL_LI1_IS_ON')}</span>
             </li>
             <li>
-              <span>{t( "LESSONS_MIC_MODAL_LI2")}</span>
-              <span className={style.colored}>{t( "LESSONS_MIC_MODAL_LI2_AREA")}</span>
+              <span>{t('LESSONS_MIC_MODAL_LI2')}</span>
+              <span className={style.colored}>
+                {t('LESSONS_MIC_MODAL_LI2_AREA')}
+              </span>
             </li>
             <li>
-              <span>{t("LESSONS_MIC_MODAL_LI3")}</span>
-              <span className={style.colored}>{t("LESSONS_MIC_MODAL_LI3_HEADPHONES")}</span>
-              <span>{t("LESSONS_MIC_MODAL_LI3_RESULT")}</span>
-              </li>
+              <span>{t('LESSONS_MIC_MODAL_LI3')}</span>
+              <span className={style.colored}>
+                {t('LESSONS_MIC_MODAL_LI3_HEADPHONES')}
+              </span>
+              <span>{t('LESSONS_MIC_MODAL_LI3_RESULT')}</span>
+            </li>
           </ul>
         </div>
         <div className={style.bottom}>
-          <button onClick={enableMicrophone}>{t("LESSONS_MIC_MODAL_MIC")}</button>
+          <button onClick={enableMicrophone}>
+            {t('LESSONS_MIC_MODAL_MIC')}
+          </button>
         </div>
       </div>
     </Modal>

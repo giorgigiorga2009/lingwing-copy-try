@@ -31,13 +31,11 @@ interface Props {
   token: string | null
 }
 
-
-
 export const getStatsPerPercent = async ({ userCourseId, token }: Props) => {
-  const headers: { [key: string]: string } = {}; 
+  const headers: { [key: string]: string } = {}
 
   if (token) {
-    headers.Authorization = token;
+    headers.Authorization = token
   }
 
   return await axios

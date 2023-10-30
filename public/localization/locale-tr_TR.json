@@ -394,9 +394,17 @@
   "LESSONS_MIC_MODAL_LI3": "Use",
   "LESSONS_MIC_MODAL_LI3_HEADPHONES": "headphones",
   "LESSONS_MIC_MODAL_LI3_RESULT": "for a better result",
-  "LESSONS_MIC_MODAL_MIC": "Turn on the microphone"
+  "LESSONS_MIC_MODAL_MIC": "Turn on the microphone",
 
 
+  "RATING_TOP_SCORES": "EN İYİ SKORLAR",
+  "RATING_TOP_20": "Тop 20",
+  "RATING_DAILY": "Günlük değerlendirme",
+  "RATING_WEEKLY": "Haftalık değerlendirme",
+
+  "GRAMMAR_TITLE": "Mevcut ders grameri",
+
+  "STATISTICS_COURSE": "Kurs İstatistikleri"
 
 
 }

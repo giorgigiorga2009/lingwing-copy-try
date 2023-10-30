@@ -389,9 +389,17 @@
   "LESSONS_MIC_MODAL_LI3": "para mejor resultados usa los",
   "LESSONS_MIC_MODAL_LI3_HEADPHONES": "cascos",
   "LESSONS_MIC_MODAL_LI3_RESULT": " ",
-  "LESSONS_MIC_MODAL_MIC": "Activar el micrófono"
+  "LESSONS_MIC_MODAL_MIC": "Activar el micrófono",
 
 
+  "RATING_TOP_SCORES": "PRINCIPALES PUNTUACIONES",
+  "RATING_TOP_20": "Тop 20",
+  "RATING_DAILY": "Clasificación diaria",
+  "RATING_WEEKLY": "Clasificación semanal",
+
+  "GRAMMAR_TITLE": "Las gramáticas del curso",
+
+  "STATISTICS_COURSE": "Estadísticas del curso"
 
 
 
