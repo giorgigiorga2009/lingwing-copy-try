@@ -13,7 +13,6 @@
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-
 .wrapper {
   position: relative;
   .stars {
@@ -82,7 +81,7 @@
         width: 7rem;
       }
     }
-    @include smallWidth{
+    @include smallWidth {
       width: 100%;
     }
   }

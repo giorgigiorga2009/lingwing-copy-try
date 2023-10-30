@@ -4,6 +4,7 @@ import { SignUp } from './SignUp'
 import { SignIn } from './SignIn'
 import classNames from 'classnames'
 import { FC, useState } from 'react'
+import { useRouter } from 'next/router'
 import { signIn } from 'next-auth/react'
 import FocusTrap from 'focus-trap-react'
 import style from './LoginModal.module.scss'
@@ -30,7 +31,13 @@ interface Props {
   setOpenLogin: (bool: boolean) => void
 }
 
-export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin, lighterBG }) => {
+export const LoginModal: FC<Props> = ({
+  onClick,
+  openLogin,
+  setOpenLogin,
+  lighterBG,
+}) => {
+  const router = useRouter()
   const { t } = useTranslation()
   const [tab, setTab] = useState<Tab>('signIn')
   const [email, setEmail] = useState<string>('')
@@ -46,7 +53,12 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin, lighte
         redirect: false,
       })
 
-      response?.ok === false ? setEmailNotFound(true) : setOpenLogin(!openLogin)
+      if (response?.ok === false) {
+        setEmailNotFound(true)
+      } else {
+        setOpenLogin(!openLogin)
+        router.push({ pathname: '/dashboard' })
+      }
     } catch (error) {
       console.log((error as Error).message)
     }
@@ -54,7 +66,9 @@ export const LoginModal: FC<Props> = ({ onClick, openLogin, setOpenLogin, lighte
 
   return (
     <FocusTrap>
-      <div className={classNames(style.wrapper, {[style.lighterBG]: lighterBG})}>
+      <div
+        className={classNames(style.wrapper, { [style.lighterBG]: lighterBG })}
+      >
         <Foco
           component="div"
           onClickOutside={onClick}

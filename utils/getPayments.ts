@@ -137,9 +137,7 @@ export const getPayWithList = async (): Promise<PaymentMethod[]> => {
     })
 }
 
-export const getUserProfileCreationDate = async (
-  authToken: string | null,
-) => {
+export const getUserProfileCreationDate = async (authToken: string | null) => {
   try {
     const response = await axios.get(
       `${process.env.DEFAULT_URL}/user/profile`,

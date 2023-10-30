@@ -42,17 +42,16 @@ const Payment: NextPage<PaymentProps> = () => {
     setOpenLogin(false)
     router.push('/')
   }, [router])
- 
 
   useEffect(() => {
-   if(session?.user.accessToken){
-    setIsLoading(false);
-   }else{
-    const timeout = setTimeout(()=> setIsLoading(false), 1000);
-    return () => clearTimeout(timeout);
-   }
+    if (session?.user.accessToken) {
+      setIsLoading(false)
+    } else {
+      const timeout = setTimeout(() => setIsLoading(false), 1000)
+      return () => clearTimeout(timeout)
+    }
 
-   !session?.user.accessToken && setOpenLogin(true)
+    !session?.user.accessToken && setOpenLogin(true)
   }, [session, id])
 
   useEffect(() => {
@@ -102,7 +101,6 @@ const Payment: NextPage<PaymentProps> = () => {
     }
   }, [data, selectedCurrency])
 
-
   const monthlyPayment =
     data?.packages[0].currency[selectedCurrency].recurringPrice !== undefined
       ? data?.packages[0].currency[selectedCurrency].recurringPrice /
@@ -110,7 +108,7 @@ const Payment: NextPage<PaymentProps> = () => {
       : undefined
 
   if (isLoading) {
-    return <Loader /> 
+    return <Loader />
   }
 
   if (!session?.user.accessToken) {

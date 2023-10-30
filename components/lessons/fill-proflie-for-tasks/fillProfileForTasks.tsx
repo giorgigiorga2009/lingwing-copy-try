@@ -63,7 +63,10 @@ const FillProfileForTasks: React.FC<Props> = ({
     }
 
     fetchProfileData()
-    if (completedTasks?.length === 20 && profileData?.profile?.lastName === '') {
+    if (
+      completedTasks?.length === 20 &&
+      profileData?.profile?.lastName === ''
+    ) {
       setShowProfileFiller(true)
     }
   }, [completedTasks])
