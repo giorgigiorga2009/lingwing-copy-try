@@ -26,7 +26,7 @@ export const StartButton: FC = () => {
       <div className={style.title}>
         <span>{t('join')}</span>
         <span className={style.usersAmount}>
-          {usersAmount.toLocaleString()}
+          {usersAmount?.toLocaleString()}
         </span>
         <span>{t('users')}</span>
       </div>

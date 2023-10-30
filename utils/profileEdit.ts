@@ -57,13 +57,13 @@ export const PutData = async (formObject: jsonData, token: string | null) => {  
   }
 }
 
-export const GetProfileData = async (token: string | null) => {
+export const GetProfileData = async (token: string | number) => {
   try {
     const response = await axios.get(
       `${process.env.DEFAULT_URL}/user/profile`,
       {
         headers: {
-          Authorization: token!,
+          Authorization: token,
         },
       },
     )

@@ -209,7 +209,6 @@ const Lessons: NextPage = () => {
       }
     : null
 
-  // for tasks quantity only
   const isUserLoggedIn = !!token
 
   return (

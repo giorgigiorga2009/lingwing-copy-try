@@ -10,7 +10,7 @@ const nextConfig = {
     audioURL: process.env.AUDIO_URL,
   },
   images: {
-    domains: ['cdn-dev.lingwing.com'],
+    domains: ['cdn-dev.lingwing.com', 'lh3.googleusercontent.com'],
   },
 }
 
