@@ -91,8 +91,8 @@ export const TranslateBubble: FC<Props> = ({
           </>
         ) : (
           <span className={style.taskText}>
-            {taskText.split(' ').map(word => (
-              <span key={word}>{word + ' '}</span>
+            {taskText.split(' ').map((word, index) => (
+              <span key={word + '-' + index}>{word + ' '}</span>
             ))}
           </span>
         )}

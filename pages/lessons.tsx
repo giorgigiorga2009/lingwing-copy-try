@@ -21,6 +21,7 @@ import {
 import { useSession } from 'next-auth/react'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 const Lessons: NextPage = () => {
   const [tasksData, setTasksData] = useState<TaskData[]>([])
@@ -44,7 +45,7 @@ const Lessons: NextPage = () => {
   const [grammarHeight, setGrammarHeight] = useState<number>(0)
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
-  const chatRef = useRef<HTMLDivElement>(null)
+  const chatRef = useRef<Scrollbars>(null)
 
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
@@ -176,11 +177,10 @@ const Lessons: NextPage = () => {
     setTimeout(() => {
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
-          chatRef.current.scrollTop =
-            chatWrapperRef.current.scrollHeight - grammarHeight
+          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight - grammarHeight);
           setGrammarHeight(0)
         } else {
-          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight
+          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight);
         }
       }
     }, 200)
@@ -210,6 +210,7 @@ const Lessons: NextPage = () => {
     : null
 
   const isUserLoggedIn = !!token
+
 
   return (
     <div className={style.container}>
@@ -263,7 +264,8 @@ const Lessons: NextPage = () => {
 
             {tab === 'course' && commonProps && (
               <>
-                <div ref={chatRef} className={style.chat}>
+              <Scrollbars ref={chatRef}>
+                <div className={style.chat}>
                   <div ref={chatWrapperRef} className={style.chatWrapper}>
                     {completedTasks && (
                       <ChatHistory
@@ -283,6 +285,7 @@ const Lessons: NextPage = () => {
                     {!currentTask && <div className={style.blankBubble} />}
                   </div>
                 </div>
+                </Scrollbars>
                 <CurrentTaskInput
                   commonProps={commonProps}
                   isHintShown={isHintShown}
