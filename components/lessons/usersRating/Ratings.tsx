@@ -3,6 +3,7 @@ import style from './Ratings.module.scss'
 import { FC, useState, useEffect } from 'react'
 import { getRatings } from '@utils/lessons/getRatings'
 import { useTranslation } from '@utils/useTranslation'
+import defaultImg from '/public/themes/images/v2/parrot_headphones.png'
 
 interface User {
   avatar: string
@@ -83,7 +84,7 @@ const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
               <div key={index} className={style.userWrapper}>
                 <Image
                   className={style.image}
-                  src={user.avatar ?? ''}
+                  src={user.avatar ?? defaultImg}
                   width={50}
                   height={50}
                   alt=""
