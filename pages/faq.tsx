@@ -34,6 +34,7 @@ const Faq: NextPage = () => {
       }
     }
     fetchFaqData()
+    
   }, [locale, locales])
 
   // const faqSchema = {
@@ -83,20 +84,7 @@ const Faq: NextPage = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-        {/* <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": {
-    "@type": "Question",
-    "name": "What is www.lingwing.com and who is it intended for?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "www.lingwing.com is an online language-learning platform, created with the use of the newest technologies and algorithms. It is intended for everyone who wishes to learn a new language and start speaking at once, revise previously taught language, improve his or her knowledge and prepare for exams."
-    }
-  }
-}
-` }} /> */}
+     
       </Head>
       <Header size="s" loginClassName={style.loginModal} />
       <main>

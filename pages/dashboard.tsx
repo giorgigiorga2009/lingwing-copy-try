@@ -78,7 +78,7 @@ const Dashboard: NextPage = () => {
 
   return (
     <div className={style.container}>
-      <PageHead text="APP_DASHBOARD" />
+      <PageHead title="APP_DASHBOARD" />
       <Header size="s" />
       {!loading && myLanguages && myLanguages.length > 0 && (
         <div className={style.content}>

@@ -50,6 +50,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
         />
       )}
       <FillProfileForTasks
+        token={token}
         completedTasks={completedTasks}
         isUserLoggedIn={isUserLoggedIn}
       />

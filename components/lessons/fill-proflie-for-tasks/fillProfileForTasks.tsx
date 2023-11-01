@@ -14,6 +14,7 @@ import { getUserProfileData } from '@utils/auth'
 import { TaskData } from '@utils/lessons/getTask'
 
 interface Props {
+  token: string | null
   completedTasks?: TaskData[]
   isUserLoggedIn: boolean
 }
@@ -21,6 +22,7 @@ interface Props {
 const FillProfileForTasks: React.FC<Props> = ({
   completedTasks,
   isUserLoggedIn,
+  token,
 }) => {
   const { t } = useTranslation()
   const [isShowingSecondSide, setIsShowingSecondSide] = useState(false)
@@ -53,10 +55,10 @@ const FillProfileForTasks: React.FC<Props> = ({
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const responseData = await getUserProfileData(
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaW5nd2luZy1hcGkiLCJpYXQiOjE2OTY4NDU4NDA2NTYsImV4cCI6MTc3NjQyMDI0MDY1NiwidXNlcl9pZCI6IjY0Yzc5NDhkZGNlMTkzNmNjNzgxMDM3MSJ9.6qGfba1OT2vViv321FQDEpEdPhwc7kvizqexcM_sMHs',
-        )
-        setPRofileData(responseData)
+        if(token){
+          const responseData = await getUserProfileData(token || '')
+          setPRofileData(responseData)
+        }
       } catch (error) {
         console.error('Error fetching data:', error)
       }
