@@ -7,7 +7,7 @@ import { FollowButtons } from '@components/home/FollowButtons'
 const ContainerWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={style.container}>
-      <PageHead text="APP_DASHBOARD" />
+      <PageHead title="APP_DASHBOARD" />
       <Header size="s" />
       <div className={style.window}>{children}</div>
       <Footer />

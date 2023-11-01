@@ -96,7 +96,6 @@ export const UploadImage = async (token: string | null, image?: string) => {
         },
       )
       //take res image
-      console.log('avatar', response.data)
       return response.data
 
       // Handle the response here
