@@ -554,7 +554,11 @@
 
   "META_TAG_PACKAGES_TITLE": "Lingwing: ფასიანი პაკეტები",
   "META_TAG_PACKAGES_DESCRIPTION": "ისწავლე ინგლისური, რუსული, ესპანური, ფრანგული... ონლაინ! სასაუბრო ენის შესწავლა ყველაზე სწაფად!",
-  "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ"
+  "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ",
+
+
+
+  "DIALOG_TYPE_FIRST_LETTERS": "დაწერეთ სიტყვების პირველი ასოები"
 
 
 

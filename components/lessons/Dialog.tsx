@@ -16,6 +16,7 @@ import {
 } from '@utils/lessons/taskInputUtils'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import { DialogMessage } from './DialogMessage'
+import { useTranslation } from '@utils/useTranslation'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
@@ -31,9 +32,9 @@ interface DialogProps {
   hintText: string
 }
 
-const description = 'Напишите первые буквы слов'
-  .split(' ')
-  .map(word => <span key={word}>{word + ' '}</span>)
+// const description = 'DIALOG_TYPE_FIRST_LETTERS'
+//   .split(' ')
+//   .map(word => <span key={word}>{word + ' '}</span>)
 
 export const Dialog: FC<DialogProps> = ({
   currentMessageIndex = 0,
@@ -44,8 +45,8 @@ export const Dialog: FC<DialogProps> = ({
   isHintShown,
   hintText,
 }) => {
+  const { t } = useTranslation()
   const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
-
   const dialogContainerRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
     if (dialogContainerRef.current) {
@@ -57,7 +58,13 @@ export const Dialog: FC<DialogProps> = ({
     <div>
       <div className={style.title}>Dialog</div>
       <div className={style.dialog} ref={dialogContainerRef}>
-        <span className={style.description}>{description}</span>
+        <span className={style.description}>
+          {t('DIALOG_TYPE_FIRST_LETTERS')
+            .split(' ')
+            .map(word => (
+              <span key={word}>{word + ' '}</span>
+            ))}
+        </span>
         {currentMessageIndex >= 0 &&
           !isHistory &&
           dialogArrayTo
