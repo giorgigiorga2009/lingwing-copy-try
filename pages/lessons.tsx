@@ -275,8 +275,8 @@ const Lessons: NextPage = () => {
             )}
             {tab === 'course' && commonProps && (
               <>
-              <Scrollbars ref={chatRef}>
                 <div className={style.chat}>
+              <Scrollbars ref={chatRef} >
                   <div ref={chatWrapperRef} className={style.chatWrapper}>
                     {completedTasks && (
                       <ChatHistory
@@ -295,8 +295,8 @@ const Lessons: NextPage = () => {
                     )}
                     {!currentTask && <div className={style.blankBubble} />}
                   </div>
-                </div>
                 </Scrollbars>
+                </div>
                 <CurrentTaskInput
                   commonProps={commonProps}
                   isHintShown={isHintShown}
