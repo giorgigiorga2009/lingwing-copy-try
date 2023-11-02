@@ -17,6 +17,7 @@ import {
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import { DialogMessage } from './DialogMessage'
 import { useTranslation } from '@utils/useTranslation'
+import Scrollbars from 'react-custom-scrollbars'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
@@ -32,9 +33,7 @@ interface DialogProps {
   hintText: string
 }
 
-// const description = 'DIALOG_TYPE_FIRST_LETTERS'
-//   .split(' ')
-//   .map(word => <span key={word}>{word + ' '}</span>)
+
 
 export const Dialog: FC<DialogProps> = ({
   currentMessageIndex = 0,
@@ -47,17 +46,20 @@ export const Dialog: FC<DialogProps> = ({
 }) => {
   const { t } = useTranslation()
   const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
-  const dialogContainerRef = useRef<HTMLDivElement | null>(null)
-  useEffect(() => {
-    if (dialogContainerRef.current) {
-      dialogContainerRef.current.scrollTop = 0 // 2. Set scrollTop to 0
-    }
-  }, [currentMessageIndex]) //Don't work properly
+  const scrollbarsRef = useRef<Scrollbars>(null);
 
+  useEffect(() => {
+    if (scrollbarsRef.current) {
+      scrollbarsRef.current.scrollToBottom();
+    }
+  }, [currentMessageIndex, hintText]);
+
+ 
   return (
     <div>
       <div className={style.title}>Dialog</div>
-      <div className={style.dialog} ref={dialogContainerRef}>
+      <div className={style.dialog} >
+      <Scrollbars style={{ width: '100%', height: '500px'}}  ref={scrollbarsRef}>
         <span className={style.description}>
           {t('DIALOG_TYPE_FIRST_LETTERS')
             .split(' ')
@@ -99,6 +101,7 @@ export const Dialog: FC<DialogProps> = ({
               totalCount={dialogArrayTo.length}
             />
           ))}
+          </Scrollbars>
       </div>
     </div>
   )
