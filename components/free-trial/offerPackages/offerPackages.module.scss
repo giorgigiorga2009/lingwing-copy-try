@@ -2,6 +2,11 @@
 
 .offerContainer {
   width: 100%;
+
+  &:lang(ka) {
+    font-family: $kaFont;
+  }
+  
   .title {
     color: $black;
     font-family: SegoeUI, sans-serif;
@@ -17,5 +22,9 @@
   }
   .description {
     font-family: SegoeUI, sans-serif;
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
+  
 }

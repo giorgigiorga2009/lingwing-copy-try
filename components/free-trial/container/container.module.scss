@@ -47,6 +47,9 @@
     @include mobile {
       margin: 0 auto;
     }
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
 }
 

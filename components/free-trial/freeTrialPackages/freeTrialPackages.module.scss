@@ -13,6 +13,9 @@
     font-size: 1.6rem;
     font-family: SegoeUI, sans-serif;
     margin-top: 10px;
+    &:lang(ka) {
+      font-family: $kaFont;
+    }
   }
   .close {
     position: absolute;
@@ -61,6 +64,8 @@
     gap: 5px;
     font-family: SegoeUI, sans-serif;
 
+    
+
     .checkLabel {
       & input {
         position: absolute;
@@ -106,6 +111,10 @@
 
     p a {
       text-decoration: none;
+    }
+
+    &:lang(ka) {
+      font-family: $kaFont;
     }
   }
 }
