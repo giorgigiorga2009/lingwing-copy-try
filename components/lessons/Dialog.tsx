@@ -61,8 +61,8 @@ export const Dialog: FC<DialogProps> = ({
         <span className={style.description}>
           {t('DIALOG_TYPE_FIRST_LETTERS')
             .split(' ')
-            .map(word => (
-              <span key={word}>{word + ' '}</span>
+            .map((word, index) => (
+              <span key={word + index}>{word + ' '}</span>
             ))}
         </span>
         {currentMessageIndex >= 0 &&
