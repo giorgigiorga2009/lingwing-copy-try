@@ -178,10 +178,12 @@ const Lessons: NextPage = () => {
     setTimeout(() => {
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
-          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight - grammarHeight);
+          chatRef.current.scrollTop(
+            chatWrapperRef.current.scrollHeight - grammarHeight,
+          )
           setGrammarHeight(0)
         } else {
-          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight);
+          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight)
         }
       }
     }, 200)
@@ -211,7 +213,6 @@ const Lessons: NextPage = () => {
     : null
 
   const isUserLoggedIn = !!token
-
 
   return (
     <div className={style.container}>
@@ -263,39 +264,39 @@ const Lessons: NextPage = () => {
               />
             )}
             {tab !== 'course' && currentCourseObject && (
-               <Scrollbars ref={chatRef}>
-              <Wrapper
-                token={token ?? ''}
-                learnMode={currentCourseObject.learnMode}
-                userCourseId={currentCourseObject.course._id}
-                languageFrom={languageFrom}
-                tab={tab}
-              />
+              <Scrollbars ref={chatRef}>
+                <Wrapper
+                  token={token ?? ''}
+                  learnMode={currentCourseObject.learnMode}
+                  userCourseId={currentCourseObject.course._id}
+                  languageFrom={languageFrom}
+                  tab={tab}
+                />
               </Scrollbars>
             )}
             {tab === 'course' && commonProps && (
               <>
                 <div className={style.chat}>
-              <Scrollbars ref={chatRef} >
-                  <div ref={chatWrapperRef} className={style.chatWrapper}>
-                    {completedTasks && (
-                      <ChatHistory
-                        completedTasks={completedTasks}
-                        isHintShown={isHintShown}
-                      />
-                    )}
-                    {currentTask && (
-                      <ChatCurrentTask
-                        currentTask={currentTask}
-                        currentMessageIndex={currentMessageIndex}
-                        isHintShown={isHintShown}
-                        hintText={hintText}
-                        onDivHeight={handleGrammarHeight}
-                      />
-                    )}
-                    {!currentTask && <div className={style.blankBubble} />}
-                  </div>
-                </Scrollbars>
+                  <Scrollbars ref={chatRef}>
+                    <div ref={chatWrapperRef} className={style.chatWrapper}>
+                      {completedTasks && (
+                        <ChatHistory
+                          completedTasks={completedTasks}
+                          isHintShown={isHintShown}
+                        />
+                      )}
+                      {currentTask && (
+                        <ChatCurrentTask
+                          currentTask={currentTask}
+                          currentMessageIndex={currentMessageIndex}
+                          isHintShown={isHintShown}
+                          hintText={hintText}
+                          onDivHeight={handleGrammarHeight}
+                        />
+                      )}
+                      {!currentTask && <div className={style.blankBubble} />}
+                    </div>
+                  </Scrollbars>
                 </div>
                 <CurrentTaskInput
                   commonProps={commonProps}

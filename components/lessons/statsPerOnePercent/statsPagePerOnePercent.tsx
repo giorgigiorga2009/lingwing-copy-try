@@ -44,19 +44,19 @@ const StatsPagePerOnePercent: React.FC<StatsPagePerOnePercentProps> = ({
     if (courseId && token) {
       fetchData()
     }
-  }, [completedTasks])
+  }, [completedTasks, courseId, token])
 
-  function secondsToHMS(seconds: number) {
-    const hours = Math.floor(seconds / 3600)
-    const minutes = Math.floor((seconds % 3600) / 60)
-    const sec = seconds % 60
-
+  const secondsToHMS = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const sec = seconds % 60;
+  
     const formatted = [hours, minutes, sec]
-      .map(v => (v < 10 ? '0' + v : v))
-      .join(':')
-
-    return formatted
-  }
+      .map((v) => (v < 10 ? '0' + v : v))
+      .join(':');
+  
+    return formatted;
+  };
 
   if (!isUserLoggedIn || !isStatsVisible) {
     return null
