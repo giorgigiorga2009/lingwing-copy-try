@@ -2,7 +2,6 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import style from './TranslateBubble.module.scss'
-import UserAvatar from '@components/shared/UserAvatar'
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -32,7 +31,7 @@ export const TranslateBubble: FC<Props> = ({
   isCurrentTask,
   sentenceAudioPath,
   textType,
-  answers,
+  // answers,
 }) => {
   if (typeof taskText === 'string') {
     taskText = taskText

@@ -541,10 +541,11 @@
   "PACKAGES_INFO_FROM_GEL": "De GEL",
   "APP_AGREE_LICENSE_1": "He leído y acepto los términos del",
   "APP_AGREE_LICENSE_2": " ",
-  "APP_AGREE_LICENSE_3": " "
+  "APP_AGREE_LICENSE_3": " ",
 
 
 
+  "DIALOG_TYPE_FIRST_LETTERS": "Escribe las primeras letras de las palabras."
 
 
 
