@@ -518,10 +518,8 @@
 
 
 
-  "META_TAG_PACKAGES_TITLE": "Lingwing: Paquetes de paga",
-  "META_TAG_PACKAGES_DESCRIPTION": "Learn English, Russian, Spanish, French... online! Explore our subscription packages and choose the one that suits you best. Discover our offerings, including free, 3-month, 6-month, and 12-month subscriptions, each designed to enhance your experience and unlock exclusive features. Select the perfect plan for your language-learning journey with LingWing.",
-  "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ",
-
+  
+  
 
   "APP_FREE_TRIAL2_TITLE": "Elija un plan para después de su prueba de 5 días",
   "APP_FREE_TRIAL23_START_FREE_TRIAL": "Iniciar prueba",
@@ -544,9 +542,15 @@
   "APP_AGREE_LICENSE_3": " ",
 
 
+  "DIALOG_TYPE_FIRST_LETTERS": "Escribe las primeras letras de las palabras.",
 
-  "DIALOG_TYPE_FIRST_LETTERS": "Escribe las primeras letras de las palabras."
 
+  "META_TAG_PACKAGES_TITLE": "Lingwing: Paquetes de paga",
+  "META_TAG_PACKAGES_DESCRIPTION": "Learn English, Russian, Spanish, French... online! Discover our offerings, including free, 3-month, 6-month, and 12-month subscriptions, each designed to enhance your experience and unlock exclusive features. Select the perfect plan for your language-learning journey with LingWing.",
+  "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ",
 
+  "META_TAG_FAQ_TITLE": "Lingwing: Preguntas más frecuentes " ,
+  "META_TAG_FAQ_DESCRIPTION": "Encuentre respuestas a las preguntas más frecuentes sobre nuestros servicios, productos y procesos. Obtenga claridad y ayuda sobre temas y consultas habituales.",
+  "META_TAG_FAQ_KEYWORDS": "FAQ, preguntas frecuentes, asistencia, respuestas, servicios, productos"
 
 }

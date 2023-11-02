@@ -517,14 +517,17 @@
 
   "STATISTICS_COURSE": "Kurs İstatistikleri",
 
-
+  
+  "DIALOG_TYPE_FIRST_LETTERS": "Kelimelerin ilk harflerini yazın",
 
   "META_TAG_PACKAGES_TITLE": "Lingwing: Ücretli paketler",
-  "META_TAG_PACKAGES_DESCRIPTION": "Learn English, Russian, Spanish, French... online! Explore our subscription packages and choose the one that suits you best. Discover our offerings, including free, 3-month, 6-month, and 12-month subscriptions, each designed to enhance your experience and unlock exclusive features. Select the perfect plan for your language-learning journey with LingWing.",
+  "META_TAG_PACKAGES_DESCRIPTION": "Learn English, Russian, Spanish, French... online! Discover our offerings, including free, 3-month, 6-month, and 12-month subscriptions, each designed to enhance your experience and unlock exclusive features. Select the perfect plan for your language-learning journey with LingWing.",
   "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ",
 
 
-  "DIALOG_TYPE_FIRST_LETTERS": "Kelimelerin ilk harflerini yazın"
+  "META_TAG_FAQ_TITLE": "Lingwing: Sıkça sorulan sorular",
+  "META_TAG_FAQ_DESCRIPTION": "Hizmetlerimiz, ürünlerimiz ve süreçlerimiz hakkında sıkça sorulan soruların yanıtlarını bulun. Sık karşılaşılan konular ve sorular hakkında açıklık ve destek alın.",
+  "META_TAG_FAQ_KEYWORDS": "SSS, sıkça sorulan sorular, destek, cevaplar, hizmetler, ürünler"
 
 
 

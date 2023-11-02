@@ -11,6 +11,7 @@ import classNames from 'classnames'
 import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
 import Head from 'next/head'
+import { PageHead } from '@components/PageHead'
 
 const Faq: NextPage = () => {
   const { t } = useTranslation()
@@ -34,7 +35,6 @@ const Faq: NextPage = () => {
       }
     }
     fetchFaqData()
-    
   }, [locale, locales])
 
   // const faqSchema = {
@@ -66,26 +66,19 @@ const Faq: NextPage = () => {
       .flat(),
   }
 
-  console.log(faqData?.data)
   return (
     <div className={style.wrapper}>
       <Head>
-        <meta
-          name="description"
-          content="Find answers to frequently asked questions about our services, products, and processes. Get clarity and support on common topics and inquiries."
-        />
-        <meta
-          name="keywords"
-          content="FAQ, frequently asked questions, support, answers, services, products"
-        />
-        <title>{t('FAQ_TITLE')}</title>
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-     
       </Head>
+      <PageHead
+        title='META_TAG_FAQ_TITLE'
+        description="META_TAG_FAQ_DESCRIPTION"
+        keywords="META_TAG_FAQ_KEYWORDS"
+      />
       <Header size="s" loginClassName={style.loginModal} />
       <main>
         <header>

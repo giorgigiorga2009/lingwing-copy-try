@@ -17,7 +17,6 @@ interface Props {
     | 'replay'
     | 'mistakecorrection'
     | 'grammar'
-  answers?: number[]
 }
 
 const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
@@ -64,7 +63,7 @@ export const TranslateBubble: FC<Props> = ({
             <div className={style[textType + 'Icon']} />
             {isCurrentTask && textType === 'dictation' ? (
               <span className={style.waveform}>
-                <WaveSurferNext audioURL={audioUrl} />
+                <WaveSurferNext audioURL={audioUrl}/>
               </span>
             ) : (
               <span
