@@ -556,10 +556,34 @@
 
   "META_TAG_FAQ_TITLE": "Lingwing: Frequently Asked Questions" ,
   "META_TAG_FAQ_DESCRIPTION": "Find answers to frequently asked questions about our services, products, and processes. Get clarity and support on common topics and inquiries.",
-  "META_TAG_FAQ_KEYWORDS": "FAQ, frequently asked questions, support, answers, services, products"
+  "META_TAG_FAQ_KEYWORDS": "FAQ, frequently asked questions, support, answers, services, products",
 
 
+  "META_TAG_INDEX_DESCRIPTION": "Learn Languages Online.",
+  "META_TAG_INDEX_KEYWORDS": "learn english, learn spanish, learn deutsch, learn georgian, learn french, learn italian, learn russian,",
+  
+  
+  "META_TAG_WIZARD_DESCRIPTION": "Choose your language and starting level on lingWing.com. Begin your language learning journey from A1, B1, or other proficiency levels. Start learning today.",
+  "META_TAG_WIZARD_KEYWORDS": "language learning, choose language, starting level, A1, B1, language proficiency, lingWing.com",
+  
 
-
-
+  "META_TAG_DASHBOARD_TITLE": "Lingwing: Dashboard",
+  "META_TAG_DASHBOARD_DESCRIPTION": "Track your language learning progress on lingWing.com's dashboard. View your chosen languages, completion percentages, and more. Stay organized and motivated as you learn new languages with our user-friendly dashboard.",
+  "META_TAG_DASHBOARD_KEYWORDS": "language learning dashboard, track progress, chosen languages, completion percentages, language learning tools, lingWing.com, learn languages online, language learning motivation",
+  
+  
+  "META_TAG_RESET_PASSWORD_TITLE": "Lingwing: Reset password",
+  "META_TAG_RESET_PASSWORD_DESCRIPTION": "Reset your password on lingWing.com. Securely regain access to your account with our easy-to-use password reset page. Follow the simple steps to create a new password and continue your language learning journey.",
+  "META_TAG_RESET_PASSWORD_KEYWORDS": "reset password, password recovery, account access, lingWing.com, password reset page, secure password, language learning account",
+  
+  
+  "META_TAG_PROFILE_TITLE": "Lingwing: Profile",
+  "META_TAG_PROFILE_DESCRIPTION": "Manage your profile on lingWing.com. Update your personal information, language preferences, and learning progress. Keep your language learning journey organized and tailored to your needs with our user-friendly profile page.",
+  "META_TAG_PROFILE_KEYWORDS": "profile management, user profile, personal information, language preferences, learning progress, lingWing.com, language learning journey, profile updates",
+  
+  
+  "META_TAG_PAYMENTS_TITLE": "Lingwing: Payments",
+  "META_TAG_PAYMENTS_DESCRIPTION": "Manage payments and subscriptions on lingWing.com. View your payment history, update card information, and monitor your remaining tasks and premium days. Stay in control of your language learning experience with our comprehensive payments page.",
+  "META_TAG_PAYMENTS_KEYWORDS": "payment history, subscription management, card info, remaining tasks, premium days, lingWing.com, language learning payments, subscription status"
+  
 }

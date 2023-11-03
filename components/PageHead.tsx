@@ -4,8 +4,8 @@ import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   title: string
-  description?: string
-  keywords?: string
+  description: string
+  keywords: string
 }
 
 export const PageHead: FC<Props> = ({ title, description, keywords }) => {
@@ -14,9 +14,9 @@ export const PageHead: FC<Props> = ({ title, description, keywords }) => {
   return (
     <Head>
       <title>{t(title)}</title>
-      <meta name="description" content={t(description || ' ')} />
-      <meta name="keywords" content={t(keywords || ' ')} />
-      <meta property="og:description" content={t(description || ' ')}></meta>
+      <meta name="description" content={t(description)} />
+      <meta name="keywords" content={t(keywords)} />
+      <meta property="og:description" content={t(description)}></meta>
       <meta property="og:title" content={t(title)}></meta>
       <meta property="og:image" content="https://lingwing.com/themes/images/v2/display.png"></meta>
       <meta name="viewport" content="width=device-width, initial-scale=1" />

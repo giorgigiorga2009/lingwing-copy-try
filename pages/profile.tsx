@@ -8,6 +8,7 @@ import { Footer } from '@components/wizard/Footer'
 import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'
 import ProfileForm from '@components/profileAssets/profileForm'
+import { PageHead } from '@components/PageHead'
 
 const Profile: NextPage = () => {
   const router = useRouter()
@@ -30,6 +31,11 @@ const Profile: NextPage = () => {
 
   return (
     <div className={style.background}>
+      <PageHead
+        title="META_TAG_PROFILE_TITLE"
+        description="META_TAG_PROFILE_DESCRIPTION"
+        keywords="META_TAG_PROFILE_KEYWORDS"
+      />
       <div className={style.header}>
         <Header size="s" />
       </div>

@@ -7,7 +7,11 @@ import { FollowButtons } from '@components/home/FollowButtons'
 const ContainerWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={style.container}>
-      <PageHead title="APP_DASHBOARD" />
+      <PageHead
+        title="META_TAG_RESET_PASSWORD_TITLE"
+        description="META_TAG_RESET_PASSWORD_DESCRIPTION"
+        keywords="META_TAG_RESET_PASSWORD_KEYWORDS"
+      />
       <Header size="s" />
       <div className={style.window}>{children}</div>
       <Footer />

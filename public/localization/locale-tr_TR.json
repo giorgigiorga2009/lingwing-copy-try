@@ -527,10 +527,36 @@
 
   "META_TAG_FAQ_TITLE": "Lingwing: Sıkça sorulan sorular",
   "META_TAG_FAQ_DESCRIPTION": "Hizmetlerimiz, ürünlerimiz ve süreçlerimiz hakkında sıkça sorulan soruların yanıtlarını bulun. Sık karşılaşılan konular ve sorular hakkında açıklık ve destek alın.",
-  "META_TAG_FAQ_KEYWORDS": "SSS, sıkça sorulan sorular, destek, cevaplar, hizmetler, ürünler"
+  "META_TAG_FAQ_KEYWORDS": "SSS, sıkça sorulan sorular, destek, cevaplar, hizmetler, ürünler",
+
+
+  "META_TAG_INDEX_DESCRIPTION": "Çevrimiçi Dil Öğrenin.",
+  "META_TAG_INDEX_KEYWORDS": "ingilizce öğren, ispanyolca öğren, deutsch öğren, gürcüce öğren, fransızca öğren, italyanca öğren, rusça öğren,",
+
+
+  "META_TAG_WIZARD_DESCRIPTION": "lingWing.com'da dilinizi ve başlangıç seviyenizi seçin. Dil öğrenme yolculuğunuza A1, B1 veya diğer yeterlilik seviyelerinden başlayın. Öğrenmeye bugün başlayın.",
+  "META_TAG_WIZARD_KEYWORDS": "dil öğrenimi, dil seçimi, başlangıç seviyesi, A1, B1, dil yeterliliği, lingWing.com",
 
 
 
+  "META_TAG_DASHBOARD_TITLE": "Lingwing: Benim sayfam",
+  "META_TAG_DASHBOARD_DESCRIPTION": "Dil öğrenme ilerlemenizi lingWing.com'un kontrol panelinden takip edin. Seçtiğiniz dilleri, tamamlama yüzdelerinizi ve daha fazlasını görüntüleyin. Kullanıcı dostu panomuzla yeni diller öğrenirken düzenli ve motive kalın.",
+  "META_TAG_DASHBOARD_KEYWORDS": "dil öğrenme panosu, ilerlemeyi takip et, seçilen diller, tamamlama yüzdeleri, dil öğrenme araçları, lingWing.com, çevrimiçi dil öğren, dil öğrenme motivasyonu",
 
+
+
+  "META_TAG_RESET_PASSWORD_TITLE": "Lingwing: Şifreyi yenile",
+  "META_TAG_RESET_PASSWORD_DESCRIPTION": "lingWing.com'da şifrenizi sıfırlayın. Kullanımı kolay şifre sıfırlama sayfamızla hesabınıza güvenli bir şekilde yeniden erişim sağlayın. Yeni bir şifre oluşturmak ve dil öğrenme yolculuğunuza devam etmek için basit adımları izleyin.",
+  "META_TAG_RESET_PASSWORD_KEYWORDS": "şifre sıfırlama, şifre kurtarma, hesap erişimi, lingWing.com, şifre sıfırlama sayfası, güvenli şifre, dil öğrenme hesabı",
+
+
+  "META_TAG_PROFILE_TITLE": "Lingwing: Profilim",
+  "META_TAG_PROFILE_DESCRIPTION": "lingWing.com'daki profilinizi yönetin. Kişisel bilgilerinizi, dil tercihlerinizi ve öğrenme ilerlemenizi güncelleyin. Kullanıcı dostu profil sayfamızla dil öğrenme yolculuğunuzu düzenli ve ihtiyaçlarınıza göre uyarlanmış tutun.",
+  "META_TAG_PROFILE_KEYWORDS": "profil yönetimi, kullanıcı profili, kişisel bilgiler, dil tercihleri, öğrenme ilerlemesi, lingWing.com, dil öğrenme yolculuğu, profil güncellemeleri",
+
+
+  "META_TAG_PAYMENTS_TITLE": "Lingwing: Ödemeler",
+  "META_TAG_PAYMENTS_DESCRIPTION": "lingWing.com'da ödemeleri ve abonelikleri yönetin. Ödeme geçmişinizi görüntüleyin, kart bilgilerinizi güncelleyin ve kalan görevlerinizi ve prim günlerinizi izleyin. Kapsamlı ödemeler sayfamız ile dil öğrenme deneyiminizin kontrolünü elinizde tutun.",
+  "META_TAG_PAYMENTS_KEYWORDS": "ödeme geçmişi, abonelik yönetimi, kart bilgileri, kalan görevler, prim günleri, lingWing.com, dil öğrenme ödemeleri, abonelik durumu"
 
 }

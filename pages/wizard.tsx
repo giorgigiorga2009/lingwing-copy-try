@@ -123,9 +123,9 @@ const Wizard: NextPage<WizardProps> = params => {
 
   return (
     <div className={style.container}>
+      <PageHead title={'wizardPageTitle'} description='META_TAG_WIZARD_DESCRIPTION' keywords='META_TAG_WIZARD_KEYWORDS'/>
       <div className={style.ball} />
       <Header size="s" loginClassName={style.loginModal} />
-      <PageHead title={'wizardPageTitle'} />
 
       <div className={style.content}>
         <BackgroundParrot />
