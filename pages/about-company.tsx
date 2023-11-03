@@ -11,6 +11,7 @@ import { useTranslation } from '@utils/useTranslation'
 import AboutTabs from '@components/about-page/AboutTabs'
 import Certificate from '@components/about-page/Certificate'
 import { FollowButtons } from '@components/home/FollowButtons'
+import { PageHead } from '@components/PageHead'
 
 const AboutCompany: NextPage = () => {
   const { t } = useTranslation()
@@ -19,6 +20,11 @@ const AboutCompany: NextPage = () => {
 
   return (
     <div className={style.container}>
+      <PageHead
+        title="META_TAG_ABOUT_COMPANY_TITLE"
+        description="META_TAG_ABOUT_COMPANY_DESCRIPTION"
+        keywords="META_TAG_ABOUT_COMPANY_KEYWORDS"
+      />
       <Header size="s" loginClassName={style.loginModal} />
       <div className={style.content}>
         <h1 className={style.title}>{t('APP_ABOUT_US_COMPANY')}</h1>
