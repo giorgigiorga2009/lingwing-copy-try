@@ -10,11 +10,11 @@ import CourseInfo from '@components/about-course/CourseInfo'
 import AboutQuotes from '@components/about-course/AboutQuotes'
 import { useQuery } from 'react-query'
 import Loader from '@components/loaders/loader'
+import { PageHead } from '@components/PageHead'
 
 const AboutCourse = () => {
   const router = useRouter()
   const { courseName, languageTo, languageFrom } = router.query
-
   const currentLanguage =
     router.locale &&
     LOCALES_TO_LANGUAGES[router.locale as keyof typeof LOCALES_TO_LANGUAGES]
@@ -35,11 +35,13 @@ const AboutCourse = () => {
     isLoading,
     isError,
   } = useQuery(['courseData', currentLanguage, courseName], fetchCourseData)
-
-  // const queryClient = new QueryClient()
   return (
-    // <QueryClientProvider client={queryClient}>
     <div className={style.mainConainer}>
+      <PageHead
+        title={'META_TAG_ABOUTCOURSE_TITLE_' + languageTo}
+        description={'META_TAG_ABOUTCOURSE_DESCRIPTION_' + languageTo}
+        keywords={'META_TAG_ABOUTCOURSE_KEYWORDS_' + languageTo}
+      />
       <Header size="s" loginClassName={style.loginModal} />
       {isLoading ? (
         <Loader />
@@ -68,7 +70,6 @@ const AboutCourse = () => {
         </div>
       )}
     </div>
-    // </QueryClientProvider>
   )
 }
 

@@ -557,6 +557,29 @@
 
   "META_TAG_PAYMENTS_TITLE": "Lingwing: Ödemeler",
   "META_TAG_PAYMENTS_DESCRIPTION": "lingWing.com'da ödemeleri ve abonelikleri yönetin. Ödeme geçmişinizi görüntüleyin, kart bilgilerinizi güncelleyin ve kalan görevlerinizi ve prim günlerinizi izleyin. Kapsamlı ödemeler sayfamız ile dil öğrenme deneyiminizin kontrolünü elinizde tutun.",
-  "META_TAG_PAYMENTS_KEYWORDS": "ödeme geçmişi, abonelik yönetimi, kart bilgileri, kalan görevler, prim günleri, lingWing.com, dil öğrenme ödemeleri, abonelik durumu"
+  "META_TAG_PAYMENTS_KEYWORDS": "ödeme geçmişi, abonelik yönetimi, kart bilgileri, kalan görevler, prim günleri, lingWing.com, dil öğrenme ödemeleri, abonelik durumu",
+
+
+  "META_TAG_ABOUTCOURSE_TITLE_geo": "Lingwing: Gürcüce çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_TITLE_eng": "Lingwing: İngiliz çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_TITLE_esp": "Lingwing: İspanyolca çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_TITLE_fre": "Lingwing: Fransızca çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_TITLE_ita": "Lingwing: İtalyan çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_TITLE_deu": "Lingwing: Alman çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_TITLE_rus": "Lingwing: Rusça çevrimiçi dil kursu",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_geo": "Günde sadece 10 dakika Gürcüce öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_eng": "Günde sadece 10 dakika İngiliz öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_esp": "Günde sadece 10 dakika İspanyolca öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_fre": "Günde sadece 10 dakika Fransızc öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_ita": "Günde sadece 10 dakika İtalyan öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_deu": "Günde sadece 10 dakika Alman öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_rus": "Günde sadece 10 dakika Rusça öğrenin ve kısa sürede sonuç alın!!",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_geo": "Gürcüce dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_eng": "İngilizce dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_esp": "İspanyolca dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_fre": "Fransızca dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_ita": "İtalyanca dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_deu": "Almanca dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_rus": "Rusça dil kursu detayları, görev sayısı, öğrenme topluluğu, kurs sonrası beceriler, lingWing.com, dil seviyesi"
 
 }
