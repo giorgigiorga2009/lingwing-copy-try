@@ -588,6 +588,31 @@
   
   "META_TAG_PAYMENTS_TITLE": "Lingwing: გადახდები",
   "META_TAG_PAYMENTS_DESCRIPTION": "მართეთ გადახდები და გამოწერები lingWing.com-ზე. ნახეთ თქვენი გადახდების ისტორია, განაახლეთ ბარათი და აკონტროლეთ დარჩენილი პრემიუმ დღეების რაოდენობა.",
-  "META_TAG_PAYMENTS_KEYWORDS": "გადახდების ისტორია, gadaxdebis gverdi, გამოწერის მართვა, ბარათის ინფორმაცია, პრემიუმ დღეები, lingWing.com, გამოწერის სტატუსი"
+  "META_TAG_PAYMENTS_KEYWORDS": "გადახდების ისტორია, gadaxdebis gverdi, გამოწერის მართვა, ბარათის ინფორმაცია, პრემიუმ დღეები, lingWing.com, გამოწერის სტატუსი",
+
+
+  "META_TAG_ABOUTCOURSE_TITLE_geo": "Lingwing: ქართული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_eng": "Lingwing: ინგლისური ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_esp": "Lingwing: ესპანური ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_fre": "Lingwing: ფრანგული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_ita": "Lingwing: იტალიური ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_deu": "Lingwing: გერმანული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_rus": "Lingwing: რუსული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_geo": "ისწავლე სალაპარაკო ქართული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_eng": "ისწავლე სალაპარაკო ინგლისური დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_esp": "ისწავლე სალაპარაკო ესპანური დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_fre": "ისწავლე სალაპარაკო ფრანგული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_ita": "ისწავლე სალაპარაკო იტალიური დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_deu": "ისწავლე სალაპარაკო გერმანული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_rus": "ისწავლე სალაპარაკო რუსული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_geo": "qartulis swavla, ქართული ენის სწავლა, ქართული ენის კურსები, qartulis testi, rogor viswavlo qartuli, ქართულის შესწავლა ონლაინ, qartulis testebi, ქართულის შესწავლა, ქართულის სწავლა, ქართულის გაკვეთილები, ქართულის ტესტები, ქართულის მასწავლებელი, როგორ ვისწავლოთ ქართული ენა, qartulis sheswavla, ქართული ენის გაკვეთილები, სალაპარაკო ქართულის შესწავლა, ქართული ენის შესწავლა ბავშვებისთვის, ქართული ენა დამწყებთათვის, qartuli damwyebebistvis, ქართული დამწყებთათვის, qartuli damwyebebistvis, salaparako qartuli",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_eng": "inglisuris swavla, ინგლისური ენის შესწავლა, ინგლისური ენის კურსები, inglisuris testi, rogor viswalt inglisuri, ინგლისურის შესწავლა ონლაინ, inglisuris testebi, ინგლისურის შესწავლა, ინგლისურის სწავლა, ინგლისურის გაკვეთილები, ინგლისურის ტესტები, ინგლისურის მასწავლებელი, როგორ ვისწავლოთ ინგლისური ენა, inglisuris sheswavla, ინგლისური ენის გაკვეთილები, სალაპარაკო ინგლისურის შესწავლა, ინგლისური ენის შესწავლა ბავშვებისთვის, ინგლისური ენის სწავლა, ინგლისური ენა დამწყებთათვის, inglisuri damwyebtatvis, ინგლისური დამწყებებისთვის, Inglisuri damwyebebistvis, salaparako inglisuri",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_esp": "espanuris swavla, ესპანური ენის შესწავლა, ესპანური ენის კურსები, espanuris testi, rogor viswalt espanuri, ესპანურის შესწავლა ონლაინ, espanuris testebi, ესპანურის შესწავლა, ესპანურის სწავლა, ესპანურის გაკვეთილები, ესპანურის ტესტები, ესპანურის მასწავლებელი, როგორ ვისწავლოთ ესპანური ენა, espanuris sheswavla, ესპანური ენის გაკვეთილები, სალაპარაკო ესპანურის შესწავლა, ესპანური ენის შესწავლა ბავშვებისთვის, ესპანური ენის სწავლა, ესპანური ენა დამწყებთათვის, espanuri damwyebtatvis, ესპანური დამწყებებისთვის, espanuri damwyebebistvis, salaparako espanuri",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_fre": "frangulis swavla, ფრანგული ენის შესწავლა, ფრანგული ენის კურსები, frangulis testi, rogor viswalt franguli, ფრანგულის შესწავლა ონლაინ, frangulis testebi, ფრანგულის შესწავლა, ფრანგულის სწავლა, ფრანგულის გაკვეთილები, ფრანგულის ტესტები, ფრანგულის მასწავლებელი, როგორ ვისწავლოთ ფრანგული ენა, frangulis sheswavla, ფრანგული ენის გაკვეთილები, სალაპარაკო ფრანგულის შესწავლა, ფრანგული ენის შესწავლა ბავშვებისთვის, ფრანგული ენის სწავლა, ფრანგული ენა დამწყებთათვის, franguli damwyebtatvis, ფრანგული დამწყებებისთვის, franguli damwyebebistvis, salaparako franguli",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_ita": "italiuris swavla, იტალიური ენის შესწავლა, იტალიური ენის კურსები, italiuris testi, rogor viswalt italiuri, იტალიურის შესწავლა ონლაინ, italiuris testebi, იტალიურის შესწავლა, იტალიურის სწავლა, იტალიურის გაკვეთილები, იტალიურის ტესტები, იტალიურის მასწავლებელი, როგორ ვისწავლოთ იტალიური ენა, italiuris sheswavla, იტალიური ენის გაკვეთილები, სალაპარაკო იტალიურის შესწავლა, იტალიური ენის შესწავლა ბავშვებისთვის, იტალიური ენის სწავლა, იტალიური ენა დამწყებთათვის, italiuri damwyebtatvis, იტალიური დამწყებებისთვის, italiuri damwyebebistvis, salaparako italiuri",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_deu": "germanulis swavla, გერმანული ენის შესწავლა, გერმანული ენის კურსები, germanulis testi, rogor viswalt germanuli, გერმანულის შესწავლა ონლაინ, germanulis testebi, გერმანულის შესწავლა, გერმანულის სწავლა, გერმანულის გაკვეთილები, გერმანულის ტესტები, გერმანულის მასწავლებელი, როგორ ვისწავლოთ გერმანული ენა, germanulis sheswavla, გერმანული ენის გაკვეთილები, სალაპარაკო გერმანულის შესწავლა, გერმანული ენის შესწავლა ბავშვებისთვის, გერმანული ენის სწავლა, გერმანული ენა დამწყებთათვის, germanuli damwyebtatvis, გერმანული დამწყებებისთვის, germanuli damwyebebistvis, salaparako germanuli",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_rus": "rusulis swavla, რუსული ენის შესწავლა, რუსული ენის კურსები, rusulis testi, rogor viswalt rusuli, რუსულის შესწავლა ონლაინ, rusulis testebi, რუსულის შესწავლა, რუსულის სწავლა, რუსულის გაკვეთილები, რუსულის ტესტები, რუსულის მასწავლებელი, როგორ ვისწავლოთ რუსული ენა, rusulis sheswavla, რუსული ენის გაკვეთილები, სალაპარაკო რუსულის შესწავლა, რუსული ენის შესწავლა ბავშვებისთვის, რუსული ენის სწავლა, რუსული ენა დამწყებთათვის, rusuli damwyebtatvis, რუსული დამწყებებისთვის, rusuli damwyebebistvis, salaparako rusuli level"
+
+
 
 }

@@ -579,6 +579,29 @@
 
   "META_TAG_PAYMENTS_TITLE": "Lingwing: Pagos",
   "META_TAG_PAYMENTS_DESCRIPTION": "Gestione pagos y suscripciones en lingWing.com. Consulte su historial de pagos, actualice la información de su tarjeta y controle las tareas pendientes y los días premium. Mantén el control de tu experiencia de aprendizaje de idiomas con nuestra completa página de pagos.",
-  "META_TAG_PAYMENTS_KEYWORDS": "historial de pagos, gestión de suscripciones, datos de la tarjeta, tareas pendientes, días premium, lingWing.com, pagos por aprendizaje de idiomas, estado de la suscripción"
+  "META_TAG_PAYMENTS_KEYWORDS": "historial de pagos, gestión de suscripciones, datos de la tarjeta, tareas pendientes, días premium, lingWing.com, pagos por aprendizaje de idiomas, estado de la suscripción",
+
+
+  "META_TAG_ABOUTCOURSE_TITLE_geo": "Lingwing: Georgiano curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_eng": "Lingwing: Inglés curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_esp": "Lingwing: Español curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_fre": "Lingwing: Francés curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_ita": "Lingwing: Italiano curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_deu": "Lingwing: Alemán curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_rus": "Lingwing: Ruso curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_geo": "Aprenda georgiano con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_eng": "Aprenda inglés con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_esp": "Aprenda español con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_fre": "Aprenda Francés con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_ita": "Aprenda Italiano con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_deu": "Aprenda Alemán con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_rus": "Aprenda Ruso con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_geo": "Detalles del curso de georgiano, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_eng": "Detalles del curso de inglés, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de idiomas",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_esp": "Detalles del curso de español, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_fre": "Detalles del curso de Francés, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_ita": "Detalles del curso de Italiano, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_deu": "Detalles del curso de Alemán, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_rus": "Detalles del curso de Ruso, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua"
 
 }

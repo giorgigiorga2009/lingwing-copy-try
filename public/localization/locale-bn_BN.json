@@ -456,6 +456,30 @@
 
   "META_TAG_PAYMENTS_TITLE": "Lingwing: Payments",
   "META_TAG_PAYMENTS_DESCRIPTION": "Manage payments and subscriptions on lingWing.com. View your payment history, update card information, and monitor your remaining tasks and premium days. Stay in control of your language learning experience with our comprehensive payments page.",
-  "META_TAG_PAYMENTS_KEYWORDS": "payment history, subscription management, card info, remaining tasks, premium days, lingWing.com, language learning payments, subscription status"
+  "META_TAG_PAYMENTS_KEYWORDS": "payment history, subscription management, card info, remaining tasks, premium days, lingWing.com, language learning payments, subscription status",
+
+
+  "META_TAG_ABOUTCOURSE_TITLE_geo": "Lingwing: Georgian language online course",
+  "META_TAG_ABOUTCOURSE_TITLE_eng": "Lingwing: English language online course",
+  "META_TAG_ABOUTCOURSE_TITLE_esp": "Lingwing: Spanish language online course",
+  "META_TAG_ABOUTCOURSE_TITLE_fre": "Lingwing: French language online course",
+  "META_TAG_ABOUTCOURSE_TITLE_ita": "Lingwing: Italian language online course",
+  "META_TAG_ABOUTCOURSE_TITLE_deu": "Lingwing: German language online course",
+  "META_TAG_ABOUTCOURSE_TITLE_rus": "Lingwing: Russian language online course",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_geo": "Learn Georgian for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_eng": "Learn English for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_esp": "Learn Spanish for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_fre": "Learn French for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_ita": "Learn Italian for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_deu": "Learn German for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_rus": "Learn Russian for just 10 minutes a day and get results in no time!",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_geo": "Georgian language course details, task count, learning community, post-course skills, lingWing.com, language level",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_eng": "English language course details, task count, learning community, post-course skills, lingWing.com, language level",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_esp": "Spanish language course details, task count, learning community, post-course skills, lingWing.com, language level",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_fre": "French language course details, task count, learning community, post-course skills, lingWing.com, language level",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_ita": "Italian language course details, task count, learning community, post-course skills, lingWing.com, language level",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_deu": "German language course details, task count, learning community, post-course skills, lingWing.com, language level",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_rus": "Russian language course details, task count, learning community, post-course skills, lingWing.com, language level"
+
 
 }
