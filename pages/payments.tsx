@@ -5,6 +5,7 @@ import { useTranslation } from '@utils/useTranslation'
 import { useRouter } from 'next/router'
 import { PaymentsProps, getUserPayements } from '@utils/getUserPayemnts'
 import { useSession } from 'next-auth/react'
+import { PageHead } from '@components/PageHead'
 
 const Payments = () => {
   const { t } = useTranslation()
@@ -34,6 +35,11 @@ const Payments = () => {
 
   return (
     <div className={style.wrapper}>
+      <PageHead
+        title="META_TAG_PAYMENTS_TITLE"
+        description="META_TAG_PAYMENTS_DESCRIPTION"
+        keywords="META_TAG_PAYMENTS_KEYWORDS"
+      />
       <Header size="s" loginClassName={style.loginModal} />
       <div className={style.containerWrapper}>
         <div className={style.payments}>{t('APP_HEADER_PAYMENTS')}</div>

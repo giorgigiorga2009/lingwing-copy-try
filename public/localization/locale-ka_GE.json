@@ -560,12 +560,34 @@
 
   "META_TAG_FAQ_TITLE": "Lingwing: ხშირად დასმული კითხვები",
   "META_TAG_FAQ_DESCRIPTION": "იპოვეთ პასუხები ხშირად დასმულ კითხვებზე ჩვენი სერვისებისა და პროდუქტებისა შესახებ.",
-  "META_TAG_FAQ_KEYWORDS": "ხშირად დასმული კითხვები, მხარდაჭერა, პასუხები, სერვისები, პროდუქტები"
+  "META_TAG_FAQ_KEYWORDS": "ხშირად დასმული კითხვები, მხარდაჭერა, პასუხები, სერვისები, პროდუქტები",
 
 
+  "META_TAG_INDEX_DESCRIPTION": "ისწავლე უცხო ენები - ინგლისური, რუსული, ესპანური... უფასოდ! სასაუბრო ენის შესწავლა ყველაზე სწაფად!",
+  "META_TAG_INDEX_KEYWORDS": "inglisuris swavla, ინგლისური ენის შესწავლა, ინგლისური ენის კურსები, inglisuris testi, როგორ ვისწავლოთ ინგლისური, რუსული ენის შესწავლა, rusulis swavla, inglisuris testebi, ინგლისურის შესწავლა ონლაინ, ინგლისურის შესწავლა, ინგლისურის სწავლა, ინგლისურის გაკვეთილები, ინგლისურის ტესტები, inglisuri enis kursebi, learn english online, rusuli enis kursebi, ინგლისურის მასწავლებელი, lingving, lingwing, ling wing, inglisuris kursebi, ლინგვინგი, ფრანგული ენის შესწავლა, ინგლისური ენის ტესტები, inglisuris sheswavla, rusulis sheswavla, როგორ ვისწავლოთ ინგლისური, frangulis swavla, იტალიური ენის შესწავლა, რუსული ენის კურსები, სასაუბრო ინგლისური, ინგლისური ენის შესწავლა ბავშვებისთვის ესპანურის სწავლა, espanuris swavla, italiuris swavla, frangulis swavla, rusulis swavla, onlain kursi",
 
 
+  "META_TAG_WIZARD_DESCRIPTION": "ისწავლე სალაპარაკო ინგლისური, რუსული, ესპანური... ონლაინ და მიიღე რეალური შედეგი უმცირეს დროში!",
+  "META_TAG_WIZARD_KEYWORDS": "უცხო ენები, უცხო ენების სწავლა, ucxo enebi, ucxo enebis swavla, ucxouri enebi, უცხოური ენები, ენების სწავლა, enebis swavla",
 
 
+  "META_TAG_DASHBOARD_TITLE": "Lingwing: ჩემი გვერდი",
+  "META_TAG_DASHBOARD_DESCRIPTION": "თვალყური ადევნეთ ენის სწავლის პროგრესს lingWing.com-ზე. იხილეთ თქვენი არჩეული ენები, შესრულების პორცენტულობის მაჩვენებელი და სხვა.",
+  "META_TAG_DASHBOARD_KEYWORDS": "ჩემი გვერდი, chemi gverdi, პროგრესის კონტროლი, არჩეული ენები, შესრულების პროცენტულობა, ენის სწავლის ახალი საშუალებები, lingWing.com, ისწავლე ენა ონლაინ, ენის შესწავლის მოტივაცია",
+
+
+  "META_TAG_RESET_PASSWORD_TITLE": "Lingwing: პაროლის აღდგენა",
+  "META_TAG_RESET_PASSWORD_DESCRIPTION": "შეცვალეთ თქვენი პაროლი lingWing.com-ზე. უსაფრთხოდ დაიბრუნეთ წვდომა თქვენს ანგარიშზე ჩვენი, მომხმარებელზე ორიენტირებული, პაროლის აღდგენის გვერდით. მიჰყევით მარტივ ნაბიჯებს ახალი პაროლის შესაქმნელად და განაგრძეთ ენის შესწავლა",
+  "META_TAG_RESET_PASSWORD_KEYWORDS": "პაროლი აღდგენა, parolis agdgena, პაროლის განახლება , ექაუნთზე წვდომა, ჩემს გვერდზე წვდომა , lingWing.com, პაროლის აღდგენის გვერდი, უსაფრთხო პაროლი",
+
+
+  "META_TAG_PROFILE_TITLE": "Lingwing: პროფილი",
+  "META_TAG_PROFILE_DESCRIPTION": "მართეთ თქვენი პროფილი lingWing.com-ზე. განაახლეთ თქვენი პერსონალური ინფორმაცია, ენის პრეფერენციები და სწავლის პროგრესი.",
+  "META_TAG_PROFILE_KEYWORDS": "პროფილის მართვა, მომხმარებლის პროფილი, პერსონალური ინფორმაცია, ენის პრეფერენციები, სწავლის პროგრესი, lingWing.com, ენის შესწავლა, პროფილის განახლებები",
+
+  
+  "META_TAG_PAYMENTS_TITLE": "Lingwing: გადახდები",
+  "META_TAG_PAYMENTS_DESCRIPTION": "მართეთ გადახდები და გამოწერები lingWing.com-ზე. ნახეთ თქვენი გადახდების ისტორია, განაახლეთ ბარათი და აკონტროლეთ დარჩენილი პრემიუმ დღეების რაოდენობა.",
+  "META_TAG_PAYMENTS_KEYWORDS": "გადახდების ისტორია, gadaxdebis gverdi, გამოწერის მართვა, ბარათის ინფორმაცია, პრემიუმ დღეები, lingWing.com, გამოწერის სტატუსი"
 
 }
