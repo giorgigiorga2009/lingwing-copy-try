@@ -276,25 +276,27 @@ const Lessons: NextPage = () => {
             )}
             {tab === 'course' && commonProps && (
               <>
-                <div className={style.chat}>
+                <div className={style.chatContainer}>
                   <Scrollbars ref={chatRef}>
-                    <div ref={chatWrapperRef} className={style.chatWrapper}>
-                      {completedTasks && (
-                        <ChatHistory
-                          completedTasks={completedTasks}
-                          isHintShown={isHintShown}
-                        />
-                      )}
-                      {currentTask && (
-                        <ChatCurrentTask
-                          currentTask={currentTask}
-                          currentMessageIndex={currentMessageIndex}
-                          isHintShown={isHintShown}
-                          hintText={hintText}
-                          onDivHeight={handleGrammarHeight}
-                        />
-                      )}
-                      {!currentTask && <div className={style.blankBubble} />}
+                    <div className={style.chat}>
+                      <div ref={chatWrapperRef} className={style.chatWrapper}>
+                        {completedTasks && (
+                          <ChatHistory
+                            completedTasks={completedTasks}
+                            isHintShown={isHintShown}
+                          />
+                        )}
+                        {currentTask && (
+                          <ChatCurrentTask
+                            currentTask={currentTask}
+                            currentMessageIndex={currentMessageIndex}
+                            isHintShown={isHintShown}
+                            hintText={hintText}
+                            onDivHeight={handleGrammarHeight}
+                          />
+                        )}
+                        {!currentTask && <div className={style.blankBubble} />}
+                      </div>
                     </div>
                   </Scrollbars>
                 </div>
