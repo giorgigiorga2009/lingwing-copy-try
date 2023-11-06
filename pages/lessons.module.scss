@@ -26,11 +26,12 @@
 }
 .chatContainer{
   height: calc(100vh - 18rem);
-
+  
 }
 .chat {
   display: flex;
   padding: 0.8rem 3.4rem 2rem;
+  min-height: calc(100vh - 18rem);
   background: $white;
   width: 100%;
   border-radius: 1rem 1rem 0 0;

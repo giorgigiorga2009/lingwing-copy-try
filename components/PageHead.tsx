@@ -19,6 +19,10 @@ export const PageHead: FC<Props> = ({ title, description, keywords }) => {
       <meta property="og:description" content={t(description)}></meta>
       <meta property="og:title" content={t(title)}></meta>
       <meta property="og:image" content="https://lingwing.com/themes/images/v2/display.png"></meta>
+      <meta property='og:image:alt' content='Lingwing Logo'/>
+      <meta property="og:url" content={"https://lingwinuser.azurewebsites.net/"} />
+      <meta property="og:type" content={"website"} /> 
+      <meta property="fb:app_id" content={"H2zVlOBKHx916NjSlvNC9RVhe8kyC9aZppkYGVZlUNg"} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="google-site-verification" content="H2zVlOBKHx916NjSlvNC9RVhe8kyC9aZppkYGVZlUNg"></meta>
       <meta name="facebook-domain-verification" content="tjk8pca0ajrw8hj985o2b6fov52o7h"></meta>

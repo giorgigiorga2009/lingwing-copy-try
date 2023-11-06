@@ -44,19 +44,18 @@ export const Dialog: FC<DialogProps> = ({
 }) => {
   const { t } = useTranslation()
   const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
-  const scrollbarsRef = useRef<Scrollbars>(null)
+  const scrollbarsRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (scrollbarsRef.current) {
-      scrollbarsRef.current.scrollToBottom()
+      scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight;
     }
   }, [currentMessageIndex, hintText])
 
   return (
     <div className={style.wrapper}>
-      <Scrollbars ref={scrollbarsRef}>
       <div className={style.title}>{t('DIALOG_TITLE')}</div>
-        <div className={style.dialog}>
+        <div className={style.dialog} ref={scrollbarsRef} >
           <span className={style.description}>
             {t('DIALOG_TYPE_FIRST_LETTERS')
               .split(' ')
@@ -100,7 +99,6 @@ export const Dialog: FC<DialogProps> = ({
               />
             ))}
         </div>
-      </Scrollbars>
     </div>
   )
 }
