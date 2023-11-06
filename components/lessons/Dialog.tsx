@@ -59,7 +59,7 @@ export const Dialog: FC<DialogProps> = ({
     <div>
       <div className={style.title}>{t("DIALOG_TITLE")}</div>
       <div className={style.dialog} >
-      <Scrollbars style={{ width: '100%', height: '80vh'}}  ref={scrollbarsRef}>
+      <Scrollbars style={{ width: '100%', height: '50vh'}}  ref={scrollbarsRef}>
         <span className={style.description}>
           {t('DIALOG_TYPE_FIRST_LETTERS')
             .split(' ')
