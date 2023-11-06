@@ -8,8 +8,16 @@
   gap: 1.5rem;
   margin-right: 53rem;
   align-items: flex-end;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   color: $grey-300;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .folderName {

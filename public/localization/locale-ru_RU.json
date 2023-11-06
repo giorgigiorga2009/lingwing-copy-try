@@ -536,7 +536,7 @@
   "Vani": "Vani",
   "Zestap’oni": "Zestaponi",
   "Zhinvali": "Zhinvali",
-  "Zugdidi": "Zugdidi"
+  "Zugdidi": "Zugdidi",
 
   "RATING_TOP_SCORES": "ЛУЧШИЕ РЕЗУЛЬТАТЫ",
   "RATING_TOP_20": "Топ-20",
@@ -545,8 +545,44 @@
 
   "GRAMMAR_TITLE": "Грамматика текущего курса",
 
-  "STATISTICS_COURSE": "Статистика курса "
+  "DICTIONARY_TITLE": "Словарь",
+  "DICTIONARY_WORDS": "Слова",
+  "DICTIONARY_COURSES_OPTION": "Курсы (Все)",
+  "DICTIONARY_GRAMMAT_CAT_OPTION": "Категория грамматики (все)",
+  "DICTIONARY_TOPIC_OPTION": "Тема (Все)",
+  "DICTIONARY_WORD": "слово",
+  "DICTIONARY_TRANSLATION": "Перевод",
+  "DICTIONARY_GRAMMATICAL_CATEGORY": "Грамматическая категория",
+  "DICTIONARY_TOPIC": "Тема",
+  "DICTIONARY_SEARCH": "Поиск...",
 
+  "STATISTIC_TIME": "Время",
+  "STATISTICS_COURSE": "Статистика курса ",
+  "STATISTICS_COURSE_END_TIME": "Примерное время окончания курса",
+  "STATISTICS_RATING": "Рейтинг",
+  "STATISTICS_RATING_POSIION": "Позиция в рейтинге",
+  "STATISTICS_PROGRESS": "Прогресс",
+  "STATISTICS_PROGRESS_DONE": "Курс пройден на",
+  "STATISTIC_LAST_SESSION_TIME": "Продолжительность последней сессии",
+  "STATISTIC_SUM_PASSED_TASK_TIME": "Время, затраченное на пройденные задания",
+  "STATISTIC_PER_PASSED_TASK_TIME": "Среднее время, затраченное на одно задание",
+  "STATISTIC_SCORE": "Баллы",
+  "STATISTIC_COLLECTED_SCORE": "Набранные баллы",
+  "STATISTIC_TASKS": "Задание",
+  "STATISTIC_PASSED_TASKS": "Выполненные задания",
+  "STATISTIC_UNLIMITED": "Безлимитный",
+  "STATISTIC_BONUS": "Бонус",
+
+  "LEARN_MENU_COURSE": "Курс",
+  "LEARN_MENU_MODE": "Режим обучения",
+  "LEARN_MENU_GRAMMAR": "Грамматика",
+  "LEARN_MENU_VOCABULARY": "Словарь",
+  "LEARN_MENU_ITEM5": "Азбука курса",
+  "LEARN_MENU_STATISTICS": "Статистика",
+  "LEARN_MENU_ITEM7": "Памятки",
+  "LEARN_MENU_ITEM8": "Определение цели",
+  "LEARN_MENU_ITEM9": "Параметры",
+  "LEARN_MENU_ITEM10": "Аннулирование курса"
 
 
 }

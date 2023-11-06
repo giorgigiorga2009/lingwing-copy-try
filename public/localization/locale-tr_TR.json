@@ -506,7 +506,7 @@
   "Vani": "Vani",
   "Zestap’oni": "Zestaponi",
   "Zhinvali": "Zhinvali",
-  "Zugdidi": "Zugdidi"
+  "Zugdidi": "Zugdidi",
 
   "RATING_TOP_SCORES": "EN İYİ SKORLAR",
   "RATING_TOP_20": "Тop 20",
@@ -515,7 +515,43 @@
 
   "GRAMMAR_TITLE": "Mevcut ders grameri",
 
-  "STATISTICS_COURSE": "Kurs İstatistikleri"
+  "DICTIONARY_TITLE": "Словарь",
+  "DICTIONARY_WORDS": "Слова",
+  "DICTIONARY_COURSES_OPTION": "Курсы (Все)",
+  "DICTIONARY_GRAMMAT_CAT_OPTION": "Категория грамматики (все)",
+  "DICTIONARY_TOPIC_OPTION": "Тема (Все)",
+  "DICTIONARY_WORD": "слово",
+  "DICTIONARY_TRANSLATION": "Перевод",
+  "DICTIONARY_GRAMMATICAL_CATEGORY": "Грамматическая категория",
+  "DICTIONARY_TOPIC": "Тема",
+  "DICTIONARY_SEARCH": "Aramak...",
 
+  "STATISTIC_TIME": "Zaman",
+  "STATISTICS_COURSE": "Kurs İstatistikleri",
+  "STATISTICS_COURSE_END_TIME": "Kursun tamamlanması yaklaşık zamanı",
+  "STATISTICS_RATING": "Değerlendirme",
+  "STATISTICS_RATING_POSIION": "Reytingteki Pozisyon",
+  "STATISTICS_PROGRESS": "İlerleme",
+  "STATISTICS_PROGRESS_DONE": "Kurs tamamlandı",
+  "STATISTIC_LAST_SESSION_TIME": "En son oturumun süresi",
+  "STATISTIC_SUM_PASSED_TASK_TIME": "Başarılı görevler için harcanan zaman",
+  "STATISTIC_PER_PASSED_TASK_TIME": "Bir göreve harcanan ortalama süre",
+  "STATISTIC_SCORE": "Puanlar",
+  "STATISTIC_COLLECTED_SCORE": "Kazanılan puan",
+  "STATISTIC_TASKS": "Ödevler",
+  "STATISTIC_PASSED_TASKS": "Başarılı görevler",
+  "STATISTIC_UNLIMITED": "Sınırsız",
+  "STATISTIC_BONUS": "Bonus",
+
+  "LEARN_MENU_COURSE": "Kurs",
+  "LEARN_MENU_MODE": "Öğrenme modu",
+  "LEARN_MENU_GRAMMAR": "Dilbilgisi",
+  "LEARN_MENU_VOCABULARY": "Kelime bilgisi",
+  "LEARN_MENU_ITEM5": "Alfabe kursu",
+  "LEARN_MENU_STATISTICS": "İstatistik",
+  "LEARN_MENU_ITEM7": "Hatırlatıcı",
+  "LEARN_MENU_ITEM8": "Amaç",
+  "LEARN_MENU_ITEM9": "Ayarlar",
+  "LEARN_MENU_ITEM10": "Kursu sıfırla"
 
 }

@@ -37,7 +37,7 @@ const Lessons: NextPage = () => {
   const [hintText, setHintText] = useState('')
 
   const [tab, setTab] = useState<
-    'course' | 'levels' | 'grammar' | 'levels' | 'statistics'
+    'course' | 'levels' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
   >('course')
 
   const [userScore, setUserScore] = useState(0)
@@ -264,8 +264,7 @@ const Lessons: NextPage = () => {
             {tab !== 'course' && currentCourseObject && (
               <Wrapper
                 token={token ?? ''}
-                learnMode={currentCourseObject.learnMode}
-                userCourseId={currentCourseObject.course._id}
+                currentCourseObject={currentCourseObject}
                 languageFrom={languageFrom}
                 tab={tab}
               />

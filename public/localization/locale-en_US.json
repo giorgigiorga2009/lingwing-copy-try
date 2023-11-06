@@ -336,13 +336,7 @@
   "REG_REMINDER_MONTHS": "Months",
   "REG_REMINDER_GEL": " GEL",
 
-
-
-
-
-  
   "CERTIFICATE_DOWNLOAD": "Download Certificate",
-
 
   "PAYMENTS_STATS_REMAINING": "The remaining premium days",
   "PAYMENTS_STATS_TESTS": "Bought tests",
@@ -362,8 +356,6 @@
   "FILL_PROFILE_FOR_TASKS_SKIP": "Skip",
   "FILL_PROFILE_FOR_TASKS_OBTAIN": "Obtain free exercises",
 
-
-
   "STATS_PER_PERCENT_PROGRESS": "Course Progress",
   "STATS_PER_PERCENT_GRAMMAR": "Learned Grammar",
   "STATS_PER_PERCENT_COMPLETED": "Tasks Completed",
@@ -371,13 +363,10 @@
   "STATS_PER_PERCENT_CONTINUE": "Continue",
   "STATS_PER_PERCENT_TIME": "Time",
 
-
   "RATE_LINGWING_MODAL_RATE": "Rate",
   "RATE_LINGWING_MODAL_TEXT": "Give us 60 seconds and share your impressions.Your opinion is important to us",
   "RATE_LINGWING_MODAL_THANK_YOU": "Thank you in advance",
   "RATE_LINGWING_MODAL_RATE_US": "Rate Us",
-
-
 
   "FAQ_TITLE": "Frequently Asked Questions",
   "FAQ_QUICK_SEARCH": "Quick search in category",
@@ -420,9 +409,6 @@
   "RATING_WEEKLY": "Weekly Rating",
 
   "GRAMMAR_TITLE": "Current course grammar",
-
-  "STATISTICS_COURSE": "Course Statistics",
-
 
   "LESSONS_MIC_MODAL_HEADING": "Accomplish tasks by speaking!",
   "LESSONS_MIC_MODAL_TITLE": "Improve your foreign language skills",
@@ -546,6 +532,47 @@
   "Vani": "Vani",
   "Zestap’oni": "Zestaponi",
   "Zhinvali": "Zhinvali",
-  "Zugdidi": "Zugdidi"
+  "Zugdidi": "Zugdidi",
+
+  "DICTIONARY_TITLE": "Dictionary",
+  "DICTIONARY_WORDS": "Words",
+  "DICTIONARY_COURSES_OPTION": "Courses (All)",
+  "DICTIONARY_GRAMMAT_CAT_OPTION": "Category (All)",
+  "DICTIONARY_TOPIC_OPTION": "Topic (All)",
+  "DICTIONARY_WORD": "Word",
+  "DICTIONARY_TRANSLATION": "Translation",
+  "DICTIONARY_GRAMMATICAL_CATEGORY": "Grammar Category",
+  "DICTIONARY_TOPIC": "Topic",
+  "DICTIONARY_SEARCH": "Search...",
+
+  "STATISTIC_TIME": "Time",
+  "STATISTICS_COURSE": "Course Statistics",
+  "STATISTICS_COURSE_END_TIME": "Course completion approximate time",
+  "STATISTICS_RATING": "Rating",
+  "STATISTICS_RATING_POSIION": "Position in the Rating",
+  "STATISTICS_PROGRESS": "Progress",
+  "STATISTICS_PROGRESS_DONE": "Course completed",
+  "STATISTIC_LAST_SESSION_TIME": "Duration of the latest session",
+  "STATISTIC_SUM_PASSED_TASK_TIME": "Time spent on tasks",
+  "STATISTIC_PER_PASSED_TASK_TIME": "Average time spent on one task",
+  "STATISTIC_SCORE": "Points",
+  "STATISTIC_COLLECTED_SCORE": "Gained points",
+  "STATISTIC_TASKS": "Tasks",
+  "STATISTIC_PASSED_TASKS": "Accomplished tasks",
+  "STATISTIC_UNLIMITED": "Unlimited",
+  "STATISTIC_BONUS": "Bonus",
+
+  "LEARN_MENU_COURSE": "Course",
+  "LEARN_MENU_MODE": "Learn Mode",
+  "LEARN_MENU_GRAMMAR": "Grammar",
+  "LEARN_MENU_VOCABULARY": "Vocabulary",
+  "LEARN_MENU_ITEM5": "Course Alphabet",
+  "LEARN_MENU_STATISTICS": "Statistics",
+  "LEARN_MENU_ITEM7": "Reminder",
+  "LEARN_MENU_ITEM8": "Set an Aim",
+  "LEARN_MENU_ITEM9": "Settings",
+  "LEARN_MENU_ITEM10": "Reset course"
+
+
 
 }

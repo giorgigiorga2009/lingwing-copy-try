@@ -145,7 +145,7 @@
 .bonus {
   color: $purple-600;
   font-size: 1.6rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
 
   span {
     color: $grey-300;
@@ -162,12 +162,12 @@
   height: 12rem;
   background-color: $orange-10;
   border-radius: 1rem;
+  padding: 0 2rem;
 }
 
 .descWrapper {
   display: flex;
-  justify-content: space-between;
-  gap: 15rem;
+  gap: 4rem;
   font-size: 0.8rem;
 }
 

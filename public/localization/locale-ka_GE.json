@@ -548,8 +548,44 @@
 
   "GRAMMAR_TITLE": "მიმდინარე კურსის გრამატიკა",
 
-  "STATISTICS_COURSE": "კურსის სტატისტიკა"
+  "DICTIONARY_TITLE": "ლექსიკონი",
+  "DICTIONARY_WORDS": "სიტყვები",
+  "DICTIONARY_COURSES_OPTION": "კურსი (ყველა)",
+  "DICTIONARY_GRAMMAT_CAT_OPTION": "გრამატ. კატ. (ყველა)",
+  "DICTIONARY_TOPIC_OPTION": "თემა (ყველა)",
+  "DICTIONARY_WORD": "სიტყვა",
+  "DICTIONARY_TRANSLATION": "თარგმანი",
+  "DICTIONARY_GRAMMATICAL_CATEGORY": "გრამატ. კატ.",
+  "DICTIONARY_TOPIC": "თემა",
+  "DICTIONARY_SEARCH": "ძებნა...",
 
+  "STATISTIC_PROGRESS_FULL": "კურსის სრული პგოგრესი",
+  "STATISTIC_TIME": "დრო",
+  "STATISTICS_COURSE": "კურსის სტატისტიკა",
+  "STATISTICS_COURSE_END_TIME": "კურსის დასრულების სავარაუდო დრო",
+  "STATISTICS_RATING": "რეიტინგი",
+  "STATISTICS_RATING_POSIION": "რეიტინგში პოზიცია",
+  "STATISTICS_PROGRESS": "პროგრესი",
+  "STATISTICS_PROGRESS_DONE": "დასრულებულია კურსის",
+  "STATISTIC_LAST_SESSION_TIME": "ბოლო სესიის ხანგრძლივობა",
+  "STATISTIC_SUM_PASSED_TASK_TIME": "კურსზე დახარჯული დრო",
+  "STATISTIC_PER_PASSED_TASK_TIME": "ერთ დავალებაზე დახარჯული საშუალო დრო",
+  "STATISTIC_SCORE": "ქულები",
+  "STATISTIC_COLLECTED_SCORE": "დაგროვილი ქულები",
+  "STATISTIC_TASKS": "დავალებები",
+  "STATISTIC_PASSED_TASKS": "გავლილი დავალებები",
+  "STATISTIC_UNLIMITED": "ულიმიტო",
+  "STATISTIC_BONUS": "ბონუსი",
 
+  "LEARN_MENU_COURSE": "კურსი",
+  "LEARN_MENU_MODE": "სწავლის რეჟიმი",
+  "LEARN_MENU_GRAMMAR": "გრამატიკა",
+  "LEARN_MENU_VOCABULARY": "სიტყვები",
+  "LEARN_MENU_ITEM5": "კურსის ანბანი",
+  "LEARN_MENU_STATISTICS": "სტატისტიკა",
+  "LEARN_MENU_ITEM7": "შეხსენებები",
+  "LEARN_MENU_ITEM8": "მიზნის დასახვა",
+  "LEARN_MENU_ITEM9": "პარამეტრები",
+  "LEARN_MENU_ITEM10": "კურსის განულება"
 
 }

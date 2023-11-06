@@ -23,8 +23,8 @@ export const getCurrentLanguageCoursesList = async ({
   languageId,
 }: {
   languageTo: string | string[]
-  languageFrom: string | string[]
-  token: string
+  languageFrom: string | string[] | undefined
+  token: string | undefined
   languageCourseId: string
   languageId: string
 }): Promise<LanguageCourse[] | undefined> => {
@@ -35,7 +35,7 @@ export const getCurrentLanguageCoursesList = async ({
     currentILearnFrom: languageFrom,
   }
   const config = {
-    headers: { Authorization: token },
+    headers: { Authorization: token ?? '' },
   }
 
   try {

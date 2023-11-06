@@ -502,7 +502,7 @@
   "Vani": "Vani",
   "Zestap’oni": "Zestaponi",
   "Zhinvali": "Zhinvali",
-  "Zugdidi": "Zugdidi"
+  "Zugdidi": "Zugdidi",
 
 
 
@@ -514,8 +514,43 @@
 
   "GRAMMAR_TITLE": "Las gramáticas del curso",
 
-  "STATISTICS_COURSE": "Estadísticas del curso"
+  "DICTIONARY_TITLE": "Diccionario",
+  "DICTIONARY_WORDS": "Palabras",
+  "DICTIONARY_COURSES_OPTION": "Cursos (todos)",
+  "DICTIONARY_GRAMMAT_CAT_OPTION": "Categoría de gramática (todas)",
+  "DICTIONARY_TOPIC_OPTION": "Tema (todos)",
+  "DICTIONARY_WORD": "Palabra",
+  "DICTIONARY_TRANSLATION": "Traducción",
+  "DICTIONARY_GRAMMATICAL_CATEGORY": "Categoría de gramática",
+  "DICTIONARY_TOPIC": "Tema",
+  "DICTIONARY_SEARCH": "Buscar...",
 
+  "STATISTIC_TIME": "Time",
+  "STATISTICS_COURSE": "Estadísticas del curso",
+  "STATISTICS_COURSE_END_TIME": "Tiempo para completar el curso",
+  "STATISTICS_RATING": "Clasificación",
+  "STATISTICS_RATING_POSIION": "Posición en la clasificación",
+  "STATISTICS_PROGRESS": "Progreso",
+  "STATISTICS_PROGRESS_DONE": "Completado el curso",
+  "STATISTIC_LAST_SESSION_TIME": "Duración de la última sesión",
+  "STATISTIC_SUM_PASSED_TASK_TIME": "Tiempo dedicado a las tareas realizadas",
+  "STATISTIC_PER_PASSED_TASK_TIME": "Tiempo promedio dedicado a una tarea",
+  "STATISTIC_SCORE": "Puntos",
+  "STATISTIC_COLLECTED_SCORE": "Puntos optenidos",
+  "STATISTIC_TASKS": "Ejercicios",
+  "STATISTIC_PASSED_TASKS": "Tareas cumplidas",
+  "STATISTIC_UNLIMITED": "Ilimitada",
+  "STATISTIC_BONUS": "Prima",
 
+  "LEARN_MENU_COURSE": "Curso",
+  "LEARN_MENU_MODE": "Modo aprendizaje",
+  "LEARN_MENU_GRAMMAR": "Gramática",
+  "LEARN_MENU_VOCABULARY": "Vocabulario",
+  "LEARN_MENU_ITEM5": "Alfabeto del curso",
+  "LEARN_MENU_STATISTICS": "Estadísticas",
+  "LEARN_MENU_ITEM7": "Recordatorio",
+  "LEARN_MENU_ITEM8": "მიზნის დასახვა",
+  "LEARN_MENU_ITEM9": "Opciones",
+  "LEARN_MENU_ITEM10": "Anular el curso"
 
 }
