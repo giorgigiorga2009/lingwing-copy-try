@@ -1,8 +1,20 @@
 @import '@styles/imports';
 
+.wrapper {
+  ::-webkit-scrollbar-thumb {
+    background: #d7d7d7;
+    border-radius: 6px;
+  }
 
-.wrapper{
-  height: calc(100vh - 18rem);}
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 12px;
+  }
+}
 
 .title {
   margin-top: 1rem;
@@ -29,6 +41,7 @@
   border: 2px solid $white-200;
   border-radius: 0 1rem 1rem;
   font-family: SegoeUI;
+  overflow-y: auto;
 }
 
 .description {
