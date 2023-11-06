@@ -1,5 +1,9 @@
 @import '@styles/imports';
 
+
+.wrapper{
+  height: calc(100vh - 18rem);}
+
 .title {
   margin-top: 1rem;
   padding: 0.3rem 1.5rem 0.3rem 3rem;
