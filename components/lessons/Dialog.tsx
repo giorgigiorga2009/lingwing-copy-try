@@ -90,6 +90,7 @@ export const Dialog: FC<DialogProps> = ({
           {isHistory &&
             dialogArrayTo &&
             dialogArrayTo.map((message, index) => (
+
               <DialogMessage
                 key={index}
                 message={message}
