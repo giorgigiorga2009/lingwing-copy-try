@@ -9,7 +9,7 @@ const LOCALES = ['en', 'bn', 'es', 'ka', 'ru', 'tr'] as const
 export type Locale = typeof LOCALES[number]
 
 type Messages = {
-  [x in Locale]: {}
+  [x in Locale]: NonNullable<unknown>
 }
 
 export const messages = {
