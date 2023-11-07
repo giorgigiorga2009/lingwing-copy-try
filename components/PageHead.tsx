@@ -32,15 +32,11 @@ export const PageHead: FC<Props> = ({ title, description, keywords }) => {
       <meta name="google" content="notranslate"></meta>
       <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
       <link rel="icon" type="image/x-icon"  href="/favicon.ico"/>
-      <link rel="alternate" href="lingwing.com/en/" hrefLang="en-us"/>
-      <link rel="alternate" href="lingwing.com/en/" hrefLang="ka-ge"/>
-      <link rel="alternate" href="lingwing.com/en/" hrefLang="ru-ru"/>
-      <link rel="alternate" href="lingwing.com/en/" hrefLang="es-es"/>
-      <link rel="alternate" href="lingwing.com/en/" hrefLang="tr-tr"/>
-      {/* <style>
-        @import
-        url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
-      </style> */}
+      <link rel="alternate" href="https://lingwing.com/en/" hrefLang="en-us"/>
+      <link rel="alternate" href="https://lingwing.com/ka/" hrefLang="ka-ge"/>
+      <link rel="alternate" href="https://lingwing.com/ru/" hrefLang="ru-ru"/>
+      <link rel="alternate" href="https://lingwing.com/es/" hrefLang="es-es"/>
+      <link rel="alternate" href="https://lingwing.com/tr/" hrefLang="tr-tr"/>
     </Head>
   )
 }

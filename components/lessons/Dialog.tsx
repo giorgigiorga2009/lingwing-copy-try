@@ -17,7 +17,6 @@ import {
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import { DialogMessage } from './DialogMessage'
 import { useTranslation } from '@utils/useTranslation'
-import Scrollbars from 'react-custom-scrollbars'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
