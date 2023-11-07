@@ -14,7 +14,7 @@ export const FOOTER_LINKS = {
   footerPackages: '/packages',
   footerAboutUs: '/about-company?page=about',
   footerBlog: 'https://blog.lingwing.com',
-  footerApps: '',
+  footerApps: '/logout',
   footerPrivacy: '/privacy',
   footerFAQ: '/faq',
   footerContact: '/contact',
