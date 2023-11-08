@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import range from '@utils/range'
 import classNames from 'classnames'
 import style from './logout.module.scss'
-import { LOGOUT_SCREENSHOTS } from '@utils/const'
+import { APP_STORE_URL, GOOGLE_PLAY_URL, LOGOUT_SCREENSHOTS } from '@utils/const'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { Carousel } from 'react-responsive-carousel'
@@ -13,8 +13,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=org.android.lingwing.app';
-const APP_STORE_URL = 'https://apps.apple.com/kn/app/lingwing-language-learning/id1217989755';
 
 const Stars: FC<{ index?: number, href: string }> = ({ index, href }) => {
   return (

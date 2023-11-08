@@ -1,15 +1,13 @@
 @import '@styles/imports';
 
 .container {
-  min-height: 100%;
-  height: fit-content;
-  width: 100%;
-  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
   align-items: center;
-  overflow-y: scroll;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
   background-color: $purple-600;
   background-image: url('/assets/images/bg-white-letters.svg'),
     -webkit-radial-gradient(center, circle cover, rgba(255, 255, 255, 0.15) 0, transparent
@@ -25,6 +23,7 @@
   background-repeat: no-repeat;
   background-size:  50rem auto;
   padding: 8rem 5rem 8rem 2rem;
+  height: fit-content;
   overflow: none;
 
   @include mobile {
@@ -117,13 +116,13 @@
   background-position: bottom;
   cursor: pointer;
   position: relative;
+  &:hover{
+    box-shadow: 0rem 0rem 1rem $white;
+    transition: .1s;
+  }
 
   &.google {
     background-image: url('/assets/images/google_play.png');
-    &:hover{
-      box-shadow: 0rem 0rem 1rem $white;
-      transition: .1s;
-    }
   }
 
   &.apple {
@@ -131,7 +130,7 @@
   }
 
   @include mobile {
-    width: 7.5rem;
+    width: 6.8rem;
     height: 2rem;
   }
 }
