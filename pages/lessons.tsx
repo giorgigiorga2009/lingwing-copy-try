@@ -50,7 +50,7 @@ const Lessons: NextPage = () => {
   const [grammarHeight, setGrammarHeight] = useState<number>(0)
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
-  const chatRef = useRef<Scrollbars>(null)
+  const chatRef = useRef<HTMLDivElement>(null)
 
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
@@ -176,24 +176,23 @@ const Lessons: NextPage = () => {
   }
 
   useEffect(() => {
-    if (!chatWrapperRef.current || !chatRef.current) return
-    if (isGrammarHeightCalled && grammarHeight === 0) return
+    if (!chatWrapperRef.current || !chatRef.current) return;
+    if (isGrammarHeightCalled && grammarHeight === 0) return;
 
     setTimeout(() => {
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
-          chatRef.current.scrollTop(
-            chatWrapperRef.current.scrollHeight - grammarHeight,
-          )
-          setGrammarHeight(0)
+          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight - grammarHeight;
+          setGrammarHeight(0);
         } else {
-          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight)
+          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight;
         }
       }
-    }, 200)
+    }, 200);
 
-    setIsGrammarHeightCalled(false)
-  }, [isHintShown, currentTask, isGrammarHeightCalled])
+    setIsGrammarHeightCalled(false);
+}, [isHintShown, currentTask, isGrammarHeightCalled]);
+
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
@@ -290,8 +289,8 @@ const Lessons: NextPage = () => {
               {tab === 'course' && commonProps && (
                 <>
                   <div className={style.chatContainer}>
-                    <Scrollbars ref={chatRef}>
-                      <div className={style.chat}>
+                    {/* <Scrollbars ref={chatRef}> */}
+                      <div className={style.chat} ref={chatRef}>
                         <div ref={chatWrapperRef} className={style.chatWrapper}>
                           {completedTasks && (
                             <ChatHistory
@@ -313,7 +312,7 @@ const Lessons: NextPage = () => {
                           )}
                         </div>
                       </div>
-                    </Scrollbars>
+                    {/* </Scrollbars> */}
                   </div>
                   <CurrentTaskInput
                     commonProps={commonProps}

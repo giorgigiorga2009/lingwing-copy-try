@@ -1,25 +1,7 @@
 @import '@styles/imports';
 
 .wrapper {
-  ::-webkit-scrollbar-thumb {
-    background: #d7d7d7;
-    border-radius: 1rem;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 1rem;
-  }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 10rem;
-  }
-  * {
-    scrollbar-width: thin; /* Firefox 64 and later */
-  }
-  font-family: SegoeUI, $kaFont;
-
+  @extend .commonScroll;
 }
 
 .title {
