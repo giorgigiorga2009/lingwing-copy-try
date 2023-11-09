@@ -34,9 +34,11 @@
   @extend .wrapper;
   backdrop-filter: none;
 }
+
 .lighterBG::before {
   background-color: $white-300;
 }
+
 .modal {
   display: flex;
   flex-direction: column;

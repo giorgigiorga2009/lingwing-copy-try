@@ -207,9 +207,11 @@ export const textCheck = ({
   setIsHintShown: (bool: boolean) => void
   setMistakesCount: (callback: (prev: number) => number) => void
 }) => {
-  const firstMarkCheck = /^[¡¿-]/.test(correctText.charAt(inputText.length - 1))
+  const firstMarkCheck = /^[¡¿"-]/.test(
+    correctText.charAt(inputText.length - 1),
+  )
   const index = inputText.length + Number(firstMarkCheck)
-  const isSpaceOrMark = /[.,!-]|\s/
+  const isSpaceOrMark = /[.,!"-]|\s/
   const isSpaceHit = /\s/.test(inputText.slice(-1))
   const textToCompare = correctText
     .replace(/[àáâäãåā]/gi, 'a')

@@ -193,9 +193,10 @@ export const regReminderTitle = [
   },
 ]
 
-export const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=org.android.lingwing.app';
-export const APP_STORE_URL = 'https://apps.apple.com/kn/app/lingwing-language-learning/id1217989755';
-
+export const GOOGLE_PLAY_URL =
+  'https://play.google.com/store/apps/details?id=org.android.lingwing.app'
+export const APP_STORE_URL =
+  'https://apps.apple.com/kn/app/lingwing-language-learning/id1217989755'
 
 export const KEYBOARD_OVERRIDE: keyboardOverride[] = [
   {

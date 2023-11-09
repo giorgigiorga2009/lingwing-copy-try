@@ -1,0 +1,71 @@
+@import '@styles/imports';
+
+.title {
+  font-family: $kaFontTitle;
+  color: $purple-600;
+  margin-top: -0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem 0 1rem;
+
+  @include mobile {
+    font-size: 1.3rem;
+  }
+}
+
+.container {
+  select,
+  input {
+    font-family: SegoeUI, $kaFont;
+    border-radius: 2rem;
+    padding: 0.5rem 0.1rem;
+    text-align: center;
+    border: 2px solid $white-200;
+    color: $purple-200;
+    margin: 0.3rem;
+    font-size: 0.75rem;
+    outline-color: $purple-500;
+    cursor: pointer;
+  }
+}
+
+.row {
+  font-size: 0.85rem;
+  font-family: SegoeUI, $kaFont;
+  color: $grey-700;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  thead,
+  tbody {
+    display: block;
+  }
+
+  thead {
+    color: $grey-800;
+    cursor: pointer;
+  }
+
+  tbody {
+    overflow-y: auto;
+    height: 35rem;
+  }
+
+  tbody tr,
+  thead tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  tbody tr {
+    &:nth-child(odd) {
+      background-color: $orange-10;
+    }
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+}

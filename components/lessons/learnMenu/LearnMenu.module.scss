@@ -4,12 +4,21 @@
   display: flex;
   flex-direction: column;
   position: absolute;
+  width: 12rem;
   top: 10rem;
   gap: 1.5rem;
-  margin-right: 53rem;
+  margin-right: 54rem;
   align-items: flex-end;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   color: $grey-300;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .folderName {

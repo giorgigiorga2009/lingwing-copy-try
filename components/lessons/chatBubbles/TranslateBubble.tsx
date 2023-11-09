@@ -64,7 +64,7 @@ export const TranslateBubble: FC<Props> = ({
             <div className={style[textType + 'Icon']} />
             {isCurrentTask && textType === 'dictation' ? (
               <span className={style.waveform}>
-                <WaveSurferNext audioURL={audioUrl}/>
+                <WaveSurferNext audioURL={audioUrl} />
               </span>
             ) : (
               <span

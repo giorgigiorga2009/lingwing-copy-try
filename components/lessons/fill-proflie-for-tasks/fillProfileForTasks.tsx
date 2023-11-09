@@ -55,7 +55,7 @@ const FillProfileForTasks: React.FC<Props> = ({
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        if(token){
+        if (token) {
           const responseData = await getUserProfileData(token || '')
           setPRofileData(responseData)
         }

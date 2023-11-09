@@ -74,7 +74,7 @@
   flex-direction: column;
   font-family: 'Kumbh Sans';
   min-width: 13rem;
-  max-width: 30rem;
+  max-width: 29rem;
   line-height: 1.6rem;
 
   @include mobile {
@@ -98,7 +98,7 @@
     transform: scale(0);
     transform-origin: 0 0;
     animation: bounce 700ms linear both;
-    animation-delay: 400ms;
+    animation-delay: 300ms;
   }
 
   span {

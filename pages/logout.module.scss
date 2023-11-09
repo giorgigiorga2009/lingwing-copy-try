@@ -19,9 +19,9 @@
   align-items: center;
   justify-content: center;
   background-image: url('/assets/images/logout/logoutPlane.png');
-  background-position: bottom  right ;
+  background-position: bottom right;
   background-repeat: no-repeat;
-  background-size:  50rem auto;
+  background-size: 50rem auto;
   padding: 8rem 5rem 8rem 2rem;
   height: fit-content;
   overflow: none;
@@ -34,7 +34,7 @@
     padding: 0;
     margin: 5rem 0;
   }
-  @include tablet{
+  @include tablet {
     background-position: bottom 5rem left 5rem;
     background-size: 50%;
     padding-left: 4rem;
@@ -74,9 +74,8 @@
     gap: 2rem;
     height: fit-content;
   }
-  @include tablet{
+  @include tablet {
     width: 30.4rem;
-
   }
 }
 
@@ -116,9 +115,9 @@
   background-position: bottom;
   cursor: pointer;
   position: relative;
-  &:hover{
+  &:hover {
     box-shadow: 0rem 0rem 1rem $white;
-    transition: .1s;
+    transition: 0.1s;
   }
 
   &.google {
@@ -197,4 +196,3 @@
     height: 20rem;
   }
 }
-
