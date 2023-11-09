@@ -24,7 +24,7 @@ import { useSession } from 'next-auth/react'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
-import { Scrollbars } from 'react-custom-scrollbars'
+import { PageHead } from '@components/PageHead'
 
 const Lessons: NextPage = () => {
   const screenshotRef = useRef<HTMLDivElement>(null)
@@ -176,23 +176,23 @@ const Lessons: NextPage = () => {
   }
 
   useEffect(() => {
-    if (!chatWrapperRef.current || !chatRef.current) return;
-    if (isGrammarHeightCalled && grammarHeight === 0) return;
+    if (!chatWrapperRef.current || !chatRef.current) return
+    if (isGrammarHeightCalled && grammarHeight === 0) return
 
     setTimeout(() => {
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
-          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight - grammarHeight;
-          setGrammarHeight(0);
+          chatRef.current.scrollTop =
+            chatWrapperRef.current.scrollHeight - grammarHeight
+          setGrammarHeight(0)
         } else {
-          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight;
+          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight
         }
       }
-    }, 200);
+    }, 200)
 
-    setIsGrammarHeightCalled(false);
-}, [isHintShown, currentTask, isGrammarHeightCalled]);
-
+    setIsGrammarHeightCalled(false)
+  }, [isHintShown, currentTask, isGrammarHeightCalled])
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
@@ -219,6 +219,13 @@ const Lessons: NextPage = () => {
 
   return (
     <div>
+      <PageHead
+        title={'META_TAG_ABOUTCOURSE_TITLE_' + (languageTo || 'geo')}
+        description={
+          'META_TAG_ABOUTCOURSE_DESCRIPTION_' + (languageTo || 'geo')
+        }
+        keywords={'META_TAG_ABOUTCOURSE_KEYWORDS_' + (languageTo || 'geo')}
+      />
       {openFeedback && currentCourseObject && (
         <Feedback
           setOpenFeedback={() => setOpenFeedback(false)}
@@ -279,38 +286,36 @@ const Lessons: NextPage = () => {
                 />
               )}
               {tab !== 'course' && currentCourseObject && (
-                  <Wrapper
-                    token={token ?? ''}
-                    currentCourseObject={currentCourseObject}
-                    languageFrom={languageFrom}
-                    tab={tab}
-                  />
+                <Wrapper
+                  token={token ?? ''}
+                  currentCourseObject={currentCourseObject}
+                  languageFrom={languageFrom}
+                  tab={tab}
+                />
               )}
               {tab === 'course' && commonProps && (
                 <>
                   <div className={style.chatContainer}>
-                      <div className={style.chat} ref={chatRef}>
-                        <div ref={chatWrapperRef} className={style.chatWrapper}>
-                          {completedTasks && (
-                            <ChatHistory
-                              completedTasks={completedTasks}
-                              isHintShown={isHintShown}
-                            />
-                          )}
-                          {currentTask && (
-                            <ChatCurrentTask
-                              currentTask={currentTask}
-                              currentMessageIndex={currentMessageIndex}
-                              isHintShown={isHintShown}
-                              hintText={hintText}
-                              onDivHeight={handleGrammarHeight}
-                            />
-                          )}
-                          {!currentTask && (
-                            <div className={style.blankBubble} />
-                          )}
-                        </div>
+                    <div className={style.chat} ref={chatRef}>
+                      <div ref={chatWrapperRef} className={style.chatWrapper}>
+                        {completedTasks && (
+                          <ChatHistory
+                            completedTasks={completedTasks}
+                            isHintShown={isHintShown}
+                          />
+                        )}
+                        {currentTask && (
+                          <ChatCurrentTask
+                            currentTask={currentTask}
+                            currentMessageIndex={currentMessageIndex}
+                            isHintShown={isHintShown}
+                            hintText={hintText}
+                            onDivHeight={handleGrammarHeight}
+                          />
+                        )}
+                        {!currentTask && <div className={style.blankBubble} />}
                       </div>
+                    </div>
                   </div>
                   <CurrentTaskInput
                     commonProps={commonProps}
