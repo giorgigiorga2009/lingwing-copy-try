@@ -289,7 +289,6 @@ const Lessons: NextPage = () => {
               {tab === 'course' && commonProps && (
                 <>
                   <div className={style.chatContainer}>
-                    {/* <Scrollbars ref={chatRef}> */}
                       <div className={style.chat} ref={chatRef}>
                         <div ref={chatWrapperRef} className={style.chatWrapper}>
                           {completedTasks && (
@@ -312,7 +311,6 @@ const Lessons: NextPage = () => {
                           )}
                         </div>
                       </div>
-                    {/* </Scrollbars> */}
                   </div>
                   <CurrentTaskInput
                     commonProps={commonProps}
