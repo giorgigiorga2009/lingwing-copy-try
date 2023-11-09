@@ -24,26 +24,34 @@ const Package: NextPage = () => {
 
   return (
     <div className={style.container}>
-      <PageHead text={'packagesPageTitle'} />
+      <PageHead
+        title="META_TAG_PACKAGES_TITLE"
+        description="META_TAG_PACKAGES_DESCRIPTION"
+        keywords="META_TAG_PACKAGES_KEYWORDS"
+      />
       <Header size="s" loginClassName={style.loginModal} />
-      <h1 className={style.title}> {t('APP_PACKAGE_PACKAGES')} </h1>
-      <p className={style.desc}>
-        <FormattedMessage
-          id="APP_PACKAGE_DESC"
-          values={{
-            k: (chunks: React.ReactNode) => (
-              <span className={style.fiveTimesFaster}>{chunks}</span>
-            ),
-          }}
-        />
-      </p>
-      <PricingCards showPackages={[0, 1, 2, 3]} coupon={coupon} />
-      <Coupon onClick={couponText => setCoupon(couponText)} />
-      <ContactUs />
-      <Reviews />
-      <FAQ locale={LOCALES_TO_LANGUAGES[locale as Locale]} />
-      <FollowButtons color="grey" />
-      <Footer />
+      <main>
+        <header>
+          <h1 className={style.title}> {t('APP_PACKAGE_PACKAGES')} </h1>
+        </header>
+        <p className={style.desc}>
+          <FormattedMessage
+            id="APP_PACKAGE_DESC"
+            values={{
+              k: (chunks: React.ReactNode) => (
+                <span className={style.fiveTimesFaster}>{chunks}</span>
+              ),
+            }}
+          />
+        </p>
+        <PricingCards showPackages={[0, 1, 2, 3]} coupon={coupon} />
+        <Coupon onClick={couponText => setCoupon(couponText)} />
+        <ContactUs />
+        <Reviews />
+        <FAQ locale={LOCALES_TO_LANGUAGES[locale as Locale]} />
+        <FollowButtons color="grey" />
+        <Footer />
+      </main>
     </div>
   )
 }

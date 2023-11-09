@@ -551,6 +551,114 @@
   "LEARN_MENU_ITEM7": "Recordatorio",
   "LEARN_MENU_ITEM8": "მიზნის დასახვა",
   "LEARN_MENU_ITEM9": "Opciones",
-  "LEARN_MENU_ITEM10": "Anular el curso"
+  "LEARN_MENU_ITEM10": "Anular el curso",
+
+  
+  
+
+  "APP_FREE_TRIAL2_TITLE": "Elija un plan para después de su prueba de 5 días",
+  "APP_FREE_TRIAL23_START_FREE_TRIAL": "Iniciar prueba",
+  "APP_FREE_TRIAL3_TITLE1": "Has activado tu ",
+  "APP_FREE_TRIAL3_TITLE2": "Premium para",
+  "APP_FREE_TRIAL3_TITLE3": "5",
+  "APP_FREE_TRIAL1_TITLE2": "Inicie una prueba de 5 días para",
+  "APP_FREE_TRIAL1_TITLE3": "",
+  "APP_FREE_TRIAL1_TITLE4": "",
+  "APP_FREE_TRIAL1_TITLE5": " GEL",
+  "APP_FREE_TRIAL1_DESCRIPTION": "¡Obtenga todas las funciones premium y obtenga tareas ilimitadas!",
+  "APP_FREE_TRIAL1_LOOP1": "Obtén tareas ilimitadas",
+  "APP_FREE_TRIAL1_LOOP2": "Perform exercises by speaking",
+  "APP_FREE_TRIAL1_LOOP3": "Estudia 5 veces más rápido",
+  "APP_FREE_TRIAL1_LOOP4": "Obtener certificado",
+  "APP_FREE_TRIAL1_CONTINUE": "Seguir",
+  "PACKAGES_INFO_FROM_GEL": "De GEL",
+  "APP_AGREE_LICENSE_1": "He leído y acepto los términos del",
+  "APP_AGREE_LICENSE_2": " ",
+  "APP_AGREE_LICENSE_3": " ",
+
+
+  "DIALOG_TYPE_FIRST_LETTERS": "Escribe las primeras letras de las palabras.",
+  "DIALOG_TITLE": "Diálogo",
+
+
+
+  "META_TAG_PACKAGES_TITLE": "Lingwing: Paquetes de paga",
+  "META_TAG_PACKAGES_DESCRIPTION": "Learn English, Russian, Spanish, French... online! Discover our offerings, including free, 3-month, 6-month, and 12-month subscriptions, each designed to enhance your experience and unlock exclusive features. Select the perfect plan for your language-learning journey with LingWing.",
+  "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ",
+
+  "META_TAG_FAQ_TITLE": "Lingwing: Preguntas más frecuentes" ,
+  "META_TAG_FAQ_DESCRIPTION": "Encuentre respuestas a las preguntas más frecuentes sobre nuestros servicios, productos y procesos. Obtenga claridad y ayuda sobre temas y consultas habituales.",
+  "META_TAG_FAQ_KEYWORDS": "FAQ, preguntas frecuentes, asistencia, respuestas, servicios, productos",
+
+
+  "META_TAG_INDEX_DESCRIPTION": "Aprender idiomas en línea.",
+  "META_TAG_INDEX_KEYWORDS": "aprender inglés, aprender español, aprender alemán, aprender georgiano, aprender francés, aprender italiano, aprender ruso,",
+
+
+  "META_TAG_WIZARD_DESCRIPTION": "Elija su idioma y nivel inicial en lingWing.com. Comience su viaje de aprendizaje de idiomas desde A1, B1 u otros niveles de competencia. Empieza a aprender hoy mismo.",
+  "META_TAG_WIZARD_KEYWORDS": "aprendizaje de idiomas, elegir idioma, nivel inicial, A1, B1, competencia lingüística, lingWing.com",
+
+
+  "META_TAG_DASHBOARD_TITLE": "Lingwing: Mi página",
+  "META_TAG_DASHBOARD_DESCRIPTION": "Siga su progreso en el aprendizaje de idiomas en el panel de control de lingWing.com. Vea los idiomas que ha elegido, los porcentajes de finalización y mucho más. Manténgase organizado y motivado mientras aprende nuevos idiomas con nuestro sencillo panel de control.",
+  "META_TAG_DASHBOARD_KEYWORDS": "panel de aprendizaje de idiomas, seguimiento del progreso, idiomas elegidos, porcentajes de finalización, herramientas de aprendizaje de idiomas, lingWing.com, aprender idiomas en línea, motivación para aprender idiomas",
+
+
+  "META_TAG_RESET_PASSWORD_TITLE": "Lingwing: Restablecer la contraseña",
+  "META_TAG_RESET_PASSWORD_DESCRIPTION": "Restablezca su contraseña en lingWing.com. Recupere el acceso a su cuenta de forma segura con nuestra sencilla página de restablecimiento de contraseña. Siga los sencillos pasos para crear una nueva contraseña y continuar su viaje de aprendizaje de idiomas.",
+  "META_TAG_RESET_PASSWORD_KEYWORDS": "restablecer contraseña, recuperación de contraseña, acceso a cuenta, lingWing.com, página de restablecimiento de contraseña, contraseña segura, cuenta de aprendizaje de idiomas",
+
+
+  "META_TAG_PROFILE_TITLE": "Lingwing: Perfil",
+  "META_TAG_PROFILE_DESCRIPTION": "Gestione su perfil en lingWing.com. Actualice su información personal, sus preferencias lingüísticas y su progreso en el aprendizaje. Mantenga su viaje de aprendizaje de idiomas organizado y adaptado a sus necesidades con nuestra página de perfil fácil de usar.",
+  "META_TAG_PROFILE_KEYWORDS": "gestión del perfil, perfil del usuario, información personal, preferencias lingüísticas, progreso del aprendizaje, lingWing.com, viaje de aprendizaje de idiomas, actualizaciones del perfil",
+
+
+  "META_TAG_PAYMENTS_TITLE": "Lingwing: Pagos",
+  "META_TAG_PAYMENTS_DESCRIPTION": "Gestione pagos y suscripciones en lingWing.com. Consulte su historial de pagos, actualice la información de su tarjeta y controle las tareas pendientes y los días premium. Mantén el control de tu experiencia de aprendizaje de idiomas con nuestra completa página de pagos.",
+  "META_TAG_PAYMENTS_KEYWORDS": "historial de pagos, gestión de suscripciones, datos de la tarjeta, tareas pendientes, días premium, lingWing.com, pagos por aprendizaje de idiomas, estado de la suscripción",
+
+
+  "META_TAG_ABOUTCOURSE_TITLE_geo": "Lingwing: Georgiano curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_eng": "Lingwing: Inglés curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_esp": "Lingwing: Español curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_fre": "Lingwing: Francés curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_ita": "Lingwing: Italiano curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_deu": "Lingwing: Alemán curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_TITLE_rus": "Lingwing: Ruso curso de idiomas en línea",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_geo": "Aprenda georgiano con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_eng": "Aprenda inglés con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_esp": "Aprenda español con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_fre": "Aprenda Francés con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_ita": "Aprenda Italiano con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_deu": "Aprenda Alemán con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_rus": "Aprenda Ruso con sólo 10 minutos al día y obtenga resultados en un abrir y cerrar de ojos.",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_geo": "Detalles del curso de georgiano, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_eng": "Detalles del curso de inglés, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de idiomas",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_esp": "Detalles del curso de español, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_fre": "Detalles del curso de Francés, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_ita": "Detalles del curso de Italiano, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_deu": "Detalles del curso de Alemán, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_rus": "Detalles del curso de Ruso, recuento de tareas, comunidad de aprendizaje, habilidades posteriores al curso, lingWing.com, nivel de lengua",
+
+
+  "META_TAG_ABOUT_COMPANY_TITLE": "Lingwing: Acerca de",
+  "META_TAG_ABOUT_COMPANY_DESCRIPTION": "El método de aprendizaje en línea más eficaz y sin riesgos. Los exclusivos ejercicios prácticos garantizan un compromiso total durante todo el proceso de aprendizaje. Únase a nosotros para experimentar el aprendizaje de idiomas como nunca antes.",
+  "META_TAG_ABOUT_COMPANY_KEYWORDS": "aprendizaje eficaz en línea, ejercicios de práctica únicos, compromiso total, experiencia de aprendizaje de idiomas, lingWing.com, método de aprendizaje sin riesgos, aprendizaje de idiomas extranjeros, aprendizaje de inglés, aprendizaje de ruso, aprendizaje de español, aprendizaje de francés, aprendizaje de italiano",
+
+
+  "META_TAG_CONTACT_US_TITLE": "Lingwing: Contáctanos",
+  "META_TAG_CONTACT_US_DESCRIPTION": "Póngase en contacto con lingWing.com. Póngase en contacto con nuestro equipo para consultas, apoyo o asistencia. Estamos aquí para ayudarle en su viaje de aprendizaje de idiomas.",
+  "META_TAG_CONTACT_US_KEYWORDS": "contacto, consultas, soporte, asistencia, lingWing.com, aprendizaje de idiomas, contactar con nuestro equipo, ponerse en contacto",
+
+  "FEEDBACK": "Envía tu opinión",
+  "FEEDBACK_SENT_SUCCESSFULLY": "Gracias por enviar tu opinion",
+  "FEEDBACK_WRITE_PROBLEM_OR_RECOMMENDATION": "¿Algún problema?",
+  "FEEDBACK_TOPIC": "Categoría",
+  "FEEDBACK_SUB_TOPIC": "Subcategoría",
+  "FEEDBACK_MESSAGE": "Mensaje",
+  "FEEDBACK_EMAIL": "Correo electrónico",
+  "FEEDBACK_SEND": "Enviar",
+  "FEEDBACK_REQUIRED_EMAIL": "Requiere tu correo electrónico"
 
 }

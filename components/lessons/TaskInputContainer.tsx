@@ -40,7 +40,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const { isRecording, finalTranscript, toggleRecognition } = useSpeechRec()
   const { audioIndex, setAudios, wordAudioPlay, addAudio, Play } = useAudio()
 
-  const onlyLetters = /[^\p{L}\p{M}?]/gu
+  const onlyLetters = /[^\p{L}\p{M}?"]/gu
   const currTask = commonProps.currentTask
   const wordsSynonyms = currTask.wordsSynonyms
   const correctText = currTask.correctText as string

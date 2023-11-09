@@ -8,6 +8,7 @@ import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { useTranslation } from '@utils/useTranslation'
 import PostData from '@utils/contactUs'
+import { PageHead } from '@components/PageHead'
 
 const validationSchema = Yup.object({
   fullname: Yup.string().required('fullName is required').min(2).max(40),
@@ -58,6 +59,11 @@ const ContactUs: NextPage = () => {
 
   return (
     <div className={style.background}>
+      <PageHead
+        title="META_TAG_CONTACT_US_TITLE"
+        description="META_TAG_CONTACT_US_DESCRIPTION"
+        keywords="META_TAG_CONTACT_US_KEYWORDS"
+      />
       <Header />
       <div className={style.container}>
         <h1>{t('menuContactUs')}</h1>

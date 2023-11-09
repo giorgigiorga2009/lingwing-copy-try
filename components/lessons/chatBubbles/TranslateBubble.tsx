@@ -2,7 +2,6 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import style from './TranslateBubble.module.scss'
-import UserAvatar from '@components/shared/UserAvatar'
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -18,7 +17,6 @@ interface Props {
     | 'replay'
     | 'mistakecorrection'
     | 'grammar'
-  answers?: number[]
 }
 
 const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
@@ -32,14 +30,18 @@ export const TranslateBubble: FC<Props> = ({
   isCurrentTask,
   sentenceAudioPath,
   textType,
-  answers,
+  // answers,
 }) => {
-  taskText = taskText
-    .replaceAll('(FR)', '🤗')
-    .replaceAll('(SH)', '✂️')
-    .replaceAll('(F)', '👧')
-    .replaceAll('(M)', '👦')
-    .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+  if (typeof taskText === 'string') {
+    taskText = taskText
+      .replaceAll('(FR)', '🤗')
+      .replaceAll('(SH)', '✂️')
+      .replaceAll('(F)', '👧')
+      .replaceAll('(M)', '👦')
+      .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
+  } else {
+    console.error('taskText is not a string:', taskText)
+  }
 
   const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
 
@@ -87,8 +89,8 @@ export const TranslateBubble: FC<Props> = ({
           </>
         ) : (
           <span className={style.taskText}>
-            {taskText.split(' ').map(word => (
-              <span key={word}>{word + ' '}</span>
+            {taskText.split(' ').map((word, index) => (
+              <span key={word + '-' + index}>{word + ' '}</span>
             ))}
           </span>
         )}

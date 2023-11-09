@@ -1,0 +1,23 @@
+@import '@styles/imports';
+
+.button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 2rem;
+  color: $grey-700;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-family: SegoeUI, $kaFont;
+  cursor: pointer;
+  padding: 0.1rem 1.6rem;
+  background-image: url('../../../public/assets/images/feedback.png');
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: center left;
+
+  &:hover {
+    color: $purple-500;
+  }
+}

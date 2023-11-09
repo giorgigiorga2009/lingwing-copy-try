@@ -11,6 +11,7 @@ import classNames from 'classnames'
 import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
 import Head from 'next/head'
+import { PageHead } from '@components/PageHead'
 
 const Faq: NextPage = () => {
   const { t } = useTranslation()
@@ -34,63 +35,101 @@ const Faq: NextPage = () => {
       }
     }
     fetchFaqData()
-  }, [locale])
+  }, [locale, locales])
+
+  // const faqSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "FAQPage",
+  //   "mainEntity": {
+  //     "@type": "Question",
+  //     "name": faqData?.data[0].objects[0].question[locales] || 'default question here ...',
+  //     "acceptedAnswer": {
+  //       "@type": "Answer",
+  //       "text": "www.lingwing.com is an online language-learning platform, created with the use of the newest technologies and algorithms. It is intended for everyone who wishes to learn a new language and start speaking at once, revise previously taught language, improve his or her knowledge and prepare for exams."
+  //     }
+  //   }
+  // }
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData?.data
+      .map(category => {
+        return category.objects.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question[locales] || 'question here ...',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer[locales] || 'answer here ...',
+          },
+        }))
+      })
+      .flat(),
+  }
 
   return (
     <div className={style.wrapper}>
       <Head>
-        <meta
-          name="description"
-          content="Find answers to frequently asked questions about our services, products, and processes. Get clarity and support on common topics and inquiries."
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-        <title>{t('FAQ_TITLE')}</title>
       </Head>
+      <PageHead
+        title="META_TAG_FAQ_TITLE"
+        description="META_TAG_FAQ_DESCRIPTION"
+        keywords="META_TAG_FAQ_KEYWORDS"
+      />
       <Header size="s" loginClassName={style.loginModal} />
-      <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
-      <main className={style.mainPart}>
-        <aside className={style.buttonContainer}>
-          {faqData?.data.map(({ _id }, index) => (
-            <button
-              key={_id?.id ?? index}
-              onClick={() => setActiveCategoryIndex(index)}
-              className={classNames(style.buttons, {
-                [style.activeButton]: activeCategoryIndex === index,
-              })}
-            >
-              {_id?.name}
-            </button>
-          ))}
-        </aside>
-        <section className={style.QAContainer}>
-          <h2>{faqData?.data[activeCategoryIndex]._id?.name}</h2>
-          {faqData?.data[activeCategoryIndex].objects.map(
-            ({ question, answer }, index) => (
-              <div key={index}>
-                <button
-                  className={classNames(
-                    style.faq__question,
-                    activeQuestionIndex === index && style.faq__question__open,
-                  )}
-                  onClick={() =>
-                    setActiveQuestionIndex(
-                      activeQuestionIndex === index ? null : index,
-                    )
-                  }
-                >
-                  {question[locales]}
-                </button>
-                <div
-                  className={classNames(
-                    style.faq__answer,
-                    index === activeQuestionIndex && style.faq__answer__open,
-                  )}
-                >
-                  {answer[locales]}
-                </div>
-              </div>
-            ),
-          )}
-        </section>
+      <main>
+        <header>
+          <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
+        </header>
+        <div className={style.mainPart}>
+          <aside className={style.buttonContainer}>
+            {faqData?.data.map(({ _id }, index) => (
+              <button
+                key={_id?.id ?? index}
+                onClick={() => setActiveCategoryIndex(index)}
+                className={classNames(style.buttons, {
+                  [style.activeButton]: activeCategoryIndex === index,
+                })}
+              >
+                {_id?.name}
+              </button>
+            ))}
+          </aside>
+          <section className={style.QAContainer}>
+            <h2>{faqData?.data[activeCategoryIndex]._id?.name}</h2>
+            {faqData?.data[activeCategoryIndex].objects.map(
+              ({ question, answer }, index) => (
+                <article key={index}>
+                  <button
+                    className={classNames(
+                      style.faq__question,
+                      activeQuestionIndex === index &&
+                        style.faq__question__open,
+                    )}
+                    onClick={() =>
+                      setActiveQuestionIndex(
+                        activeQuestionIndex === index ? null : index,
+                      )
+                    }
+                  >
+                    {question[locales]}
+                  </button>
+                  <div
+                    className={classNames(
+                      style.faq__answer,
+                      index === activeQuestionIndex && style.faq__answer__open,
+                    )}
+                  >
+                    {answer[locales]}
+                  </div>
+                </article>
+              ),
+            )}
+          </section>
+        </div>
       </main>
       <FollowButtons color="grey" />
       <Footer />

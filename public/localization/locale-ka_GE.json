@@ -586,6 +586,92 @@
   "LEARN_MENU_ITEM7": "შეხსენებები",
   "LEARN_MENU_ITEM8": "მიზნის დასახვა",
   "LEARN_MENU_ITEM9": "პარამეტრები",
-  "LEARN_MENU_ITEM10": "კურსის განულება"
+  "LEARN_MENU_ITEM10": "კურსის განულება",
+  
+  "DIALOG_TYPE_FIRST_LETTERS": "დაწერეთ სიტყვების პირველი ასოები",
+  "DIALOG_TITLE": "დიალოგი",
+
+
+
+  "META_TAG_PACKAGES_TITLE": "Lingwing: ფასიანი პაკეტები",
+  "META_TAG_PACKAGES_DESCRIPTION": "ისწავლე ინგლისური, რუსული, ესპანური, ფრანგული... ონლაინ! სასაუბრო ენის შესწავლა ყველაზე სწაფად!",
+  "META_TAG_PACKAGES_KEYWORDS": "ინგლისურის სწავლა იაფად, ucxo enebis swavla, ucxo enebis swavla ufasod, ინგლისურის სწავლა უფასოდ",
+
+
+  "META_TAG_FAQ_TITLE": "Lingwing: ხშირად დასმული კითხვები",
+  "META_TAG_FAQ_DESCRIPTION": "იპოვეთ პასუხები ხშირად დასმულ კითხვებზე ჩვენი სერვისებისა და პროდუქტებისა შესახებ.",
+  "META_TAG_FAQ_KEYWORDS": "ხშირად დასმული კითხვები, მხარდაჭერა, პასუხები, სერვისები, პროდუქტები",
+
+
+  "META_TAG_INDEX_DESCRIPTION": "ისწავლე უცხო ენები - ინგლისური, რუსული, ესპანური... უფასოდ! სასაუბრო ენის შესწავლა ყველაზე სწაფად!",
+  "META_TAG_INDEX_KEYWORDS": "inglisuris swavla, ინგლისური ენის შესწავლა, ინგლისური ენის კურსები, inglisuris testi, როგორ ვისწავლოთ ინგლისური, რუსული ენის შესწავლა, rusulis swavla, inglisuris testebi, ინგლისურის შესწავლა ონლაინ, ინგლისურის შესწავლა, ინგლისურის სწავლა, ინგლისურის გაკვეთილები, ინგლისურის ტესტები, inglisuri enis kursebi, learn english online, rusuli enis kursebi, ინგლისურის მასწავლებელი, lingving, lingwing, ling wing, inglisuris kursebi, ლინგვინგი, ფრანგული ენის შესწავლა, ინგლისური ენის ტესტები, inglisuris sheswavla, rusulis sheswavla, როგორ ვისწავლოთ ინგლისური, frangulis swavla, იტალიური ენის შესწავლა, რუსული ენის კურსები, სასაუბრო ინგლისური, ინგლისური ენის შესწავლა ბავშვებისთვის ესპანურის სწავლა, espanuris swavla, italiuris swavla, frangulis swavla, rusulis swavla, onlain kursi",
+
+
+  "META_TAG_WIZARD_DESCRIPTION": "ისწავლე სალაპარაკო ინგლისური, რუსული, ესპანური... ონლაინ და მიიღე რეალური შედეგი უმცირეს დროში!",
+  "META_TAG_WIZARD_KEYWORDS": "უცხო ენები, უცხო ენების სწავლა, ucxo enebi, ucxo enebis swavla, ucxouri enebi, უცხოური ენები, ენების სწავლა, enebis swavla",
+
+
+  "META_TAG_DASHBOARD_TITLE": "Lingwing: ჩემი გვერდი",
+  "META_TAG_DASHBOARD_DESCRIPTION": "თვალყური ადევნეთ ენის სწავლის პროგრესს lingWing.com-ზე. იხილეთ თქვენი არჩეული ენები, შესრულების პორცენტულობის მაჩვენებელი და სხვა.",
+  "META_TAG_DASHBOARD_KEYWORDS": "ჩემი გვერდი, chemi gverdi, პროგრესის კონტროლი, არჩეული ენები, შესრულების პროცენტულობა, ენის სწავლის ახალი საშუალებები, lingWing.com, ისწავლე ენა ონლაინ, ენის შესწავლის მოტივაცია",
+
+
+  "META_TAG_RESET_PASSWORD_TITLE": "Lingwing: პაროლის აღდგენა",
+  "META_TAG_RESET_PASSWORD_DESCRIPTION": "შეცვალეთ თქვენი პაროლი lingWing.com-ზე. უსაფრთხოდ დაიბრუნეთ წვდომა თქვენს ანგარიშზე ჩვენი, მომხმარებელზე ორიენტირებული, პაროლის აღდგენის გვერდით. მიჰყევით მარტივ ნაბიჯებს ახალი პაროლის შესაქმნელად და განაგრძეთ ენის შესწავლა",
+  "META_TAG_RESET_PASSWORD_KEYWORDS": "პაროლი აღდგენა, parolis agdgena, პაროლის განახლება , ექაუნთზე წვდომა, ჩემს გვერდზე წვდომა , lingWing.com, პაროლის აღდგენის გვერდი, უსაფრთხო პაროლი",
+
+
+  "META_TAG_PROFILE_TITLE": "Lingwing: პროფილი",
+  "META_TAG_PROFILE_DESCRIPTION": "მართეთ თქვენი პროფილი lingWing.com-ზე. განაახლეთ თქვენი პერსონალური ინფორმაცია, ენის პრეფერენციები და სწავლის პროგრესი.",
+  "META_TAG_PROFILE_KEYWORDS": "პროფილის მართვა, მომხმარებლის პროფილი, პერსონალური ინფორმაცია, ენის პრეფერენციები, სწავლის პროგრესი, lingWing.com, ენის შესწავლა, პროფილის განახლებები",
+
+  
+  "META_TAG_PAYMENTS_TITLE": "Lingwing: გადახდები",
+  "META_TAG_PAYMENTS_DESCRIPTION": "მართეთ გადახდები და გამოწერები lingWing.com-ზე. ნახეთ თქვენი გადახდების ისტორია, განაახლეთ ბარათი და აკონტროლეთ დარჩენილი პრემიუმ დღეების რაოდენობა.",
+  "META_TAG_PAYMENTS_KEYWORDS": "გადახდების ისტორია, gadaxdebis gverdi, გამოწერის მართვა, ბარათის ინფორმაცია, პრემიუმ დღეები, lingWing.com, გამოწერის სტატუსი",
+
+
+  "META_TAG_ABOUTCOURSE_TITLE_geo": "Lingwing: ქართული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_eng": "Lingwing: ინგლისური ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_esp": "Lingwing: ესპანური ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_fre": "Lingwing: ფრანგული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_ita": "Lingwing: იტალიური ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_deu": "Lingwing: გერმანული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_TITLE_rus": "Lingwing: რუსული ენის ონლაინ კურსი",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_geo": "ისწავლე სალაპარაკო ქართული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_eng": "ისწავლე სალაპარაკო ინგლისური დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_esp": "ისწავლე სალაპარაკო ესპანური დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_fre": "ისწავლე სალაპარაკო ფრანგული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_ita": "ისწავლე სალაპარაკო იტალიური დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_deu": "ისწავლე სალაპარაკო გერმანული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_DESCRIPTION_rus": "ისწავლე სალაპარაკო რუსული დღეში მხოლოდ 10 წუთი და მიიღე შედეგი უმოკლეს დროში! !",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_geo": "qartulis swavla, ქართული ენის სწავლა, ქართული ენის კურსები, qartulis testi, rogor viswavlo qartuli, ქართულის შესწავლა ონლაინ, qartulis testebi, ქართულის შესწავლა, ქართულის სწავლა, ქართულის გაკვეთილები, ქართულის ტესტები, ქართულის მასწავლებელი, როგორ ვისწავლოთ ქართული ენა, qartulis sheswavla, ქართული ენის გაკვეთილები, სალაპარაკო ქართულის შესწავლა, ქართული ენის შესწავლა ბავშვებისთვის, ქართული ენა დამწყებთათვის, qartuli damwyebebistvis, ქართული დამწყებთათვის, qartuli damwyebebistvis, salaparako qartuli",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_eng": "inglisuris swavla, ინგლისური ენის შესწავლა, ინგლისური ენის კურსები, inglisuris testi, rogor viswalt inglisuri, ინგლისურის შესწავლა ონლაინ, inglisuris testebi, ინგლისურის შესწავლა, ინგლისურის სწავლა, ინგლისურის გაკვეთილები, ინგლისურის ტესტები, ინგლისურის მასწავლებელი, როგორ ვისწავლოთ ინგლისური ენა, inglisuris sheswavla, ინგლისური ენის გაკვეთილები, სალაპარაკო ინგლისურის შესწავლა, ინგლისური ენის შესწავლა ბავშვებისთვის, ინგლისური ენის სწავლა, ინგლისური ენა დამწყებთათვის, inglisuri damwyebtatvis, ინგლისური დამწყებებისთვის, Inglisuri damwyebebistvis, salaparako inglisuri",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_esp": "espanuris swavla, ესპანური ენის შესწავლა, ესპანური ენის კურსები, espanuris testi, rogor viswalt espanuri, ესპანურის შესწავლა ონლაინ, espanuris testebi, ესპანურის შესწავლა, ესპანურის სწავლა, ესპანურის გაკვეთილები, ესპანურის ტესტები, ესპანურის მასწავლებელი, როგორ ვისწავლოთ ესპანური ენა, espanuris sheswavla, ესპანური ენის გაკვეთილები, სალაპარაკო ესპანურის შესწავლა, ესპანური ენის შესწავლა ბავშვებისთვის, ესპანური ენის სწავლა, ესპანური ენა დამწყებთათვის, espanuri damwyebtatvis, ესპანური დამწყებებისთვის, espanuri damwyebebistvis, salaparako espanuri",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_fre": "frangulis swavla, ფრანგული ენის შესწავლა, ფრანგული ენის კურსები, frangulis testi, rogor viswalt franguli, ფრანგულის შესწავლა ონლაინ, frangulis testebi, ფრანგულის შესწავლა, ფრანგულის სწავლა, ფრანგულის გაკვეთილები, ფრანგულის ტესტები, ფრანგულის მასწავლებელი, როგორ ვისწავლოთ ფრანგული ენა, frangulis sheswavla, ფრანგული ენის გაკვეთილები, სალაპარაკო ფრანგულის შესწავლა, ფრანგული ენის შესწავლა ბავშვებისთვის, ფრანგული ენის სწავლა, ფრანგული ენა დამწყებთათვის, franguli damwyebtatvis, ფრანგული დამწყებებისთვის, franguli damwyebebistvis, salaparako franguli",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_ita": "italiuris swavla, იტალიური ენის შესწავლა, იტალიური ენის კურსები, italiuris testi, rogor viswalt italiuri, იტალიურის შესწავლა ონლაინ, italiuris testebi, იტალიურის შესწავლა, იტალიურის სწავლა, იტალიურის გაკვეთილები, იტალიურის ტესტები, იტალიურის მასწავლებელი, როგორ ვისწავლოთ იტალიური ენა, italiuris sheswavla, იტალიური ენის გაკვეთილები, სალაპარაკო იტალიურის შესწავლა, იტალიური ენის შესწავლა ბავშვებისთვის, იტალიური ენის სწავლა, იტალიური ენა დამწყებთათვის, italiuri damwyebtatvis, იტალიური დამწყებებისთვის, italiuri damwyebebistvis, salaparako italiuri",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_deu": "germanulis swavla, გერმანული ენის შესწავლა, გერმანული ენის კურსები, germanulis testi, rogor viswalt germanuli, გერმანულის შესწავლა ონლაინ, germanulis testebi, გერმანულის შესწავლა, გერმანულის სწავლა, გერმანულის გაკვეთილები, გერმანულის ტესტები, გერმანულის მასწავლებელი, როგორ ვისწავლოთ გერმანული ენა, germanulis sheswavla, გერმანული ენის გაკვეთილები, სალაპარაკო გერმანულის შესწავლა, გერმანული ენის შესწავლა ბავშვებისთვის, გერმანული ენის სწავლა, გერმანული ენა დამწყებთათვის, germanuli damwyebtatvis, გერმანული დამწყებებისთვის, germanuli damwyebebistvis, salaparako germanuli",
+  "META_TAG_ABOUTCOURSE_KEYWORDS_rus": "rusulis swavla, რუსული ენის შესწავლა, რუსული ენის კურსები, rusulis testi, rogor viswalt rusuli, რუსულის შესწავლა ონლაინ, rusulis testebi, რუსულის შესწავლა, რუსულის სწავლა, რუსულის გაკვეთილები, რუსულის ტესტები, რუსულის მასწავლებელი, როგორ ვისწავლოთ რუსული ენა, rusulis sheswavla, რუსული ენის გაკვეთილები, სალაპარაკო რუსულის შესწავლა, რუსული ენის შესწავლა ბავშვებისთვის, რუსული ენის სწავლა, რუსული ენა დამწყებთათვის, rusuli damwyebtatvis, რუსული დამწყებებისთვის, rusuli damwyebebistvis, salaparako rusuli level",
+
+
+  "META_TAG_ABOUT_COMPANY_TITLE": "Lingwing: ჩვენ შესახებ",
+  "META_TAG_ABOUT_COMPANY_DESCRIPTION": "ონლაინ სწავლების ყველაზე ეფექტური და საოცრად აზარტული მეთოდი. სავარჯიშოების უნიკალური ტიპები, სწავლის პროცესში 100%-ით ჩართულობას უზრუნველყოფს",
+  "META_TAG_ABOUT_COMPANY_KEYWORDS": "უცხო ენების სწავლა. ინგლისურის სწავლა, რუსულის სწავლა, ესპანურის სწავლა, ფრანგულის სწავლა, იტალიურის სწავლა",
+
+
+  "META_TAG_CONTACT_US_TITLE": "Lingwing: დაგვიკავშირდით",
+  "META_TAG_CONTACT_US_DESCRIPTION": "დაუკავშირდით LingWing.com-ს, დაუკავშირდით ჩვენს გუნდს კითხვების არსებობის შემთხვევაში და ჩვენ დაუყოვნებლივ გიპასუხებთ, ჩვენ აქ ვართ რათა დაგეხმაროთ ენის შესწავლაში",
+  "META_TAG_CONTACT_US_KEYWORDS": "დაგვიკავშირდით, შეკითხვები, მხარდაჭერა, დახმარება, lingWing.com, ენის შესწავლა, დაუკავშირდით ჩვენს გუნდს, დაგვირეკეთ, მოგვწერეთ",
+
+  "FEEDBACK": "რეკომენდაცია/პრობლემა",
+  "FEEDBACK_SENT_SUCCESSFULLY": "დიდი მადლობა რეკომენდაციისთვის!",
+  "FEEDBACK_TOPIC": "აირჩიე კატეგორია",
+  "FEEDBACK_SUB_TOPIC": "აირჩიე ქვეკატეგორია",
+  "FEEDBACK_MESSAGE": "შეტყობინება",
+  "FEEDBACK_EMAIL": "ელ ფოსტა",
+  "FEEDBACK_SEND": "გაგზავნა",
+  "FEEDBACK_REQUIRED_EMAIL": "შენი ელ-ფოსტა",
+  "FEEDBACK_WRITE_PROBLEM_OR_RECOMMENDATION": "მოგვწერე რეკომენდაცია/პრობლემა"
+
 
 }
