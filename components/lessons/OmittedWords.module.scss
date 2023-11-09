@@ -28,7 +28,7 @@
   border-radius: 100%;
   width: 3rem;
   height: 3rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   font-size: 1.4rem;
   color: #692e96;
 
@@ -48,7 +48,7 @@
   width: 26.7rem;
   font-size: 1.2rem;
   font-weight: bold;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   resize: none;
   height: 4.4rem;
   background-color: #f3f3f3;
@@ -69,7 +69,7 @@
   width: 6rem;
   font-size: 1.2rem;
   color: $black;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   border-bottom: 2px solid $orange-650;
   border-radius: 0.5rem;
   height: 2.5rem;

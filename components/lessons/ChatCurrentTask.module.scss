@@ -17,10 +17,8 @@
   border-radius: 1.8rem;
   white-space: nowrap;
   color: #ff9421;
+  font-family: SegoeUI, $kaFont;
 
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   .answer & {
     display: none;

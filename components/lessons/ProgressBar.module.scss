@@ -8,8 +8,8 @@
   max-width: 40rem;
   height: 3rem;
   margin-bottom: 1rem;
-  font-family: SegoeUI;
-
+  font-family: SegoeUI, $kaFont;
+  
   @include mobile {
     margin-bottom: 0;
   }
