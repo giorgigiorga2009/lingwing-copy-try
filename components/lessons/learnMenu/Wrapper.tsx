@@ -5,6 +5,7 @@ import AllGrammar from './AllGrammar'
 import Statistics from './Statistics'
 import Vocabulary from './Vocabulary'
 import { CourseObject } from '@utils/lessons/getTask'
+import Scrollbars from 'react-custom-scrollbars'
 
 interface ChangeModeProps {
   currentCourseObject: CourseObject
@@ -29,11 +30,13 @@ const Wrapper: FC<ChangeModeProps> = ({
         />
       )}
       {tab === 'grammar' && (
+        <Scrollbars>
         <AllGrammar
           courseId={currentCourseObject.course._id}
           LanguageFrom={languageFrom}
           token={token}
         />
+        </Scrollbars>
       )}
       {tab === 'vocabulary' && (
         <Vocabulary

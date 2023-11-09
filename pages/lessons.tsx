@@ -280,14 +280,12 @@ const Lessons: NextPage = () => {
                 />
               )}
               {tab !== 'course' && currentCourseObject && (
-                <Scrollbars ref={chatRef}>
                   <Wrapper
                     token={token ?? ''}
                     currentCourseObject={currentCourseObject}
                     languageFrom={languageFrom}
                     tab={tab}
                   />
-                </Scrollbars>
               )}
               {tab === 'course' && commonProps && (
                 <>
