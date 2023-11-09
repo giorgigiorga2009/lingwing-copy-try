@@ -1,13 +1,14 @@
 @import '@styles/imports';
 
+
 .wrapper {
   display: flex;
   position: relative;
   flex-direction: column;
   gap: 1.2rem;
   color: $grey-800;
-  width: 100%;
-  font-family: SegoeUI;
+  width: 95%;
+  font-family: SegoeUI, $kaFont;
   padding: 2.4rem 5% 1.4rem;
   border-top: 2px solid $white-100;
 
@@ -15,10 +16,6 @@
     border-radius: 1rem;
     border: 2px solid $purple-500;
     background-color: $white-50;
-  }
-
-  &:lang(ka) {
-    font-family: $kaFont;
   }
 
   button {
