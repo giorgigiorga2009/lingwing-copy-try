@@ -38,9 +38,9 @@ const AboutCourse = () => {
   return (
     <div className={style.mainConainer}>
       <PageHead
-        title={'META_TAG_ABOUTCOURSE_TITLE_' + languageTo}
-        description={'META_TAG_ABOUTCOURSE_DESCRIPTION_' + languageTo}
-        keywords={'META_TAG_ABOUTCOURSE_KEYWORDS_' + languageTo}
+        title={'META_TAG_ABOUTCOURSE_TITLE_' + (languageTo || 'geo')}
+        description={'META_TAG_ABOUTCOURSE_DESCRIPTION_' + (languageTo || 'geo')}
+        keywords={'META_TAG_ABOUTCOURSE_KEYWORDS_' + (languageTo || 'geo')}
       />
       <Header size="s" loginClassName={style.loginModal} />
       {isLoading ? (
