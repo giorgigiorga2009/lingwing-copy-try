@@ -9,6 +9,7 @@ interface Props {
   correctText: string
   isCurrentTask: boolean
   sentenceAudioPath?: string
+  answers?: number[]
   textType:
     | 'dictation'
     | 'translate'

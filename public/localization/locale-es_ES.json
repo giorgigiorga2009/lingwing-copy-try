@@ -651,6 +651,10 @@
   "META_TAG_CONTACT_US_DESCRIPTION": "Póngase en contacto con lingWing.com. Póngase en contacto con nuestro equipo para consultas, apoyo o asistencia. Estamos aquí para ayudarle en su viaje de aprendizaje de idiomas.",
   "META_TAG_CONTACT_US_KEYWORDS": "contacto, consultas, soporte, asistencia, lingWing.com, aprendizaje de idiomas, contactar con nuestro equipo, ponerse en contacto",
 
+
+  "LESSONS_NEXT_ENTER": "Seguir (Enter)",
+  "LESSONS_GRAMMAR": "Gramática",
+
   "FEEDBACK": "Envía tu opinión",
   "FEEDBACK_SENT_SUCCESSFULLY": "Gracias por enviar tu opinion",
   "FEEDBACK_WRITE_PROBLEM_OR_RECOMMENDATION": "¿Algún problema?",

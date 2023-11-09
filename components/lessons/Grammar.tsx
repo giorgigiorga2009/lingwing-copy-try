@@ -5,6 +5,7 @@ import {
   CommonProps,
   updateCompletedTasks,
 } from '@utils/lessons/taskInputUtils'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   taskText: string
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
+  const { t } = useTranslation()
   const grammarRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
 
   return (
     <div>
-      <div className={style.title}>Grammar</div>
+      <div className={style.title}>{t('LESSONS_GRAMMAR')}</div>
       <div
         ref={grammarRef}
         className={style.textContainer}
@@ -38,6 +40,7 @@ interface ButtonProps {
 }
 
 export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
+  const { t } = useTranslation()
   const handleClick = async () => {
     if (!commonProps.token && !commonProps.userId) return
     const isSaveSuccessful = await saveTask({ ...commonProps })
@@ -49,7 +52,7 @@ export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
   return (
     <div className={style.container}>
       <button onClick={handleClick} className={style.button}>
-        Next (Enter)
+        {t('LESSONS_NEXT_ENTER')}
       </button>
     </div>
   )

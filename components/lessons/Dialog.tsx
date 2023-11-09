@@ -17,7 +17,6 @@ import {
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import { DialogMessage } from './DialogMessage'
 import { useTranslation } from '@utils/useTranslation'
-import Scrollbars from 'react-custom-scrollbars'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
@@ -44,55 +43,30 @@ export const Dialog: FC<DialogProps> = ({
 }) => {
   const { t } = useTranslation()
   const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
-  const scrollbarsRef = useRef<Scrollbars>(null)
+  const scrollbarsRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (scrollbarsRef.current) {
-      scrollbarsRef.current.scrollToBottom()
+      scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight
     }
   }, [currentMessageIndex, hintText])
 
   return (
-    <div>
+    <div className={style.wrapper}>
       <div className={style.title}>{t('DIALOG_TITLE')}</div>
-      <div className={style.dialog}>
-        <Scrollbars
-          style={{ width: '100%', height: '80vh' }}
-          ref={scrollbarsRef}
-        >
-          <span className={style.description}>
-            {t('DIALOG_TYPE_FIRST_LETTERS')
-              .split(' ')
-              .map((word, index) => (
-                <span key={word + index}>{word + ' '}</span>
-              ))}
-          </span>
-          {currentMessageIndex >= 0 &&
-            !isHistory &&
-            dialogArrayTo
-              .slice(0, currentMessageIndex)
-              .map((message, index) => (
-                <DialogMessage
-                  key={index}
-                  message={message}
-                  translation={dialogArrayFrom[index]}
-                  index={index}
-                  totalCount={dialogArrayTo.length}
-                />
-              ))}
-
-          {!isHistory && (
-            <div className={style.bubbleContainer}>
-              <div className={style.currentTask}>
-                <WaveSurferNext audioURL={audioUrl} />
-              </div>
-              <Hint isHintShown={isHintShown} hintText={hintText} />
-            </div>
-          )}
-
-          {isHistory &&
-            dialogArrayTo &&
-            dialogArrayTo.map((message, index) => (
+      <div className={style.dialog} ref={scrollbarsRef}>
+        <span className={style.description}>
+          {t('DIALOG_TYPE_FIRST_LETTERS')
+            .split(' ')
+            .map((word, index) => (
+              <span key={word + index}>{word + ' '}</span>
+            ))}
+        </span>
+        {currentMessageIndex >= 0 &&
+          !isHistory &&
+          dialogArrayTo
+            .slice(0, currentMessageIndex)
+            .map((message, index) => (
               <DialogMessage
                 key={index}
                 message={message}
@@ -101,7 +75,27 @@ export const Dialog: FC<DialogProps> = ({
                 totalCount={dialogArrayTo.length}
               />
             ))}
-        </Scrollbars>
+
+        {!isHistory && (
+          <div className={style.bubbleContainer}>
+            <div className={style.currentTask}>
+              <WaveSurferNext audioURL={audioUrl} />
+            </div>
+            <Hint isHintShown={isHintShown} hintText={hintText} />
+          </div>
+        )}
+
+        {isHistory &&
+          dialogArrayTo &&
+          dialogArrayTo.map((message, index) => (
+            <DialogMessage
+              key={index}
+              message={message}
+              translation={dialogArrayFrom[index]}
+              index={index}
+              totalCount={dialogArrayTo.length}
+            />
+          ))}
       </div>
     </div>
   )

@@ -12,6 +12,7 @@ import { Footer } from '@components/wizard/Footer'
 import { FollowButtons } from '@components/home/FollowButtons'
 import Head from 'next/head'
 import { PageHead } from '@components/PageHead'
+import Loader from '@components/loaders/loader'
 
 const Faq: NextPage = () => {
   const { t } = useTranslation()
@@ -49,6 +50,24 @@ const Faq: NextPage = () => {
   //     }
   //   }
   // }
+  if (locale === 'bn') {
+    return (
+      <div className={style.wrapper}>
+        <Header size="s" loginClassName={style.loginModal} />
+        <header>
+          <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
+        </header>
+        <div className={style.mainPart}>
+          <section className={style.QAContainer}>
+            <p>লোডিং হচ্ছে...</p>
+          </section>
+        </div>
+      </div>
+    )
+  }
+  if (!faqData) {
+    return <Loader />
+  }
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -99,8 +118,8 @@ const Faq: NextPage = () => {
             ))}
           </aside>
           <section className={style.QAContainer}>
-            <h2>{faqData?.data[activeCategoryIndex]._id?.name}</h2>
-            {faqData?.data[activeCategoryIndex].objects.map(
+            <h2>{faqData?.data[activeCategoryIndex]?._id?.name}</h2>
+            {faqData?.data[activeCategoryIndex]?.objects.map(
               ({ question, answer }, index) => (
                 <article key={index}>
                   <button

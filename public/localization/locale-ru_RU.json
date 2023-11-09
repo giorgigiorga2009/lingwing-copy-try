@@ -667,7 +667,12 @@
   "FEEDBACK_MESSAGE": "Сообщение",
   "FEEDBACK_EMAIL": "эл. почта",
   "FEEDBACK_SEND": "Отправить",
-  "FEEDBACK_REQUIRED_EMAIL": "Пожалуйста, укажите Ваш адрес эл. почты"
+  "FEEDBACK_REQUIRED_EMAIL": "Пожалуйста, укажите Ваш адрес эл. почты",
+
+  "LESSONS_NEXT_ENTER": "Следующий (Enter)",
+  "LESSONS_GRAMMAR": "Грамматика"
+
+
 
 
 }

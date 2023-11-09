@@ -671,7 +671,11 @@
   "FEEDBACK_EMAIL": "ელ ფოსტა",
   "FEEDBACK_SEND": "გაგზავნა",
   "FEEDBACK_REQUIRED_EMAIL": "შენი ელ-ფოსტა",
-  "FEEDBACK_WRITE_PROBLEM_OR_RECOMMENDATION": "მოგვწერე რეკომენდაცია/პრობლემა"
+  "FEEDBACK_WRITE_PROBLEM_OR_RECOMMENDATION": "მოგვწერე რეკომენდაცია/პრობლემა",
+
+
+  "LESSONS_NEXT_ENTER": "შემდეგი (Enter)",
+  "LESSONS_GRAMMAR": "გრამატიკა"
 
 
 }

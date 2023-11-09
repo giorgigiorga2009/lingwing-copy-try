@@ -1,16 +1,13 @@
 @import '@styles/imports';
 
 .container {
-  min-height: 100%;
-  height: fit-content;
-  width: 100%;
-  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
   align-items: center;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
   background-color: $purple-600;
   background-image: url('/assets/images/bg-white-letters.svg'),
     -webkit-radial-gradient(center, circle cover, rgba(255, 255, 255, 0.15) 0, transparent
@@ -22,10 +19,11 @@
   align-items: center;
   justify-content: center;
   background-image: url('/assets/images/logout/logoutPlane.png');
-  background-position: bottom 0 right 0;
+  background-position: bottom right;
   background-repeat: no-repeat;
-  background-size: 49.4rem 10.25rem;
-  padding: 0 5rem 6rem;
+  background-size: 50rem auto;
+  padding: 8rem 5rem 8rem 2rem;
+  height: fit-content;
   overflow: none;
 
   @include mobile {
@@ -35,6 +33,11 @@
     gap: 2rem;
     padding: 0;
     margin: 5rem 0;
+  }
+  @include tablet {
+    background-position: bottom 5rem left 5rem;
+    background-size: 50%;
+    padding-left: 4rem;
   }
 }
 
@@ -62,7 +65,7 @@
   align-items: flex-start;
   justify-content: center;
   height: 26.4rem;
-  width: 30.4rem;
+  width: 25rem;
   gap: 3rem;
   padding-left: 1rem;
 
@@ -70,6 +73,9 @@
     width: 90%;
     gap: 2rem;
     height: fit-content;
+  }
+  @include tablet {
+    width: 30.4rem;
   }
 }
 
@@ -109,6 +115,10 @@
   background-position: bottom;
   cursor: pointer;
   position: relative;
+  &:hover {
+    box-shadow: 0rem 0rem 1rem $white;
+    transition: 0.1s;
+  }
 
   &.google {
     background-image: url('/assets/images/google_play.png');
@@ -119,7 +129,7 @@
   }
 
   @include mobile {
-    width: 7.5rem;
+    width: 6.8rem;
     height: 2rem;
   }
 }
