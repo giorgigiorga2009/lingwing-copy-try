@@ -63,10 +63,10 @@ const Faq: NextPage = () => {
           </section>
         </div>
       </div>
-    );
+    )
   }
   if (!faqData) {
-    return <Loader/>;
+    return <Loader />
   }
   const faqSchema = {
     '@context': 'https://schema.org',

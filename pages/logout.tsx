@@ -3,7 +3,11 @@ import { NextPage } from 'next'
 import range from '@utils/range'
 import classNames from 'classnames'
 import style from './logout.module.scss'
-import { APP_STORE_URL, GOOGLE_PLAY_URL, LOGOUT_SCREENSHOTS } from '@utils/const'
+import {
+  APP_STORE_URL,
+  GOOGLE_PLAY_URL,
+  LOGOUT_SCREENSHOTS,
+} from '@utils/const'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { Carousel } from 'react-responsive-carousel'
@@ -13,12 +17,15 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-
-const Stars: FC<{ index?: number, href: string }> = ({ index, href }) => {
+const Stars: FC<{ index?: number; href: string }> = ({ index, href }) => {
   return (
     <div>
       <Link href={href}>
-      <div className={classNames(style.google, style.market, { [style.apple]: index === 1 })} />
+        <div
+          className={classNames(style.google, style.market, {
+            [style.apple]: index === 1,
+          })}
+        />
         <div className={style.stars}>
           {range(5).map(i => (
             <div key={i} className={style.star} />
@@ -26,7 +33,7 @@ const Stars: FC<{ index?: number, href: string }> = ({ index, href }) => {
         </div>
       </Link>
     </div>
-  );
+  )
 }
 
 const Logout: NextPage = () => {
@@ -42,8 +49,8 @@ const Logout: NextPage = () => {
           <div className={style.title}>{t('logout_text1')}</div>
           <div className={style.subTitle}>{t('logout_text2')}</div>
           <div className={style.appLinksContainer}>
-            <Stars href={GOOGLE_PLAY_URL}/>
-            <Stars href={APP_STORE_URL} index={1}/>
+            <Stars href={GOOGLE_PLAY_URL} />
+            <Stars href={APP_STORE_URL} index={1} />
           </div>
         </div>
         <div className={style.phoneContainer}>

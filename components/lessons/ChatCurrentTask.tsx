@@ -36,7 +36,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                answers={currentTask.answers}
+                // answers={currentTask.answers}
               />
             )}
             {currentTask.taskType === 'dictation' && (

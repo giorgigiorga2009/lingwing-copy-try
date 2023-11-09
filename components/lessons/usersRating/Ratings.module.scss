@@ -17,6 +17,14 @@
   color: $purple-500;
   cursor: pointer;
 
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+
   &:lang(ka) {
     font-family: $kaFontTitleBold;
   }
@@ -29,6 +37,14 @@
   background-repeat: no-repeat;
   background-image: url('/assets/images/rectangle_top.png');
   cursor: pointer;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .hideButton {
@@ -38,6 +54,14 @@
   background-repeat: no-repeat;
   background-image: url('/assets/images/rectangle_top2.png');
   cursor: pointer;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .container {
@@ -51,6 +75,14 @@
   margin-right: 2rem;
   transform: translateX(130%);
   transition: transform 0.4s ease-out;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
 
   &.show {
     transform: translateX(0);

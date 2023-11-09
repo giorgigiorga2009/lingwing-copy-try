@@ -12,7 +12,11 @@ const Home: NextPage = () => {
 
   return (
     <div className={style.container}>
-      <PageHead title="indexPageTitle" description='META_TAG_INDEX_DESCRIPTION' keywords='META_TAG_INDEX_KEYWORDS'/>
+      <PageHead
+        title="indexPageTitle"
+        description="META_TAG_INDEX_DESCRIPTION"
+        keywords="META_TAG_INDEX_KEYWORDS"
+      />
       <Header />
       <div className={style.content}>
         <div className={style.title}>

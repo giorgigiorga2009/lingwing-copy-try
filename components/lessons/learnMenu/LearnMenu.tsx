@@ -5,6 +5,7 @@ import {
 } from '@utils/lessons/getLanguageCoursesList'
 import { FC, useState, useEffect } from 'react'
 import { CourseObject } from '@utils/lessons/getTask'
+import { useTranslation } from '@utils/useTranslation'
 import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
 
 interface Props {
@@ -12,7 +13,9 @@ interface Props {
   languageTo: string | string[] | undefined
   token: string | null
   currentCourseObject: CourseObject | undefined
-  setTab: (value: 'course' | 'levels' | 'grammar' | 'statistics') => void
+  setTab: (
+    value: 'course' | 'levels' | 'grammar' | 'vocabulary' | 'statistics',
+  ) => void
 }
 
 const LearnMenu: FC<Props> = ({
@@ -22,6 +25,7 @@ const LearnMenu: FC<Props> = ({
   currentCourseObject,
   setTab,
 }) => {
+  const { t } = useTranslation()
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
     LanguageCourse[] | undefined
   >()
@@ -54,19 +58,19 @@ const LearnMenu: FC<Props> = ({
         />
       )}
       <button className={style.folderName} onClick={() => setTab('course')}>
-        Course
+        {t('LEARN_MENU_COURSE')}
       </button>
       <button className={style.folderName} onClick={() => setTab('grammar')}>
-        Grammar
+        {t('LEARN_MENU_GRAMMAR')}
       </button>
-      <button className={style.folderName} onClick={() => setTab('grammar')}>
-        Vocabulary
+      <button className={style.folderName} onClick={() => setTab('vocabulary')}>
+        {t('LEARN_MENU_VOCABULARY')}
       </button>
       <button className={style.folderName} onClick={() => setTab('levels')}>
-        Levels
+        {t('LEARN_MENU_MODE')}
       </button>
       <button className={style.folderName} onClick={() => setTab('statistics')}>
-        Statistics
+        {t('LEARN_MENU_STATISTICS')}
       </button>
     </div>
   )

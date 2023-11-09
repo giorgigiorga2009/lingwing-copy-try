@@ -53,10 +53,10 @@ const Package: React.FC<PackageProps> = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button onClick={handleClick}>{t("APP_PACKAGE_SELECT")}</button>
+            <button onClick={handleClick}>{t('APP_PACKAGE_SELECT')}</button>
           </a>
         ) : (
-          <button>{t("APP_PACKAGE_SELECT")}</button>
+          <button>{t('APP_PACKAGE_SELECT')}</button>
         )}
       </div>
     </div>

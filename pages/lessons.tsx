@@ -10,6 +10,7 @@ import ChatHistory from '@components/lessons/ChatHistory'
 import { SoundCheck } from '@components/lessons/SoundCheck'
 import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
+import Feedback from '@components/lessons/combinedModals/Feedback'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import Wrapper from '@components/lessons/learnMenu/Wrapper'
 import Ratings from '@components/lessons/usersRating/Ratings'
@@ -20,11 +21,13 @@ import {
   TaskData,
 } from '@utils/lessons/getTask'
 import { useSession } from 'next-auth/react'
+import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
 import { Scrollbars } from 'react-custom-scrollbars'
 
 const Lessons: NextPage = () => {
+  const screenshotRef = useRef<HTMLDivElement>(null)
   const [tasksData, setTasksData] = useState<TaskData[]>([])
   const [currentTask, setCurrentTask] = useState<TaskData>()
   const [currentTaskNumber, setCurrentTaskNumber] = useState(0)
@@ -36,9 +39,10 @@ const Lessons: NextPage = () => {
   const [isSoundChecked, setSoundChecked] = useState(false)
   const [isHintShown, setIsHintShown] = useState(false)
   const [hintText, setHintText] = useState('')
+  const [openFeedback, setOpenFeedback] = useState(false)
 
   const [tab, setTab] = useState<
-    'course' | 'levels' | 'grammar' | 'levels' | 'statistics'
+    'course' | 'levels' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
   >('course')
 
   const [userScore, setUserScore] = useState(0)
@@ -215,104 +219,118 @@ const Lessons: NextPage = () => {
   const isUserLoggedIn = !!token
 
   return (
-    <div className={style.container}>
-      <Header size="s" />
-
-      <CombinedModalComponent
-        token={token}
-        courseName={courseName}
-        courseId={courseId}
-        isUserLoggedIn={isUserLoggedIn}
-        completedTasks={completedTasks}
-        unAuthuserDailyLimit={unAuthuserDailyLimit}
-        languageTo={languageTo}
-        languageFrom={languageFrom}
-        dailyTaskLeft={dailyTaskLeft}
-        currentCourseObject={currentCourseObject}
-        dailyReachedLimitDate={dailyReachedLimitDate}
-      />
-      {isSoundChecked && currentCourseObject && token && (
-        <Ratings
-          courseId={currentCourseObject?.course._id}
-          userScore={userScore}
+    <div>
+      {openFeedback && currentCourseObject && (
+        <Feedback
+          setOpenFeedback={() => setOpenFeedback(false)}
+          currentCourseObject={currentCourseObject}
+          currentTaskData={currentTask}
+          screenshotRef={screenshotRef}
           token={token}
         />
       )}
-      <BackgroundParrot />
-
-      {!isSoundChecked && (
-        <SoundCheck
-          setSoundChecked={setSoundChecked}
-          soundChecked={isSoundChecked}
+      <div className={style.container} ref={screenshotRef}>
+        <Header size="s" />
+        <CombinedModalComponent
+          token={token}
+          courseName={courseName}
+          courseId={courseId}
+          isUserLoggedIn={isUserLoggedIn}
+          completedTasks={completedTasks}
+          unAuthuserDailyLimit={unAuthuserDailyLimit}
+          languageTo={languageTo}
+          languageFrom={languageFrom}
+          dailyTaskLeft={dailyTaskLeft}
+          currentCourseObject={currentCourseObject}
+          dailyReachedLimitDate={dailyReachedLimitDate}
         />
-      )}
-
-      {isSoundChecked && (
-        <>
-          <LearnMenu
-            languageTo={languageTo}
-            languageFrom={languageFrom}
+        {isSoundChecked && currentCourseObject && token && (
+          <Ratings
+            courseId={currentCourseObject?.course._id}
+            userScore={userScore}
             token={token}
-            currentCourseObject={currentCourseObject}
-            setTab={setTab}
           />
-          <div className={style.content}>
-            {currentCourseObject && (
-              <ProgressBar
-                currentCourseObject={currentCourseObject}
-                userScore={userScore}
-              />
-            )}
-            {tab !== 'course' && currentCourseObject && (
-              <Scrollbars ref={chatRef}>
-                <Wrapper
-                  token={token ?? ''}
-                  learnMode={currentCourseObject.learnMode}
-                  userCourseId={currentCourseObject.course._id}
-                  languageFrom={languageFrom}
-                  tab={tab}
+        )}
+        <BackgroundParrot />
+        <FeedbackButton
+          setOpenFeedback={setOpenFeedback}
+          openFeedback={openFeedback}
+        />
+        {!isSoundChecked && (
+          <SoundCheck
+            setSoundChecked={setSoundChecked}
+            soundChecked={isSoundChecked}
+          />
+        )}
+
+        {isSoundChecked && (
+          <>
+            <LearnMenu
+              languageTo={languageTo}
+              languageFrom={languageFrom}
+              token={token}
+              currentCourseObject={currentCourseObject}
+              setTab={setTab}
+            />
+            <div className={style.content}>
+              {currentCourseObject && (
+                <ProgressBar
+                  currentCourseObject={currentCourseObject}
+                  userScore={userScore}
                 />
-              </Scrollbars>
-            )}
-            {tab === 'course' && commonProps && (
-              <>
-                <div className={style.chatContainer}>
-                  <Scrollbars ref={chatRef}>
-                    <div className={style.chat}>
-                      <div ref={chatWrapperRef} className={style.chatWrapper}>
-                        {completedTasks && (
-                          <ChatHistory
-                            completedTasks={completedTasks}
-                            isHintShown={isHintShown}
-                          />
-                        )}
-                        {currentTask && (
-                          <ChatCurrentTask
-                            currentTask={currentTask}
-                            currentMessageIndex={currentMessageIndex}
-                            isHintShown={isHintShown}
-                            hintText={hintText}
-                            onDivHeight={handleGrammarHeight}
-                          />
-                        )}
-                        {!currentTask && <div className={style.blankBubble} />}
+              )}
+              {tab !== 'course' && currentCourseObject && (
+                <Scrollbars ref={chatRef}>
+                  <Wrapper
+                    token={token ?? ''}
+                    currentCourseObject={currentCourseObject}
+                    languageFrom={languageFrom}
+                    tab={tab}
+                  />
+                </Scrollbars>
+              )}
+              {tab === 'course' && commonProps && (
+                <>
+                  <div className={style.chatContainer}>
+                    <Scrollbars ref={chatRef}>
+                      <div className={style.chat}>
+                        <div ref={chatWrapperRef} className={style.chatWrapper}>
+                          {completedTasks && (
+                            <ChatHistory
+                              completedTasks={completedTasks}
+                              isHintShown={isHintShown}
+                            />
+                          )}
+                          {currentTask && (
+                            <ChatCurrentTask
+                              currentTask={currentTask}
+                              currentMessageIndex={currentMessageIndex}
+                              isHintShown={isHintShown}
+                              hintText={hintText}
+                              onDivHeight={handleGrammarHeight}
+                            />
+                          )}
+                          {!currentTask && (
+                            <div className={style.blankBubble} />
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Scrollbars>
-                </div>
-                <CurrentTaskInput
-                  commonProps={commonProps}
-                  isHintShown={isHintShown}
-                  setIsHintShown={setIsHintShown}
-                  setHintText={setHintText}
-                  currentMessageIndex={currentMessageIndex}
-                  setCurrentMessageIndex={setCurrentMessageIndex}
-                />
-              </>
-            )}
-          </div>
-        </>
-      )}
+                    </Scrollbars>
+                  </div>
+                  <CurrentTaskInput
+                    commonProps={commonProps}
+                    isHintShown={isHintShown}
+                    setIsHintShown={setIsHintShown}
+                    setHintText={setHintText}
+                    currentMessageIndex={currentMessageIndex}
+                    setCurrentMessageIndex={setCurrentMessageIndex}
+                  />
+                </>
+              )}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   )
 }

@@ -47,48 +47,26 @@ export const Dialog: FC<DialogProps> = ({
 
   useEffect(() => {
     if (scrollbarsRef.current) {
-      scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight;
+      scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight
     }
   }, [currentMessageIndex, hintText])
 
   return (
     <div className={style.wrapper}>
       <div className={style.title}>{t('DIALOG_TITLE')}</div>
-        <div className={style.dialog} ref={scrollbarsRef} >
-          <span className={style.description}>
-            {t('DIALOG_TYPE_FIRST_LETTERS')
-              .split(' ')
-              .map((word, index) => (
-                <span key={word + index}>{word + ' '}</span>
-              ))}
-          </span>
-          {currentMessageIndex >= 0 &&
-            !isHistory &&
-            dialogArrayTo
-              .slice(0, currentMessageIndex)
-              .map((message, index) => (
-                <DialogMessage
-                  key={index}
-                  message={message}
-                  translation={dialogArrayFrom[index]}
-                  index={index}
-                  totalCount={dialogArrayTo.length}
-                />
-              ))}
-
-          {!isHistory && (
-            <div className={style.bubbleContainer}>
-              <div className={style.currentTask}>
-                <WaveSurferNext audioURL={audioUrl} />
-              </div>
-              <Hint isHintShown={isHintShown} hintText={hintText} />
-            </div>
-          )}
-
-          {isHistory &&
-            dialogArrayTo &&
-            dialogArrayTo.map((message, index) => (
-
+      <div className={style.dialog} ref={scrollbarsRef}>
+        <span className={style.description}>
+          {t('DIALOG_TYPE_FIRST_LETTERS')
+            .split(' ')
+            .map((word, index) => (
+              <span key={word + index}>{word + ' '}</span>
+            ))}
+        </span>
+        {currentMessageIndex >= 0 &&
+          !isHistory &&
+          dialogArrayTo
+            .slice(0, currentMessageIndex)
+            .map((message, index) => (
               <DialogMessage
                 key={index}
                 message={message}
@@ -97,7 +75,28 @@ export const Dialog: FC<DialogProps> = ({
                 totalCount={dialogArrayTo.length}
               />
             ))}
-        </div>
+
+        {!isHistory && (
+          <div className={style.bubbleContainer}>
+            <div className={style.currentTask}>
+              <WaveSurferNext audioURL={audioUrl} />
+            </div>
+            <Hint isHintShown={isHintShown} hintText={hintText} />
+          </div>
+        )}
+
+        {isHistory &&
+          dialogArrayTo &&
+          dialogArrayTo.map((message, index) => (
+            <DialogMessage
+              key={index}
+              message={message}
+              translation={dialogArrayFrom[index]}
+              index={index}
+              totalCount={dialogArrayTo.length}
+            />
+          ))}
+      </div>
     </div>
   )
 }
