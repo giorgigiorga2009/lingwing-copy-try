@@ -18,6 +18,8 @@
   * {
     scrollbar-width: thin; /* Firefox 64 and later */
   }
+  font-family: SegoeUI, $kaFont;
+
 }
 
 .title {
@@ -44,7 +46,7 @@
   padding: 1rem;
   border: 2px solid $white-200;
   border-radius: 0 1rem 1rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   overflow-y: auto;
 }
 
@@ -116,7 +118,7 @@
   border-radius: 100%;
   width: 3rem;
   height: 3rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   font-size: 1.4rem;
   color: #692e96;
 

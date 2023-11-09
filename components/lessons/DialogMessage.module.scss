@@ -25,20 +25,14 @@
   color: $grey-300;
   margin-top: -0.5rem;
   font-size: 0.9rem;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+  font-family: SegoeUI, $kaFont;
 }
 
 .translationRight {
   color: rgb(145 127 168);
   margin-top: -0.5rem;
   font-size: 0.9rem;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+  font-family: SegoeUI, $kaFont;
 }
 
 .enumerator {

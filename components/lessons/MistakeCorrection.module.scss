@@ -19,7 +19,7 @@
   max-width: 26.7rem;
   width: 26.7rem;
   font-size: 1.2rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   resize: none;
   height: 4.4rem;
   background-color: #f3f3f3;
@@ -39,7 +39,7 @@
   border-radius: 100%;
   width: 3rem;
   height: 3rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   font-size: 1.5rem;
   color: #692e96;
 }
@@ -47,7 +47,7 @@
 .checkButton {
   color: $black;
   font-size: 16px;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   padding: 0.6rem 1.2rem;
   display: inline-block;
   background-color: #cee9a2;
