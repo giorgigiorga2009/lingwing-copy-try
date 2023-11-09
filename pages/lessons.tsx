@@ -280,12 +280,12 @@ const Lessons: NextPage = () => {
                 />
               )}
               {tab !== 'course' && currentCourseObject && (
-                  <Wrapper
-                    token={token ?? ''}
-                    currentCourseObject={currentCourseObject}
-                    languageFrom={languageFrom}
-                    tab={tab}
-                  />
+                <Wrapper
+                  token={token ?? ''}
+                  currentCourseObject={currentCourseObject}
+                  languageFrom={languageFrom}
+                  tab={tab}
+                />
               )}
               {tab === 'course' && commonProps && (
                 <>

@@ -31,11 +31,11 @@ const Wrapper: FC<ChangeModeProps> = ({
       )}
       {tab === 'grammar' && (
         <Scrollbars>
-        <AllGrammar
-          courseId={currentCourseObject.course._id}
-          LanguageFrom={languageFrom}
-          token={token}
-        />
+          <AllGrammar
+            courseId={currentCourseObject.course._id}
+            LanguageFrom={languageFrom}
+            token={token}
+          />
         </Scrollbars>
       )}
       {tab === 'vocabulary' && (

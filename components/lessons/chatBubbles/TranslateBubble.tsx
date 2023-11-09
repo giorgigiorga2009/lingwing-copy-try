@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
+import UserAvatar from '../../shared/UserAvatar'
 import style from './TranslateBubble.module.scss'
 
 interface Props {
@@ -56,7 +57,10 @@ export const TranslateBubble: FC<Props> = ({
       )}
     >
       <div className={style.content}>
-        {/* <UserAvatar /> */}
+        <div className={style.avatar}>
+          <UserAvatar />
+        </div>
+
         <span className={style.correctText}>{correctText}</span>
 
         {textType !== 'replay' ? (

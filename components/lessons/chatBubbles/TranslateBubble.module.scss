@@ -19,6 +19,20 @@
   }
 }
 
+.avatar {
+  display: none;
+
+  .answer & {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0.5rem;
+    margin-right: -2.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
 .taskDescription {
   %baseIcon {
     position: absolute;
@@ -92,7 +106,7 @@
   padding: 1rem 1.8rem;
   background-color: #f2f2f2;
   border-radius: 2rem 2rem 2rem 0.3rem;
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI, $kaFont;
 
   .true & {
     transform: scale(0);
