@@ -264,7 +264,7 @@ const Lessons: NextPage = () => {
               />
             )}
             {tab !== 'course' && currentCourseObject && (
-              <Scrollbars ref={chatRef}>
+              <Scrollbars>
                 <Wrapper
                   token={token ?? ''}
                   learnMode={currentCourseObject.learnMode}
