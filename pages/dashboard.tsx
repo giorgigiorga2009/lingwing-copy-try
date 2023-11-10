@@ -32,11 +32,17 @@ interface Language {
 
 const Dashboard: NextPage = () => {
   const { t } = useTranslation()
+  const [token, setToken] = useState<string>()
+
   const [loading, setLoading] = useState<boolean>(true)
   const [myLanguages, setMyLanguages] = useState<Language[]>([])
   const [activeLang, setActiveLang] = useState<number>(0)
   // const locale = router.locale ?? 'en'
   const { data: session } = useSession()
+  
+  useEffect(() => {
+    session && setToken(session?.user.accessToken)
+  }, [session])
 
   useEffect(() => {
     handleMyCourses()
@@ -63,6 +69,7 @@ const Dashboard: NextPage = () => {
             .map((course, indexOfCourse) => {
               return (
                 <MyCourse
+                  token={token}
                   myLanguage={item}
                   course={course}
                   key={`${course.name}-${indexOfCourse}`}

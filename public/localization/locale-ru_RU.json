@@ -670,7 +670,16 @@
   "FEEDBACK_REQUIRED_EMAIL": "Пожалуйста, укажите Ваш адрес эл. почты",
 
   "LESSONS_NEXT_ENTER": "Следующий (Enter)",
-  "LESSONS_GRAMMAR": "Грамматика"
+  "LESSONS_GRAMMAR": "Грамматика",
+
+
+
+  "SWAL_RESET_COUSE_TITLE": "Внимание!",
+  "SWAL_RESET_COUSE_TEXT": "Пройденные Вами задания и прогресс потеряются. Действительно желаете аннулировать курс?",
+  "SWAL_RESET_PROGRESS": "Ваш прогресс:",
+  "SWAL_RESET_SCORE": "Баллы",
+  "SWAL_RESET_RATING": "Рейтинг"
+
 
 
 

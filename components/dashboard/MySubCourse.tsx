@@ -18,6 +18,8 @@ interface SubCourseProps {
   languageSubStandard: {
     name: string
   }
+  rating: number
+  allPassedTasks: string
   slug: string
   status: {
     start: boolean
@@ -27,12 +29,14 @@ interface SubCourseProps {
 }
 
 interface Props {
+  token?: string
   subCourse: SubCourseProps
   indexOfSubCourse: number
   indexOfCourse: number
 }
 
 const MySubCourse: FC<Props> = ({
+  token,
   subCourse,
   indexOfSubCourse,
   indexOfCourse,
@@ -42,7 +46,9 @@ const MySubCourse: FC<Props> = ({
   const languageTo = subCourse.iLearn?.nameCode
   const languageFrom = subCourse.iLearnFromNameCode
   const courseName = subCourse.slug
+  const slug = subCourse.slug
 
+  
   return (
     <>
       <div
@@ -64,7 +70,12 @@ const MySubCourse: FC<Props> = ({
               {subCourse.languageSubStandard.name}
             </span>
           </h6>
-          <ActionBtns />
+          <ActionBtns
+            token={token}
+            slug={slug}
+            allPassedTasks={subCourse.allPassedTasks}
+            rating={subCourse.rating}
+          />
         </div>
         {subCourse.certificate ? (
           <CertificateBtn
