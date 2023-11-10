@@ -6,8 +6,8 @@ const nextConfig = {
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
   env: {
-    DEFAULT_URL: process.env.NEXT_PUBLIC_DEFAULT_URL,
-    audioURL: process.env.NEXT_PUBLIC_AUDIO_URL,
+    DEFAULT_URL: process.env.DEFAULT_URL,
+    audioURL: process.env.AUDIO_URL,
   },
   images: {
     domains: [
