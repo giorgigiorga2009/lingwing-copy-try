@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 export type ReviewData = {
   _id: string
@@ -10,7 +12,7 @@ export type ReviewData = {
 
 export const getReviews = (): Promise<ReviewData[]> => {
   return axios
-    .get(`${process.env.DEFAULT_URL}/public/reviews`)
+    .get(`${publicRuntimeConfig.DEFAULT_URL}/public/reviews`)
     .then(response => response.data.data)
 
     .catch(error => console.log(error))

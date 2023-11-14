@@ -1,10 +1,12 @@
 import axios from 'axios'
-
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 interface Auth {
   email: string
   password: string
   repeatPassword?: string
 }
+
 
 export interface socialAuth {
   provider: string
@@ -27,10 +29,12 @@ const HEADERS = {
   Accept: 'application/json, text/plain, */*',
 }
 
+
+
 export const getToken = ({ email, password, repeatPassword }: Auth) => {
   return axios({
     method: 'post',
-    url: `${process.env.DEFAULT_URL}/public/auth/signup?lang=eng`,
+    url: `${publicRuntimeConfig.DEFAULT_URL}/public/auth/signup?lang=eng`,
     // headers: {
     //   ...HEADERS,
     //   Authorization: 'null',
@@ -51,7 +55,7 @@ export const auth = ({ email, password, repeatPassword }: Auth) => {
   return getToken({ email, password, repeatPassword })
     .then(response =>
       axios({
-        url: `${process.env.DEFAULT_URL}/user/profile?lang=eng`,
+        url: `${publicRuntimeConfig.DEFAULT_URL}/user/profile?lang=eng`,
         headers: {
           ...HEADERS,
           Authorization: response,
@@ -66,7 +70,7 @@ export const login = ({ email, password }: Auth) => {
   return (
     axios({
       method: 'post',
-      url: `${process.env.DEFAULT_URL}/public/auth/login?lang=eng`,
+      url: `${publicRuntimeConfig.DEFAULT_URL}/public/auth/login?lang=eng`,
       // headers: {
       //   ...HEADERS,
       //   Authorization: 'null',
@@ -84,7 +88,7 @@ export const login = ({ email, password }: Auth) => {
 
 export const getUserProfileData = (token: string) => {
   return axios({
-    url: `${process.env.DEFAULT_URL}/user/profile`,
+    url: `${publicRuntimeConfig.DEFAULT_URL}/user/profile`,
     headers: {
       ...HEADERS,
       Authorization: token,
@@ -104,7 +108,7 @@ export const socialLogin = ({
   return (
     axios({
       method: 'post',
-      url: `${process.env.DEFAULT_URL}/public/auth/social`,
+      url: `${publicRuntimeConfig.DEFAULT_URL}/public/auth/social`,
       // headers: {
       //   ...HEADERS,
       //   //Authorization: 'null',
@@ -132,7 +136,7 @@ export const resetPassword = ({
 }: resetPassword) => {
   return axios({
     method: 'post',
-    url: `${process.env.DEFAULT_URL}/public/auth/reset`,
+    url: `${publicRuntimeConfig.DEFAULT_URL}/public/auth/reset`,
     headers: {
       ...HEADERS,
       Authorization: token || '',
@@ -153,7 +157,7 @@ export const resetPassword = ({
 export const forgotPassword = (email: string) => {
   return axios({
     method: 'post',
-    url: `${process.env.DEFAULT_URL}/public/auth/forgot`,
+    url: `${publicRuntimeConfig.DEFAULT_URL}/public/auth/forgot`,
     // headers: {
     //   ...HEADERS,
     // },

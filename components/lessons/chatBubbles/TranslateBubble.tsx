@@ -2,6 +2,8 @@ import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import style from './TranslateBubble.module.scss'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -11,13 +13,13 @@ interface Props {
   sentenceAudioPath?: string
   answers?: number[]
   textType:
-    | 'dictation'
-    | 'translate'
-    | 'dialog'
-    | 'omittedwords'
-    | 'replay'
-    | 'mistakecorrection'
-    | 'grammar'
+  | 'dictation'
+  | 'translate'
+  | 'dialog'
+  | 'omittedwords'
+  | 'replay'
+  | 'mistakecorrection'
+  | 'grammar'
 }
 
 const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
@@ -44,7 +46,7 @@ export const TranslateBubble: FC<Props> = ({
     console.error('taskText is not a string:', taskText)
   }
 
-  const audioUrl = `${process.env.audioURL}${sentenceAudioPath}.mp3`
+  const audioUrl = `${publicRuntimeConfig.audioURL}${sentenceAudioPath}.mp3`
 
   return (
     <div
