@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 interface Props {
   courseId: string
@@ -11,7 +13,7 @@ export const getStatistics = async ({ courseId, token }: Props) => {
   }
   return await axios
     .get(
-      `${process.env.DEFAULT_URL}/public/statistics/small/${courseId}?lang=eng`,
+      `${publicRuntimeConfig.DEFAULT_URL}/public/statistics/small/${courseId}?lang=eng`,
       {
         headers: headers,
       },

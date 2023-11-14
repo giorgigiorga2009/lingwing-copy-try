@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { TaskData } from './getTask'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 export const saveTask = async ({
   languageTo,
@@ -16,7 +18,7 @@ export const saveTask = async ({
   userId: string | null
   currentTask: TaskData
 }): Promise<boolean> => {
-  let url = `${process.env.DEFAULT_URL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
+  let url = `${publicRuntimeConfig.DEFAULT_URL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
   if (token === null) {
     url = `${url}&userKey=${userId}`
   }

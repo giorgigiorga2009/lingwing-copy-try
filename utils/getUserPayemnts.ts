@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 export interface PaymentsProps {
   premiumDaysLeft: number
@@ -9,7 +11,7 @@ export interface PaymentsProps {
 
 export const getUserPayements = (authToken: string) => {
   return axios
-    .get(`${process.env.DEFAULT_URL}/user/userPaymentsList`, {
+    .get(`${publicRuntimeConfig.DEFAULT_URL}/user/userPaymentsList`, {
       headers: {
         authorization: authToken,
       },

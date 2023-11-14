@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 export interface CourseData {
   info: {
@@ -75,7 +77,7 @@ export const getReadCourse = async (
 ) => {
   try {
     const response = await axios.get(
-      `${process.env.DEFAULT_URL}/public/readCourse/${courseName}?lang=${currentLanguage}`,
+      `${publicRuntimeConfig.DEFAULT_URL}/public/readCourse/${courseName}?lang=${currentLanguage}`,
     )
     return response.data.data
   } catch (error) {

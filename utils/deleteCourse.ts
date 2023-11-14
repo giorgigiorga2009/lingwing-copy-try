@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 interface Props {
   slug: string
@@ -11,7 +13,7 @@ export const resetCourse = async ({ slug, token }: Props) => {
   }
   return await axios
     .delete(
-      `${process.env.DEFAULT_URL}/user/delete/startedCourse/${slug}`,
+      `${publicRuntimeConfig.DEFAULT_URL}/user/delete/startedCourse/${slug}`,
       {
         headers: headers,
       },

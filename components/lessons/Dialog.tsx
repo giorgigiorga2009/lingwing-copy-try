@@ -17,6 +17,8 @@ import {
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import { DialogMessage } from './DialogMessage'
 import { useTranslation } from '@utils/useTranslation'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
@@ -42,7 +44,7 @@ export const Dialog: FC<DialogProps> = ({
   hintText,
 }) => {
   const { t } = useTranslation()
-  const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
+  const audioUrl = `${publicRuntimeConfig.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
   const scrollbarsRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {

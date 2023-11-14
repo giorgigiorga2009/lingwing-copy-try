@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
 
 export const useAudio = () => {
   const [audios, setAudios] = useState<HTMLAudioElement[]>([])
@@ -14,13 +16,13 @@ export const useAudio = () => {
   }
 
   const Play = (audioUrl: string) => {
-    const audio = new Audio(`${process.env.audioURL}${audioUrl}.mp3`)
+    const audio = new Audio(`${publicRuntimeConfig.audioURL}${audioUrl}.mp3`)
     audio.play()
   }
 
   const addAudio = (audioUrl: string) => {
     if (audioUrl === 'undefined/undefined') return
-    const newAudio = new Audio(`${process.env.audioURL}${audioUrl}.mp3`)
+    const newAudio = new Audio(`${publicRuntimeConfig.audioURL}${audioUrl}.mp3`)
     newAudio.onended = () => {
       setAudioIndex(prevIndex => prevIndex + 1)
     }
