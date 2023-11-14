@@ -681,10 +681,14 @@
 
   "SWAL_RESET_COUSE_TITLE": "ყურადღება!",
   "SWAL_RESET_COUSE_TEXT": "თქვენი განვლილი დავალებები და პროგრესი დაგეკარგებათ. ნამდვილად გსურთ კურსის განულება?",
-  "SWAL_RESET_PROGRESS": "თქვენი პროგრესი:",
+  "SWAL_RESET_PROGRESS": "თქვენი პროგრესი",
   "SWAL_RESET_SCORE": "ქულა",
   "SWAL_RESET_RATING": "რეიტინგი",
-  "SWAL_RESET_RESET": "განულება"
+  "SWAL_RESET_RESET": "განულება",
+  "SWAL_RESET_BTN_OK": "დიახ",
+  "SWAL_RESET_CLOSE_BUTTON": "დახურვა"
+
+
 
 
 

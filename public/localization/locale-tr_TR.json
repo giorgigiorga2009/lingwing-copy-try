@@ -651,10 +651,14 @@
 
   "SWAL_RESET_COUSE_TITLE": "Dikkat!",
   "SWAL_RESET_COUSE_TEXT": "Tamamladığın ödevler ve ilerlemen yokolacak. Kursu sıfırlamak istediğinden emin misin?",
-  "SWAL_RESET_PROGRESS": "Ilerlemen:",
+  "SWAL_RESET_PROGRESS": "Ilerlemen",
   "SWAL_RESET_SCORE": "Puanlar",
   "SWAL_RESET_RATING": "Skor",
-  "SWAL_RESET_RESET": "Sıfırla"
+  "SWAL_RESET_RESET": "Sıfırla",
+  "SWAL_RESET_BTN_OK": "Tamam",
+  "SWAL_RESET_CLOSE_BUTTON": "Kapat"
+
+
 
 
 
