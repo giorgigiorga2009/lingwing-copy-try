@@ -679,7 +679,11 @@
   "SWAL_RESET_PROGRESS": "Ваш прогресс",
   "SWAL_RESET_SCORE": "Баллы",
   "SWAL_RESET_RATING": "Рейтинг",
-  "SWAL_RESET_RESET": "Обнуление"
+  "SWAL_RESET_RESET": "Обнуление",
+  "SWAL_RESET_BTN_OK": "OK",
+  "SWAL_RESET_CLOSE_BUTTON": "Закрыть"
+
+
 
 
 

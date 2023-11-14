@@ -684,7 +684,11 @@
   "SWAL_RESET_PROGRESS": "თქვენი პროგრესი",
   "SWAL_RESET_SCORE": "ქულა",
   "SWAL_RESET_RATING": "რეიტინგი",
-  "SWAL_RESET_RESET": "განულება"
+  "SWAL_RESET_RESET": "განულება",
+  "SWAL_RESET_BTN_OK": "დიახ",
+  "SWAL_RESET_CLOSE_BUTTON": "დახურვა"
+
+
 
 
 

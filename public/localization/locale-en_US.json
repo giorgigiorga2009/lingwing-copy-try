@@ -662,7 +662,11 @@
   "SWAL_RESET_PROGRESS": "Your progress",
   "SWAL_RESET_SCORE": "Points",
   "SWAL_RESET_RATING": "Score",
-  "SWAL_RESET_RESET": "Reset"
+  "SWAL_RESET_RESET": "Reset",
+  "SWAL_RESET_BTN_OK": "Ok",
+  "SWAL_RESET_CLOSE_BUTTON": "Close"
+
+
 
 
 }
