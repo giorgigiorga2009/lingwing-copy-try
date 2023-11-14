@@ -6,7 +6,7 @@ const nextConfig = {
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
   publicRuntimeConfig: {
-    // Your runtime environment variables here
+    // runtime environment variables here
     DEFAULT_URL: process.env.DEFAULT_URL,
     audioURL: process.env.AUDIO_URL,
 
