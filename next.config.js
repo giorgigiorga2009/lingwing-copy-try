@@ -1,15 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const previousConfig = {
   reactStrictMode: true,
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
   publicRuntimeConfig: {
-    // runtime environment variables here
     DEFAULT_URL: process.env.DEFAULT_URL,
     audioURL: process.env.AUDIO_URL,
-
   },
   images: {
     domains: [
@@ -18,6 +16,9 @@ const nextConfig = {
       'lh3.googleusercontent.com',
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = {
+  ...previousConfig,
+  output: 'standalone',
+};
