@@ -7,9 +7,10 @@ import { useTranslation } from '@utils/useTranslation'
 
 interface ActionBtnsProps {
   rating: number
-  allPassedTasks: string
+  allPassedTasks: number
   token?: string
   slug: string
+  onResetCourse?: () => void
 }
 
 const ActionBtns: FC<ActionBtnsProps> = ({
@@ -17,13 +18,14 @@ const ActionBtns: FC<ActionBtnsProps> = ({
   allPassedTasks,
   token,
   slug,
+  onResetCourse,
 }) => {
- const {t} = useTranslation()
+  const { t } = useTranslation()
 
   const handleResetButton = async () => {
     const result = await Swal.fire({
-      title: t("SWAL_RESET_COUSE_TITLE"),
-      text: t("SWAL_RESET_COUSE_TEXT"),
+      title: t('SWAL_RESET_COUSE_TITLE'),
+      text: t('SWAL_RESET_COUSE_TEXT'),
       icon: 'warning',
       showConfirmButton: true,
       showCloseButton: true,
@@ -33,17 +35,22 @@ const ActionBtns: FC<ActionBtnsProps> = ({
 
     if (result.isConfirmed) {
       const secondChance = await Swal.fire({
-        title: `${t("SWAL_RESET_PROGRESS")}: \n${t("SWAL_RESET_SCORE")} - ${allPassedTasks}\n${t("SWAL_RESET_RATING")} - ${rating}`,
-        text: t("SWAL_RESET_COUSE_TEXT"),  
+        title: `${t('SWAL_RESET_PROGRESS')}: \n${t(
+          'SWAL_RESET_SCORE',
+        )} - ${allPassedTasks}\n${t('SWAL_RESET_RATING')} - ${rating}`,
+        text: t('SWAL_RESET_COUSE_TEXT'),
         icon: 'info',
         confirmButtonColor: 'rgb(105 46 150)',
         confirmButtonText: 'OK',
+        showCloseButton: true,
       })
 
       if (secondChance.isConfirmed) {
         try {
           await resetCourse({ slug, token })
-          // window.location.reload() // needs to refresh but window is the last call
+          if (onResetCourse) {
+            onResetCourse()
+          }
         } catch (error) {
           console.error('Failed to delete course:', error)
         }
@@ -58,7 +65,11 @@ const ActionBtns: FC<ActionBtnsProps> = ({
           <button className={style.statistics}></button>
         </Link>
         <Link href={`#`}>
-          <button className={style.reset} onClick={handleResetButton}></button>
+          <button
+            className={style.reset}
+            onClick={handleResetButton}
+            data-i18n-reset={t('SWAL_RESET_RESET')}
+            disabled={allPassedTasks === 0}          ></button>
         </Link>
         <Link href={`#`}>
           <button className={style.info}></button>
@@ -69,4 +80,3 @@ const ActionBtns: FC<ActionBtnsProps> = ({
 }
 
 export default ActionBtns
-

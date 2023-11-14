@@ -661,6 +661,8 @@
   "SWAL_RESET_COUSE_TEXT": "Your completed tasks and progress will be lost. Are you sure you want to reset the course?",
   "SWAL_RESET_PROGRESS": "Your progress:",
   "SWAL_RESET_SCORE": "Points",
-  "SWAL_RESET_RATING": "Score"
+  "SWAL_RESET_RATING": "Score",
+  "SWAL_RESET_RESET": "Reset"
+
 
 }

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import ActionBtns from './ActionBtns'
@@ -19,7 +19,7 @@ interface SubCourseProps {
     name: string
   }
   rating: number
-  allPassedTasks: string
+  allPassedTasks: number
   slug: string
   status: {
     start: boolean
@@ -42,12 +42,21 @@ const MySubCourse: FC<Props> = ({
   indexOfCourse,
 }) => {
   const { t } = useTranslation()
-
+  const [percent, setPercent] = useState(subCourse.percent);
+  const [allPassedTask, setAllPassedTask] = useState<number>(subCourse.allPassedTasks);
+  const [continueBtn, setContinueBtn] = useState<boolean>(subCourse.status.continue);
+  const [startBtn, setStartBtn] = useState<boolean>(subCourse.status.start);
+  
   const languageTo = subCourse.iLearn?.nameCode
   const languageFrom = subCourse.iLearnFromNameCode
   const courseName = subCourse.slug
   const slug = subCourse.slug
-
+  const handleResetCourse = () => {
+    setAllPassedTask(0)
+    setPercent('0');
+    setContinueBtn(false)
+    setStartBtn(true)
+  };
   
   return (
     <>
@@ -61,7 +70,7 @@ const MySubCourse: FC<Props> = ({
       >
         <div className={style.details}>
           <span className={style.progress}>
-            {subCourse.percent}
+          {percent ?? subCourse.percent}
             <span className={style.percent}>%</span>
           </span>
           <h6 className={style.title}>
@@ -73,8 +82,9 @@ const MySubCourse: FC<Props> = ({
           <ActionBtns
             token={token}
             slug={slug}
-            allPassedTasks={subCourse.allPassedTasks}
+            allPassedTasks={allPassedTask}
             rating={subCourse.rating}
+            onResetCourse={handleResetCourse}
           />
         </div>
         {subCourse.certificate ? (
@@ -91,9 +101,9 @@ const MySubCourse: FC<Props> = ({
             }}
           >
             <button className={style.start_course_btn}>
-              {subCourse.status.continue
+              {continueBtn 
                 ? t('APP_GENERAL_CONTINUE')
-                : subCourse.status.start && t('startButton')}
+                : startBtn && t('startButton')}
             </button>
           </Link>
         )}

@@ -500,7 +500,9 @@
   "SWAL_RESET_COUSE_TEXT": "আপনার সম্পন্নকৃত কাজ এবং অগ্রগতি হারিয়ে যাবে। আপনি কি নিশ্চিত আপনি কোর্স রিসেট করতে চান?",
   "SWAL_RESET_PROGRESS": "আপনার অগ্রগতি:",
   "SWAL_RESET_SCORE": "পয়েন্ট",
-  "SWAL_RESET_RATING": "স্কোর"
+  "SWAL_RESET_RATING": "স্কোর",
+  "SWAL_RESET_RESET": "রিসেট"
+
 
 
 }
