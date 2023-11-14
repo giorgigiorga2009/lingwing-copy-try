@@ -645,6 +645,17 @@
   "FEEDBACK_MESSAGE": "Mesaj",
   "FEEDBACK_EMAIL": "E-posta",
   "FEEDBACK_SEND": "Gönder",
-  "FEEDBACK_REQUIRED_EMAIL": "Lütfen e-postanızı sağlayın!"
+  "FEEDBACK_REQUIRED_EMAIL": "Lütfen e-postanızı sağlayın!",
+
+
+
+  "SWAL_RESET_COUSE_TITLE": "Dikkat!",
+  "SWAL_RESET_COUSE_TEXT": "Tamamladığın ödevler ve ilerlemen yokolacak. Kursu sıfırlamak istediğinden emin misin?",
+  "SWAL_RESET_PROGRESS": "Ilerlemen:",
+  "SWAL_RESET_SCORE": "Puanlar",
+  "SWAL_RESET_RATING": "Skor",
+  "SWAL_RESET_RESET": "Sıfırla"
+
+
 
 }

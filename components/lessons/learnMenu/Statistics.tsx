@@ -9,7 +9,7 @@ interface Props {
   token?: string
 }
 
-interface Statistics {
+export interface Statistics {
   _id: string
   allPassedTask: number
   bonus: number
