@@ -668,7 +668,7 @@
 
   "SWAL_RESET_COUSE_TITLE": "¡Atención!",
   "SWAL_RESET_COUSE_TEXT": "Anulara tu progreso y ejercicios hechos. ¿Estás seguro que quieres anular tu curso?",
-  "SWAL_RESET_PROGRESS": "Tu progreso:",
+  "SWAL_RESET_PROGRESS": "Tu progreso",
   "SWAL_RESET_SCORE": "Puntos",
   "SWAL_RESET_RATING": "Clasificación",
   "SWAL_RESET_RESET": "Anular"

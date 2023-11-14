@@ -21,7 +21,7 @@ export interface SubCourse {
     name: string
   }
   rating: number
-  allPassedTasks: string
+  allPassedTasks: number
   slug: string
   status: {
     start: boolean

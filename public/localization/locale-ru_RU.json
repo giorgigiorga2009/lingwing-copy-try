@@ -676,7 +676,7 @@
 
   "SWAL_RESET_COUSE_TITLE": "Внимание!",
   "SWAL_RESET_COUSE_TEXT": "Пройденные Вами задания и прогресс потеряются. Действительно желаете аннулировать курс?",
-  "SWAL_RESET_PROGRESS": "Ваш прогресс:",
+  "SWAL_RESET_PROGRESS": "Ваш прогресс",
   "SWAL_RESET_SCORE": "Баллы",
   "SWAL_RESET_RATING": "Рейтинг",
   "SWAL_RESET_RESET": "Обнуление"
