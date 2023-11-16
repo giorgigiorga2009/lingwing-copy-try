@@ -19,6 +19,20 @@
   }
 }
 
+.avatar {
+  display: none;
+
+  .answer & {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0.5rem;
+    margin-right: -2.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
 .taskDescription {
   %baseIcon {
     position: absolute;
@@ -66,6 +80,13 @@
     background-color: $green-100;
     background-image: url('/assets/images/tasks/replay.png');
   }
+
+  .dictationIcon {
+    @extend %baseIcon;
+
+    background-color: $pink-100;
+    background-image: url('/assets/images/tasks/dictation.png');
+  }
 }
 
 .content {
@@ -92,7 +113,7 @@
   padding: 1rem 1.8rem;
   background-color: #f2f2f2;
   border-radius: 2rem 2rem 2rem 0.3rem;
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI, $kaFont;
 
   .true & {
     transform: scale(0);
@@ -145,28 +166,6 @@
     max-width: 15rem;
     padding: 0.7rem 1.2rem;
     line-height: 1.1rem;
-  }
-}
-
-.levelsContainer {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 3.3rem;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: -4rem;
-}
-
-.levels {
-  width: 0.8rem;
-  height: 0.8rem;
-  background-color: $white-100;
-  border-radius: 1rem;
-
-  &.true {
-    background-color: red;
   }
 }
 

@@ -1,12 +1,11 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 interface Auth {
   email: string
   password: string
   repeatPassword?: string
 }
-
 
 export interface socialAuth {
   provider: string
@@ -28,8 +27,6 @@ const HEADERS = {
   'Content-Type': 'application/json;charset=UTF-8',
   Accept: 'application/json, text/plain, */*',
 }
-
-
 
 export const getToken = ({ email, password, repeatPassword }: Auth) => {
   return axios({

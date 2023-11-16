@@ -1,6 +1,6 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export type PackageData = {
   packages: [
@@ -80,7 +80,8 @@ export interface PackagesInfoProps {
 export const getPackages = (coupon: string): Promise<PackageData> => {
   return axios
     .get(
-      `${publicRuntimeConfig.DEFAULT_URL}/public/inter/packages${'?coupon=' + (coupon ?? '')
+      `${publicRuntimeConfig.DEFAULT_URL}/public/inter/packages${
+        '?coupon=' + (coupon ?? '')
       }`,
     )
     .then(response => response.data.data)

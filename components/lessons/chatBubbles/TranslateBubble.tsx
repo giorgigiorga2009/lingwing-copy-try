@@ -1,9 +1,11 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
+import { LevelsBubble } from './LevelsBubble'
+import UserAvatar from '../../shared/UserAvatar'
 import style from './TranslateBubble.module.scss'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -12,14 +14,15 @@ interface Props {
   isCurrentTask: boolean
   sentenceAudioPath?: string
   answers?: number[]
+  mistake: number
   textType:
-  | 'dictation'
-  | 'translate'
-  | 'dialog'
-  | 'omittedwords'
-  | 'replay'
-  | 'mistakecorrection'
-  | 'grammar'
+    | 'dictation'
+    | 'translate'
+    | 'dialog'
+    | 'omittedwords'
+    | 'replay'
+    | 'mistakecorrection'
+    | 'grammar'
 }
 
 const WaveSurferNext = dynamic(() => import('../WaveSurferNext'), {
@@ -33,6 +36,7 @@ export const TranslateBubble: FC<Props> = ({
   isCurrentTask,
   sentenceAudioPath,
   textType,
+  mistake,
   // answers,
 }) => {
   if (typeof taskText === 'string') {
@@ -41,6 +45,7 @@ export const TranslateBubble: FC<Props> = ({
       .replaceAll('(SH)', '✂️')
       .replaceAll('(F)', '👧')
       .replaceAll('(M)', '👦')
+      .replaceAll('(M/F)', '👦👧')
       .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
   } else {
     console.error('taskText is not a string:', taskText)
@@ -58,7 +63,10 @@ export const TranslateBubble: FC<Props> = ({
       )}
     >
       <div className={style.content}>
-        {/* <UserAvatar /> */}
+        <div className={style.avatar}>
+          <UserAvatar />
+        </div>
+
         <span className={style.correctText}>{correctText}</span>
 
         {textType !== 'replay' ? (
@@ -77,16 +85,7 @@ export const TranslateBubble: FC<Props> = ({
             {
               // answers &&
               utteranceType === 'taskDescription' && (
-                <div className={style.levelsContainer}>
-                  <div
-                    className={classNames(
-                      style.levels,
-                      //style[(!!answers[0]).toString()],
-                    )}
-                  ></div>
-                  <div className={style.levels}></div>
-                  <div className={style.levels}></div>
-                </div>
+                <LevelsBubble mistake={mistake} />
               )
             }
           </>

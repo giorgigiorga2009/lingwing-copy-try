@@ -8,9 +8,10 @@ import { TranslateBubble } from './chatBubbles/TranslateBubble'
 interface HistoryProps {
   completedTasks: TaskData[]
   isHintShown: boolean
+  mistake: number
 }
 
-const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
+const ChatHistory: FC<HistoryProps> = ({ completedTasks, mistake }) => {
   return (
     <div className={style.chatHistoryContainer}>
       {completedTasks.map(task => {
@@ -25,6 +26,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
                 <TranslateBubble
                   utteranceType="answer"
@@ -32,6 +34,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
               </>
             )}
@@ -43,6 +46,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
                 <TranslateBubble
                   utteranceType="answer"
@@ -50,6 +54,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
               </>
             )}
@@ -62,6 +67,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.mistakeTaskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
                 <TranslateBubble
                   utteranceType="answer"
@@ -69,6 +75,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.mistakeTaskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
               </>
             )}
@@ -81,6 +88,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
                 <TranslateBubble
                   utteranceType="answer"
@@ -88,6 +96,7 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                   isCurrentTask={false}
                   taskText={task.taskText}
                   correctText={task.correctText as string}
+                  mistake={mistake}
                 />
               </>
             )}

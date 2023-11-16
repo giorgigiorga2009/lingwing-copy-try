@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { TaskData } from './getTask'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export interface RateLingwingProps {
   // onClose: () => void

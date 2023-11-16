@@ -3,11 +3,9 @@ import NextAuth, { NextAuthOptions } from 'next-auth'
 import FacebookProvider from 'next-auth/providers/facebook'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
 
 export const authOptions: NextAuthOptions = {
-  secret: publicRuntimeConfig.SECRET,
+  secret: process.env.SECRET,
   providers: [
     CredentialsProvider({
       type: 'credentials',
@@ -28,12 +26,12 @@ export const authOptions: NextAuthOptions = {
     }),
 
     FacebookProvider({
-      clientId: publicRuntimeConfig.FACEBOOK_ID || '',
-      clientSecret: publicRuntimeConfig.FACEBOOK_SECRET || '',
+      clientId: process.env.FACEBOOK_ID || '',
+      clientSecret: process.env.FACEBOOK_SECRET || '',
     }),
     GoogleProvider({
-      clientId: publicRuntimeConfig.GOOGLE_ID || '',
-      clientSecret: publicRuntimeConfig.GOOGLE_SECRET || '',
+      clientId: process.env.GOOGLE_ID || '',
+      clientSecret: process.env.GOOGLE_SECRET || '',
     }),
   ],
   session: {

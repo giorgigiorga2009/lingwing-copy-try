@@ -1,11 +1,10 @@
-import React from 'react'
-import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
-import style from './lessonsFlowPopUps.module.scss'
-import { useTranslation } from '@utils/useTranslation'
-import { useCallback, useState } from 'react'
-import { LoginModal } from '@components/loginWindow/LoginModal'
 import Link from 'next/link'
+import style from './lessonsFlowPopUps.module.scss'
+import React, { useCallback, useState } from 'react'
+import { useTranslation } from '@utils/useTranslation'
 import { ReccuringPrice } from '@components/packages/Prices'
+import { LoginModal } from '@components/loginWindow/LoginModal'
+import { RegistrationReminderPopupProps } from '@utils/lessons/getRegReminder'
 
 const RenderButtons: React.FC<RegistrationReminderPopupProps> = ({
   popUpNumber,

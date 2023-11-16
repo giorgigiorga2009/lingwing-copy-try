@@ -63,7 +63,7 @@
 .percent,
 .title,
 .start_course_btn {
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
 }
 
 .progress {
@@ -102,11 +102,7 @@
   font-size: 1.25rem;
   color: $grey-600;
   white-space: nowrap;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-    font-weight: normal;
-  }
+  font-family: SegoeUI, $kaFont;
 
   @include tablet {
     margin-left: 0;
@@ -135,13 +131,10 @@
     background-color: $orange-500;
     font-size: 1rem;
     font-weight: bold;
-    padding: 0.4375rem 1.25rem;
+    padding: 0.4375rem 1.5rem;
     transition: all 0.2s linear;
     cursor: pointer;
-
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    font-family: SegoeUI, $kaFont;
 
     &:hover {
       border-color: $orange-450;

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,7 +9,8 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     try {
-      const url: string | undefined = publicRuntimeConfig.NEXT_PUBLIC_SLACK_WEBHOOK_URL
+      const url: string | undefined =
+        publicRuntimeConfig.NEXT_PUBLIC_SLACK_WEBHOOK_URL
       if (!url) {
         return res.status(500).json({ error: 'Webhook URL is not defined' })
       }

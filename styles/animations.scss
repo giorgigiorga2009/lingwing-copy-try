@@ -3,6 +3,7 @@
       opacity: 0;
       filter: blur(10px);
     }
+    
     100% {
       opacity: 1;
       filter: blur(0);
@@ -24,6 +25,7 @@
     width: 5px;
     height: 5px;
   }
+
   * {
     scrollbar-width: thin;
      /* Firefox 64 and later */

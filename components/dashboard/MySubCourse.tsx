@@ -42,22 +42,26 @@ const MySubCourse: FC<Props> = ({
   indexOfCourse,
 }) => {
   const { t } = useTranslation()
-  const [percent, setPercent] = useState(subCourse.percent);
-  const [allPassedTask, setAllPassedTask] = useState<number>(subCourse.allPassedTasks);
-  const [continueBtn, setContinueBtn] = useState<boolean>(subCourse.status.continue);
-  const [startBtn, setStartBtn] = useState<boolean>(subCourse.status.start);
-  
+  const [percent, setPercent] = useState(subCourse.percent)
+  const [allPassedTask, setAllPassedTask] = useState<number>(
+    subCourse.allPassedTasks,
+  )
+  const [continueBtn, setContinueBtn] = useState<boolean>(
+    subCourse.status.continue,
+  )
+  const [startBtn, setStartBtn] = useState<boolean>(subCourse.status.start)
+
   const languageTo = subCourse.iLearn?.nameCode
   const languageFrom = subCourse.iLearnFromNameCode
   const courseName = subCourse.slug
   const slug = subCourse.slug
   const handleResetCourse = () => {
     setAllPassedTask(0)
-    setPercent('0');
+    setPercent('0')
     setContinueBtn(false)
     setStartBtn(true)
-  };
-  
+  }
+
   return (
     <>
       <div
@@ -70,7 +74,7 @@ const MySubCourse: FC<Props> = ({
       >
         <div className={style.details}>
           <span className={style.progress}>
-          {percent ?? subCourse.percent}
+            {percent ?? subCourse.percent}
             <span className={style.percent}>%</span>
           </span>
           <h6 className={style.title}>
@@ -101,7 +105,7 @@ const MySubCourse: FC<Props> = ({
             }}
           >
             <button className={style.start_course_btn}>
-              {continueBtn 
+              {continueBtn
                 ? t('APP_GENERAL_CONTINUE')
                 : startBtn && t('startButton')}
             </button>

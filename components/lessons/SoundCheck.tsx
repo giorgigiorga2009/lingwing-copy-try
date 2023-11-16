@@ -1,7 +1,7 @@
 import classnames from 'classnames'
+import style from './SoundCheck.module.scss'
 import { FC, useEffect, useState } from 'react'
 import { useTranslation } from '@utils/useTranslation'
-import style from './SoundCheck.module.scss'
 
 interface Props {
   setSoundChecked: (bool: boolean) => void

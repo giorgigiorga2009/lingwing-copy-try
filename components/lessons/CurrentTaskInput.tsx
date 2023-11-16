@@ -27,7 +27,7 @@ const CurrentTaskInput = ({
     case 'translate':
     case 'dictation':
     case 'replay':
-      return commonProps ? (
+      return (
         <TaskInputContainer
           commonProps={commonProps}
           isHintShown={isHintShown}
@@ -35,11 +35,9 @@ const CurrentTaskInput = ({
           setIsHintShown={setIsHintShown}
           taskType={commonProps.currentTask.taskType}
         />
-      ) : null
+      )
     case 'dialog':
-      return commonProps &&
-        currentMessageIndex !== undefined &&
-        setCurrentMessageIndex ? (
+      return currentMessageIndex !== undefined && setCurrentMessageIndex ? (
         <DialogInput
           setHintText={setHintText}
           isHintShown={isHintShown}
@@ -51,24 +49,24 @@ const CurrentTaskInput = ({
       ) : null
 
     case 'omittedwords':
-      return commonProps ? (
+      return (
         <OmittedWords
           isHintShown={isHintShown}
           commonProps={commonProps}
           setHintText={setHintText}
           setIsHintShown={setIsHintShown}
         />
-      ) : null
+      )
     case 'mistakecorrection':
-      return commonProps ? (
+      return (
         <MistakeCorrectionTask
           commonProps={commonProps}
           setHintText={setHintText}
           setIsHintShown={setIsHintShown}
         />
-      ) : null
+      )
     case 'grammar':
-      return commonProps ? <GrammarButton commonProps={commonProps} /> : null
+      return <GrammarButton commonProps={commonProps} />
     default:
       return null
   }

@@ -1,6 +1,6 @@
 import axios, { AxiosRequestHeaders } from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export type InitialTasksData = {
   tasks: InitialTask[]
@@ -16,7 +16,7 @@ interface InitialTask {
   fullDescription: string
   segment: ''
   showGenderHint: false
-  errorLimit: 3
+  errorLimit: number
   answers: number[]
   taskType: {
     name: string
@@ -106,13 +106,13 @@ export interface TaskData {
   ordinalNumber: number
   taskDescription: string
   taskType:
-  | 'dictation'
-  | 'translate'
-  | 'dialog'
-  | 'omittedwords'
-  | 'replay'
-  | 'mistakecorrection'
-  | 'grammar'
+    | 'dictation'
+    | 'translate'
+    | 'dialog'
+    | 'omittedwords'
+    | 'replay'
+    | 'mistakecorrection'
+    | 'grammar'
   taskNumber: number
   errorLimit: number
   correctText: string | string[]

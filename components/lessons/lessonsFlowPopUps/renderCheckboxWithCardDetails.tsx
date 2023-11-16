@@ -12,9 +12,9 @@ const RenderCheckboxWithCardDetails: React.FC<
   if (popUpNumber === 2) {
     return (
       <>
-        <p>{t('REG_REMINDER_LEARN_A_LANGUAGE')}</p>
-        <p className={style.blackedOut}>{t('REG_REMINDER_5_TIMES')}</p>
-        <p>{t('REG_REMINDER_MORE_COMFORTABLE')}</p>
+        <span>{t('REG_REMINDER_LEARN_A_LANGUAGE')}</span>
+        <span className={style.blackedOut}>{t('REG_REMINDER_5_TIMES')}</span>
+        <span>{t('REG_REMINDER_MORE_COMFORTABLE')}</span>
       </>
     )
   } else if (popUpNumber === 3 && paymentsData?.creditCard.isAttached) {

@@ -22,9 +22,9 @@ const previousConfig = {
       'lh3.googleusercontent.com',
     ],
   },
-};
+}
 
 module.exports = {
   ...previousConfig,
   output: 'standalone',
-};
+}

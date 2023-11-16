@@ -6,7 +6,7 @@ import {
 import { FC, useState, useEffect } from 'react'
 import { CourseObject } from '@utils/lessons/getTask'
 import { useTranslation } from '@utils/useTranslation'
-import { CoursesDropdown } from '@components/lessons/CoursesDropdown'
+import { CoursesDropdown } from '@components/lessons/learnMenu/CoursesDropdown'
 
 interface Props {
   languageFrom: string | string[] | undefined
@@ -16,6 +16,7 @@ interface Props {
   setTab: (
     value: 'course' | 'levels' | 'grammar' | 'vocabulary' | 'statistics',
   ) => void
+  tab: string
 }
 
 const LearnMenu: FC<Props> = ({
@@ -24,6 +25,7 @@ const LearnMenu: FC<Props> = ({
   token,
   currentCourseObject,
   setTab,
+  tab,
 }) => {
   const { t } = useTranslation()
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
@@ -57,19 +59,44 @@ const LearnMenu: FC<Props> = ({
           languageTo={languageTo as string}
         />
       )}
-      <button className={style.folderName} onClick={() => setTab('course')}>
+      <button
+        className={`${style.folderName} ${
+          tab === 'course' && style.activeButton
+        }`}
+        onClick={() => setTab('course')}
+      >
         {t('LEARN_MENU_COURSE')}
       </button>
-      <button className={style.folderName} onClick={() => setTab('grammar')}>
+      <button
+        className={`${style.folderName} ${
+          tab === 'grammar' && style.activeButton
+        }`}
+        onClick={() => setTab('grammar')}
+      >
         {t('LEARN_MENU_GRAMMAR')}
       </button>
-      <button className={style.folderName} onClick={() => setTab('vocabulary')}>
+      <button
+        className={`${style.folderName} ${
+          tab === 'vocabulary' && style.activeButton
+        }`}
+        onClick={() => setTab('vocabulary')}
+      >
         {t('LEARN_MENU_VOCABULARY')}
       </button>
-      <button className={style.folderName} onClick={() => setTab('levels')}>
+      <button
+        className={`${style.folderName} ${
+          tab === 'levels' && style.activeButton
+        }`}
+        onClick={() => setTab('levels')}
+      >
         {t('LEARN_MENU_MODE')}
       </button>
-      <button className={style.folderName} onClick={() => setTab('statistics')}>
+      <button
+        className={`${style.folderName} ${
+          tab === 'statistics' && style.activeButton
+        }`}
+        onClick={() => setTab('statistics')}
+      >
         {t('LEARN_MENU_STATISTICS')}
       </button>
     </div>

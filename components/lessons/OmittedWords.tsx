@@ -1,12 +1,14 @@
 import style from './OmittedWords.module.scss'
-import { animated, useSpring } from 'react-spring'
 import { saveTask } from '@utils/lessons/saveTask'
+import { MistakesCounter } from './MistakesCounter'
 import {
   handleChange,
   CommonProps,
   updateCompletedTasks,
   handleOnKeyDown,
 } from '@utils/lessons/taskInputUtils'
+import { TaskProgress } from './TaskProgress'
+import { VoiceRecognition } from './VoiceRecognition'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
@@ -27,6 +29,7 @@ export const OmittedWords: FC<Props> = ({
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
 
+  const errorLimit = commonProps.currentTask.errorLimit
   const inputRefs = useRef<HTMLInputElement[]>([])
   const currTask = commonProps.currentTask.correctText as string
   const wordsArray = currTask.match(/(\[.*?\])|(\S+)/g) ?? []
@@ -87,9 +90,12 @@ export const OmittedWords: FC<Props> = ({
 
   return (
     <>
-      <div className={style.taskProgress} style={{ width: taskProgress }}></div>
+      <TaskProgress taskProgress={taskProgress} />
       <div className={style.container}>
-        <div className={style.mistakes}> {mistakesCount} </div>
+        <MistakesCounter
+          percentage={(1 - mistakesCount / errorLimit) * 100}
+          errorLimit={Math.max(errorLimit - mistakesCount, 0)}
+        />
         <div className={style.inputContainer}>
           {wordsArray.map((word, index) => {
             if (word.startsWith('[')) {
@@ -112,6 +118,7 @@ export const OmittedWords: FC<Props> = ({
             }
           })}
         </div>
+        <VoiceRecognition />
       </div>
     </>
   )

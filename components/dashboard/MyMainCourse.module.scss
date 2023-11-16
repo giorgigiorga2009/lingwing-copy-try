@@ -29,13 +29,9 @@
 
 .title {
   line-height: 4.6875rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   font-size: 1.5rem;
   color: $grey-800;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   span:nth-child(2) {
     margin-left: 0.625rem;

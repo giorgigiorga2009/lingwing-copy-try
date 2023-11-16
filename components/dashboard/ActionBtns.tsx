@@ -21,7 +21,9 @@ const ActionBtns: FC<ActionBtnsProps> = ({
   onResetCourse,
 }) => {
   const { t } = useTranslation()
-  const [randomNumbers] = useState([Math.floor(Math.random() * 9000) + 1000].map(String));
+  const [randomNumbers] = useState(
+    [Math.floor(Math.random() * 9000) + 1000].map(String),
+  )
 
   const handleResetButton = async () => {
     const result = await Swal.fire({
@@ -32,8 +34,8 @@ const ActionBtns: FC<ActionBtnsProps> = ({
       showCloseButton: true,
       showCancelButton: true,
       confirmButtonColor: 'rgb(105 46 150)',
-      confirmButtonText: t("SWAL_RESET_BTN_OK"),
-      cancelButtonText: t("SWAL_RESET_CLOSE_BUTTON"),
+      confirmButtonText: t('SWAL_RESET_BTN_OK'),
+      cancelButtonText: t('SWAL_RESET_CLOSE_BUTTON'),
     })
 
     if (result.isConfirmed) {
@@ -44,8 +46,8 @@ const ActionBtns: FC<ActionBtnsProps> = ({
         text: t('SWAL_RESET_COUSE_TEXT'),
         icon: 'info',
         confirmButtonColor: 'rgb(105 46 150)',
-        confirmButtonText: t("SWAL_RESET_BTN_OK"),
-        cancelButtonText: t("SWAL_RESET_CLOSE_BUTTON"),
+        confirmButtonText: t('SWAL_RESET_BTN_OK'),
+        cancelButtonText: t('SWAL_RESET_CLOSE_BUTTON'),
         showCloseButton: true,
         showCancelButton: true,
       })
@@ -58,8 +60,8 @@ const ActionBtns: FC<ActionBtnsProps> = ({
             <input id="swal-input" type="text" placeholder="Type numbers">
           `,
           showCancelButton: true,
-          confirmButtonText: t("SWAL_RESET_BTN_OK"),
-          cancelButtonText: t("SWAL_RESET_CLOSE_BUTTON"),
+          confirmButtonText: t('SWAL_RESET_BTN_OK'),
+          cancelButtonText: t('SWAL_RESET_CLOSE_BUTTON'),
           showCloseButton: true,
           focusConfirm: false,
           preConfirm: () => {

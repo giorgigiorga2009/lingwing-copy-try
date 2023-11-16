@@ -52,11 +52,7 @@
   font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 1.75rem;
-  font-family: SegoeUI;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+  font-family: SegoeUI, $kaFont;
 
   span {
     color: $black;
@@ -86,12 +82,8 @@
 
   h6 {
     font-size: 1.125rem;
-    font-family: SegoeUI;
+    font-family: SegoeUI, $kaFont;
     color: $white;
-
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
   }
 
   @include smallWidth {

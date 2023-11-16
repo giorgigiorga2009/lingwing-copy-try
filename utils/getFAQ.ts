@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { LanguageFrom } from '@utils/languages'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export type FaqData = {
   question: string

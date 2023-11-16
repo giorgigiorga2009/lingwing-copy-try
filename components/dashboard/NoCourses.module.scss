@@ -14,15 +14,10 @@
   }
 
   h3 {
-    font-family: SegoeUI-SemiBold;
+    font-family: SegoeUI-SemiBold, $kaFont;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     text-align: center;
     color: $grey-700;
-
-    &:lang(ka) {
-      font-family: $kaFont;
-      font-weight: normal;
-    }
   }
 
   .instruction {

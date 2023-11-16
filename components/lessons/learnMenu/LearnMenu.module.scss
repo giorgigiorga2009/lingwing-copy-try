@@ -6,11 +6,12 @@
   position: absolute;
   width: 12rem;
   top: 10rem;
-  gap: 1.5rem;
+  gap: 1.4rem;
   margin-right: 54rem;
   align-items: flex-end;
-  font-family: SegoeUI, $kaFont;
+  font-family: SegoeUI, $kaFontTitle;
   color: $grey-300;
+  font-size: 0.9rem;
 
   @include tablet {
     display: none;
@@ -32,10 +33,10 @@
 
   &:hover {
     color: #692e96;
-  }
-
-  &:active {
-    color: #692e96;
     cursor: pointer;
   }
+}
+
+.activeButton {
+  color: #692e96;
 }

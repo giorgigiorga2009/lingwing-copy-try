@@ -328,9 +328,8 @@
   "REG_REMINDER_REMEMBER_CARD": "ბარათის დამახსოვრება",
 
   "REG_REMINDER_DAILY_LIMIT": " ენის დავალებების დღიური ლიმიტი ამოიწურა",
-  "REG_REMINDER_YOU": "",
   "REG_REMINDER_FREE_TASKS_IN": "უფასო დავალებები გაგიაქტიურდება",
-  "REG_REMINDER_HOURS": "საათი",
+  "REG_REMINDER_HOURS": "საათში",
   "REG_REMINDER_LEARN_A_LANGUAGE": "მოხსენი ყველანაირი შეზღუდვა, ისწავლე ენა",
   "REG_REMINDER_5_TIMES": "5-ჯერ",
   "REG_REMINDER_MORE_COMFORTABLE": "უფრო სწრაფად",
@@ -537,9 +536,6 @@
   "LESSONS_MIC_MODAL_LI3_HEADPHONES": "ყურსასმენები",
   "LESSONS_MIC_MODAL_LI3_RESULT": " ",
   "LESSONS_MIC_MODAL_MIC": "მიკროფონის ჩართვა",
-
-
-
 
   "RATING_TOP_SCORES": "რეიტინგები",
   "RATING_TOP_20": "ტოპ 20",

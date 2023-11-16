@@ -41,12 +41,17 @@
 }
 
 .mistake {
-  outline-color: $red;
   transition: 0.2s ease-in-out alternate;
-  animation: bounce 0.5s;
+  animation: bounce 0.7s;
 }
 
 @keyframes bounce {
+  1%,
+  99% {
+    border: 2px solid $red;
+    background-color: $red-100;
+  }
+
   0% {
     transform: translateX(0);
     transition-timing-function: ease-in;

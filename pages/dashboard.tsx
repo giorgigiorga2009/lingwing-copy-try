@@ -39,7 +39,7 @@ const Dashboard: NextPage = () => {
   const [activeLang, setActiveLang] = useState<number>(0)
   // const locale = router.locale ?? 'en'
   const { data: session } = useSession()
-  
+
   useEffect(() => {
     session && setToken(session?.user.accessToken)
   }, [session])

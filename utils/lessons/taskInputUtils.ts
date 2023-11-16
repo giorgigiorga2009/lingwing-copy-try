@@ -196,6 +196,7 @@ export const textCheck = ({
   setHintText,
   setIsHintShown,
   setMistakesCount,
+  setForgivenErrorQuantity,
 }: {
   inputText: string
   outputText: string
@@ -206,6 +207,7 @@ export const textCheck = ({
   setHintText: (text: string) => void
   setIsHintShown: (bool: boolean) => void
   setMistakesCount: (callback: (prev: number) => number) => void
+  setForgivenErrorQuantity: (callback: (prev: number) => number) => void
 }) => {
   const firstMarkCheck = /^[¡¿"-]/.test(
     correctText.charAt(inputText.length - 1),
@@ -244,6 +246,8 @@ export const textCheck = ({
     setMistakesCount(prev => prev + 1)
     setHintText(isSpaceOrMark.test(textToCompare) ? '(Space)' : currentWord)
     setIsHintShown(true)
+  } else {
+    setForgivenErrorQuantity(prev => prev + 1)
   }
   return outputText
 }

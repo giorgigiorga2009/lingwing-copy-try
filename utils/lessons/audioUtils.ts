@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export const useAudio = () => {
   const [audios, setAudios] = useState<HTMLAudioElement[]>([])

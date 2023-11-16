@@ -1,6 +1,6 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export interface generateCertificateTextProps {
   languageName: string

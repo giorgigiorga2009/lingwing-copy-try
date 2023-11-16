@@ -40,28 +40,25 @@
 .reset {
   background-image: url('/themes/images/v2/course-restart.png');
   &:hover {
-    position: relative; 
-    cursor: pointer; 
+    position: relative;
+    cursor: pointer;
     &::before {
-      content: attr(data-i18n-reset); 
-      position: absolute; 
-      top: -2rem; 
-      left: 50%; 
+      content: attr(data-i18n-reset);
+      position: absolute;
+      top: -2rem;
+      left: 50%;
       transform: translateX(-50%);
-      background-color: #333; 
-      color: $white; 
-      padding: 5px; 
-      border-radius: 5px; 
+      background-color: #333;
+      color: $white;
+      padding: 5px;
+      border-radius: 5px;
       opacity: 0;
-      transition: opacity 0.3s ease; 
-      opacity: .6; 
+      transition: opacity 0.3s ease;
+      opacity: 0.6;
     }
-
-    
   }
 }
 
 .info {
   background-image: url('/themes/images/v2/course-info.png');
 }
-

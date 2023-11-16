@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { jsonData } from './profileData'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 export interface ProfileData {
   local: {
