@@ -8,4 +8,4 @@ RUN yarn build
 FROM node:18-alpine AS PRODUCTION_STAGE
 WORKDIR /app
 COPY --from=BUILD_IMAGE /app/ ./
-
+RUN yarn start
