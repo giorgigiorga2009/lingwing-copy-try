@@ -12,6 +12,7 @@ import {
   handleChange,
   updateCompletedTasks,
 } from '@utils/lessons/taskInputUtils'
+import { MistakesCounter } from './MistakesCounter'
 
 interface Props {
   commonProps: CommonProps
@@ -25,6 +26,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
   setHintText,
 }) => {
   const mistakeText = commonProps.currentTask.errorText
+  const errorLimit = commonProps.currentTask.errorLimit
   const correctText = commonProps.currentTask.correctText as string
 
   const [inputText, setInputText] = useState(mistakeText)
@@ -94,7 +96,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
 
   return (
     <div className={style.container}>
-      <div className={style.mistakes}> {mistakesCount} </div>
+      <MistakesCounter
+        percentage={(1 - mistakesCount / errorLimit) * 100}
+        errorLimit={Math.max(errorLimit - mistakesCount, 0)}
+      />{' '}
       <textarea
         className={style.input}
         value={inputText}
@@ -104,7 +109,6 @@ export const MistakeCorrectionTask: FC<Props> = ({
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
       />
-
       <button className={style.checkButton} onClick={checkAnswer}>
         Check
       </button>

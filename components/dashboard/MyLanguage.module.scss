@@ -38,10 +38,6 @@
     font-size: 1.0625rem;
     color: $grey-800;
 
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
-
     @include tablet {
       font-size: 1.25rem;
     }
@@ -157,24 +153,14 @@
   font-size: 1.5rem;
   line-height: 3.4375rem; // converted from 55px
   color: $grey-300;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-    font-weight: normal;
-  }
 }
 
 .percent {
-  font-family: SegoeUI-SemiBold;
+  font-family: SegoeUI-SemiBold, $kaFont;
   font-size: clamp(1rem, 5.5vw, 1.3125rem);
   position: relative;
   left: 0.125rem;
   top: -0.0625rem;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-    font-weight: normal;
-  }
 }
 
 .drop_course {

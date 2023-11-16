@@ -1,9 +1,10 @@
-import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
+import { CircularProgressbar } from 'react-circular-progressbar'
 
 interface CircularProgressProps {
   percentage: number
-  page: 'OnePercentPage' | 'StatisticsPage'
+  errorLimit?: number
+  page: 'OnePercentPage' | 'StatisticsPage' | 'MistakesCounter'
 }
 
 const stylesConfig: { [key: string]: any } = {
@@ -14,6 +15,7 @@ const stylesConfig: { [key: string]: any } = {
     trail: {
       stroke: '#502673',
     },
+    backgroundColor: { fill: '#0000' },
     text: {
       fontSize: '20px',
       fill: '#fff',
@@ -27,9 +29,24 @@ const stylesConfig: { [key: string]: any } = {
     trail: {
       stroke: '#f0efee',
     },
+    backgroundColor: { fill: '#0000' },
     text: {
       fontSize: '20px',
       fill: '#676767',
+      fontFamily: 'SegoeUI',
+    },
+  },
+  MistakesCounter: {
+    path: {
+      stroke: '#b68ee3',
+    },
+    trail: {
+      stroke: '#f7f7f7',
+    },
+    backgroundColor: { fill: '#dbcdec' },
+    text: {
+      fontSize: '36px',
+      fill: '#692696',
       fontFamily: 'SegoeUI',
     },
   },
@@ -37,6 +54,7 @@ const stylesConfig: { [key: string]: any } = {
 
 const CircularProgress: React.FC<CircularProgressProps> = ({
   percentage,
+  errorLimit,
   page,
 }) => {
   const flooredPercentage = Math.floor(percentage)
@@ -44,12 +62,16 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
     <div>
       <CircularProgressbar
         value={flooredPercentage}
-        text={`${flooredPercentage}%`}
+        text={
+          page === 'MistakesCounter' ? `${errorLimit}` : `${flooredPercentage}%`
+        }
         strokeWidth={12}
+        background={true}
         styles={{
           path: stylesConfig[page].path,
           trail: stylesConfig[page].trail,
           text: stylesConfig[page].text,
+          background: stylesConfig[page].backgroundColor,
         }}
       />
     </div>

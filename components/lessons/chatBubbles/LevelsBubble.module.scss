@@ -1,0 +1,27 @@
+@import '@styles/imports';
+
+.levelsContainer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 3.3rem;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: -4rem;
+}
+
+.levels {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: $white-100;
+  border-radius: 2rem;
+
+  &.true {
+    background-color: $green-100;
+  }
+
+  &.false {
+    background-color: $red-200;
+  }
+}

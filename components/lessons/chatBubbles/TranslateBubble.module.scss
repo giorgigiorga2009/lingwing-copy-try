@@ -80,6 +80,13 @@
     background-color: $green-100;
     background-image: url('/assets/images/tasks/replay.png');
   }
+
+  .dictationIcon {
+    @extend %baseIcon;
+
+    background-color: $pink-100;
+    background-image: url('/assets/images/tasks/dictation.png');
+  }
 }
 
 .content {
@@ -159,28 +166,6 @@
     max-width: 15rem;
     padding: 0.7rem 1.2rem;
     line-height: 1.1rem;
-  }
-}
-
-.levelsContainer {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 3.3rem;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: -4rem;
-}
-
-.levels {
-  width: 0.8rem;
-  height: 0.8rem;
-  background-color: $white-100;
-  border-radius: 1rem;
-
-  &.true {
-    background-color: red;
   }
 }
 

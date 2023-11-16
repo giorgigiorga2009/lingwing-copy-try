@@ -12,6 +12,7 @@ interface Props {
   hintText: string
   currentMessageIndex: number
   onDivHeight: (height: number) => void
+  mistake: number
 }
 
 const ChatCurrentTask: FC<Props> = ({
@@ -20,6 +21,7 @@ const ChatCurrentTask: FC<Props> = ({
   hintText,
   currentMessageIndex,
   onDivHeight,
+  mistake,
 }) => {
   return (
     <>
@@ -36,6 +38,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
+                mistake={mistake}
                 // answers={currentTask.answers}
               />
             )}
@@ -47,6 +50,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
+                mistake={mistake}
               />
             )}
             {currentTask.taskType === 'mistakecorrection' && (
@@ -56,6 +60,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.mistakeTaskText}
                 correctText={currentTask.correctText as string}
+                mistake={mistake}
               />
             )}
             {currentTask.taskType === 'replay' && (
@@ -65,6 +70,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
+                mistake={mistake}
               />
             )}
             <Hint isHintShown={isHintShown} hintText={hintText} />

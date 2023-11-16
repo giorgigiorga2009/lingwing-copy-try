@@ -296,8 +296,7 @@
   "REG_REMINDER_REMEMBER_CARD": "Kartı hatırla",
   
   "REG_REMINDER_DAILY_LIMIT": " dilinde günlük görev sınırı dolmuştur",
-  "REG_REMINDER_YOU": "Günluk",
-  "REG_REMINDER_FREE_TASKS_IN":  "sınırsız görevler gün bitene kadar etkinleştirilecektir",
+  "REG_REMINDER_FREE_TASKS_IN": "Günluk sınırsız görevler gün bitene kadar etkinleştirilecektir",
   "REG_REMINDER_HOURS": "Saat",
   "REG_REMINDER_LEARN_A_LANGUAGE": "Learn a language",
   "REG_REMINDER_5_TIMES": "5 times",

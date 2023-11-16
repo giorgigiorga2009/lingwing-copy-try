@@ -21,33 +21,33 @@ const Wrapper: FC<ChangeModeProps> = ({
   tab,
 }) => {
   return (
-    <div className={style.wrapper}>
-      {tab === 'levels' && (
-        <ChangeMode
-          learnMode={currentCourseObject.learnMode}
-          userCourseId={currentCourseObject.course._id}
-          token={token}
-        />
-      )}
-      {tab === 'grammar' && (
-        <Scrollbars>
+    <div className={style.container}>
+      <div className={style.wrapper}>
+        {tab === 'levels' && (
+          <ChangeMode
+            learnMode={currentCourseObject.learnMode}
+            userCourseId={currentCourseObject.course._id}
+            token={token}
+          />
+        )}
+        {tab === 'grammar' && (
           <AllGrammar
             courseId={currentCourseObject.course._id}
             LanguageFrom={languageFrom}
             token={token}
           />
-        </Scrollbars>
-      )}
-      {tab === 'vocabulary' && (
-        <Vocabulary
-          currentCourseObject={currentCourseObject}
-          LanguageFrom={languageFrom}
-          token={token}
-        />
-      )}
-      {tab === 'statistics' && (
-        <Statistics courseId={currentCourseObject._id} token={token} />
-      )}
+        )}
+        {tab === 'vocabulary' && (
+          <Vocabulary
+            currentCourseObject={currentCourseObject}
+            LanguageFrom={languageFrom}
+            token={token}
+          />
+        )}
+        {tab === 'statistics' && (
+          <Statistics courseId={currentCourseObject._id} token={token} />
+        )}
+      </div>
     </div>
   )
 }

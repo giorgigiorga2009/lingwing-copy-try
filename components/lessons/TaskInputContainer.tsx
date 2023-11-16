@@ -7,11 +7,13 @@ import {
   updateCompletedTasks,
   handleOnKeyDown,
 } from '@utils/lessons/taskInputUtils'
+import { TaskProgress } from './TaskProgress'
 import { DictationInput } from './DictationInput'
 import { saveTask } from '@utils/lessons/saveTask'
-import { animated, useSpring } from 'react-spring'
+import { MistakesCounter } from './MistakesCounter'
 import { useAudio } from '@utils/lessons/audioUtils'
 import style from './TaskInputContainer.module.scss'
+import { VoiceRecognition } from './VoiceRecognition'
 import { useState, useEffect, FC, useRef } from 'react'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 
@@ -30,18 +32,18 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   setHintText,
   setIsHintShown,
 }) => {
-  // const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const [mistakesCount, setMistakesCount] = useState(0)
+  const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [currWordIndex, setCurrWordIndex] = useState(0)
-  //const [textFromKeyboard, setTextFromKeyboard] = useState('')
-  const { isRecording, finalTranscript, toggleRecognition } = useSpeechRec()
+  const { finalTranscript } = useSpeechRec()
   const { audioIndex, setAudios, wordAudioPlay, addAudio, Play } = useAudio()
 
   const onlyLetters = /[^\p{L}\p{M}?"]/gu
   const currTask = commonProps.currentTask
+  const errorLimit = commonProps.currentTask.errorLimit
   const wordsSynonyms = currTask.wordsSynonyms
   const correctText = currTask.correctText as string
   const writtenWordsArray = outputText.trim().split(' ')
@@ -66,12 +68,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     }
   }, [outputText, audioIndex])
 
-  // create an animation for the microphone icon
-  const { transform, opacity } = useSpring({
-    opacity: isRecording ? 1 : 0.5,
-    transform: `scale(${isRecording ? 1.5 : 1})`,
-  })
-
   // only for voiceRecognition
   useEffect(() => {
     if (finalTranscript === '') return
@@ -95,11 +91,11 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setHintText,
     setIsHintShown,
     setMistakesCount,
+    setForgivenErrorQuantity,
   }
 
   const resetTaskState = () => {
     setAudios([])
-    //setInputText('')
     setOutputText('')
     setMistakesCount(0)
     setCurrWordIndex(0)
@@ -116,7 +112,12 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
       setTimeout(async () => {
         const audio = new Audio('https://lingwing.com/sounds/true.mp3')
         audio.play()
-        const isSaved = await saveTask({ ...commonProps })
+        const isSaved = await saveTask({
+          ...commonProps,
+          totalMistakes: mistakesCount,
+          forgivenErrorQuantity: forgivenErrorQuantity,
+          error: errorLimit - mistakesCount < 0 ? 1 : 0,
+        })
         if (isSaved) {
           resetTaskState()
           updateCompletedTasks(commonProps)
@@ -142,9 +143,12 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   return (
     <>
-      <div className={style.taskProgress} style={{ width: taskProgress }}></div>
+      <TaskProgress taskProgress={taskProgress} />
       <div className={style.container}>
-        <div className={style.mistakes}> {mistakesCount} </div>
+        <MistakesCounter
+          percentage={(1 - mistakesCount / errorLimit) * 100}
+          errorLimit={Math.max(errorLimit - mistakesCount, 0)}
+        />
         <DictationInput
           inputRef={inputRef}
           outputText={outputText}
@@ -156,17 +160,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           taskDone={taskProgress}
           mistake={isHintShown}
         />
-        <animated.div
-          className={style.microphoneIcon}
-          style={{
-            opacity,
-            transform,
-          }}
-          onClick={() => toggleRecognition()}
-        >
-          <span className={style.micIcon} key="mic" />
-          {isRecording && <div className={style.pulsatingCircle} />}
-        </animated.div>
+        <VoiceRecognition />
       </div>
     </>
   )

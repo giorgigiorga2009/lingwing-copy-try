@@ -1,30 +1,29 @@
-import { NextPage } from 'next'
-import Cookies from 'js-cookie'
-import { useRouter } from 'next/router'
-import style from './lessons.module.scss'
-import { getUserId } from '@utils/getUserId'
-import { Header } from '@components/header/Header'
-import { useEffect, useState, useRef } from 'react'
-import ProgressBar from '@components/lessons/ProgressBar'
-import ChatHistory from '@components/lessons/ChatHistory'
-import { SoundCheck } from '@components/lessons/SoundCheck'
-import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
-import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
-import Feedback from '@components/lessons/combinedModals/Feedback'
-import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
-import Wrapper from '@components/lessons/learnMenu/Wrapper'
-import Ratings from '@components/lessons/usersRating/Ratings'
 import {
   CourseObject,
   getTasks,
   getUserCourse,
   TaskData,
 } from '@utils/lessons/getTask'
+import { NextPage } from 'next'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
+import style from './lessons.module.scss'
+import { getUserId } from '@utils/getUserId'
 import { useSession } from 'next-auth/react'
-import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
+import { Header } from '@components/header/Header'
+import { useEffect, useState, useRef } from 'react'
+import ProgressBar from '@components/lessons/ProgressBar'
+import ChatHistory from '@components/lessons/ChatHistory'
+import { SoundCheck } from '@components/lessons/SoundCheck'
+import Wrapper from '@components/lessons/learnMenu/Wrapper'
+import Ratings from '@components/lessons/usersRating/Ratings'
+import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
+import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
+import Feedback from '@components/lessons/combinedModals/Feedback'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
+import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
+import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
-import { Scrollbars } from 'react-custom-scrollbars'
 
 const Lessons: NextPage = () => {
   const screenshotRef = useRef<HTMLDivElement>(null)
@@ -50,7 +49,8 @@ const Lessons: NextPage = () => {
   const [grammarHeight, setGrammarHeight] = useState<number>(0)
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
-  const chatRef = useRef<Scrollbars>(null)
+  const chatRef = useRef<HTMLDivElement>(null)
+  const [mistake, setMistake] = useState(0)
 
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
@@ -97,12 +97,17 @@ const Lessons: NextPage = () => {
         if (courseObject) {
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
-          setUserScore(courseObject.score)
+          // setUserScore(courseObject.score)
           setDailyTaskLeft(courseObject.info.dailyTaskLeft)
           setunAuthuserDailyLimit(
             courseObject.course.configuration.unAuthUserDailyLimit,
           )
           setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
+          setUserScore((prevScore: number) => {
+            setMistake(prevScore < courseObject.score ? 1 : 0)
+
+            return courseObject.score
+          })
         }
 
         return courseObject
@@ -182,12 +187,11 @@ const Lessons: NextPage = () => {
     setTimeout(() => {
       if (chatWrapperRef.current && chatRef.current) {
         if (grammarHeight !== 0) {
-          chatRef.current.scrollTop(
-            chatWrapperRef.current.scrollHeight - grammarHeight,
-          )
+          chatRef.current.scrollTop =
+            chatWrapperRef.current.scrollHeight - grammarHeight
           setGrammarHeight(0)
         } else {
-          chatRef.current.scrollTop(chatWrapperRef.current.scrollHeight)
+          chatRef.current.scrollTop = chatWrapperRef.current.scrollHeight
         }
       }
     }, 200)
@@ -212,6 +216,7 @@ const Lessons: NextPage = () => {
         currentTaskNumber,
         currentTask,
         completedTasks,
+        mistake,
         setCompletedTasks,
       }
     : null
@@ -271,6 +276,7 @@ const Lessons: NextPage = () => {
               token={token}
               currentCourseObject={currentCourseObject}
               setTab={setTab}
+              tab={tab}
             />
             <div className={style.content}>
               {currentCourseObject && (
@@ -287,43 +293,41 @@ const Lessons: NextPage = () => {
                   tab={tab}
                 />
               )}
-              {tab === 'course' && commonProps && (
-                <>
-                  <div className={style.chatContainer}>
-                    <Scrollbars ref={chatRef}>
-                      <div className={style.chat}>
-                        <div ref={chatWrapperRef} className={style.chatWrapper}>
-                          {completedTasks && (
-                            <ChatHistory
-                              completedTasks={completedTasks}
-                              isHintShown={isHintShown}
-                            />
-                          )}
-                          {currentTask && (
-                            <ChatCurrentTask
-                              currentTask={currentTask}
-                              currentMessageIndex={currentMessageIndex}
-                              isHintShown={isHintShown}
-                              hintText={hintText}
-                              onDivHeight={handleGrammarHeight}
-                            />
-                          )}
-                          {!currentTask && (
-                            <div className={style.blankBubble} />
-                          )}
-                        </div>
-                      </div>
-                    </Scrollbars>
+              {tab === 'course' && (
+                <div className={style.chatContainer}>
+                  <div className={style.chat} ref={chatRef}>
+                    <div ref={chatWrapperRef} className={style.chatWrapper}>
+                      {completedTasks && (
+                        <ChatHistory
+                          completedTasks={completedTasks}
+                          isHintShown={isHintShown}
+                          mistake={mistake}
+                        />
+                      )}
+                      {currentTask && (
+                        <ChatCurrentTask
+                          currentTask={currentTask}
+                          currentMessageIndex={currentMessageIndex}
+                          isHintShown={isHintShown}
+                          hintText={hintText}
+                          onDivHeight={handleGrammarHeight}
+                          mistake={mistake}
+                        />
+                      )}
+                      {!currentTask && <div className={style.blankBubble} />}
+                    </div>
                   </div>
-                  <CurrentTaskInput
-                    commonProps={commonProps}
-                    isHintShown={isHintShown}
-                    setIsHintShown={setIsHintShown}
-                    setHintText={setHintText}
-                    currentMessageIndex={currentMessageIndex}
-                    setCurrentMessageIndex={setCurrentMessageIndex}
-                  />
-                </>
+                  {commonProps && (
+                    <CurrentTaskInput
+                      commonProps={commonProps}
+                      isHintShown={isHintShown}
+                      setIsHintShown={setIsHintShown}
+                      setHintText={setHintText}
+                      currentMessageIndex={currentMessageIndex}
+                      setCurrentMessageIndex={setCurrentMessageIndex}
+                    />
+                  )}
+                </div>
               )}
             </div>
           </>

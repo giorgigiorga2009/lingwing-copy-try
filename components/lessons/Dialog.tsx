@@ -1,10 +1,14 @@
 import { Hint } from './Hint'
 import dynamic from 'next/dynamic'
 import style from './Dialog.module.scss'
+import { TaskProgress } from './TaskProgress'
+import { DialogMessage } from './DialogMessage'
 import { DictationInput } from './DictationInput'
 import { TaskData } from '@utils/lessons/getTask'
 import { saveTask } from '@utils/lessons/saveTask'
-import { animated, useSpring } from 'react-spring'
+import { MistakesCounter } from './MistakesCounter'
+import { VoiceRecognition } from './VoiceRecognition'
+import { useTranslation } from '@utils/useTranslation'
 import { FC, useEffect, useRef, useState } from 'react'
 import {
   getRecognitionText,
@@ -15,8 +19,6 @@ import {
   handleOnKeyDown,
 } from '@utils/lessons/taskInputUtils'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
-import { DialogMessage } from './DialogMessage'
-import { useTranslation } from '@utils/useTranslation'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
@@ -123,10 +125,10 @@ export const DialogInput: FC<DialogInputProps> = ({
   const [taskProgress, setTaskProgress] = useState('0%')
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
-
+  const errorLimit = commonProps.currentTask.errorLimit
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  const { isRecording, finalTranscript, toggleRecognition } = useSpeechRec()
+  const { finalTranscript } = useSpeechRec()
 
   // set up speech recognition
   //const [textFromKeyboard, setTextFromKeyboard] = useState('')
@@ -190,16 +192,14 @@ export const DialogInput: FC<DialogInputProps> = ({
     }
   }, [outputText])
 
-  const { transform, opacity } = useSpring({
-    opacity: isRecording ? 1 : 0.5,
-    transform: `scale(${isRecording ? 1.5 : 1})`,
-  })
-
   return (
     <>
-      <div className={style.taskProgress} style={{ width: taskProgress }}></div>
+      <TaskProgress taskProgress={taskProgress} />
       <div className={style.container}>
-        <div className={style.mistakes}> {mistakesCount} </div>
+        <MistakesCounter
+          percentage={(1 - mistakesCount / errorLimit) * 100}
+          errorLimit={Math.max(errorLimit - mistakesCount, 0)}
+        />
         <DictationInput
           inputRef={inputRef}
           outputText={outputText}
@@ -210,18 +210,7 @@ export const DialogInput: FC<DialogInputProps> = ({
           taskDone={taskProgress}
           mistake={isHintShown}
         />
-
-        <animated.div
-          className={style.microphoneIcon}
-          style={{
-            opacity,
-            transform,
-          }}
-          onClick={() => toggleRecognition()}
-        >
-          <span className={style.micIcon} key="mic" />
-          {isRecording && <div className={style.pulsatingCircle} />}
-        </animated.div>
+        <VoiceRecognition />
       </div>
     </>
   )

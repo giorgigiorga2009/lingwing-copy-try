@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
+import { LevelsBubble } from './LevelsBubble'
 import UserAvatar from '../../shared/UserAvatar'
 import style from './TranslateBubble.module.scss'
 
@@ -11,6 +12,7 @@ interface Props {
   isCurrentTask: boolean
   sentenceAudioPath?: string
   answers?: number[]
+  mistake: number
   textType:
     | 'dictation'
     | 'translate'
@@ -32,6 +34,7 @@ export const TranslateBubble: FC<Props> = ({
   isCurrentTask,
   sentenceAudioPath,
   textType,
+  mistake,
   // answers,
 }) => {
   if (typeof taskText === 'string') {
@@ -40,6 +43,7 @@ export const TranslateBubble: FC<Props> = ({
       .replaceAll('(SH)', '✂️')
       .replaceAll('(F)', '👧')
       .replaceAll('(M)', '👦')
+      .replaceAll('(M/F)', '👦👧')
       .replaceAll(/\((.*?)\)/g, '<span>($1)</span>')
   } else {
     console.error('taskText is not a string:', taskText)
@@ -79,16 +83,7 @@ export const TranslateBubble: FC<Props> = ({
             {
               // answers &&
               utteranceType === 'taskDescription' && (
-                <div className={style.levelsContainer}>
-                  <div
-                    className={classNames(
-                      style.levels,
-                      //style[(!!answers[0]).toString()],
-                    )}
-                  ></div>
-                  <div className={style.levels}></div>
-                  <div className={style.levels}></div>
-                </div>
+                <LevelsBubble mistake={mistake} />
               )
             }
           </>

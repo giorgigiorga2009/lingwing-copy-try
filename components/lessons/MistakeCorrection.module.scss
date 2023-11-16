@@ -45,26 +45,6 @@
   }
 }
 
-.mistakes {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #dbceec;
-  border: 4px solid #b692e3;
-  border-radius: 100%;
-  width: 3rem;
-  height: 3rem;
-  font-family: SegoeUI, $kaFont;
-  font-size: 1.4rem;
-  color: #692e96;
-
-  @include mobile {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1rem;
-  }
-}
-
 .checkButton {
   color: $black;
   font-size: 16px;

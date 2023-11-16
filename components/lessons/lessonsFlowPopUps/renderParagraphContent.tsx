@@ -15,24 +15,23 @@ const RenderParagraphContent: React.FC<RegistrationReminderPopupProps> = ({
   if (popUpNumber === 1) {
     return (
       <>
-        <p>{t('REG_REMINDER_YOU_HAVE_COMPLETED')}</p>
-        <p className={style.number}>{completedTasks}</p>
-        <p>{t('REG_REMINDER_OUT_OF')}</p>
-        <p className={style.number}>{totalTasksAmount}</p>
-        <p>{t('REG_REMINDER_TASKS')}</p>
+        <span>{t('REG_REMINDER_YOU_HAVE_COMPLETED')}</span>
+        <span className={style.number}>{completedTasks}</span>
+        <span>{t('REG_REMINDER_OUT_OF')}</span>
+        <span className={style.number}>{totalTasksAmount}</span>
+        <span>{t('REG_REMINDER_TASKS')}</span>
       </>
     )
   } else if (popUpNumber === 2) {
     return (
       <>
-        <p>{t('REG_REMINDER_YOU')}</p>
-        <p>{t('REG_REMINDER_FREE_TASKS_IN')}</p>
+        <span>{t('REG_REMINDER_FREE_TASKS_IN')}</span>
         <CountDown
           forLessonsFlowN2={true}
           dailyLimitDate={dailyLimitDate}
           token={token}
         />
-        <p>{t('REG_REMINDER_HOURS')}</p>
+        <span>{t('REG_REMINDER_HOURS')}</span>
       </>
     )
   } else if (popUpNumber === 3) {

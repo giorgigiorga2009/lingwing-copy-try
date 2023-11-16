@@ -14,7 +14,7 @@ interface InitialTask {
   fullDescription: string
   segment: ''
   showGenderHint: false
-  errorLimit: 3
+  errorLimit: number
   answers: number[]
   taskType: {
     name: string

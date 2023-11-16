@@ -8,6 +8,9 @@ export const saveTask = async ({
   token,
   userId,
   currentTask,
+  totalMistakes,
+  forgivenErrorQuantity,
+  error,
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
@@ -15,6 +18,9 @@ export const saveTask = async ({
   courseId: string
   userId: string | null
   currentTask: TaskData
+  totalMistakes: number
+  forgivenErrorQuantity: number
+  error: number
 }): Promise<boolean> => {
   let url = `${process.env.DEFAULT_URL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
   if (token === null) {
@@ -27,14 +33,14 @@ export const saveTask = async ({
     task: {
       _id: currentTask.id,
       segment: '',
-      error: 0,
+      error: error,
       ordinalNumber: currentTask.ordinalNumber,
       timeSpent: 22,
-      totalMistakes: 0,
+      totalMistakes: totalMistakes,
       taskMistakes: [],
       percent: 0.06078288353999514,
-      forgivenErrorQuantity: 1,
-      notForgivenErrorQuantity: 1,
+      forgivenErrorQuantity: forgivenErrorQuantity,
+      notForgivenErrorQuantity: totalMistakes,
       usedRecognition: 0,
       totalTypedWithRecognition: 0,
       totalTypedWithoutRecognition: 1,
