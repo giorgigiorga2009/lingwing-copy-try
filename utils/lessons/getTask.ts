@@ -1,4 +1,6 @@
 import axios, { AxiosRequestHeaders } from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
 export type InitialTasksData = {
   tasks: InitialTask[]
@@ -206,7 +208,7 @@ export const getUserCourse = async ({
   try {
     if (token) {
       const response = await axios({
-        url: `${process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
+        url: `${publicRuntimeConfig.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
         headers: {
           Authorization: token,
         },
@@ -215,7 +217,7 @@ export const getUserCourse = async ({
     }
     if (userId) {
       const response = await axios({
-        url: `${process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
+        url: `${publicRuntimeConfig.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
       })
       return response.data.data
     }
@@ -243,7 +245,7 @@ export const getTasks = async ({
     // let data
     // if (token) {
     //   const response = await axios({
-    //     url: `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
+    //     url: `${publicRuntimeConfig.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
     //     headers: {
     //       Authorization: token,
     //     },
@@ -252,13 +254,13 @@ export const getTasks = async ({
     // }
     // if(userId){
     //   const response = await axios({
-    //     url: `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
+    //     url: `${publicRuntimeConfig.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
 
     //   })
     //   data = response.data.data
     // }
     //
-    let url = `${process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
+    let url = `${publicRuntimeConfig.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
     let headers: {
       Authorization: string | null
     } = {

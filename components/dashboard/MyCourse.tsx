@@ -20,6 +20,8 @@ export interface SubCourse {
   languageSubStandard: {
     name: string
   }
+  rating: number
+  allPassedTasks: number
   slug: string
   status: {
     start: boolean
@@ -29,6 +31,7 @@ export interface SubCourse {
 }
 
 interface Props {
+  token?: string
   course: Course
   myLanguage: {
     nameCode: any
@@ -40,6 +43,7 @@ interface Props {
 }
 
 const MyCourse: FC<Props> = ({
+  token,
   course,
   myLanguage,
   LANGUAGE_NAMES,
@@ -62,6 +66,7 @@ const MyCourse: FC<Props> = ({
         {course.courses.map((subCourse, indexOfSubCourse) => {
           return (
             <MySubCourse
+              token={token}
               subCourse={subCourse}
               key={subCourse._id}
               indexOfSubCourse={indexOfSubCourse}

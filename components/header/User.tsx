@@ -23,7 +23,7 @@ const User: FC = () => {
   const handleUserProfile = () => {
     if (typeof window !== 'undefined' && session && !session?.user.email) {
       return getUserProfileData(session.user.accessToken).then(response =>
-        setUserData(response.data),
+        setUserData(response?.data),
       )
     }
   }

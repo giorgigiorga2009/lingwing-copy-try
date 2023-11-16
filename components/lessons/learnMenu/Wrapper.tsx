@@ -5,7 +5,6 @@ import AllGrammar from './AllGrammar'
 import Statistics from './Statistics'
 import Vocabulary from './Vocabulary'
 import { CourseObject } from '@utils/lessons/getTask'
-import Scrollbars from 'react-custom-scrollbars'
 
 interface ChangeModeProps {
   currentCourseObject: CourseObject

@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
 export interface PaymentProps {
   value: string
@@ -129,7 +131,7 @@ export interface PaymentButtonProps {
 
 export const getPayWithList = async (): Promise<PaymentMethod[]> => {
   return await axios
-    .get(`${process.env.DEFAULT_URL}/public/paymentMethods/list`)
+    .get(`${publicRuntimeConfig.DEFAULT_URL}/public/paymentMethods/list`)
     .then(response => response.data.data)
     .catch(error => {
       console.log(error)
@@ -140,7 +142,7 @@ export const getPayWithList = async (): Promise<PaymentMethod[]> => {
 export const getUserProfileCreationDate = async (authToken: string | null) => {
   try {
     const response = await axios.get(
-      `${process.env.DEFAULT_URL}/user/profile`,
+      `${publicRuntimeConfig.DEFAULT_URL}/user/profile`,
       {
         headers: {
           Authorization: authToken ?? '',
@@ -162,7 +164,7 @@ export const getCheckedPackageId = async (
 ): Promise<any> => {
   try {
     const response = await axios.post(
-      `${process.env.DEFAULT_URL}/public/package/check`,
+      `${publicRuntimeConfig.DEFAULT_URL}/public/package/check`,
       {
         packageId: Id,
         // promoCode: "7AFE7E",
@@ -188,7 +190,7 @@ export const getPackageDataById = async (
 ): Promise<PackageResponse | undefined> => {
   try {
     const res = await axios.get(
-      `${process.env.DEFAULT_URL}/public/getorder/${id}`,
+      `${publicRuntimeConfig.DEFAULT_URL}/public/getorder/${id}`,
       {
         headers: {
           Authorization: authToken ?? '',

@@ -2,6 +2,8 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import Cookies from 'js-cookie'
 import '../pages/contact-us.module.scss'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
 interface FormValues {
   fullname: string
@@ -15,11 +17,15 @@ const PostData = async (
   { resetForm }: { resetForm: () => void },
 ) => {
   try {
-    await axios.post(`${process.env.defaultURL}/public/contact`, values, {
-      headers: {
-        'x-access-token': Cookies.get('authToken')!,
+    await axios.post(
+      `${publicRuntimeConfig.defaultURL}/public/contact`,
+      values,
+      {
+        headers: {
+          'x-access-token': Cookies.get('authToken')!,
+        },
       },
-    })
+    )
     Swal.fire({
       title: 'Successfully sent a message!',
       confirmButtonColor: '#8647b7',

@@ -24,6 +24,7 @@ import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
+import { PageHead } from '@components/PageHead'
 
 const Lessons: NextPage = () => {
   const screenshotRef = useRef<HTMLDivElement>(null)
@@ -225,6 +226,13 @@ const Lessons: NextPage = () => {
 
   return (
     <div>
+      <PageHead
+        title={'META_TAG_ABOUTCOURSE_TITLE_' + (languageTo || 'geo')}
+        description={
+          'META_TAG_ABOUTCOURSE_DESCRIPTION_' + (languageTo || 'geo')
+        }
+        keywords={'META_TAG_ABOUTCOURSE_KEYWORDS_' + (languageTo || 'geo')}
+      />
       {openFeedback && currentCourseObject && (
         <Feedback
           setOpenFeedback={() => setOpenFeedback(false)}

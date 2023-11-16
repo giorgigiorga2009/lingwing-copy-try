@@ -3,6 +3,8 @@ import { useQuery } from 'react-query'
 import { LOCALES_TO_LANGUAGES } from './languages'
 import React from 'react'
 import { useRouter } from 'next/router'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
 interface Props {
   htmlContent: string
@@ -38,7 +40,8 @@ export const useLocalizedData = (endpoint: string) => {
 
   return useQuery(
     `${endpoint}-${local}`,
-    () => fetchData(`${process.env.DEFAULT_URL}/${endpoint}?lang=${local}`), // Update this line
+    () =>
+      fetchData(`${publicRuntimeConfig.DEFAULT_URL}/${endpoint}?lang=${local}`), // Update this line
     {
       staleTime: Infinity,
       cacheTime: Infinity,

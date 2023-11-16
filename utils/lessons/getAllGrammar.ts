@@ -1,4 +1,6 @@
 import axios from 'axios'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
 interface Props {
   courseId: string
@@ -17,7 +19,7 @@ export const getAllGrammar = async ({
   }
   return await axios
     .get(
-      `${process.env.DEFAULT_URL}/public/learn/grammar/list/${courseId}/${LanguageFrom}?lang=eng`,
+      `${publicRuntimeConfig.DEFAULT_URL}/public/learn/grammar/list/${courseId}/${LanguageFrom}?lang=eng`,
       {
         headers: headers,
       },
@@ -40,7 +42,7 @@ export const getGrammarItem = async ({
   }
   return await axios
     .get(
-      `${process.env.DEFAULT_URL}/public/learn/grammar/item/${courseId}/${LanguageFrom}/${item}?lang=eng`,
+      `${publicRuntimeConfig.DEFAULT_URL}/public/learn/grammar/item/${courseId}/${LanguageFrom}/${item}?lang=eng`,
       {
         headers: headers,
       },

@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { LanguageFrom, LanguageTo } from './languages'
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
-const URL_LEVELS = `${process.env.DEFAULT_URL}/public/getLanguageStandard`
-const URL_LEVEL_OPTIONS = `${process.env.DEFAULT_URL}/public/getCourses`
+const URL_LEVELS = `${publicRuntimeConfig.DEFAULT_URL}/public/getLanguageStandard`
+const URL_LEVEL_OPTIONS = `${publicRuntimeConfig.DEFAULT_URL}/public/getCourses`
 
 type LanguageLevelData = {
   _id: {
