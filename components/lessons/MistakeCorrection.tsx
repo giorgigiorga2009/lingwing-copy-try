@@ -32,10 +32,17 @@ export const MistakeCorrectionTask: FC<Props> = ({
   const [inputText, setInputText] = useState(mistakeText)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
+  const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
+
 
   const saveCurrentTask = async () => {
     try {
-      await saveTask({ ...commonProps })
+      await saveTask({
+        ...commonProps,
+        totalMistakes: mistakesCount,
+        forgivenErrorQuantity: forgivenErrorQuantity,
+        error: errorLimit - mistakesCount < 0 ? 1 : 0,
+      })
       return true
     } catch (error) {
       console.error('Error saving task:', error)

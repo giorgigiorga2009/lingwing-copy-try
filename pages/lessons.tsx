@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import style from './lessons.module.scss'
 import { getUserId } from '@utils/getUserId'
 import { useSession } from 'next-auth/react'
+import { PageHead } from '@components/PageHead'
 import { Header } from '@components/header/Header'
 import { useEffect, useState, useRef } from 'react'
 import ProgressBar from '@components/lessons/ProgressBar'
@@ -24,7 +25,6 @@ import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
-import { PageHead } from '@components/PageHead'
 
 const Lessons: NextPage = () => {
   const screenshotRef = useRef<HTMLDivElement>(null)
@@ -51,7 +51,7 @@ const Lessons: NextPage = () => {
   const [isGrammarHeightCalled, setIsGrammarHeightCalled] = useState(false)
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
-  const [mistake, setMistake] = useState(0)
+  const [mistake, setMistake] = useState(-1)
 
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
@@ -98,17 +98,12 @@ const Lessons: NextPage = () => {
         if (courseObject) {
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
-          // setUserScore(courseObject.score)
+          setUserScore(courseObject.score)
           setDailyTaskLeft(courseObject.info.dailyTaskLeft)
           setunAuthuserDailyLimit(
             courseObject.course.configuration.unAuthUserDailyLimit,
           )
           setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
-          setUserScore((prevScore: number) => {
-            setMistake(prevScore < courseObject.score ? 1 : 0)
-
-            return courseObject.score
-          })
         }
 
         return courseObject
@@ -243,7 +238,11 @@ const Lessons: NextPage = () => {
         />
       )}
       <div className={style.container} ref={screenshotRef}>
-        <Header size="s" />
+        <Header
+          size="s"
+          courseId={currentCourseObject?.course._id}
+          token={token}
+        />
         <CombinedModalComponent
           token={token}
           courseName={courseName}
@@ -309,7 +308,6 @@ const Lessons: NextPage = () => {
                         <ChatHistory
                           completedTasks={completedTasks}
                           isHintShown={isHintShown}
-                          mistake={mistake}
                         />
                       )}
                       {currentTask && (
@@ -319,7 +317,9 @@ const Lessons: NextPage = () => {
                           isHintShown={isHintShown}
                           hintText={hintText}
                           onDivHeight={handleGrammarHeight}
-                          mistake={mistake}
+                          mistakesByLevel={
+                            tasksData[currentTaskNumber].answers ?? [-1, -1, -1]
+                          }
                         />
                       )}
                       {!currentTask && <div className={style.blankBubble} />}

@@ -12,7 +12,7 @@ interface Props {
   hintText: string
   currentMessageIndex: number
   onDivHeight: (height: number) => void
-  mistake: number
+  mistakesByLevel: number[]
 }
 
 const ChatCurrentTask: FC<Props> = ({
@@ -21,7 +21,7 @@ const ChatCurrentTask: FC<Props> = ({
   hintText,
   currentMessageIndex,
   onDivHeight,
-  mistake,
+  mistakesByLevel,
 }) => {
   return (
     <>
@@ -38,7 +38,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                mistake={mistake}
+                mistakesByLevel={mistakesByLevel}
                 // answers={currentTask.answers}
               />
             )}
@@ -50,7 +50,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                mistake={mistake}
+                mistakesByLevel={mistakesByLevel}
               />
             )}
             {currentTask.taskType === 'mistakecorrection' && (
@@ -60,7 +60,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.mistakeTaskText}
                 correctText={currentTask.correctText as string}
-                mistake={mistake}
+                mistakesByLevel={mistakesByLevel}
               />
             )}
             {currentTask.taskType === 'replay' && (
@@ -70,7 +70,7 @@ const ChatCurrentTask: FC<Props> = ({
                 isCurrentTask={true}
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
-                mistake={mistake}
+                mistakesByLevel={mistakesByLevel}
               />
             )}
             <Hint isHintShown={isHintShown} hintText={hintText} />

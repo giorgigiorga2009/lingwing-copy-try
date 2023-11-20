@@ -28,6 +28,7 @@ export const OmittedWords: FC<Props> = ({
   const [correctWords, setCorrectWords] = useState<string[]>([])
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
+  const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
 
   const errorLimit = commonProps.currentTask.errorLimit
   const inputRefs = useRef<HTMLInputElement[]>([])
@@ -76,7 +77,12 @@ export const OmittedWords: FC<Props> = ({
     if (!commonProps.token && !commonProps.userId) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
-        const isSaved = await saveTask({ ...commonProps })
+        const isSaved = await saveTask({
+          ...commonProps,
+          totalMistakes: mistakesCount,
+          forgivenErrorQuantity: forgivenErrorQuantity,
+          error: errorLimit - mistakesCount < 0 ? 1 : 0,
+        })
         if (isSaved) {
           updateCompletedTasks(commonProps)
         }

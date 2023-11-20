@@ -18,6 +18,7 @@ interface InitialTask {
   showGenderHint: false
   errorLimit: number
   answers: number[]
+  currentLevel: number
   taskType: {
     name: string
     nameCode: string
@@ -126,6 +127,7 @@ export interface TaskData {
     },
   ]
   answers: number[]
+  currentLevel: number
   wordsArray: {
     wordAudioPath: string
     wordLoweredText: string
@@ -306,6 +308,7 @@ export const getTasks = async ({
         mistakeTaskText: task.iLearnFrom[0].hint,
         dialogLinesArray: dialogLinesArray,
         answers: task.answers,
+        currentLevel: task.currentLevel,
         wordsArray:
           task?.wordsAudio?.words &&
           task.wordsAudio.words.data.map(word => {

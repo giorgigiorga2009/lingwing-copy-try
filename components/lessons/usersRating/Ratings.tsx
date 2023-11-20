@@ -20,7 +20,7 @@ interface Period {
 
 interface Props {
   courseId: string
-  userScore: number
+  userScore?: number
   token?: string | null
 }
 
@@ -57,7 +57,7 @@ const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
           onClick={() => setOpen(!open)}
         />
       </div>
-      (
+
       <div
         className={open ? `${style.container} ${style.show}` : style.container}
       >
@@ -101,7 +101,6 @@ const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
             ))}
         </div>
       </div>
-      )
     </>
   )
 }

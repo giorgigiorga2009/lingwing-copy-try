@@ -220,3 +220,19 @@ header.m .logo {
     display: none;
   }
 }
+
+.exit {
+  background: none;
+  background-image: url('/assets/images/exit.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-image: url('/assets/images/exitHover.png');
+  }
+}

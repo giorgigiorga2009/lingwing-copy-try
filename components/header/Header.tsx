@@ -14,15 +14,23 @@ import { useSession } from 'next-auth/react'
 interface Props {
   size?: 's' | 'm'
   loginClassName?: string
+  courseId?: string
+  token?: string | null
 }
 
-export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
+export const Header: FC<Props> = ({
+  size = 'm',
+  loginClassName,
+  courseId,
+  token,
+}) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [openSideMenu, setOpenSideMenu] = useState(false)
   const { t } = useTranslation()
   const router = useRouter()
   const { data: session } = useSession()
   const isDashboard = router.pathname.includes('dashboard')
+  const isLessons = router.pathname.includes('lessons')
 
   return (
     <header className={classNames(style.header, style[size])}>
@@ -34,13 +42,20 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
         <Link href="/" className={style.logo_link}>
           <div className={style.logo} />
         </Link>
-        {openSideMenu && <SideMenu onClose={() => setOpenSideMenu(false)} />}
+        {openSideMenu && (
+          <SideMenu
+            onClose={() => setOpenSideMenu(false)}
+            lessonsPage={isLessons ? true : false}
+            courseId={courseId}
+            token={token}
+          />
+        )}
       </div>
       <div className={style.rightBlock}>
         <LocalesDropdown />
         {session ? (
           <>
-            {!isDashboard && (
+            {!isDashboard && !isLessons && (
               <Link
                 href={{
                   pathname: `/dashboard`,
@@ -52,7 +67,18 @@ export const Header: FC<Props> = ({ size = 'm', loginClassName }) => {
                 <h4>{t('APP_DASHBOARD')}</h4>
               </Link>
             )}
-            <User />
+            {isLessons ? (
+              <Link
+                href={{
+                  pathname: `/dashboard`,
+                }}
+                locale={router.locale}
+                as="/dashboard"
+                className={classNames(style.exit, style.link)}
+              ></Link>
+            ) : (
+              <User />
+            )}
           </>
         ) : (
           <div className={style.authorization_box}>
