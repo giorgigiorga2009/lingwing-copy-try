@@ -14,7 +14,7 @@ interface Props {
   isCurrentTask: boolean
   sentenceAudioPath?: string
   answers?: number[]
-  mistake: number
+  mistakesByLevel: number[]
   textType:
     | 'dictation'
     | 'translate'
@@ -36,7 +36,7 @@ export const TranslateBubble: FC<Props> = ({
   isCurrentTask,
   sentenceAudioPath,
   textType,
-  mistake,
+  mistakesByLevel,
   // answers,
 }) => {
   if (typeof taskText === 'string') {
@@ -85,7 +85,7 @@ export const TranslateBubble: FC<Props> = ({
             {
               // answers &&
               utteranceType === 'taskDescription' && (
-                <LevelsBubble mistake={mistake} />
+                <LevelsBubble mistakesByLevel={mistakesByLevel} />
               )
             }
           </>

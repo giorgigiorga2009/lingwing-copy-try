@@ -3,12 +3,13 @@
 .levelsContainer {
   position: absolute;
   display: flex;
-  justify-content: space-between;
-  width: 3.3rem;
-  right: 0;
+  justify-content: flex-start;
+  width: 5.3rem;
+  right: -5.5rem;
   top: 50%;
   transform: translateY(-50%);
-  margin-right: -4rem;
+
+  // margin-right: -5rem;
 }
 
 .levels {
@@ -16,12 +17,33 @@
   height: 0.8rem;
   background-color: $white-100;
   border-radius: 2rem;
+  margin-left: 0.6rem;
 
   &.true {
-    background-color: $green-100;
+    background-color: $red-150;
+    animation: stretch-bounce 0.3s forwards;
+    animation-delay: 0.5s;
+    transform: scale(0);
   }
 
   &.false {
-    background-color: $red-200;
+    background-color: $green-100;
+    animation: stretch-bounce 0.3s forwards;
+    animation-delay: 0.5s;
+    transform: scale(0);
+  }
+}
+
+@keyframes stretch-bounce {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

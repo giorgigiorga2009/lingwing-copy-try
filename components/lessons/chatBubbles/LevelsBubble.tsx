@@ -3,22 +3,20 @@ import classNames from 'classnames'
 import style from './LevelsBubble.module.scss'
 
 interface Props {
-  mistake: number
+  mistakesByLevel: number[]
 }
 
-export const LevelsBubble: FC<Props> = ({ mistake }) => {
-  let mistakeOrNot = Boolean(mistake).toString()
+export const LevelsBubble: FC<Props> = ({ mistakesByLevel }) => {
   return (
     <div className={style.levelsContainer}>
-      <div
-        className={classNames(
-          style.levels,
-          style[mistakeOrNot],
-          //style[(!!answers[0]).toString()],
-        )}
-      />
-      <div className={style.levels}></div>
-      <div className={style.levels}></div>
+      {mistakesByLevel.map(mistake => (
+        <div
+          className={classNames(
+            style.levels,
+            style[mistake > -1 ? Boolean(mistake).toString() : ''],
+          )}
+        />
+      ))}
     </div>
   )
 }

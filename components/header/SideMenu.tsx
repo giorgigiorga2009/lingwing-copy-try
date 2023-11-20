@@ -11,6 +11,7 @@ import Foco from 'react-foco'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import styles from './SideMenu.module.scss'
+import { LessonsSideMenu } from './LessonsSideMenu'
 import { useTranslation } from '@utils/useTranslation'
 
 export type SideMenuKeys = keyof typeof SIDE_MENU_LINKS
@@ -51,9 +52,17 @@ const Section: FC<SectionProps> = ({ options, title, onClose }) => {
 
 interface SideMenuProps {
   onClose: () => void
+  lessonsPage?: boolean
+  courseId?: string
+  token?: string | null
 }
 
-export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
+export const SideMenu: FC<SideMenuProps> = ({
+  onClose,
+  lessonsPage,
+  courseId,
+  token,
+}) => {
   const { t } = useTranslation()
 
   return (
@@ -64,49 +73,53 @@ export const SideMenu: FC<SideMenuProps> = ({ onClose }) => {
         onClickOutside={onClose}
       >
         <button className={styles.button} onClick={onClose} />
-        <div className={styles.content}>
-          <div className={styles.ball} />
-          <div className={styles.menu}>
-            <Section
-              title={t('footerCourses')}
-              options={COURSES_KEYS}
-              onClose={onClose}
-            />
-            <Section
-              title={t('menuPremium')}
-              options={PREMIUM_KEYS}
-              onClose={onClose}
-            />
-            <Section
-              title={t('menuCompany')}
-              options={ABOUT_COMPANY_KEYS}
-              onClose={onClose}
-            />
-            <Section
-              title={t('menuHelp')}
-              options={HELP_KEYS}
-              onClose={onClose}
-            />
-          </div>
+        {!lessonsPage ? (
+          <div className={styles.content}>
+            <div className={styles.ball} />
+            <div className={styles.menu}>
+              <Section
+                title={t('footerCourses')}
+                options={COURSES_KEYS}
+                onClose={onClose}
+              />
+              <Section
+                title={t('menuPremium')}
+                options={PREMIUM_KEYS}
+                onClose={onClose}
+              />
+              <Section
+                title={t('menuCompany')}
+                options={ABOUT_COMPANY_KEYS}
+                onClose={onClose}
+              />
+              <Section
+                title={t('menuHelp')}
+                options={HELP_KEYS}
+                onClose={onClose}
+              />
+            </div>
 
-          <div className={styles.footer}>
-            <h3 className={styles.title}>{t('menuDownloadApp')}</h3>
-            <div className={styles.mobileMarkets}>
-              <a
-                className={classNames(styles.market, styles.apple)}
-                href="https://play.google.com/store/apps/details?id=org.android.lingwing.app"
-              >
-                {' '}
-              </a>
-              <a
-                className={classNames(styles.market, styles.google)}
-                href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755"
-              >
-                {' '}
-              </a>
+            <div className={styles.footer}>
+              <h3 className={styles.title}>{t('menuDownloadApp')}</h3>
+              <div className={styles.mobileMarkets}>
+                <a
+                  className={classNames(styles.market, styles.apple)}
+                  href="https://play.google.com/store/apps/details?id=org.android.lingwing.app"
+                >
+                  {' '}
+                </a>
+                <a
+                  className={classNames(styles.market, styles.google)}
+                  href="https://apps.apple.com/us/app/lingwing-language-learning/id1217989755"
+                >
+                  {' '}
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          courseId && <LessonsSideMenu courseId={courseId} token={token} />
+        )}
       </Foco>
     </div>
   )

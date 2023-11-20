@@ -23,6 +23,7 @@ interface TaskInputProps {
   isHintShown: boolean
   setHintText: (text: string) => void
   setIsHintShown: (bool: boolean) => void
+  // setMistake: (number: number) => void
 }
 
 export const TaskInputContainer: FC<TaskInputProps> = ({
@@ -31,10 +32,12 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   commonProps,
   setHintText,
   setIsHintShown,
+  // setMistake
 }) => {
   const [outputText, setOutputText] = useState('')
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const [mistakesCount, setMistakesCount] = useState(0)
+  const [isMistake, setIsMistake] = useState(false)
   const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [currWordIndex, setCurrWordIndex] = useState(0)
@@ -118,6 +121,21 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           forgivenErrorQuantity: forgivenErrorQuantity,
           error: errorLimit - mistakesCount < 0 ? 1 : 0,
         })
+        let isError = errorLimit - mistakesCount < 0 ? 1 : 0
+        if (!commonProps.currentTask.answers) {
+          commonProps.currentTask.answers = [isError, -1, -1]
+        } else {
+          if ((commonProps.currentTask.currentLevel = 1)) {
+            commonProps.currentTask.answers = [1, isError, -1]
+          }
+          if ((commonProps.currentTask.currentLevel = 2)) {
+            commonProps.currentTask.answers = [0, 0, isError]
+          }
+          if ((commonProps.currentTask.currentLevel = 2)) {
+            commonProps.currentTask.answers = [0, 0, 0]
+          }
+        }
+
         if (isSaved) {
           resetTaskState()
           updateCompletedTasks(commonProps)
@@ -137,7 +155,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     )
 
     taskType === 'dictation' || taskType === 'translate'
-      ? setOutputText(textCheck({ inputText, ...params }))
+      ? setOutputText(textCheck({ inputText, ...params, setIsMistake }))
       : setOutputText(replayInputCheck({ inputText, ...params }))
   }
 
