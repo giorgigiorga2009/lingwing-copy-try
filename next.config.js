@@ -5,10 +5,12 @@ const previousConfig = {
     defaultLocale: 'en',
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
+
   // process.env: {
   //   NEXT_PUBLIC_DEFAULT_URL: process.env.NEXT_PUBLIC_DEFAULT_URL,
   //   audioURL: process.env.AUDIO_URL,
   // },
+
   images: {
     domains: [
       'cdn-dev.lingwing.com',
