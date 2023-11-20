@@ -123,6 +123,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
+  const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const errorLimit = commonProps.currentTask.errorLimit
@@ -177,7 +178,12 @@ export const DialogInput: FC<DialogInputProps> = ({
         if (currentMessageIndex === dialogArray.length - 1) {
           setIsHintShown(false)
           setCurrentMessageIndex(0)
-          const isSaved = await saveTask({ ...commonProps })
+          const isSaved = await saveTask({
+            ...commonProps,
+            totalMistakes: mistakesCount,
+            forgivenErrorQuantity: forgivenErrorQuantity,
+            error: errorLimit - mistakesCount < 0 ? 1 : 0,
+          })
 
           if (isSaved) {
             updateCompletedTasks(commonProps)

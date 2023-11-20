@@ -43,7 +43,12 @@ export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
   const { t } = useTranslation()
   const handleClick = async () => {
     if (!commonProps.token && !commonProps.userId) return
-    const isSaveSuccessful = await saveTask({ ...commonProps })
+    const isSaveSuccessful = await saveTask({
+      ...commonProps,
+      totalMistakes: 0,
+      forgivenErrorQuantity: 0,
+      error: 0,
+    })
     if (isSaveSuccessful) {
       updateCompletedTasks(commonProps)
     }
