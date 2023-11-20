@@ -9,8 +9,9 @@ interface Props {
 export const LevelsBubble: FC<Props> = ({ mistakesByLevel }) => {
   return (
     <div className={style.levelsContainer}>
-      {mistakesByLevel.map(mistake => (
+      {mistakesByLevel.map((mistake, index) => (
         <div
+          key={index}
           className={classNames(
             style.levels,
             style[mistake > -1 ? Boolean(mistake).toString() : ''],

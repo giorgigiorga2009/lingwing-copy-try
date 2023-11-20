@@ -121,7 +121,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           forgivenErrorQuantity: forgivenErrorQuantity,
           error: errorLimit - mistakesCount < 0 ? 1 : 0,
         })
-        let isError = errorLimit - mistakesCount < 0 ? 1 : 0
+        const isError = errorLimit - mistakesCount < 0 ? 1 : 0
         if (!commonProps.currentTask.answers) {
           commonProps.currentTask.answers = [isError, -1, -1]
         } else {
