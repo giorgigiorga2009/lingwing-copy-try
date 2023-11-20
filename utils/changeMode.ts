@@ -1,6 +1,6 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+//const { process.env } = getConfig()
 
 const HEADERS = {
   'Content-Type': 'application/json;charset=UTF-8',
@@ -14,7 +14,7 @@ export const changeMode = (
 ) => {
   return axios({
     method: 'post',
-    url: `${publicRuntimeConfig.DEFAULT_URL}/public/learn/changeMode/${userCourseId}`,
+    url: `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/learn/changeMode/${userCourseId}`,
     headers: {
       ...HEADERS,
       Authorization: token ?? '',

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+// //const { process.env } = getConfig()
 
 interface Props {
   courseId: string
@@ -12,9 +12,10 @@ export const getRatings = async ({ courseId, period, token }: Props) => {
   const headers = {
     Authorization: token ?? '',
   }
+  console.log(process.env.NEXT_PUBLIC_DEFAULT_URL)
   return await axios
     .get(
-      `${publicRuntimeConfig.DEFAULT_URL}/public/rating/${period}/${courseId}?lang=eng`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/rating/${period}/${courseId}?lang=eng`,
       {
         headers: headers,
       },

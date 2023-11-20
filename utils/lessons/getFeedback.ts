@@ -1,6 +1,6 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+//const { process.env } = getConfig()
 
 interface Props {
   token?: string | null
@@ -39,7 +39,7 @@ export const getFeedbackCategories = async ({ token }: Props) => {
     Authorization: token ?? '',
   }
 
-  const url = `${publicRuntimeConfig.DEFAULT_URL}/public/feedback/categories`
+  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/feedback/categories`
 
   try {
     const response = await axios.get(url, {
@@ -56,7 +56,7 @@ export const sendFeedback = async ({
   token,
   feedbackData,
 }: Props): Promise<FeedbackResponse> => {
-  const url = `${publicRuntimeConfig.DEFAULT_URL}/public/feedbackSend?lang=geo`
+  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/feedbackSend?lang=geo`
   const HEADERS = {
     'Content-Type': 'application/json;charset=UTF-8',
     Accept: 'application/json, text/plain, */*',

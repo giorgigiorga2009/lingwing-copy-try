@@ -1,10 +1,10 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+//const { process.env } = getConfig()
 
 export const getMyCoursesData = (token: string): Promise<any> => {
   return axios
-    .get(`${publicRuntimeConfig.DEFAULT_URL}/user/getStartedCourses?lang=eng`, {
+    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/user/getStartedCourses?lang=eng`, {
       headers: {
         'Content-Type': 'application/json',
         authorization: token,
