@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL,
+  baseURL: process.env.DEFAULT_URL || process.env.NEXT_PUBLIC_DEFAULT_URL,
 })
 
 export const getUsersAmount = () => {
