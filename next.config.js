@@ -5,7 +5,7 @@ const previousConfig = {
     defaultLocale: 'en',
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
-  serverRuntimeConfig: {
+  publicRuntimeConfig: {
     DEFAULT_URL: process.env.DEFAULT_URL,
     AUDIO_URL: process.env.AUDIO_URL,
     FACEBOOK_ID: process.env.FACEBOOK_ID,
