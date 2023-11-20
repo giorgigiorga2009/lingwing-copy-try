@@ -44,7 +44,7 @@ export const Dialog: FC<DialogProps> = ({
   hintText,
 }) => {
   const { t } = useTranslation()
-  const audioUrl = `${process.env.audioURL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
+  const audioUrl = `${process.env.NEXT_PUBLIC_AUDIO_URL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
   const scrollbarsRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {

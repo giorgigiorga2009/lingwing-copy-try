@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { TaskData } from './getTask'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+//const { process.env } = getConfig()
 
 export interface RateLingwingProps {
   // onClose: () => void
@@ -42,7 +42,7 @@ export const getStatsPerPercent = async ({ userCourseId, token }: Props) => {
 
   return await axios
     .get(
-      `${publicRuntimeConfig.DEFAULT_URL}/user/learn/statisticPerPercent/${userCourseId}`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/user/learn/statisticPerPercent/${userCourseId}`,
       { headers: headers },
     )
     .then(response => response.data.data)

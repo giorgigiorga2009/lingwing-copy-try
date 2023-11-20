@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 import Cookies from 'js-cookie'
 import '../pages/contact-us.module.scss'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+// //const { process.env } = getConfig()
 
 interface FormValues {
   fullname: string
@@ -18,7 +18,7 @@ const PostData = async (
 ) => {
   try {
     await axios.post(
-      `${publicRuntimeConfig.defaultURL}/public/contact`,
+      `${process.env.defaultURL}/public/contact`,
       values,
       {
         headers: {

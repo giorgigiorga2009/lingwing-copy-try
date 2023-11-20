@@ -1,6 +1,6 @@
 import axios from 'axios'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+//const { process.env } = getConfig()
 
 export interface generateCertificateTextProps {
   languageName: string
@@ -21,7 +21,7 @@ type CoursePeriod = {
 
 export const getCertificate = (userCourseId: string) => {
   return axios
-    .post(`${publicRuntimeConfig.DEFAULT_URL}/certificate`, {
+    .post(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/certificate`, {
       userCourseId: userCourseId,
     })
     .then(response => response.data.data)

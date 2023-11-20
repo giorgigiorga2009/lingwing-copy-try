@@ -5,7 +5,7 @@ import { LevelsBubble } from './LevelsBubble'
 import UserAvatar from '../../shared/UserAvatar'
 import style from './TranslateBubble.module.scss'
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+//const { process.env } = getConfig()
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -51,7 +51,7 @@ export const TranslateBubble: FC<Props> = ({
     console.error('taskText is not a string:', taskText)
   }
 
-  const audioUrl = `${publicRuntimeConfig.audioURL}${sentenceAudioPath}.mp3`
+  const audioUrl = `${process.env.NEXT_PUBLIC_AUDIO_URL}${sentenceAudioPath}.mp3`
 
   return (
     <div
