@@ -13,7 +13,7 @@ export const getStatistics = async ({ courseId, token }: Props) => {
   }
   return await axios
     .get(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/statistics/small/${courseId}?lang=eng`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/statistics/small/${courseId}?lang=eng`,
       {
         headers: headers,
       },

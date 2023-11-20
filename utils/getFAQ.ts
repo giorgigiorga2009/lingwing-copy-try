@@ -42,7 +42,7 @@ export type ApiResponse = {
 
 export const getFAQ = (locale: LanguageFrom): Promise<FaqData[]> => {
   return axios
-    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/faqPricing?lang=${locale}`)
+    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/faqPricing?lang=${locale}`)
     .then(response => response.data.data)
 
     .catch(error => console.log(error))
@@ -50,7 +50,7 @@ export const getFAQ = (locale: LanguageFrom): Promise<FaqData[]> => {
 
 export const getFAQs = (locale: LanguageFrom): Promise<ApiResponse> => {
   return axios
-    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/faq?lang=${locale}`)
+    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/faq?lang=${locale}`)
     .then(response => response.data)
 
     .catch(error => console.log(error))
@@ -59,7 +59,7 @@ export const getFAQs = (locale: LanguageFrom): Promise<ApiResponse> => {
 // export const putQuestion = async (object: any) => {
 //   try {
 //     const response = await axios.put(
-//       `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/faq/custom/add`,
+//       `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/faq/custom/add`,
 //       object,
 //     )
 //     return response

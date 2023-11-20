@@ -14,7 +14,7 @@ export const changeMode = (
 ) => {
   return axios({
     method: 'post',
-    url: `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/learn/changeMode/${userCourseId}`,
+    url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/learn/changeMode/${userCourseId}`,
     headers: {
       ...HEADERS,
       Authorization: token ?? '',
