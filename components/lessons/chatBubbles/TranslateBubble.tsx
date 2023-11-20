@@ -51,7 +51,7 @@ export const TranslateBubble: FC<Props> = ({
     console.error('taskText is not a string:', taskText)
   }
 
-  const audioUrl = `${process.env.NEXT_PUBLIC_AUDIO_URL}${sentenceAudioPath}.mp3`
+  const audioUrl = `${process.env.NEXT_PUBLIC_AUDIO_URL ||  process.env.AUDIO_URL}${sentenceAudioPath}.mp3`
 
   return (
     <div

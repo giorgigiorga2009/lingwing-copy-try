@@ -6,7 +6,7 @@ const previousConfig = {
     locales: ['en', 'bn', 'es', 'ka', 'ru', 'tr'],
   },
   // process.env: {
-  //   NEXT_PUBLIC_DEFAULT_URL: process.env.NEXT_PUBLIC_DEFAULT_URL,
+  //   NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL: process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL,
   //   audioURL: process.env.AUDIO_URL,
   // },
   images: {

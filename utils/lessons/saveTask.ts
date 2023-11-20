@@ -24,7 +24,7 @@ export const saveTask = async ({
   forgivenErrorQuantity: number
   error: number
 }): Promise<boolean> => {
-  let url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
+  let url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
   if (token === null) {
     url = `${url}&userKey=${userId}`
   }

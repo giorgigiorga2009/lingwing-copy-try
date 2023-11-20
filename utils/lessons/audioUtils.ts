@@ -16,13 +16,13 @@ export const useAudio = () => {
   }
 
   const Play = (audioUrl: string) => {
-    const audio = new Audio(`${process.env.NEXT_PUBLIC_AUDIO_URL}${audioUrl}.mp3`)
+    const audio = new Audio(`${process.env.NEXT_PUBLIC_AUDIO_URL ||  process.env.AUDIO_URL}${audioUrl}.mp3`)
     audio.play()
   }
 
   const addAudio = (audioUrl: string) => {
     if (audioUrl === 'undefined/undefined') return
-    const newAudio = new Audio(`${process.env.NEXT_PUBLIC_AUDIO_URL}${audioUrl}.mp3`)
+    const newAudio = new Audio(`${process.env.NEXT_PUBLIC_AUDIO_URL ||  process.env.AUDIO_URL}${audioUrl}.mp3`)
     newAudio.onended = () => {
       setAudioIndex(prevIndex => prevIndex + 1)
     }

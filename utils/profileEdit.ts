@@ -42,7 +42,7 @@ export interface ProfileData {
 export const PutData = async (formObject: jsonData, token: string | null) => {
   try {
     const response = await axios.put(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/user/profile`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/user/profile`,
       formObject,
       {
         headers: {
@@ -63,7 +63,7 @@ export const PutData = async (formObject: jsonData, token: string | null) => {
 export const GetProfileData = async (token: string | number) => {
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/user/profile`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/user/profile`,
       {
         headers: {
           Authorization: token,
@@ -88,7 +88,7 @@ export const UploadImage = async (token: string | null, image?: string) => {
       formData.append('file', image)
 
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_DEFAULT_URL}/user/profile/avatar/upload`,
+        `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/user/profile/avatar/upload`,
         formData,
         {
           headers: {

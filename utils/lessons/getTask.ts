@@ -210,7 +210,7 @@ export const getUserCourse = async ({
   try {
     if (token) {
       const response = await axios({
-        url: `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
+        url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
         headers: {
           Authorization: token,
         },
@@ -219,7 +219,7 @@ export const getUserCourse = async ({
     }
     if (userId) {
       const response = await axios({
-        url: `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
+        url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
       })
       return response.data.data
     }
@@ -247,7 +247,7 @@ export const getTasks = async ({
     // let data
     // if (token) {
     //   const response = await axios({
-    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
+    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
     //     headers: {
     //       Authorization: token,
     //     },
@@ -256,13 +256,13 @@ export const getTasks = async ({
     // }
     // if(userId){
     //   const response = await axios({
-    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
+    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
 
     //   })
     //   data = response.data.data
     // }
     //
-    let url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
+    let url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
     let headers: {
       Authorization: string | null
     } = {
