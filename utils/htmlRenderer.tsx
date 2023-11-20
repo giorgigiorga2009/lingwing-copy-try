@@ -41,7 +41,7 @@ export const useLocalizedData = (endpoint: string) => {
   return useQuery(
     `${endpoint}-${local}`,
     () =>
-      fetchData(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/${endpoint}?lang=${local}`), // Update this line
+      fetchData(`${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/${endpoint}?lang=${local}`), // Update this line
     {
       staleTime: Infinity,
       cacheTime: Infinity,

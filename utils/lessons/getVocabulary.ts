@@ -34,7 +34,7 @@ export const getGrammaticalCategories = async ({
     iLearnId: iLearnId,
   }
 
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/dictionary/grammaticalCategories`
+  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/dictionary/grammaticalCategories`
 
   try {
     const response = await axios.get(url, {
@@ -69,7 +69,7 @@ export const getDictionaryTopics = async ({
     iLearnId: iLearnId,
   }
 
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/dictionary/topics`
+  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/dictionary/topics`
 
   try {
     const response = await axios.get(url, {
@@ -110,7 +110,7 @@ export const getDictionary = async ({
     iLearnId: iLearnId,
   }
 
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/dictionary`
+  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/dictionary`
 
   try {
     const response = await axios.get(url, {

@@ -80,9 +80,9 @@ export interface PackagesInfoProps {
 export const getPackages = (coupon: string): Promise<PackageData> => {
   return axios
     .get(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/inter/packages${
-        '?coupon=' + (coupon ?? '')
-      }`,
+      `${
+        process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+      }/public/inter/packages${'?coupon=' + (coupon ?? '')}`,
     )
     .then(response => response.data.data)
 

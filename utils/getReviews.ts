@@ -12,7 +12,7 @@ export type ReviewData = {
 
 export const getReviews = (): Promise<ReviewData[]> => {
   return axios
-    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/public/reviews`)
+    .get(`${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/reviews`)
     .then(response => response.data.data)
 
     .catch(error => console.log(error))

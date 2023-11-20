@@ -13,7 +13,7 @@ export const resetCourse = async ({ slug, token }: Props) => {
   }
   return await axios
     .delete(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL}/user/delete/startedCourse/${slug}`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/user/delete/startedCourse/${slug}`,
       {
         headers: headers,
       },
