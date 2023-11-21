@@ -93,68 +93,70 @@ const Vocabulary: FC<Props> = ({
 
   return (
     <div className={style.container}>
-      <div className={style.title}>{t('DICTIONARY_TITLE')}</div>
-      <select
-        name="languageCourses"
-        id="languageCourses"
-        onChange={e => setSelectedCourse(e.target.value)}
-      >
-        {currentLanguageCoursesList &&
-          currentLanguageCoursesList.map((course, index) => (
-            <option key={index} value={course._id}>
-              {
-                course.title[
-                  langFrom as 'eng' | 'ben' | 'tur' | 'esp' | 'geo' | 'rus'
-                ]
-              }
+      <div className={style.header}>
+        <div className={style.title}>{t('DICTIONARY_TITLE')}</div>
+        <select
+          name="languageCourses"
+          id="languageCourses"
+          onChange={e => setSelectedCourse(e.target.value)}
+        >
+          {currentLanguageCoursesList &&
+            currentLanguageCoursesList.map((course, index) => (
+              <option key={index} value={course._id}>
+                {
+                  course.title[
+                    langFrom as 'eng' | 'ben' | 'tur' | 'esp' | 'geo' | 'rus'
+                  ]
+                }
+              </option>
+            ))}
+        </select>
+        <select
+          name="grammaticalCategories"
+          id="grammaticalCategories"
+          onChange={e =>
+            setSelectedCategory(
+              e.target.selectedIndex > 0
+                ? e.target.options[e.target.selectedIndex].text
+                : '',
+            )
+          }
+        >
+          <option key={-1} value={-1}>
+            {t('DICTIONARY_GRAMMAT_CAT_OPTION')}
+          </option>
+          {grammaticalCategoriesData.map((category, index) => (
+            <option key={index} value={index}>
+              {category}
             </option>
           ))}
-      </select>
-      <select
-        name="grammaticalCategories"
-        id="grammaticalCategories"
-        onChange={e =>
-          setSelectedCategory(
-            e.target.selectedIndex > 0
-              ? e.target.options[e.target.selectedIndex].text
-              : '',
-          )
-        }
-      >
-        <option key={-1} value={-1}>
-          {t('DICTIONARY_GRAMMAT_CAT_OPTION')}
-        </option>
-        {grammaticalCategoriesData.map((category, index) => (
-          <option key={index} value={index}>
-            {category}
+        </select>
+        <select
+          name="dictionaryTopics"
+          id="dictionaryTopics"
+          onChange={e =>
+            setSelectedTopic(
+              e.target.selectedIndex > 0
+                ? e.target.options[e.target.selectedIndex].text
+                : '',
+            )
+          }
+        >
+          <option key={-1} value={-1}>
+            {t('DICTIONARY_TOPIC_OPTION')}
           </option>
-        ))}
-      </select>
-      <select
-        name="dictionaryTopics"
-        id="dictionaryTopics"
-        onChange={e =>
-          setSelectedTopic(
-            e.target.selectedIndex > 0
-              ? e.target.options[e.target.selectedIndex].text
-              : '',
-          )
-        }
-      >
-        <option key={-1} value={-1}>
-          {t('DICTIONARY_TOPIC_OPTION')}
-        </option>
-        {dictionaryTopicsData.map((topic, index) => (
-          <option key={index} value={index}>
-            {topic}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder={t('DICTIONARY_SEARCH')}
-        onChange={e => setSearchText(e.target.value)}
-      />
+          {dictionaryTopicsData.map((topic, index) => (
+            <option key={index} value={index}>
+              {topic}
+            </option>
+          ))}
+        </select>
+        <input
+          type="text"
+          placeholder={t('DICTIONARY_SEARCH')}
+          onChange={e => setSearchText(e.target.value)}
+        />
+      </div>
       <VocabularyTable
         iLearnId={currentCourseObject.course.iLearn._id}
         LanguageFrom={LanguageFrom}

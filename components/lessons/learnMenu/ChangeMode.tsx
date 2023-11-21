@@ -39,12 +39,12 @@ const ChangeMode: FC<ChangeModeProps> = ({
           style[index === selected ? 'true' : ''],
         )}
       >
-        {index === selected && (
-          <div className={style.yourChoice}>
-            {t('LEARNING_MODE_YOUR_CHOICE')}
-          </div>
-        )}
         <div className={style.header}>
+          {index === selected && (
+            <div className={style.yourChoice}>
+              {t('LEARNING_MODE_YOUR_CHOICE')}
+            </div>
+          )}
           <div className={style.modeName}>{name}</div>
           <div className={style.time}>{time}</div>
           <div className={style.dots}>

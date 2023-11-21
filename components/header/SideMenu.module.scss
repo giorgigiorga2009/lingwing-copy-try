@@ -47,6 +47,7 @@
   font-size: 1.3rem;
   background: none;
   cursor: pointer;
+  z-index: 2;
 
   &:hover {
     border-color: $black;
@@ -72,16 +73,13 @@
 
 .menu {
   display: flex;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2.5rem;
   color: $purple-500;
   margin-bottom: 1rem;
   z-index: 1;
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   section {
     width: 10rem;
@@ -121,10 +119,7 @@
   .title {
     color: $grey-100;
     text-align: center;
-
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    font-family: SegoeUI, $kaFont;
   }
 }
 

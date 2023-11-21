@@ -13,6 +13,8 @@ import { useRouter } from 'next/router'
 import styles from './SideMenu.module.scss'
 import { LessonsSideMenu } from './LessonsSideMenu'
 import { useTranslation } from '@utils/useTranslation'
+import { CourseObject } from '@utils/lessons/getTask'
+
 
 export type SideMenuKeys = keyof typeof SIDE_MENU_LINKS
 
@@ -53,14 +55,14 @@ const Section: FC<SectionProps> = ({ options, title, onClose }) => {
 interface SideMenuProps {
   onClose: () => void
   lessonsPage?: boolean
-  courseId?: string
+  currentCourseObject?: CourseObject
   token?: string | null
 }
 
 export const SideMenu: FC<SideMenuProps> = ({
   onClose,
   lessonsPage,
-  courseId,
+  currentCourseObject,
   token,
 }) => {
   const { t } = useTranslation()
@@ -118,7 +120,7 @@ export const SideMenu: FC<SideMenuProps> = ({
             </div>
           </div>
         ) : (
-          courseId && <LessonsSideMenu courseId={courseId} token={token} />
+          currentCourseObject && <LessonsSideMenu currentCourseObject={currentCourseObject} token={token} />
         )}
       </Foco>
     </div>

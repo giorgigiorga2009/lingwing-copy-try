@@ -1,5 +1,9 @@
 @import '@styles/imports';
 
+.header {
+  position: relative;
+}
+
 .title {
   font-family: $kaFontTitle;
   color: $purple-600;
@@ -29,12 +33,12 @@
   }
 }
 
-.row {
+.table {
   font-size: 0.85rem;
   font-family: SegoeUI, $kaFont;
   color: $grey-700;
   border-collapse: collapse;
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   thead,
   tbody {
@@ -48,7 +52,7 @@
 
   tbody {
     overflow-y: auto;
-    height: 35rem;
+    height: calc(100vh - 28rem);
   }
 
   tbody tr,

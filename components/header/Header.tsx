@@ -10,18 +10,20 @@ import { LocalesDropdown } from './LocalesDropdown'
 import { LoginModal } from '../loginWindow/LoginModal'
 import { useTranslation } from '@utils/useTranslation'
 import { useSession } from 'next-auth/react'
+import { CourseObject } from '@utils/lessons/getTask'
+
 
 interface Props {
   size?: 's' | 'm'
   loginClassName?: string
-  courseId?: string
+  currentCourseObject?: CourseObject
   token?: string | null
 }
 
 export const Header: FC<Props> = ({
   size = 'm',
   loginClassName,
-  courseId,
+  currentCourseObject,
   token,
 }) => {
   const [openLogin, setOpenLogin] = useState(false)
@@ -46,7 +48,7 @@ export const Header: FC<Props> = ({
           <SideMenu
             onClose={() => setOpenSideMenu(false)}
             lessonsPage={isLessons ? true : false}
-            courseId={courseId}
+            currentCourseObject={currentCourseObject}
             token={token}
           />
         )}

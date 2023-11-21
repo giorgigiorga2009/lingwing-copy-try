@@ -240,7 +240,8 @@ const Lessons: NextPage = () => {
       <div className={style.container} ref={screenshotRef}>
         <Header
           size="s"
-          courseId={currentCourseObject?.course._id}
+          currentCourseObject={currentCourseObject}
+          // courseId={courseId}
           token={token}
         />
         <CombinedModalComponent
