@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: $purple-600;
   background-image: url('/assets/images/background-letters.svg'),
     -webkit-radial-gradient(center, circle cover, rgba(255 255 255 / 15%) 0, rgba(
@@ -23,21 +23,16 @@
 }
 
 .styledTitle {
-  font-family: HVDComicSerifPro;
+  font-family: HVDComicSerifPro,  $kaFont;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0 0 0 / 60%);
   color: $purple-300;
   display: inline-block;
   margin: 0 1rem;
-  
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
- 
 }
 
 .title {
-  font-family: HVDComicSerifPro;
+  font-family: HVDComicSerifPro,  $kaFont;
   font-weight: 500;
   margin-bottom: 2rem;
   color: $white;
@@ -46,26 +41,22 @@
   width: 100%;
   text-align: center;
 
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
-
   @include smallWidth {
     font-size: 1rem !important;
   }
 
   @include mobile {
     font-size: 1.5rem;
-    margin: 1rem 0rem 0rem 0rem;
+    margin: 1rem 0 0;
   }
 
   @include tablet {
     font-size: 4vw;
   }
 
-  @include smallHeight {
-    display: none;
-  }
+  // @include smallHeight {
+  //   display: none;
+  // }
 }
 
 .content {
@@ -77,10 +68,10 @@
   max-width: 75rem;
   height: auto;
 
-
   @include tablet {
     margin-top: 8rem;
   }
+
   @include mobile {
     margin-top: 5rem;
   }
@@ -109,7 +100,7 @@
   }
 }
 
-.chunk {
-  color: blue;
-}
+// .chunk {
+//   color: blue;
+// }
 
