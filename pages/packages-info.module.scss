@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 5rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   align-items: center;
   background-image: url('/assets/images/background-letters.svg');
   background-position: left top, left top;
@@ -12,15 +12,10 @@
   position: relative;
   height: 100%;
   width: 100%;
-  position: relative;
   overflow: scroll;
   overflow-x: hidden;
   background-attachment: local;
   color: $grey-800;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 }
 
 .planSelectionContainer {

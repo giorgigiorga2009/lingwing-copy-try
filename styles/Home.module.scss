@@ -84,19 +84,18 @@
   background-repeat: no-repeat;
   position: absolute;
   bottom: 0;
-  left: 6rem;
-  width: 23rem;
-  height: 23rem;
+  left: center;
+  transform: translateX(-400px);
+  width: 22rem;
+  height: 22rem;
+
 
   @include mobile {
     display: none;
   }
 
   @include tablet {
-    width: 20rem;
-    height: 20rem;
-    left: 1rem;
-    bottom: 4rem;
+    display: none;
   }
 }
 

@@ -53,6 +53,11 @@ const Lessons: NextPage = () => {
   const chatRef = useRef<HTMLDivElement>(null)
   const [mistake, setMistake] = useState(-1)
 
+  let levelsArray: number[] = []
+  if (currentCourseObject?.learnMode) {
+    levelsArray = new Array(currentCourseObject?.learnMode).fill(-1)
+  }
+
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
   const [dailyReachedLimitDate, setDailyReachedLimitDate] = useState<
@@ -60,6 +65,7 @@ const Lessons: NextPage = () => {
   >()
 
   const router = useRouter()
+  const locale = router.locale
   const { data: session } = useSession()
   const { courseName, languageTo, languageFrom } = router.query
 
@@ -199,7 +205,8 @@ const Lessons: NextPage = () => {
     (token !== undefined || userId !== undefined) &&
     languageTo !== undefined &&
     languageFrom !== undefined &&
-    currentTask !== undefined
+    currentTask !== undefined &&
+    currentCourseObject !== undefined 
 
   const commonProps = arePropsDefined
     ? {
@@ -214,6 +221,7 @@ const Lessons: NextPage = () => {
         completedTasks,
         mistake,
         setCompletedTasks,
+        learnMode: currentCourseObject.learnMode
       }
     : null
 
@@ -235,13 +243,14 @@ const Lessons: NextPage = () => {
           currentTaskData={currentTask}
           screenshotRef={screenshotRef}
           token={token}
+          UserEmail={session?.user.email}
+          locale={locale}
         />
       )}
       <div className={style.container} ref={screenshotRef}>
         <Header
           size="s"
           currentCourseObject={currentCourseObject}
-          // courseId={courseId}
           token={token}
         />
         <CombinedModalComponent
@@ -259,6 +268,7 @@ const Lessons: NextPage = () => {
         />
         {isSoundChecked && currentCourseObject && token && (
           <Ratings
+            userCourseId={currentCourseObject?._id}
             courseId={currentCourseObject?.course._id}
             userScore={userScore}
             token={token}
@@ -318,8 +328,9 @@ const Lessons: NextPage = () => {
                           isHintShown={isHintShown}
                           hintText={hintText}
                           onDivHeight={handleGrammarHeight}
+                          //  currentLevel={currentCourseObject?.learnMode}
                           mistakesByLevel={
-                            tasksData[currentTaskNumber].answers ?? [-1, -1, -1]
+                            tasksData[currentTaskNumber].answers ?? levelsArray
                           }
                         />
                       )}
@@ -334,6 +345,7 @@ const Lessons: NextPage = () => {
                       setHintText={setHintText}
                       currentMessageIndex={currentMessageIndex}
                       setCurrentMessageIndex={setCurrentMessageIndex}
+                      //currentLevel={currentCourseObject?.learnMode}
                     />
                   )}
                 </div>

@@ -20,11 +20,12 @@ interface Period {
 
 interface Props {
   courseId: string
+  userCourseId: string
   userScore?: number
   token?: string | null
 }
 
-const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
+const Ratings: FC<Props> = ({ courseId, userScore, token, userCourseId }) => {
   const { t } = useTranslation()
   const [ratings, setRatings] = useState<User[]>([])
   const [open, setOpen] = useState(true)
@@ -35,10 +36,15 @@ const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
   useEffect(() => {
     const fetchFaqData = async () => {
       try {
-        const response = await getRatings({ courseId, period, token })
+        const currentPeriod = period !== 'topTwenty' ? userCourseId : courseId
+        const response = await getRatings({
+          courseId: currentPeriod,
+          period,
+          token,
+        })
         setRatings(response)
       } catch (error) {
-        console.error('Failed to fetch Ratings data:', error)
+        console.error('Failed to fetch Ratin˝˝gs data:', error)
       }
     }
     fetchFaqData()

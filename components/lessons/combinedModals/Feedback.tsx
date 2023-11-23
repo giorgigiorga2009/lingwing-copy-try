@@ -9,6 +9,8 @@ import {
   feedback,
 } from '@utils/lessons/getFeedback'
 import { CourseObject, TaskData } from '@utils/lessons/getTask'
+import { Locale } from '@utils/localization'
+import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 
 interface Props {
   token: string | null
@@ -16,6 +18,8 @@ interface Props {
   currentCourseObject: CourseObject
   currentTaskData: TaskData | undefined
   screenshotRef: React.RefObject<HTMLDivElement>
+  UserEmail: string | undefined
+  locale: string | string[] | undefined
 }
 
 interface Category {
@@ -36,18 +40,20 @@ const Feedback: FC<Props> = ({
   currentCourseObject,
   currentTaskData,
   screenshotRef,
+  UserEmail,
+  locale,
 }) => {
   const { t } = useTranslation()
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState(UserEmail)
   const [response, setResponse] = useState(0)
-
+  const lang = LOCALES_TO_LANGUAGES[locale as Locale]
   const [feedbackText, setFeedbackText] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedSubCategory, setSelectedSubCategory] = useState('')
   const [feedbackCategoriesData, setFeedbackCategoriesData] = useState<
     Category[]
   >([])
-  const [feedbackData, setFeedbackData] = useState<feedback>()
+  // const [feedbackData, setFeedbackData] = useState<feedback>()
 
   const handleCaptureScreenshot = async (): Promise<string | undefined> => {
     return new Promise((resolve, reject) => {
@@ -74,6 +80,7 @@ const Feedback: FC<Props> = ({
       try {
         const response = await getFeedbackCategories({
           token,
+          lang,
         })
         setFeedbackCategoriesData(response)
       } catch (error) {
@@ -116,7 +123,7 @@ const Feedback: FC<Props> = ({
       const screenshotImageSrc = await handleCaptureScreenshot()
 
       if (currentTaskData) {
-        const feedbackData = {
+        const feedbackData: feedback = {
           category: selectedCategory,
           course: currentCourseObject.course._id,
           device: {
@@ -138,7 +145,7 @@ const Feedback: FC<Props> = ({
           userCourse: currentCourseObject._id,
         }
 
-        const response = await sendFeedback({ token, feedbackData })
+        const response = await sendFeedback({ token, feedbackData, lang })
 
         setResponse(response.status)
       }

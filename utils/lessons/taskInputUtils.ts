@@ -12,6 +12,7 @@ export type CommonProps = {
   completedTasks: TaskData[] | undefined
   setCurrentTaskNumber: (number: number) => void
   setCompletedTasks: (tasks: TaskData[]) => void
+  learnMode: number
 }
 
 export const handleChange = (

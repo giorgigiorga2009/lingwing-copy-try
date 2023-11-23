@@ -24,6 +24,7 @@ interface SubCourseProps {
   status: {
     start: boolean
     continue: boolean
+    buy: boolean
   }
   iLearnFromNameCode: string
 }
@@ -46,10 +47,10 @@ const MySubCourse: FC<Props> = ({
   const [allPassedTask, setAllPassedTask] = useState<number>(
     subCourse.allPassedTasks,
   )
-  const [continueBtn, setContinueBtn] = useState<boolean>(
-    subCourse.status.continue,
-  )
-  const [startBtn, setStartBtn] = useState<boolean>(subCourse.status.start)
+  // const [continueBtn, setContinueBtn] = useState<boolean>(
+  //   subCourse.status.continue,
+  // )
+  // const [startBtn, setStartBtn] = useState<boolean>(subCourse.status.start)
 
   const languageTo = subCourse.iLearn?.nameCode
   const languageFrom = subCourse.iLearnFromNameCode
@@ -58,8 +59,8 @@ const MySubCourse: FC<Props> = ({
   const handleResetCourse = () => {
     setAllPassedTask(0)
     setPercent('0')
-    setContinueBtn(false)
-    setStartBtn(true)
+    // setContinueBtn(false)
+    // setStartBtn(true)
   }
 
   return (
@@ -105,9 +106,9 @@ const MySubCourse: FC<Props> = ({
             }}
           >
             <button className={style.start_course_btn}>
-              {continueBtn
-                ? t('APP_GENERAL_CONTINUE')
-                : startBtn && t('startButton')}
+              {subCourse.status.start === true && t('startButton')}
+              {subCourse.status.continue === true && t('APP_GENERAL_CONTINUE')}
+              {subCourse.status.buy === true && t('APP_GENERAL_CONTINUE')}
             </button>
           </Link>
         )}

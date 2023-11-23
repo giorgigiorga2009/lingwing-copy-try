@@ -122,17 +122,43 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           error: errorLimit - mistakesCount < 0 ? 1 : 0,
         })
         const isError = errorLimit - mistakesCount < 0 ? 1 : 0
-        if (!commonProps.currentTask.answers) {
-          commonProps.currentTask.answers = [isError, -1, -1]
-        } else {
-          if ((commonProps.currentTask.currentLevel = 1)) {
-            commonProps.currentTask.answers = [1, isError, -1]
+
+        if (commonProps.learnMode === 3) {
+          if (!commonProps.currentTask.answers) {
+            commonProps.currentTask.answers = [isError, -1, -1]
+          } else {
+            if (commonProps.currentTask.currentLevel === 1) {
+              commonProps.currentTask.answers = [1, isError, -1]
+            }
+            if (commonProps.currentTask.currentLevel === 2) {
+              commonProps.currentTask.answers = [0, 0, isError]
+            }
+            if (commonProps.currentTask.currentLevel === 3) {
+              commonProps.currentTask.answers = [0, 0, 0]
+            }
           }
-          if ((commonProps.currentTask.currentLevel = 2)) {
-            commonProps.currentTask.answers = [0, 0, isError]
+        }
+        if (commonProps.learnMode === 2) {
+          if (!commonProps.currentTask.answers) {
+            commonProps.currentTask.answers = [isError, -1, -1]
+          } else {
+            if ((commonProps.currentTask.currentLevel = 1)) {
+              commonProps.currentTask.answers = [1, isError]
+            }
+            if ((commonProps.currentTask.currentLevel = 2)) {
+              commonProps.currentTask.answers = [0, isError]
+            }
           }
-          if ((commonProps.currentTask.currentLevel = 2)) {
-            commonProps.currentTask.answers = [0, 0, 0]
+        }
+
+        if (commonProps.learnMode === 1) {
+          if (!commonProps.currentTask.answers) {
+            commonProps.currentTask.answers = [isError, -1, -1]
+          } else {
+            if ((commonProps.currentTask.currentLevel = 1)) {
+              commonProps.currentTask.answers = [isError]
+            }
+          
           }
         }
 

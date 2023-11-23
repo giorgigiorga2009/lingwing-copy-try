@@ -92,7 +92,7 @@
   font-size: 4.063rem;
   font-weight: bolder;
   transform: translate(-50%, -50%);
-  font-family: HVDComicSerifPro, bpg_arial_2009;
+  font-family: HVDComicSerifPro, bpg_arial_2009, $kaFont;
 }
 
 .smallSizeParrot {
@@ -185,7 +185,7 @@
 
   h2 {
     font-weight: 100;
-    font-family: HVDComicSerifPro, bpg_arial_2009;
+    font-family: HVDComicSerifPro, bpg_arial_2009, $kaFont;
 
     @include mobile {
       font-size: 1.7rem;
@@ -200,10 +200,6 @@
       max-width: none;
       font-size: 3.2vw;
     }
-
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
   }
 }
 
@@ -212,7 +208,7 @@
   font-weight: 700;
   margin-top: -2%;
   text-align: start;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
 
   @include mobile {
     font-size: 1.1rem;
@@ -224,10 +220,6 @@
 
   @include desktop {
     margin: -1.563rem 0;
-  }
-
-  &:lang(ka) {
-    font-family: $kaFont;
   }
 }
 
@@ -300,13 +292,9 @@
 }
 
 .statsNum {
-  font-family: SegoeUIBlack;
+  font-family: SegoeUIBlack, $kaFont;
 }
 
 .speciesText {
-  font-family: SegoeUI;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+  font-family: SegoeUI, $kaFont;
 }

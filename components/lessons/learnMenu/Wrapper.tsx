@@ -25,7 +25,7 @@ const Wrapper: FC<ChangeModeProps> = ({
         {tab === 'levels' && (
           <ChangeMode
             learnMode={currentCourseObject.learnMode}
-            userCourseId={currentCourseObject.course._id}
+            userCourseId={currentCourseObject._id}
             token={token}
           />
         )}

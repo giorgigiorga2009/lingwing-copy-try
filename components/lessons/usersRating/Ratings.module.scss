@@ -70,7 +70,7 @@
   right: 0;
   top: 0;
   margin-top: 14vh;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   font-size: 0.85rem;
   margin-right: 2rem;
   transform: translateX(130%);
@@ -92,7 +92,7 @@
 .header {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   button {
     cursor: pointer;
@@ -114,12 +114,9 @@
 
 .title {
   color: $purple-500;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   padding-top: 0;
-
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
-  }
+  font-family: SegoeUI, $kaFontTitleBold;
 }
 
 .usersContainer {
