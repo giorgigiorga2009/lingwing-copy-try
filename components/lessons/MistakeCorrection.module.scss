@@ -43,6 +43,22 @@
     padding: 0.7rem 1rem 0.8rem 1.5rem;
     font-size: 1rem;
   }
+
+  &:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    border: 2px solid $purple-500;
+  }
+}
+
+.inputDone {
+  width: 75%;
+  background-color: $green-100;
+  transition: 0.3s ease-in-out;
+
+  &:focus {
+    border: 2px solid $green-150;
+  }
 }
 
 .checkButton {

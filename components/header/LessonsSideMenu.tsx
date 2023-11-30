@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import style from './LessonsSideMenu.module.scss'
 import { CourseObject } from '@utils/lessons/getTask'
-import Ratings from '@components/lessons/usersRating/Ratings'
 import AllGrammar from '@components/lessons/learnMenu/AllGrammar'
 import ChangeMode from '@components/lessons/learnMenu/ChangeMode'
 import Statistics from '@components/lessons/learnMenu/Statistics'
@@ -44,7 +43,6 @@ export const LessonsSideMenu: FC<Props> = ({ currentCourseObject, token }) => {
         {activeTab === 'statistics' && (
           <Statistics courseId={currentCourseObject._id} token={token} />
         )}
-        {/* <Ratings courseId={courseId} token={token} /> */}
       </div>
       <div className={style.footerMenu}>
         <button

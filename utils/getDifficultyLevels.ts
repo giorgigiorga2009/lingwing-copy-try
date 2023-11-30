@@ -3,8 +3,12 @@ import { LanguageFrom, LanguageTo } from './languages'
 import getConfig from 'next/config'
 //const { process.env } = getConfig()
 
-const URL_LEVELS = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getLanguageStandard`
-const URL_LEVEL_OPTIONS = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getCourses`
+const URL_LEVELS = `${
+  process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+}/public/getLanguageStandard`
+const URL_LEVEL_OPTIONS = `${
+  process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+}/public/getCourses`
 
 type LanguageLevelData = {
   _id: {

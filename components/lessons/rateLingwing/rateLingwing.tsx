@@ -33,7 +33,7 @@ const RateLingwingModal: React.FC<RateLingwingProps> = ({ completedTasks }) => {
               <Image src={heart} alt="" width={15} height={15} />
             </p>
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/lingwingcom/reviews"
               target="_blank"
               rel="noreferrer"
               className={style.facebook}

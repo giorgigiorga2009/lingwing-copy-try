@@ -5,13 +5,16 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .content {
   overflow: scroll;
   width: 100%;
-  margin-top: 2rem
-
+  margin-top: 2rem;
 }
 
 .footerMenu {
@@ -26,7 +29,7 @@
     cursor: pointer;
     background-position: center center;
     border-radius: 0.8rem;
-    padding: 2rem;
+    padding: 1.6rem;
     background-repeat: no-repeat;
 
     &:hover {
@@ -38,22 +41,22 @@
 
 .statisticsIcon {
   background-image: url('/assets/images/statistics.png');
-  background-size: 2rem;
+  background-size: 1.8rem;
 }
 
 .grammarIcon {
   background-image: url('/assets/images/allGrammar.png');
-  background-size: 2.5rem;
+  background-size: 2.3rem;
 }
 
 .vocabularyIcon {
   background-image: url('/assets/images/vocabulary.png');
-  background-size: 2.4rem;
+  background-size: 2.2rem;
 }
 
 .changeModeIcon {
   background-image: url('/assets/images/changeMode.png');
-  background-size: 2rem;
+  background-size: 1.8rem;
 }
 
 .activeButton {

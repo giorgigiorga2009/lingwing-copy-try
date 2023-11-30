@@ -17,7 +17,9 @@ import {
   handleChange,
   updateCompletedTasks,
   handleOnKeyDown,
+  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
+import { LevelsBubble } from './chatBubbles/LevelsBubble'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
@@ -32,6 +34,7 @@ interface DialogProps {
   isHistory: boolean
   isHintShown: boolean
   hintText: string
+  mistakesByLevel: number[]
 }
 
 export const Dialog: FC<DialogProps> = ({
@@ -42,9 +45,12 @@ export const Dialog: FC<DialogProps> = ({
   isHistory,
   isHintShown,
   hintText,
+  mistakesByLevel,
 }) => {
   const { t } = useTranslation()
-  const audioUrl = `${process.env.NEXT_PUBLIC_AUDIO_URL ||  process.env.AUDIO_URL}${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
+  const audioUrl = `${
+    process.env.NEXT_PUBLIC_AUDIO_URL || process.env.AUDIO_URL
+  }${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
   const scrollbarsRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -55,6 +61,10 @@ export const Dialog: FC<DialogProps> = ({
 
   return (
     <div className={style.wrapper}>
+      <LevelsBubble
+        mistakesByLevel={mistakesByLevel}
+        taskType="grammarOrDialog"
+      />
       <div className={style.title}>{t('DIALOG_TITLE')}</div>
       <div className={style.dialog} ref={scrollbarsRef}>
         <span className={style.description}>
@@ -154,6 +164,7 @@ export const DialogInput: FC<DialogInputProps> = ({
     setIsHintShown,
     setHintText,
     isHintShown,
+    setForgivenErrorQuantity,
   }
 
   const handleTextareaChange = (
@@ -185,16 +196,24 @@ export const DialogInput: FC<DialogInputProps> = ({
             error: errorLimit - mistakesCount < 0 ? 1 : 0,
           })
 
+          const isMistake = 0
+          commonProps.currentTask.answers = setLevelColors({
+            answers: commonProps.currentTask.answers,
+            currentLevel: commonProps.currentTask.currentLevel,
+            learnMode: commonProps.learnMode,
+            isMistake: isMistake,
+          })
+
           if (isSaved) {
             updateCompletedTasks(commonProps)
+            setMistakesCount(0)
           }
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
-        setMistakesCount(0)
         setOutputText('')
         //setInputText('')
-      }, 2000)
+      }, 1500)
     }
   }, [outputText])
 

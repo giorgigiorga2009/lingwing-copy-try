@@ -4,11 +4,18 @@ import style from './LevelsBubble.module.scss'
 
 interface Props {
   mistakesByLevel: number[]
+  taskType?: 'grammarOrDialog'
 }
 
-export const LevelsBubble: FC<Props> = ({ mistakesByLevel }) => {
+export const LevelsBubble: FC<Props> = ({ mistakesByLevel, taskType }) => {
   return (
-    <div className={style.levelsContainer}>
+    <div
+      className={
+        taskType === 'grammarOrDialog'
+          ? style.levelsContainer2
+          : style.levelsContainer
+      }
+    >
       {mistakesByLevel.map((mistake, index) => (
         <div
           key={index}

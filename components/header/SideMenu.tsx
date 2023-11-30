@@ -15,7 +15,6 @@ import { LessonsSideMenu } from './LessonsSideMenu'
 import { useTranslation } from '@utils/useTranslation'
 import { CourseObject } from '@utils/lessons/getTask'
 
-
 export type SideMenuKeys = keyof typeof SIDE_MENU_LINKS
 
 interface SectionProps {
@@ -57,6 +56,7 @@ interface SideMenuProps {
   lessonsPage?: boolean
   currentCourseObject?: CourseObject
   token?: string | null
+  openSideMenu: boolean
 }
 
 export const SideMenu: FC<SideMenuProps> = ({
@@ -64,14 +64,15 @@ export const SideMenu: FC<SideMenuProps> = ({
   lessonsPage,
   currentCourseObject,
   token,
+  openSideMenu,
 }) => {
   const { t } = useTranslation()
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${openSideMenu ? styles.visible : ''}`}>
       <Foco
         component="div"
-        className={styles.container}
+        className={`${styles.container} ${openSideMenu ? styles.visible : ''}`}
         onClickOutside={onClose}
       >
         <button className={styles.button} onClick={onClose} />
@@ -120,7 +121,13 @@ export const SideMenu: FC<SideMenuProps> = ({
             </div>
           </div>
         ) : (
-          currentCourseObject && <LessonsSideMenu currentCourseObject={currentCourseObject} token={token} />
+          currentCourseObject &&
+          token && (
+            <LessonsSideMenu
+              currentCourseObject={currentCourseObject}
+              token={token}
+            />
+          )
         )}
       </Foco>
     </div>

@@ -4,15 +4,22 @@ import { saveTask } from '@utils/lessons/saveTask'
 import {
   CommonProps,
   updateCompletedTasks,
+  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
+import { LevelsBubble } from './chatBubbles/LevelsBubble'
 import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   taskText: string
   onDivHeight?: (height: number) => void
+  mistakesByLevel: number[]
 }
 
-export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
+export const Grammar: FC<Props> = ({
+  taskText,
+  onDivHeight,
+  mistakesByLevel,
+}) => {
   const { t } = useTranslation()
   const grammarRef = useRef<HTMLDivElement | null>(null)
 
@@ -22,10 +29,13 @@ export const Grammar: FC<Props> = ({ taskText, onDivHeight }) => {
       onDivHeight(height + 20)
     }
   }, [grammarRef.current])
-
   return (
-    <div>
+    <div className={style.grammarContainer}>
       <div className={style.title}>{t('LESSONS_GRAMMAR')}</div>
+      <LevelsBubble
+        mistakesByLevel={mistakesByLevel}
+        taskType="grammarOrDialog"
+      />
       <div
         ref={grammarRef}
         className={style.textContainer}
@@ -49,6 +59,15 @@ export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
       forgivenErrorQuantity: 0,
       error: 0,
     })
+
+    const isMistake = 0
+    commonProps.currentTask.answers = setLevelColors({
+      answers: commonProps.currentTask.answers,
+      currentLevel: commonProps.currentTask.currentLevel,
+      learnMode: commonProps.learnMode,
+      isMistake: isMistake,
+    })
+
     if (isSaveSuccessful) {
       updateCompletedTasks(commonProps)
     }

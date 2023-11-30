@@ -106,9 +106,15 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                 isHistory={true}
                 isHintShown={false}
                 hintText={''}
+                mistakesByLevel={task.answers}
               />
             )}
-            {taskType === 'grammar' && <Grammar taskText={task.taskText} />}
+            {taskType === 'grammar' && (
+              <Grammar
+                taskText={task.taskText}
+                mistakesByLevel={task.answers}
+              />
+            )}
           </div>
         )
       })}

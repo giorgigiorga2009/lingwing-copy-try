@@ -9,25 +9,36 @@
 }
 
 .showText {
+  position: relative;
+  width: 12rem;
+  height: 1rem;
+  text-align: center;
+  text-wrap: nowrap;
   transform: rotate(270deg);
-  margin-right: -1.5rem;
+  margin-right: -4.8rem;
   background: none;
   border: none;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFontTitle;
   color: $purple-500;
   cursor: pointer;
-
-  @include tablet {
-    display: none;
-  }
 
   @include mobile {
     display: none;
   }
+}
 
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
-  }
+.hideText {
+  position: relative;
+  transform: rotate(270deg);
+  margin-right: 2.2rem;
+  top: 50%;
+  left: 50%;
+  background: none;
+  border: none;
+  font-family: SegoeUI, $kaFontTitle;
+  color: $purple-500;
+  cursor: pointer;
+  z-index: 12;
 }
 
 .showButton {
@@ -37,10 +48,6 @@
   background-repeat: no-repeat;
   background-image: url('/assets/images/rectangle_top.png');
   cursor: pointer;
-
-  @include tablet {
-    display: none;
-  }
 
   @include mobile {
     display: none;
@@ -54,38 +61,38 @@
   background-repeat: no-repeat;
   background-image: url('/assets/images/rectangle_top2.png');
   cursor: pointer;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include mobile {
-    display: none;
-  }
+  z-index: 130;
 }
 
 .container {
-  position: absolute;
-  width: 12rem;
+  position: fixed;
+  width: 14rem;
   right: 0;
   top: 0;
   margin-top: 14vh;
   font-family: SegoeUI, $kaFont;
   font-size: 0.85rem;
-  margin-right: 2rem;
+  margin-right: 3rem;
+  overflow-x: hidden;
   transform: translateX(130%);
   transition: transform 0.4s ease-out;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include mobile {
-    display: none;
-  }
+  z-index: 10;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  background-color: $white;
+  box-shadow: 0 1px 3px 0 rgba(60 64 67 / 5.2%),
+    0 4px 8px 1px rgba(60 64 67 / 5.9%);
 
   &.show {
     transform: translateX(0);
+  }
+
+  @include mobile {
+    margin-right: 0;
+    width: 18rem;
+    margin-top: 11vh;
+    box-shadow: 0 1px 3px 0 rgba(60 64 67 / 10.2%),
+      0 4px 8px 1px rgba(60 64 67 / 10.9%);
   }
 }
 
@@ -93,6 +100,7 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 1.5rem;
+  height: 1.4rem;
 
   button {
     cursor: pointer;

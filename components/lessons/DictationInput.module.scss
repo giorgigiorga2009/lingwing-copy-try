@@ -11,7 +11,7 @@
   font-family: SegoeUI, $kaFont;
   resize: none;
   height: 4.4rem;
-  background-color: #f3f3f3;
+  background-color: $white-100;
   border: none;
   border-radius: 50px;
   padding: 1.2rem 1rem 0.8rem 2rem;
@@ -37,6 +37,10 @@
 
   &:focus {
     border: 2px solid $green-150;
+  }
+
+  @include mobile {
+    width: 73%;
   }
 }
 

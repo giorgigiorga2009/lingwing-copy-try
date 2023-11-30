@@ -1,4 +1,4 @@
-import { TaskData } from '@utils/lessons/getTask'
+import { TaskData, CourseObject } from '@utils/lessons/getTask'
 import { KEYBOARD_OVERRIDE, LANGUAGES_MAP_OVERRIDE } from '@utils/const'
 
 export type CommonProps = {
@@ -292,4 +292,76 @@ export const updateCompletedTasks = (commonProps: CommonProps) => {
     : [commonProps.currentTask]
   commonProps.setCompletedTasks(newCompletedTasks)
   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+}
+
+export const setLevelColors = ({
+  answers,
+  currentLevel,
+  learnMode,
+  isMistake,
+}: {
+  answers: number[]
+  currentLevel: number
+  learnMode: number
+  isMistake: number
+}) => {
+  const setAnswers = (values: number[]) => (answers = values)
+
+  if (!answers) {
+    const arr = new Array(learnMode - 1).fill(-1)
+    arr.unshift(isMistake)
+    answers = arr
+  } else {
+    if (learnMode === 3) {
+      currentLevel === 1 && setAnswers([isMistake, -1, -1])
+      currentLevel === 2 && setAnswers([0, isMistake, -1])
+      currentLevel === 3 && setAnswers([0, 0, isMistake])
+    }
+
+    if (learnMode === 2) {
+      currentLevel === 1 && setAnswers([isMistake, -1])
+      currentLevel === 2 && setAnswers([0, isMistake])
+    }
+    if (learnMode === 1) {
+      setAnswers([isMistake])
+    }
+  }
+  return answers
+}
+
+export const getLevelColors = ({
+  currentTask,
+  currentCourseObject,
+}: {
+  currentTask: TaskData
+  currentCourseObject: CourseObject
+}) => {
+  let levelsArray: number[] = []
+
+  if (currentTask && currentCourseObject) {
+    if (!currentTask.answers) {
+      levelsArray = new Array(currentCourseObject?.learnMode).fill(-1)
+    } else {
+      const setAnswers = (values: number[]) => (levelsArray = values)
+      const level: number = currentTask.currentLevel
+      const learnMode: number = currentCourseObject.learnMode
+      const lastAnswer =
+        currentTask.answers[currentTask.answers.length - 1] === 1 ? 1 : -1
+
+      if (learnMode === 3) {
+        level === 1 && setAnswers([lastAnswer, -1, -1])
+        level === 2 && setAnswers([0, lastAnswer, -1])
+        level === 3 && setAnswers([0, 0, lastAnswer])
+      }
+      if (learnMode === 2) {
+        level === 1 && setAnswers([lastAnswer, -1])
+        level === 2 && setAnswers([0, lastAnswer])
+      }
+
+      if (learnMode === 1) {
+        setAnswers([lastAnswer])
+      }
+    }
+  }
+  return levelsArray
 }

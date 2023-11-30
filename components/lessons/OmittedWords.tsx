@@ -6,6 +6,7 @@ import {
   CommonProps,
   updateCompletedTasks,
   handleOnKeyDown,
+  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { TaskProgress } from './TaskProgress'
 import { VoiceRecognition } from './VoiceRecognition'
@@ -83,6 +84,15 @@ export const OmittedWords: FC<Props> = ({
           forgivenErrorQuantity: forgivenErrorQuantity,
           error: errorLimit - mistakesCount < 0 ? 1 : 0,
         })
+
+        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
+        commonProps.currentTask.answers = setLevelColors({
+          answers: commonProps.currentTask.answers,
+          currentLevel: commonProps.currentTask.currentLevel,
+          learnMode: commonProps.learnMode,
+          isMistake: isMistake,
+        })
+
         if (isSaved) {
           updateCompletedTasks(commonProps)
         }

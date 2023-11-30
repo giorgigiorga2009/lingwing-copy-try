@@ -4,7 +4,7 @@ import { FC, useState } from 'react'
 import { changeMode } from '@utils/changeMode'
 import style from './ChangeMode.module.scss'
 import { useTranslation } from '@utils/useTranslation'
-
+import { Tabs } from '@pages/lessons'
 interface ModeProps {
   index: 1 | 2 | 3
   name: string
@@ -17,12 +17,14 @@ interface ChangeModeProps {
   learnMode: 1 | 2 | 3
   userCourseId: string
   token?: string
+  setTab: (tab: Tabs) => void
 }
 
 const ChangeMode: FC<ChangeModeProps> = ({
   learnMode,
   userCourseId,
   token,
+  setTab,
 }) => {
   const { t } = useTranslation()
   const [selected, setSelected] = useState(learnMode)
@@ -71,6 +73,7 @@ const ChangeMode: FC<ChangeModeProps> = ({
           onClick={() => {
             changeMode(userCourseId, index, token)
             setSelected(index)
+            selected === index && setTab('course')
           }}
         >
           {selected === index

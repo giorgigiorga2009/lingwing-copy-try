@@ -80,7 +80,11 @@ const ChatCurrentTask: FC<Props> = ({
 
       {currentTask.taskType === 'grammar' && (
         <div className={style.currentTask}>
-          <Grammar onDivHeight={onDivHeight} taskText={currentTask.taskText} />
+          <Grammar
+            onDivHeight={onDivHeight}
+            taskText={currentTask.taskText}
+            mistakesByLevel={mistakesByLevel}
+          />
         </div>
       )}
 
@@ -94,6 +98,7 @@ const ChatCurrentTask: FC<Props> = ({
             dialogArrayFrom={currentTask.taskText as string}
             isHintShown={isHintShown}
             hintText={hintText}
+            mistakesByLevel={mistakesByLevel}
           />
         </div>
       )}

@@ -9,7 +9,26 @@
   top: 50%;
   transform: translateY(-50%);
 
-  // margin-right: -5rem;
+  @include mobile {
+    right: -4.5rem;
+    width: 4.5rem;
+  }
+}
+
+.levelsContainer2 {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  width: 5.3rem;
+  right: 0;
+  top: 0;
+  transform: translateY(-50%);
+  margin-top: 1.5rem;
+
+  @include mobile {
+    right: -4.5rem;
+    width: 4.5rem;
+  }
 }
 
 .levels {
@@ -18,6 +37,11 @@
   background-color: $white-100;
   border-radius: 2rem;
   margin-left: 0.6rem;
+
+  @include mobile {
+    width: 0.65rem;
+    height: 0.65rem;
+  }
 
   &.true {
     background-color: $red-150;

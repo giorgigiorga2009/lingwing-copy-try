@@ -15,6 +15,7 @@
 
 .wrapper {
   position: relative;
+
   .stars {
     position: absolute;
     top: -1.4rem;
@@ -61,18 +62,21 @@
     cursor: pointer;
     z-index: 10;
   }
+
   p {
     color: $grey-800;
   }
 
   .leftSide {
     width: 50%;
+
     .title {
       display: flex;
       column-gap: 1rem;
       color: $grey-800;
       margin: 0;
     }
+
     .logo {
       width: 10rem;
       height: auto;
@@ -81,10 +85,12 @@
         width: 7rem;
       }
     }
+
     @include smallWidth {
       width: 100%;
     }
   }
+
   .facebook {
     position: relative;
     display: flex;
@@ -98,6 +104,7 @@
     width: 12rem;
     border-radius: 3rem;
     margin-top: 2rem;
+
     .facebookLogo {
       position: absolute;
       left: 1.5rem;

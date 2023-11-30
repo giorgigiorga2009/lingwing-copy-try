@@ -39,7 +39,9 @@ export const getFeedbackCategories = async ({ token, lang }: Props) => {
     Authorization: token ?? '',
   }
 
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/feedback/categories?lang=${lang}`
+  const url = `${
+    process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+  }/public/feedback/categories?lang=${lang}`
 
   try {
     const response = await axios.get(url, {
@@ -55,9 +57,11 @@ export const getFeedbackCategories = async ({ token, lang }: Props) => {
 export const sendFeedback = async ({
   token,
   feedbackData,
-  lang
+  lang,
 }: Props): Promise<FeedbackResponse> => {
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/feedbackSend?lang=${lang}`
+  const url = `${
+    process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+  }/public/feedbackSend?lang=${lang}`
   const HEADERS = {
     'Content-Type': 'application/json;charset=UTF-8',
     Accept: 'application/json, text/plain, */*',

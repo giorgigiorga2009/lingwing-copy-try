@@ -18,6 +18,7 @@ import ChatHistory from '@components/lessons/ChatHistory'
 import { SoundCheck } from '@components/lessons/SoundCheck'
 import Wrapper from '@components/lessons/learnMenu/Wrapper'
 import Ratings from '@components/lessons/usersRating/Ratings'
+import { getLevelColors } from '@utils/lessons/taskInputUtils'
 import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import Feedback from '@components/lessons/combinedModals/Feedback'
@@ -25,6 +26,14 @@ import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
+
+export type Tabs =
+  | 'course'
+  | 'levels'
+  | 'grammar'
+  | 'vocabulary'
+  | 'levels'
+  | 'statistics'
 
 const Lessons: NextPage = () => {
   const screenshotRef = useRef<HTMLDivElement>(null)
@@ -40,10 +49,9 @@ const Lessons: NextPage = () => {
   const [isHintShown, setIsHintShown] = useState(false)
   const [hintText, setHintText] = useState('')
   const [openFeedback, setOpenFeedback] = useState(false)
+  const [showTopScores, setShowTopScores] = useState(true)
 
-  const [tab, setTab] = useState<
-    'course' | 'levels' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
-  >('course')
+  const [tab, setTab] = useState<Tabs>('course')
 
   const [userScore, setUserScore] = useState(0)
   const [currentCourseObject, setCurrentCourseObject] = useState<CourseObject>()
@@ -52,11 +60,6 @@ const Lessons: NextPage = () => {
   const chatWrapperRef = useRef<HTMLDivElement>(null)
   const chatRef = useRef<HTMLDivElement>(null)
   const [mistake, setMistake] = useState(-1)
-
-  let levelsArray: number[] = []
-  if (currentCourseObject?.learnMode) {
-    levelsArray = new Array(currentCourseObject?.learnMode).fill(-1)
-  }
 
   const [dailyTaskLeft, setDailyTaskLeft] = useState<number>(1)
   const [unAuthuserDailyLimit, setunAuthuserDailyLimit] = useState(1)
@@ -118,7 +121,15 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageFrom, languageTo, courseName, token, userId, currentTaskNumber])
+  }, [
+    languageFrom,
+    languageTo,
+    courseName,
+    token,
+    userId,
+    currentTaskNumber,
+    tab,
+  ])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
@@ -199,14 +210,14 @@ const Lessons: NextPage = () => {
     }, 200)
 
     setIsGrammarHeightCalled(false)
-  }, [isHintShown, currentTask, isGrammarHeightCalled])
+  }, [isHintShown, currentTask, isGrammarHeightCalled, currentMessageIndex])
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
     languageTo !== undefined &&
     languageFrom !== undefined &&
     currentTask !== undefined &&
-    currentCourseObject !== undefined 
+    currentCourseObject !== undefined
 
   const commonProps = arePropsDefined
     ? {
@@ -221,7 +232,7 @@ const Lessons: NextPage = () => {
         completedTasks,
         mistake,
         setCompletedTasks,
-        learnMode: currentCourseObject.learnMode
+        learnMode: currentCourseObject.learnMode,
       }
     : null
 
@@ -252,6 +263,8 @@ const Lessons: NextPage = () => {
           size="s"
           currentCourseObject={currentCourseObject}
           token={token}
+          setShowTopScores={setShowTopScores}
+          showTopScores={showTopScores}
         />
         <CombinedModalComponent
           token={token}
@@ -272,6 +285,7 @@ const Lessons: NextPage = () => {
             courseId={currentCourseObject?.course._id}
             userScore={userScore}
             token={token}
+            showTopScores={showTopScores}
           />
         )}
         <BackgroundParrot />
@@ -309,6 +323,7 @@ const Lessons: NextPage = () => {
                   currentCourseObject={currentCourseObject}
                   languageFrom={languageFrom}
                   tab={tab}
+                  setTab={setTab}
                 />
               )}
               {tab === 'course' && (
@@ -321,17 +336,17 @@ const Lessons: NextPage = () => {
                           isHintShown={isHintShown}
                         />
                       )}
-                      {currentTask && (
+                      {currentTask && currentCourseObject && (
                         <ChatCurrentTask
                           currentTask={currentTask}
                           currentMessageIndex={currentMessageIndex}
                           isHintShown={isHintShown}
                           hintText={hintText}
                           onDivHeight={handleGrammarHeight}
-                          //  currentLevel={currentCourseObject?.learnMode}
-                          mistakesByLevel={
-                            tasksData[currentTaskNumber].answers ?? levelsArray
-                          }
+                          mistakesByLevel={getLevelColors({
+                            currentTask: currentTask,
+                            currentCourseObject: currentCourseObject,
+                          })}
                         />
                       )}
                       {!currentTask && <div className={style.blankBubble} />}
@@ -345,7 +360,6 @@ const Lessons: NextPage = () => {
                       setHintText={setHintText}
                       currentMessageIndex={currentMessageIndex}
                       setCurrentMessageIndex={setCurrentMessageIndex}
-                      //currentLevel={currentCourseObject?.learnMode}
                     />
                   )}
                 </div>

@@ -20,8 +20,6 @@
   background-color: $white;
   width: 100%;
   text-align: center;
-  ;
-
   @include mobile {
     font-size: 1.3rem;
   }
@@ -44,9 +42,8 @@
   background-position: left center;
   background-size: 1.6rem;
 
-  @include mobile{
+  @include mobile {
     font-size: 1rem;
-
   }
 }
 

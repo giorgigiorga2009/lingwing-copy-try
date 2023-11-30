@@ -403,6 +403,7 @@
   "LEARNING_MODE_DESCRIPTION_3": "This mode of study is tailored to you if you don't know the material of the course at all.<br>The program gives you new material and simultaneously, repeats the old one, until It isn't convinced, that you thoroughly learned the course, and you are ready to start the next course.<br><br><em>*Correctly performed tasks are repeated for 2 times.</em>",
 
   "RATING_TOP_SCORES": "TOP SCORES",
+  "RATING_TOP_HIDE": "HIDE",
   "RATING_TOP_20": "Top 20",
   "RATING_DAILY": "Daily Rating",
   "RATING_WEEKLY": "Weekly Rating",
