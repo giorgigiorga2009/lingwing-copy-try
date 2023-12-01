@@ -1,6 +1,4 @@
 import axios from 'axios'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
 
 export const getUserId = async ({
   languageTo,
@@ -15,7 +13,9 @@ export const getUserId = async ({
 }): Promise<string | undefined> => {
   try {
     const response = await axios({
-      url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/startLearning/${courseName}/${languageFrom}?lang=${languageTo}`,
+      url: `${
+        process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+      }/public/startLearning/${courseName}/${languageFrom}?lang=${languageTo}`,
       headers: {
         authorization: token ?? '',
       },

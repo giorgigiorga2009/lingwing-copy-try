@@ -128,7 +128,7 @@ const GenerateDate: React.FC<Props> = ({
       </select>
       <select
         name="month"
-        className={classNames({
+        className={classNames(style.select2, {
           [style.lighterborderColor]: borderColor === 'lighterBorderColor',
         })}
         value={selectedMonth?.value}

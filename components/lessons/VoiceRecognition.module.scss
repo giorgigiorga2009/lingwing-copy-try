@@ -1,7 +1,16 @@
 @import '@styles/imports';
 
-.micIcon {
+.microphoneContainer {
   display: flex;
+  background: none;
+  border: none;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+
+.micIcon {
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
@@ -16,14 +25,6 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-}
-
-.microphoneIcon {
-  background: none;
-  border: none;
-  position: relative;
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .pulsatingCircle {

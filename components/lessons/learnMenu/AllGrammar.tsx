@@ -69,13 +69,15 @@ const AllGrammar: FC<Props> = ({ courseId, LanguageFrom, token }) => {
           >
             {grammar.title}
           </button>
-          <div
-            dangerouslySetInnerHTML={{ __html: grammarItem }}
-            className={classNames(
-              style.grammar,
-              index === clicked && style.open,
-            )}
-          />
+          {index === clicked && (
+            <div
+              dangerouslySetInnerHTML={{ __html: grammarItem }}
+              className={classNames(
+                style.grammar,
+                index === clicked && style.open,
+              )}
+            />
+          )}
         </div>
       ))}
     </div>

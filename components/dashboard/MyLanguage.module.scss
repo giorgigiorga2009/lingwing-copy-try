@@ -10,7 +10,7 @@
   border-radius: 0.625rem;
   margin-bottom: 0.625rem;
   padding: 0.3125rem 0.625rem;
-  //box-shadow: 0 0.0625rem 0.0625rem $white-300;
+  animation: options 400ms ease-in-out forwards;
   z-index: 0;
 
   &:hover {
@@ -41,6 +41,30 @@
     @include tablet {
       font-size: 1.25rem;
     }
+  }
+}
+
+.dropdown {
+  display: none;
+  margin: auto;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: -1rem;
+  right: -2rem;
+  z-index: 1;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include mobile {
+    right: 0;
+    display: block;
+  }
+
+  @include smallWidth {
+    right: -1.5rem;
   }
 }
 
@@ -194,26 +218,13 @@
   }
 }
 
-.dropdown {
-  display: none;
-  margin: auto;
-  width: 5rem;
-  height: 5rem;
-  position: absolute;
-  top: -1rem;
-  right: -2rem;
-  z-index: 1;
-
-  @include tablet {
-    display: block;
+@keyframes options {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
   }
 
-  @include mobile {
-    right: 0;
-    display: block;
-  }
-
-  @include smallWidth {
-    right: -1.5rem;
+  100% {
+    opacity: 1;
   }
 }

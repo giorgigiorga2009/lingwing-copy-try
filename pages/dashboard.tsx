@@ -40,14 +40,16 @@ const Dashboard: NextPage = () => {
   // const locale = router.locale ?? 'en'
   const { data: session } = useSession()
 
-  useEffect(() => {
-    session && setToken(session?.user.accessToken)
-  }, [session])
+  // useEffect(() => {
+  //   session && setToken(session?.user.accessToken)
+  // }, [session])
 
   useEffect(() => {
+    session && setToken(session?.user.accessToken)
     handleMyCourses()
     setLoading(false)
-  }, [])
+  }, [session])
+
   const handleMyCourses = () => {
     if (session) {
       return getMyCoursesData(session.user.accessToken).then(response =>

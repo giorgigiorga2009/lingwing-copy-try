@@ -1,10 +1,10 @@
 import axios from 'axios'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
+import { LanguageFrom } from '@utils/languages'
 
 interface Props {
   token?: string | null
   feedbackData?: feedback
+  lang: LanguageFrom
 }
 
 interface FeedbackResponse {
@@ -21,7 +21,7 @@ export interface feedback {
     mobile: boolean
     screenSize: string
   }
-  email: string
+  email?: string
   image: string
   subCategory: string
   task: {
@@ -34,12 +34,14 @@ export interface feedback {
   userCourse: string
 }
 
-export const getFeedbackCategories = async ({ token }: Props) => {
+export const getFeedbackCategories = async ({ token, lang }: Props) => {
   const headers = {
     Authorization: token ?? '',
   }
 
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/feedback/categories`
+  const url = `${
+    process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+  }/public/feedback/categories?lang=${lang}`
 
   try {
     const response = await axios.get(url, {
@@ -55,8 +57,11 @@ export const getFeedbackCategories = async ({ token }: Props) => {
 export const sendFeedback = async ({
   token,
   feedbackData,
+  lang,
 }: Props): Promise<FeedbackResponse> => {
-  const url = `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/feedbackSend?lang=geo`
+  const url = `${
+    process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+  }/public/feedbackSend?lang=${lang}`
   const HEADERS = {
     'Content-Type': 'application/json;charset=UTF-8',
     Accept: 'application/json, text/plain, */*',

@@ -55,10 +55,6 @@ const Payments = () => {
               </div>
             </div>
             <div className={style.firstRowContent}>
-              <div>{t('PAYMENTS_STATS_TESTS')}</div>
-              <div className={style.statsNum}>{paymentsData?.tests}</div>
-            </div>
-            <div className={style.firstRowContent}>
               <div>{t('PAYMENTS_STATS_TASKS')}</div>
               <div className={style.statsNum}>{paymentsData?.tasks}</div>
             </div>

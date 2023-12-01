@@ -44,12 +44,8 @@
   color: $red-200;
   font-size: 7.2vh;
   font-weight: 200;
-  font-family: HVDComicSerifPro, bpg_arial_2009;
+  font-family: HVDComicSerifPro, bpg_arial_2009, $kaFont;
   text-align: center;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   @include mobile {
     font-size: 5vh;
@@ -88,7 +84,7 @@
   font-size: 2.2vh;
   color: $black-600;
   line-height: 1.2;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   transition: all 0.5s ease;
   cursor: pointer;
   z-index: 1;
@@ -96,10 +92,6 @@
   &:hover {
     transform: rotate(0deg);
     transition: all 0.5s ease;
-  }
-
-  &:lang(ka) {
-    font-family: $kaFont;
   }
 
   @include mobile {
@@ -165,30 +157,35 @@
     right: 0;
   }
 }
+
 .quote:nth-child(2) {
   @include desktop {
     transform: rotate(7deg);
     right: 0;
   }
 }
+
 .quote:nth-child(3) {
   @include desktop {
     transform: rotate(6deg);
     right: 0;
   }
 }
+
 .quote:nth-child(4) {
   @include desktop {
     transform: rotate(3deg);
     right: 0;
   }
 }
+
 .quote:nth-child(5) {
   @include desktop {
     transform: rotate(-6deg);
     right: 0;
   }
 }
+
 .quote:nth-child(6) {
   @include desktop {
     transform: rotate(10deg);

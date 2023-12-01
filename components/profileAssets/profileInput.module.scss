@@ -1,20 +1,24 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .container {
   width: 100%;
   position: relative;
+
+  input {
+    border: 2px solid $grey-100;
+  }
+
   label {
     position: absolute;
     transform: translateY(170%);
     pointer-events: none;
-    transition: all 0.3s ease; // Add a transition for smooth movement
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    transition: all 0.3s ease;
+    font-family: SegoeUI, $kaFont;
   }
+
   .labelTop {
     transform: translateY(0);
-    font-size: 0.7rem;
-    color: $grey-800;
+    font-size: 0.9rem;
+    color: $grey-700;
   }
 }

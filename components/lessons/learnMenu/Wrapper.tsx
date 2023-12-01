@@ -4,6 +4,7 @@ import ChangeMode from './ChangeMode'
 import AllGrammar from './AllGrammar'
 import Statistics from './Statistics'
 import Vocabulary from './Vocabulary'
+import { Tabs } from '@pages/lessons'
 import { CourseObject } from '@utils/lessons/getTask'
 
 interface ChangeModeProps {
@@ -11,6 +12,7 @@ interface ChangeModeProps {
   token?: string
   languageFrom: string | string[] | undefined
   tab: 'course' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
+  setTab: (tab: Tabs) => void
 }
 
 const Wrapper: FC<ChangeModeProps> = ({
@@ -18,6 +20,7 @@ const Wrapper: FC<ChangeModeProps> = ({
   token,
   languageFrom,
   tab,
+  setTab,
 }) => {
   return (
     <div className={style.container}>
@@ -25,8 +28,9 @@ const Wrapper: FC<ChangeModeProps> = ({
         {tab === 'levels' && (
           <ChangeMode
             learnMode={currentCourseObject.learnMode}
-            userCourseId={currentCourseObject.course._id}
+            userCourseId={currentCourseObject._id}
             token={token}
+            setTab={setTab}
           />
         )}
         {tab === 'grammar' && (

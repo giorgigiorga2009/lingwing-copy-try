@@ -80,7 +80,7 @@ const VocabularyTable: FC<Props> = ({
   }, [selectedCategory, selectedTopic, selectedCourse, searchText])
 
   return (
-    <table className={style.row}>
+    <table className={style.table}>
       <thead>
         <tr>
           <th onClick={() => handleSort('word')}>{t('DICTIONARY_WORD')}</th>

@@ -18,9 +18,6 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
   const [lastNameFocus, setLastNameFocus] = useState<boolean>(false)
   const [emailFocus, setEmailFocus] = useState<boolean>(false)
   const [phoneNumber, setPhoneNumber] = useState<string>('')
-  const [gender, setGender] = useState<number | undefined>(
-    data?.profile?.gender,
-  )
 
   const { t } = useTranslation()
 
@@ -31,7 +28,6 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
 
   useEffect(() => {
     handlePhoneChange(data?.profile?.phoneNumber)
-    setGender(data?.profile.gender)
   }, [data])
 
   const birthdayDay = data?.profile?.birthday?.day || 0
@@ -49,7 +45,6 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
         focused={firstNameFocus}
         value={data?.profile?.firstName || ''}
       />
-
       <ProfileInput
         name="lastName"
         type="text"
@@ -59,7 +54,6 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
         focused={lastNameFocus}
         value={data?.profile?.lastName || ''}
       />
-
       <ProfileInput
         name="email"
         type="email"
@@ -87,47 +81,6 @@ const LeftSide: React.FC<Props> = ({ data, onPhoneNumberChange }) => {
           defaultYear={birthdayYear}
         />
       </div>
-
-      <div className={style.gender}>
-        <label htmlFor="gender">{t('APP_PROFILE_GENDER')}:</label>
-        <div>
-          <input
-            type="radio"
-            name="gender"
-            id="male"
-            value="1"
-            checked={gender === 1}
-            onChange={() => setGender(1)}
-          />
-
-          <label
-            htmlFor="male"
-            className={gender === 1 ? style.maleLabelActive : style.maleLabel}
-            data-text={t('APP_PROFILE_MALE')}
-          >
-            {t('APP_PROFILE_MALE')}
-          </label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            name="gender"
-            id="female"
-            value="2"
-            checked={gender === 2}
-            onChange={() => setGender(2)}
-          />
-          <label
-            htmlFor="female"
-            className={
-              gender === 2 ? style.femaleLabelActive : style.femaleLabel
-            }
-          >
-            {t('APP_PROFILE_FEMALE')}
-          </label>
-        </div>
-      </div>
-
       <div className={style.country}>
         <CountrySelector
           defaultCountry={data?.profile?.country}

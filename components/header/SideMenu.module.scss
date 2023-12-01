@@ -9,6 +9,14 @@
   height: 100%;
   z-index: 1001;
   backdrop-filter: blur(5px);
+  transform: translateX(-100%);
+  transition: transform 0.1s ease-out;
+
+  &.visible {
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.1s ease-out;
+  }
 }
 
 .container {
@@ -21,8 +29,8 @@
   left: 0;
   height: 100%;
   width: 32rem;
-  overflow-y: auto;
-  overflow-x: hidden;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
 
   a {
     color: inherit;
@@ -33,6 +41,12 @@
     width: 100%;
     border-radius: 0;
     padding: 2rem 2.2rem 2.2rem 1.2rem;
+  }
+
+  &.visible {
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.3s ease-out;
   }
 }
 
@@ -47,6 +61,7 @@
   font-size: 1.3rem;
   background: none;
   cursor: pointer;
+  z-index: 2;
 
   &:hover {
     border-color: $black;
@@ -72,16 +87,13 @@
 
 .menu {
   display: flex;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2.5rem;
   color: $purple-500;
   margin-bottom: 1rem;
   z-index: 1;
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   section {
     width: 10rem;
@@ -121,10 +133,7 @@
   .title {
     color: $grey-100;
     text-align: center;
-
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    font-family: SegoeUI, $kaFont;
   }
 }
 

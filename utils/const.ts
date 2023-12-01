@@ -58,7 +58,7 @@ export const HELP_KEYS: SideMenuKeys[] = ['footerFAQ', 'menuContactUs']
 export const PREMIUM_KEYS: SideMenuKeys[] = [
   'menuStudents',
   'menuPrices',
-  'menuBuyAGift',
+  // 'menuBuyAGift',
   'menuPricesCoupon',
 ]
 export const ABOUT_COMPANY_KEYS: SideMenuKeys[] = [

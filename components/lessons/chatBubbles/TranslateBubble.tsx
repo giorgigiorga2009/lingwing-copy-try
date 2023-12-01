@@ -4,8 +4,6 @@ import classNames from 'classnames'
 import { LevelsBubble } from './LevelsBubble'
 import UserAvatar from '../../shared/UserAvatar'
 import style from './TranslateBubble.module.scss'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
 
 interface Props {
   utteranceType: 'taskDescription' | 'answer'
@@ -51,7 +49,9 @@ export const TranslateBubble: FC<Props> = ({
     console.error('taskText is not a string:', taskText)
   }
 
-  const audioUrl = `${process.env.NEXT_PUBLIC_AUDIO_URL ||  process.env.AUDIO_URL}${sentenceAudioPath}.mp3`
+  const audioUrl = `${
+    process.env.NEXT_PUBLIC_AUDIO_URL || process.env.AUDIO_URL
+  }${sentenceAudioPath}.mp3`
 
   return (
     <div
@@ -69,9 +69,9 @@ export const TranslateBubble: FC<Props> = ({
 
         <span className={style.correctText}>{correctText}</span>
 
+        <div className={style[textType + 'Icon']} />
         {textType !== 'replay' ? (
           <>
-            <div className={style[textType + 'Icon']} />
             {isCurrentTask && textType === 'dictation' ? (
               <span className={style.waveform}>
                 <WaveSurferNext audioURL={audioUrl} />
@@ -82,12 +82,6 @@ export const TranslateBubble: FC<Props> = ({
                 dangerouslySetInnerHTML={{ __html: taskText }}
               ></span>
             )}
-            {
-              // answers &&
-              utteranceType === 'taskDescription' && (
-                <LevelsBubble mistakesByLevel={mistakesByLevel} />
-              )
-            }
           </>
         ) : (
           <span className={style.taskText}>
@@ -95,6 +89,9 @@ export const TranslateBubble: FC<Props> = ({
               <span key={word + '-' + index}>{word + ' '}</span>
             ))}
           </span>
+        )}
+        {utteranceType === 'taskDescription' && (
+          <LevelsBubble mistakesByLevel={mistakesByLevel} />
         )}
       </div>
     </div>

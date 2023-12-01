@@ -15,7 +15,7 @@
   }
 
   @include mobile {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -93,15 +93,20 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  font-family: 'Kumbh Sans';
+  font-family: SegoeUI, $kaFont;
   min-width: 13rem;
   max-width: 29rem;
   line-height: 1.6rem;
 
   @include mobile {
     min-width: 12rem;
-    max-width: 26rem;
+    max-width: 16rem;
     line-height: 1.1rem;
+  }
+
+  span {
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }
 

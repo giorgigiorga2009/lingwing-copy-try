@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-attachment: relative;
-  padding: 144px 24px 100px 24px;
+  padding: 144px 24px 100px;
   background-color: $white;
 
   @include desktop {
@@ -29,7 +29,7 @@
   background-attachment: relative;
 
   @include tablet {
-    background-position: 44vw 0vh;
+    background-position: 44vw 0;
     min-width: 27vw;
   }
 
@@ -40,14 +40,11 @@
 }
 
 .title {
-  font-family: HVDComicSerifPro, bpg_arial_2009;
+  font-family: HVDComicSerifPro, $kaFont;
   font-size: 5vh;
   line-height: 7vh;
   color: $purple-600;
   margin-top: 4rem;
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   @include tablet {
     font-size: 5vh;
@@ -86,7 +83,7 @@
   position: absolute;
   top: 4vh;
   left: 6vh;
-  font-family: SegoeUIBlack, bpg_arial_2009;
+  font-family: SegoeUIBlack, bpg_arial_2009, $kaFont;
   color: $orange-500;
   font-size: 8vh;
   margin: 0;
@@ -101,15 +98,12 @@
 
 .peoplePracticing {
   position: absolute;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   font-size: 3vh;
   top: 11vh;
   color: $purple-600;
   line-height: 3.5vh;
   left: 6vh;
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   @include mobile {
     top: 10vh;
@@ -122,13 +116,11 @@
 .description {
   position: relative;
   bottom: 3vh;
-  font-family: SegoeUI, bpg_arial_2009;
+  font-family: SegoeUI, bpg_arial_2009, $kaFont;
   font-size: 1.2rem;
   color: $black-800;
   margin-bottom: 2vh;
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+
   @include mobile {
     font-size: 2vh;
   }

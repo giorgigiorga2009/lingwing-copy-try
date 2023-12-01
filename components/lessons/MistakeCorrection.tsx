@@ -5,12 +5,14 @@ import React, {
   FC,
   useEffect,
 } from 'react'
+import classNames from 'classnames'
 import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
 import {
   CommonProps,
   handleChange,
   updateCompletedTasks,
+  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { MistakesCounter } from './MistakesCounter'
 
@@ -32,15 +34,14 @@ export const MistakeCorrectionTask: FC<Props> = ({
   const [inputText, setInputText] = useState(mistakeText)
   const [mistakesCount, setMistakesCount] = useState(0)
   const [mistakeRepeat, setMistakeRepeat] = useState(false)
-  const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
-
+  const [isTaskDone, setIsTaskDone] = useState(false)
 
   const saveCurrentTask = async () => {
     try {
       await saveTask({
         ...commonProps,
         totalMistakes: mistakesCount,
-        forgivenErrorQuantity: forgivenErrorQuantity,
+        forgivenErrorQuantity: 0,
         error: errorLimit - mistakesCount < 0 ? 1 : 0,
       })
       return true
@@ -53,10 +54,25 @@ export const MistakeCorrectionTask: FC<Props> = ({
   useEffect(() => {
     if (!commonProps.token && !commonProps.userId) return
 
-    if (inputText.replace(/\s+/g, ' ') === correctText) {
+    if (
+      inputText.replace(/\s+/g, ' ').trim().toLowerCase() ===
+      correctText.trim().toLowerCase()
+    ) {
+      setIsTaskDone(true)
+      const audio = new Audio('https://lingwing.com/sounds/true.mp3')
+      audio.play()
       setInputText(inputText.replace(/\s+/g, ' '))
       setTimeout(async () => {
         const isSaved = await saveCurrentTask()
+
+        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
+        commonProps.currentTask.answers = setLevelColors({
+          answers: commonProps.currentTask.answers,
+          currentLevel: commonProps.currentTask.currentLevel,
+          learnMode: commonProps.learnMode,
+          isMistake: isMistake,
+        })
+
         if (isSaved) {
           setIsHintShown(false)
           updateCompletedTasks(commonProps)
@@ -85,6 +101,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
 
   const checkAnswer = async () => {
     if (inputText === correctText) {
+      setIsTaskDone(true)
       setMistakeRepeat(false)
       setIsHintShown(false)
       if (!commonProps.token && !commonProps.userId) return
@@ -108,13 +125,14 @@ export const MistakeCorrectionTask: FC<Props> = ({
         errorLimit={Math.max(errorLimit - mistakesCount, 0)}
       />{' '}
       <textarea
-        className={style.input}
+        className={classNames(style.input, isTaskDone && style.inputDone)}
         value={inputText}
         autoComplete="off"
         spellCheck="false"
         data-gramm="false"
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
+        autoFocus
       />
       <button className={style.checkButton} onClick={checkAnswer}>
         Check

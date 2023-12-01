@@ -6,7 +6,10 @@ export const VoiceRecognition: FC = () => {
   const { isRecording, toggleRecognition } = useSpeechRec()
 
   return (
-    <button className={style.microphoneIcon} onClick={() => toggleRecognition()}>
+    <button
+      className={style.microphoneContainer}
+      onClick={() => toggleRecognition()}
+    >
       {isRecording ? (
         <div className={style.pulsatingCircle} />
       ) : (

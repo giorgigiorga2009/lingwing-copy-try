@@ -19,7 +19,9 @@ export const getAllGrammar = async ({
   }
   return await axios
     .get(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/learn/grammar/list/${courseId}/${LanguageFrom}?lang=eng`,
+      `${
+        process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+      }/public/learn/grammar/list/${courseId}/${LanguageFrom}?lang=eng`,
       {
         headers: headers,
       },
@@ -42,7 +44,9 @@ export const getGrammarItem = async ({
   }
   return await axios
     .get(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/learn/grammar/item/${courseId}/${LanguageFrom}/${item}?lang=eng`,
+      `${
+        process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+      }/public/learn/grammar/item/${courseId}/${LanguageFrom}/${item}?lang=eng`,
       {
         headers: headers,
       },

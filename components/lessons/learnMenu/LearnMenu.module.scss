@@ -12,6 +12,22 @@
   font-family: SegoeUI, $kaFontTitle;
   color: $grey-300;
   font-size: 0.9rem;
+  transform: translateX(90%);
+  transition: transform 0.3s ease-out;
+
+  &.visible {
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.4s ease-out;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include tablet {
     display: none;

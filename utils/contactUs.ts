@@ -17,15 +17,11 @@ const PostData = async (
   { resetForm }: { resetForm: () => void },
 ) => {
   try {
-    await axios.post(
-      `${process.env.defaultURL}/public/contact`,
-      values,
-      {
-        headers: {
-          'x-access-token': Cookies.get('authToken')!,
-        },
+    await axios.post(`${process.env.defaultURL}/public/contact`, values, {
+      headers: {
+        'x-access-token': Cookies.get('authToken')!,
       },
-    )
+    })
     Swal.fire({
       title: 'Successfully sent a message!',
       confirmButtonColor: '#8647b7',

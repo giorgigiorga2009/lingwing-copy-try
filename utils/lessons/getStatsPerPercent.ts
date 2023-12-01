@@ -42,7 +42,9 @@ export const getStatsPerPercent = async ({ userCourseId, token }: Props) => {
 
   return await axios
     .get(
-      `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/user/learn/statisticPerPercent/${userCourseId}`,
+      `${
+        process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
+      }/user/learn/statisticPerPercent/${userCourseId}`,
       { headers: headers },
     )
     .then(response => response.data.data)

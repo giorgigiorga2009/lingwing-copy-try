@@ -12,7 +12,7 @@
   text-align: center;
   align-items: center;
   font-size: 60px;
-  font-family: SegoeUIBlack;
+  font-family: SegoeUIBlack, $kaFontTitleBold;
   color: #f6a213;
   height: 25rem;
   width: auto;
@@ -25,9 +25,6 @@
 
   @include mobile {
     font-size: 3rem;
-  }
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
   }
 }
 
@@ -64,10 +61,10 @@
 
   @include mobile {
     max-width: 20rem;
-
     flex: 0 0 100%;
     max-width: 30rem;
   }
+
   .buttons {
     background-color: $white;
     border: 1px solid $white;
@@ -85,27 +82,33 @@
       border-top-right-radius: 15px;
       border-top-left-radius: 15px;
     }
+
     &:nth-child(2) {
       border-bottom-right-radius: 15px;
       border-bottom-left-radius: 15px;
     }
+
     &:lang(ka) {
       font-family: $kaFontTitleBold;
     }
   }
+
   .activeButton {
     background-color: $white-100;
     color: $purple-600;
     background-image: url('/themes/images/v2/arrrow-right-purple.png');
   }
 }
+
 .QAContainer {
   flex: 0 0 65%;
   background-color: $white-50;
+
   h2 {
     color: $black;
     font-size: 35px;
   }
+
   &:lang(ka) {
     font-family: $kaFontTitleBold;
   }

@@ -6,6 +6,7 @@ import {
   handleChange,
   updateCompletedTasks,
   handleOnKeyDown,
+  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { TaskProgress } from './TaskProgress'
 import { DictationInput } from './DictationInput'
@@ -121,20 +122,14 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           forgivenErrorQuantity: forgivenErrorQuantity,
           error: errorLimit - mistakesCount < 0 ? 1 : 0,
         })
-        const isError = errorLimit - mistakesCount < 0 ? 1 : 0
-        if (!commonProps.currentTask.answers) {
-          commonProps.currentTask.answers = [isError, -1, -1]
-        } else {
-          if ((commonProps.currentTask.currentLevel = 1)) {
-            commonProps.currentTask.answers = [1, isError, -1]
-          }
-          if ((commonProps.currentTask.currentLevel = 2)) {
-            commonProps.currentTask.answers = [0, 0, isError]
-          }
-          if ((commonProps.currentTask.currentLevel = 2)) {
-            commonProps.currentTask.answers = [0, 0, 0]
-          }
-        }
+
+        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
+        commonProps.currentTask.answers = setLevelColors({
+          answers: commonProps.currentTask.answers,
+          currentLevel: commonProps.currentTask.currentLevel,
+          learnMode: commonProps.learnMode,
+          isMistake: isMistake,
+        })
 
         if (isSaved) {
           resetTaskState()

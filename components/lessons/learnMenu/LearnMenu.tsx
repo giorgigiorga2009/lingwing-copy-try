@@ -31,6 +31,28 @@ const LearnMenu: FC<Props> = ({
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
     LanguageCourse[] | undefined
   >()
+  const [isMouseMoving, setIsMouseMoving] = useState(false)
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+
+    const handleMouseMove = () => {
+      setIsMouseMoving(true)
+
+      // Reset the timeout
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        setIsMouseMoving(false)
+      }, 5000) // 5000 milliseconds (5 seconds)
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      clearTimeout(timeoutId)
+    }
+  }, [])
 
   useEffect(() => {
     if (!languageFrom || !languageTo || !token || !currentCourseObject) return
@@ -52,7 +74,11 @@ const LearnMenu: FC<Props> = ({
   }, [currentCourseObject, token])
 
   return (
-    <div className={style.foldersContainer}>
+    <div
+      className={`${style.foldersContainer} ${
+        isMouseMoving ? style.visible : ''
+      }`}
+    >
       {currentLanguageCoursesList && (
         <CoursesDropdown
           languageCoursesList={currentLanguageCoursesList}

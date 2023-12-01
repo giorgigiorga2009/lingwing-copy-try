@@ -1,137 +1,40 @@
 @import '@styles/imports';
 
 .leftContainer {
-  width: 50%;
-  background-color: $white-100;
-  padding: 20px 51px;
-  border-radius: 20px 0 0 20px;
-  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  width: 45%;
+  background-color: $white-50;
+  border-radius: 2rem 0 0 2rem;
+  padding: 1.5rem 2rem;
 
   & > div {
-    width: 100%;
     position: relative;
-    margin-top: 42px;
-    padding-left: 10px;
-
-    .phone {
-      margin-left: 10px;
-      max-width: 100%;
-    }
 
     input {
       width: 100%;
-      max-width: 25rem;
-      font-family: SegoeUI, 'sans-serif';
+      font-family: SegoeUI, $kaFont;
       color: $black;
       font-size: 0.9rem;
-      padding-left: 20px;
       height: 2.5rem;
-      border-radius: 3rem;
-      border: 1px solid $grey-800;
-
-      &:focus {
-        border: none;
-        outline: 2px solid $purple-500;
-      }
+      border-radius: 2rem;
+      border: 2px solid $grey-100;
+      padding: 0 1.2rem;
     }
 
     label {
       position: absolute;
-      font-family: SegoeUI, 'sans-serif';
-      color: $grey-800;
-      left: 27px;
-      top: -27px;
-
-      &:lang(ka) {
-        font-family: $kaFont;
-      }
-    }
-  }
-
-  .birthDate {
-    width: 100%;
-    display: flex;
-  }
-
-  .gender {
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1rem;
-    padding-right: 1rem;
-    margin-top: 1.2rem;
-
-    label {
-      position: static;
+      font-family: SegoeUI, $kaFont;
+      color: $grey-700;
       font-size: 0.9rem;
-      cursor: pointer;
-      transition: background-image 0.2s ease-in-out;
-
-      @include smallWidth {
-        font-size: 0.7rem;
-      }
-      @include tablet {
-        font-size: 0.8rem;
-      }
-    }
-
-    .maleLabel {
-      background-image: url('/assets/images/icons8-male-50.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 0rem 0rem;
-      padding-left: 1rem;
-    }
-    .maleLabelActive {
-      background-image: url('/assets/images/icons8-standing-man-50.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 0rem 0rem;
-      padding-left: 1rem;
-    }
-    .femaleLabel {
-      background-image: url('/assets/images/icons8-woman-50.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 0rem 0rem;
-      padding-left: 1rem;
-    }
-    .femaleLabelActive {
-      background-image: url('/assets/images/icons8-woman-50-active.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 0rem 0rem;
-      padding-left: 1rem;
-    }
-
-    div {
-      width: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      input[type='radio'] {
-        // width: 1.25rem;
-        // height: 1.25rem;
-        // accent-color: $purple-500;
-        // outline: none;
-        display: none;
-      }
+      left: 1.5rem;
+      top: -1.5rem;
     }
   }
 
   @include mobile {
     width: 100%;
-    border-radius: 20px 20px 0 0;
-    padding: 0 20px;
-
-    div {
-      input {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
+    border-radius: 2rem 2rem 0 0;
+    height: 35rem;
   }
 }

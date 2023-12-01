@@ -236,3 +236,33 @@ header.m .logo {
     background-image: url('/assets/images/exitHover.png');
   }
 }
+
+.topScoresBtn {
+  background: none;
+  border: none;
+  background-image: url('/assets/images/trophy.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  width: 2.2rem;
+  height: 2.2rem;
+  cursor: pointer;
+
+  &:hover {
+    scale: 110%;
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.topScoresContainer {
+  width: 50rem;
+  height: 50rem;
+  background-color: red;
+}

@@ -9,8 +9,7 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     try {
-      const url: string | undefined =
-        process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL
+      const url: string | undefined = process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL
       if (!url) {
         return res.status(500).json({ error: 'Webhook URL is not defined' })
       }

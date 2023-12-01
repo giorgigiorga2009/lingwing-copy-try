@@ -20,14 +20,22 @@ interface Period {
 
 interface Props {
   courseId: string
+  userCourseId: string
   userScore?: number
   token?: string | null
+  showTopScores: boolean
 }
 
-const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
+const Ratings: FC<Props> = ({
+  courseId,
+  userScore,
+  token,
+  userCourseId,
+  showTopScores,
+}) => {
   const { t } = useTranslation()
   const [ratings, setRatings] = useState<User[]>([])
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [period, setPeriod] = useState<Period['period']>('topTwenty')
   const PERIODS: Period['period'][] = ['topTwenty', 'daily', 'weekly']
   const PERIOD_NAMES = ['RATING_TOP_20', 'RATING_DAILY', 'RATING_WEEKLY']
@@ -35,10 +43,15 @@ const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
   useEffect(() => {
     const fetchFaqData = async () => {
       try {
-        const response = await getRatings({ courseId, period, token })
+        const currentPeriod = period !== 'topTwenty' ? userCourseId : courseId
+        const response = await getRatings({
+          courseId: currentPeriod,
+          period,
+          token,
+        })
         setRatings(response)
       } catch (error) {
-        console.error('Failed to fetch Ratings data:', error)
+        console.error('Failed to fetch Ratin˝˝gs data:', error)
       }
     }
     fetchFaqData()
@@ -47,19 +60,30 @@ const Ratings: FC<Props> = ({ courseId, userScore, token }) => {
   return (
     <>
       <div className={style.showContainer}>
-        {!open && (
+        {open === showTopScores ? (
+          <button className={style.hideText} onClick={() => setOpen(!open)}>
+            {t('RATING_TOP_HIDE')}
+          </button>
+        ) : (
           <button className={style.showText} onClick={() => setOpen(!open)}>
             {t('RATING_TOP_SCORES')}
           </button>
         )}
+
         <button
-          className={open ? style.hideButton : style.showButton}
+          className={
+            open === showTopScores ? style.hideButton : style.showButton
+          }
           onClick={() => setOpen(!open)}
         />
       </div>
 
       <div
-        className={open ? `${style.container} ${style.show}` : style.container}
+        className={
+          open === showTopScores
+            ? `${style.container} ${style.show}`
+            : style.container
+        }
       >
         <div className={style.header}>
           <button
