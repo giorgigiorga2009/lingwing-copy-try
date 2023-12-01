@@ -85,27 +85,16 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
     if (file) {
       const reader = new FileReader()
       reader.readAsDataURL(file)
-      const filesize = file.size
-      if (filesize >= 150000) {
-        Swal.fire({
-          title: 'Oops',
-          text: 'your picture size is more then average',
-          icon: 'warning',
-          showConfirmButton: true,
-          confirmButtonColor: 'rgb(105 46 150)', // Set your desired button color here
-          confirmButtonText: 'OK',
-        })
-      } else {
-        reader.onload = () => {
-          const dataUrl = reader.result as string
-          setImage(dataUrl)
-          setCroppedImage('')
-          setShowCroppedImage(false)
-          setShowCropper(false)
-        }
+      reader.onload = () => {
+        const dataUrl = reader.result as string
+        setImage(dataUrl)
+        setCroppedImage('')
+        setShowCroppedImage(false)
+        setShowCropper(false)
       }
     }
   }
+
 
   const handleCropChange = (location: Point) => {
     setCrop(prevCrop => ({
@@ -119,34 +108,41 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
   }
 
   const handleSave = () => {
-    setShowCroppedImage(false)
-    setShowCropper(true)
+    setShowCroppedImage(!showCroppedImage);
+    setShowCropper(true);
   }
-
+  
   const handleClick = async (e: React.MouseEvent<HTMLInputElement>) => {
-    if (session) {
-      if (e.currentTarget.value === t('APP_PROFILE_UPLOAD_IMAGE')) {
-        handleSave()
-        try {
-          const res = await UploadImage(session.user.accessToken, croppedImage)
-          console.log(res.data.data)
-          setImageLink(res.data.data)
-        } catch (error) {
-          Swal.fire({
-            title: 'Error',
-            text: 'Failed to upload image',
-            icon: 'error',
-            showConfirmButton: true,
-            confirmButtonColor: 'rgb(105 46 150)', // Set your desired button color here
-            confirmButtonText: 'OK',
-          })
-          console.error('UploadImage error:', error)
+    handleSave();
+  
+    setTimeout(async () => {
+      if (session && e.currentTarget && e.currentTarget.value) {
+        if (e.currentTarget.value === t('APP_PROFILE_UPLOAD_IMAGE')) {
+          try {
+            const res = await UploadImage(session.user.accessToken, croppedImage);
+            setImageLink(res.data);
+          } catch (error) {
+            Swal.fire({
+              title: 'Error',
+              text: 'Failed to upload image',
+              icon: 'error',
+              showConfirmButton: true,
+              confirmButtonColor: 'rgb(105 46 150)',
+              confirmButtonText: 'OK',
+            });
+            console.error('UploadImage error:', error);
+          }
         }
+      } else {
+        e.preventDefault();
       }
-    } else {
-      e.preventDefault()
-    }
-  }
+    }, 0);
+  };
+  
+  // Using useEffect to respond to changes in showCroppedImage
+  useEffect(() => {
+    console.log(showCroppedImage, "State updated!");
+  }, [showCroppedImage]);
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     const zoomFactor = 0.1 // Adjust the zoom factor as needed
     const deltaY = e.deltaY
@@ -160,9 +156,9 @@ export default function ImageComponent({ CroppedImage, defaultImage }: Prop) {
   return (
     <div className={style.container}>
       <div className={style.Image}>
-        {croppedImage ? (
+        {croppedImage || defaultImage ? (
           <NextImage
-            src={croppedImage}
+            src={croppedImage || (defaultImage ? defaultImage : '')}
             alt="User avatar"
             height={200}
             width={200}
