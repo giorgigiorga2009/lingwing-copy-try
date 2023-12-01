@@ -3,7 +3,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   background-color: $purple-600;
   background-image: url('/assets/images/background-letters.svg'),
     -webkit-radial-gradient(center, circle cover, rgba(255 255 255 / 15%) 0, rgba(
@@ -20,6 +21,8 @@
   width: 100%;
   position: relative;
   overflow-y: auto;
+  padding: 5% 1%;
+
 }
 
 .styledTitle {
@@ -34,7 +37,8 @@
 .title {
   font-family: HVDComicSerifPro,  $kaFont;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
   color: $white;
   font-size: 3.2rem;
   text-shadow: 1px 1px 3px rgb(0 0 0 / 60%);
@@ -51,6 +55,7 @@
   }
 
   @include tablet {
+    margin-top: 0;
     font-size: 4vw;
   }
 
@@ -64,7 +69,6 @@
   flex-direction: column;
   align-items: center;
   padding: 0 1%;
-  margin: 10rem auto 0 ;
   max-width: 75rem;
   height: auto;
 

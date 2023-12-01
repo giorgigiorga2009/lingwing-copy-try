@@ -71,7 +71,7 @@ const CountrySelector: React.FC<Props> = ({
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.selector}>
         <label>{t('APP_PROFILE_COUNTRY')}</label>
         <div className={styles.country}>
@@ -100,7 +100,7 @@ const CountrySelector: React.FC<Props> = ({
           ))}
         </select>
       </div>
-    </>
+    </div>
   )
 }
 

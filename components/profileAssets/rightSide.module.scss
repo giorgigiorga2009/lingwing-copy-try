@@ -1,20 +1,87 @@
 @import '@styles/imports';
 
-.rightContainer {
+.newsAndGender {
   display: flex;
   align-items: center;
+  gap: 7rem;
+}
+
+.genderContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+
+  label {
+    font-family: SegoeUI, $kaFont;
+    color: $grey-700;
+    cursor: pointer;
+    transition: background-image 0.2s ease-in-out;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 0;
+    padding-left: 1.8rem;
+  }
+
+  .maleLabel {
+    background-image: url('/assets/images/icons8-male-50.png');
+  }
+
+  .maleLabelActive {
+    background-image: url('/assets/images/icons8-standing-man-50.png');
+  }
+
+  .femaleLabel {
+    background-image: url('/assets/images/icons8-woman-50.png');
+  }
+
+  .femaleLabelActive {
+    background-image: url('/assets/images/icons8-woman-50-active.png');
+  }
+
+  input[type='radio'] {
+    display: none;
+  }
+}
+
+.agree {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 60%;
+
+  input[type='checkbox'] {
+    accent-color: $purple-500;
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+  }
+
+  p {
+    color: $grey-700;
+    font-family: SegoeUI, $kaFont;
+
+    a {
+      text-decoration: none;
+      color: $purple-500;
+    }
+  }
+}
+
+.rightContainer {
+  display: flex;
+  justify-content: space-between;
   background-color: $white;
-  width: 50%;
-  border-radius: 0rem 1.25rem 1.25rem 0rem;
-  height: 100%;
+  width: 60%;
+  border-radius: 0 2rem 2rem 0;
+  height: 40rem;
+  padding: 2rem 3rem;
 
   h4 {
-    // margin-top: 50px;
-    font-family: SegoeUI, 'sans-serif';
-    color: $grey-800;
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    font-family: SegoeUI, $kaFont;
+    color: $grey-700;
+    padding: 0;
+    margin: 0;
   }
 
   .imageCropper {
@@ -28,53 +95,40 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 50px;
     flex-wrap: wrap;
-    row-gap: 20px;
-    padding: 0 90px 120px;
-
-    @media screen and (max-width: 875px) {
-      padding: 0 40px 120px;
-    }
-
-    @include smallWidth {
-      padding: 0 10px 120px;
-    }
+    row-gap: 1rem;
   }
 
   .switches {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 65%;
-    height: 2rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+
     .switch {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      gap: 1rem;
 
       .slider {
         transition: 1s;
         background-color: $white-200;
-        border-radius: 100px;
-        padding: 1px;
-        margin: 10px;
+        border-radius: 2rem;
         cursor: pointer;
         transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-        align-items: center;
         position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 27px;
+        width: 4rem;
+        height: 1.7rem;
 
         &::after {
           content: '';
           display: flex;
-          top: 5px;
-          left: 3px;
-          width: 17px;
-          height: 17px;
+          top: 0.3rem;
+          left: 0.3rem;
+          width: 1rem;
+          height: 1rem;
           background-color: $white;
-          border-radius: 200px;
+          border-radius: 2rem;
           position: absolute;
           will-change: left, background-color;
           transition: 0.5s;
@@ -97,105 +151,53 @@
       }
 
       label {
-        font-family: SegoeUI, 'sans-serif';
+        font-family: SegoeUI, $kaFont;
         color: $grey-800;
-
-        &:lang(ka) {
-          font-family: $kaFont;
-        }
       }
     }
   }
 
   .changePassword {
-    width: 60%;
-    height: 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    justify-content: flex-start;
-    margin-top: 20px;
+    gap: 0.8rem;
 
     a {
       text-decoration: none;
-      font-size: 18px;
-      font-family: SegoeUI, 'sans-serif';
-      color: $grey-800;
-
-      &:lang(ka) {
-        font-family: $kaFont;
-      }
+      font-family: SegoeUI, $kaFont;
+      color: $grey-700;
     }
 
-    img:nth-child(1) {
-      width: 25px;
-      height: 25px;
-    }
-  }
-
-  .agree {
-    width: 90%;
-    height: 1.2rem;
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    justify-content: center;
-    font-size: 0.8rem;
-
-    input[type='checkbox'] {
-      accent-color: $purple-500;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-
-    p {
-      color: $grey-800;
-      font-family: SegoeUI, 'sans-serif';
-
-      &:lang(ka) {
-        font-family: $kaFont;
-      }
-      a {
-        text-decoration: none;
-        color: $purple-500;
-      }
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
   .button {
     position: absolute;
-    bottom: -105px;
+    bottom: 0;
     right: 0;
-    padding: 0 20px;
-    height: 47px;
-    border: 50px;
+    margin: 2rem;
+    padding: 0 2rem;
+    height: 3rem;
+    border: 2rem;
     background-color: $purple-600;
     color: $white-100;
-    font-family: SegoeUI, 'sans-serif';
-    font-size: 18px;
-    border-radius: 1rem;
+    font-family: SegoeUI, $kaFont;
+    font-size: 1rem;
+    border-radius: 2rem;
     cursor: pointer;
 
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
     @include mobile {
-      width: 100%;
+      margin: 2rem 1rem;
+      padding: 0 1rem;
     }
   }
 
   @include mobile {
     width: 100%;
-    align-items: center;
-
-    .changePassword {
-      justify-content: center;
-    }
-
-    .agree {
-      justify-content: center;
-      width: 90%;
-    }
+    height: 45rem;
+    padding: 2rem 1rem;
   }
 }

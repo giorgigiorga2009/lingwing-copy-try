@@ -238,6 +238,7 @@ export const getTasks = async ({
   token,
   courseId,
   userId,
+  task
 }: {
   courseName: string | string[]
   languageTo: string | string[]
@@ -245,6 +246,7 @@ export const getTasks = async ({
   token: string | null
   userId: string | null
   courseId: string
+  task?: string | string[] 
 }): Promise<TaskData[]> => {
   try {
     //commented axios works!!! it is easyer to read
@@ -268,7 +270,7 @@ export const getTasks = async ({
     //
     let url = `${
       process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
-    }/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`
+    }/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&task=${task}`
     let headers: {
       Authorization: string | null
     } = {

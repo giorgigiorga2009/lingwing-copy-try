@@ -70,8 +70,9 @@ const Lessons: NextPage = () => {
   const router = useRouter()
   const locale = router.locale
   const { data: session } = useSession()
-  const { courseName, languageTo, languageFrom } = router.query
+  const { courseName, languageTo, languageFrom, task} = router.query
 
+  console.log(courseName, languageTo, languageFrom, task)
   // Use localStorage to set the token state
   useEffect(() => {
     session && setToken(session?.user.accessToken)
@@ -142,6 +143,7 @@ const Lessons: NextPage = () => {
       token,
       courseId,
       userId,
+      task
     })
       .then(response => setTasksData(response))
       .catch(error => {

@@ -26,11 +26,13 @@
     @include desktop {
       width: 100%;
     }
+
     h1 {
-      margin: 7rem auto 0.7rem auto;
-      color: $orange-650;
-      font-size: 3rem;
-      font-family: SegoeUI, 'sans-serif';
+      margin: 6rem auto 0;
+      color: $orange-500;
+      font-size: 2.5rem;
+      font-family: SegoeUI, $kaFont;
+
       @include mobile {
         font-size: 1.2rem;
       }
