@@ -46,7 +46,7 @@ export const getToken = ({ email, password, repeatPassword }: Auth) => {
       },
     },
   })
-    .then(response => response.data.token)
+    .then(response => response.data.data.token)
     .catch(error => console.log(error))
 }
 
@@ -66,6 +66,7 @@ export const auth = ({ email, password, repeatPassword }: Auth) => {
     .then(response => response.data)
     .catch(error => console.log(error))
 }
+
 
 export const login = ({ email, password }: Auth) => {
   return (

@@ -50,6 +50,7 @@ export const SignUp: FC<Props> = ({
 
     try {
       const response = await auth({ email, password, repeatPassword })
+      console.log(response)
       response ? signIn() : setEmailExistsError(true)
     } catch (error) {
       console.log((error as Error).message)
