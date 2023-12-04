@@ -1,29 +1,25 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .offerContainer {
   width: 100%;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+  font-family: SegoeUI, $kaFont;
 
   .title {
-    color: $black;
-    font-family: SegoeUI, sans-serif;
+    color: $black-600;
     font-size: 1.7rem;
-    margin-top: 40px;
+
     @include mobile {
       display: flex;
       flex-direction: column;
     }
+
     .price {
-      color: $yellow-600;
+      color: $orange-650;
     }
   }
+
   .description {
-    font-family: SegoeUI, sans-serif;
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    font-family: SegoeUI, $kaFont;
+    color: $grey-700
   }
 }

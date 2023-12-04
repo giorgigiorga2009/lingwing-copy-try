@@ -36,10 +36,8 @@
   background: $white;
   width: 100%;
   border-radius: 1rem 1rem 0 0;
-  // overflow-y: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow-y: hidden;
 
   @include mobile {
     height: calc(100vh - 12rem);
@@ -78,7 +76,6 @@
   left: calc(50% - 5.6rem);
 }
 
-// registration reminder
 @keyframes slideDown {
   0% {
     transform: translateY(-2rem);

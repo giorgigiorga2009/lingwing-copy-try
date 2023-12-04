@@ -37,7 +37,7 @@ const Profile: NextPage = () => {
         keywords="META_TAG_PROFILE_KEYWORDS"
       />
       <div className={style.header}>
-        <Header size="s" />
+        <Header size="s" setShowTopScores={() => false} showTopScores={false}/>
       </div>
       <div className={style.container}>
         <h1 className={style.title}>{t('APP_PROFILE_EDIT')}</h1>

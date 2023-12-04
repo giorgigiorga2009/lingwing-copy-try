@@ -12,7 +12,7 @@ const ContainerWrapper = ({ children }: { children: React.ReactNode }) => {
         description="META_TAG_RESET_PASSWORD_DESCRIPTION"
         keywords="META_TAG_RESET_PASSWORD_KEYWORDS"
       />
-      <Header size="s" />
+      <Header size="s" setShowTopScores={() => false} showTopScores={false} />
       <div className={style.window}>{children}</div>
       <Footer />
       <FollowButtons dashboard={true} />

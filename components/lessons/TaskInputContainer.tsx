@@ -56,9 +56,18 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const currentWord = wordsArray[currWordIndex]
 
   useEffect(() => {
+    if (mistakesCount !== 0 && forgivenErrorQuantity !== 0) {
+      const audio = new Audio('https://lingwing.com/sounds/false.mp3')
+      audio.play()
+    }
+    setTimeout(() => {
+      setIsMistake(false)
+    }, 700)
+  }, [forgivenErrorQuantity, mistakesCount])
+
+  useEffect(() => {
     wordAudioPlay(currWordIndex)
   }, [currWordIndex])
-
   useEffect(() => {
     if (!currentWord) return
 
@@ -82,6 +91,10 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
         wordsSynonyms,
         finalTranscript,
         textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად.
+        setIsHintShown: setIsHintShown,
+        setHintText: setHintText,
+        currentWord: currentWord?.wordText,
+        setIsMistake: setIsMistake
       }),
     )
   }, [finalTranscript])
@@ -151,7 +164,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
     taskType === 'dictation' || taskType === 'translate'
       ? setOutputText(textCheck({ inputText, ...params, setIsMistake }))
-      : setOutputText(replayInputCheck({ inputText, ...params }))
+      : setOutputText(replayInputCheck({ inputText, ...params, setIsMistake }))
   }
 
   return (
@@ -171,7 +184,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           }
           onChange={handleTextareaChange}
           taskDone={taskProgress}
-          mistake={isHintShown}
+          mistake={isMistake}
         />
         <VoiceRecognition />
       </div>

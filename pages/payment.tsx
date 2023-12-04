@@ -127,7 +127,7 @@ const Payment: NextPage<PaymentProps> = () => {
 
   return (
     <div className={styles.container}>
-      <Header size="s" loginClassName={styles.loginModal} />
+      <Header size="s" loginClassName={styles.loginModal} setShowTopScores={() => false} showTopScores={false}/>
       <Image
         src={rocketParrot}
         className={styles.rocketParrot}

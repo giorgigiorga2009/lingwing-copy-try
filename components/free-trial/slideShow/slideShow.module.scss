@@ -1,12 +1,14 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .slideShowContainer {
   position: relative;
-  max-width: 625px;
-  height: 300px;
+  max-width: 35rem;
+  width: 75%;
+  height: 15rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
   .slide {
     width: 300px;
     height: 100%;
@@ -17,10 +19,12 @@
     top: -50px;
     position: absolute;
   }
+
   @include mobile {
     margin: 0 auto;
   }
 }
+
 .slide.active {
   opacity: 1;
 }
@@ -32,5 +36,5 @@
   left: 0;
   right: 0;
   color: $orange-650;
-  padding: 10px;
+  padding: 0;
 }

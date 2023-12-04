@@ -29,7 +29,7 @@ const Package: NextPage = () => {
         description="META_TAG_PACKAGES_DESCRIPTION"
         keywords="META_TAG_PACKAGES_KEYWORDS"
       />
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false}/>
       <main>
         <header>
           <h1 className={style.title}> {t('APP_PACKAGE_PACKAGES')} </h1>

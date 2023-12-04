@@ -20,7 +20,7 @@ const PrivacyPolicy: NextPage = () => {
 
   return (
     <div className={style.background}>
-      <Header />
+      <Header setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.container}>
         <h1 className={style.title}>{t('menuPrivacyPolicy')}</h1>
         <div className={style.content}>

@@ -11,7 +11,7 @@ interface ChangeModeProps {
   currentCourseObject: CourseObject
   token?: string
   languageFrom: string | string[] | undefined
-  tab: 'course' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
+  tab: Tabs
   setTab: (tab: Tabs) => void
 }
 

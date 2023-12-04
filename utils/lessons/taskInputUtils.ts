@@ -94,11 +94,20 @@ export const getRecognitionText = ({
   wordsSynonyms,
   finalTranscript,
   textFromKeyboard,
+  setIsHintShown,
+  setHintText,
+  currentWord,
+  setIsMistake
 }: {
   correctText: string
   finalTranscript: string
   textFromKeyboard: string
   wordsSynonyms: [string[]]
+  setIsHintShown: (bool: boolean) => void
+  setHintText: (hint: string) => void
+  currentWord: string
+  setIsMistake: (mistake: boolean) => void
+
 }): string => {
   const correctWordsArray = correctText.split(' ')
   const textFromKeyboardArray = textFromKeyboard.split(' ')
@@ -108,6 +117,7 @@ export const getRecognitionText = ({
   const outputArray = []
 
   let lastAddedWordIndex = 0
+  setIsHintShown(false)
 
   for (let index = 0; index < correctWordsArray.length; index++) {
     const modifiedWord = correctWordsArray[index]
@@ -131,8 +141,16 @@ export const getRecognitionText = ({
     ) {
       lastAddedWordIndex = transcriptIndex
       outputArray.push(correctWordsArray[index])
+
+    }else{
+      setHintText(currentWord)
+      setIsHintShown(true)
+      setIsMistake(true)
     }
   }
+
+
+
   return outputArray.join(' ') + ' '
 }
 
@@ -148,6 +166,7 @@ export const replayInputCheck = ({
   setHintText,
   setIsHintShown,
   setMistakesCount,
+  setIsMistake,
 }: {
   inputText: string
   outputText: string
@@ -157,6 +176,7 @@ export const replayInputCheck = ({
   setHintText: (text: string) => void
   setIsHintShown: (bool: boolean) => void
   setMistakesCount: (callback: (prev: number) => number) => void
+  setIsMistake: (mistake: boolean) => void
 }) => {
   const correctWordsArray = correctText.split(' ')
   const outputTextArray = outputText ? outputText.trim().split(' ') : []
@@ -183,6 +203,8 @@ export const replayInputCheck = ({
     setHintText(currentWord)
     setIsHintShown(true)
   }
+
+  setIsMistake(true)
 
   return outputText
 }
@@ -232,7 +254,6 @@ export const textCheck = ({
     for (let i = 0; i < 5; i++) {
       if (!isSpaceOrMark.test(correctText.charAt(index + i - 1))) {
         setIsHintShown(false)
-        setIsMistake(false)
         return correctText.slice(0, index + i - 1)
       }
     }
@@ -250,11 +271,11 @@ export const textCheck = ({
     setMistakesCount(prev => prev + 1)
     setHintText(isSpaceOrMark.test(textToCompare) ? '(Space)' : currentWord)
     setIsHintShown(true)
-    setIsMistake(true)
   } else {
     setForgivenErrorQuantity(prev => prev + 1)
-    setIsMistake(true)
   }
+
+  setIsMistake(true)
 
   return outputText
 }

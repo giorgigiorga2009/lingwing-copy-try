@@ -42,7 +42,7 @@ const Logout: NextPage = () => {
   return (
     <div className={style.container}>
       <Carousel />
-      <Header size="s" />
+      <Header size="s" setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.content}>
         <div className={style.parrot} />
         <div className={style.textContainer}>

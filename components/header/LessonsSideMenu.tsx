@@ -5,6 +5,8 @@ import AllGrammar from '@components/lessons/learnMenu/AllGrammar'
 import ChangeMode from '@components/lessons/learnMenu/ChangeMode'
 import Statistics from '@components/lessons/learnMenu/Statistics'
 import Vocabulary from '@components/lessons/learnMenu/Vocabulary'
+import { Tabs } from '@pages/lessons'
+
 
 interface Props {
   currentCourseObject: CourseObject
@@ -13,7 +15,8 @@ interface Props {
 
 export const LessonsSideMenu: FC<Props> = ({ currentCourseObject, token }) => {
   const [activeTab, setActiveTab] = useState<
-    'changeMode' | 'grammar' | 'vocabulary' | 'statistics'
+    // 'changeMode' | 'grammar' | 'vocabulary' | 'statistics'
+    Tabs
   >('grammar')
 
   return (
@@ -26,12 +29,12 @@ export const LessonsSideMenu: FC<Props> = ({ currentCourseObject, token }) => {
             token={token}
           />
         )}
-        {activeTab === 'changeMode' && (
+        {activeTab === 'levels' && (
           <ChangeMode
             userCourseId={currentCourseObject.course._id}
             learnMode={currentCourseObject.learnMode}
             token={token}
-          />
+            setTab={(tab) => setActiveTab(tab)}          />
         )}
         {activeTab === 'vocabulary' && (
           <Vocabulary
@@ -65,9 +68,9 @@ export const LessonsSideMenu: FC<Props> = ({ currentCourseObject, token }) => {
         />
         <button
           className={`${style.changeModeIcon} ${
-            activeTab === 'changeMode' && style.activeButton
+            activeTab === 'levels' && style.activeButton
           }`}
-          onClick={() => setActiveTab('changeMode')}
+          onClick={() => setActiveTab('levels')}
         />
       </div>
     </div>

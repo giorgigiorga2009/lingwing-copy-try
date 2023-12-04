@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         description="META_TAG_INDEX_DESCRIPTION"
         keywords="META_TAG_INDEX_KEYWORDS"
       />
-      <Header />
+      <Header setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.content}>
         <div className={style.title}>
           {t('homeTitle1')}

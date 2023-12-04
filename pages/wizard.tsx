@@ -129,7 +129,7 @@ const Wizard: NextPage<WizardProps> = params => {
         keywords="META_TAG_WIZARD_KEYWORDS"
       />
       <div className={style.ball} />
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false}/>
 
       <div className={style.content}>
         <BackgroundParrot />
