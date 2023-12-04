@@ -12,7 +12,7 @@ const SlideShow = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlideIndex(prevIndex => (prevIndex + 1) % images.length)
-    }, 1000)
+    }, 2000)
 
     return () => clearInterval(interval)
   }, [])

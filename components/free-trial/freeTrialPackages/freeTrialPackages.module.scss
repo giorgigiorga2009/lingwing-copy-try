@@ -1,4 +1,4 @@
-@import '@styles/imports.scss';
+@import '@styles/imports';
 
 .trialPackagesContainer {
   position: relative;
@@ -9,23 +9,22 @@
   justify-content: center;
 
   .title {
-    text-align: center;
+    color: $black-600;
     font-size: 1.6rem;
-    font-family: SegoeUI, sans-serif;
-    margin-top: 10px;
-    &:lang(ka) {
-      font-family: $kaFont;
-    }
+    font-family: SegoeUI, $kaFont;
   }
+
   .close {
     position: absolute;
     right: 15px;
     top: 15px;
     cursor: pointer;
+
     @include mobile {
       display: none;
     }
   }
+
   .sliderContainer {
     width: 100%;
     overflow-x: hidden;
@@ -34,6 +33,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding: 0 50px;
+
     .carousel {
       margin: 0 auto;
       width: 968px;
@@ -44,9 +44,11 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-padding: 0 50px;
+
       div {
         scroll-snap-align: start;
       }
+
       &.activeSlide {
         transform: translateX(
           calc(50% - 210px / 2)
@@ -54,15 +56,17 @@
       }
     }
   }
+
   .agreement {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 2rem;
     font-size: 0.9rem;
     gap: 5px;
-    font-family: SegoeUI, sans-serif;
+    color: $grey-800;
+    font-family: SegoeUI, $kaFont;
 
     .checkLabel {
       & input {
@@ -109,10 +113,6 @@
 
     p a {
       text-decoration: none;
-    }
-
-    &:lang(ka) {
-      font-family: $kaFont;
     }
   }
 }

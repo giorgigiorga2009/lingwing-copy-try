@@ -148,10 +148,10 @@ export const parrotImages = [
 ]
 
 export const images = [
-  '/themes/images/v2/forever.png',
-  '/themes/images/v2/microphone.png',
-  '/themes/images/v2/clock.png',
-  '/themes/images/v2/quality.png',
+  '/assets/images/freeTrial/forever.png',
+  '/assets/images/freeTrial/microphone.png',
+  '/assets/images/freeTrial/clock.png',
+  '/assets/images/freeTrial/first.png',
 ]
 
 export const texts = [

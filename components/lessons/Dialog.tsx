@@ -134,12 +134,17 @@ export const DialogInput: FC<DialogInputProps> = ({
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
+  const [isMistake, setIsMistake] = useState(false)
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const errorLimit = commonProps.currentTask.errorLimit
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
   const { finalTranscript } = useSpeechRec()
+  
+  // const currTask = commonProps.currentTask
+  // const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
+  // const currentWord = wordsArray[currWordIndex]
 
   // set up speech recognition
   //const [textFromKeyboard, setTextFromKeyboard] = useState('')
@@ -153,6 +158,10 @@ export const DialogInput: FC<DialogInputProps> = ({
         finalTranscript,
         textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად
         wordsSynonyms,
+        setIsHintShown: setIsHintShown,
+        setHintText: setHintText,
+        currentWord: 'vato',
+        setIsMistake: setIsMistake
       }),
     )
   }, [finalTranscript])
@@ -175,7 +184,7 @@ export const DialogInput: FC<DialogInputProps> = ({
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
     )
-    setOutputText(replayInputCheck({ inputText, ...params }))
+    setOutputText(replayInputCheck({ inputText, ...params, setIsMistake }))
   }
 
   useEffect(() => {
@@ -233,7 +242,7 @@ export const DialogInput: FC<DialogInputProps> = ({
           }
           onChange={handleTextareaChange}
           taskDone={taskProgress}
-          mistake={isHintShown}
+          mistake={isMistake}
         />
         <VoiceRecognition />
       </div>

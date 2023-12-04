@@ -36,13 +36,13 @@
 .taskDescription {
   %baseIcon {
     position: absolute;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 1rem;
     margin: 0 0 0 -2.5rem;
     bottom: 0;
     background-repeat: no-repeat;
-    background-size: 1.3rem;
+    background-size: 1.6rem;
     background-position: center center;
 
     @include mobile {
@@ -56,35 +56,35 @@
   .mistakecorrectionIcon {
     @extend %baseIcon;
 
-    background-color: $red-100;
+    // background-color: $red-100;
     background-image: url('/assets/images/tasks/mistakecorrection.png');
   }
 
   .omittedwordsIcon {
     @extend %baseIcon;
 
-    background-color: rgb(211 238 255);
+    // background-color: rgb(211 238 255);
     background-image: url('/assets/images/tasks/omittedwords.png');
   }
 
   .translateIcon {
     @extend %baseIcon;
 
-    background-color: $purple-50;
+    // background-color: $purple-50;
     background-image: url('/assets/images/tasks/translate.png');
   }
 
   .replayIcon {
     @extend %baseIcon;
 
-    background-color: $green-100;
+    // background-color: $green-100;
     background-image: url('/assets/images/tasks/replay.png');
   }
 
   .dictationIcon {
     @extend %baseIcon;
 
-    background-color: $pink-100;
+    // background-color: $pink-100;
     background-image: url('/assets/images/tasks/dictation.png');
   }
 }
@@ -156,7 +156,7 @@
 .correctText {
   display: flex;
   justify-content: center;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFont;
   color: $white;
   padding: 1rem 2.5rem;
   background-color: #692e96;
