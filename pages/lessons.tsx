@@ -29,7 +29,6 @@ import CombinedModalComponent from '@components/lessons/combinedModals/combinedM
 
 export type Tabs =
   | 'course'
-  | 'levels'
   | 'grammar'
   | 'vocabulary'
   | 'levels'

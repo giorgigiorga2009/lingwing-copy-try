@@ -40,7 +40,7 @@ const Payments = () => {
         description="META_TAG_PAYMENTS_DESCRIPTION"
         keywords="META_TAG_PAYMENTS_KEYWORDS"
       />
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.containerWrapper}>
         <div className={style.payments}>{t('APP_HEADER_PAYMENTS')}</div>
         <div className={style.container}>

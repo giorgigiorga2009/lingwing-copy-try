@@ -53,7 +53,7 @@ const Faq: NextPage = () => {
   if (locale === 'bn') {
     return (
       <div className={style.wrapper}>
-        <Header size="s" loginClassName={style.loginModal} />
+        <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false}/>
         <header>
           <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>
         </header>
@@ -98,7 +98,7 @@ const Faq: NextPage = () => {
         description="META_TAG_FAQ_DESCRIPTION"
         keywords="META_TAG_FAQ_KEYWORDS"
       />
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false} />
       <main>
         <header>
           <h1 className={style.titleContainer}>{t('FAQ_TITLE')}</h1>

@@ -25,7 +25,12 @@ const AboutCompany: NextPage = () => {
         description="META_TAG_ABOUT_COMPANY_DESCRIPTION"
         keywords="META_TAG_ABOUT_COMPANY_KEYWORDS"
       />
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header
+        size="s"
+        loginClassName={style.loginModal}
+        setShowTopScores={() => false}
+        showTopScores={false}
+      />
       <div className={style.content}>
         <h1 className={style.title}>{t('APP_ABOUT_US_COMPANY')}</h1>
         <AboutTabs activeTab={activeTab} />

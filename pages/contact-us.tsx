@@ -64,7 +64,7 @@ const ContactUs: NextPage = () => {
         description="META_TAG_CONTACT_US_DESCRIPTION"
         keywords="META_TAG_CONTACT_US_KEYWORDS"
       />
-      <Header />
+      <Header setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.container}>
         <h1>{t('menuContactUs')}</h1>
         <div className={style.Form}>

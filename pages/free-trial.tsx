@@ -9,7 +9,7 @@ import Card from '@components/free-trial/container/container'
 const freeTrial: NextPage = () => {
   return (
     <>
-      <Header size="s" />
+      <Header size="s" setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.container}>
         <Card />
       </div>

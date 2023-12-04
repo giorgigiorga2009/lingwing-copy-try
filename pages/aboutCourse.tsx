@@ -44,7 +44,7 @@ const AboutCourse = () => {
         }
         keywords={'META_TAG_ABOUTCOURSE_KEYWORDS_' + (languageTo || 'geo')}
       />
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false}/>
       {isLoading ? (
         <Loader />
       ) : isError ? (

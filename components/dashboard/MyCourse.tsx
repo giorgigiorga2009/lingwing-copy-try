@@ -26,6 +26,7 @@ export interface SubCourse {
   status: {
     start: boolean
     continue: boolean
+    buy: boolean
   }
   iLearnFromNameCode: string
 }

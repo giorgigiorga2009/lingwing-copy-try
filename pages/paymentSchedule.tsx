@@ -13,7 +13,7 @@ import Schedule from '@components/paymentSchedule/schedule'
 const PaymentSchedule: NextPage = () => {
   return (
     <div className={style.container}>
-      <Header />
+      <Header setShowTopScores={() => false} showTopScores={false}/>
       <Image
         src={rocketParrot}
         className={style.rocketParrot}

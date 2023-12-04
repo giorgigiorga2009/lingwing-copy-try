@@ -13,7 +13,7 @@ const PackagesInfo: NextPage = () => {
 
   return (
     <div className={style.container}>
-      <Header size="s" loginClassName={style.loginModal} />
+      <Header size="s" loginClassName={style.loginModal} setShowTopScores={() => false} showTopScores={false}/>
       <div className={style.planSelectionContainer}>
         <h1 className={style.header}>{t('PACKAGES_INFO_HEADER')}</h1>
 
