@@ -13,6 +13,7 @@ interface Props {
   currentMessageIndex: number
   onDivHeight: (height: number) => void
   mistakesByLevel: number[]
+  finalTranscript: string
 }
 
 const ChatCurrentTask: FC<Props> = ({
@@ -22,6 +23,7 @@ const ChatCurrentTask: FC<Props> = ({
   currentMessageIndex,
   onDivHeight,
   mistakesByLevel,
+  finalTranscript
 }) => {
   return (
     <>
@@ -101,7 +103,9 @@ const ChatCurrentTask: FC<Props> = ({
             mistakesByLevel={mistakesByLevel}
           />
         </div>
+      
       )}
+      <div className={style.prompts}>{finalTranscript}</div>
     </>
   )
 }

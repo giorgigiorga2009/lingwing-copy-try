@@ -27,6 +27,9 @@ import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
 
+import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
+
+
 export type Tabs =
   | 'course'
   | 'grammar'
@@ -66,12 +69,13 @@ const Lessons: NextPage = () => {
     Date | string | undefined
   >()
 
+  const { transcript } = useSpeechRec()
+
   const router = useRouter()
   const locale = router.locale
   const { data: session } = useSession()
   const { courseName, languageTo, languageFrom, task} = router.query
 
-  console.log(courseName, languageTo, languageFrom, task)
   // Use localStorage to set the token state
   useEffect(() => {
     session && setToken(session?.user.accessToken)
@@ -348,6 +352,7 @@ const Lessons: NextPage = () => {
                             currentTask: currentTask,
                             currentCourseObject: currentCourseObject,
                           })}
+                          finalTranscript={transcript}
                         />
                       )}
                       {!currentTask && <div className={style.blankBubble} />}

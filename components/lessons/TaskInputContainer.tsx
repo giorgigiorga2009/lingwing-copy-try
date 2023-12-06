@@ -42,7 +42,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [currWordIndex, setCurrWordIndex] = useState(0)
-  const { finalTranscript } = useSpeechRec()
+  const { transcript } = useSpeechRec()
   const { audioIndex, setAudios, wordAudioPlay, addAudio, Play } = useAudio()
 
   const onlyLetters = /[^\p{L}\p{M}?"]/gu
@@ -83,13 +83,13 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
 
   // only for voiceRecognition
   useEffect(() => {
-    if (finalTranscript === '') return
+    if (transcript === '') return
 
     setOutputText(
       getRecognitionText({
         correctText,
         wordsSynonyms,
-        finalTranscript,
+        transcript,
         textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად.
         setIsHintShown: setIsHintShown,
         setHintText: setHintText,
@@ -97,7 +97,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
         setIsMistake: setIsMistake
       }),
     )
-  }, [finalTranscript])
+  }, [transcript])
 
   const params = {
     outputText,

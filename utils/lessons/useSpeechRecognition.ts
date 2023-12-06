@@ -1,4 +1,3 @@
-// hooks/useSpeechRecognitionLogic.js
 import { useState, useEffect } from 'react'
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -6,22 +5,42 @@ import SpeechRecognition, {
 
 export const useSpeechRec = () => {
   const [isRecording, setIsRecording] = useState(false)
-  const { finalTranscript, resetTranscript } = useSpeechRecognition()
+  const { transcript, resetTranscript } = useSpeechRecognition()
+  // const { transcript } = useSpeechRecognition()
 
-  const startRecognition = () => {
-    SpeechRecognition.startListening({ continuous: true })
-    setIsRecording(true)
-    resetTranscript()
-  }
+  // const startRecognition = () => {
+  //   resetTranscript()
+  //   SpeechRecognition.startListening({ continuous: true })
+  //   setIsRecording(true)
+  //   // console.log(transcript)
+  //   console.log('ki iyo')
+  // }
 
-  const stopRecognition = () => {
-    SpeechRecognition.stopListening()
-    setIsRecording(false)
-  }
+  // const stopRecognition = () => {
+  //   // SpeechRecognition.abortListening()
+  //   setIsRecording(false)
+  //   SpeechRecognition.stopListening()
+  // }
+
+  // const toggleRecognition = () => {
+  //   isRecording ? stopRecognition() : startRecognition()
+  // }
+  useEffect(() => {
+    if (isRecording) {
+      SpeechRecognition.startListening({ continuous: true });
+    } else {
+      SpeechRecognition.stopListening();
+    }
+  }, [isRecording]);
 
   const toggleRecognition = () => {
-    isRecording ? stopRecognition() : startRecognition()
-  }
+    if (isRecording) {
+      setIsRecording(false);
+    } else {
+      resetTranscript();
+      setIsRecording(true);
+    }
+  };
 
   // const handleFinalTranscriptChange = (transcript) => {
   //   setFinalTranscript(transcript);
@@ -29,19 +48,29 @@ export const useSpeechRec = () => {
   //   // Example: setOutputText(processTranscript(transcript, textFromKeyboard));
   // }
 
-  useEffect(() => {
-    // Here, you might want to add an event listener to SpeechRecognition for changes in transcript
-    // Alternatively, you might want to check for updates to `finalTranscript` within the component that uses this hook
-    // For simplicity, I've added a handleFinalTranscriptChange function above that you can utilize
+  // useEffect(() => {
+  //   // Logic to execute when isRecording changes
+  //   if (isRecording) {
+  //     resetTranscript()
+  //     SpeechRecognition.startListening({ continuous: true })
+  //   } else {
+  //     SpeechRecognition.stopListening()
+  //   }
+  // }, [isRecording])
 
-    return () => {
-      // Cleanup listeners or other resources when the hook is no longer used
-    }
-  }, [])
+  // useEffect(() => {
+  //   // Here, you might want to add an event listener to SpeechRecognition for changes in transcript
+  //   // Alternatively, you might want to check for updates to `finalTranscript` within the component that uses this hook
+  //   // For simplicity, I've added a handleFinalTranscriptChange function above that you can utilize
+
+  //   return () => {
+  //     // Cleanup listeners or other resources when the hook is no longer used
+  //   }
+  // }, [])
 
   return {
     isRecording,
-    finalTranscript,
+    transcript,
     toggleRecognition,
   }
 }

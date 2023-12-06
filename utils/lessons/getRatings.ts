@@ -1,6 +1,4 @@
-import axios from 'axios'
-import getConfig from 'next/config'
-// //const { process.env } = getConfig()
+import axios from 'axios'// //const { process.env } = getConfig()
 
 interface Props {
   courseId: string
@@ -12,7 +10,6 @@ export const getRatings = async ({ courseId, period, token }: Props) => {
   const headers = {
     Authorization: token ?? '',
   }
-  console.log(process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL)
   return await axios
     .get(
       `${

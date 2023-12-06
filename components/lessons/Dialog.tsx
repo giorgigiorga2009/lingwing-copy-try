@@ -140,7 +140,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   const errorLimit = commonProps.currentTask.errorLimit
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  const { finalTranscript } = useSpeechRec()
+  const { transcript } = useSpeechRec()
   
   // const currTask = commonProps.currentTask
   // const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
@@ -151,11 +151,11 @@ export const DialogInput: FC<DialogInputProps> = ({
 
   // only for voiceRecognition
   useEffect(() => {
-    if (finalTranscript === '') return
+    if (transcript === '') return
     setOutputText(
       getRecognitionText({
         correctText: dialogArray[currentMessageIndex],
-        finalTranscript,
+        transcript,
         textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად
         wordsSynonyms,
         setIsHintShown: setIsHintShown,
@@ -164,7 +164,7 @@ export const DialogInput: FC<DialogInputProps> = ({
         setIsMistake: setIsMistake
       }),
     )
-  }, [finalTranscript])
+  }, [transcript])
 
   const params = {
     outputText,

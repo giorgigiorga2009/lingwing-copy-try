@@ -1,6 +1,4 @@
 import axios, { AxiosRequestHeaders } from 'axios'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
 
 export type InitialTasksData = {
   tasks: InitialTask[]
@@ -238,7 +236,7 @@ export const getTasks = async ({
   token,
   courseId,
   userId,
-  task
+  task,
 }: {
   courseName: string | string[]
   languageTo: string | string[]
@@ -246,7 +244,7 @@ export const getTasks = async ({
   token: string | null
   userId: string | null
   courseId: string
-  task?: string | string[] 
+  task?: string | string[]
 }): Promise<TaskData[]> => {
   try {
     //commented axios works!!! it is easyer to read
@@ -288,7 +286,6 @@ export const getTasks = async ({
     })
 
     const data = response.data.data
-
     const tasks = data.tasks.map((task: InitialTask) => {
       const dialogLinesArray =
         task?.wordsAudio?.dialog &&
@@ -335,6 +332,7 @@ export const getTasks = async ({
           `${task.wordsAudio.sentence.filePath}/${task.wordsAudio.sentence.audioFileName}`,
       }
     })
+
     return tasks
   } catch (error) {
     console.log(error)

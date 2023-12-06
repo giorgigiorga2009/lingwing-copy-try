@@ -92,28 +92,27 @@ const findMatchedWordIndex = ({
 export const getRecognitionText = ({
   correctText,
   wordsSynonyms,
-  finalTranscript,
+  transcript = '',
   textFromKeyboard,
   setIsHintShown,
   setHintText,
   currentWord,
-  setIsMistake
+  setIsMistake,
 }: {
   correctText: string
-  finalTranscript: string
+  transcript: string
   textFromKeyboard: string
   wordsSynonyms: [string[]]
   setIsHintShown: (bool: boolean) => void
   setHintText: (hint: string) => void
   currentWord: string
   setIsMistake: (mistake: boolean) => void
-
 }): string => {
   const correctWordsArray = correctText.split(' ')
   const textFromKeyboardArray = textFromKeyboard.split(' ')
-  const transcriptArray = finalTranscript.toLowerCase().split(' ')
+  const transcriptArray = transcript.toLowerCase().split(' ')
   const arrayToSearch = [...textFromKeyboardArray, ...transcriptArray]
-
+ console.log(transcriptArray) 
   const outputArray = []
 
   let lastAddedWordIndex = 0
@@ -141,15 +140,12 @@ export const getRecognitionText = ({
     ) {
       lastAddedWordIndex = transcriptIndex
       outputArray.push(correctWordsArray[index])
-
-    }else{
+    } else {
       setHintText(currentWord)
       setIsHintShown(true)
       setIsMistake(true)
     }
   }
-
-
 
   return outputArray.join(' ') + ' '
 }
