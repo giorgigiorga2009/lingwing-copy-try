@@ -14,7 +14,7 @@ export const VoiceRecognition: FC = () => {
           <span className={style.micIcon} key="mic" />
         )}
       </button>
-      <p>{transcript}</p>
+      {/* <p>{transcript}</p> */}
     </>
   )
 }

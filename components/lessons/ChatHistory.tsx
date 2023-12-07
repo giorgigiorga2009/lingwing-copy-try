@@ -7,7 +7,7 @@ import { TranslateBubble } from './chatBubbles/TranslateBubble'
 
 interface HistoryProps {
   completedTasks: TaskData[]
-  isHintShown: boolean
+  // isHintShown: boolean
 }
 
 const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
@@ -104,8 +104,6 @@ const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
                 dialogArrayTo={task.correctText as string[]}
                 dialogArrayFrom={task.taskText as string}
                 isHistory={true}
-                isHintShown={false}
-                hintText={''}
                 mistakesByLevel={task.answers}
               />
             )}

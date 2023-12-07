@@ -1,3 +1,4 @@
+import { useTaskStore } from '@utils/store'
 import { TaskData, CourseObject } from '@utils/lessons/getTask'
 import { KEYBOARD_OVERRIDE, LANGUAGES_MAP_OVERRIDE } from '@utils/const'
 
@@ -94,8 +95,6 @@ export const getRecognitionText = ({
   wordsSynonyms,
   transcript = '',
   textFromKeyboard,
-  setIsHintShown,
-  setHintText,
   currentWord,
   setIsMistake,
 }: {
@@ -103,21 +102,21 @@ export const getRecognitionText = ({
   transcript: string
   textFromKeyboard: string
   wordsSynonyms: [string[]]
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (hint: string) => void
   currentWord: string
   setIsMistake: (mistake: boolean) => void
 }): string => {
+  const setHintShow = (show: boolean) => useTaskStore.setState({ HintShown: show });
+  const setHintText = (hintText: string) => useTaskStore.setState({ HintText: hintText });
+
   const correctWordsArray = correctText.split(' ')
   const textFromKeyboardArray = textFromKeyboard.split(' ')
   const transcriptArray = transcript.toLowerCase().split(' ')
   const arrayToSearch = [...textFromKeyboardArray, ...transcriptArray]
- console.log(transcriptArray) 
+  console.log(transcriptArray)
   const outputArray = []
 
   let lastAddedWordIndex = 0
-  setIsHintShown(false)
-
+  setHintShow(false)
   for (let index = 0; index < correctWordsArray.length; index++) {
     const modifiedWord = correctWordsArray[index]
       .replace(/[.,\/#!$%\^&\*;:{}=\_`~()¡¿]/g, '')
@@ -142,7 +141,7 @@ export const getRecognitionText = ({
       outputArray.push(correctWordsArray[index])
     } else {
       setHintText(currentWord)
-      setIsHintShown(true)
+      setHintShow(true)
       setIsMistake(true)
     }
   }
@@ -156,24 +155,19 @@ const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()¡¿]$/
 export const replayInputCheck = ({
   inputText,
   outputText,
-  isHintShown,
   correctText,
-  // mistakesCount,
-  setHintText,
-  setIsHintShown,
   setMistakesCount,
   setIsMistake,
 }: {
   inputText: string
   outputText: string
   correctText: string
-  isHintShown: boolean
-  //mistakesCount: number
-  setHintText: (text: string) => void
-  setIsHintShown: (bool: boolean) => void
   setMistakesCount: (callback: (prev: number) => number) => void
   setIsMistake: (mistake: boolean) => void
 }) => {
+  const HintShown = useTaskStore.getState().HintShown;
+  const setHintShow = (show: boolean) => useTaskStore.setState({ HintShown: show });
+  const setHintText = (hintText: string) => useTaskStore.setState({ HintText: hintText });
   const correctWordsArray = correctText.split(' ')
   const outputTextArray = outputText ? outputText.trim().split(' ') : []
   const inputTextArray = inputText ? inputText.replace(/ $/, '').split(' ') : []
@@ -190,14 +184,14 @@ export const replayInputCheck = ({
   if (correctFirsLetter === writtenFirsLetter) {
     outputTextArray.push(currentWord)
     punctuations?.match(regexp) && outputTextArray.push(punctuations)
-    setIsHintShown(false)
+    setHintShow(false)
     return outputTextArray.map(word => word.concat(' ')).join('')
   }
 
-  if (!isHintShown) {
+  if (!HintShown) {
     setMistakesCount(prev => prev + 1)
     setHintText(currentWord)
-    setIsHintShown(true)
+    setHintShow(true)
   }
 
   setIsMistake(true)
@@ -210,10 +204,6 @@ export const textCheck = ({
   outputText,
   currentWord,
   correctText,
-  isHintShown,
-  // mistakesCount,
-  setHintText,
-  setIsHintShown,
   setMistakesCount,
   setForgivenErrorQuantity,
   setIsMistake,
@@ -222,14 +212,15 @@ export const textCheck = ({
   outputText: string
   correctText: string
   currentWord: string
-  isHintShown: boolean
-  //mistakesCount: number
-  setHintText: (text: string) => void
-  setIsHintShown: (bool: boolean) => void
   setMistakesCount: (callback: (prev: number) => number) => void
   setForgivenErrorQuantity: (callback: (prev: number) => number) => void
   setIsMistake: (mistake: boolean) => void
 }) => {
+
+  const HintShown = useTaskStore.getState().HintShown;
+  const setHintShow = (show: boolean) => useTaskStore.setState({ HintShown: show });
+  const setHintText = (hintText: string) => useTaskStore.setState({ HintText: hintText });
+
   const firstMarkCheck = /^[¡¿"-]/.test(
     correctText.charAt(inputText.length - 1),
   )
@@ -249,24 +240,26 @@ export const textCheck = ({
   if (isSpaceHit && isSpaceOrMark.test(textToCompare)) {
     for (let i = 0; i < 5; i++) {
       if (!isSpaceOrMark.test(correctText.charAt(index + i - 1))) {
-        setIsHintShown(false)
+        setHintShow(false)
+
         return correctText.slice(0, index + i - 1)
       }
     }
   }
 
   if (inputText.slice(-1).toLowerCase() === textToCompare.toLocaleLowerCase()) {
-    setIsHintShown(false)
+    setHintShow(false)
+
     return index === correctText.trim().length - 1 &&
       isSpaceOrMark.test(correctText.slice(-1))
       ? correctText.trim()
       : correctText.trim().slice(0, index)
   }
 
-  if (!isHintShown) {
+  if (!HintShown) {
     setMistakesCount(prev => prev + 1)
     setHintText(isSpaceOrMark.test(textToCompare) ? '(Space)' : currentWord)
-    setIsHintShown(true)
+    setHintShow(true)
   } else {
     setForgivenErrorQuantity(prev => prev + 1)
   }

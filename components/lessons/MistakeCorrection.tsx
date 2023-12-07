@@ -15,18 +15,19 @@ import {
   setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { MistakesCounter } from './MistakesCounter'
+import { useTaskStore } from '@utils/store'
+
 
 interface Props {
   commonProps: CommonProps
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (text: string) => void
 }
 
 export const MistakeCorrectionTask: FC<Props> = ({
   commonProps,
-  setIsHintShown,
-  setHintText,
 }) => {
+  const setHintShow = useTaskStore(state => state.SetHintShow)
+  const setHintText = useTaskStore(state => state.SetHintText)
+
   const mistakeText = commonProps.currentTask.errorText
   const errorLimit = commonProps.currentTask.errorLimit
   const correctText = commonProps.currentTask.correctText as string
@@ -74,7 +75,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
         })
 
         if (isSaved) {
-          setIsHintShown(false)
+          setHintShow(false)
           updateCompletedTasks(commonProps)
         }
       }, 1500)
@@ -88,7 +89,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
       handleChange(event, commonProps.languageTo as 'geo' | 'eng' | 'rus'),
     ) //ეს შეიცვალა და დასატესტია
 
-    setIsHintShown(false)
+    setHintShow(false)
     setMistakeRepeat(false)
   }
 
@@ -103,7 +104,6 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setIsTaskDone(true)
       setMistakeRepeat(false)
-      setIsHintShown(false)
       if (!commonProps.token && !commonProps.userId) return
       const isSaved = await saveCurrentTask()
       if (isSaved) {
@@ -113,7 +113,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
     } else if (!mistakeRepeat) {
       setMistakesCount(prev => prev + 1)
       setMistakeRepeat(true)
-      setIsHintShown(true)
+      setHintShow(true)
       setHintText(correctText)
     }
   }

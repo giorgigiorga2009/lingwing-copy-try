@@ -11,20 +11,16 @@ import {
 import { TaskProgress } from './TaskProgress'
 import { VoiceRecognition } from './VoiceRecognition'
 import React, { FC, useEffect, useRef, useState } from 'react'
+import { useTaskStore } from '@utils/store'
 
 interface Props {
   commonProps: CommonProps
-  isHintShown: boolean
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (text: string) => void
 }
 
-export const OmittedWords: FC<Props> = ({
-  isHintShown,
-  commonProps,
-  setIsHintShown,
-  setHintText,
-}) => {
+export const OmittedWords: FC<Props> = ({ commonProps }) => {
+  const HintShown = useTaskStore(state => state.HintShown)
+  const setHintShow = useTaskStore(state => state.SetHintShow)
+  const setHintText = useTaskStore(state => state.SetHintText)
   const [words, setWords] = useState<string[]>([])
   const [correctWords, setCorrectWords] = useState<string[]>([])
   const [mistakesCount, setMistakesCount] = useState(0)
@@ -52,7 +48,7 @@ export const OmittedWords: FC<Props> = ({
     const isTextValid = inputText.toLowerCase() === currentMatch.toLowerCase()
 
     if (isTextValid) {
-      setIsHintShown(false)
+      setHintShow(false)
       newWords[index] = currentMatch
       setWords(newWords)
       setTaskProgress(correctWords.length / wordsArray.length + '%')
@@ -66,9 +62,9 @@ export const OmittedWords: FC<Props> = ({
         nextInputRef && nextInputRef.focus()
       }
     } else {
-      if (!isHintShown) {
+      if (!HintShown) {
         setMistakesCount(mistakesCount + 1)
-        setIsHintShown(true)
+        setHintShow(true)
         setHintText(missingWord)
       }
     }

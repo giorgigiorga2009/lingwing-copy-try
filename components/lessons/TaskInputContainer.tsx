@@ -21,19 +21,11 @@ import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 interface TaskInputProps {
   commonProps: CommonProps
   taskType: string
-  isHintShown: boolean
-  setHintText: (text: string) => void
-  setIsHintShown: (bool: boolean) => void
-  // setMistake: (number: number) => void
 }
 
 export const TaskInputContainer: FC<TaskInputProps> = ({
   taskType,
-  isHintShown,
   commonProps,
-  setHintText,
-  setIsHintShown,
-  // setMistake
 }) => {
   const [outputText, setOutputText] = useState('')
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -91,8 +83,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
         wordsSynonyms,
         transcript,
         textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად.
-        setIsHintShown: setIsHintShown,
-        setHintText: setHintText,
         currentWord: currentWord?.wordText,
         setIsMistake: setIsMistake
       }),
@@ -102,11 +92,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const params = {
     outputText,
     correctText,
-    isHintShown,
-    //mistakesCount,
     currentWord: currentWord?.wordText,
-    setHintText,
-    setIsHintShown,
     setMistakesCount,
     setForgivenErrorQuantity,
   }
@@ -116,7 +102,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     setOutputText('')
     setMistakesCount(0)
     setCurrWordIndex(0)
-    setIsHintShown(false)
     setTaskProgress('0%')
   }
 

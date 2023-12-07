@@ -32,8 +32,6 @@ interface DialogProps {
   dialogArrayTo: string[]
   dialogArrayFrom: string
   isHistory: boolean
-  isHintShown: boolean
-  hintText: string
   mistakesByLevel: number[]
 }
 
@@ -43,8 +41,6 @@ export const Dialog: FC<DialogProps> = ({
   dialogArrayTo,
   dialogArrayFrom,
   isHistory,
-  isHintShown,
-  hintText,
   mistakesByLevel,
 }) => {
   const { t } = useTranslation()
@@ -53,11 +49,12 @@ export const Dialog: FC<DialogProps> = ({
   }${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
   const scrollbarsRef = useRef<HTMLDivElement | null>(null)
 
-  useEffect(() => {
-    if (scrollbarsRef.current) {
-      scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight
-    }
-  }, [currentMessageIndex, hintText])
+  // useEffect(() => {
+  //   if (scrollbarsRef.current) {
+  //     scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight
+  //   }
+  // }, [currentMessageIndex])
+  // }, [currentMessageIndex, hintText])
 
   return (
     <div className={style.wrapper}>
@@ -93,7 +90,7 @@ export const Dialog: FC<DialogProps> = ({
             <div className={style.currentTask}>
               <WaveSurferNext audioURL={audioUrl} />
             </div>
-            <Hint isHintShown={isHintShown} hintText={hintText} />
+            <Hint />
           </div>
         )}
 
@@ -117,18 +114,12 @@ interface DialogInputProps {
   commonProps: CommonProps
   setCurrentMessageIndex: (index: number) => void
   currentMessageIndex: number
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (text: string) => void
-  isHintShown: boolean
 }
 
 export const DialogInput: FC<DialogInputProps> = ({
   setCurrentMessageIndex,
   currentMessageIndex,
   commonProps,
-  setIsHintShown,
-  setHintText,
-  isHintShown,
 }) => {
   const [outputText, setOutputText] = useState('')
   const [mistakesCount, setMistakesCount] = useState(0)
@@ -141,7 +132,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
   const { transcript } = useSpeechRec()
-  
+
   // const currTask = commonProps.currentTask
   // const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
   // const currentWord = wordsArray[currWordIndex]
@@ -158,10 +149,8 @@ export const DialogInput: FC<DialogInputProps> = ({
         transcript,
         textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად
         wordsSynonyms,
-        setIsHintShown: setIsHintShown,
-        setHintText: setHintText,
         currentWord: 'vato',
-        setIsMistake: setIsMistake
+        setIsMistake: setIsMistake,
       }),
     )
   }, [transcript])
@@ -170,9 +159,6 @@ export const DialogInput: FC<DialogInputProps> = ({
     outputText,
     correctText: dialogArray[currentMessageIndex],
     setMistakesCount,
-    setIsHintShown,
-    setHintText,
-    isHintShown,
     setForgivenErrorQuantity,
   }
 
@@ -196,7 +182,6 @@ export const DialogInput: FC<DialogInputProps> = ({
       )
       setTimeout(async () => {
         if (currentMessageIndex === dialogArray.length - 1) {
-          setIsHintShown(false)
           setCurrentMessageIndex(0)
           const isSaved = await saveTask({
             ...commonProps,

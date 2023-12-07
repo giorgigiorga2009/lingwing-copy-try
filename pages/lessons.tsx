@@ -26,6 +26,7 @@ import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
+import { useTaskStore } from '@utils/store'
 
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 
@@ -48,8 +49,6 @@ const Lessons: NextPage = () => {
   const [courseId, setCourseId] = useState('')
   const [completedTasks, setCompletedTasks] = useState<TaskData[]>()
   const [isSoundChecked, setSoundChecked] = useState(false)
-  const [isHintShown, setIsHintShown] = useState(false)
-  const [hintText, setHintText] = useState('')
   const [openFeedback, setOpenFeedback] = useState(false)
   const [showTopScores, setShowTopScores] = useState(true)
 
@@ -70,6 +69,7 @@ const Lessons: NextPage = () => {
   >()
 
   const { transcript } = useSpeechRec()
+  const HintShown = useTaskStore(state => state.HintShown);
 
   const router = useRouter()
   const locale = router.locale
@@ -215,7 +215,7 @@ const Lessons: NextPage = () => {
     }, 200)
 
     setIsGrammarHeightCalled(false)
-  }, [isHintShown, currentTask, isGrammarHeightCalled, currentMessageIndex])
+  }, [HintShown, currentTask, isGrammarHeightCalled, currentMessageIndex])
 
   const arePropsDefined =
     (token !== undefined || userId !== undefined) &&
@@ -338,15 +338,12 @@ const Lessons: NextPage = () => {
                       {completedTasks && (
                         <ChatHistory
                           completedTasks={completedTasks}
-                          isHintShown={isHintShown}
                         />
                       )}
                       {currentTask && currentCourseObject && (
                         <ChatCurrentTask
                           currentTask={currentTask}
                           currentMessageIndex={currentMessageIndex}
-                          isHintShown={isHintShown}
-                          hintText={hintText}
                           onDivHeight={handleGrammarHeight}
                           mistakesByLevel={getLevelColors({
                             currentTask: currentTask,
@@ -361,9 +358,6 @@ const Lessons: NextPage = () => {
                   {commonProps && (
                     <CurrentTaskInput
                       commonProps={commonProps}
-                      isHintShown={isHintShown}
-                      setIsHintShown={setIsHintShown}
-                      setHintText={setHintText}
                       currentMessageIndex={currentMessageIndex}
                       setCurrentMessageIndex={setCurrentMessageIndex}
                     />
