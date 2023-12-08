@@ -1,14 +1,14 @@
+import * as Yup from 'yup'
 import { NextPage } from 'next'
+import { useFormik } from 'formik'
+import PostData from '@utils/contactUs'
 import React, { useState } from 'react'
 import style from './contact-us.module.scss'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import { Header } from '@components/header/Header'
-import { Footer } from '@components/wizard/Footer'
-import { FollowButtons } from '@components/home/FollowButtons'
-import { useTranslation } from '@utils/useTranslation'
-import PostData from '@utils/contactUs'
 import { PageHead } from '@components/PageHead'
+import { Footer } from '@components/wizard/Footer'
+import { Header } from '@components/header/Header'
+import { useTranslation } from '@utils/useTranslation'
+import { FollowButtons } from '@components/home/FollowButtons'
 
 const validationSchema = Yup.object({
   fullname: Yup.string().required('fullName is required').min(2).max(40),

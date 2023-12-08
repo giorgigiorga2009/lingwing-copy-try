@@ -106,7 +106,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }
 
   useEffect(() => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
     if (outputText.trim() === correctText.trim()) {
       if (taskType === 'replay') {
         Play(`${commonProps.currentTask.sentenceAudioPath}`)

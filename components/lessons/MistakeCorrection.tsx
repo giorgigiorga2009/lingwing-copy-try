@@ -5,17 +5,17 @@ import React, {
   FC,
   useEffect,
 } from 'react'
-import classNames from 'classnames'
-import { saveTask } from '@utils/lessons/saveTask'
-import style from './MistakeCorrection.module.scss'
 import {
   CommonProps,
   handleChange,
   updateCompletedTasks,
   setLevelColors,
 } from '@utils/lessons/taskInputUtils'
-import { MistakesCounter } from './MistakesCounter'
+import classNames from 'classnames'
 import { useTaskStore } from '@utils/store'
+import { saveTask } from '@utils/lessons/saveTask'
+import style from './MistakeCorrection.module.scss'
+import { MistakesCounter } from './MistakesCounter'
 
 
 interface Props {
@@ -53,7 +53,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
   }
 
   useEffect(() => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
 
     if (
       inputText.replace(/\s+/g, ' ').trim().toLowerCase() ===
@@ -104,9 +104,18 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setIsTaskDone(true)
       setMistakeRepeat(false)
-      if (!commonProps.token && !commonProps.userId) return
+      if (!commonProps.Token && !commonProps.userId) return
       const isSaved = await saveCurrentTask()
       if (isSaved) {
+
+        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
+        commonProps.currentTask.answers = setLevelColors({
+          answers: commonProps.currentTask.answers,
+          currentLevel: commonProps.currentTask.currentLevel,
+          learnMode: commonProps.learnMode,
+          isMistake: isMistake,
+        })
+
         setInputText('')
         updateCompletedTasks(commonProps)
       }

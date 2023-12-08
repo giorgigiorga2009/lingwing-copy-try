@@ -1,3 +1,12 @@
+import {
+  getRecognitionText,
+  replayInputCheck,
+  CommonProps,
+  handleChange,
+  updateCompletedTasks,
+  handleOnKeyDown,
+  setLevelColors,
+} from '@utils/lessons/taskInputUtils'
 import { Hint } from './Hint'
 import dynamic from 'next/dynamic'
 import style from './Dialog.module.scss'
@@ -10,15 +19,6 @@ import { MistakesCounter } from './MistakesCounter'
 import { VoiceRecognition } from './VoiceRecognition'
 import { useTranslation } from '@utils/useTranslation'
 import { FC, useEffect, useRef, useState } from 'react'
-import {
-  getRecognitionText,
-  replayInputCheck,
-  CommonProps,
-  handleChange,
-  updateCompletedTasks,
-  handleOnKeyDown,
-  setLevelColors,
-} from '@utils/lessons/taskInputUtils'
 import { LevelsBubble } from './chatBubbles/LevelsBubble'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 
@@ -48,13 +48,6 @@ export const Dialog: FC<DialogProps> = ({
     process.env.NEXT_PUBLIC_AUDIO_URL || process.env.AUDIO_URL
   }${currentTask?.dialogLinesArray[currentMessageIndex].sentenceAudioPath}.mp3`
   const scrollbarsRef = useRef<HTMLDivElement | null>(null)
-
-  // useEffect(() => {
-  //   if (scrollbarsRef.current) {
-  //     scrollbarsRef.current.scrollTop = scrollbarsRef.current.scrollHeight
-  //   }
-  // }, [currentMessageIndex])
-  // }, [currentMessageIndex, hintText])
 
   return (
     <div className={style.wrapper}>
@@ -174,7 +167,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   }
 
   useEffect(() => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
     // If the output text matches the correct text, save the task and move on to the next one
     if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) {
       setTaskProgress(

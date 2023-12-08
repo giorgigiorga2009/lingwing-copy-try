@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 interface SelectedCurrency {
   selectedCurrency: number
@@ -11,8 +12,25 @@ const useStore = create<SelectedCurrency>()(set => ({
     set({ selectedCurrency: newCurrency }),
 }))
 
+export interface UserInfo {
+  Token: string
+  SetToken: (token: string) => void
+}
 
-interface Hints {
+export const useUserStore = create<UserInfo>()(
+  persist(
+    set => ({
+      Token: '',
+      SetToken: (token: string) => set({ Token: token }),
+    }),
+    {
+      name: 'user',
+      getStorage: () => localStorage,
+    },
+  ),
+)
+
+export interface Hints {
   HintShown: boolean
   HintText: string
   SetHintShow: (show: boolean) => void
@@ -22,8 +40,8 @@ interface Hints {
 export const useTaskStore = create<Hints>(set => ({
   HintShown: false,
   HintText: '',
-  SetHintShow: (show) => set(() => ({ HintShown: show })),
-  SetHintText: (hintText) => set(() => ({ HintText: hintText })),
+  SetHintShow: show => set(() => ({ HintShown: show })),
+  SetHintText: hintText => set(() => ({ HintText: hintText })),
 }))
 
 export default useStore

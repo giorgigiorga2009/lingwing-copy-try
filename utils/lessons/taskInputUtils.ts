@@ -4,7 +4,7 @@ import { KEYBOARD_OVERRIDE, LANGUAGES_MAP_OVERRIDE } from '@utils/const'
 
 export type CommonProps = {
   courseId: string
-  token: string | null
+  Token: string | null
   userId: string | null
   currentTask: TaskData
   currentTaskNumber: number

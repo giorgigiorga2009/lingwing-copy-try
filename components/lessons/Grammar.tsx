@@ -1,13 +1,13 @@
-import style from './Grammar.module.scss'
-import { FC, useEffect, useRef } from 'react'
-import { saveTask } from '@utils/lessons/saveTask'
 import {
   CommonProps,
   updateCompletedTasks,
   setLevelColors,
 } from '@utils/lessons/taskInputUtils'
-import { LevelsBubble } from './chatBubbles/LevelsBubble'
+import style from './Grammar.module.scss'
+import { FC, useEffect, useRef } from 'react'
+import { saveTask } from '@utils/lessons/saveTask'
 import { useTranslation } from '@utils/useTranslation'
+import { LevelsBubble } from './chatBubbles/LevelsBubble'
 
 interface Props {
   taskText: string
@@ -52,7 +52,7 @@ interface ButtonProps {
 export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
   const { t } = useTranslation()
   const handleClick = async () => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
     const isSaveSuccessful = await saveTask({
       ...commonProps,
       totalMistakes: 0,

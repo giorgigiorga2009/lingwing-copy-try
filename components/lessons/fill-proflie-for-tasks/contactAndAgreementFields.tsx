@@ -1,8 +1,8 @@
 import React from 'react'
-import PhoneInput from 'react-phone-number-input'
-import { useTranslation } from '@utils/useTranslation'
 import Link from 'next/link'
-import style from './fillProfileForTasks.module.scss' // Import the required style module
+import PhoneInput from 'react-phone-number-input'
+import style from './fillProfileForTasks.module.scss' 
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   phoneNumber: string

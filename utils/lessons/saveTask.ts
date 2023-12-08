@@ -7,7 +7,7 @@ export const saveTask = async ({
   languageTo,
   languageFrom,
   courseId,
-  token,
+  Token,
   userId,
   currentTask,
   totalMistakes,
@@ -16,7 +16,7 @@ export const saveTask = async ({
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
-  token: string | null
+  Token: string | null
   courseId: string
   userId: string | null
   currentTask: TaskData
@@ -27,7 +27,7 @@ export const saveTask = async ({
   let url = `${
     process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
   }/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
-  if (token === null) {
+  if (Token === null) {
     url = `${url}&userKey=${userId}`
   }
   const payload = {
@@ -53,7 +53,7 @@ export const saveTask = async ({
       taskType: currentTask.taskType,
     },
   }
-  const config = token ? { headers: { Authorization: token } } : {}
+  const config = Token ? { headers: { Authorization: Token } } : {}
 
   try {
     await axios.post(url, payload, config)

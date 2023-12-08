@@ -7,11 +7,23 @@ import { FC, useState } from 'react'
 import { useRouter } from 'next/router'
 import { signIn } from 'next-auth/react'
 import FocusTrap from 'focus-trap-react'
+import { useUserStore, UserInfo } from '@utils/store'
 import style from './LoginModal.module.scss'
 import { NetworkButtons } from './NetworkButtons'
 import { useTranslation } from '@utils/useTranslation'
 
 type Tab = 'signIn' | 'signUp'
+interface Props {
+  lighterBG?: boolean
+  onClick: () => void
+  className?: string
+  openLogin: boolean
+  setOpenLogin: (bool: boolean) => void
+}
+
+const setUserToken = (state: UserInfo) => ({
+  SetToken: state.SetToken,
+})
 
 const Divider: FC = () => {
   const { t } = useTranslation()
@@ -22,13 +34,6 @@ const Divider: FC = () => {
       <span className={style.line} />
     </div>
   )
-}
-interface Props {
-  lighterBG?: boolean
-  onClick: () => void
-  className?: string
-  openLogin: boolean
-  setOpenLogin: (bool: boolean) => void
 }
 
 export const LoginModal: FC<Props> = ({
@@ -57,6 +62,8 @@ export const LoginModal: FC<Props> = ({
         setEmailNotFound(true)
       } else {
         setOpenLogin(!openLogin)
+        console.log(response)
+        // setUserToken()
         router.push({ pathname: '/dashboard' })
       }
     } catch (error) {

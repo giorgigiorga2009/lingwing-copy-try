@@ -5,10 +5,10 @@ import {
   LanguageFrom,
   LOCALES_TO_LANGUAGES,
 } from '@utils/languages'
-import { getDifficultyLevels, LanguageLevel } from '@utils/getDifficultyLevels'
 import { useRouter } from 'next/router'
 import style from './wizard.module.scss'
 import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
 import { Locale } from '@utils/localization'
 import { Reviews } from '@components/Reviews'
 import { PageHead } from '@components/PageHead'
@@ -16,10 +16,10 @@ import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { useTranslation } from '@utils/useTranslation'
 import type { GetServerSideProps, NextPage } from 'next'
+import BackgroundParrot from '@components/shared/BackgroundParrot'
 import { ChooseLanguageStep } from '@components/wizard/ChooseLanguageStep'
 import { ChooseDifficultyStep } from '@components/wizard/ChooseDifficultyStep'
-import BackgroundParrot from '@components/shared/BackgroundParrot'
-import { useSession } from 'next-auth/react'
+import { getDifficultyLevels, LanguageLevel } from '@utils/getDifficultyLevels'
 
 type Step = 'step1' | 'step2' | 'step3'
 

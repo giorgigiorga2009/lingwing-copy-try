@@ -22,28 +22,25 @@ import { getLevelColors } from '@utils/lessons/taskInputUtils'
 import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import Feedback from '@components/lessons/combinedModals/Feedback'
+import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
+import { useUserStore, useTaskStore, UserInfo } from '@utils/store'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
-import { useTaskStore } from '@utils/store'
-
-import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 
 
-export type Tabs =
-  | 'course'
-  | 'grammar'
-  | 'vocabulary'
-  | 'levels'
-  | 'statistics'
+export type Tabs = 'course' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
+
+const getUserToken = (state: UserInfo) => ({
+  Token: state.Token,
+})
 
 const Lessons: NextPage = () => {
   const screenshotRef = useRef<HTMLDivElement>(null)
   const [tasksData, setTasksData] = useState<TaskData[]>([])
   const [currentTask, setCurrentTask] = useState<TaskData>()
   const [currentTaskNumber, setCurrentTaskNumber] = useState(0)
-  const [token, setToken] = useState<string | null>(null)
   const [userId, setUserId] = useState<string>('')
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
   const [courseId, setCourseId] = useState('')
@@ -69,25 +66,27 @@ const Lessons: NextPage = () => {
   >()
 
   const { transcript } = useSpeechRec()
-  const HintShown = useTaskStore(state => state.HintShown);
+  const HintShown = useTaskStore(state => state.HintShown)
 
   const router = useRouter()
   const locale = router.locale
+  const { Token } = useUserStore(getUserToken)
   const { data: session } = useSession()
-  const { courseName, languageTo, languageFrom, task} = router.query
+  console.log(Token + '???')
+
+  const { courseName, languageTo, languageFrom, task } = router.query
 
   // Use localStorage to set the token state
   useEffect(() => {
-    session && setToken(session?.user.accessToken)
     const getUserId = Cookies.get('userId')
     getUserId && setUserId(getUserId)
-  }, [session])
+  }, [])
 
   //get userId
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName) return
 
-    getUserId({ languageFrom, languageTo, courseName, token })
+    getUserId({ languageFrom, languageTo, courseName, Token })
       .then(response => {
         if (!response) return
         setUserId(response)
@@ -98,15 +97,16 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [languageTo, token])
+  }, [languageTo, Token])
 
   // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
 
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || (!token && !userId))
+    console.log(userId + '???')
+    if (!languageFrom || !languageTo || !courseName || (!Token && !userId))
       return
 
-    getUserCourse({ languageFrom, languageTo, courseName, token, userId })
+    getUserCourse({ languageFrom, languageTo, courseName, Token, userId })
       .then(courseObject => {
         if (courseObject) {
           setCurrentCourseObject(courseObject)
@@ -129,24 +129,23 @@ const Lessons: NextPage = () => {
     languageFrom,
     languageTo,
     courseName,
-    token,
+    Token,
     userId,
     currentTaskNumber,
     tab,
   ])
-
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
-    if (!languageFrom || !languageTo || !courseName || (!token && !courseId))
+    if (!languageFrom || !languageTo || !courseName || (!Token && !courseId))
       return
+
     getTasks({
       languageFrom,
       languageTo,
-      courseName,
-      token,
+      Token,
       courseId,
       userId,
-      task
+      task,
     })
       .then(response => setTasksData(response))
       .catch(error => {
@@ -161,7 +160,7 @@ const Lessons: NextPage = () => {
       !languageFrom ||
       !languageTo ||
       !courseName ||
-      (!token && !userId) ||
+      (!Token && !userId) ||
       !courseId ||
       !tasksData
     )
@@ -170,8 +169,7 @@ const Lessons: NextPage = () => {
       getTasks({
         languageFrom,
         languageTo,
-        courseName,
-        token,
+        Token,
         courseId,
         userId,
       })
@@ -218,7 +216,7 @@ const Lessons: NextPage = () => {
   }, [HintShown, currentTask, isGrammarHeightCalled, currentMessageIndex])
 
   const arePropsDefined =
-    (token !== undefined || userId !== undefined) &&
+    (Token !== undefined || userId !== undefined) &&
     languageTo !== undefined &&
     languageFrom !== undefined &&
     currentTask !== undefined &&
@@ -227,7 +225,7 @@ const Lessons: NextPage = () => {
   const commonProps = arePropsDefined
     ? {
         userId,
-        token,
+        Token,
         languageTo,
         languageFrom,
         courseId,
@@ -241,7 +239,7 @@ const Lessons: NextPage = () => {
       }
     : null
 
-  const isUserLoggedIn = !!token
+  const isUserLoggedIn = !!Token
 
   return (
     <div>
@@ -258,7 +256,7 @@ const Lessons: NextPage = () => {
           currentCourseObject={currentCourseObject}
           currentTaskData={currentTask}
           screenshotRef={screenshotRef}
-          token={token}
+          token={Token}
           UserEmail={session?.user.email}
           locale={locale}
         />
@@ -267,12 +265,12 @@ const Lessons: NextPage = () => {
         <Header
           size="s"
           currentCourseObject={currentCourseObject}
-          token={token}
+          token={Token}
           setShowTopScores={setShowTopScores}
           showTopScores={showTopScores}
         />
         <CombinedModalComponent
-          token={token}
+          token={Token}
           courseName={courseName}
           courseId={courseId}
           isUserLoggedIn={isUserLoggedIn}
@@ -284,12 +282,12 @@ const Lessons: NextPage = () => {
           currentCourseObject={currentCourseObject}
           dailyReachedLimitDate={dailyReachedLimitDate}
         />
-        {isSoundChecked && currentCourseObject && token && (
+        {isSoundChecked && currentCourseObject && Token && (
           <Ratings
             userCourseId={currentCourseObject?._id}
             courseId={currentCourseObject?.course._id}
             userScore={userScore}
-            token={token}
+            token={Token}
             showTopScores={showTopScores}
           />
         )}
@@ -310,7 +308,7 @@ const Lessons: NextPage = () => {
             <LearnMenu
               languageTo={languageTo}
               languageFrom={languageFrom}
-              token={token}
+              token={Token}
               currentCourseObject={currentCourseObject}
               setTab={setTab}
               tab={tab}
@@ -324,7 +322,7 @@ const Lessons: NextPage = () => {
               )}
               {tab !== 'course' && currentCourseObject && (
                 <Wrapper
-                  token={token ?? ''}
+                  token={Token ?? ''}
                   currentCourseObject={currentCourseObject}
                   languageFrom={languageFrom}
                   tab={tab}
@@ -336,9 +334,7 @@ const Lessons: NextPage = () => {
                   <div className={style.chat} ref={chatRef}>
                     <div ref={chatWrapperRef} className={style.chatWrapper}>
                       {completedTasks && (
-                        <ChatHistory
-                          completedTasks={completedTasks}
-                        />
+                        <ChatHistory completedTasks={completedTasks} />
                       )}
                       {currentTask && currentCourseObject && (
                         <ChatCurrentTask

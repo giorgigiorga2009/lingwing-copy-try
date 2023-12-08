@@ -196,23 +196,23 @@ export const getUserCourse = async ({
   languageTo,
   languageFrom,
   courseName,
-  token,
+  Token,
   userId,
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
   courseName: string | string[]
-  token: string | null
+  Token: string 
   userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
-    if (token) {
+    if (Token) {
       const response = await axios({
         url: `${
           process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
         }/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
         headers: {
-          Authorization: token,
+          Authorization: Token,
         },
       })
       return response.data.data
@@ -233,15 +233,14 @@ export const getUserCourse = async ({
 export const getTasks = async ({
   languageTo,
   languageFrom,
-  token,
+  Token,
   courseId,
   userId,
   task,
 }: {
-  courseName: string | string[]
   languageTo: string | string[]
   languageFrom: string | string[]
-  token: string | null
+  Token: string | null
   userId: string | null
   courseId: string
   task?: string | string[]
@@ -269,16 +268,18 @@ export const getTasks = async ({
     let url = `${
       process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
     }/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&task=${task}`
+
+  
+
     let headers: {
       Authorization: string | null
     } = {
-      Authorization: token,
+      Authorization: Token,
     }
-    if (userId !== null && token === null) {
+ 
+    if (userId && !Token) {
       url += `&userKey=${userId}`
-      headers = {
-        Authorization: '',
-      }
+      headers = { Authorization: '' }
     }
     const response = await axios({
       url,
@@ -286,6 +287,7 @@ export const getTasks = async ({
     })
 
     const data = response.data.data
+
     const tasks = data.tasks.map((task: InitialTask) => {
       const dialogLinesArray =
         task?.wordsAudio?.dialog &&
@@ -332,7 +334,6 @@ export const getTasks = async ({
           `${task.wordsAudio.sentence.filePath}/${task.wordsAudio.sentence.audioFileName}`,
       }
     })
-
     return tasks
   } catch (error) {
     console.log(error)

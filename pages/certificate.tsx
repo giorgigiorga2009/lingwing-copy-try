@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react'
 import {
   getCertificate,
   generateCertificateTextProps,
 } from '@utils/getCertificate'
-import style from '@pages/certificate.module.scss'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import ReactDOMServer from 'react-dom/server'
+import style from '@pages/certificate.module.scss'
+import { useTranslation } from '@utils/useTranslation'
+import React, { useEffect, useRef, useState } from 'react'
+import logoImage from '/public/themes/images/v2/certificate/logo.png'
 import certificateBg from '/public/themes/images/v2/certificate/bg.png'
 import containerBg from '/public/themes/images/v2/certificate/bg-l.png'
-import logoImage from '/public/themes/images/v2/certificate/logo.png'
-import parrotImage from '/public/themes/images/v2/certificate/user-parrot.png'
 import footerImage from '/public/themes/images/v2/certificate/footer.png'
-import bulletLineImage from '/public/themes/images/v2/certificate/bullet-line.png'
+import parrotImage from '/public/themes/images/v2/certificate/user-parrot.png'
 import signatureImage from '/public/themes/images/v2/certificate/signature.png'
-import { useRouter } from 'next/router'
-import { useTranslation } from '@utils/useTranslation'
-import ReactDOMServer from 'react-dom/server'
+import bulletLineImage from '/public/themes/images/v2/certificate/bullet-line.png'
 
 const generateCertificateText = (data: generateCertificateTextProps) => {
   return (

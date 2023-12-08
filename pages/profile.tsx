@@ -3,12 +3,12 @@ import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import style from './profile.module.scss'
 import { useSession } from 'next-auth/react'
+import { PageHead } from '@components/PageHead'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'
 import ProfileForm from '@components/profileAssets/profileForm'
-import { PageHead } from '@components/PageHead'
 
 const Profile: NextPage = () => {
   const router = useRouter()

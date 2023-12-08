@@ -1,11 +1,14 @@
 import { FC } from 'react'
 import style from './Hint.module.scss'
-import { useTaskStore } from '@utils/store'
+import { useTaskStore, Hints } from '@utils/store'
 
+const getHintInfo = (state: Hints) => ({
+  HintShown: state.HintShown,
+  HintText: state.HintText,
+})
 
 export const Hint: FC = () => {
-  const HintShown = useTaskStore(state => state.HintShown);
-  const HintText = useTaskStore(state => state.HintText);
+  const { HintShown, HintText } = useTaskStore(getHintInfo)
 
   return (
     <div className={HintShown ? style.hint : style.hidden}>

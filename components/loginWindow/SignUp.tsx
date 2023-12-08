@@ -1,9 +1,9 @@
-import { FC, useState } from 'react'
 import { Input } from './Input'
 import { auth } from '@utils/auth'
+import { FC, useState } from 'react'
+import style from './SignUp.module.scss'
 import { AuthButton } from './AuthButton'
 import { SignUpFooter } from './SignUpFooter'
-import style from './SignUp.module.scss'
 import { useTranslation } from '@utils/useTranslation'
 import ShowErr from '@components/shared/ShowInputError'
 

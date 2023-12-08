@@ -1,17 +1,17 @@
-import React, { FormEvent, useEffect, useState } from 'react'
-import style from './fillProfileForTasks.module.scss'
-import 'react-phone-number-input/style.css'
-import { useTranslation } from '@utils/useTranslation'
-import { ProfileData, PutData } from '@utils/profileEdit'
 import Image from 'next/image'
-import giftIcon from '@public/themes/images/v2/gift_icon.png'
-import { prepareJsonData } from '@utils/profileData'
-import UserProfileFields from './userProfileFields'
-import ContactAndAgreementFields from './contactAndAgreementFields'
 import ProfileFormButtons from './buttons'
+import 'react-phone-number-input/style.css'
 import { useSession } from 'next-auth/react'
 import { getUserProfileData } from '@utils/auth'
 import { TaskData } from '@utils/lessons/getTask'
+import UserProfileFields from './userProfileFields'
+import { prepareJsonData } from '@utils/profileData'
+import style from './fillProfileForTasks.module.scss'
+import { useTranslation } from '@utils/useTranslation'
+import { ProfileData, PutData } from '@utils/profileEdit'
+import giftIcon from '@public/themes/images/v2/gift_icon.png'
+import React, { FormEvent, useEffect, useState } from 'react'
+import ContactAndAgreementFields from './contactAndAgreementFields'
 
 interface Props {
   token: string | null
@@ -73,11 +73,11 @@ const FillProfileForTasks: React.FC<Props> = ({
     }
   }, [completedTasks])
 
-  if (!isUserLoggedIn || !showProfileFiller) {
+  if (!token || !showProfileFiller) {
     return null
   }
   return (
-    isUserLoggedIn &&
+    //isUserLoggedIn &&
     showProfileFiller && (
       <div className={style.modal}>
         <form onSubmit={handleSubmit}>

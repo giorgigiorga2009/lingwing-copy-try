@@ -1,21 +1,26 @@
-import { FC } from 'react'
-import { NextPage } from 'next'
-import range from '@utils/range'
-import classNames from 'classnames'
-import style from './logout.module.scss'
 import {
   APP_STORE_URL,
   GOOGLE_PLAY_URL,
   LOGOUT_SCREENSHOTS,
 } from '@utils/const'
+import Link from 'next/link'
+import Image from 'next/image'
+import { NextPage } from 'next'
+import range from '@utils/range'
+import classNames from 'classnames'
+import { FC, useEffect } from 'react'
+import style from './logout.module.scss'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
 import { Carousel } from 'react-responsive-carousel'
+import { useUserStore, UserInfo } from '@utils/store'
 import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import Image from 'next/image'
-import Link from 'next/link'
+
+const setUserToken = (state: UserInfo) => ({
+  SetToken: state.SetToken,
+})
 
 const Stars: FC<{ index?: number; href: string }> = ({ index, href }) => {
   return (
@@ -38,11 +43,16 @@ const Stars: FC<{ index?: number; href: string }> = ({ index, href }) => {
 
 const Logout: NextPage = () => {
   const { t } = useTranslation()
+  const { SetToken } = useUserStore(setUserToken)
+
+  useEffect(() => {
+    SetToken('')
+  }, [])
 
   return (
     <div className={style.container}>
       <Carousel />
-      <Header size="s" setShowTopScores={() => false} showTopScores={false}/>
+      <Header size="s" setShowTopScores={() => false} showTopScores={false} />
       <div className={style.content}>
         <div className={style.parrot} />
         <div className={style.textContainer}>

@@ -1,6 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import { useQuery } from 'react-query'
 import style from './aboutCourse.module.scss'
+import Loader from '@components/loaders/loader'
+import { PageHead } from '@components/PageHead'
 import { Footer } from '@components/wizard/Footer'
 import { Header } from '@components/header/Header'
 import Scores from '@components/about-course/Scores'
@@ -8,9 +11,6 @@ import { getReadCourse } from '@utils/getReadCourse'
 import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import CourseInfo from '@components/about-course/CourseInfo'
 import AboutQuotes from '@components/about-course/AboutQuotes'
-import { useQuery } from 'react-query'
-import Loader from '@components/loaders/loader'
-import { PageHead } from '@components/PageHead'
 
 const AboutCourse = () => {
   const router = useRouter()

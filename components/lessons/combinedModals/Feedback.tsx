@@ -1,16 +1,16 @@
-import { FC, useEffect, useState } from 'react'
-import Foco from 'react-foco'
-import html2canvas from 'html2canvas'
-import style from './Feedback.module.scss'
-import { useTranslation } from '@utils/useTranslation'
 import {
   getFeedbackCategories,
   sendFeedback,
   feedback,
 } from '@utils/lessons/getFeedback'
-import { CourseObject, TaskData } from '@utils/lessons/getTask'
+import Foco from 'react-foco'
+import html2canvas from 'html2canvas'
+import style from './Feedback.module.scss'
 import { Locale } from '@utils/localization'
+import { FC, useEffect, useState } from 'react'
+import { useTranslation } from '@utils/useTranslation'
 import { LOCALES_TO_LANGUAGES } from '@utils/languages'
+import { CourseObject, TaskData } from '@utils/lessons/getTask'
 
 interface Props {
   token: string | null

@@ -1,6 +1,3 @@
-import style from './OmittedWords.module.scss'
-import { saveTask } from '@utils/lessons/saveTask'
-import { MistakesCounter } from './MistakesCounter'
 import {
   handleChange,
   CommonProps,
@@ -8,10 +5,13 @@ import {
   handleOnKeyDown,
   setLevelColors,
 } from '@utils/lessons/taskInputUtils'
+import { useTaskStore } from '@utils/store'
 import { TaskProgress } from './TaskProgress'
+import style from './OmittedWords.module.scss'
+import { saveTask } from '@utils/lessons/saveTask'
+import { MistakesCounter } from './MistakesCounter'
 import { VoiceRecognition } from './VoiceRecognition'
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { useTaskStore } from '@utils/store'
 
 interface Props {
   commonProps: CommonProps
@@ -37,6 +37,7 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
+    if (correctWords.length === inputsCount) return
     const inputText = handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
@@ -71,7 +72,7 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
   }
 
   useEffect(() => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
     if (correctWords.length === inputsCount) {
       setTimeout(async () => {
         const isSaved = await saveTask({
