@@ -56,7 +56,8 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
       />
       {token &&
         dailyTaskLeft <= 0 &&
-        !currentCourseObject?.info.bonus && (
+        !currentCourseObject?.info.bonus &&
+        !currentCourseObject?.info.premium && (
           <LessonsFlowPopUps
             token={token}
             popUpNumber={2}

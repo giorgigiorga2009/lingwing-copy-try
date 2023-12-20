@@ -62,8 +62,6 @@ export const LoginModal: FC<Props> = ({
         setEmailNotFound(true)
       } else {
         setOpenLogin(!openLogin)
-        console.log(response)
-        // setUserToken()
         router.push({ pathname: '/dashboard' })
       }
     } catch (error) {

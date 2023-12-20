@@ -21,14 +21,10 @@
   overflow: hidden;
   display: flex;
   padding-left: 2.25rem;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFontTitleBold;
   align-items: center;
   margin-bottom: 1.5rem;
   background-color: $white;
-
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
-  }
 
   &:hover {
     @include hoverStyle;

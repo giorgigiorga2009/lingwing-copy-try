@@ -6,7 +6,6 @@ import {
   handleChange,
   updateCompletedTasks,
   handleOnKeyDown,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { TaskProgress } from './TaskProgress'
 import { DictationInput } from './DictationInput'
@@ -16,7 +15,7 @@ import { useAudio } from '@utils/lessons/audioUtils'
 import style from './TaskInputContainer.module.scss'
 import { VoiceRecognition } from './VoiceRecognition'
 import { useState, useEffect, FC, useRef } from 'react'
-import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
+import { useVoiceRecognition, getVoiceRecognition } from '@utils/store'
 
 interface TaskInputProps {
   commonProps: CommonProps
@@ -34,7 +33,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [currWordIndex, setCurrWordIndex] = useState(0)
-  const { transcript } = useSpeechRec()
+  const { transcript } = useVoiceRecognition(getVoiceRecognition)
   const { audioIndex, setAudios, wordAudioPlay, addAudio, Play } = useAudio()
 
   const onlyLetters = /[^\p{L}\p{M}?"]/gu
@@ -58,8 +57,11 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }, [forgivenErrorQuantity, mistakesCount])
 
   useEffect(() => {
-    wordAudioPlay(currWordIndex)
+    if (transcript === '') {
+      wordAudioPlay(currWordIndex)
+    }
   }, [currWordIndex])
+
   useEffect(() => {
     if (!currentWord) return
 
@@ -73,29 +75,25 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     }
   }, [outputText, audioIndex])
 
+  const params = {
+    currWordIndex,
+    outputText,
+    correctText,
+    wordsSynonyms,
+    transcript,
+    textFromKeyboard: inputRef.current?.value || '',
+    currentWord: currentWord?.wordText,
+    setMistakesCount,
+    setForgivenErrorQuantity,
+    setIsMistake,
+  }
+
   // only for voiceRecognition
   useEffect(() => {
     if (transcript === '') return
 
-    setOutputText(
-      getRecognitionText({
-        correctText,
-        wordsSynonyms,
-        transcript,
-        textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად.
-        currentWord: currentWord?.wordText,
-        setIsMistake: setIsMistake
-      }),
-    )
+    setOutputText(getRecognitionText({ ...params }))
   }, [transcript])
-
-  const params = {
-    outputText,
-    correctText,
-    currentWord: currentWord?.wordText,
-    setMistakesCount,
-    setForgivenErrorQuantity,
-  }
 
   const resetTaskState = () => {
     setAudios([])
@@ -108,30 +106,23 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   useEffect(() => {
     if (!commonProps.Token && !commonProps.userId) return
     if (outputText.trim() === correctText.trim()) {
-      if (taskType === 'replay') {
-        Play(`${commonProps.currentTask.sentenceAudioPath}`)
-      }
+      Play(`${commonProps.currentTask.sentenceAudioPath}`)
+
       setTimeout(async () => {
         const audio = new Audio('https://lingwing.com/sounds/true.mp3')
         audio.play()
+
+        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
         const isSaved = await saveTask({
           ...commonProps,
           totalMistakes: mistakesCount,
           forgivenErrorQuantity: forgivenErrorQuantity,
-          error: errorLimit - mistakesCount < 0 ? 1 : 0,
-        })
-
-        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
-        commonProps.currentTask.answers = setLevelColors({
-          answers: commonProps.currentTask.answers,
-          currentLevel: commonProps.currentTask.currentLevel,
-          learnMode: commonProps.learnMode,
-          isMistake: isMistake,
+          error: isMistake,
         })
 
         if (isSaved) {
           resetTaskState()
-          updateCompletedTasks(commonProps)
+          updateCompletedTasks(commonProps, isMistake)
         }
       }, 2500)
     }
@@ -148,8 +139,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
     )
 
     taskType === 'dictation' || taskType === 'translate'
-      ? setOutputText(textCheck({ inputText, ...params, setIsMistake }))
-      : setOutputText(replayInputCheck({ inputText, ...params, setIsMistake }))
+      ? setOutputText(textCheck({ inputText, ...params }))
+      : setOutputText(replayInputCheck({ inputText, ...params }))
   }
 
   return (
@@ -163,7 +154,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
         <DictationInput
           inputRef={inputRef}
           outputText={outputText}
-          // onFocus={handleOnFocus}
           onKeyDown={(event: React.KeyboardEvent) =>
             handleOnKeyDown(event, inputRef)
           }
@@ -171,7 +161,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
           taskDone={taskProgress}
           mistake={isMistake}
         />
-        <VoiceRecognition />
+        <VoiceRecognition progress={taskProgress} />
       </div>
     </>
   )

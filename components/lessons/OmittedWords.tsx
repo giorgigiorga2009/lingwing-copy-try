@@ -3,7 +3,6 @@ import {
   CommonProps,
   updateCompletedTasks,
   handleOnKeyDown,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { useTaskStore } from '@utils/store'
 import { TaskProgress } from './TaskProgress'
@@ -74,24 +73,17 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
   useEffect(() => {
     if (!commonProps.Token && !commonProps.userId) return
     if (correctWords.length === inputsCount) {
+      const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
       setTimeout(async () => {
         const isSaved = await saveTask({
           ...commonProps,
           totalMistakes: mistakesCount,
           forgivenErrorQuantity: forgivenErrorQuantity,
-          error: errorLimit - mistakesCount < 0 ? 1 : 0,
-        })
-
-        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
-        commonProps.currentTask.answers = setLevelColors({
-          answers: commonProps.currentTask.answers,
-          currentLevel: commonProps.currentTask.currentLevel,
-          learnMode: commonProps.learnMode,
-          isMistake: isMistake,
+          error: isMistake,
         })
 
         if (isSaved) {
-          updateCompletedTasks(commonProps)
+          updateCompletedTasks(commonProps, isMistake)
         }
       }, 1500)
     }
@@ -131,7 +123,7 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
             }
           })}
         </div>
-        <VoiceRecognition />
+        <VoiceRecognition progress={taskProgress}/>
       </div>
     </>
   )

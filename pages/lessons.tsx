@@ -22,13 +22,11 @@ import { getLevelColors } from '@utils/lessons/taskInputUtils'
 import LearnMenu from '@components/lessons/learnMenu/LearnMenu'
 import ChatCurrentTask from '@components/lessons/ChatCurrentTask'
 import Feedback from '@components/lessons/combinedModals/Feedback'
-import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
 import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { useUserStore, useTaskStore, UserInfo } from '@utils/store'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
-
 
 export type Tabs = 'course' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
 
@@ -65,49 +63,56 @@ const Lessons: NextPage = () => {
     Date | string | undefined
   >()
 
-  const { transcript } = useSpeechRec()
   const HintShown = useTaskStore(state => state.HintShown)
 
   const router = useRouter()
   const locale = router.locale
   const { Token } = useUserStore(getUserToken)
   const { data: session } = useSession()
-  console.log(Token + '???')
 
   const { courseName, languageTo, languageFrom, task } = router.query
 
   // Use localStorage to set the token state
   useEffect(() => {
+    fetchUserId()
     const getUserId = Cookies.get('userId')
     getUserId && setUserId(getUserId)
   }, [])
 
-  //get userId
-  useEffect(() => {
+  const fetchUserId = async () => {
     if (!languageFrom || !languageTo || !courseName) return
 
-    getUserId({ languageFrom, languageTo, courseName, Token })
-      .then(response => {
-        if (!response) return
+    try {
+      const response = await getUserId({
+        languageFrom,
+        languageTo,
+        courseName,
+        Token,
+      })
+      if (response) {
         setUserId(response)
         Cookies.set('userId', response)
-        return response
-      })
-      .catch(error => {
-        console.error('Error fetching user course:', error)
-        throw error
-      })
-  }, [languageTo, Token])
-
-  // Use the languageFrom, languageTo, courseName, and token states to get the user's course ID
+      }
+    } catch (error) {
+      console.error('Error fetching user course:', error)
+    }
+  }
 
   useEffect(() => {
-    console.log(userId + '???')
-    if (!languageFrom || !languageTo || !courseName || (!Token && !userId))
+    if (!languageFrom || !languageTo || !courseName || (!Token && !userId)) {
       return
+    }
+    const fetchUserCourse = async () => {
+      await fetchUserId()
 
-    getUserCourse({ languageFrom, languageTo, courseName, Token, userId })
-      .then(courseObject => {
+      try {
+        const courseObject = await getUserCourse({
+          languageFrom,
+          languageTo,
+          courseName,
+          Token,
+          userId,
+        })
         if (courseObject) {
           setCurrentCourseObject(courseObject)
           setCourseId(courseObject._id)
@@ -118,22 +123,14 @@ const Lessons: NextPage = () => {
           )
           setDailyReachedLimitDate(new Date(courseObject.dailyReachedLimitDate))
         }
-
-        return courseObject
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching user course:', error)
-        throw error
-      })
-  }, [
-    languageFrom,
-    languageTo,
-    courseName,
-    Token,
-    userId,
-    currentTaskNumber,
-    tab,
-  ])
+      }
+    }
+
+    fetchUserCourse()
+  }, [languageFrom, languageTo, courseName, Token, userId, tab])
+
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!Token && !courseId))
@@ -152,7 +149,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [courseId])
+  }, [courseId, courseName])
 
   //fetch new portion of tasks
   useEffect(() => {
@@ -303,13 +300,14 @@ const Lessons: NextPage = () => {
           />
         )}
 
-        {isSoundChecked && (
+        {isSoundChecked && currentCourseObject && (
           <>
             <LearnMenu
               languageTo={languageTo}
               languageFrom={languageFrom}
               token={Token}
-              currentCourseObject={currentCourseObject}
+              languageCourseId={currentCourseObject.course._id}
+              languageId={currentCourseObject.course.iLearn._id}
               setTab={setTab}
               tab={tab}
             />
@@ -345,19 +343,18 @@ const Lessons: NextPage = () => {
                             currentTask: currentTask,
                             currentCourseObject: currentCourseObject,
                           })}
-                          finalTranscript={transcript}
                         />
                       )}
                       {!currentTask && <div className={style.blankBubble} />}
                     </div>
                   </div>
-                  {commonProps && (
-                    <CurrentTaskInput
-                      commonProps={commonProps}
-                      currentMessageIndex={currentMessageIndex}
-                      setCurrentMessageIndex={setCurrentMessageIndex}
-                    />
-                  )}
+                  {/* {commonProps && ( */}
+                  <CurrentTaskInput
+                    commonProps={commonProps}
+                    currentMessageIndex={currentMessageIndex}
+                    setCurrentMessageIndex={setCurrentMessageIndex}
+                  />
+                  {/* )} */}
                 </div>
               )}
             </div>

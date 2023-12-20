@@ -202,7 +202,7 @@ export const getUserCourse = async ({
   languageTo: string | string[]
   languageFrom: string | string[]
   courseName: string | string[]
-  Token: string 
+  Token: string
   userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
@@ -246,37 +246,16 @@ export const getTasks = async ({
   task?: string | string[]
 }): Promise<TaskData[]> => {
   try {
-    //commented axios works!!! it is easyer to read
-    // let data
-    // if (token) {
-    //   const response = await axios({
-    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
-    //     headers: {
-    //       Authorization: token,
-    //     },
-    //   })
-    //   data = response.data.data
-    // }
-    // if(userId){
-    //   const response = await axios({
-    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
-
-    //   })
-    //   data = response.data.data
-    // }
-    //
     let url = `${
       process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
     }/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&task=${task}`
-
-  
 
     let headers: {
       Authorization: string | null
     } = {
       Authorization: Token,
     }
- 
+
     if (userId && !Token) {
       url += `&userKey=${userId}`
       headers = { Authorization: '' }

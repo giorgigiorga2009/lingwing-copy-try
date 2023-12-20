@@ -1,7 +1,7 @@
 @import '@styles/imports';
 
 .regularPackageBtn {
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFontTitleBold;
   font-size: 1.1rem;
   border: none;
   color: $white;
@@ -17,10 +17,6 @@
     background-color: $purple-500;
     transform: translateY(-0.1rem);
     transition-duration: 0.2s;
-  }
-
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
   }
 }
 

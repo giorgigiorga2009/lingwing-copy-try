@@ -29,7 +29,6 @@ const LessonsFlowPopUps: React.FC<RegistrationReminderPopupProps> = ({
   const [packagesData, setPackagesData] = useState<PackageData>()
 
   const handleOpenLogin = useCallback(() => setOpenLogin(true), [])
-  {console.log('sad')}
 
   useEffect(() => {
     if (popUpNumber === 3) {

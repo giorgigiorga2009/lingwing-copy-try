@@ -1,10 +1,10 @@
-import { FC, useState } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
+import { FC, useState } from 'react'
 import ActionBtns from './ActionBtns'
 import style from './MySubCourse.module.scss'
-import { useTranslation } from '../../utils/useTranslation'
 import CertificateBtn from './certificateBtn'
+import { useTranslation } from '@utils/useTranslation'
 
 interface SubCourseProps {
   userCourseId?: string

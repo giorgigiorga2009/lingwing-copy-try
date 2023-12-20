@@ -2,7 +2,7 @@
 
 .form {
   width: 40%;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 20px 0 0 20px;
 
   & > div {
     width: 100%;
@@ -12,30 +12,29 @@
     input {
       width: 100%;
       max-width: 25rem;
-      font-family: SegoeUI, 'sans-serif';
+      font-family: SegoeUI, $kaFont;
       color: $black;
       font-size: 0.9rem;
       padding-left: 20px;
       height: 2.5rem;
       border-radius: 3rem;
       border: 2px solid $white-200;
+
       &:focus {
         border: none;
         outline: 2px solid $purple-500;
       }
     }
+
     label {
       position: absolute;
-      font-family: SegoeUI, 'sans-serif';
+      font-family: SegoeUI, $kaFont;
       color: $grey-800;
       left: 27px;
       top: -27px;
-
-      &:lang(ka) {
-        font-family: $kaFont;
-      }
     }
   }
+
   .birthDate {
     width: 100%;
     display: flex;
@@ -43,8 +42,9 @@
 
   @include mobile {
     width: 100%;
-    border-radius: 20px 20px 0px 0px;
-    padding: 0px 20px;
+    border-radius: 20px 20px 0 0;
+    padding: 0 20px;
+
     div {
       input {
         width: 100%;

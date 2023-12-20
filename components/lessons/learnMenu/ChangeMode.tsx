@@ -1,10 +1,10 @@
 import DOMPurify from 'dompurify'
 import classNames from 'classnames'
-import { FC, useState } from 'react'
-import { changeMode } from '@utils/changeMode'
-import style from './ChangeMode.module.scss'
-import { useTranslation } from '@utils/useTranslation'
 import { Tabs } from '@pages/lessons'
+import style from './ChangeMode.module.scss'
+import { changeMode } from '@utils/changeMode'
+import { FC, useState, useEffect } from 'react'
+import { useTranslation } from '@utils/useTranslation'
 interface ModeProps {
   index: 1 | 2 | 3
   name: string
@@ -28,6 +28,10 @@ const ChangeMode: FC<ChangeModeProps> = ({
 }) => {
   const { t } = useTranslation()
   const [selected, setSelected] = useState(learnMode)
+
+  useEffect(() => {
+    setSelected(learnMode)
+  }, [userCourseId])
 
   const Mode = ({ index, name, time, desc, bigDesc }: ModeProps) => {
     const sanitizedHTML = DOMPurify.sanitize(bigDesc)

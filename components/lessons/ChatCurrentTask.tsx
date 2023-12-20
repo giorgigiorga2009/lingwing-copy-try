@@ -5,13 +5,13 @@ import { Grammar } from './Grammar'
 import { TaskData } from '@utils/lessons/getTask'
 import style from './ChatCurrentTask.module.scss'
 import { TranslateBubble } from './chatBubbles/TranslateBubble'
+import { useVoiceRecognition, getVoiceRecognition } from '@utils/store'
 
 interface Props {
   currentTask: TaskData
   currentMessageIndex: number
   onDivHeight: (height: number) => void
   mistakesByLevel: number[]
-  finalTranscript: string
 }
 
 const ChatCurrentTask: FC<Props> = ({
@@ -19,8 +19,9 @@ const ChatCurrentTask: FC<Props> = ({
   currentMessageIndex,
   onDivHeight,
   mistakesByLevel,
-  finalTranscript
 }) => {
+  const { transcript } = useVoiceRecognition(getVoiceRecognition)
+
   return (
     <>
       {currentTask.taskType !== 'grammar' && currentTask.taskType !== 'dialog' && (
@@ -96,9 +97,8 @@ const ChatCurrentTask: FC<Props> = ({
             mistakesByLevel={mistakesByLevel}
           />
         </div>
-      
       )}
-      {/* <div className={style.prompts}>{finalTranscript}</div> */}
+      <div className={style.prompts}>{transcript}</div>
     </>
   )
 }

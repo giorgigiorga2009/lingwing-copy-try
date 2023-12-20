@@ -5,7 +5,6 @@ import {
   handleChange,
   updateCompletedTasks,
   handleOnKeyDown,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import { Hint } from './Hint'
 import dynamic from 'next/dynamic'
@@ -20,7 +19,7 @@ import { VoiceRecognition } from './VoiceRecognition'
 import { useTranslation } from '@utils/useTranslation'
 import { FC, useEffect, useRef, useState } from 'react'
 import { LevelsBubble } from './chatBubbles/LevelsBubble'
-import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
+import { useVoiceRecognition, getVoiceRecognition } from '@utils/store'
 
 const WaveSurferNext = dynamic(() => import('./WaveSurferNext'), {
   ssr: false,
@@ -124,36 +123,34 @@ export const DialogInput: FC<DialogInputProps> = ({
   const errorLimit = commonProps.currentTask.errorLimit
   const dialogArray = commonProps.currentTask.correctText as string[]
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
-  const { transcript } = useSpeechRec()
+  const { transcript } = useVoiceRecognition(getVoiceRecognition)
 
-  // const currTask = commonProps.currentTask
-  // const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
-  // const currentWord = wordsArray[currWordIndex]
+  const currTask = commonProps.currentTask
+  const wordsArray =
+    currTask.wordsArray?.filter(item => item.wordText !== '-') || []
+  const inputLength = inputRef.current?.value
+    ? inputRef.current.value.split(' ').length
+    : 0
 
-  // set up speech recognition
-  //const [textFromKeyboard, setTextFromKeyboard] = useState('')
+  const currentWordText = wordsArray[inputLength ?? 0]?.wordText || ''
 
+  const params = {
+    currWordIndex: inputLength,
+    outputText,
+    correctText: dialogArray[currentMessageIndex],
+    textFromKeyboard: inputRef.current?.value ?? '',
+    wordsSynonyms,
+    transcript,
+    currentWord: currentWordText,
+    setMistakesCount,
+    setForgivenErrorQuantity,
+    setIsMistake,
+  }
   // only for voiceRecognition
   useEffect(() => {
     if (transcript === '') return
-    setOutputText(
-      getRecognitionText({
-        correctText: dialogArray[currentMessageIndex],
-        transcript,
-        textFromKeyboard: inputRef.current?.value ?? '', //ეს დასატესტია კარგად
-        wordsSynonyms,
-        currentWord: 'vato',
-        setIsMistake: setIsMistake,
-      }),
-    )
+    setOutputText(getRecognitionText({ ...params }))
   }, [transcript])
-
-  const params = {
-    outputText,
-    correctText: dialogArray[currentMessageIndex],
-    setMistakesCount,
-    setForgivenErrorQuantity,
-  }
 
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
@@ -163,43 +160,36 @@ export const DialogInput: FC<DialogInputProps> = ({
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
     )
-    setOutputText(replayInputCheck({ inputText, ...params, setIsMistake }))
+    setOutputText(replayInputCheck({ inputText, ...params }))
   }
 
   useEffect(() => {
     if (!commonProps.Token && !commonProps.userId) return
     // If the output text matches the correct text, save the task and move on to the next one
-    if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) {
+    if (outputText.trim() === dialogArray[currentMessageIndex]) {
       setTaskProgress(
         ((currentMessageIndex + 1) / dialogArray.length) * 100 + '%',
       )
       setTimeout(async () => {
         if (currentMessageIndex === dialogArray.length - 1) {
           setCurrentMessageIndex(0)
+          const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
+
           const isSaved = await saveTask({
             ...commonProps,
             totalMistakes: mistakesCount,
             forgivenErrorQuantity: forgivenErrorQuantity,
-            error: errorLimit - mistakesCount < 0 ? 1 : 0,
-          })
-
-          const isMistake = 0
-          commonProps.currentTask.answers = setLevelColors({
-            answers: commonProps.currentTask.answers,
-            currentLevel: commonProps.currentTask.currentLevel,
-            learnMode: commonProps.learnMode,
-            isMistake: isMistake,
+            error: isMistake,
           })
 
           if (isSaved) {
-            updateCompletedTasks(commonProps)
+            updateCompletedTasks(commonProps, isMistake)
             setMistakesCount(0)
           }
         } else {
           setCurrentMessageIndex(currentMessageIndex + 1)
         }
         setOutputText('')
-        //setInputText('')
       }, 1500)
     }
   }, [outputText])
@@ -222,7 +212,7 @@ export const DialogInput: FC<DialogInputProps> = ({
           taskDone={taskProgress}
           mistake={isMistake}
         />
-        <VoiceRecognition />
+        <VoiceRecognition progress={taskProgress} />
       </div>
     </>
   )

@@ -1,7 +1,17 @@
 import axios from 'axios'
 import { TaskData } from './getTask'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
+
+interface SaveTaskParams {
+  languageTo: string | string[]
+  languageFrom: string | string[]
+  Token: string | null
+  courseId: string
+  userId: string | null
+  currentTask: TaskData
+  totalMistakes: number
+  forgivenErrorQuantity: number
+  error: number
+}
 
 export const saveTask = async ({
   languageTo,
@@ -13,17 +23,7 @@ export const saveTask = async ({
   totalMistakes,
   forgivenErrorQuantity,
   error,
-}: {
-  languageTo: string | string[]
-  languageFrom: string | string[]
-  Token: string | null
-  courseId: string
-  userId: string | null
-  currentTask: TaskData
-  totalMistakes: number
-  forgivenErrorQuantity: number
-  error: number
-}): Promise<boolean> => {
+}: SaveTaskParams): Promise<boolean> => {
   let url = `${
     process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
   }/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`

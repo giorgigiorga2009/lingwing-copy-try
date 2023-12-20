@@ -7,7 +7,7 @@ import { MistakeCorrectionTask } from './MistakeCorrection'
 import { CommonProps } from '@utils/lessons/taskInputUtils'
 
 type CurrentTaskInputProps = {
-  commonProps: CommonProps
+  commonProps: CommonProps | null
   currentMessageIndex?: number
   setCurrentMessageIndex?: (messageIndex: number) => void
 }
@@ -17,6 +17,8 @@ const CurrentTaskInput = ({
   currentMessageIndex,
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
+  if (!commonProps) return null
+
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
@@ -37,17 +39,9 @@ const CurrentTaskInput = ({
       ) : null
 
     case 'omittedwords':
-      return (
-        <OmittedWords
-          commonProps={commonProps}
-        />
-      )
+      return <OmittedWords commonProps={commonProps} />
     case 'mistakecorrection':
-      return (
-        <MistakeCorrectionTask
-          commonProps={commonProps}
-        />
-      )
+      return <MistakeCorrectionTask commonProps={commonProps} />
     case 'grammar':
       return <GrammarButton commonProps={commonProps} />
     default:

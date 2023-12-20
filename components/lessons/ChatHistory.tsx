@@ -7,7 +7,6 @@ import { TranslateBubble } from './chatBubbles/TranslateBubble'
 
 interface HistoryProps {
   completedTasks: TaskData[]
-  // isHintShown: boolean
 }
 
 const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {

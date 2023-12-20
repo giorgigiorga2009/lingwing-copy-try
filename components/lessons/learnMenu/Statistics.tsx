@@ -9,7 +9,7 @@ interface Props {
   token?: string
 }
 
-export interface Statistics {
+export interface StatisticProps {
   _id: string
   allPassedTask: number
   bonus: number
@@ -29,7 +29,7 @@ export interface Statistics {
 
 const Statistics: FC<Props> = ({ courseId, token }) => {
   const { t } = useTranslation()
-  const [statisticsData, setStatisticsData] = useState<Statistics>()
+  const [statisticsData, setStatisticsData] = useState<StatisticProps>()
 
   useEffect(() => {
     const fetchGrammarData = async () => {
@@ -41,7 +41,7 @@ const Statistics: FC<Props> = ({ courseId, token }) => {
       }
     }
     fetchGrammarData()
-  }, [])
+  }, [courseId])
 
   function formatSecondsToTime(totalSeconds: number) {
     const date = new Date(totalSeconds * 1000)

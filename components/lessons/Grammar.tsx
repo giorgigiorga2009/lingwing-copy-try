@@ -1,7 +1,6 @@
 import {
   CommonProps,
   updateCompletedTasks,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import style from './Grammar.module.scss'
 import { FC, useEffect, useRef } from 'react'
@@ -53,23 +52,16 @@ export const GrammarButton: FC<ButtonProps> = ({ commonProps }) => {
   const { t } = useTranslation()
   const handleClick = async () => {
     if (!commonProps.Token && !commonProps.userId) return
+    const isMistake = 0
     const isSaveSuccessful = await saveTask({
       ...commonProps,
       totalMistakes: 0,
       forgivenErrorQuantity: 0,
-      error: 0,
-    })
-
-    const isMistake = 0
-    commonProps.currentTask.answers = setLevelColors({
-      answers: commonProps.currentTask.answers,
-      currentLevel: commonProps.currentTask.currentLevel,
-      learnMode: commonProps.learnMode,
-      isMistake: isMistake,
+      error: isMistake,
     })
 
     if (isSaveSuccessful) {
-      updateCompletedTasks(commonProps)
+      updateCompletedTasks(commonProps, isMistake)
     }
   }
 

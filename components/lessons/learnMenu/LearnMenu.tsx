@@ -1,10 +1,10 @@
-import style from './LearnMenu.module.scss'
 import {
   getCurrentLanguageCoursesList,
   LanguageCourse,
 } from '@utils/lessons/getLanguageCoursesList'
+import { Tabs } from '@pages/lessons'
+import style from './LearnMenu.module.scss'
 import { FC, useState, useEffect } from 'react'
-import { CourseObject } from '@utils/lessons/getTask'
 import { useTranslation } from '@utils/useTranslation'
 import { CoursesDropdown } from '@components/lessons/learnMenu/CoursesDropdown'
 
@@ -12,10 +12,9 @@ interface Props {
   languageFrom: string | string[] | undefined
   languageTo: string | string[] | undefined
   token: string | null
-  currentCourseObject: CourseObject | undefined
-  setTab: (
-    value: 'course' | 'levels' | 'grammar' | 'vocabulary' | 'statistics',
-  ) => void
+  languageCourseId: string
+  languageId: string
+  setTab: (value: Tabs) => void
   tab: string
 }
 
@@ -23,7 +22,8 @@ const LearnMenu: FC<Props> = ({
   languageFrom,
   languageTo,
   token,
-  currentCourseObject,
+  languageCourseId,
+  languageId,
   setTab,
   tab,
 }) => {
@@ -39,11 +39,10 @@ const LearnMenu: FC<Props> = ({
     const handleMouseMove = () => {
       setIsMouseMoving(true)
 
-      // Reset the timeout
       clearTimeout(timeoutId)
       timeoutId = setTimeout(() => {
         setIsMouseMoving(false)
-      }, 5000) // 5000 milliseconds (5 seconds)
+      }, 5000)
     }
 
     document.addEventListener('mousemove', handleMouseMove)
@@ -55,14 +54,14 @@ const LearnMenu: FC<Props> = ({
   }, [])
 
   useEffect(() => {
-    if (!languageFrom || !languageTo || !token || !currentCourseObject) return
+    if (!languageFrom || !languageTo || !token || !languageCourseId) return
 
     getCurrentLanguageCoursesList({
       languageFrom,
       languageTo,
       token,
-      languageCourseId: currentCourseObject.course._id,
-      languageId: currentCourseObject.course.iLearn._id,
+      languageCourseId: languageCourseId,
+      languageId: languageId,
     })
       .then(currentCoursesList =>
         setCurrentLanguageCoursesList(currentCoursesList),
@@ -71,7 +70,7 @@ const LearnMenu: FC<Props> = ({
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [currentCourseObject, token])
+  }, [languageCourseId, token])
 
   return (
     <div

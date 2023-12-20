@@ -9,7 +9,6 @@ import {
   CommonProps,
   handleChange,
   updateCompletedTasks,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
 import classNames from 'classnames'
 import { useTaskStore } from '@utils/store'
@@ -17,14 +16,11 @@ import { saveTask } from '@utils/lessons/saveTask'
 import style from './MistakeCorrection.module.scss'
 import { MistakesCounter } from './MistakesCounter'
 
-
 interface Props {
   commonProps: CommonProps
 }
 
-export const MistakeCorrectionTask: FC<Props> = ({
-  commonProps,
-}) => {
+export const MistakeCorrectionTask: FC<Props> = ({ commonProps }) => {
   const setHintShow = useTaskStore(state => state.SetHintShow)
   const setHintText = useTaskStore(state => state.SetHintText)
 
@@ -67,16 +63,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
         const isSaved = await saveCurrentTask()
 
         const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
-        commonProps.currentTask.answers = setLevelColors({
-          answers: commonProps.currentTask.answers,
-          currentLevel: commonProps.currentTask.currentLevel,
-          learnMode: commonProps.learnMode,
-          isMistake: isMistake,
-        })
 
         if (isSaved) {
           setHintShow(false)
-          updateCompletedTasks(commonProps)
+          updateCompletedTasks(commonProps, isMistake)
         }
       }, 1500)
     }
@@ -107,17 +97,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
       if (!commonProps.Token && !commonProps.userId) return
       const isSaved = await saveCurrentTask()
       if (isSaved) {
-
         const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
-        commonProps.currentTask.answers = setLevelColors({
-          answers: commonProps.currentTask.answers,
-          currentLevel: commonProps.currentTask.currentLevel,
-          learnMode: commonProps.learnMode,
-          isMistake: isMistake,
-        })
 
         setInputText('')
-        updateCompletedTasks(commonProps)
+        updateCompletedTasks(commonProps, isMistake)
       }
     } else if (!mistakeRepeat) {
       setMistakesCount(prev => prev + 1)
