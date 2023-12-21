@@ -1,6 +1,3 @@
-import style from './Vocabulary.module.scss'
-import { FC, useEffect, useState } from 'react'
-import { useTranslation } from '@utils/useTranslation'
 import {
   getGrammaticalCategories,
   getDictionaryTopics,
@@ -9,8 +6,11 @@ import {
   getCurrentLanguageCoursesList,
   LanguageCourse,
 } from '@utils/lessons/getLanguageCoursesList'
-import { CourseObject } from '@utils/lessons/getTask'
+import style from './Vocabulary.module.scss'
 import VocabularyTable from './VocabularyTable'
+import { FC, useEffect, useState } from 'react'
+import { CourseObject } from '@utils/lessons/getTask'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   currentCourseObject: CourseObject

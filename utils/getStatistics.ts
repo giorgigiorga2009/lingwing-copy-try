@@ -1,7 +1,4 @@
 import axios from 'axios'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
-
 interface Props {
   courseId: string
   token?: string | null

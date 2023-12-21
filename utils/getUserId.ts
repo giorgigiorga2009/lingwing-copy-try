@@ -4,12 +4,12 @@ export const getUserId = async ({
   languageTo,
   languageFrom,
   courseName,
-  token,
+  Token,
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
   courseName: string | string[]
-  token: string | null
+  Token: string
 }): Promise<string | undefined> => {
   try {
     const response = await axios({
@@ -17,7 +17,7 @@ export const getUserId = async ({
         process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
       }/public/startLearning/${courseName}/${languageFrom}?lang=${languageTo}`,
       headers: {
-        authorization: token ?? '',
+        authorization: Token ?? '',
       },
     })
     return response.data.data.userKey

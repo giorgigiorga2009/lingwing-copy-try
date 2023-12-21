@@ -48,7 +48,7 @@ const AllGrammar: FC<Props> = ({ courseId, LanguageFrom, token }) => {
       }
     }
     fetchGrammarData()
-  }, [LanguageFrom])
+  }, [LanguageFrom, courseId])
 
   if (!grammarData) return null
 

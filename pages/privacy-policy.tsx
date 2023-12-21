@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
-import React, { useEffect, useState } from 'react'
 import style from './privacy-policy.module.scss'
 import { Header } from '@components/header/Header'
+import React, { useEffect, useState } from 'react'
 import { Footer } from '@components/wizard/Footer'
 import { useTranslation } from '@utils/useTranslation'
 import { FollowButtons } from '@components/home/FollowButtons'

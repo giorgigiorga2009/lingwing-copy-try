@@ -1,9 +1,10 @@
+import { useTaskStore } from '@utils/store'
 import { TaskData, CourseObject } from '@utils/lessons/getTask'
 import { KEYBOARD_OVERRIDE, LANGUAGES_MAP_OVERRIDE } from '@utils/const'
 
 export type CommonProps = {
   courseId: string
-  token: string | null
+  Token: string | null
   userId: string | null
   currentTask: TaskData
   currentTaskNumber: number
@@ -13,6 +14,27 @@ export type CommonProps = {
   setCurrentTaskNumber: (number: number) => void
   setCompletedTasks: (tasks: TaskData[]) => void
   learnMode: number
+}
+
+interface TextProcessingProps {
+  inputText: string
+  outputText: string
+  correctText: string
+  currentWord: string
+  setForgivenErrorQuantity: (callback: (prev: number) => number) => void
+  setMistakesCount: (callback: (prev: number) => number) => void
+  setIsMistake: (mistake: boolean) => void
+}
+
+interface RecognitionProcessingProps {
+  currWordIndex: number
+  correctText: string
+  transcript: string
+  textFromKeyboard: string
+  wordsSynonyms: [string[]]
+  setIsMistake: (mistake: boolean) => void
+  setMistakesCount: (callback: (prev: number) => number) => void
+  setForgivenErrorQuantity: (callback: (prev: number) => number) => void
 }
 
 export const handleChange = (
@@ -65,93 +87,95 @@ export const handleChange = (
 //   }
 // }
 
-//Only For voice recognition
 const findMatchedWordIndex = ({
-  synonyms,
+  wordWithSynonyms,
   arrayToSearch,
   lastAddedWordIndex,
 }: {
-  synonyms: string[]
+  wordWithSynonyms: string[]
   arrayToSearch: string[]
   lastAddedWordIndex: number
 }) => {
-  for (let i = 0; i < synonyms.length; i++) {
-    const index = arrayToSearch.indexOf(synonyms[i], lastAddedWordIndex)
-    if (synonyms[i] === '-') {
-      return lastAddedWordIndex + 1
-    }
+  for (let i = 0; i < wordWithSynonyms.length; i++) {
+    const index = arrayToSearch.indexOf(wordWithSynonyms[i], lastAddedWordIndex)
     if (index !== -1) {
       return index
     }
   }
-  //result of indexOf function, -1 means that none of the words was found
   return -1
 }
 
-//Only For voice recognition
 export const getRecognitionText = ({
+  currWordIndex,
   correctText,
   wordsSynonyms,
-  finalTranscript,
+  transcript = '',
   textFromKeyboard,
-  setIsHintShown,
-  setHintText,
-  currentWord,
-  setIsMistake
-}: {
-  correctText: string
-  finalTranscript: string
-  textFromKeyboard: string
-  wordsSynonyms: [string[]]
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (hint: string) => void
-  currentWord: string
-  setIsMistake: (mistake: boolean) => void
+  setIsMistake,
+  setMistakesCount,
+  setForgivenErrorQuantity,
+}: RecognitionProcessingProps): string => {
+  const HintShown = useTaskStore.getState().HintShown
+  const setHintShow = (show: boolean) =>
+    useTaskStore.setState({ HintShown: show })
+  const setHintText = (hintText: string) =>
+    useTaskStore.setState({ HintText: hintText })
 
-}): string => {
-  const correctWordsArray = correctText.split(' ')
-  const textFromKeyboardArray = textFromKeyboard.split(' ')
-  const transcriptArray = finalTranscript.toLowerCase().split(' ')
-  const arrayToSearch = [...textFromKeyboardArray, ...transcriptArray]
+  const correctWordsArray = correctText.split(' ').filter(word => word !== '-')
+  const correctWordsArrayWithHypen = correctText.split(' ')
+  const transcriptArray = transcript.toLowerCase().split(' ')
+  const arrayToSearch = [...transcriptArray]
 
-  const outputArray = []
+  const outputArray = textFromKeyboard.trim()
+    ? textFromKeyboard
+        .trim()
+        .split(/\s+/)
+        .slice(
+          0,
+          textFromKeyboard.includes('-') ? currWordIndex + 1 : currWordIndex,
+        )
+    : []
 
-  let lastAddedWordIndex = 0
-  setIsHintShown(false)
+  const lastAddedWordIndex = arrayToSearch.length - 1 ?? 0
 
-  for (let index = 0; index < correctWordsArray.length; index++) {
-    const modifiedWord = correctWordsArray[index]
-      .replace(/[.,\/#!$%\^&\*;:{}=\_`~()¡¿]/g, '')
+  const filteredCorrectWordsArray = correctWordsArray.filter(
+    word => word !== '-',
+  )
+
+  let modifiedWord = ''
+  if (currWordIndex < filteredCorrectWordsArray.length) {
+    modifiedWord = filteredCorrectWordsArray[currWordIndex]
+      .replace(/[.,\/#!$%\^&\*;:{}=\_`~()¡¿-]/g, '')
       .toLowerCase()
-
-    const synonyms = wordsSynonyms[index]
-      ? [modifiedWord, ...wordsSynonyms[index]]
-      : [modifiedWord]
-
-    const transcriptIndex = findMatchedWordIndex({
-      synonyms,
-      arrayToSearch,
-      lastAddedWordIndex,
-    })
-
-    if (
-      transcriptIndex !== -1 &&
-      transcriptIndex >= lastAddedWordIndex &&
-      outputArray.length >= index
-    ) {
-      lastAddedWordIndex = transcriptIndex
-      outputArray.push(correctWordsArray[index])
-
-    }else{
-      setHintText(currentWord)
-      setIsHintShown(true)
-      setIsMistake(true)
-    }
   }
 
+  const wordWithSynonyms = [
+    modifiedWord,
+    ...(wordsSynonyms[currWordIndex] || []),
+  ]
 
+  const transcriptIndex = findMatchedWordIndex({
+    wordWithSynonyms,
+    arrayToSearch,
+    lastAddedWordIndex,
+  })
 
-  return outputArray.join(' ') + ' '
+  if (transcriptIndex !== -1) {
+    outputArray.push(correctWordsArray[currWordIndex])
+    if (correctWordsArrayWithHypen[currWordIndex + 1] === '-') {
+      outputArray.push(correctWordsArrayWithHypen[currWordIndex + 1])
+    }
+    setHintShow(false)
+  } else {
+    if (!HintShown) {
+      setMistakesCount(prev => prev + 1)
+      setHintShow(true)
+      setHintText(correctWordsArray[currWordIndex])
+    }
+    setForgivenErrorQuantity(prev => prev + 1)
+    setIsMistake(true)
+  }
+  return outputArray.join(' ') //+ ' '
 }
 
 const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()¡¿]$/
@@ -160,30 +184,22 @@ const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()¡¿]$/
 export const replayInputCheck = ({
   inputText,
   outputText,
-  isHintShown,
   correctText,
-  // mistakesCount,
-  setHintText,
-  setIsHintShown,
+  currentWord,
+  setForgivenErrorQuantity,
   setMistakesCount,
   setIsMistake,
-}: {
-  inputText: string
-  outputText: string
-  correctText: string
-  isHintShown: boolean
-  //mistakesCount: number
-  setHintText: (text: string) => void
-  setIsHintShown: (bool: boolean) => void
-  setMistakesCount: (callback: (prev: number) => number) => void
-  setIsMistake: (mistake: boolean) => void
-}) => {
+}: TextProcessingProps) => {
+  const HintShown = useTaskStore.getState().HintShown
+  const setHintShow = (show: boolean) =>
+    useTaskStore.setState({ HintShown: show })
+  const setHintText = (hintText: string) =>
+    useTaskStore.setState({ HintText: hintText })
   const correctWordsArray = correctText.split(' ')
   const outputTextArray = outputText ? outputText.trim().split(' ') : []
   const inputTextArray = inputText ? inputText.replace(/ $/, '').split(' ') : []
 
   const index = inputTextArray.length - 1
-  const currentWord = correctWordsArray[index]
   const punctuations = correctWordsArray[index + 1]
 
   if (!currentWord) return ''
@@ -194,14 +210,16 @@ export const replayInputCheck = ({
   if (correctFirsLetter === writtenFirsLetter) {
     outputTextArray.push(currentWord)
     punctuations?.match(regexp) && outputTextArray.push(punctuations)
-    setIsHintShown(false)
+    setHintShow(false)
     return outputTextArray.map(word => word.concat(' ')).join('')
   }
 
-  if (!isHintShown) {
+  if (!HintShown) {
     setMistakesCount(prev => prev + 1)
     setHintText(currentWord)
-    setIsHintShown(true)
+    setHintShow(true)
+  } else {
+    setForgivenErrorQuantity(prev => prev + 1)
   }
 
   setIsMistake(true)
@@ -214,26 +232,15 @@ export const textCheck = ({
   outputText,
   currentWord,
   correctText,
-  isHintShown,
-  // mistakesCount,
-  setHintText,
-  setIsHintShown,
   setMistakesCount,
   setForgivenErrorQuantity,
   setIsMistake,
-}: {
-  inputText: string
-  outputText: string
-  correctText: string
-  currentWord: string
-  isHintShown: boolean
-  //mistakesCount: number
-  setHintText: (text: string) => void
-  setIsHintShown: (bool: boolean) => void
-  setMistakesCount: (callback: (prev: number) => number) => void
-  setForgivenErrorQuantity: (callback: (prev: number) => number) => void
-  setIsMistake: (mistake: boolean) => void
-}) => {
+}: TextProcessingProps) => {
+  const HintShown = useTaskStore.getState().HintShown
+  const setHintShow = (show: boolean) =>
+    useTaskStore.setState({ HintShown: show })
+  const setHintText = (hintText: string) =>
+    useTaskStore.setState({ HintText: hintText })
   const firstMarkCheck = /^[¡¿"-]/.test(
     correctText.charAt(inputText.length - 1),
   )
@@ -253,24 +260,26 @@ export const textCheck = ({
   if (isSpaceHit && isSpaceOrMark.test(textToCompare)) {
     for (let i = 0; i < 5; i++) {
       if (!isSpaceOrMark.test(correctText.charAt(index + i - 1))) {
-        setIsHintShown(false)
+        setHintShow(false)
+
         return correctText.slice(0, index + i - 1)
       }
     }
   }
 
   if (inputText.slice(-1).toLowerCase() === textToCompare.toLocaleLowerCase()) {
-    setIsHintShown(false)
+    setHintShow(false)
+
     return index === correctText.trim().length - 1 &&
       isSpaceOrMark.test(correctText.slice(-1))
       ? correctText.trim()
       : correctText.trim().slice(0, index)
   }
 
-  if (!isHintShown) {
+  if (!HintShown) {
     setMistakesCount(prev => prev + 1)
     setHintText(isSpaceOrMark.test(textToCompare) ? '(Space)' : currentWord)
-    setIsHintShown(true)
+    setHintShow(true)
   } else {
     setForgivenErrorQuantity(prev => prev + 1)
   }
@@ -307,12 +316,23 @@ export const handleOnKeyDown = (
   }
 }
 
-export const updateCompletedTasks = (commonProps: CommonProps) => {
+export const updateCompletedTasks = (
+  commonProps: CommonProps,
+  isMistake: number,
+) => {
   const newCompletedTasks = commonProps.completedTasks
     ? [...commonProps.completedTasks, commonProps.currentTask]
     : [commonProps.currentTask]
+
   commonProps.setCompletedTasks(newCompletedTasks)
   commonProps.setCurrentTaskNumber(commonProps.currentTaskNumber + 1)
+
+  commonProps.currentTask.answers = setLevelColors({
+    answers: commonProps.currentTask.answers,
+    currentLevel: commonProps.currentTask.currentLevel,
+    learnMode: commonProps.learnMode,
+    isMistake: isMistake,
+  })
 }
 
 export const setLevelColors = ({
@@ -338,7 +358,6 @@ export const setLevelColors = ({
       currentLevel === 2 && setAnswers([0, isMistake, -1])
       currentLevel === 3 && setAnswers([0, 0, isMistake])
     }
-
     if (learnMode === 2) {
       currentLevel === 1 && setAnswers([isMistake, -1])
       currentLevel === 2 && setAnswers([0, isMistake])
@@ -358,16 +377,15 @@ export const getLevelColors = ({
   currentCourseObject: CourseObject
 }) => {
   let levelsArray: number[] = []
-
+  const answers = currentTask.answers
   if (currentTask && currentCourseObject) {
-    if (!currentTask.answers) {
+    if (!answers) {
       levelsArray = new Array(currentCourseObject?.learnMode).fill(-1)
     } else {
       const setAnswers = (values: number[]) => (levelsArray = values)
       const level: number = currentTask.currentLevel
       const learnMode: number = currentCourseObject.learnMode
-      const lastAnswer =
-        currentTask.answers[currentTask.answers.length - 1] === 1 ? 1 : -1
+      const lastAnswer = answers[answers.length - 1] === 1 ? 1 : -1
 
       if (learnMode === 3) {
         level === 1 && setAnswers([lastAnswer, -1, -1])
@@ -378,7 +396,6 @@ export const getLevelColors = ({
         level === 1 && setAnswers([lastAnswer, -1])
         level === 2 && setAnswers([0, lastAnswer])
       }
-
       if (learnMode === 1) {
         setAnswers([lastAnswer])
       }

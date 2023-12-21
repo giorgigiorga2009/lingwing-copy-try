@@ -66,8 +66,9 @@
   background-color: $white;
   box-shadow: 0 0 6px $white-200;
   margin-top: 0.7rem;
+  margin-left: -1.6rem;
   border-radius: 0.63rem;
-  width: 14rem;
+  width: fit-content;
   z-index: 1001;
 }
 

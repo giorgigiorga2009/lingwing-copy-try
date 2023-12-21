@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Jobs from '@components/about-page/Jobs'
+import { PageHead } from '@components/PageHead'
 import style from './about-company.module.scss'
 import { Footer } from '@components/wizard/Footer'
 import { ABOUT_COMPANY_LINKS } from '@utils/const'
@@ -11,7 +12,6 @@ import { useTranslation } from '@utils/useTranslation'
 import AboutTabs from '@components/about-page/AboutTabs'
 import Certificate from '@components/about-page/Certificate'
 import { FollowButtons } from '@components/home/FollowButtons'
-import { PageHead } from '@components/PageHead'
 
 const AboutCompany: NextPage = () => {
   const { t } = useTranslation()

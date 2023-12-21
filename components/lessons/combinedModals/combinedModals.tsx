@@ -1,11 +1,11 @@
 import React from 'react'
+import { PackageData } from '@utils/getPackages'
+import RateLingwingModal from '../rateLingwing/rateLingwing'
+import MicEnableModal from '../micEnableModal/micEnableModal'
+import { CourseObject, TaskData } from '@utils/lessons/getTask'
 import LessonsFlowPopUps from '../lessonsFlowPopUps/lessonsFlowPopUps'
 import FillProfileForTasks from '../fill-proflie-for-tasks/fillProfileForTasks'
 import StatsPagePerOnePercent from '../statsPerOnePercent/statsPagePerOnePercent'
-import RateLingwingModal from '../rateLingwing/rateLingwing'
-import { CourseObject, TaskData } from '@utils/lessons/getTask'
-import { PackageData } from '@utils/getPackages'
-import MicEnableModal from '../micEnableModal/micEnableModal'
 
 type CombinedPopupProps = {
   token: string | null
@@ -39,7 +39,7 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
 
   return (
     <>
-      {!isUserLoggedIn && completedTasks?.length === unAuthuserDailyLimit && (
+      {!token && completedTasks?.length === unAuthuserDailyLimit && (
         <LessonsFlowPopUps
           courseName={courseName}
           token={token}
@@ -54,14 +54,17 @@ const CombinedModalComponent: React.FC<CombinedPopupProps> = props => {
         completedTasks={completedTasks}
         isUserLoggedIn={isUserLoggedIn}
       />
-      {isUserLoggedIn && !dailyTaskLeft && !currentCourseObject?.info.bonus && (
-        <LessonsFlowPopUps
-          token={token}
-          popUpNumber={2}
-          dailyLimitDate={dailyReachedLimitDate}
-          courseName={courseName}
-        />
-      )}
+      {token &&
+        dailyTaskLeft <= 0 &&
+        !currentCourseObject?.info.bonus &&
+        !currentCourseObject?.info.premium && (
+          <LessonsFlowPopUps
+            token={token}
+            popUpNumber={2}
+            dailyLimitDate={dailyReachedLimitDate}
+            courseName={courseName}
+          />
+        )}
 
       <StatsPagePerOnePercent
         token={token}

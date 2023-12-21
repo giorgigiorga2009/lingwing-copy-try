@@ -1,7 +1,7 @@
-import { FC, useState } from 'react'
 import Link from 'next/link'
-import style from './ActionBtns.module.scss'
 import Swal from 'sweetalert2'
+import { FC, useState } from 'react'
+import style from './ActionBtns.module.scss'
 import { resetCourse } from '@utils/deleteCourse'
 import { useTranslation } from '@utils/useTranslation'
 

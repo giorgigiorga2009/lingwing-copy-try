@@ -1,6 +1,4 @@
 import axios, { AxiosRequestHeaders } from 'axios'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
 
 export type InitialTasksData = {
   tasks: InitialTask[]
@@ -198,23 +196,23 @@ export const getUserCourse = async ({
   languageTo,
   languageFrom,
   courseName,
-  token,
+  Token,
   userId,
 }: {
   languageTo: string | string[]
   languageFrom: string | string[]
   courseName: string | string[]
-  token: string | null
+  Token: string
   userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
-    if (token) {
+    if (Token) {
       const response = await axios({
         url: `${
           process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
         }/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}`,
         headers: {
-          Authorization: token,
+          Authorization: Token,
         },
       })
       return response.data.data
@@ -235,52 +233,32 @@ export const getUserCourse = async ({
 export const getTasks = async ({
   languageTo,
   languageFrom,
-  token,
+  Token,
   courseId,
   userId,
-  task
+  task,
 }: {
-  courseName: string | string[]
   languageTo: string | string[]
   languageFrom: string | string[]
-  token: string | null
+  Token: string | null
   userId: string | null
   courseId: string
-  task?: string | string[] 
+  task?: string | string[]
 }): Promise<TaskData[]> => {
   try {
-    //commented axios works!!! it is easyer to read
-    // let data
-    // if (token) {
-    //   const response = await axios({
-    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}`,
-    //     headers: {
-    //       Authorization: token,
-    //     },
-    //   })
-    //   data = response.data.data
-    // }
-    // if(userId){
-    //   const response = await axios({
-    //     url: `${process.env.NEXT_PUBLIC_DEFAULT_URL ||process.env.DEFAULT_URL}/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&userKey=${userId}`,
-
-    //   })
-    //   data = response.data.data
-    // }
-    //
     let url = `${
       process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
     }/public/getTasks/${courseId}/${languageFrom}?lang=${languageTo}&task=${task}`
+
     let headers: {
       Authorization: string | null
     } = {
-      Authorization: token,
+      Authorization: Token,
     }
-    if (userId !== null && token === null) {
+
+    if (userId && !Token) {
       url += `&userKey=${userId}`
-      headers = {
-        Authorization: '',
-      }
+      headers = { Authorization: '' }
     }
     const response = await axios({
       url,

@@ -1,30 +1,25 @@
-import style from './OmittedWords.module.scss'
-import { saveTask } from '@utils/lessons/saveTask'
-import { MistakesCounter } from './MistakesCounter'
 import {
   handleChange,
   CommonProps,
   updateCompletedTasks,
   handleOnKeyDown,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
+import { useTaskStore } from '@utils/store'
 import { TaskProgress } from './TaskProgress'
+import style from './OmittedWords.module.scss'
+import { saveTask } from '@utils/lessons/saveTask'
+import { MistakesCounter } from './MistakesCounter'
 import { VoiceRecognition } from './VoiceRecognition'
 import React, { FC, useEffect, useRef, useState } from 'react'
 
 interface Props {
   commonProps: CommonProps
-  isHintShown: boolean
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (text: string) => void
 }
 
-export const OmittedWords: FC<Props> = ({
-  isHintShown,
-  commonProps,
-  setIsHintShown,
-  setHintText,
-}) => {
+export const OmittedWords: FC<Props> = ({ commonProps }) => {
+  const HintShown = useTaskStore(state => state.HintShown)
+  const setHintShow = useTaskStore(state => state.SetHintShow)
+  const setHintText = useTaskStore(state => state.SetHintText)
   const [words, setWords] = useState<string[]>([])
   const [correctWords, setCorrectWords] = useState<string[]>([])
   const [mistakesCount, setMistakesCount] = useState(0)
@@ -41,6 +36,7 @@ export const OmittedWords: FC<Props> = ({
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
+    if (correctWords.length === inputsCount) return
     const inputText = handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
@@ -52,7 +48,7 @@ export const OmittedWords: FC<Props> = ({
     const isTextValid = inputText.toLowerCase() === currentMatch.toLowerCase()
 
     if (isTextValid) {
-      setIsHintShown(false)
+      setHintShow(false)
       newWords[index] = currentMatch
       setWords(newWords)
       setTaskProgress(correctWords.length / wordsArray.length + '%')
@@ -66,35 +62,28 @@ export const OmittedWords: FC<Props> = ({
         nextInputRef && nextInputRef.focus()
       }
     } else {
-      if (!isHintShown) {
+      if (!HintShown) {
         setMistakesCount(mistakesCount + 1)
-        setIsHintShown(true)
+        setHintShow(true)
         setHintText(missingWord)
       }
     }
   }
 
   useEffect(() => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
     if (correctWords.length === inputsCount) {
+      const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
       setTimeout(async () => {
         const isSaved = await saveTask({
           ...commonProps,
           totalMistakes: mistakesCount,
           forgivenErrorQuantity: forgivenErrorQuantity,
-          error: errorLimit - mistakesCount < 0 ? 1 : 0,
-        })
-
-        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
-        commonProps.currentTask.answers = setLevelColors({
-          answers: commonProps.currentTask.answers,
-          currentLevel: commonProps.currentTask.currentLevel,
-          learnMode: commonProps.learnMode,
-          isMistake: isMistake,
+          error: isMistake,
         })
 
         if (isSaved) {
-          updateCompletedTasks(commonProps)
+          updateCompletedTasks(commonProps, isMistake)
         }
       }, 1500)
     }
@@ -134,7 +123,7 @@ export const OmittedWords: FC<Props> = ({
             }
           })}
         </div>
-        <VoiceRecognition />
+        <VoiceRecognition progress={taskProgress}/>
       </div>
     </>
   )

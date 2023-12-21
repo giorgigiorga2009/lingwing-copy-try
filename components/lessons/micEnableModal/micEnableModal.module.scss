@@ -15,10 +15,7 @@
   background-size: 100%;
   animation: fadeInBlurForModals 0.4s forwards;
   outline: none;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
+  font-family: SegoeUI, $kaFont;
 
   @include mobile {
     max-width: 99%;
@@ -67,6 +64,7 @@
       opacity: 0.6;
       border: none;
       outline: none;
+
       @include mobile {
         background-size: 1rem;
       }
@@ -86,6 +84,7 @@
         background-size: 18vw;
         bottom: 0;
       }
+
       @include smallWidth {
         display: none;
       }
@@ -101,6 +100,7 @@
       @include mobile {
         font-size: 2.4vw;
       }
+
       .purpleMic {
         height: 2.5rem;
         width: auto;
@@ -147,6 +147,7 @@
         font-size: 18px;
         margin-bottom: 12px;
         white-space: nowrap;
+
         &::before {
           content: '';
           display: block;
@@ -160,10 +161,12 @@
         .colored {
           color: $purple-300;
         }
+
         @include mobile {
           font-size: 2.65vw;
         }
       }
+
       @include mobile {
         transform: translateX(-2rem);
       }
@@ -175,6 +178,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
     button {
       border: 2px solid $white;
       background-color: $purple-600;

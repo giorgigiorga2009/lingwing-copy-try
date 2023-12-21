@@ -2,14 +2,10 @@
 
 .package__container {
   display: flex;
-  font-family: SegoeUI;
+  font-family: SegoeUI, $kaFontTitleBold;
   margin-top: 2rem;
   overflow-x: scroll;
   justify-content: center;
-
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
-  }
 }
 
 .currencies {

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import style from '@pages/payments.module.scss'
-import { Header } from '@components/header/Header'
-import { useTranslation } from '@utils/useTranslation'
 import { useRouter } from 'next/router'
-import { PaymentsProps, getUserPayements } from '@utils/getUserPayemnts'
 import { useSession } from 'next-auth/react'
 import { PageHead } from '@components/PageHead'
+import style from '@pages/payments.module.scss'
+import { Header } from '@components/header/Header'
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from '@utils/useTranslation'
+import { PaymentsProps, getUserPayements } from '@utils/getUserPayemnts'
 
 const Payments = () => {
   const { t } = useTranslation()

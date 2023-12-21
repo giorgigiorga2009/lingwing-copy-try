@@ -23,10 +23,8 @@
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 0.02rem;
+  font-family: SegoeUI, $kaFont;
 
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   &:hover {
     border-color: $orange-450;

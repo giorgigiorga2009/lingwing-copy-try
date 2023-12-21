@@ -5,11 +5,10 @@ import { Grammar } from './Grammar'
 import { TaskData } from '@utils/lessons/getTask'
 import style from './ChatCurrentTask.module.scss'
 import { TranslateBubble } from './chatBubbles/TranslateBubble'
+import { useVoiceRecognition, getVoiceRecognition } from '@utils/store'
 
 interface Props {
   currentTask: TaskData
-  isHintShown: boolean
-  hintText: string
   currentMessageIndex: number
   onDivHeight: (height: number) => void
   mistakesByLevel: number[]
@@ -17,12 +16,12 @@ interface Props {
 
 const ChatCurrentTask: FC<Props> = ({
   currentTask,
-  isHintShown,
-  hintText,
   currentMessageIndex,
   onDivHeight,
   mistakesByLevel,
 }) => {
+  const { transcript } = useVoiceRecognition(getVoiceRecognition)
+
   return (
     <>
       {currentTask.taskType !== 'grammar' && currentTask.taskType !== 'dialog' && (
@@ -39,7 +38,6 @@ const ChatCurrentTask: FC<Props> = ({
                 taskText={currentTask.taskText}
                 correctText={currentTask.correctText as string}
                 mistakesByLevel={mistakesByLevel}
-                // answers={currentTask.answers}
               />
             )}
             {currentTask.taskType === 'dictation' && (
@@ -73,7 +71,7 @@ const ChatCurrentTask: FC<Props> = ({
                 mistakesByLevel={mistakesByLevel}
               />
             )}
-            <Hint isHintShown={isHintShown} hintText={hintText} />
+            <Hint />
           </div>
         </div>
       )}
@@ -96,12 +94,11 @@ const ChatCurrentTask: FC<Props> = ({
             currentMessageIndex={currentMessageIndex}
             dialogArrayTo={currentTask.correctText as string[]}
             dialogArrayFrom={currentTask.taskText as string}
-            isHintShown={isHintShown}
-            hintText={hintText}
             mistakesByLevel={mistakesByLevel}
           />
         </div>
       )}
+      <div className={style.prompts}>{transcript}</div>
     </>
   )
 }

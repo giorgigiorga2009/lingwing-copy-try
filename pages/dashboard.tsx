@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
+import { useEffect, useState } from 'react'
 import style from './dashboard.module.scss'
 import { useSession } from 'next-auth/react'
-import { useEffect, useState } from 'react'
 import { PageHead } from '../components/PageHead'
+import { LANGUAGE_NAMES } from '../utils/languages'
 import { Header } from '../components/header/Header'
 import { Footer } from '../components/wizard/Footer'
-import MyCourse, { SubCourse } from '../components/dashboard/MyCourse'
 import { useTranslation } from '../utils/useTranslation'
 import { getMyCoursesData } from '../utils/getMyCourses'
 import NoCourses from '../components/dashboard/NoCourses'
@@ -13,8 +13,8 @@ import MyLanguage from '../components/dashboard/MyLanguage'
 import PromoSlider from '../components/dashboard/PromoSlider'
 import { FollowButtons } from '../components/home/FollowButtons'
 import DownloadAppBox from '../components/shared/DownloadAppBox'
+import MyCourse, { SubCourse } from '../components/dashboard/MyCourse'
 import { AddLanguageBtn } from '../components/dashboard/AddLanguageBtn'
-import { LANGUAGE_NAMES } from '../utils/languages'
 
 interface Standard {
   courses: SubCourse[]

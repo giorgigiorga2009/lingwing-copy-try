@@ -61,7 +61,7 @@
     "waves-ui": "wavesjs/ui",
     "wavesurfer.js": "^6.4.0",
     "yup": "^1.2.0",
-    "zustand": "^4.3.9"
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.3",

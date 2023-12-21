@@ -1,33 +1,33 @@
 import axios from 'axios'
 import { TaskData } from './getTask'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
 
-export const saveTask = async ({
-  languageTo,
-  languageFrom,
-  courseId,
-  token,
-  userId,
-  currentTask,
-  totalMistakes,
-  forgivenErrorQuantity,
-  error,
-}: {
+interface SaveTaskParams {
   languageTo: string | string[]
   languageFrom: string | string[]
-  token: string | null
+  Token: string | null
   courseId: string
   userId: string | null
   currentTask: TaskData
   totalMistakes: number
   forgivenErrorQuantity: number
   error: number
-}): Promise<boolean> => {
+}
+
+export const saveTask = async ({
+  languageTo,
+  languageFrom,
+  courseId,
+  Token,
+  userId,
+  currentTask,
+  totalMistakes,
+  forgivenErrorQuantity,
+  error,
+}: SaveTaskParams): Promise<boolean> => {
   let url = `${
     process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
   }/public/saveTask/${courseId}/${languageFrom}?lang=${languageTo}`
-  if (token === null) {
+  if (Token === null) {
     url = `${url}&userKey=${userId}`
   }
   const payload = {
@@ -53,7 +53,7 @@ export const saveTask = async ({
       taskType: currentTask.taskType,
     },
   }
-  const config = token ? { headers: { Authorization: token } } : {}
+  const config = Token ? { headers: { Authorization: Token } } : {}
 
   try {
     await axios.post(url, payload, config)

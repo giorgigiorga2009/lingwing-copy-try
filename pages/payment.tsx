@@ -1,10 +1,3 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { NextPage } from 'next'
-import Image from 'next/image'
-import { useTranslation } from '@utils/useTranslation'
-import styles from './payment.module.scss'
-import rocketParrot from '@public/assets/images/rocketParrot.png'
 import {
   PaymentProps,
   getPayWithList,
@@ -13,19 +6,26 @@ import {
   PackageResponse,
   getCheckedPackageId,
 } from '@utils/getPayments'
+import Image from 'next/image'
+import { NextPage } from 'next'
+import useStore from '@utils/store'
+import { useRouter } from 'next/router'
+import styles from './payment.module.scss'
+import { useSession } from 'next-auth/react'
+import { Reviews } from '@components/Reviews'
+import Loader from '@components/loaders/loader'
 import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
-import { Reviews } from '@components/Reviews'
+import { useTranslation } from '@utils/useTranslation'
 import CountdownTimer from '@components/payment/CountDown'
 import PaymentOption from '@components/payment/PaymentOption'
 import { Currency } from '@components/packages/CurrencyPicker'
 import { FollowButtons } from '@components/home/FollowButtons'
 import { PaymentFeatures } from '@components/payment/benefits'
-import useStore from '@utils/store'
-import { useSession } from 'next-auth/react'
 import { LoginModal } from '@components/loginWindow/LoginModal'
+import React, { useCallback, useEffect, useState } from 'react'
+import rocketParrot from '@public/assets/images/rocketParrot.png'
 import BackgroundParrot from '@components/shared/BackgroundParrot'
-import Loader from '@components/loaders/loader'
 
 const Payment: NextPage<PaymentProps> = () => {
   const { t } = useTranslation()

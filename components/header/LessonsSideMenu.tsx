@@ -1,12 +1,11 @@
 import { FC, useState } from 'react'
+import { Tabs } from '@pages/lessons'
 import style from './LessonsSideMenu.module.scss'
 import { CourseObject } from '@utils/lessons/getTask'
 import AllGrammar from '@components/lessons/learnMenu/AllGrammar'
 import ChangeMode from '@components/lessons/learnMenu/ChangeMode'
 import Statistics from '@components/lessons/learnMenu/Statistics'
 import Vocabulary from '@components/lessons/learnMenu/Vocabulary'
-import { Tabs } from '@pages/lessons'
-
 
 interface Props {
   currentCourseObject: CourseObject
@@ -14,10 +13,7 @@ interface Props {
 }
 
 export const LessonsSideMenu: FC<Props> = ({ currentCourseObject, token }) => {
-  const [activeTab, setActiveTab] = useState<
-    // 'changeMode' | 'grammar' | 'vocabulary' | 'statistics'
-    Tabs
-  >('grammar')
+  const [activeTab, setActiveTab] = useState<Tabs>('grammar')
 
   return (
     <div className={style.container}>
@@ -34,7 +30,8 @@ export const LessonsSideMenu: FC<Props> = ({ currentCourseObject, token }) => {
             userCourseId={currentCourseObject.course._id}
             learnMode={currentCourseObject.learnMode}
             token={token}
-            setTab={(tab) => setActiveTab(tab)}          />
+            setTab={tab => setActiveTab(tab)}
+          />
         )}
         {activeTab === 'vocabulary' && (
           <Vocabulary

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTranslation } from '@utils/useTranslation'
 import style from './fillProfileForTasks.module.scss'
+import { useTranslation } from '@utils/useTranslation'
 
 interface Props {
   isShowingSecondSide: boolean

@@ -23,13 +23,9 @@
   color: $black-800;
   border: none;
   font-size: 1rem;
-  font-family: SegoeUI-SemiBold;
+  font-family: SegoeUI-SemiBold, $kaFont;
   text-align: left;
   cursor: pointer;
-
-  &:lang(ka) {
-    font-family: $kaFont;
-  }
 
   &:hover {
     background-color: $white-70;

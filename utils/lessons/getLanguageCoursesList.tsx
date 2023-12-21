@@ -1,6 +1,4 @@
 import axios from 'axios'
-import getConfig from 'next/config'
-//const { process.env } = getConfig()
 
 export type LanguageCourse = {
   _id: string
@@ -45,7 +43,6 @@ export const getCurrentLanguageCoursesList = async ({
   try {
     const response = await axios.post(url, payload, config)
     return response.data.data
-    // console.log(response.data.status)
   } catch (error) {
     console.log(error)
   }

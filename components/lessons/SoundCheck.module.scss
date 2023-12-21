@@ -84,7 +84,7 @@
   border: 0;
   color: $white;
   font-size: 1rem;
-  font-family: SegoeUI, $kaFont;
+  font-family: SegoeUI, $kaFontTitle;
   background: linear-gradient(to right, $purple-500 50%, $white-200 50%);
   background-size: 200% 100%;
   background-position: right bottom;
@@ -92,9 +92,5 @@
 
   &.slideOut {
     background-position: left bottom;
-  }
-
-  &:lang(ka) {
-    font-family: $kaFontTitleBold;
   }
 }

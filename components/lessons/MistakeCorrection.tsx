@@ -5,28 +5,25 @@ import React, {
   FC,
   useEffect,
 } from 'react'
-import classNames from 'classnames'
-import { saveTask } from '@utils/lessons/saveTask'
-import style from './MistakeCorrection.module.scss'
 import {
   CommonProps,
   handleChange,
   updateCompletedTasks,
-  setLevelColors,
 } from '@utils/lessons/taskInputUtils'
+import classNames from 'classnames'
+import { useTaskStore } from '@utils/store'
+import { saveTask } from '@utils/lessons/saveTask'
+import style from './MistakeCorrection.module.scss'
 import { MistakesCounter } from './MistakesCounter'
 
 interface Props {
   commonProps: CommonProps
-  setIsHintShown: (bool: boolean) => void
-  setHintText: (text: string) => void
 }
 
-export const MistakeCorrectionTask: FC<Props> = ({
-  commonProps,
-  setIsHintShown,
-  setHintText,
-}) => {
+export const MistakeCorrectionTask: FC<Props> = ({ commonProps }) => {
+  const setHintShow = useTaskStore(state => state.SetHintShow)
+  const setHintText = useTaskStore(state => state.SetHintText)
+
   const mistakeText = commonProps.currentTask.errorText
   const errorLimit = commonProps.currentTask.errorLimit
   const correctText = commonProps.currentTask.correctText as string
@@ -52,7 +49,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
   }
 
   useEffect(() => {
-    if (!commonProps.token && !commonProps.userId) return
+    if (!commonProps.Token && !commonProps.userId) return
 
     if (
       inputText.replace(/\s+/g, ' ').trim().toLowerCase() ===
@@ -66,16 +63,10 @@ export const MistakeCorrectionTask: FC<Props> = ({
         const isSaved = await saveCurrentTask()
 
         const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
-        commonProps.currentTask.answers = setLevelColors({
-          answers: commonProps.currentTask.answers,
-          currentLevel: commonProps.currentTask.currentLevel,
-          learnMode: commonProps.learnMode,
-          isMistake: isMistake,
-        })
 
         if (isSaved) {
-          setIsHintShown(false)
-          updateCompletedTasks(commonProps)
+          setHintShow(false)
+          updateCompletedTasks(commonProps, isMistake)
         }
       }, 1500)
     }
@@ -88,7 +79,7 @@ export const MistakeCorrectionTask: FC<Props> = ({
       handleChange(event, commonProps.languageTo as 'geo' | 'eng' | 'rus'),
     ) //ეს შეიცვალა და დასატესტია
 
-    setIsHintShown(false)
+    setHintShow(false)
     setMistakeRepeat(false)
   }
 
@@ -103,17 +94,18 @@ export const MistakeCorrectionTask: FC<Props> = ({
     if (inputText === correctText) {
       setIsTaskDone(true)
       setMistakeRepeat(false)
-      setIsHintShown(false)
-      if (!commonProps.token && !commonProps.userId) return
+      if (!commonProps.Token && !commonProps.userId) return
       const isSaved = await saveCurrentTask()
       if (isSaved) {
+        const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
+
         setInputText('')
-        updateCompletedTasks(commonProps)
+        updateCompletedTasks(commonProps, isMistake)
       }
     } else if (!mistakeRepeat) {
       setMistakesCount(prev => prev + 1)
       setMistakeRepeat(true)
-      setIsHintShown(true)
+      setHintShow(true)
       setHintText(correctText)
     }
   }

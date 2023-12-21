@@ -1,11 +1,11 @@
 import React from 'react'
 import { NextPage } from 'next'
-import style from './packages-info.module.scss'
-import { useTranslation } from '@utils/useTranslation'
-import { Header } from '@components/header/Header'
 import { Reviews } from '@components/Reviews'
-import { FollowButtons } from '@components/home/FollowButtons'
+import style from './packages-info.module.scss'
+import { Header } from '@components/header/Header'
 import { Footer } from '@components/wizard/Footer'
+import { useTranslation } from '@utils/useTranslation'
+import { FollowButtons } from '@components/home/FollowButtons'
 import PlanSelection from '@components/packages-info/planSelection'
 
 const PackagesInfo: NextPage = () => {
