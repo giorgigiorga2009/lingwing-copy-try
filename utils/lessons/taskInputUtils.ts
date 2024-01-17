@@ -31,7 +31,7 @@ interface RecognitionProcessingProps {
   correctText: string
   transcript: string
   textFromKeyboard: string
-  wordsSynonyms: [string[]]
+  wordsSynonyms: string[][]
   setIsMistake: (mistake: boolean) => void
   setMistakesCount: (callback: (prev: number) => number) => void
   setForgivenErrorQuantity: (callback: (prev: number) => number) => void
@@ -89,15 +89,18 @@ export const handleChange = (
 
 const findMatchedWordIndex = ({
   wordWithSynonyms,
-  arrayToSearch,
+  transcriptArray,
   lastAddedWordIndex,
 }: {
   wordWithSynonyms: string[]
-  arrayToSearch: string[]
+  transcriptArray: string[]
   lastAddedWordIndex: number
 }) => {
   for (let i = 0; i < wordWithSynonyms.length; i++) {
-    const index = arrayToSearch.indexOf(wordWithSynonyms[i], lastAddedWordIndex)
+    const index = transcriptArray.indexOf(
+      wordWithSynonyms[i],
+      lastAddedWordIndex,
+    )
     if (index !== -1) {
       return index
     }
@@ -120,11 +123,10 @@ export const getRecognitionText = ({
     useTaskStore.setState({ HintShown: show })
   const setHintText = (hintText: string) =>
     useTaskStore.setState({ HintText: hintText })
-
   const correctWordsArray = correctText.split(' ').filter(word => word !== '-')
   const correctWordsArrayWithHypen = correctText.split(' ')
   const transcriptArray = transcript.toLowerCase().split(' ')
-  const arrayToSearch = [...transcriptArray]
+  const lastAddedWordIndex = transcriptArray.length - 1 ?? 0
 
   const outputArray = textFromKeyboard.trim()
     ? textFromKeyboard
@@ -136,17 +138,12 @@ export const getRecognitionText = ({
         )
     : []
 
-  const lastAddedWordIndex = arrayToSearch.length - 1 ?? 0
-
-  const filteredCorrectWordsArray = correctWordsArray.filter(
-    word => word !== '-',
-  )
-
   let modifiedWord = ''
-  if (currWordIndex < filteredCorrectWordsArray.length) {
-    modifiedWord = filteredCorrectWordsArray[currWordIndex]
+  if (currWordIndex < correctWordsArray.length) {
+    modifiedWord = correctWordsArray[currWordIndex]
       .replace(/[.,\/#!$%\^&\*;:{}=\_`~()¡¿-]/g, '')
       .toLowerCase()
+      .trim()
   }
 
   const wordWithSynonyms = [
@@ -156,7 +153,7 @@ export const getRecognitionText = ({
 
   const transcriptIndex = findMatchedWordIndex({
     wordWithSynonyms,
-    arrayToSearch,
+    transcriptArray,
     lastAddedWordIndex,
   })
 
@@ -175,7 +172,7 @@ export const getRecognitionText = ({
     setForgivenErrorQuantity(prev => prev + 1)
     setIsMistake(true)
   }
-  return outputArray.join(' ') //+ ' '
+  return outputArray ? outputArray.join(' ') + ' ' : ''
 }
 
 const regexp = /^[.,\/#!$%\^&\*;:{}=\-_`~()¡¿]$/
@@ -203,7 +200,6 @@ export const replayInputCheck = ({
   const punctuations = correctWordsArray[index + 1]
 
   if (!currentWord) return ''
-
   const correctFirsLetter = currentWord.charAt(0).toLowerCase()
   const writtenFirsLetter = inputText.charAt(inputText.length - 1).toLowerCase()
 

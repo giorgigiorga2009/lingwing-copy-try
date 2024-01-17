@@ -129,7 +129,7 @@ const Lessons: NextPage = () => {
     }
 
     fetchUserCourse()
-  }, [languageFrom, languageTo, courseName, Token, userId, tab])
+  }, [languageFrom, languageTo, courseName, Token, userId, tab, currentTask])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
