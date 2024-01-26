@@ -1,36 +1,53 @@
 import {
+  textCheck,
   handleChange,
   CommonProps,
   updateCompletedTasks,
   handleOnKeyDown,
+  getRecognitionText,
 } from '@utils/lessons/taskInputUtils'
-import { useTaskStore } from '@utils/store'
 import { TaskProgress } from './TaskProgress'
 import style from './OmittedWords.module.scss'
 import { saveTask } from '@utils/lessons/saveTask'
 import { MistakesCounter } from './MistakesCounter'
 import { VoiceRecognition } from './VoiceRecognition'
 import React, { FC, useEffect, useRef, useState } from 'react'
+import { useVoiceRecognition, getVoiceRecognition } from '@utils/store'
 
 interface Props {
   commonProps: CommonProps
 }
 
 export const OmittedWords: FC<Props> = ({ commonProps }) => {
-  const HintShown = useTaskStore(state => state.HintShown)
-  const setHintShow = useTaskStore(state => state.SetHintShow)
-  const setHintText = useTaskStore(state => state.SetHintText)
-  const [words, setWords] = useState<string[]>([])
+ // const [words, setWords] = useState<string[]>([])
   const [correctWords, setCorrectWords] = useState<string[]>([])
   const [mistakesCount, setMistakesCount] = useState(0)
   const [taskProgress, setTaskProgress] = useState('0%')
   const [forgivenErrorQuantity, setForgivenErrorQuantity] = useState(0)
+  const [outputText, setOutputText] = useState('')
+  const [isMistake, setIsMistake] = useState(false)
+  const { transcript } = useVoiceRecognition(getVoiceRecognition)
 
   const errorLimit = commonProps.currentTask.errorLimit
   const inputRefs = useRef<HTMLInputElement[]>([])
   const currTask = commonProps.currentTask.correctText as string
   const wordsArray = currTask.match(/(\[.*?\])|(\S+)/g) ?? []
   const inputsCount = wordsArray.filter(item => /^\[.*\]$/.test(item)).length
+  const firstWordIndex = wordsArray.findIndex(word => word.startsWith('['))
+  const missingWord = wordsArray[firstWordIndex].slice(1, -1)
+
+  const params = {
+    currWordIndex: 0,
+    outputText,
+    correctText: missingWord,
+    wordsSynonyms: commonProps.currentTask.wordsSynonyms,
+    transcript: '',
+    textFromKeyboard: inputRefs.current[firstWordIndex]?.value || '',
+    currentWord: missingWord,
+    setMistakesCount,
+    setForgivenErrorQuantity,
+    setIsMistake,
+  }
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -41,37 +58,30 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
     )
-
     const missingWord = wordsArray[index].slice(1, -1)
-    const newWords = [...words]
-    const currentMatch = missingWord.substring(0, inputText.length)
-    const isTextValid = inputText.toLowerCase() === currentMatch.toLowerCase()
+    //const newWords = [...words]
+
+    const newText = textCheck({ inputText, ...params })
+    setOutputText(newText)
+    const isTextValid = newText.toLowerCase() === missingWord.toLowerCase()
 
     if (isTextValid) {
-      setHintShow(false)
-      newWords[index] = currentMatch
-      setWords(newWords)
+      // newWords[index] = missingWord
+      // setWords(newWords)
       setTaskProgress(correctWords.length / wordsArray.length + '%')
 
-      if (inputText.length === missingWord.length) {
-        const nextInputRef = inputRefs.current
-          .slice(index + 1)
-          .find(element => element !== undefined)
+      const nextInputRef = inputRefs.current
+        .slice(index + 1)
+        .find(element => element !== undefined)
 
-        setCorrectWords(prevWords => [...prevWords, missingWord])
-        nextInputRef && nextInputRef.focus()
-      }
-    } else {
-      if (!HintShown) {
-        setMistakesCount(mistakesCount + 1)
-        setHintShow(true)
-        setHintText(missingWord)
-      }
+      setCorrectWords(prevWords => [...prevWords, missingWord])
+      nextInputRef && nextInputRef.focus()
     }
   }
 
   useEffect(() => {
     if (!commonProps.Token && !commonProps.userId) return
+
     if (correctWords.length === inputsCount) {
       const isMistake = errorLimit - mistakesCount < 0 ? 1 : 0
       setTimeout(async () => {
@@ -82,16 +92,20 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
           error: isMistake,
         })
 
-        if (isSaved) {
-          updateCompletedTasks(commonProps, isMistake)
-        }
+        isSaved && updateCompletedTasks(commonProps, isMistake)
       }, 1500)
     }
-  }, [correctWords])
+  }, [correctWords, outputText])
 
   useEffect(() => {
     inputRefs.current.find(element => element !== undefined)?.focus()
   }, [])
+
+  useEffect(() => {
+    if (transcript === '') return
+    setOutputText(getRecognitionText({ ...params }))
+    setCorrectWords(prevWords => [...prevWords, missingWord])
+  }, [transcript])
 
   return (
     <>
@@ -104,13 +118,12 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
         <div className={style.inputContainer}>
           {wordsArray.map((word, index) => {
             if (word.startsWith('[')) {
-              const currentValue = words[index]
-
+              //const currentValue = words[index]
               return (
                 <input
                   className={style.input}
                   key={index}
-                  value={currentValue ?? ''}
+                  value={outputText}
                   onChange={event => handleInputChange(event, index)}
                   onKeyDown={(event: React.KeyboardEvent) =>
                     handleOnKeyDown(event, inputRefs)
@@ -123,7 +136,7 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
             }
           })}
         </div>
-        <VoiceRecognition progress={taskProgress}/>
+        <VoiceRecognition progress={taskProgress} />
       </div>
     </>
   )

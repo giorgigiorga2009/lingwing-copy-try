@@ -125,14 +125,13 @@ export const DialogInput: FC<DialogInputProps> = ({
   const wordsSynonyms = commonProps.currentTask.wordsSynonyms
   const { transcript } = useVoiceRecognition(getVoiceRecognition)
 
-  const currTask = commonProps.currentTask
   const wordsArray =
-    currTask.wordsArray?.filter(item => item.wordText !== '-') || []
-  const inputLength = inputRef.current?.value
-    ? inputRef.current.value.split(' ').length
-    : 0
+    commonProps.currentTask.correctText[currentMessageIndex]
+      .split(' ')
+      .filter(item => item !== '-') || []
+  const inputLength = outputText ? outputText.trim().split(' ').length : 0
 
-  const currentWordText = wordsArray[inputLength ?? 0]?.wordText || ''
+  const currentWordText = wordsArray[inputLength] || ''
 
   const params = {
     currWordIndex: inputLength,
@@ -155,7 +154,7 @@ export const DialogInput: FC<DialogInputProps> = ({
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
-    if (outputText.slice(0, -1) === dialogArray[currentMessageIndex]) return
+    if (outputText.trim() === dialogArray[currentMessageIndex]) return
     const inputText = handleChange(
       event,
       commonProps.languageTo as 'geo' | 'eng' | 'rus',
