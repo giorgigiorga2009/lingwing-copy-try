@@ -75,4 +75,16 @@ export const getVoiceRecognitionActive = (state: RecognitionActive) => ({
   ToggleRecordingActive: state.ToggleRecordingActive,
 })
 
+// Update the VoiceActive interface
+export interface VoiceActive {
+  isVoicePlaying: boolean
+  ToggleVoicePlaying: (isVoicePlaying: boolean) => void
+}
+
+export const useVoiceActive = create<VoiceActive>(set => ({
+  isVoicePlaying: false,
+  ToggleVoicePlaying: (isVoicePlaying: boolean) =>
+    set(() => ({ isVoicePlaying: isVoicePlaying })),
+}))
+
 export default useStore

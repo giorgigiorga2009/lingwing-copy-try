@@ -92,7 +92,7 @@ const Dashboard: NextPage = () => {
         description="META_TAG_DASHBOARD_DESCRIPTION"
         keywords="META_TAG_DASHBOARD_KEYWORDS"
       />
-      <Header size="s" setShowTopScores={() => false} showTopScores={false}/>
+      <Header size="s" setShowTopScores={() => false} showTopScores={false} />
       {!loading && myLanguages && myLanguages.length > 0 && (
         <div className={style.content}>
           <div className={style.left_bar}>

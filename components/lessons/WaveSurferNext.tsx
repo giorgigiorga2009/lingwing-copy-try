@@ -1,6 +1,7 @@
 import WaveSurfer from 'wavesurfer.js'
 import style from './WaveSurferNext.module.scss'
 import React, { useState, useEffect, useRef, useCallback, FC } from 'react'
+import { useVoiceActive } from '@utils/store'
 
 const formWaveSurferOptions = (ref: HTMLElement) => ({
   container: '#' + ref.id,
@@ -26,7 +27,12 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
-  console.log('duratuin---->', playing)
+  const { isVoicePlaying, ToggleVoicePlaying } = useVoiceActive()
+  console.log(isVoicePlaying, 'duratuin---->', playing)
+  // console.log(
+  //   'isVoicePlaying-isVoicePlaying-isVoicePlaying----->',
+  //   isVoicePlaying,
+  // )
 
   const proxyURL = `/api/audioProxy?url=${encodeURIComponent(audioURL)}`
 
@@ -45,11 +51,13 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
         const length = wavesurfer.current!.getDuration()
         setDuration(length)
         setPlaying(true)
+        ToggleVoicePlaying(true)
         wavesurfer.current!.play()
       })
 
       wavesurfer.current.on('finish', () => {
         setPlaying(false)
+        ToggleVoicePlaying(false)
       })
 
       wavesurfer.current.on('error', message => {

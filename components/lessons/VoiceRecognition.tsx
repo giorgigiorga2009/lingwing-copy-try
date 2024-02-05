@@ -1,7 +1,11 @@
 import { FC, useEffect } from 'react'
 import style from './VoiceRecognition.module.scss'
 import { useSpeechRec } from '@utils/lessons/useSpeechRecognition'
-import { useRecognitionActive, getVoiceRecognitionActive } from '@utils/store'
+import {
+  useRecognitionActive,
+  getVoiceRecognitionActive,
+  useVoiceActive,
+} from '@utils/store'
 interface VoiceRecognitionProps {
   progress: string
 }
@@ -13,12 +17,17 @@ export const VoiceRecognition: FC<VoiceRecognitionProps> = ({ progress }) => {
     getVoiceRecognitionActive,
   )
 
+  const { isVoicePlaying, ToggleVoicePlaying } = useVoiceActive()
+
+  console.log('getVoiceRecognitionActive-->', isRecordingActive)
+
   useEffect(() => {
     if (isRecordingActive) {
       progress === '0%' && toggleRecognition()
       progress === '100%' && toggleRecognition()
+      isVoicePlaying && toggleRecognition()
     }
-  }, [progress])
+  }, [progress, isVoicePlaying])
 
   return (
     <button
