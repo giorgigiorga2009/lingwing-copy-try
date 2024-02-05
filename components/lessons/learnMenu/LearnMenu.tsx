@@ -31,7 +31,7 @@ const LearnMenu: FC<Props> = ({
   const [currentLanguageCoursesList, setCurrentLanguageCoursesList] = useState<
     LanguageCourse[] | undefined
   >()
-  const [isMouseMoving, setIsMouseMoving] = useState(false)
+  const [isMouseMoving, setIsMouseMoving] = useState(true)
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
@@ -41,7 +41,7 @@ const LearnMenu: FC<Props> = ({
 
       clearTimeout(timeoutId)
       timeoutId = setTimeout(() => {
-        setIsMouseMoving(false)
+        setIsMouseMoving(true)
       }, 5000)
     }
 

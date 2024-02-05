@@ -26,6 +26,7 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
+  console.log('duratuin---->', playing)
 
   const proxyURL = `/api/audioProxy?url=${encodeURIComponent(audioURL)}`
 

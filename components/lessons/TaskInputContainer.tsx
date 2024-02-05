@@ -46,6 +46,8 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
   const currentWord = wordsArray[currWordIndex]
 
+  console.log('commonProps------->', currTask)
+
   useEffect(() => {
     if (mistakesCount !== 0 && forgivenErrorQuantity !== 0) {
       const audio = new Audio('https://lingwing.com/sounds/false.mp3')
@@ -104,9 +106,12 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }
 
   useEffect(() => {
+    console.log('useeff')
     if (!commonProps.Token && !commonProps.userId) return
     if (outputText.trim() === correctText.trim()) {
-      Play(`${commonProps.currentTask.sentenceAudioPath}`)
+      // setTimeout(() => {
+      //   Play(`${commonProps.currentTask.sentenceAudioPath}`)
+      // }, 1000)
 
       setTimeout(async () => {
         const audio = new Audio('https://lingwing.com/sounds/true.mp3')

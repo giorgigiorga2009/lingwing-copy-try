@@ -18,32 +18,55 @@ const CurrentTaskInput = ({
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
   if (!commonProps) return null
+  console.log(
+    'commonProps.currentTask.taskType->',
+    commonProps.currentTask.taskType,
+  )
 
   switch (commonProps.currentTask.taskType) {
     case 'translate':
     case 'dictation':
     case 'replay':
       return (
-        <TaskInputContainer
-          commonProps={commonProps}
-          taskType={commonProps.currentTask.taskType}
-        />
+        <>
+          {/* {console.log('1')} */}
+          <TaskInputContainer
+            commonProps={commonProps}
+            taskType={commonProps.currentTask.taskType}
+          />
+        </>
       )
     case 'dialog':
       return currentMessageIndex !== undefined && setCurrentMessageIndex ? (
-        <DialogInput
-          commonProps={commonProps}
-          currentMessageIndex={currentMessageIndex}
-          setCurrentMessageIndex={setCurrentMessageIndex}
-        />
+        <>
+          {console.log('2')}
+          <DialogInput
+            commonProps={commonProps}
+            currentMessageIndex={currentMessageIndex}
+            setCurrentMessageIndex={setCurrentMessageIndex}
+          />
+        </>
       ) : null
 
     case 'omittedwords':
-      return <OmittedWords commonProps={commonProps} />
+      return (
+        <>
+          {console.log('3')} <OmittedWords commonProps={commonProps} />
+        </>
+      )
     case 'mistakecorrection':
-      return <MistakeCorrectionTask commonProps={commonProps} />
+      return (
+        <>
+          {console.log('4')} <MistakeCorrectionTask commonProps={commonProps} />
+        </>
+      )
     case 'grammar':
-      return <GrammarButton commonProps={commonProps} />
+      return (
+        <>
+          {console.log('5')}
+          <GrammarButton commonProps={commonProps} />
+        </>
+      )
     default:
       return null
   }
