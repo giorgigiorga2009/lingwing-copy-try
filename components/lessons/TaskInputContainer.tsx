@@ -46,8 +46,6 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   const wordsArray = currTask.wordsArray.filter(item => item.wordText !== '-')
   const currentWord = wordsArray[currWordIndex]
 
-  console.log('commonProps------->', currTask)
-
   useEffect(() => {
     if (mistakesCount !== 0 && forgivenErrorQuantity !== 0) {
       const audio = new Audio('https://lingwing.com/sounds/false.mp3')

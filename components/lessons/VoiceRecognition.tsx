@@ -19,12 +19,11 @@ export const VoiceRecognition: FC<VoiceRecognitionProps> = ({ progress }) => {
 
   const { isVoicePlaying, ToggleVoicePlaying } = useVoiceActive()
 
-  console.log('getVoiceRecognitionActive-->', isRecordingActive)
-
   useEffect(() => {
     if (isRecordingActive) {
       progress === '0%' && toggleRecognition()
       progress === '100%' && toggleRecognition()
+
       isVoicePlaying && toggleRecognition()
     }
   }, [progress, isVoicePlaying])

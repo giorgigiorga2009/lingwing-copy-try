@@ -28,11 +28,6 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
   const { isVoicePlaying, ToggleVoicePlaying } = useVoiceActive()
-  console.log(isVoicePlaying, 'duratuin---->', playing)
-  // console.log(
-  //   'isVoicePlaying-isVoicePlaying-isVoicePlaying----->',
-  //   isVoicePlaying,
-  // )
 
   const proxyURL = `/api/audioProxy?url=${encodeURIComponent(audioURL)}`
 
@@ -78,6 +73,7 @@ const WaveSurferNext: FC<WaveSurferNextProps> = ({ audioURL }) => {
 
   const handlePlayPause = () => {
     setPlaying(!playing)
+    ToggleVoicePlaying(!isVoicePlaying)
     wavesurfer.current!.playPause()
   }
 

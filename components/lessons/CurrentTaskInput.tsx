@@ -29,7 +29,6 @@ const CurrentTaskInput = ({
     case 'replay':
       return (
         <>
-          {/* {console.log('1')} */}
           <TaskInputContainer
             commonProps={commonProps}
             taskType={commonProps.currentTask.taskType}
@@ -39,7 +38,6 @@ const CurrentTaskInput = ({
     case 'dialog':
       return currentMessageIndex !== undefined && setCurrentMessageIndex ? (
         <>
-          {console.log('2')}
           <DialogInput
             commonProps={commonProps}
             currentMessageIndex={currentMessageIndex}
@@ -51,19 +49,18 @@ const CurrentTaskInput = ({
     case 'omittedwords':
       return (
         <>
-          {console.log('3')} <OmittedWords commonProps={commonProps} />
+          <OmittedWords commonProps={commonProps} />
         </>
       )
     case 'mistakecorrection':
       return (
         <>
-          {console.log('4')} <MistakeCorrectionTask commonProps={commonProps} />
+          <MistakeCorrectionTask commonProps={commonProps} />
         </>
       )
     case 'grammar':
       return (
         <>
-          {console.log('5')}
           <GrammarButton commonProps={commonProps} />
         </>
       )
