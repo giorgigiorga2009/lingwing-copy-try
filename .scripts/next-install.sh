@@ -1,1 +1,1 @@
-rm -rf .next && yarn install --production && yarn add --dev @types/node typescript && yarn build
+rm -rf .next && yarn install --production --force && yarn add --dev @types/node typescript && yarn build
