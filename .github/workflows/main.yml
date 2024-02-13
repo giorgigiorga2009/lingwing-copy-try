@@ -10,12 +10,8 @@ jobs:
       - name: Checkout latest repo
         uses: actions/checkout@main
 
-      # - uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '18'
-
       - name: Generate deployment package
-        run: yarn generate-zip
+        run: yarn next-install && yarn generate-zip
 
       - name: Get timestamp
         uses: gerred/actions/current-time@master
@@ -40,3 +36,4 @@ jobs:
           version_label: 'the-simple-engineer-deployment-${{ steps.format-time.outputs.replaced }}'
           region: eu-west-1
           deployment_package: deploy.zip
+          command: 'yarn build && yarn start'
