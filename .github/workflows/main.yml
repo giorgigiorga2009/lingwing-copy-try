@@ -14,8 +14,8 @@ jobs:
       #   with:
       #     node-version: '18'
 
-      # - name: Generate deployment package
-      # run: yarn next-install && yarn generate-zip
+      - name: Generate deployment package
+        run: yarn generate-zip
 
       - name: Get timestamp
         uses: gerred/actions/current-time@master
