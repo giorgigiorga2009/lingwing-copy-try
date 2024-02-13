@@ -1,0 +1,1 @@
+rm -rf .next && yarn install --production && yarn build
