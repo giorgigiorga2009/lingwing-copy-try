@@ -10,29 +10,14 @@ jobs:
       - name: Checkout latest repo
         uses: actions/checkout@main
       
-      - name: Install dependencies
-        run: yarn install --production
+      # - name: Install dependencies
+      #   run: yarn install --production
 
-      # - name: install @types/node
-        # run: yarn install --dev @types/node
-
-      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
-      # - name: Get yarn cache directory path
-      #   id: yarn-cache-dir-path
-      #   run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-      # - uses: actions/cache@v3
-      #   id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      #   with:
-      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-yarn-
-
-      - name: Build the project
-        run: yarn build
+      # - name: Build the project
+      #   run: yarn build
 
       - name: Generate deployment package
-        run: zip -r deploy.zip ./.next
+        run: zip -r deploy.zip .
 
       - name: Get timestamp
         uses: gerred/actions/current-time@master
