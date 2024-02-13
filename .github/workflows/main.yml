@@ -13,6 +13,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --production
 
+      - name: install @types/node
+        run: yarn install --dev @types/node
+
       # https://github.com/actions/cache/blob/main/examples.md#node---yarn
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
