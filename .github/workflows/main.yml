@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@main
       
       - name: Install dependencies
-        run: yarn install --production
+        run: yarn install
 
-      - name: install @types/node
-        run: yarn install --dev @types/node
+      # - name: install @types/node
+        # run: yarn install --dev @types/node
 
       # https://github.com/actions/cache/blob/main/examples.md#node---yarn
       - name: Get yarn cache directory path
