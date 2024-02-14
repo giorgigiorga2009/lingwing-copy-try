@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@main
 
       - name: Generate deployment package
-        run: npm install -g yarn && echo "Yarn installed successfully" &&
-             yarn install && echo "Dependencies installed successfully" &&
-             yarn build && echo "Build completed successfully" &&
-             zip -r deployment_package.zip . && echo "Deployment package created successfully"
+        run: npm install -g yarn && echo ">>>>>Yarn installed successfully<<<<<<" &&
+             yarn install && echo ">>>>>>Dependencies installed successfully<<<<<<" &&
+             yarn build && echo ">>>>>Build completed successfully<<<<<" &&
+             zip -r deploy.zip . && echo ">>>>>Deployment package created successfully<<<<<"
 
       - name: Get timestamp
         uses: gerred/actions/current-time@master
