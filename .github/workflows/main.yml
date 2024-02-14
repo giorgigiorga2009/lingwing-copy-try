@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Generate deployment package
-        run: yarn next-install && yarn build && yarn generate-zip
+        run:  npm install -g yarn && yarn install && yarn build && yarn generate-zip
 
       - name: Get timestamp
         uses: gerred/actions/current-time@master
