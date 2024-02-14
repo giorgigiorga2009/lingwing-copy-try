@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Generate deployment package
-        run: yarn next-install && yarn generate-zip
+        run: yarn next-install && yarn build && yarn generate-zip
 
       - name: Get timestamp
         uses: gerred/actions/current-time@master
@@ -36,4 +36,3 @@ jobs:
           version_label: 'the-simple-engineer-deployment-${{ steps.format-time.outputs.replaced }}'
           region: eu-west-1
           deployment_package: deploy.zip
-          command: 'yarn build && yarn start'
