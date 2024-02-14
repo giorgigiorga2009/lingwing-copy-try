@@ -41,6 +41,3 @@ jobs:
           version_label: 'the-simple-engineer-deployment-${{ steps.format-time.outputs.FORMATTED_TIME }}'
           region: eu-west-1
           deployment_package: deploy.zip
-
-          region: eu-west-1
-          deployment_package: deploy.zip
