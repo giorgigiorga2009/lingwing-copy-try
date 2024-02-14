@@ -6,6 +6,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      TIME: ${{ steps.current-time.outputs.FORMATTED_TIME }}
     steps:
       - name: Checkout latest repo
         uses: actions/checkout@main
@@ -25,11 +27,11 @@ jobs:
 
       - name: Get timestamp
         id: current-time
-        run: echo "::set-env name=TIME::$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+        run: echo "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
 
       - name: Run string replace
         id: format-time
-        run: echo "::set-env name=FORMATTED_TIME::$(echo ${{ steps.current-time.outputs.TIME }} | tr ':.' '-')"
+        run: echo "$(echo $TIME | tr ':.' '-')" >> $GITHUB_ENV
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
@@ -38,6 +40,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: lingwing-front
           environment_name: lingwing-front-env
-          version_label: 'the-simple-engineer-deployment-${{ steps.format-time.outputs.FORMATTED_TIME }}'
+          version_label: 'the-simple-engineer-deployment-${{ env.FORMATTED_TIME }}'
           region: eu-west-1
           deployment_package: deploy.zip
