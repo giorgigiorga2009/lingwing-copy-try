@@ -36,3 +36,6 @@ local env files
 
 # vscode
 *.vscode
+
+# vsstudio
+*.vs
