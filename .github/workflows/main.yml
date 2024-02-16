@@ -27,13 +27,26 @@ jobs:
           zip -qr deploy.zip .
           echo ">>>>>Deployment package created successfully<<<<<"
 
+      # - name: Get timestamp
+      #   id: current-time
+      #   run: echo "::set-output name=TIME::$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+
+      # - name: Run string replace
+      #   id: format-time
+      #   run: echo "::set-output name=FORMATTED_TIME::$(echo $TIME | tr ':.' '-')"
+
       - name: Get timestamp
+        uses: gerred/actions/current-time@master
         id: current-time
-        run: echo "::set-output name=TIME::$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
       - name: Run string replace
+        uses: frabert/replace-string-action@master
         id: format-time
-        run: echo "::set-output name=FORMATTED_TIME::$(echo $TIME | tr ':.' '-')"
+        with:
+          pattern: '[:\.]+'
+          string: '${{ steps.current-time.outputs.time }}'
+          replace-with: '-'
+          flags: 'g'
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
@@ -42,6 +55,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: lingwing-front
           environment_name: lingwing-front-env
-          version_label: 'the-simple-engineer-deployment-${{ steps.format-time.outputs.FORMATTED_TIME }}'
+          version_label: '${{ steps.format-time.outputs.replaced }}'
           region: eu-west-1
           deployment_package: deploy.zip
