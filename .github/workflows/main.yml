@@ -17,7 +17,7 @@ jobs:
         run: |
           npm install -g yarn
           echo ">>>>>Yarn installed successfully<<<<<<"
-          yarn install
+          yarn install --production
           echo ">>>>>>Dependencies installed successfully<<<<<<"
           yarn build
           echo ">>>>>Build completed successfully<<<<<"
