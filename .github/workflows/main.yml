@@ -18,12 +18,12 @@ jobs:
       # echo ">>>>>Yarn installed successfully<<<<<<"
       # yarn cache clean
       # echo ">>>>>yarn cache clean<<<<<"
+      # yarn install --production
+      # yarn add --dev @types/node
+      # echo ">>>>>>Dependencies installed successfully<<<<<<"
+      # yarn build
+      # echo ">>>>>Build completed successfully<<<<<"
         run: |
-          yarn install --production
-          yarn add --dev @types/node
-          echo ">>>>>>Dependencies installed successfully<<<<<<"
-          yarn build
-          echo ">>>>>Build completed successfully<<<<<"
           zip deploy.zip -r .
           echo ">>>>>Deployment package created successfully<<<<<"
 
