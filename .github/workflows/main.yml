@@ -16,15 +16,15 @@ jobs:
       - name: Generate deployment package
       # npm install -g yarn
       # echo ">>>>>Yarn installed successfully<<<<<<"
+      # yarn cache clean
+      # echo ">>>>>yarn cache clean<<<<<"
         run: |
           yarn install --production
           yarn add --dev @types/node
           echo ">>>>>>Dependencies installed successfully<<<<<<"
           yarn build
           echo ">>>>>Build completed successfully<<<<<"
-          yarn cache clean
-          echo ">>>>>yarn cache clean<<<<<"
-          zip -qr deploy.zip .
+          zip deploy.zip -r .
           echo ">>>>>Deployment package created successfully<<<<<"
 
       # - name: Get timestamp
