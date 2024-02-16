@@ -14,10 +14,11 @@ jobs:
         uses: actions/checkout@main
 
       - name: Generate deployment package
+      # npm install -g yarn
+      # echo ">>>>>Yarn installed successfully<<<<<<"
         run: |
-          npm install -g yarn
-          echo ">>>>>Yarn installed successfully<<<<<<"
           yarn install --production
+          yarn add --dev @types/node
           echo ">>>>>>Dependencies installed successfully<<<<<<"
           yarn build
           echo ">>>>>Build completed successfully<<<<<"
