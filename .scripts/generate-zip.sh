@@ -1,1 +1,0 @@
-zip deploy.zip -r .
