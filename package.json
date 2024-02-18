@@ -9,9 +9,7 @@
     "lint": "next lint",
     "prepare": "husky install",
     "format": "yarn prettier --write .",
-    "start-next-logger": "NODE_OPTIONS='-r next-logger' next start",
-    "generate-zip": "sh ./.scripts/generate-zip.sh",
-    "next-install": "sh ./.scripts/next-install.sh"
+    "start-next-logger": "NODE_OPTIONS='-r next-logger' next start"
   },
   "dependencies": {
     "@dschoon/react-waves": "^4.0.3",
