@@ -43,7 +43,7 @@ export const CoursesDropdown: FC<Props> = ({
                 className={style.option}
                 onClick={() => setOpen(false)}
                 href={{
-                  pathname: '/lessons',
+                  pathname: '/lessons/soundcheck',
                   query: {
                     languageTo,
                     languageFrom: course.iLearnFrom,

@@ -16,7 +16,7 @@ export const LevelsBubble: FC<Props> = ({ mistakesByLevel, taskType }) => {
           : style.levelsContainer
       }
     >
-      {mistakesByLevel.map((mistake, index) => (
+      {mistakesByLevel && mistakesByLevel.map((mistake, index) => (
         <div
           key={index}
           className={classNames(

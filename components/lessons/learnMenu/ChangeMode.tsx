@@ -1,6 +1,6 @@
 import DOMPurify from 'dompurify'
 import classNames from 'classnames'
-import { Tabs } from '@pages/lessons'
+import { Tabs } from '@pages/lessons_old'
 import style from './ChangeMode.module.scss'
 import { changeMode } from '@utils/changeMode'
 import { FC, useState, useEffect } from 'react'

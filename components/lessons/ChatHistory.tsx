@@ -10,6 +10,7 @@ interface HistoryProps {
 }
 
 const ChatHistory: FC<HistoryProps> = ({ completedTasks }) => {
+
   return (
     <div className={style.chatHistoryContainer}>
       {completedTasks.map(task => {

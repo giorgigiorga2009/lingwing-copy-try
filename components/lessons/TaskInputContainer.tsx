@@ -104,7 +104,7 @@ export const TaskInputContainer: FC<TaskInputProps> = ({
   }
 
   useEffect(() => {
-    console.log('useeff')
+    // console.log('useeff')
     if (!commonProps.Token && !commonProps.userId) return
     if (outputText.trim() === correctText.trim()) {
       // setTimeout(() => {

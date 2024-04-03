@@ -372,9 +372,18 @@ export const getLevelColors = ({
   currentTask: TaskData
   currentCourseObject: CourseObject
 }) => {
+
+
+
   let levelsArray: number[] = []
+
+
   const answers = currentTask.answers
+
+
+
   if (currentTask && currentCourseObject) {
+    
     if (!answers) {
       levelsArray = new Array(currentCourseObject?.learnMode).fill(-1)
     } else {

@@ -102,6 +102,7 @@ interface InitialTask {
 
 export interface TaskData {
   id: string
+  _id?: string
   ordinalNumber: number
   taskDescription: string
   taskType:
@@ -202,7 +203,7 @@ export const getUserCourse = async ({
   languageTo: string | string[]
   languageFrom: string | string[]
   courseName: string | string[]
-  Token: string
+  Token: string | null
   userId: string | null
 }): Promise<CourseObject | undefined> => {
   try {
@@ -216,14 +217,15 @@ export const getUserCourse = async ({
         },
       })
       return response.data.data
-    }
-    if (userId) {
+    } else {
+      // if (userId) {
       const response = await axios({
         url: `${
           process.env.NEXT_PUBLIC_DEFAULT_URL || process.env.DEFAULT_URL
         }/public/getUserCourse/${courseName}?lang=${languageTo}&iLearnFrom=${languageFrom}&userKey=${userId}`,
       })
       return response.data.data
+      // }
     }
   } catch (error) {
     console.log(error)
@@ -260,6 +262,7 @@ export const getTasks = async ({
       url += `&userKey=${userId}`
       headers = { Authorization: '' }
     }
+
     const response = await axios({
       url,
       headers: (headers as AxiosRequestHeaders) || '',
@@ -282,6 +285,7 @@ export const getTasks = async ({
           }
         })
       return {
+        obj: task,
         id: task._id,
         ordinalNumber: task.ordinalNumber,
         taskDescription: task.taskType.name,

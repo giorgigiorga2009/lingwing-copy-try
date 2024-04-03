@@ -30,12 +30,14 @@ export const saveTask = async ({
   if (Token === null) {
     url = `${url}&userKey=${userId}`
   }
+
   const payload = {
     userCourseId: courseId,
     iLearnFromNameCode: languageFrom,
-    symbols: [],
+    userKey: userId,
+    // symbols: [],
     task: {
-      _id: currentTask.id,
+      _id: currentTask._id,
       segment: '',
       error: error,
       ordinalNumber: currentTask.ordinalNumber,

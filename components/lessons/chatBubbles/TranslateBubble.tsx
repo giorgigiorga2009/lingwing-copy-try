@@ -37,6 +37,8 @@ export const TranslateBubble: FC<Props> = ({
   mistakesByLevel,
   // answers,
 }) => {
+
+
   if (typeof taskText === 'string') {
     taskText = taskText
       .replaceAll('(FR)', '🤗')
@@ -91,7 +93,7 @@ export const TranslateBubble: FC<Props> = ({
           </span>
         )}
         {utteranceType === 'taskDescription' && (
-          <LevelsBubble mistakesByLevel={mistakesByLevel} />
+          <LevelsBubble mistakesByLevel={mistakesByLevel || []} />
         )}
       </div>
     </div>

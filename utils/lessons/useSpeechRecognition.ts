@@ -9,7 +9,7 @@ import {
   getVoiceRecognitionActive,
 } from '@utils/store'
 
-export const useSpeechRec = () => {
+export const useSpeechRec = (locale = '') => {
   const [isRecording, setIsRecording] = useState(false)
   const { transcript, resetTranscript } = useSpeechRecognition()
   const { SetTranscript } = useVoiceRecognition(getVoiceRecognition)
@@ -18,7 +18,10 @@ export const useSpeechRec = () => {
   useEffect(() => {
     if (isRecordingActive) {
       isRecording
-        ? SpeechRecognition.startListening({ continuous: true })
+        ? SpeechRecognition.startListening({
+            continuous: true,
+            language: locale,
+          })
         : SpeechRecognition.stopListening()
     } else {
       SpeechRecognition.stopListening()

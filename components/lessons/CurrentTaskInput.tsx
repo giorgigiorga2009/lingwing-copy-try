@@ -18,10 +18,10 @@ const CurrentTaskInput = ({
   setCurrentMessageIndex,
 }: CurrentTaskInputProps): ReactElement | null => {
   if (!commonProps) return null
-  console.log(
-    'commonProps.currentTask.taskType->',
-    commonProps.currentTask.taskType,
-  )
+  // console.log(
+  //   'commonProps.currentTask.taskType->',
+  //   commonProps.currentTask.taskType,
+  // )
 
   switch (commonProps.currentTask.taskType) {
     case 'translate':

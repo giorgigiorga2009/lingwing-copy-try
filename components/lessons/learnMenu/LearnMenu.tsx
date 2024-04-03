@@ -2,7 +2,7 @@ import {
   getCurrentLanguageCoursesList,
   LanguageCourse,
 } from '@utils/lessons/getLanguageCoursesList'
-import { Tabs } from '@pages/lessons'
+import { Tabs } from '@pages/lessons_old'
 import style from './LearnMenu.module.scss'
 import { FC, useState, useEffect } from 'react'
 import { useTranslation } from '@utils/useTranslation'
@@ -33,6 +33,8 @@ const LearnMenu: FC<Props> = ({
   >()
   const [isMouseMoving, setIsMouseMoving] = useState(true)
 
+
+  // console.log(languageCourseId);
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
 

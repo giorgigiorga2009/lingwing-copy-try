@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { Tabs } from '@pages/lessons'
+import { Tabs } from '@pages/lessons_old'
 import style from './LessonsSideMenu.module.scss'
 import { CourseObject } from '@utils/lessons/getTask'
 import AllGrammar from '@components/lessons/learnMenu/AllGrammar'

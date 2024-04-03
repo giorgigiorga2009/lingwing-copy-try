@@ -98,7 +98,7 @@ const ChatCurrentTask: FC<Props> = ({
           />
         </div>
       )}
-      <div className={style.prompts}>{transcript}</div>
+      {/* <div className={style.prompts}>{transcript}</div> */}
     </>
   )
 }

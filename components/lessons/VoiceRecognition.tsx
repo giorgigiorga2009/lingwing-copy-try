@@ -7,11 +7,12 @@ import {
   useVoiceActive,
 } from '@utils/store'
 interface VoiceRecognitionProps {
-  progress: string
+  progress: string,
+  locale?: string 
 }
 
-export const VoiceRecognition: FC<VoiceRecognitionProps> = ({ progress }) => {
-  const { isRecording, toggleRecognition } = useSpeechRec()
+export const VoiceRecognition: FC<VoiceRecognitionProps> = ({ progress  , locale = ''}) => {
+  const { isRecording, toggleRecognition } = useSpeechRec(locale)
 
   const { isRecordingActive, ToggleRecordingActive } = useRecognitionActive(
     getVoiceRecognitionActive,

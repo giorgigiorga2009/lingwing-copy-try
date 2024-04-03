@@ -3,7 +3,7 @@ import ChangeMode from './ChangeMode'
 import AllGrammar from './AllGrammar'
 import Statistics from './Statistics'
 import Vocabulary from './Vocabulary'
-import { Tabs } from '@pages/lessons'
+import { Tabs } from '@pages/lessons_old'
 import style from './Wrapper.module.scss'
 import { CourseObject } from '@utils/lessons/getTask'
 

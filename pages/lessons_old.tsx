@@ -12,7 +12,7 @@ import { getUserId } from '@utils/getUserId'
 import { useSession } from 'next-auth/react'
 import { PageHead } from '@components/PageHead'
 import { Header } from '@components/header/Header'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import ProgressBar from '@components/lessons/ProgressBar'
 import ChatHistory from '@components/lessons/ChatHistory'
 import { SoundCheck } from '@components/lessons/SoundCheck'
@@ -27,6 +27,7 @@ import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { useUserStore, useTaskStore, UserInfo } from '@utils/store'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
+import { TaskData } from '../utils/lessons/getTask';
 
 export type Tabs = 'course' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
 
@@ -72,15 +73,10 @@ const Lessons: NextPage = () => {
 
   const { courseName, languageTo, languageFrom, task } = router.query
 
-  // Use localStorage to set the token state
-  useEffect(() => {
-    fetchUserId()
-    const getUserId = Cookies.get('userId')
-    getUserId && setUserId(getUserId)
-  }, [])
 
-  const fetchUserId = async () => {
-    if (!languageFrom || !languageTo || !courseName) return
+
+  const fetchUserId = useCallback(async () => {
+    if (!languageFrom || !languageTo || !courseName) return;
 
     try {
       const response = await getUserId({
@@ -88,15 +84,44 @@ const Lessons: NextPage = () => {
         languageTo,
         courseName,
         Token,
-      })
+      });
       if (response) {
-        setUserId(response)
-        Cookies.set('userId', response)
+        setUserId(response);
+        Cookies.set('userId', response);
       }
     } catch (error) {
-      console.error('Error fetching user course:', error)
+      console.error('Error fetching user course:', error);
     }
-  }
+  }, [languageFrom, languageTo, courseName, Token]);
+
+
+  // const fetchUserId = async () => {
+  //   if (!languageFrom || !languageTo || !courseName) return
+
+  //   try {
+  //     const response = await getUserId({
+  //       languageFrom,
+  //       languageTo,
+  //       courseName,
+  //       Token,
+  //     })
+  //     if (response) {
+  //       setUserId(response)
+  //       Cookies.set('userId', response)
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching user course:', error)
+  //   }
+  // }
+
+  // Use localStorage to set the token state
+  useEffect(() => {
+    fetchUserId()
+    const getUserId = Cookies.get('userId')
+    getUserId && setUserId(getUserId)
+  }, [fetchUserId])
+
+
 
   useEffect(() => {
     if (!languageFrom || !languageTo || !courseName || (!Token && !userId)) {
@@ -129,7 +154,7 @@ const Lessons: NextPage = () => {
     }
 
     fetchUserCourse()
-  }, [languageFrom, languageTo, courseName, Token, userId, tab, currentTask])
+  }, [languageFrom, languageTo, courseName, Token, userId, tab, currentTask, fetchUserId])
 
   // Use the languageFrom, languageTo, courseName, token, and courseId states to get the tasks data
   useEffect(() => {
@@ -149,7 +174,7 @@ const Lessons: NextPage = () => {
         console.error('Error fetching user course:', error)
         throw error
       })
-  }, [courseId, courseName])
+  }, [courseId, courseName, Token, languageFrom, languageTo, userId, task])
 
   //fetch new portion of tasks
   useEffect(() => {
@@ -162,6 +187,9 @@ const Lessons: NextPage = () => {
       !tasksData
     )
       return
+
+
+
     if (currentTaskNumber === tasksData?.length) {
       getTasks({
         languageFrom,
@@ -180,7 +208,17 @@ const Lessons: NextPage = () => {
           throw error
         })
     }
-  }, [currentTask])
+  }, [
+    currentTask,
+    Token,
+    courseId,
+    courseName,
+    currentTaskNumber,
+    languageFrom,
+    languageTo,
+    tasksData,
+    userId
+  ])
 
   // Use the tasksData and currentTaskNumber states to set the current task and its type
   useEffect(() => {
@@ -210,7 +248,7 @@ const Lessons: NextPage = () => {
     }, 200)
 
     setIsGrammarHeightCalled(false)
-  }, [HintShown, currentTask, isGrammarHeightCalled, currentMessageIndex])
+  }, [HintShown, currentTask, isGrammarHeightCalled, grammarHeight, currentMessageIndex])
 
   const arePropsDefined =
     (Token !== undefined || userId !== undefined) &&
@@ -221,19 +259,19 @@ const Lessons: NextPage = () => {
 
   const commonProps = arePropsDefined
     ? {
-        userId,
-        Token,
-        languageTo,
-        languageFrom,
-        courseId,
-        setCurrentTaskNumber,
-        currentTaskNumber,
-        currentTask,
-        completedTasks,
-        mistake,
-        setCompletedTasks,
-        learnMode: currentCourseObject.learnMode,
-      }
+      userId,
+      Token,
+      languageTo,
+      languageFrom,
+      courseId,
+      setCurrentTaskNumber,
+      currentTaskNumber,
+      currentTask,
+      completedTasks,
+      mistake,
+      setCompletedTasks,
+      learnMode: currentCourseObject.learnMode,
+    }
     : null
 
   const isUserLoggedIn = !!Token
@@ -266,6 +304,7 @@ const Lessons: NextPage = () => {
           setShowTopScores={setShowTopScores}
           showTopScores={showTopScores}
         />
+
         <CombinedModalComponent
           token={Token}
           courseName={courseName}

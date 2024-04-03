@@ -13,7 +13,7 @@ import { LOCALES_TO_LANGUAGES } from '@utils/languages'
 import { CourseObject, TaskData } from '@utils/lessons/getTask'
 
 interface Props {
-  token: string | null
+  token: string | null 
   setOpenFeedback: () => void
   currentCourseObject: CourseObject
   currentTaskData: TaskData | undefined
@@ -118,7 +118,9 @@ const Feedback: FC<Props> = ({
         document.documentElement.clientHeight ||
         document.body.clientHeight,
     }
+
     const screenSize = resolution.width + 'x' + resolution.height
+    
     try {
       const screenshotImageSrc = await handleCaptureScreenshot()
 
