@@ -27,7 +27,6 @@ import CurrentTaskInput from '@components/lessons/CurrentTaskInput'
 import { useUserStore, useTaskStore, UserInfo } from '@utils/store'
 import FeedbackButton from '@components/lessons/combinedModals/FeedbackButton'
 import CombinedModalComponent from '@components/lessons/combinedModals/combinedModals'
-import { TaskData } from '../utils/lessons/getTask';
 
 export type Tabs = 'course' | 'grammar' | 'vocabulary' | 'levels' | 'statistics'
 

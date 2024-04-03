@@ -67,7 +67,7 @@ const TaskWrapper: React.FC<any> = ({
     currentTaskNumber
 }) => {
 
-    if (!data || !data.obj) return;
+    if (!data || !data.obj) return null;
 
     const task = { ...data.obj };
     // const words = task.wordsAudio?.words;

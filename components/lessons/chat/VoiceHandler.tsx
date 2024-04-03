@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import style from '../VoiceRecognition.module.scss'
 
-const VoiceHandler = ({ voiceHandler }) => {
+
+interface IVoiceHandlerProps {
+    voiceHandler: (arg: string) => void;
+}
+
+
+const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler }) => {
     const {
         transcript,
         listening,
@@ -57,7 +63,7 @@ const VoiceHandler = ({ voiceHandler }) => {
                 onClick={() => {
                     listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening({ continuous: true })
                 }}
-                >
+            >
                 {listening ? (
                     <div className={style.pulsatingCircle} />
                 ) : (
