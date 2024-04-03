@@ -128,7 +128,7 @@ export const OmittedWords: FC<Props> = ({ commonProps }) => {
                   onKeyDown={(event: React.KeyboardEvent) =>
                     handleOnKeyDown(event, inputRefs)
                   }
-                  ref={el => (inputRefs.current[index] = el!)}
+                  ref={(el:any) => (inputRefs.current[index] = el!)}
                 />
               )
             } else {
