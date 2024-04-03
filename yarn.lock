@@ -1935,10 +1935,10 @@
   resolved "https://registry.npmjs.org/@types/dom-speech-recognition/-/dom-speech-recognition-0.0.1.tgz"
   integrity sha512-udCxb8DvjcDKfk1WTBzDsxFbLgYxmQGKrE/ricoMqHRNjSlSUCcamVTA5lIQqzY10mY5qCY0QDwBfFEwhfoDPw==
 
-"@types/dompurify@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/@types/dompurify/-/dompurify-3.0.3.tgz"
-  integrity sha512-odiGr/9/qMqjcBOe5UhcNLOFHSYmKFOyr+bJ/Xu3Qp4k1pNPAlNLUVNNLcLfjQI7+W7ObX58EdD3H+3p3voOvA==
+"@types/dompurify@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@types/dompurify/-/dompurify-3.0.5.tgz"
+  integrity sha512-1Wg0g3BtQF7sSb27fJQAKck1HECM6zV1EB66j8JH9i3LCjYabJa0FSdiSgsD5K/RbrsR0SiraKacLB+T8ZVYAg==
   dependencies:
     "@types/trusted-types" "*"
 
@@ -8340,8 +8340,7 @@ watchpack@2.4.0:
 
 waves-ui@wavesjs/ui:
   version "0.3.0"
-  resolved "https://codeload.github.com/wavesjs/ui/tar.gz/e4bc8887ce66933e0de08f5eeaf260ce0d403e35"
-  integrity sha512-GYB8wsl1afgs3asxjDlOkVb+6IoWHS+IwGichjEYIWkdeBMBMXuJ9l0KRrTyydYU+qFZ3GeBcG0SwzZVkSSFBw==
+  resolved "git+ssh://git@github.com/wavesjs/ui.git#e4bc8887ce66933e0de08f5eeaf260ce0d403e35"
   dependencies:
     babel-runtime "^5.8.12"
 
