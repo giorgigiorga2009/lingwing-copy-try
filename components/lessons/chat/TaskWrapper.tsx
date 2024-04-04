@@ -473,7 +473,7 @@ const TaskWrapper: React.FC<any> = ({
 
         console.log('isCorrect : ', isCorrect);
         console.log('correct Word Index : ', correctWordIndex)
-        console.log('correct Word : ', voiceInputArray[correctWordIndex] || ' არ არსებობს ')
+        console.log('correct Word : ', correctWordIndex ?  voiceInputArray[correctWordIndex] : ' არ არსებობს ')
 
 
         /** თუ წარმატებით დაემატა სიტყვა ,  ვანახლებთ შესაბამისი  ველებს */
