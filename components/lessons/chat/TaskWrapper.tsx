@@ -70,6 +70,9 @@ const TaskWrapper: React.FC<any> = ({
     if (!data || !data.obj) return null;
 
     const task = { ...data.obj };
+
+
+    // console.log(task);
     // const words = task.wordsAudio?.words;
 
     const errorLimit = task.errorLimit;
@@ -340,283 +343,226 @@ const TaskWrapper: React.FC<any> = ({
         const voiceInputArray = str.trim().split(' '); // სიტყვების მასივი რაც შეიყვანა იუზერმა 
 
 
-        console.log('//////////////////////////////////////////////////////////////////')
-        console.log('')
-        console.log('')
-
-        console.log('Input : ', str)
-        console.log('The Word : ', wordOptimizer(checkWord))
-        console.log('Synonyms : ', wordObj.synonyms)
-
-        console.log('')
-        console.log('')
-        console.log('//////////////////////////////////////////////////////////////////')
-
-
-
-
         /** Log */
         console.log(' ')
         console.log('######## Initial Values ########')
         console.log('Voice said : ' + `'${str}'`)
         console.log('Word To Say : ' + checkWord);
-        console.log('         ');
+        console.log('Synonyms : ', wordObj.synonyms)
 
+        console.log('         ');
 
         /**
          * მომხარებლის მიერ შეყვანილ წინადადებაში ვეძებთ იმ სიტყვის ინდექს , რომელიც ემთხვევა შესაყვან სიტყვას
          * ან შესაყვანი სიტყვის სინონიმ სიტყვას.
          */
-        const index = voiceInputArray.findIndex(item => {
-            return wordOptimizer(item) === wordOptimizer(checkWord) || wordObj.synonyms.includes(wordOptimizer(item));
-        });
+
+        let isCorrect = false; //  ამ ხაზამდე არ არის ნაპოვნი სწორი სიტყვა
+        let correctWordIndex: null | number = null;
 
 
-        /** 
-         * თუ მომხმარებლის მიერთი შეყვანილ წინადადებაში ნახსენებია 
-         * სიტყვა რომლის შეყვანასაც ელოდება ალგორითმი ...
-         */
-        if (index >= 0) {
+        voiceInputArray.forEach((item, i) => {
+            console.log(`------------- START LOOP ON : ${item}  ,  INDEX : ${i} ---------------`)
+            const mustCheck = (wordOptimizer(item) === wordOptimizer(checkWord) || wordObj.synonyms.includes(wordOptimizer(item)))
+
+            if (correctWordIndex !== null) return
+
+            if (mustCheck) {
+                console.log('####### This word will be checked `' + voiceInputArray[i] + '`');
+
+                let isValid = true; // საწყისად ვალიდურია ყველაფერი , ალგორითმის არ შესრულების ნებისმიერ ეტაპზე გახდება false და დაიგნორდება ნათქვამი სიტყვა
 
 
-
-            let isValid = true; // საწყისად ვალიდურია ყველაფერი , ალგორითმის არ შესრულების ნებისმიერ ეტაპზე გახდება false და დაიგნორდება ნათქვამი სიტყვა
-
-            let step = index; //  შესაყვანი სიტყვა , მოიძებნა ნათქვამ წინადადებაში და იმყოფება (index)  ინდექსზე ნათქვემი სიტყვების მასივში  
-            let currentWordIndex = wordIndex; // შესაყვანი სიტყვის ინდექსი
-            const resArr: string[] = []; // დროებით მასივი სადაც ინახება შესაყვანის სიტყვის წინა სიტყვები ვალიდაციის შემდეგ , რომლებიც წესით done უნდა იყოს
+                let step = i; //  შესაყვანი სიტყვა , მოიძებნა ნათქვამ წინადადებაში და იმყოფება (i)  ინდექსზე ნათქვემი სიტყვების მასივში  
+                let currentWordIndex = wordIndex; // შესაყვანი სიტყვის ინდექსი
+                const resArr: string[] = []; // დროებით მასივი სადაც ინახება შესაყვანის სიტყვის წინა სიტყვები ვალიდაციის შემდეგ , რომლებიც წესით done უნდა იყოს
 
 
-            /** 
-             * სანამ არ დაფიქსირდება ერრორი , რომელიც შეწყვეტს  შემოწმებას 
-             * და გაუშვებს პირდაპირ შეცდომაზე ან სანამ მომხმარებლის შეყვანილი სიტყვების მასივის პირველი ელემენტიც
-             * არ გაივლება.
-             */
-            while (step >= 0 && isValid) {
+                while (step >= 0 && isValid) {
 
 
-                /** რადგან  --  ვიყენებთ , ყოველ ჯერზე ვამოწმებთ რომ მასივის ინდექსი 0 ზე ნაკლები არ იყოს */
-                if (!voiceInputArray[step] || !wordsObject.data[currentWordIndex]) {
-                    isValid = false;
-                    return;
-                }
+                    if (currentWordIndex < 0) {
 
-                const cleanVoiceWord = wordOptimizer(voiceInputArray[step]); // მომხმარებლის შეყვანილი მიმდინარე სიტყვა
-                const clearTaskWord = wordOptimizer(wordsObject.data[currentWordIndex]._word); // ტასკ ში არსებული შესაბამისი სიტყვა    
-
-
-
-                /** 
-                 * აქაც მიდის შემოწმება თუ  შესაბამისი სიტყვები  შეყვანილიც და ტასკ ში არსებული 
-                 * შესაბამის ინდექსზე დაემთხვა ერთმანეთს ან  მომხმარებლის მიერ შეყვანილი შესაბამისი სიტყვა
-                 * მოიძებნება საჭირო სიტყვის ობიექტში არსებული სინონიმების მასივშიც.
-                 */
-                if (cleanVoiceWord === clearTaskWord || wordsObject.data[currentWordIndex].synonyms.includes(cleanVoiceWord)) {
-                    resArr.unshift(clearTaskWord);
-
-                } else {
-                    /** აქ თუ მოვიდა უკვე ნიშნავს  , რომ კი დაემთხვა current Word მაგრამ მის წინ რა სიტყვებიც 
-                     *  ახსენა მომხმარებელმა არ დაემთხვა შესაბამის სიტყვებს.  ამიტომ ეს current Word იც არ დაისეტება.
-                     */
-                    isValid = false;
-                }
-
-                step--;
-                currentWordIndex--;
-
-
-                while (wordsObject.data[currentWordIndex] && wordsObject.data[currentWordIndex].letters && wordsObject.data[currentWordIndex].letters.all[0].auto) {
-                    currentWordIndex--;
-                }
-            }
-
-
-            if (isValid) {
-
-
-                /** თუ წარმატებით დაემატა სიტყვა ,  ვანახლებთ შესაბამისი  ველებს */
-
-                /**  სიტყვები */
-                // updateTaskFields('currentWordHasError', false);
-                // updateTaskFields('currentWordIsDone', true);
-                // updateTaskFields('currentWordVoiceRecognized', true);
-
-                /** სიმბოლოები */
-                // updateTaskFields('updateNewCurrentCharIndex', letters.length - 1);
-                // updateTaskFields('updateNewCurrentCharSymbol', letters[letters.length - 1].char);
-
-                /** სიტყვის ყველა სიმბოლოს განახლება */
-                letters.forEach((item: any, index: number) => {
-
-                    // console.log(' Current Word Index:  ' + wordsObject.current);
-                    // console.log(' Last Word Index Index:  ' + (wordsObject.data.length - 1));
-
-                    // console.log(' Current Char Index:  ' + charObj.char);
-                    // console.log(' Last letter Index Index:  ' + (letters.length - 1));
-                    // console.log(' Last Char Obj', lastCharObj.auto);
-                    // console.log(' Last Char Obj', lastCharObj.char);
-
-                    // console.log(lettersObj);
-
-                    // console.log('')
-
-
-                    if (wordsObject.current === wordsObject.data.length - 1 && letters.length - 1 === lettersObj.current.index && lastCharObj.auto) {
-                        console.log(wordsObject.data[wordsObject.data.length - 1]);
-                    }
-                    // console.log( wordsObject.current === wordsObject.data.length - 1 && lettersObj.current.index === letters.length - 1   &&   lastCharObj.auto   )
-
-
-
-
-                    // console.log(wordsObject.data[wordsObject.data.length - 1]);
-                    // console.log(wordObj);
-                    // console.log(charObj);
-
-                    // console.log(lastCharObj)
-
-                    if (!(wordsObject.current === wordsObject.data.length - 1 && letters.length - 1 === lettersObj.current.index && lastCharObj.auto)) {
-                        lastKeyHandler(item.char);
+                        console.log(`#Checking Input  :  ${wordOptimizer(voiceInputArray[step])}`)
+                        console.log(`But We Don't have more word in task ... thats F A I L  !!!!`)
+                        isValid = false;
+                        break;
                     }
 
-                })
+
+                    /** რადგან  -1 ინდექსებს  ვიყენებთ , ყოველ ჯერზე ვამოწმებთ რომ მასივის ინდექსი 0 ზე ნაკლები არ იყოს */
+                    // if (            (!voiceInputArray[step] || !wordsObject.data[currentWordIndex])  && ) {
 
 
-                /** პროგრესის დამუშავება და განახლება */
-                // const progArr = task.wordsAudio.progress.split(' ');
-                // progArr[wordIndex] = word;
-                // updateTaskFields('progress', progArr.join(' '));
+                    //     // isValid = false;
 
 
-                // setKey(task.wordsAudio.progress)
-
-                // if (wordObj.letters.all[wordObj.letters.all.length - 1].char === ' ') {
-                //     lastKeyHandler(' ')
-                // }
+                    //     console.log('IS VALID STATE : ', isValid);
+                    //     console.log('ინდექსს დაერხა')
 
 
-
-
-                if (wordsObject.data[wordIndex + 1]) {
-
-                    /** თუ შეყვანილი სიმბოლოთი დასრულდა მიმდინარე სიტყვა და გვაქს შემდეგი სიტყვაც */
-                    // const nextWordObj = wordsObject.data[wordsObject.current + 1]; // შემდეგი სიტყვის ობიექტი
-
-                    /**
-                     * თუ შემდეგი სიტყვის პირველი სიმბოლო (auto) ავტომატური დასაწერია
-                     * გამოიძახება lastKeyHandler პარამეტრად გადაეცემა ეს სიმბოლო.
-                    */
-
-                    // if (nextWordObj.letters.all[0].auto) {
-
-                    //     lastKeyHandler(nextWordObj.letters.all[0].char)
+                    //     break; // while დასრულდება
                     // }
 
 
-                    /** თუ ამ სიტყვის შემდეგ კიდევ გვაქ შემდეგი სიტყვა , მიმდინარე სიტყვის ინდექსს ვზრდით 1 ით  */
-                    // updateTaskFields('currentWordIndex', wordIndex + 1);
+                    const cleanVoiceWord = wordOptimizer(voiceInputArray[step]); // მომხმარებლის შეყვანილი მიმდინარე სიტყვა
+                    const clearTaskWord = wordOptimizer(wordsObject.data[currentWordIndex]._word); // ტასკში არსებული შესაბამისი სიტყვა   
+
+
+              
 
                     /** 
-                     *  რადგან ვიცით რომ მიმდინარე ტასკს კიდევ აქვს სიტყვები ,
-                     *  ვამოწმებთ მიმდინარე სიტყვის  შემდეგ კიდევ თუ თქვა რამე ვოისმა.
+                     * აქაც მიდის შემოწმება თუ  შესაბამისი სიტყვები  შეყვანილიც და ტასკში არსებული 
+                     * შესაბამის ინდექსზე დაემთხვა ერთმანეთს ან  მომხმარებლის მიერ შეყვანილი შესაბამისი სიტყვა
+                     * მოიძებნება საჭირო სიტყვის ობიექტში არსებული სინონიმების მასივშიც.  
+                     * 
+                     * 
+                     * ასევე მოწმდება რომ თუ შესადარებელი მიმდინარე სიტყვა არის დანი და ამავდროულად ეს მიმდინარე სიტყვა
+                     * არ არის current (ტასკში მონიშნული მიმდინარე შესაყვანი სიტყვა იგივე რაც ჰინტად გვექნება ამ მომენტში) 
                      */
-                    if (voiceInputArray[index + 1]) {
-
-                        /** 
-                         *  რადგან ტასკშიც არის დარჩენილი სიტყვები შესასრულებელი 
-                         *  და  ვოისშიც მომხმარებელმა მიმდინარე სიტყვაზე მეტი თქვა, 
-                         *  ვამუშავებთ მიმდინარე სიტყვის შემდეგ დარჩენილ სტრინგს
-                        */
 
 
-                        console.log('----------------------Left Words To Check-----------------' + voiceInputArray[index + 1] + '---------------------')
+                    if (
+                        (cleanVoiceWord === clearTaskWord || wordsObject.data[currentWordIndex].synonyms.includes(cleanVoiceWord)) &&
+                        !(wordsObject.data[currentWordIndex].done && wordIndex === currentWordIndex)
+                    ) {
+                        console.log(cleanVoiceWord , ' = ' ,  clearTaskWord)
+                        resArr.unshift(clearTaskWord);
+                    } else {
+                        /** აქ თუ მოვიდა უკვე ნიშნავს  , რომ კი დაემთხვა current Word მაგრამ მის წინ რა სიტყვებიც 
+                         *  ახსენა მომხმარებელმა არ დაემთხვა შესაბამის სიტყვებს.  ამიტომ ეს current Word იც არ დაისეტება.
+                         */
 
-                        wordsHandler(str.split(voiceInputArray[index])[1])
+                        console.log(cleanVoiceWord,' !== ',  clearTaskWord)
+
+                        isValid = false;
+                        break;
                     }
 
-                } else {
+
+                    step--;
+                    currentWordIndex--;
 
 
-                    // saveTask({
-                    //     ...commonProps,
-                    //     currentTask: { ...task, taskType: task.taskType.nameCode },
-                    //     totalMistakes: mistakeCount,
-                    //     forgivenErrorQuantity: 0,
-                    //     error: 0,
-                    // }).then(res => {
-
-                    //     setMistakeCount(0); // დაშვებული შეცდომის განულება შემდეგი ტასკისთვის
-
-                    //     if (completedTasks.findIndex((item: TaskData) => item.id === task._id) !== 1) {
-                    //         setCompletedTasks(completedTasks.length > 0 ? [...completedTasks, { ...data }] : [{ ...data }]);
-
-                    //         if (currentTaskNumber < taskCount - 1) {
-                    //             setCurrentTaskNumber(((prev: number) => prev + 1));
-                    //         } else {
-                    //             getTasksHandler();
-                    //         }
-
-                    //         // updateTaskFields('progress', '');
-                    //         setKey('');
-                    //         SetHintText('');
-                    //         SetHintShow(false);
-                    //     }
-
-                    //     return;
-
-                    // }).catch(err => {
-                    //     console.log(err);
-                    // })
+                    /** 
+                     *  შეიძლება გვქონდეს სიტუაცია სადაც წინა სიტყვა რომელიც უნდა შევადაროთ , ვოისის ნათქვამი წინადადებაში მიმდინარე სიტყვის 
+                     *  შემოწმების მერე მისი წინა სიტყვა აღმოჩნდეს რო ტასკის ეს სიტყვა არის '-' ან რაიმე ისეთი სიტყვა რომლის პირველი სიმბოლო არის
+                     *  auto = true  მნიშნველობის ქონე შესაბამისად ამ დროს   ტასკის შესადარებელი სიტყვა უნდა იყოს არა ეს არამედ  1 ით კიდე გადაწეული წინ
+                     */
+                    while (wordsObject.data[currentWordIndex] && wordsObject.data[currentWordIndex].letters && wordsObject.data[currentWordIndex].letters.all[0].auto) {
+                        currentWordIndex--;
+                    }
 
                 }
 
 
-                console.log(' ')
-                console.log('Progress : ' + task.wordsAudio.progress)
+                if (isValid) {
+                    isCorrect = true;
+                    correctWordIndex = i;
+                }
+
+
+
+
+                console.log(`------------- END LOOP ON : ${item}  ,  INDEX : ${i} -------  IS VALID ? : ${isValid} --------`)
+                console.log('')
+
+            }
+        })
+
+
+        console.log('isCorrect : ', isCorrect);
+        console.log('correct Word Index : ', correctWordIndex)
+        console.log('correct Word : ', voiceInputArray[correctWordIndex] || ' არ არსებობს ')
+
+
+        /** თუ წარმატებით დაემატა სიტყვა ,  ვანახლებთ შესაბამისი  ველებს */
+        if (correctWordIndex !== null) {
+
+
+            /** სიტყვის ყველა სიმბოლოს განახლება */
+            letters.forEach((item: any) => {
+
+                /** 
+                 *  იმ ქეისის გარდა როდესაც მიმდინარე სიმბოლო (char , letter) არის 
+                 *  ტასკის ბოლო სიტყვის ,  ბოლო სიმბოლო  იძახებს მიმდინარე სიმბოლოზე
+                 *  lastKeyHandler(მიმდინარე სიმბოლო). 
+                 * 
+                 *  ეს ერთი ქეისი გამოტოვებულია იმიტო , რომ ამ ქეისს თვითონ lastKeyHandler ფუნქცია აგვარებს.
+                 */
+                if (!(wordsObject.current === wordsObject.data.length - 1 && letters.length - 1 === lettersObj.current.index && lastCharObj.auto)) {
+                    lastKeyHandler(item.char);
+                }
+            })
+
+
+            /** თუ შეყვანილი სიმბოლოთი დასრულდა მიმდინარე სიტყვა და გვაქს შემდეგი სიტყვაც */
+            if (wordsObject.data[wordIndex + 1]) {
+
+
+                /** 
+                 *  რადგან ვიცით რომ მიმდინარე ტასკს კიდევ აქვს სიტყვები ,
+                 *  ვამოწმებთ მიმდინარე სიტყვის  შემდეგ კიდევ თუ თქვა რამე ვოისმა.
+                 */
+                if (voiceInputArray[correctWordIndex + 1]) {
+
+                    /** 
+                     *  რადგან ტასკშიც არის დარჩენილი სიტყვები შესასრულებელი 
+                     *  და  ვოისშიც მომხმარებელმა მიმდინარე სიტყვაზე მეტი თქვა, 
+                     *  ვამუშავებთ მიმდინარე სიტყვის შემდეგ დარჩენილ სტრინგს
+                    */
+
+
+                    console.log('----------------------Left Words To Check-----------------' + str.split(voiceInputArray[correctWordIndex])[1] + '---------------------')
+                    console.log(voiceInputArray[correctWordIndex])
+                    wordsHandler(str.split(voiceInputArray[correctWordIndex])[1])
+                }
+
             } else {
-                updateTaskFields('currentWordHasError', true)
-                console.log('თქვენ ნამდვილად ახსენეთ მიმდინარე შესაყვანი სიტყვა  , თუმცა წინა სიტყვები წარმოსთქვით არასწორად')
+
+
+                // saveTask({
+                //     ...commonProps,
+                //     currentTask: { ...task, taskType: task.taskType.nameCode },
+                //     totalMistakes: mistakeCount,
+                //     forgivenErrorQuantity: 0,
+                //     error: 0,
+                // }).then(res => {
+
+                //     setMistakeCount(0); // დაშვებული შეცდომის განულება შემდეგი ტასკისთვის
+
+                //     if (completedTasks.findIndex((item: TaskData) => item.id === task._id) !== 1) {
+                //         setCompletedTasks(completedTasks.length > 0 ? [...completedTasks, { ...data }] : [{ ...data }]);
+
+                //         if (currentTaskNumber < taskCount - 1) {
+                //             setCurrentTaskNumber(((prev: number) => prev + 1));
+                //         } else {
+                //             getTasksHandler();
+                //         }
+
+                //         // updateTaskFields('progress', '');
+                //         setKey('');
+                //         SetHintText('');
+                //         SetHintShow(false);
+                //     }
+
+                //     return;
+
+                // }).catch(err => {
+                //     console.log(err);
+                // })
+
             }
 
 
-
+            console.log(' ')
+            console.log('Progress : ' + task.wordsAudio.progress)
         } else {
-
-
             updateTaskFields('currentWordHasError', true)
-            SetHintShow(true);
             SetHintText(hintWord);
+            SetHintShow(true);
             setMistakeCount(prev => prev + 1)
-
-            console.log(str + ' - ში პირვველი სიტყავ უნდა ყოფილიყო  ' + hintWord)
         }
-
-
-
-        // let valid = true;
-        // let step = 0;
-        // let currentWordIndex = 0;
-
-        // if (index) {
-
-        //     step = index;
-        //     currentWordIndex = wordIndex;
-
-        //     console.log(step, currentWordIndex);
-
-        //     while (step >= 0) {
-
-
-        //         console.log(voiceInputArray[step] + ' vs ' + wordsObject.data[currentWordIndex]._word)
-
-
-        //         step--;
-        //         currentWordIndex--;
-
-        //         // console.log(step ,  voiceInputArray)
-        //     }
-        // }
-
     }
 
     const wordOptimizer = (str: string) => {
