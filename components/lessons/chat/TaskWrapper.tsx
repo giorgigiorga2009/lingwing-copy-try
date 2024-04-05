@@ -513,10 +513,9 @@ const TaskWrapper: React.FC<any> = ({
                      *  ვამუშავებთ მიმდინარე სიტყვის შემდეგ დარჩენილ სტრინგს
                     */
 
-
-                    console.log('----------------------Left Words To Check-----------------' + str.split(voiceInputArray[correctWordIndex])[1] + '---------------------')
-                    console.log(voiceInputArray[correctWordIndex])
-                    wordsHandler(str.split(voiceInputArray[correctWordIndex])[1])
+                  
+                    console.log('----------------------Left Words To Check-----------------' + voiceInputArray.slice(correctWordIndex + 1).join(' ') + '---------------------')
+                    wordsHandler(voiceInputArray.slice(correctWordIndex + 1).join(' '))
                 }
 
             } else {
