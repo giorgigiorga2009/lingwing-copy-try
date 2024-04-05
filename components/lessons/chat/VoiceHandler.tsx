@@ -5,10 +5,11 @@ import style from '../VoiceRecognition.module.scss'
 
 interface IVoiceHandlerProps {
     voiceHandler: (arg: string) => void;
+    lang: string
 }
 
 
-const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler }) => {
+const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler, lang }) => {
     const {
         transcript,
         listening,
@@ -61,7 +62,7 @@ const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler }) => {
             <button
                 className={style.microphoneContainer}
                 onClick={() => {
-                    listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening({ continuous: true })
+                    listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening({ continuous: true, language: lang })
                 }}
             >
                 {listening ? (

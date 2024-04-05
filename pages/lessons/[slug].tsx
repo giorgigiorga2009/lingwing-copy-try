@@ -322,6 +322,8 @@ const Lessons = () => {
                                             })}
                                             taskCount = { tasksData.length }
                                             currentTaskNumber = {currentTaskNumber}
+                                            locale={languageTo}
+
                                         />
                                     }
 

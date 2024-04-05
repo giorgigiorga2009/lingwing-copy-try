@@ -64,7 +64,8 @@ const TaskWrapper: React.FC<any> = ({
     commonProps,
     onDivHeight,
     taskCount,
-    currentTaskNumber
+    currentTaskNumber,
+    locale
 }) => {
 
     if (!data || !data.obj) return null;
@@ -409,7 +410,7 @@ const TaskWrapper: React.FC<any> = ({
                     const clearTaskWord = wordOptimizer(wordsObject.data[currentWordIndex]._word); // ტასკში არსებული შესაბამისი სიტყვა   
 
 
-              
+
 
                     /** 
                      * აქაც მიდის შემოწმება თუ  შესაბამისი სიტყვები  შეყვანილიც და ტასკში არსებული 
@@ -426,14 +427,14 @@ const TaskWrapper: React.FC<any> = ({
                         (cleanVoiceWord === clearTaskWord || wordsObject.data[currentWordIndex].synonyms.includes(cleanVoiceWord)) &&
                         !(wordsObject.data[currentWordIndex].done && wordIndex === currentWordIndex)
                     ) {
-                        console.log(cleanVoiceWord , ' = ' ,  clearTaskWord)
+                        console.log(cleanVoiceWord, ' = ', clearTaskWord)
                         resArr.unshift(clearTaskWord);
                     } else {
                         /** აქ თუ მოვიდა უკვე ნიშნავს  , რომ კი დაემთხვა current Word მაგრამ მის წინ რა სიტყვებიც 
                          *  ახსენა მომხმარებელმა არ დაემთხვა შესაბამის სიტყვებს.  ამიტომ ეს current Word იც არ დაისეტება.
                          */
 
-                        console.log(cleanVoiceWord,' !== ',  clearTaskWord)
+                        console.log(cleanVoiceWord, ' !== ', clearTaskWord)
 
                         isValid = false;
                         break;
@@ -473,7 +474,7 @@ const TaskWrapper: React.FC<any> = ({
 
         console.log('isCorrect : ', isCorrect);
         console.log('correct Word Index : ', correctWordIndex)
-        console.log('correct Word : ', correctWordIndex ?  voiceInputArray[correctWordIndex] : ' არ არსებობს ')
+        console.log('correct Word : ', correctWordIndex ? voiceInputArray[correctWordIndex] : ' არ არსებობს ')
 
 
         /** თუ წარმატებით დაემატა სიტყვა ,  ვანახლებთ შესაბამისი  ველებს */
@@ -642,6 +643,7 @@ const TaskWrapper: React.FC<any> = ({
 
 
 
+
     return (
         <>
 
@@ -728,7 +730,7 @@ const TaskWrapper: React.FC<any> = ({
 
                 {/* <VoiceRecognition progress={taskProgress()} locale={locales[commonProps.languageTo]} /> */}
 
-                <VoiceHandler voiceHandler={wordsHandler} />
+                <VoiceHandler voiceHandler={wordsHandler} lang={locales[locale]} />
 
                 {/* <p onClick={() => findBestMatching('pizza at'  , task.iLearn.text as string)}> pizza at  </p>
                 <p onClick={() => findBestMatching('with my girlfriend tonight'  , task.iLearn.text as string)}> with my girlfriend tonight  </p>
