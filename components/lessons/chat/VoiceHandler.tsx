@@ -11,40 +11,23 @@ interface IVoiceHandlerProps {
 
 const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler, lang }) => {
     const {
-        transcript,
         listening,
-        resetTranscript,
-        finalTranscript,
         interimTranscript,
         browserSupportsSpeechRecognition,
     } = useSpeechRecognition();
 
-    const [lastSentences, setLastSentences] = useState([]);
-    const [holdStr, setHoldStr] = useState('');
     const [tempStr, setTempStr] = useState('');
-    // Effect to start listening on mount
-    //   useEffect(() => {
-    //     SpeechRecognition.startListening({ continuous: true });
-    //   }, [SpeechRecognition.startListening]);
 
-    // Effect to capture the last sentence based on finalTranscript updates
+    const voiceParams = { continuous: true, language: lang }
+
     useEffect(() => {
-        // if (finalTranscript) {
-        //   setLastSentences((prev) => [...prev, finalTranscript]);
-        // }
 
         if (interimTranscript.length > 0) {
             setTempStr(interimTranscript);
         } else {
-
-
             if (tempStr.length > 0) {
 
                 voiceHandler(tempStr);
-                // resetTranscript()
-                // const updatedArr = [...lastSentences];
-                // updatedArr.push(tempStr);
-                // setLastSentences(updatedArr)
             }
             setTempStr('');
         }
@@ -57,12 +40,13 @@ const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler, lang }) => {
         return <p>Browser does not support speech recognition.</p>;
     }
 
+
     return (
         <div>
             <button
                 className={style.microphoneContainer}
                 onClick={() => {
-                    listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening({ continuous: true, language: lang })
+                    listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening(voiceParams)
                 }}
             >
                 {listening ? (
@@ -71,10 +55,7 @@ const VoiceHandler: FC<IVoiceHandlerProps> = ({ voiceHandler, lang }) => {
                     <span className={style.micIcon} key="mic" />
                 )}
             </button>
-            {/* <p>Listening: {listening ? 'Yes' : 'No'}</p> */}
-            {/* <button onClick={resetTranscript}>Reset</button> */}
-            {/* <button onClick={() => SpeechRecognition.startListening({ continuous: true })}>Start</button>
-            <button onClick={SpeechRecognition.stopListening}>Stop</button> */}
+
         </div>
     );
 };

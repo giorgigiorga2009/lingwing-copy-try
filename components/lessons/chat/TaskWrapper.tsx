@@ -14,7 +14,7 @@ import VoiceHandler from './VoiceHandler';
 
 const locales: { [key: string]: string } = {
     'deu': 'de-DE',
-    'eng': 'es-ES',
+    'eng': 'en-US', // or 'en-GB' for British English
     'esp': 'es-ES',
     'geo': 'ka-GE',
     'fre': 'fr-FR',
@@ -727,15 +727,8 @@ const TaskWrapper: React.FC<any> = ({
 
                 }
 
-
-                {/* <VoiceRecognition progress={taskProgress()} locale={locales[commonProps.languageTo]} /> */}
-
                 <VoiceHandler voiceHandler={wordsHandler} lang={locales[locale]} />
 
-                {/* <p onClick={() => findBestMatching('pizza at'  , task.iLearn.text as string)}> pizza at  </p>
-                <p onClick={() => findBestMatching('with my girlfriend tonight'  , task.iLearn.text as string)}> with my girlfriend tonight  </p>
-                <p onClick={() => findBestMatching('languages fast'  , task.iLearn.text as string)}> languages fast  </p>
-                <p onClick={() => findBestMatching('learn'  , task.iLearn.text as string)}> learn </p> */}
 
             </div>
             {/* 
