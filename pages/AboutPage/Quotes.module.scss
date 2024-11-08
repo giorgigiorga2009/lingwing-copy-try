@@ -1,0 +1,89 @@
+.quotesWave {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../.././public/assets/images/silver-wave.svg"),
+        url("../.././public/assets/images/course-yahoo-parrot.png");
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    padding: 144px 24px 100px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    margin-top: 5rem;
+}
+
+.quoteTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ed5565;
+    font-size: 4rem;
+    font-family: HVDComicSerifPro, bpg_arial_2009, "Noto Sans Georgian SemiBold";
+    font-weight: 200;
+}
+
+.quoteContainer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    gap: 10rem;
+    column-gap: 22rem;
+}
+
+.quote {
+    position: relative;
+    background-color: white;
+    max-width: 20rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    rotate: -10deg;
+    cursor: pointer;
+}
+
+.quote:hover {
+    transform: rotate(10deg);
+    transition: 0.5s ease-in-out;
+}
+
+.parrotImg {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .quotesWave {
+        background-position: 50% 70%;
+        background-image: url("../.././public/assets/images/silver-wave.svg"),
+            url("../../public/assets/images/palm-without-parrot.png");
+    }
+    .quoteContainer {
+        grid-template-columns: repeat(1, auto);
+        gap: 2rem;
+    }
+    .quote {
+        rotate: 0deg;
+    }
+    .quote:hover {
+        transform: rotate(0deg);
+    }
+    .parrotImg {
+        display: block;
+        position: relative;
+        bottom: 6rem;
+        transform: scale(-1, 1);
+        left: -22rem;
+    }
+    .quote:nth-child(even) {
+        margin-left: 10rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .parrotImg {
+        display: none;
+    }
+
+    .quote:nth-child(even) {
+        margin-left: 4rem;
+    }
+}

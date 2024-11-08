@@ -1,0 +1,175 @@
+.scoreWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.courseDetail{
+    width: 30%;
+}
+
+.courseDetailTitle {
+    display: flex;
+    justify-content: start;
+    font-size: 6vh;
+    line-height: 7vh;
+    color:#692e96;
+    margin-top: 4rem;
+}
+.customerNumber {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5vh;
+    background-color: #fff3d7;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    width: 45vh;
+    height: 25vh;
+}
+
+
+.totalNumber{
+    position: absolute;
+    color: #f6a313;
+    font-size: 4rem;
+    top: 1vh;
+    left: 6vh;
+}
+
+.customerPracticing{
+    position: absolute;
+    color: #692e96;
+    font-family: SegoeUI, "Noto Sans Georgian SemiBold";
+    font-size: 2rem;
+    line-height: 3.5vh;
+    top: 10vh;
+    left: 6vh;
+}
+
+.courseDescription{
+    position: relative;
+    bottom: 3vh;
+    font-family: SegoeUI, bpg_arial_2009, "Noto Sans Georgian SemiBold";
+    font-size: 1.2rem;
+    color: #3c3c3c ;
+    margin-bottom: 2vh;
+}
+
+
+.leadersTitle{
+    display: flex;
+    justify-content: center;
+    font-size: 6vh;
+    line-height: 7vh;
+    color: #692e96;
+    margin-top: 4rem;
+}
+.topUsers{
+    padding: 0.8rem;
+}
+.leaderBoardContainer{
+    background-color:#fec240;
+    padding: 0.75rem;
+    display: flex;
+    border-radius: 3.125rem;
+    font-size: 1.125rem;
+    font-weight: 900;
+    height: 5rem;
+    transition: all 0.7s ease;
+    margin-bottom: 1.188rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.boardRating{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-left: 1.7rem;
+}
+.boardPosition{
+    margin-right: 25px;
+    color: #dd4b39;
+    font-size: 2.5rem;
+    margin-left: -35px;
+}
+.personImg{
+    border-radius: 50%;
+    border: solid white 0.2rem;
+    width: 3.4rem;
+    height: auto;
+    object-fit: cover;
+    margin-right: 0.5rem;
+    margin-left: -0.9rem;
+    z-index: 2
+}
+
+
+.personalInfo{
+    max-height: 80px;
+}
+
+.personName{
+    margin-bottom: -1rem;
+}
+
+
+.personScore{
+    color: white;
+    font-weight: 600;
+    
+}
+
+
+@media screen and (max-width:1024px) {
+    .scoreWrapper{
+        flex-direction: column;
+        margin-left: 2rem;
+    }
+
+    .leadersTitle{
+        justify-content: start;
+    }
+    .courseDetail{
+        width: 100%;
+    }
+    .startBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+}
+
+
+
+
+@media screen and (max-width:530px) {
+    .courseDetailTitle{
+        font-size: 4vh;
+    }
+    .customerNumber{
+        width: 30vh;
+        height: 20vh;
+    }
+    .totalNumber{
+        top: -2vh;
+        left: 3vh;
+        font-size: 6vh;
+    }
+    .customerPracticing{
+        top: 10vh;
+        left: 5vh;
+        font-size: 2.5vh;
+        margin-top: 0;
+    }
+    .courseDescription{
+        font-size: 2vh;
+    }
+    .leadersTitle{
+        font-size: 4vh;
+        margin-left: 1rem;
+    }
+}
